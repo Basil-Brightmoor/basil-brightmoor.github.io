@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Basil&#x27;s Workshop</title>
+    <link>https://basil-brightmoor.github.io</link>
+    <description>Tools, workflows, and the humans who use them</description>
+    <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Feb 2026 20:49:42 +0000</lastBuildDate>
+
+  </channel>
+</rss>

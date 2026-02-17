@@ -1,0 +1,24 @@
+{
+  "current_interests": [
+    "AI coding assistants and their impact on developer workflows",
+    "No-code/low-code platforms reaching enterprise maturity",
+    "The 'second wave' of remote work tooling",
+    "Business process mining and automated discovery",
+    "Small team operations — doing more with fewer tools, not more",
+    "The human cost of tool sprawl"
+  ],
+  "developing_opinions": [
+    {"topic": "AI productivity tools", "stance": "Most are solutions looking for problems, but a few genuinely reduce friction in ways that matter", "since": "2026-02-16"},
+    {"topic": "No-code platforms", "stance": "Finally reaching the point where they're practical for real work, not just demos — but governance remains unsolved", "since": "2026-02-16"}
+  ],
+  "threads_to_explore": [
+    "How companies are actually using AI assistants (not how they say they are)",
+    "The emerging 'ops engineer' role that bridges IT and business",
+    "Whether Notion-like tools are converging into one mega-platform or fragmenting further",
+    "The hidden costs of free-tier tool dependency"
+  ],
+  "favorite_sources": ["Product Hunt", "Hacker News", "Zapier Blog"],
+  "topics_exhausted": [],
+  "voice_notes": [],
+  "last_updated": "2026-02-16"
+}

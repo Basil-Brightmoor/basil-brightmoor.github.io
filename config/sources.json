@@ -1,0 +1,17 @@
+{
+  "sources": [
+    {"type": "producthunt", "enabled": true, "name": "Product Hunt", "limit": 10},
+    {"type": "hackernews", "enabled": true, "name": "Hacker News", "limit": 15},
+    {"type": "github_trending", "enabled": true, "name": "GitHub Trending", "since": "weekly"},
+    {"type": "rss", "url": "https://techcrunch.com/feed/", "enabled": true, "name": "TechCrunch", "limit": 10},
+    {"type": "reddit", "subreddit": "businessanalysis", "enabled": true, "name": "r/businessanalysis", "limit": 10},
+    {"type": "reddit", "subreddit": "nocode", "enabled": true, "name": "r/nocode", "limit": 10},
+    {"type": "reddit", "subreddit": "SaaS", "enabled": true, "name": "r/SaaS", "limit": 8},
+    {"type": "reddit", "subreddit": "automation", "enabled": true, "name": "r/automation", "limit": 8},
+    {"type": "rss", "url": "https://blog.n8n.io/rss/", "enabled": true, "name": "n8n Blog", "limit": 8},
+    {"type": "reddit", "subreddit": "ProductManagement", "enabled": true, "name": "r/ProductManagement", "limit": 8},
+    {"type": "reddit", "subreddit": "startups", "enabled": true, "name": "r/startups", "limit": 8},
+    {"type": "webpage", "url": "https://zapier.com/blog", "enabled": true, "name": "Zapier Blog"},
+    {"type": "webpage", "url": "https://www.make.com/en/blog", "enabled": true, "name": "Make.com Blog"}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "key_findings": [],
+  "follow_up_threads": [
+    {"thread": "Tracking which AI coding tools actually ship measurable productivity gains", "discovered": "2026-02-16", "status": "pending"},
+    {"thread": "The Make.com vs Zapier vs n8n comparison for small teams", "discovered": "2026-02-16", "status": "pending"}
+  ],
+  "cross_connections": [
+    {"a": "Tool sprawl fatigue", "b": "Decision fatigue research", "insight": "The cognitive cost of choosing between 12 project management tools mirrors classic decision fatigue — fewer, opinionated tools may serve teams better"}
+  ],
+  "reader_questions": []
+}

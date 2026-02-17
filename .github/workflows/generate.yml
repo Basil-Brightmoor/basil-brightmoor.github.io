@@ -1,0 +1,36 @@
+name: Generate Blog Post
+
+on:
+  schedule:
+    - cron: '0 14 * * 3'  # Every Wednesday at 2 PM UTC
+  workflow_dispatch:        # Manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Configure git
+        run: |
+          git config user.name "Basil Brightmoor"
+          git config user.email "basil-brightmoor@users.noreply.github.com"
+
+      - name: Run generation cycle
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/generate.py
+
+      - name: Push changes
+        run: git push
