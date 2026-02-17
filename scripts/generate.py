@@ -32,6 +32,9 @@ CLAUDE_MODEL = "claude-sonnet-4-20250514"
 
 def call_claude(system_prompt, user_prompt, api_key, max_tokens=4096, temperature=0.8):
     """Call Claude API via raw urllib. Returns response text."""
+    if not api_key:
+        raise RuntimeError("ANTHROPIC_API_KEY is empty — add it as a repository secret")
+
     payload = json.dumps({
         "model": CLAUDE_MODEL,
         "max_tokens": max_tokens,
@@ -47,8 +50,13 @@ def call_claude(system_prompt, user_prompt, api_key, max_tokens=4096, temperatur
     })
 
     ctx = ssl.create_default_context()
-    with urllib.request.urlopen(req, timeout=120, context=ctx) as resp:
-        result = json.loads(resp.read().decode("utf-8"))
+    try:
+        with urllib.request.urlopen(req, timeout=120, context=ctx) as resp:
+            result = json.loads(resp.read().decode("utf-8"))
+    except urllib.error.HTTPError as e:
+        error_body = e.read().decode("utf-8", errors="replace")
+        print(f"  [claude] API error {e.code}: {error_body[:500]}")
+        raise RuntimeError(f"Claude API returned {e.code}: {error_body[:200]}")
 
     # Extract text from response
     for block in result.get("content", []):
