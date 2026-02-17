@@ -11,7 +11,10 @@
     "Backend-as-a-service platforms for small teams",
     "Subscription cost management and financial operations for small teams",
     "The psychology of 'free tier' pricing models and user behavior",
-    "Tool consolidation strategies vs. best-of-breed approaches"
+    "Tool consolidation strategies vs. best-of-breed approaches",
+    "Software spend visibility and tracking tools",
+    "The psychology of subscription creep in small businesses",
+    "Operational cost awareness gaps in small teams"
   ],
   "developing_opinions": [
     {
@@ -37,7 +40,13 @@
     },
     {
       "topic": "Small team tool management",
-      "stance": "The real problem isn't tool discovery but cost management — teams are drowning in subscription creep and integration overhead from 'free' tools that aren't actually free",
+      "stance": "The problem is deeper than subscription creep — it's about cost visibility blindness. Teams can't manage what they can't see, and subscription models are designed to hide true costs",
+      "since": "2026-02-17",
+      "updated": "2026-02-17"
+    },
+    {
+      "topic": "Software spend tracking",
+      "stance": "The real value isn't in tracking itself but in revealing systematic blind spots — teams consistently underestimate costs by 40-60% because subscription models obscure true operational expenses",
       "since": "2026-02-17"
     }
   ],
@@ -45,7 +54,6 @@
     "How companies are actually using AI assistants (not how they say they are)",
     "The emerging 'ops engineer' role that bridges IT and business",
     "Whether Notion-like tools are converging into one mega-platform or fragmenting further",
-    "The hidden costs of free-tier tool dependency",
     "Which AI agent architectures actually deliver measurable business outcomes",
     "The demo-to-deployment gap in AI tooling — why it exists and persists",
     "The prototype-to-production transition challenge across different tool categories",
@@ -54,7 +62,12 @@
     "Which tools have the most deceptive 'free' tiers that lead to unexpected costs",
     "How small teams should actually budget for software tools (beyond just subscription fees)",
     "The hidden integration costs that make 'cheap' tools expensive",
-    "Tool consolidation vs. specialization strategies for different team sizes"
+    "Tool consolidation vs. specialization strategies for different team sizes",
+    "How subscription pricing models are designed to obscure true costs",
+    "The operational cost of context switching between tools (beyond just subscription fees)",
+    "Which tool categories have the most deceptive cost structures",
+    "How small teams should actually budget for software (including hidden costs)",
+    "The relationship between tool proliferation and operational complexity costs"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -68,7 +81,9 @@
     "The 'sweet spot' framing works well — identifying the specific gap between Firebase and AWS helps readers understand the positioning problem",
     "The 'trap' framing works well for operational problems — 'free tier trap' immediately conveys the hidden danger",
     "Personal workflow audits add credibility to broader industry observations",
-    "Leading with a specific tool discovery (Toolspend) grounds abstract cost problems in concrete reality"
+    "Leading with a specific tool discovery (Toolspend) grounds abstract cost problems in concrete reality",
+    "Leading with a specific cost underestimation statistic (40-60%) immediately establishes the scale of the problem",
+    "The 'blind spot' framing works better than 'mistake' — it implies systemic issues rather than user error"
   ],
   "last_updated": "2026-02-17"
 }

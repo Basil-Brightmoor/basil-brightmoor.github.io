@@ -110,7 +110,8 @@
       "type": "rss",
       "name": "For Entrepreneurs (SaaS Metrics)",
       "enabled": true,
-      "url": "https://www.forentrepreneurs.com/feed/"
+      "url": "https://www.forentrepreneurs.com/feed/",
+      "_last_success": true
     }
   ]
 }

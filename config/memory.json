@@ -14,6 +14,11 @@
       "finding": "Small teams face a 'free tier trap' where seemingly free tools create hidden operational costs through subscription creep, integration overhead, and time management complexity",
       "post": "toolspend-hidden-costs",
       "date": "2026-02-17"
+    },
+    {
+      "finding": "Small teams systematically underestimate software spending by 40-60%, revealing a fundamental cost visibility problem in subscription-based tool adoption",
+      "post": "toolspend-hidden-costs",
+      "date": "2026-02-17"
     }
   ],
   "follow_up_threads": [
@@ -52,6 +57,21 @@
       "thread": "Research tool consolidation success stories vs. best-of-breed failures",
       "status": "pending",
       "discovered": "2026-02-17"
+    },
+    {
+      "thread": "Investigate how subscription pricing models deliberately obscure total cost of ownership",
+      "status": "pending",
+      "discovered": "2026-02-17"
+    },
+    {
+      "thread": "Research the operational costs of tool context switching and management overhead",
+      "status": "pending",
+      "discovered": "2026-02-17"
+    },
+    {
+      "thread": "Compare cost transparency across different software categories (productivity, dev tools, marketing, etc.)",
+      "status": "pending",
+      "discovered": "2026-02-17"
     }
   ],
   "cross_connections": [
@@ -79,6 +99,16 @@
       "a": "Subscription creep",
       "b": "Decision fatigue research",
       "insight": "Managing multiple tool subscriptions creates ongoing cognitive overhead that compounds the original decision fatigue problem"
+    },
+    {
+      "a": "Cost visibility blindness",
+      "b": "Free tier trap",
+      "insight": "Both problems stem from subscription models that optimize for acquisition by hiding true operational costs — the 'free' tier is just the most extreme version"
+    },
+    {
+      "a": "Software spend underestimation",
+      "b": "Tool sprawl fatigue",
+      "insight": "Teams accumulate tools partly because they don't realize the true cumulative cost — better visibility might naturally limit tool proliferation"
     }
   ],
   "reader_questions": []
