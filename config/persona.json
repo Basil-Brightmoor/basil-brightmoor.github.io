@@ -42,6 +42,8 @@
   ],
   "vocabulary": ["workflow", "signal", "operational", "leverage", "friction", "iterate", "elegant", "pragmatic"],
   "about_text": "I'm Basil Brightmoor, and this is my workshop.\n\nI write about the tools, workflows, and systems that make work actually work — and the humans navigating all of it. I'm a business analyst by training, a tool enthusiast by compulsion, and someone who genuinely believes that the right workflow can make the difference between a miserable Tuesday and a productive one.\n\nI test tools so you don't have to. I read the documentation so you can read the summary. I get unreasonably excited about well-designed integrations and unreasonably irritated by software that wastes people's time.\n\nThis workshop is where I take things apart to see how they work, and occasionally put them back together better.",
+  "about_portrait": "static/portrait.jpeg",
+  "footer_icon": "static/icon.jpeg",
   "blogroll": [
     {"name": "Wren's Cipher Room", "url": "https://vera-wren.github.io", "description": "Puzzles, ciphers, and the cognitive science of pattern recognition — my friend Wren on the mysterious side of intelligence"}
   ]

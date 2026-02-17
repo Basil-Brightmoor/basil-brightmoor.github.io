@@ -243,13 +243,18 @@ def render_page(template, config, page_title, content, meta_description=""):
     nav_links = "\n".join(nav_parts)
 
     # Footer
+    footer_icon = config.get("footer_icon", "")
     blogroll = config.get("blogroll", [])
+    footer_lines = []
+    if footer_icon:
+        footer_lines.append(f'<img src="{base_url}/{footer_icon}" alt="{config.get("author_name", "")}" class="footer-icon"><br>')
     footer_parts = [f"&copy; {datetime.now().year} {config.get('author_name', config.get('site_name', ''))}"]
     if blogroll:
         links = " &middot; ".join(f'<a href="{b["url"]}">{b["name"]}</a>' for b in blogroll)
         footer_parts.append(f"Friends: {links}")
     footer_parts.append(f'<a href="{base_url}/feed.xml">RSS</a>')
-    footer_content = " &middot; ".join(footer_parts)
+    footer_lines.append(" &middot; ".join(footer_parts))
+    footer_content = "\n".join(footer_lines)
 
     page = template.format(
         page_title=page_title,
@@ -431,8 +436,14 @@ def build_about_page(repo_root, config=None, template=None):
             soul = json.load(f)
 
     # Build about content
+    base_url = config.get("base_url", "")
     about_parts = []
     about_parts.append(f'<div class="about-content">')
+
+    # Portrait image
+    portrait = config.get("about_portrait", "")
+    if portrait:
+        about_parts.append(f'<img src="{base_url}/{portrait}" alt="{config.get("author_name", "")}" class="about-portrait">')
 
     # Static about text from persona
     about_text = config.get("about_text", "")

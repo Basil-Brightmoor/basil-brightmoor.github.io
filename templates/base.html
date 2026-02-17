@@ -6,6 +6,7 @@
     <title>{page_title} - {site_name}</title>
     <meta name="description" content="{meta_description}">
     <link rel="alternate" type="application/rss+xml" title="{site_name} RSS" href="{base_url}/feed.xml">
+    <link rel="icon" type="image/jpeg" href="{base_url}/static/icon2.jpeg">
     <style>
         :root {{
             --bg-primary: {color_bg_primary};
@@ -127,6 +128,10 @@
             font-size: 0.85rem;
             color: var(--text-secondary);
         }}
+
+        /* Avatar */
+        .about-portrait {{ max-width: 280px; border-radius: 8px; margin: 0 auto 1.5rem; display: block; }}
+        .footer-icon {{ width: 36px; height: 36px; border-radius: 50%; vertical-align: middle; margin-bottom: 0.5rem; }}
 
         /* Responsive */
         @media (max-width: 600px) {{
