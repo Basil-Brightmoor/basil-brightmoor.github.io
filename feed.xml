@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Feb 2026 06:15:39 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Feb 2026 06:27:55 +0000</lastBuildDate>
     <item>
       <title>The Agent Skills Reality Check: Why Self-Generated AI Capabilities Don&#x27;t Work</title>
       <link>https://basil-brightmoor.github.io/posts/2026-02-17-the-agent-skills-reality-check-why-self-generated-.html</link>
@@ -14,6 +14,14 @@
       <pubDate>2026-02-17</pubDate>
       <category>Ops Brief</category>
       <description>New research reveals a massive gap between AI agent marketing promises and operational reality — most self-improving agents are elaborate theater.</description>
+    </item>
+    <item>
+      <title>The Free Tier Trap: Why Small Teams Are Drowning in Tool Costs</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-17-toolspend-and-the-hidden-cost-structure-of-small-t.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-17-toolspend-and-the-hidden-cost-structure-of-small-t.html</guid>
+      <pubDate>2026-02-17</pubDate>
+      <category>Field Notes</category>
+      <description>A new tool discovery made me realize the real problem isn&#x27;t finding software—it&#x27;s the hidden operational overhead that&#x27;s bleeding small teams dry.</description>
     </item>
     <item>
       <title>Base44 and the Backend-as-a-Service Reality Check for Small Teams</title>

@@ -105,6 +105,12 @@
       "enabled": true,
       "url": "https://arxiv.org/list/cs.AI/recent",
       "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "For Entrepreneurs (SaaS Metrics)",
+      "enabled": true,
+      "url": "https://www.forentrepreneurs.com/feed/"
     }
   ]
 }

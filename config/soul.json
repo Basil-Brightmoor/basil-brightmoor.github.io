@@ -8,7 +8,10 @@
     "The human cost of tool sprawl",
     "The operational reality gap in AI agent marketing",
     "Self-improving vs. pre-configured agent architectures",
-    "Backend-as-a-service platforms for small teams"
+    "Backend-as-a-service platforms for small teams",
+    "Subscription cost management and financial operations for small teams",
+    "The psychology of 'free tier' pricing models and user behavior",
+    "Tool consolidation strategies vs. best-of-breed approaches"
   ],
   "developing_opinions": [
     {
@@ -31,6 +34,11 @@
       "topic": "Backend-as-a-Service platforms",
       "stance": "The demo-to-deployment gap is especially pronounced in BaaS — platforms excel at prototyping but struggle with production concerns like data migration, vendor lock-in, and scaling costs",
       "since": "2026-02-17"
+    },
+    {
+      "topic": "Small team tool management",
+      "stance": "The real problem isn't tool discovery but cost management — teams are drowning in subscription creep and integration overhead from 'free' tools that aren't actually free",
+      "since": "2026-02-17"
     }
   ],
   "threads_to_explore": [
@@ -42,7 +50,11 @@
     "The demo-to-deployment gap in AI tooling — why it exists and persists",
     "The prototype-to-production transition challenge across different tool categories",
     "How vendor lock-in concerns affect small team tool adoption decisions",
-    "The real cost structure of BaaS platforms at different scales"
+    "The real cost structure of BaaS platforms at different scales",
+    "Which tools have the most deceptive 'free' tiers that lead to unexpected costs",
+    "How small teams should actually budget for software tools (beyond just subscription fees)",
+    "The hidden integration costs that make 'cheap' tools expensive",
+    "Tool consolidation vs. specialization strategies for different team sizes"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -53,7 +65,10 @@
   "voice_notes": [
     "Research-backed debunking posts work well — combining personal testing with academic findings creates credible counternarratives",
     "Leading with specific failed examples before the broader analysis makes the critique more concrete",
-    "The 'sweet spot' framing works well — identifying the specific gap between Firebase and AWS helps readers understand the positioning problem"
+    "The 'sweet spot' framing works well — identifying the specific gap between Firebase and AWS helps readers understand the positioning problem",
+    "The 'trap' framing works well for operational problems — 'free tier trap' immediately conveys the hidden danger",
+    "Personal workflow audits add credibility to broader industry observations",
+    "Leading with a specific tool discovery (Toolspend) grounds abstract cost problems in concrete reality"
   ],
   "last_updated": "2026-02-17"
 }

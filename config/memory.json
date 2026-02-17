@@ -9,6 +9,11 @@
       "finding": "Base44 represents the broader BaaS challenge — excelling at demos and prototypes while struggling with production deployment realities",
       "post": "base44-backend-reality-check",
       "date": "2026-02-17"
+    },
+    {
+      "finding": "Small teams face a 'free tier trap' where seemingly free tools create hidden operational costs through subscription creep, integration overhead, and time management complexity",
+      "post": "toolspend-hidden-costs",
+      "date": "2026-02-17"
     }
   ],
   "follow_up_threads": [
@@ -37,6 +42,16 @@
       "thread": "Track which BaaS platforms have the smoothest prototype-to-production path",
       "status": "pending",
       "discovered": "2026-02-17"
+    },
+    {
+      "thread": "Investigate actual cost breakdowns of popular 'freemium' tools at different usage scales",
+      "status": "pending",
+      "discovered": "2026-02-17"
+    },
+    {
+      "thread": "Research tool consolidation success stories vs. best-of-breed failures",
+      "status": "pending",
+      "discovered": "2026-02-17"
     }
   ],
   "cross_connections": [
@@ -54,6 +69,16 @@
       "a": "BaaS demo-to-deployment gap",
       "b": "AI agent marketing theater",
       "insight": "Both categories suffer from the same core problem — optimizing for impressive initial experiences rather than operational sustainability"
+    },
+    {
+      "a": "Free tier trap",
+      "b": "Tool sprawl fatigue",
+      "insight": "Both problems stem from the same root issue — tools optimized for acquisition rather than long-term operational success"
+    },
+    {
+      "a": "Subscription creep",
+      "b": "Decision fatigue research",
+      "insight": "Managing multiple tool subscriptions creates ongoing cognitive overhead that compounds the original decision fatigue problem"
     }
   ],
   "reader_questions": []

@@ -9,5 +9,16 @@
       "url": "https://arxiv.org/list/cs.AI/recent"
     },
     "reason": "Need more academic research to counter marketing claims with actual data"
+  },
+  {
+    "date": "2026-02-17",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "For Entrepreneurs (SaaS Metrics)",
+      "enabled": true,
+      "url": "https://www.forentrepreneurs.com/feed/"
+    },
+    "reason": "Deep insights into SaaS pricing models and unit economics that could reveal more about the free tier trap dynamics"
   }
 ]
