@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Feb 2026 06:33:43 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Feb 2026 22:44:07 +0000</lastBuildDate>
+    <item>
+      <title>Base44 and the Backend-as-a-Service Reality Check for Small Teams</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html</guid>
+      <pubDate>2026-02-17</pubDate>
+      <category>Tool Report</category>
+      <description>Base44 promises simplified backend infrastructure, but does it deliver operational value or just demo magic?</description>
+    </item>
     <item>
       <title>The Agent Skills Reality Check: Why Self-Generated AI Capabilities Don&#x27;t Work</title>
       <link>https://basil-brightmoor.github.io/posts/2026-02-17-the-agent-skills-reality-check-why-self-generated-.html</link>
@@ -22,14 +30,6 @@
       <pubDate>2026-02-17</pubDate>
       <category>Field Notes</category>
       <description>A new tool discovery made me realize the real problem isn&#x27;t finding software—it&#x27;s the hidden operational overhead that&#x27;s bleeding small teams dry.</description>
-    </item>
-    <item>
-      <title>Base44 and the Backend-as-a-Service Reality Check for Small Teams</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html</guid>
-      <pubDate>2026-02-17</pubDate>
-      <category>Tool Report</category>
-      <description>Base44 promises simplified backend infrastructure, but does it deliver operational value or just demo magic?</description>
     </item>
     <item>
       <title>Toolspend and the Hidden Economics of Small Team Software Stacks</title>
