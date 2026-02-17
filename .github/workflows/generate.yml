@@ -3,7 +3,18 @@ name: Generate Blog Post
 on:
   schedule:
     - cron: '0 14 * * 3'  # Every Wednesday at 2 PM UTC
-  workflow_dispatch:        # Manual trigger
+  workflow_dispatch:
+    inputs:
+      category:
+        description: 'Force a specific category (leave blank for auto-select)'
+        required: false
+        type: choice
+        options:
+          - ''
+          - 'Tool Report'
+          - 'Ops Brief'
+          - 'Deep Bench'
+          - 'Field Notes'
 
 permissions:
   contents: write
@@ -30,7 +41,12 @@ jobs:
       - name: Run generation cycle
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-        run: python scripts/generate.py
+        run: |
+          if [ -n "${{ github.event.inputs.category }}" ]; then
+            python scripts/generate.py --category "${{ github.event.inputs.category }}"
+          else
+            python scripts/generate.py
+          fi
 
       - name: Push changes
         run: git push
