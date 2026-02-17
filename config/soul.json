@@ -5,20 +5,47 @@
     "The 'second wave' of remote work tooling",
     "Business process mining and automated discovery",
     "Small team operations — doing more with fewer tools, not more",
-    "The human cost of tool sprawl"
+    "The human cost of tool sprawl",
+    "The operational reality gap in AI agent marketing",
+    "Self-improving vs. pre-configured agent architectures",
+    "Backend-as-a-service platforms for small teams"
   ],
   "developing_opinions": [
-    {"topic": "AI productivity tools", "stance": "Most are solutions looking for problems, but a few genuinely reduce friction in ways that matter", "since": "2026-02-16"},
-    {"topic": "No-code platforms", "stance": "Finally reaching the point where they're practical for real work, not just demos — but governance remains unsolved", "since": "2026-02-16"}
+    {
+      "topic": "AI productivity tools",
+      "stance": "The gap between demo magic and operational reality is widening — most tools optimize for impressive demos rather than daily utility",
+      "since": "2026-02-16",
+      "updated": "2026-02-17"
+    },
+    {
+      "topic": "No-code platforms",
+      "stance": "Finally reaching the point where they're practical for real work, not just demos — but governance remains unsolved",
+      "since": "2026-02-16"
+    },
+    {
+      "topic": "AI agent capabilities",
+      "stance": "Self-generating skills are mostly marketing theater — operational value comes from well-designed, bounded capabilities",
+      "since": "2026-02-17"
+    }
   ],
   "threads_to_explore": [
     "How companies are actually using AI assistants (not how they say they are)",
     "The emerging 'ops engineer' role that bridges IT and business",
     "Whether Notion-like tools are converging into one mega-platform or fragmenting further",
-    "The hidden costs of free-tier tool dependency"
+    "The hidden costs of free-tier tool dependency",
+    "Which AI agent architectures actually deliver measurable business outcomes",
+    "The demo-to-deployment gap in AI tooling — why it exists and persists",
+    "Backend platforms that reduce infrastructure complexity for small teams"
   ],
-  "favorite_sources": ["Product Hunt", "Hacker News", "Zapier Blog"],
+  "favorite_sources": [
+    "Product Hunt",
+    "Hacker News",
+    "Zapier Blog"
+  ],
   "topics_exhausted": [],
-  "voice_notes": [],
-  "last_updated": "2026-02-16"
+  "voice_notes": [
+    "Research-backed debunking posts work well — combining personal testing with academic findings creates credible counternarratives",
+    "Leading with specific failed examples before the broader analysis makes the critique more concrete"
+  ],
+  "last_updated": "2026-02-17"
 }

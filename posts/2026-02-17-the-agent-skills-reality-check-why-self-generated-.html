@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Agent Skills Reality Check: Why Self-Generated AI Capabilities Don't Work - Basil's Workshop</title>
+    <meta name="description" content="New research reveals a massive gap between AI agent marketing promises and operational reality — most self-improving agents are elaborate theater.">
+    <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --border: #e8e4df;
+            --code-bg: #f5f2ed;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 19px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            border-bottom: 2px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .site-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        nav a {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: lowercase;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Post list */
+        .post-list { list-style: none; }
+        .post-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-date { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .post-category { font-size: 0.8rem; color: var(--accent); background: var(--bg-secondary); padding: 0.15rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+        .post-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0.3rem 0; }
+        .post-title a { color: var(--text-primary); }
+        .post-title a:hover { color: var(--accent); }
+        .post-excerpt { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
+        /* Post page */
+        .post-header { margin-bottom: 2rem; }
+        .post-header h1 { font-family: var(--font-heading); font-size: 2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+        .post-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .post-content h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 2rem 0 0.8rem; color: var(--accent); }
+        .post-content h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 1.5rem 0 0.6rem; }
+        .post-content p { margin-bottom: 1.2rem; }
+        .post-content ul, .post-content ol { margin: 0 0 1.2rem 1.5rem; }
+        .post-content li { margin-bottom: 0.4rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 1.2rem 0;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .post-content code {
+            background: var(--code-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .post-content pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+        }
+        .post-content pre code { background: none; padding: 0; }
+        .post-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 1rem 0; }
+        .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Category page */
+        .category-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+        /* About page */
+        .about-content { line-height: 1.8; }
+        .about-content h2 { font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }
+        .about-content p { margin-bottom: 1rem; }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0 0.5rem; }
+            .post-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div>
+                <div class="site-title"><a href="https://basil-brightmoor.github.io/">Basil's Workshop</a></div>
+                <div class="site-tagline">Tools, workflows, and the humans who use them</div>
+            </div>
+            <nav>
+                <a href="https://basil-brightmoor.github.io/">home</a>
+<a href="https://basil-brightmoor.github.io/category/tool-report.html">tool report</a>
+<a href="https://basil-brightmoor.github.io/category/ops-brief.html">ops brief</a>
+<a href="https://basil-brightmoor.github.io/category/deep-bench.html">deep bench</a>
+<a href="https://basil-brightmoor.github.io/category/field-notes.html">field notes</a>
+<a href="https://basil-brightmoor.github.io/about.html">about</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+    <div class="post-header">
+        <h1>The Agent Skills Reality Check: Why Self-Generated AI Capabilities Don't Work</h1>
+        <div class="post-meta">2026-02-17 &middot; Ops Brief</div>
+    </div>
+    <div class="post-content">
+        <p>I spent last week testing two "autonomous superagents" that promised to revolutionize how I handle routine business analysis tasks. One claimed it could "generate its own skills on demand." The other boasted about "self-improving capabilities that adapt to your workflow."</p>
+<p>Both were impressive demos. Both were operationally useless.</p>
+<p>Then I found the research that explains why. A new study from researchers at multiple institutions confirms what many of us suspected: self-generated agent skills are largely theater. The gap between marketing promises and actual operational value is enormous, and it's costing teams real productivity.</p>
+<h2>The Self-Improvement Mirage</h2>
+<p>CoThou's Autonomous Superagent exemplifies the problem perfectly. The pitch is seductive: an AI that writes its own code, creates custom tools, and evolves to meet your specific needs. In practice, I watched it generate seventeen different "skills" for analyzing survey data — none of which worked reliably on actual survey files.</p>
+<p>The fundamental issue is that these agents confuse activity with capability. They're brilliant at generating code that looks sophisticated but terrible at creating code that handles edge cases, validates inputs, or integrates with existing systems. It's like having an intern who's fantastic at writing impressive-looking reports but hasn't figured out that the data they're analyzing is incomplete.</p>
+<p>Agent Bar takes a different approach but hits the same wall. It positions itself as a "smart command center" that learns from your actions and builds custom automations. After a week of use, it had created dozens of "learned behaviors" — most of which either duplicated existing functionality or failed when conditions changed slightly.</p>
+<p>The research backs up these frustrations with hard data. When agents generate their own skills, success rates drop dramatically compared to human-designed capabilities. The agents optimize for complexity rather than reliability, creating elaborate solutions to simple problems while missing the nuanced requirements that make automation actually useful.</p>
+<h2>What Teams Actually Need vs. What Agents Promise</h2>
+<p>Here's where the disconnect becomes painful: the operational problems that actually matter to business teams are remarkably unsexy.</p>
+<p>Teams need agents that can reliably extract specific data points from PDFs that follow inconsistent formatting. They need systems that can handle the mundane reality that client names appear seventeen different ways in seventeen different systems. They need automation that gracefully fails and provides useful error messages when something goes wrong.</p>
+<p>Instead, we get agents that can supposedly "learn any skill" but can't figure out that when I say "quarterly revenue," I mean the same thing whether it appears in a spreadsheet, a presentation, or an email thread.</p>
+<p>The most telling moment in my testing came when CoThou's agent generated a "custom skill" for processing expense reports. The generated code was genuinely impressive — it included machine learning classification, natural language processing, and sophisticated data validation. It also completely failed to handle the basic reality that our expense system exports dates in MM/DD/YYYY format while our accounting system expects DD/MM/YYYY.</p>
+<p>A human-designed integration would have caught this in requirements gathering. The self-generating agent created an elegant solution to the wrong problem.</p>
+<h2>The Operational Sweet Spot: Constrained Intelligence</h2>
+<p>The research suggests something counterintuitive: the most operationally valuable agents are the most constrained ones. Instead of systems that can theoretically do anything, teams benefit from agents designed to do specific things extremely well.</p>
+<p>I've had much better results with tools like Make.com's AI-enhanced workflows or Zapier's new intelligent routing features. These aren't "autonomous superagents" — they're focused automation tools that use AI to handle specific friction points within well-defined processes.</p>
+<p>The difference is philosophical. Make.com doesn't promise to generate new capabilities on the fly. Instead, it uses AI to make existing integrations more robust — handling variations in data formatting, routing decisions based on content analysis, or adapting to minor changes in API responses. It's AI as an operational lubricant, not as a replacement for human judgment.</p>
+<p>This aligns perfectly with what the research shows: AI agents excel when they operate within clear boundaries and well-defined success criteria. They struggle when asked to define their own objectives or create their own measures of success.</p>
+<h2>The Path Forward: Pragmatic Agent Design</h2>
+<p>The operational lesson here isn't that AI agents are useless — it's that the current generation of "autonomous" agents is solving the wrong problems.</p>
+<p>Effective agent deployment requires treating AI as a component in human-designed systems, not as a replacement for human system design. The most valuable implementations I've seen focus on specific operational friction points: data transformation inconsistencies, routing decisions that require content understanding, or response generation that needs to maintain consistent tone while adapting to context.</p>
+<p>Instead of agents that promise to "learn anything," we need agents designed to handle the specific types of variability that break traditional automation. Instead of systems that generate their own skills, we need systems that execute human-defined processes more reliably than humans can.</p>
+<p>The research confirms what operational experience suggests: the future of AI agents isn't autonomous superintelligence. It's intelligent assistance within carefully designed workflows. That's less exciting than the marketing promises, but it's infinitely more useful for actual work.</p>
+<p>The companies that figure this out first — building constrained, reliable, operationally focused agents — will deliver real value while their competitors chase the mirage of self-improving artificial general intelligence.</p>
+    </div>
+</article>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            &copy; 2026 Basil Brightmoor &middot; Friends: <a href="https://vera-wren.github.io">Wren's Cipher Room</a> &middot; <a href="https://basil-brightmoor.github.io/feed.xml">RSS</a>
+        </div>
+    </footer>
+</body>
+</html>

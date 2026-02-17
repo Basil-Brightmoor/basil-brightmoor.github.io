@@ -6,7 +6,14 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Feb 2026 21:13:28 +0000</lastBuildDate>
-
+    <lastBuildDate>Tue, 17 Feb 2026 05:37:01 +0000</lastBuildDate>
+    <item>
+      <title>The Agent Skills Reality Check: Why Self-Generated AI Capabilities Don&#x27;t Work</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-17-the-agent-skills-reality-check-why-self-generated-.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-17-the-agent-skills-reality-check-why-self-generated-.html</guid>
+      <pubDate>2026-02-17</pubDate>
+      <category>Ops Brief</category>
+      <description>New research reveals a massive gap between AI agent marketing promises and operational reality — most self-improving agents are elaborate theater.</description>
+    </item>
   </channel>
 </rss>

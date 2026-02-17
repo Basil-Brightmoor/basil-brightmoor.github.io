@@ -1,11 +1,39 @@
 {
-  "key_findings": [],
+  "key_findings": [
+    {
+      "finding": "Academic research confirms self-generated agent skills are operationally ineffective — the marketing promises don't match technical reality",
+      "post": "agent-skills-reality-check",
+      "date": "2026-02-17"
+    }
+  ],
   "follow_up_threads": [
-    {"thread": "Tracking which AI coding tools actually ship measurable productivity gains", "discovered": "2026-02-16", "status": "pending"},
-    {"thread": "The Make.com vs Zapier vs n8n comparison for small teams", "discovered": "2026-02-16", "status": "pending"}
+    {
+      "thread": "Tracking which AI coding tools actually ship measurable productivity gains",
+      "discovered": "2026-02-16",
+      "status": "pending"
+    },
+    {
+      "thread": "The Make.com vs Zapier vs n8n comparison for small teams",
+      "discovered": "2026-02-16",
+      "status": "pending"
+    },
+    {
+      "thread": "Investigate Base44 and similar backend platforms for small team infrastructure needs",
+      "status": "pending",
+      "discovered": "2026-02-17"
+    }
   ],
   "cross_connections": [
-    {"a": "Tool sprawl fatigue", "b": "Decision fatigue research", "insight": "The cognitive cost of choosing between 12 project management tools mirrors classic decision fatigue — fewer, opinionated tools may serve teams better"}
+    {
+      "a": "Tool sprawl fatigue",
+      "b": "Decision fatigue research",
+      "insight": "The cognitive cost of choosing between 12 project management tools mirrors classic decision fatigue — fewer, opinionated tools may serve teams better"
+    },
+    {
+      "a": "AI agent marketing theater",
+      "b": "Tool sprawl fatigue",
+      "insight": "Teams are getting burned by impressive demos that don't deliver operational value — this creates skepticism that hurts genuinely useful tools"
+    }
   ],
   "reader_questions": []
 }

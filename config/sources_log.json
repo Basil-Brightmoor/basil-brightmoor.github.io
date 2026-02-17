@@ -1,0 +1,13 @@
+[
+  {
+    "date": "2026-02-17",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "ArXiv AI Papers",
+      "enabled": true,
+      "url": "https://arxiv.org/list/cs.AI/recent"
+    },
+    "reason": "Need more academic research to counter marketing claims with actual data"
+  }
+]
