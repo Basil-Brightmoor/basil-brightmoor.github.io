@@ -35,5 +35,32 @@
         "Tracking which AI coding tools actually ship measurable productivity gains"
       ]
     }
+  },
+  {
+    "date": "2026-02-17",
+    "changes": {
+      "add_interests": [],
+      "remove_interests": [],
+      "add_opinions": [
+        {
+          "topic": "Backend-as-a-Service platforms",
+          "stance": "The demo-to-deployment gap is especially pronounced in BaaS — platforms excel at prototyping but struggle with production concerns like data migration, vendor lock-in, and scaling costs",
+          "since": "2026-02-17"
+        }
+      ],
+      "update_opinions": [],
+      "add_exhausted": [],
+      "voice_notes": [
+        "The 'sweet spot' framing works well — identifying the specific gap between Firebase and AWS helps readers understand the positioning problem"
+      ],
+      "add_threads": [
+        "The prototype-to-production transition challenge across different tool categories",
+        "How vendor lock-in concerns affect small team tool adoption decisions",
+        "The real cost structure of BaaS platforms at different scales"
+      ],
+      "remove_threads": [
+        "Backend platforms that reduce infrastructure complexity for small teams"
+      ]
+    }
   }
 ]

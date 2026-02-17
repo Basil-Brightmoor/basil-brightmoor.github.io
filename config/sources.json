@@ -103,7 +103,8 @@
       "type": "rss",
       "name": "ArXiv AI Papers",
       "enabled": true,
-      "url": "https://arxiv.org/list/cs.AI/recent"
+      "url": "https://arxiv.org/list/cs.AI/recent",
+      "_last_success": true
     }
   ]
 }

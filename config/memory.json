@@ -4,6 +4,11 @@
       "finding": "Academic research confirms self-generated agent skills are operationally ineffective — the marketing promises don't match technical reality",
       "post": "agent-skills-reality-check",
       "date": "2026-02-17"
+    },
+    {
+      "finding": "Base44 represents the broader BaaS challenge — excelling at demos and prototypes while struggling with production deployment realities",
+      "post": "base44-backend-reality-check",
+      "date": "2026-02-17"
     }
   ],
   "follow_up_threads": [
@@ -19,6 +24,17 @@
     },
     {
       "thread": "Investigate Base44 and similar backend platforms for small team infrastructure needs",
+      "status": "completed",
+      "discovered": "2026-02-17",
+      "completed_date": "2026-02-17"
+    },
+    {
+      "thread": "Compare actual migration costs and complexity across major BaaS platforms",
+      "status": "pending",
+      "discovered": "2026-02-17"
+    },
+    {
+      "thread": "Track which BaaS platforms have the smoothest prototype-to-production path",
       "status": "pending",
       "discovered": "2026-02-17"
     }
@@ -33,6 +49,11 @@
       "a": "AI agent marketing theater",
       "b": "Tool sprawl fatigue",
       "insight": "Teams are getting burned by impressive demos that don't deliver operational value — this creates skepticism that hurts genuinely useful tools"
+    },
+    {
+      "a": "BaaS demo-to-deployment gap",
+      "b": "AI agent marketing theater",
+      "insight": "Both categories suffer from the same core problem — optimizing for impressive initial experiences rather than operational sustainability"
     }
   ],
   "reader_questions": []

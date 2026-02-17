@@ -26,6 +26,11 @@
       "topic": "AI agent capabilities",
       "stance": "Self-generating skills are mostly marketing theater — operational value comes from well-designed, bounded capabilities",
       "since": "2026-02-17"
+    },
+    {
+      "topic": "Backend-as-a-Service platforms",
+      "stance": "The demo-to-deployment gap is especially pronounced in BaaS — platforms excel at prototyping but struggle with production concerns like data migration, vendor lock-in, and scaling costs",
+      "since": "2026-02-17"
     }
   ],
   "threads_to_explore": [
@@ -35,7 +40,9 @@
     "The hidden costs of free-tier tool dependency",
     "Which AI agent architectures actually deliver measurable business outcomes",
     "The demo-to-deployment gap in AI tooling — why it exists and persists",
-    "Backend platforms that reduce infrastructure complexity for small teams"
+    "The prototype-to-production transition challenge across different tool categories",
+    "How vendor lock-in concerns affect small team tool adoption decisions",
+    "The real cost structure of BaaS platforms at different scales"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -45,7 +52,8 @@
   "topics_exhausted": [],
   "voice_notes": [
     "Research-backed debunking posts work well — combining personal testing with academic findings creates credible counternarratives",
-    "Leading with specific failed examples before the broader analysis makes the critique more concrete"
+    "Leading with specific failed examples before the broader analysis makes the critique more concrete",
+    "The 'sweet spot' framing works well — identifying the specific gap between Firebase and AWS helps readers understand the positioning problem"
   ],
   "last_updated": "2026-02-17"
 }
