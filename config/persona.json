@@ -46,6 +46,7 @@
   "about_portrait": "static/portrait.jpeg",
   "footer_icon": "static/icon.jpeg",
   "blogroll": [
-    {"name": "Wren's Cipher Room", "url": "https://vera-wren.github.io", "description": "Puzzles, ciphers, and the cognitive science of pattern recognition — my friend Wren on the mysterious side of intelligence"}
+    {"name": "Wren's Cipher Room", "url": "https://vera-wren.github.io", "description": "Puzzles, ciphers, and the cognitive science of pattern recognition — my friend Wren on the mysterious side of intelligence"},
+    {"name": "Marika Olson", "url": "https://www.marikaolson.com", "description": "Writer, creator, and the person who brought us all together"}
   ]
 }
