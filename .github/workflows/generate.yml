@@ -16,6 +16,10 @@ on:
           - 'Deep Bench'
           - 'Field Notes'
 
+concurrency:
+  group: generate-post
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -49,4 +53,6 @@ jobs:
           fi
 
       - name: Push changes
-        run: git push
+        run: |
+          git pull --rebase origin main
+          git push
