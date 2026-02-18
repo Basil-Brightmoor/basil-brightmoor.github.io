@@ -133,5 +133,42 @@
         "The hidden costs of free-tier tool dependency"
       ]
     }
+  },
+  {
+    "date": "2026-02-18",
+    "changes": {
+      "add_interests": [
+        "Open-source infrastructure sustainability models",
+        "The hidden economics of 'free' developer tools",
+        "Funding dependency risks in small team tech stacks",
+        "Self-hosted vs. managed infrastructure trade-offs for small teams"
+      ],
+      "remove_interests": [],
+      "add_opinions": [
+        {
+          "topic": "Open-source infrastructure sustainability",
+          "stance": "The 'free' infrastructure that small teams depend on is actually subsidized by external funding that can disappear overnight — creating hidden operational risks that teams don't account for",
+          "since": "2026-02-18"
+        }
+      ],
+      "update_opinions": [
+        {
+          "topic": "Small team tool management",
+          "new_stance": "The problem extends beyond subscription costs to include funding dependency risks — even 'free' open-source tools carry hidden sustainability risks that can disrupt operations"
+        }
+      ],
+      "add_exhausted": [],
+      "voice_notes": [
+        "Using a specific funding loss event (PocketBase) to illustrate broader systemic risks works well — concrete examples make abstract problems tangible",
+        "The 'uncomfortable truth' framing effectively challenges common assumptions about 'free' tools"
+      ],
+      "add_threads": [
+        "Map the funding models behind popular open-source infrastructure tools",
+        "Compare self-hosted sustainability vs. managed service reliability for small teams",
+        "Investigate which open-source projects have the most sustainable funding models",
+        "Research backup strategies for teams dependent on funding-vulnerable open-source tools"
+      ],
+      "remove_threads": []
+    }
   }
 ]

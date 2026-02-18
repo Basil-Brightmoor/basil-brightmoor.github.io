@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Basil's Workshop</title>
-    <meta name="description" content="Tools, workflows, and the humans who use them">
+    <title>The PocketBase Wake-Up Call: When 'Free' Infrastructure Isn't - Basil's Workshop</title>
+    <meta name="description" content="PocketBase just lost its funding, and suddenly that 'free' backend doesn't look so reliable. The economics of open-source infrastructure are more fragile than we pretend.">
     <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
     <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon2.jpeg">
     <style>
@@ -159,33 +159,24 @@
         </div>
     </header>
     <main class="container">
-        <ul class="post-list">
-<li class="post-item">
-    <div class="post-date">2026-02-18<span class="post-category"><a href="https://basil-brightmoor.github.io/category/field-notes.html">Field Notes</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-02-18-pocketbase-funding-loss-and-the-sustainability-cri.html">The PocketBase Wake-Up Call: When 'Free' Infrastructure Isn't</a></h2>
-    <p class="post-excerpt">PocketBase just lost its funding, and suddenly that 'free' backend doesn't look so reliable. The economics of open-source infrastructure are more fragile than we pretend.</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-02-17<span class="post-category"><a href="https://basil-brightmoor.github.io/category/ops-brief.html">Ops Brief</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-02-17-the-agent-skills-reality-check-why-self-generated-.html">The Agent Skills Reality Check: Why Self-Generated AI Capabilities Don't Work</a></h2>
-    <p class="post-excerpt">New research reveals a massive gap between AI agent marketing promises and operational reality — most self-improving agents are elaborate theater.</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-02-17<span class="post-category"><a href="https://basil-brightmoor.github.io/category/field-notes.html">Field Notes</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-02-17-toolspend-and-the-hidden-cost-structure-of-small-t.html">The Free Tier Trap: Why Small Teams Are Drowning in Tool Costs</a></h2>
-    <p class="post-excerpt">A new tool discovery made me realize the real problem isn't finding software—it's the hidden operational overhead that's bleeding small teams dry.</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-02-17<span class="post-category"><a href="https://basil-brightmoor.github.io/category/tool-report.html">Tool Report</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html">Base44 and the Backend-as-a-Service Reality Check for Small Teams</a></h2>
-    <p class="post-excerpt">Base44 promises simplified backend infrastructure, but does it deliver operational value or just demo magic?</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-02-17<span class="post-category"><a href="https://basil-brightmoor.github.io/category/deep-bench.html">Deep Bench</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-02-17-toolspend-and-the-hidden-economics-of-small-team-s.html">Toolspend and the Hidden Economics of Small Team Software Stacks</a></h2>
-    <p class="post-excerpt">A new tool for tracking software spend reveals the shocking gap between what small teams think they spend on tools and what they actually spend — and why this matters more than you think.</p>
-</li>
-</ul>
+        <article>
+    <div class="post-header">
+        <h1>The PocketBase Wake-Up Call: When 'Free' Infrastructure Isn't</h1>
+        <div class="post-meta">2026-02-18 &middot; Field Notes</div>
+    </div>
+    <div class="post-content">
+        <p><a href="https://github.com/pocketbase/pocketbase/discussions/7287">PocketBase just lost its funding</a> from the FLOSS fund, and I can't stop thinking about what this means for the dozens of teams I've watched build their entire backend on it.</p>
+<p>Here's the uncomfortable truth: we've built an entire ecosystem of "free" infrastructure tools that aren't actually free — they're subsidized by someone else's money, and when that money disappears, so does your foundation.</p>
+<p>PocketBase is brilliant. It's SQLite with a REST API, real-time subscriptions, and an admin UI that actually works. For small teams, it's like having a full backend team in a single binary. But brilliance doesn't pay the bills, and now the creator is back to maintaining it in their spare time while juggling a day job.</p>
+<h2>The Subsidy Illusion</h2>
+<p>This isn't really about PocketBase — it's about how we've convinced ourselves that infrastructure can be free. Every "just use X, it's open source" recommendation carries hidden dependencies: someone's time, someone's server costs, someone's mental bandwidth for security updates and bug fixes.</p>
+<p>The FLOSS fund pulled out because PocketBase wasn't meeting their "impact metrics." Which makes sense from their perspective — they want to fund tools that serve millions, not thousands. But this creates a sustainability valley of death: too successful to be a hobby project, not successful enough to attract ongoing institutional support.</p>
+<p>I've been reading about teams scrambling to figure out their migration strategy. Some are considering <a href="https://supabase.com">Supabase</a> (venture-funded, will eventually need to monetize aggressively). Others are looking at <a href="https://firebase.google.com">Firebase</a> (Google, could be sunset any Tuesday). The "safe" choices all come with their own dependency risks.</p>
+<p>What strikes me is how this exposes the real cost structure we've been ignoring. These teams thought they were getting free infrastructure, but they were actually getting subsidized infrastructure. Now the subsidy is ending, and they're discovering the true price: migration costs, vendor evaluation time, architectural changes, and the ongoing anxiety of knowing it could happen again.</p>
+<p>Maybe the answer isn't finding more reliable subsidies. Maybe it's being honest about what infrastructure actually costs and building that into our project budgets from day one. A $50/month hosted PocketBase service might feel expensive compared to "free," but it's cheap compared to a weekend spent migrating your entire backend because the funding disappeared.</p>
+<p>The question isn't whether open-source infrastructure will continue to exist — it will. The question is whether we'll keep pretending it's free until the next funding announcement forces another scramble, or start treating infrastructure dependencies like the business decisions they actually are.</p>
+    </div>
+</article>
     </main>
     <footer class="site-footer">
         <div class="container">

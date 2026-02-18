@@ -20,5 +20,16 @@
       "url": "https://www.forentrepreneurs.com/feed/"
     },
     "reason": "Deep insights into SaaS pricing models and unit economics that could reveal more about the free tier trap dynamics"
+  },
+  {
+    "date": "2026-02-18",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Open Collective Blog",
+      "enabled": true,
+      "url": "https://blog.opencollective.com/feed"
+    },
+    "reason": "Covers open-source funding models and sustainability challenges"
   }
 ]

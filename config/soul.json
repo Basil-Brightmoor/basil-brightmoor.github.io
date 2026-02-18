@@ -14,7 +14,11 @@
     "Tool consolidation strategies vs. best-of-breed approaches",
     "Software spend visibility and tracking tools",
     "The psychology of subscription creep in small businesses",
-    "Operational cost awareness gaps in small teams"
+    "Operational cost awareness gaps in small teams",
+    "Open-source infrastructure sustainability models",
+    "The hidden economics of 'free' developer tools",
+    "Funding dependency risks in small team tech stacks",
+    "Self-hosted vs. managed infrastructure trade-offs for small teams"
   ],
   "developing_opinions": [
     {
@@ -40,14 +44,19 @@
     },
     {
       "topic": "Small team tool management",
-      "stance": "The problem is deeper than subscription creep — it's about cost visibility blindness. Teams can't manage what they can't see, and subscription models are designed to hide true costs",
+      "stance": "The problem extends beyond subscription costs to include funding dependency risks — even 'free' open-source tools carry hidden sustainability risks that can disrupt operations",
       "since": "2026-02-17",
-      "updated": "2026-02-17"
+      "updated": "2026-02-18"
     },
     {
       "topic": "Software spend tracking",
       "stance": "The real value isn't in tracking itself but in revealing systematic blind spots — teams consistently underestimate costs by 40-60% because subscription models obscure true operational expenses",
       "since": "2026-02-17"
+    },
+    {
+      "topic": "Open-source infrastructure sustainability",
+      "stance": "The 'free' infrastructure that small teams depend on is actually subsidized by external funding that can disappear overnight — creating hidden operational risks that teams don't account for",
+      "since": "2026-02-18"
     }
   ],
   "threads_to_explore": [
@@ -67,7 +76,11 @@
     "The operational cost of context switching between tools (beyond just subscription fees)",
     "Which tool categories have the most deceptive cost structures",
     "How small teams should actually budget for software (including hidden costs)",
-    "The relationship between tool proliferation and operational complexity costs"
+    "The relationship between tool proliferation and operational complexity costs",
+    "Map the funding models behind popular open-source infrastructure tools",
+    "Compare self-hosted sustainability vs. managed service reliability for small teams",
+    "Investigate which open-source projects have the most sustainable funding models",
+    "Research backup strategies for teams dependent on funding-vulnerable open-source tools"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -83,7 +96,9 @@
     "Personal workflow audits add credibility to broader industry observations",
     "Leading with a specific tool discovery (Toolspend) grounds abstract cost problems in concrete reality",
     "Leading with a specific cost underestimation statistic (40-60%) immediately establishes the scale of the problem",
-    "The 'blind spot' framing works better than 'mistake' — it implies systemic issues rather than user error"
+    "The 'blind spot' framing works better than 'mistake' — it implies systemic issues rather than user error",
+    "Using a specific funding loss event (PocketBase) to illustrate broader systemic risks works well — concrete examples make abstract problems tangible",
+    "The 'uncomfortable truth' framing effectively challenges common assumptions about 'free' tools"
   ],
-  "last_updated": "2026-02-17"
+  "last_updated": "2026-02-18"
 }

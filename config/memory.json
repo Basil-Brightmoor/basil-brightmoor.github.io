@@ -19,6 +19,11 @@
       "finding": "Small teams systematically underestimate software spending by 40-60%, revealing a fundamental cost visibility problem in subscription-based tool adoption",
       "post": "toolspend-hidden-costs",
       "date": "2026-02-17"
+    },
+    {
+      "finding": "PocketBase's funding loss reveals that 'free' open-source infrastructure tools carry hidden sustainability risks — they're subsidized by external funding that can disappear, leaving dependent teams stranded",
+      "post": "pocketbase-funding-crisis",
+      "date": "2026-02-18"
     }
   ],
   "follow_up_threads": [
@@ -72,6 +77,21 @@
       "thread": "Compare cost transparency across different software categories (productivity, dev tools, marketing, etc.)",
       "status": "pending",
       "discovered": "2026-02-17"
+    },
+    {
+      "thread": "Research the funding stability of popular open-source infrastructure projects",
+      "status": "pending",
+      "discovered": "2026-02-18"
+    },
+    {
+      "thread": "Compare total cost of ownership between self-hosted open-source and managed services",
+      "status": "pending",
+      "discovered": "2026-02-18"
+    },
+    {
+      "thread": "Investigate contingency planning strategies for teams using funding-dependent open-source tools",
+      "status": "pending",
+      "discovered": "2026-02-18"
     }
   ],
   "cross_connections": [
@@ -109,6 +129,21 @@
       "a": "Software spend underestimation",
       "b": "Tool sprawl fatigue",
       "insight": "Teams accumulate tools partly because they don't realize the true cumulative cost — better visibility might naturally limit tool proliferation"
+    },
+    {
+      "a": "Open-source funding sustainability",
+      "b": "Free tier trap",
+      "insight": "Both 'free' models hide true costs — subscription free tiers obscure future pricing while open-source tools obscure funding dependency risks"
+    },
+    {
+      "a": "PocketBase funding loss",
+      "b": "BaaS demo-to-deployment gap",
+      "insight": "Both highlight the risk of building on foundations that optimize for initial adoption rather than long-term operational stability"
+    },
+    {
+      "a": "Infrastructure funding dependency",
+      "b": "Cost visibility blindness",
+      "insight": "Teams can't see or budget for the risk of their 'free' infrastructure losing funding — another form of hidden operational cost"
     }
   ],
   "reader_questions": []

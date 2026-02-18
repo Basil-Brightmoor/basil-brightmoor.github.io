@@ -6,14 +6,14 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Feb 2026 22:44:07 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Feb 2026 17:38:37 +0000</lastBuildDate>
     <item>
-      <title>Base44 and the Backend-as-a-Service Reality Check for Small Teams</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html</guid>
-      <pubDate>2026-02-17</pubDate>
-      <category>Tool Report</category>
-      <description>Base44 promises simplified backend infrastructure, but does it deliver operational value or just demo magic?</description>
+      <title>The PocketBase Wake-Up Call: When &#x27;Free&#x27; Infrastructure Isn&#x27;t</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-18-pocketbase-funding-loss-and-the-sustainability-cri.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-18-pocketbase-funding-loss-and-the-sustainability-cri.html</guid>
+      <pubDate>2026-02-18</pubDate>
+      <category>Field Notes</category>
+      <description>PocketBase just lost its funding, and suddenly that &#x27;free&#x27; backend doesn&#x27;t look so reliable. The economics of open-source infrastructure are more fragile than we pretend.</description>
     </item>
     <item>
       <title>The Agent Skills Reality Check: Why Self-Generated AI Capabilities Don&#x27;t Work</title>
@@ -30,6 +30,14 @@
       <pubDate>2026-02-17</pubDate>
       <category>Field Notes</category>
       <description>A new tool discovery made me realize the real problem isn&#x27;t finding software—it&#x27;s the hidden operational overhead that&#x27;s bleeding small teams dry.</description>
+    </item>
+    <item>
+      <title>Base44 and the Backend-as-a-Service Reality Check for Small Teams</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html</guid>
+      <pubDate>2026-02-17</pubDate>
+      <category>Tool Report</category>
+      <description>Base44 promises simplified backend infrastructure, but does it deliver operational value or just demo magic?</description>
     </item>
     <item>
       <title>Toolspend and the Hidden Economics of Small Team Software Stacks</title>

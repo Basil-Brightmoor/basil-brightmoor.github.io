@@ -112,6 +112,12 @@
       "enabled": true,
       "url": "https://www.forentrepreneurs.com/feed/",
       "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Open Collective Blog",
+      "enabled": true,
+      "url": "https://blog.opencollective.com/feed"
     }
   ]
 }
