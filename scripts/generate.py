@@ -69,7 +69,7 @@ def call_claude(system_prompt, user_prompt, api_key, max_tokens=4096, temperatur
         cmd = [claude_bin, "-p", "--model", "sonnet", "--output-format", "text"]
         # Combine system+user prompt and pipe via stdin to avoid Windows cmd length limit
         full_prompt = f"[System instructions]\n{system_prompt}\n\n[User request]\n{user_prompt}" if system_prompt else user_prompt
-        result = subprocess.run(cmd, input=full_prompt, capture_output=True, text=True, timeout=300)
+        result = subprocess.run(cmd, input=full_prompt, capture_output=True, text=True, timeout=300, encoding="utf-8")
         if result.returncode != 0:
             print(f"  [claude] CLI error: {result.stderr[:500]}")
             raise RuntimeError(f"claude CLI failed (exit {result.returncode}): {result.stderr[:200]}")
