@@ -63,9 +63,11 @@ def call_claude(system_prompt, user_prompt, api_key, max_tokens=4096, temperatur
         return ""
     else:
         # --- CLI path (local / Task Scheduler) ---
-        print("  [claude] Using claude CLI (no API key)")
+        import shutil
+        claude_bin = shutil.which("claude") or os.path.expandvars(r"%APPDATA%\npm\claude.cmd")
+        print(f"  [claude] Using claude CLI: {claude_bin}")
         cmd = [
-            "claude", "-p", user_prompt,
+            claude_bin, "-p", user_prompt,
             "--model", "sonnet",
             "--output-format", "text",
         ]
