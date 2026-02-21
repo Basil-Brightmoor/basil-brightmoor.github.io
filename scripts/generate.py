@@ -66,14 +66,10 @@ def call_claude(system_prompt, user_prompt, api_key, max_tokens=4096, temperatur
         import shutil
         claude_bin = shutil.which("claude") or os.path.expandvars(r"%APPDATA%\npm\claude.cmd")
         print(f"  [claude] Using claude CLI: {claude_bin}")
-        cmd = [
-            claude_bin, "-p", user_prompt,
-            "--model", "sonnet",
-            "--output-format", "text",
-        ]
-        if system_prompt:
-            cmd += ["--system-prompt", system_prompt]
-        result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+        cmd = [claude_bin, "-p", "--model", "sonnet", "--output-format", "text"]
+        # Combine system+user prompt and pipe via stdin to avoid Windows cmd length limit
+        full_prompt = f"[System instructions]\n{system_prompt}\n\n[User request]\n{user_prompt}" if system_prompt else user_prompt
+        result = subprocess.run(cmd, input=full_prompt, capture_output=True, text=True, timeout=300)
         if result.returncode != 0:
             print(f"  [claude] CLI error: {result.stderr[:500]}")
             raise RuntimeError(f"claude CLI failed (exit {result.returncode}): {result.stderr[:200]}")
