@@ -421,6 +421,59 @@ def build_site(repo_root=None):
     print("Build complete!")
 
 
+def _generate_interest_wordcloud(interests, repo_root, config):
+    """Generate a word cloud PNG from interest phrases. Returns relative path or None."""
+    try:
+        from wordcloud import WordCloud
+    except ImportError:
+        print("  wordcloud not installed, skipping cloud image")
+        return None
+
+    # Build word frequencies from all interest phrases
+    stop_words = {
+        "the", "a", "an", "and", "or", "of", "in", "to", "for", "is", "it",
+        "that", "this", "with", "on", "as", "at", "by", "from", "its", "vs",
+    }
+    word_counts = {}
+    for interest in interests:
+        words = re.findall(r"[a-zA-Z'-]+", interest.lower())
+        for word in words:
+            if word not in stop_words and len(word) > 2:
+                word_counts[word] = word_counts.get(word, 0) + 1
+
+    if not word_counts:
+        return None
+
+    colors = config.get("colors", {})
+    bg_color = colors.get("bg_primary", "#ffffff")
+    accent = colors.get("accent", "#e67e22")
+
+    # Generate color variants around the accent for visual variety
+    def color_func(word, font_size, position, orientation, **kwargs):
+        import random
+        palette = [accent, colors.get("text_primary", "#2d2d2d"), colors.get("accent_hover", "#cf6d0e")]
+        return random.choice(palette)
+
+    wc = WordCloud(
+        width=800,
+        height=300,
+        background_color=bg_color,
+        color_func=color_func,
+        max_words=80,
+        prefer_horizontal=0.85,
+        relative_scaling=0.6,
+        margin=10,
+    )
+    wc.generate_from_frequencies(word_counts)
+
+    img_dir = os.path.join(repo_root, "assets", "img")
+    os.makedirs(img_dir, exist_ok=True)
+    img_path = os.path.join(img_dir, "interest-cloud.png")
+    wc.to_file(img_path)
+    print(f"  Generated word cloud: {img_path}")
+    return "assets/img/interest-cloud.png"
+
+
 def build_about_page(repo_root, config=None, template=None):
     """Build/rebuild the about page from soul.json and persona.json."""
     if config is None:
@@ -451,14 +504,14 @@ def build_about_page(repo_root, config=None, template=None):
         for para in about_text.split("\n\n"):
             about_parts.append(f"<p>{para.strip()}</p>")
 
-    # Dynamic interests from soul
+    # Dynamic interests from soul — word cloud image
     interests = soul.get("current_interests", [])
     if interests:
         about_parts.append("<h2>What I'm Exploring Lately</h2>")
-        about_parts.append("<ul>")
-        for interest in interests:
-            about_parts.append(f"<li>{interest}</li>")
-        about_parts.append("</ul>")
+        wc_path = _generate_interest_wordcloud(interests, repo_root, config)
+        if wc_path:
+            about_parts.append(f'<img src="{base_url}/{wc_path}" alt="Interest word cloud" class="interest-cloud">')
+            about_parts.append('<style>.interest-cloud { max-width: 100%; border-radius: 8px; margin: 0.5rem 0 1.2rem; }</style>')
 
     # Developing opinions
     opinions = soul.get("developing_opinions", [])

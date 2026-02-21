@@ -31,38 +31,51 @@ CLAUDE_MODEL = "claude-sonnet-4-20250514"
 
 
 def call_claude(system_prompt, user_prompt, api_key, max_tokens=4096, temperature=0.8):
-    """Call Claude API via raw urllib. Returns response text."""
-    if not api_key:
-        raise RuntimeError("ANTHROPIC_API_KEY is empty — add it as a repository secret")
+    """Call Claude via API (if api_key provided) or CLI (claude -p) for local runs."""
+    if api_key:
+        # --- API path (GitHub Actions) ---
+        payload = json.dumps({
+            "model": CLAUDE_MODEL,
+            "max_tokens": max_tokens,
+            "temperature": temperature,
+            "system": system_prompt,
+            "messages": [{"role": "user", "content": user_prompt}],
+        }).encode("utf-8")
 
-    payload = json.dumps({
-        "model": CLAUDE_MODEL,
-        "max_tokens": max_tokens,
-        "temperature": temperature,
-        "system": system_prompt,
-        "messages": [{"role": "user", "content": user_prompt}],
-    }).encode("utf-8")
+        req = urllib.request.Request(CLAUDE_API_URL, data=payload, headers={
+            "Content-Type": "application/json",
+            "x-api-key": api_key,
+            "anthropic-version": "2023-06-01",
+        })
 
-    req = urllib.request.Request(CLAUDE_API_URL, data=payload, headers={
-        "Content-Type": "application/json",
-        "x-api-key": api_key,
-        "anthropic-version": "2023-06-01",
-    })
+        ctx = ssl.create_default_context()
+        try:
+            with urllib.request.urlopen(req, timeout=120, context=ctx) as resp:
+                result = json.loads(resp.read().decode("utf-8"))
+        except urllib.error.HTTPError as e:
+            error_body = e.read().decode("utf-8", errors="replace")
+            print(f"  [claude] API error {e.code}: {error_body[:500]}")
+            raise RuntimeError(f"Claude API returned {e.code}: {error_body[:200]}")
 
-    ctx = ssl.create_default_context()
-    try:
-        with urllib.request.urlopen(req, timeout=120, context=ctx) as resp:
-            result = json.loads(resp.read().decode("utf-8"))
-    except urllib.error.HTTPError as e:
-        error_body = e.read().decode("utf-8", errors="replace")
-        print(f"  [claude] API error {e.code}: {error_body[:500]}")
-        raise RuntimeError(f"Claude API returned {e.code}: {error_body[:200]}")
-
-    # Extract text from response
-    for block in result.get("content", []):
-        if block.get("type") == "text":
-            return block["text"]
-    return ""
+        for block in result.get("content", []):
+            if block.get("type") == "text":
+                return block["text"]
+        return ""
+    else:
+        # --- CLI path (local / Task Scheduler) ---
+        print("  [claude] Using claude CLI (no API key)")
+        cmd = [
+            "claude", "-p", user_prompt,
+            "--model", "sonnet",
+            "--output-format", "text",
+        ]
+        if system_prompt:
+            cmd += ["--system-prompt", system_prompt]
+        result = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+        if result.returncode != 0:
+            print(f"  [claude] CLI error: {result.stderr[:500]}")
+            raise RuntimeError(f"claude CLI failed (exit {result.returncode}): {result.stderr[:200]}")
+        return result.stdout.strip()
 
 
 # --- Config loading ---
@@ -524,7 +537,7 @@ def step_manage_sources(repo_root, config):
     print(f"  Sources managed ({disabled} disabled)")
 
 
-def step_build_and_commit(repo_root, dry_run=False):
+def step_build_and_commit(repo_root, dry_run=False, push=False):
     """Step 8: Build site and commit all changes."""
     print("\n=== STEP 8: Build & Commit ===")
     build_site(repo_root)
@@ -555,15 +568,15 @@ def step_build_and_commit(repo_root, dry_run=False):
     subprocess.run(["git", "commit", "-m", commit_msg], cwd=repo_root, capture_output=True)
     print(f"  Committed: {commit_msg}")
 
-    # Push (only in CI)
-    if os.environ.get("GITHUB_ACTIONS"):
+    # Push (in CI or when --push flag is set)
+    if os.environ.get("GITHUB_ACTIONS") or push:
         subprocess.run(["git", "push"], cwd=repo_root, capture_output=True)
         print("  Pushed to remote")
 
 
 # --- Main orchestrator ---
 
-def run_cycle(repo_root, api_key, dry_run=False, fetch_only=False, category=None, reflect_only=False):
+def run_cycle(repo_root, api_key, dry_run=False, fetch_only=False, category=None, reflect_only=False, push=False):
     """Run the full autonomous generation cycle."""
     print(f"\n{'='*60}")
     print(f"  BLOG BOT GENERATION CYCLE")
@@ -592,7 +605,7 @@ def run_cycle(repo_root, api_key, dry_run=False, fetch_only=False, category=None
         # Just do reflection with empty post
         print("\n[REFLECT ONLY] Running reflection step.")
         step_reflect(config, {"topic": "reflection only"}, fetched_items, "", api_key, repo_root)
-        step_build_and_commit(repo_root, dry_run)
+        step_build_and_commit(repo_root, dry_run, push=push)
         return
 
     # Step 3: Select topic
@@ -628,7 +641,7 @@ def run_cycle(repo_root, api_key, dry_run=False, fetch_only=False, category=None
     step_manage_sources(repo_root, config)
 
     # Step 8: Build and commit
-    step_build_and_commit(repo_root, dry_run)
+    step_build_and_commit(repo_root, dry_run, push=push)
 
     print(f"\n{'='*60}")
     print(f"  CYCLE COMPLETE")
@@ -643,13 +656,11 @@ def main():
     parser.add_argument("--fetch-only", action="store_true", help="Only fetch sources, don't generate")
     parser.add_argument("--category", type=str, help="Override category for this post")
     parser.add_argument("--reflect-only", action="store_true", help="Only run reflection step")
+    parser.add_argument("--push", action="store_true", help="Push to remote after commit")
     args = parser.parse_args()
 
     repo_root = args.repo_root or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     api_key = os.environ.get("ANTHROPIC_API_KEY", "")
-    if not api_key and not args.fetch_only:
-        print("ERROR: ANTHROPIC_API_KEY environment variable required")
-        sys.exit(1)
 
     run_cycle(
         repo_root=repo_root,
@@ -658,6 +669,7 @@ def main():
         fetch_only=args.fetch_only,
         category=args.category,
         reflect_only=args.reflect_only,
+        push=args.push,
     )
 
 
