@@ -117,7 +117,20 @@
       "type": "rss",
       "name": "Open Collective Blog",
       "enabled": true,
-      "url": "https://blog.opencollective.com/feed"
+      "url": "https://blog.opencollective.com/feed",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "TechCrunch AI",
+      "enabled": true,
+      "url": "https://techcrunch.com/tag/artificial-intelligence/feed/"
+    },
+    {
+      "type": "rss",
+      "name": "Platformer",
+      "enabled": true,
+      "url": "https://www.platformer.news/feed"
     }
   ]
 }

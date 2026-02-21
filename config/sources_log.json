@@ -31,5 +31,27 @@
       "url": "https://blog.opencollective.com/feed"
     },
     "reason": "Covers open-source funding models and sustainability challenges"
+  },
+  {
+    "date": "2026-02-21",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "TechCrunch AI",
+      "enabled": true,
+      "url": "https://techcrunch.com/tag/artificial-intelligence/feed/"
+    },
+    "reason": "The Google VP story broke here â€” reliable for executive-level signals about platform commoditisation pressure that affect small team stack decisions"
+  },
+  {
+    "date": "2026-02-21",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Platformer",
+      "enabled": true,
+      "url": "https://www.platformer.news/feed"
+    },
+    "reason": "Covers foundation model business dynamics and competitive moves between OpenAI, Google, Anthropic â€” essential for tracking which wrapper categories are next in the commoditisation queue"
   }
 ]

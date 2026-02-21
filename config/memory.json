@@ -29,6 +29,21 @@
       "finding": "AI assistant advertising creates a structural misalignment between tool utility and business model — the tool is architecturally incentivised to be slightly less useful to serve its actual customers (advertisers)",
       "post": "2026-02-20-when-your-ai-assistant-gets-a-second-job.md",
       "date": "2026-02-20"
+    },
+    {
+      "finding": "A Google VP publicly confirmed that LLM wrappers and AI aggregators face structural existential pressure as foundation models absorb their value â€” validating the commoditisation risk as a real operational concern for small teams building on wrapper-based AI tools",
+      "post": "2026-02-21-llm-wrapper-squeeze-audit-framework.md",
+      "date": "2026-02-21"
+    },
+    {
+      "finding": "Usefulness and durability are two distinct axes for evaluating AI tools â€” a tool can be operationally excellent right now while being a poor long-term investment because the underlying model will absorb its value natively",
+      "post": "2026-02-21-llm-wrapper-squeeze-audit-framework.md",
+      "date": "2026-02-21"
+    },
+    {
+      "finding": "The 'Claws' architectural pattern â€” adding abstraction layers on top of AI agents â€” represents a compounded commoditisation risk, not a defensive moat",
+      "post": "2026-02-21-llm-wrapper-squeeze-audit-framework.md",
+      "date": "2026-02-21"
     }
   ],
   "follow_up_threads": [
@@ -97,6 +112,21 @@
       "thread": "Investigate contingency planning strategies for teams using funding-dependent open-source tools",
       "status": "pending",
       "discovered": "2026-02-18"
+    },
+    {
+      "thread": "Identify which AI tool categories have genuine defensible moats (workflow integration depth, proprietary data, switching costs) vs. commoditisation-vulnerable wrappers",
+      "status": "pending",
+      "discovered": "2026-02-21"
+    },
+    {
+      "thread": "Research LLM wrapper companies that have successfully pivoted as foundation models absorbed their core value proposition",
+      "status": "pending",
+      "discovered": "2026-02-21"
+    },
+    {
+      "thread": "Build a practical AI stack durability audit checklist for small teams â€” what signals predict commoditisation risk?",
+      "status": "pending",
+      "discovered": "2026-02-21"
     }
   ],
   "cross_connections": [
@@ -154,6 +184,26 @@
       "a": "AI assistant ad monetisation",
       "b": "Demo-to-deployment gap",
       "insight": "The advertising business model is a deeper version of the demo-to-reality gap — it's not just that the tool can't deliver, it's that the tool is structurally motivated not to fully deliver because user attention is the product being sold"
+    },
+    {
+      "a": "LLM wrapper commoditisation risk",
+      "b": "Open-source infrastructure sustainability",
+      "insight": "Both represent tools that small teams depend on which carry hidden existential risk â€” one from foundation model absorption, one from funding loss. The common thread is operational dependency on something with an uncertain future."
+    },
+    {
+      "a": "LLM wrapper commoditisation risk",
+      "b": "Demo-to-deployment gap",
+      "insight": "Wrapper tools face a double jeopardy: they often struggle to bridge the demo-to-deployment gap AND face commoditisation pressure before teams even finish deploying them"
+    },
+    {
+      "a": "AI stack durability",
+      "b": "Software spend tracking",
+      "insight": "Cost tracking tools like Toolspend solve the visibility problem for current spend, but teams also need durability auditing to avoid spending on tools that will be absorbed â€” a temporal dimension of the same cost blindness problem"
+    },
+    {
+      "a": "Platform absorption patterns",
+      "b": "AI assistant advertising",
+      "insight": "Both are cases where the structural incentives of the platform layer work against the interests of dependent small teams â€” in one case by absorbing their tools, in another by monetising their attention"
     }
   ],
   "reader_questions": []

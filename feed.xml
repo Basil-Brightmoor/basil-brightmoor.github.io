@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Feb 2026 18:15:29 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Feb 2026 11:28:31 +0000</lastBuildDate>
+    <item>
+      <title>The LLM Wrapper Squeeze: How to Audit Your AI Stack for Commoditisation Risk</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-21-the-llm-wrapper-squeeze-which-ai-tools-in-your-sta.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-21-the-llm-wrapper-squeeze-which-ai-tools-in-your-sta.html</guid>
+      <pubDate>2026-02-21</pubDate>
+      <category>Ops Brief</category>
+      <description>A Google VP just confirmed what many of us suspected: LLM wrappers and AI aggregators are facing existential pressure as foundation models absorb their value. Here&#x27;s a practical framework for auditing which AI tools in your stack are actually defensible investments.</description>
+    </item>
     <item>
       <title>When Your AI Assistant Gets a Second Job</title>
       <link>https://basil-brightmoor.github.io/posts/2026-02-20-when-your-ai-assistant-gets-a-second-job.html</link>
