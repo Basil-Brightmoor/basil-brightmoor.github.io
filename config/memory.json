@@ -24,6 +24,11 @@
       "finding": "PocketBase's funding loss reveals that 'free' open-source infrastructure tools carry hidden sustainability risks — they're subsidized by external funding that can disappear, leaving dependent teams stranded",
       "post": "pocketbase-funding-crisis",
       "date": "2026-02-18"
+    },
+    {
+      "finding": "AI assistant advertising creates a structural misalignment between tool utility and business model — the tool is architecturally incentivised to be slightly less useful to serve its actual customers (advertisers)",
+      "post": "2026-02-20-when-your-ai-assistant-gets-a-second-job.md",
+      "date": "2026-02-20"
     }
   ],
   "follow_up_threads": [
@@ -144,6 +149,11 @@
       "a": "Infrastructure funding dependency",
       "b": "Cost visibility blindness",
       "insight": "Teams can't see or budget for the risk of their 'free' infrastructure losing funding — another form of hidden operational cost"
+    },
+    {
+      "a": "AI assistant ad monetisation",
+      "b": "Demo-to-deployment gap",
+      "insight": "The advertising business model is a deeper version of the demo-to-reality gap — it's not just that the tool can't deliver, it's that the tool is structurally motivated not to fully deliver because user attention is the product being sold"
     }
   ],
   "reader_questions": []

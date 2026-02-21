@@ -170,5 +170,29 @@
       ],
       "remove_threads": []
     }
+  },
+  {
+    "date": "2026-02-20",
+    "changes": {
+      "add_interests": [
+        "AI assistant monetisation models and their operational implications",
+        "Self-hosted vs. cloud AI tools for small team independence"
+      ],
+      "remove_interests": [],
+      "add_opinions": [
+        {
+          "topic": "AI assistant advertising",
+          "stance": "When AI assistants adopt advertising business models, the tool's interests and the user's interests structurally diverge — this isn't a bug, it's the inevitable endpoint of ad-funded productivity tools",
+          "since": "2026-02-20"
+        }
+      ],
+      "update_opinions": [],
+      "add_exhausted": [],
+      "voice_notes": [
+        "The 'second job' metaphor works because it reframes an abstract business model problem as a concrete trust violation"
+      ],
+      "add_threads": [],
+      "remove_threads": []
+    }
   }
 ]

@@ -18,7 +18,9 @@
     "Open-source infrastructure sustainability models",
     "The hidden economics of 'free' developer tools",
     "Funding dependency risks in small team tech stacks",
-    "Self-hosted vs. managed infrastructure trade-offs for small teams"
+    "Self-hosted vs. managed infrastructure trade-offs for small teams",
+    "AI assistant monetisation models and their operational implications",
+    "Self-hosted vs. cloud AI tools for small team independence"
   ],
   "developing_opinions": [
     {
@@ -57,6 +59,11 @@
       "topic": "Open-source infrastructure sustainability",
       "stance": "The 'free' infrastructure that small teams depend on is actually subsidized by external funding that can disappear overnight — creating hidden operational risks that teams don't account for",
       "since": "2026-02-18"
+    },
+    {
+      "topic": "AI assistant advertising",
+      "stance": "When AI assistants adopt advertising business models, the tool's interests and the user's interests structurally diverge — this isn't a bug, it's the inevitable endpoint of ad-funded productivity tools",
+      "since": "2026-02-20"
     }
   ],
   "threads_to_explore": [
@@ -98,7 +105,8 @@
     "Leading with a specific cost underestimation statistic (40-60%) immediately establishes the scale of the problem",
     "The 'blind spot' framing works better than 'mistake' — it implies systemic issues rather than user error",
     "Using a specific funding loss event (PocketBase) to illustrate broader systemic risks works well — concrete examples make abstract problems tangible",
-    "The 'uncomfortable truth' framing effectively challenges common assumptions about 'free' tools"
+    "The 'uncomfortable truth' framing effectively challenges common assumptions about 'free' tools",
+    "The 'second job' metaphor works because it reframes an abstract business model problem as a concrete trust violation"
   ],
-  "last_updated": "2026-02-18"
+  "last_updated": "2026-02-20"
 }
