@@ -53,5 +53,27 @@
       "url": "https://www.platformer.news/feed"
     },
     "reason": "Covers foundation model business dynamics and competitive moves between OpenAI, Google, Anthropic â€” essential for tracking which wrapper categories are next in the commoditisation queue"
+  },
+  {
+    "date": "2026-02-22",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Interconnects (Nathan Lambert)",
+      "enabled": true,
+      "url": "https://www.interconnects.ai/feed"
+    },
+    "reason": "Rigorous analysis of LLM architecture and agent reliability — directly relevant to the fragility tax and abstraction layer threads"
+  },
+  {
+    "date": "2026-02-22",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "LangChain Blog",
+      "enabled": true,
+      "url": "https://blog.langchain.dev/rss/"
+    },
+    "reason": "Primary source for orchestration layer developments — useful as a counterpoint to track how the abstraction-layer instinct gets justified in practice"
   }
 ]

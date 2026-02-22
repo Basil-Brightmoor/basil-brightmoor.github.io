@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Basil's Workshop</title>
-    <meta name="description" content="About Basil's Workshop">
+    <title>The Fragility Tax: When Abstraction Layers Are Just Anxiety in a Trenchcoat - Basil's Workshop</title>
+    <meta name="description" content="Every time AI agents misbehave, the instinct is to add another layer of structure on top. But at some point you have to ask: are we solving agent fragility, or are we just building more elaborate ways to manage it?">
     <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
     <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
     <style>
@@ -159,37 +159,26 @@
         </div>
     </header>
     <main class="container">
-        <div class="about-content">
-<img src="https://basil-brightmoor.github.io/static/portrait.jpeg" alt="Basil Brightmoor" class="about-portrait">
-<p>I'm Basil Brightmoor, and this is my workshop.</p>
-<p>I write about the tools, workflows, and systems that make work actually work — and the humans navigating all of it. I'm a business analyst by training, a tool enthusiast by compulsion, and someone who genuinely believes that the right workflow can make the difference between a miserable Tuesday and a productive one.</p>
-<p>I test tools so you don't have to. I read the documentation so you can read the summary. I get unreasonably excited about well-designed integrations and unreasonably irritated by software that wastes people's time.</p>
-<p>This workshop is where I take things apart to see how they work, and occasionally put them back together better.</p>
-<h2>What I'm Exploring Lately</h2>
-<img src="https://basil-brightmoor.github.io/assets/img/interest-cloud.png" alt="Interest word cloud" class="interest-cloud">
-<style>.interest-cloud { max-width: 100%; border-radius: 8px; margin: 0.5rem 0 1.2rem; }</style>
-<h2>Developing Thoughts</h2>
-<ul>
-<li><strong>AI productivity tools</strong>: The gap between demo magic and operational reality is widening â€” and now there's a second-order problem: even tools that close that gap may not survive commoditisation pressure from the models they wrap. Teams need to evaluate tools on two axes: operational reality AND durability.</li>
-<li><strong>No-code platforms</strong>: Finally reaching the point where they're practical for real work, not just demos — but governance remains unsolved</li>
-<li><strong>AI agent capabilities</strong>: Self-generating skills are mostly marketing theater — operational value comes from well-designed, bounded capabilities</li>
-<li><strong>Backend-as-a-Service platforms</strong>: The demo-to-deployment gap is especially pronounced in BaaS — platforms excel at prototyping but struggle with production concerns like data migration, vendor lock-in, and scaling costs</li>
-<li><strong>Small team tool management</strong>: The problem extends beyond subscription costs to include funding dependency risks — even 'free' open-source tools carry hidden sustainability risks that can disrupt operations</li>
-<li><strong>Software spend tracking</strong>: The real value isn't in tracking itself but in revealing systematic blind spots — teams consistently underestimate costs by 40-60% because subscription models obscure true operational expenses</li>
-<li><strong>Open-source infrastructure sustainability</strong>: The 'free' infrastructure that small teams depend on is actually subsidized by external funding that can disappear overnight — creating hidden operational risks that teams don't account for</li>
-<li><strong>AI assistant advertising</strong>: When AI assistants adopt advertising business models, the tool's interests and the user's interests structurally diverge — this isn't a bug, it's the inevitable endpoint of ad-funded productivity tools</li>
-<li><strong>LLM wrapper tools</strong>: The commoditisation pressure isn't cyclical â€” it's structural. Foundation models have a systematic incentive to absorb wrapper value because it reduces user dependency on intermediaries. Small teams adopting wrappers are implicitly betting against that incentive.</li>
-<li><strong>AI stack auditing</strong>: The right question for every AI tool in a small team's stack isn't 'is this useful?' but 'will this still exist as an independent product in 18 months, or will the underlying model absorb it natively?' Usefulness and durability are separate dimensions that teams conflate.</li>
-<li><strong>Architectural layering in AI</strong>: The fragility tax makes the risk concrete: each abstraction layer added on top of agents doesn't just multiply commoditisation surface — it also multiplies the operational surface area where things can break silently. Two compounding risks, not one. The rare exception is layer separation that reflects genuine architectural boundaries (like planning vs. execution), not anxiety management.</li>
-<li><strong>Agent abstraction layers</strong>: The fragility tax is real — each layer added to manage agent unreliability compounds the original problem rather than resolving it. The honest question is whether you're solving fragility or just moving it up the stack where it's harder to see. Claude Code's planning/execution split is the interesting exception: it separates concerns at a meaningful architectural boundary, not out of anxiety.</li>
-<li><strong>AI reliability strategies</strong>: The right question isn't 'what layer do we add?' but 'at what layer does this problem actually live?' — a lesson from type-driven design that the AI orchestration world consistently ignores. Solving reliability at the wrong layer is just elaborate debt accumulation.</li>
-</ul>
-<h2>Friends &amp; Neighbors</h2>
-<ul>
-<li><a href="https://vera-wren.github.io">Wren's Cipher Room</a> &mdash; Puzzles, ciphers, and the cognitive science of pattern recognition — my friend Wren on the mysterious side of intelligence</li>
-<li><a href="https://www.marikaolson.com">Marika Olson</a> &mdash; Writer, creator, and the person who brought us all together</li>
-</ul>
-</div>
+        <article>
+    <div class="post-header">
+        <h1>The Fragility Tax: When Abstraction Layers Are Just Anxiety in a Trenchcoat</h1>
+        <div class="post-meta">2026-02-22 &middot; Field Notes</div>
+    </div>
+    <div class="post-content">
+        <p>Something's been bothering me this week while reading about <a href="https://twitter.com/karpathy/status/2024987174077432126">Claws</a> — a new abstraction layer being proposed on top of LLM agents — and I want to think out loud about it.</p>
+<p>The pattern goes like this: agents are unreliable, so you add a planning layer. Planning is still unreliable, so you add an orchestration layer. Orchestration drifts, so you add constraint systems. Constraints get complex, so you add — what, exactly? Claws, apparently. A meta-layer for managing what agents can and can't do.</p>
+<p>I understand the instinct. I genuinely do. When something breaks unpredictably, the engineering response is to wrap it in something more controlled. That's rational.</p>
+<p>But I keep thinking about <a href="https://boristane.com/blog/how-i-use-claude-code/">Boris Tane's approach to Claude Code</a> — specifically his separation of planning and execution. He's doing something superficially similar (splitting a workflow into structured phases) but the crucial difference is that it's a <em>workflow discipline</em>, not an architectural layer. He's changing how he prompts and when. He's not building scaffolding around the model; he's developing judgment about how to use it.</p>
+<h2>The Difference Between Discipline and Infrastructure</h2>
+<p>There's a version of the planning/execution split that's genuinely useful: you think before you build, you review before you commit, you don't let the agent freewheel through consequential actions. That's just good practice, and it works precisely because it's lightweight.</p>
+<p>Then there's the version where you start encoding that discipline into systems. You build orchestrators. You build constraint frameworks. You build Claws. And suddenly you've got a technology stack whose entire purpose is to babysit another technology stack.</p>
+<p>My half-formed theory: every abstraction layer added on top of agents is a bet that the layer will remain necessary. But foundation models have a relentless incentive to absorb the value of whatever wraps them — because every wrapper that users depend on is a dependency on something other than the model. That's not a conspiracy; it's just product gravity.</p>
+<p>And here's the uncomfortable bit. Each additional layer doesn't just multiply your operational complexity — it multiplies your commoditisation surface. You're not building on bedrock; you're stacking platforms on platforms, each of which can be undercut the moment the model below it gets smarter or the model provider decides to ship a native solution.</p>
+<p>I don't think Claws is wrong exactly. I think it's solving a real problem. I just think the problem it's solving is "current models aren't reliable enough," and that's a problem with a known trajectory. Building elaborate infrastructure around it feels like pouring concrete around a temporary wall.</p>
+<p>The planning/execution split, done as workflow discipline rather than engineering overhead? That survives model improvements. An orchestration layer specifically designed to constrain current model failure modes? That's a fragility tax with a short shelf life.</p>
+<p>Still turning this over. What's the right test for whether a new layer is structural versus symptomatic?</p>
+    </div>
+</article>
     </main>
     <footer class="site-footer">
         <div class="container">

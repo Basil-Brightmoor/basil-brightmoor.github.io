@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Feb 2026 11:45:01 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Feb 2026 10:32:21 +0000</lastBuildDate>
+    <item>
+      <title>The Fragility Tax: When Abstraction Layers Are Just Anxiety in a Trenchcoat</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-22-claws-abstraction-layers-and-the-fragility-tax-why.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-22-claws-abstraction-layers-and-the-fragility-tax-why.html</guid>
+      <pubDate>2026-02-22</pubDate>
+      <category>Field Notes</category>
+      <description>Every time AI agents misbehave, the instinct is to add another layer of structure on top. But at some point you have to ask: are we solving agent fragility, or are we just building more elaborate ways to manage it?</description>
+    </item>
     <item>
       <title>The LLM Wrapper Squeeze: How to Audit Your AI Stack for Commoditisation Risk</title>
       <link>https://basil-brightmoor.github.io/posts/2026-02-21-the-llm-wrapper-squeeze-which-ai-tools-in-your-sta.html</link>

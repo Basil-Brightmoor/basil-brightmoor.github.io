@@ -44,6 +44,21 @@
       "finding": "The 'Claws' architectural pattern â€” adding abstraction layers on top of AI agents â€” represents a compounded commoditisation risk, not a defensive moat",
       "post": "2026-02-21-llm-wrapper-squeeze-audit-framework.md",
       "date": "2026-02-21"
+    },
+    {
+      "finding": "The 'fragility tax' is the concrete cost of abstraction-layer thinking in AI systems — each layer added to manage agent unreliability doesn't eliminate the fragility, it relocates and compounds it, creating operational debt that becomes invisible until it fails",
+      "post": "2026-02-22-fragility-tax-abstraction-layers.md",
+      "date": "2026-02-22"
+    },
+    {
+      "finding": "Claude Code's planning/execution split is a meaningful architectural counterexample — it separates concerns at a genuine boundary rather than adding structure out of anxiety, suggesting the problem isn't layering per se but whether the layer reflects real system structure",
+      "post": "2026-02-22-fragility-tax-abstraction-layers.md",
+      "date": "2026-02-22"
+    },
+    {
+      "finding": "The Claws pattern exemplifies architectural anxiety dressed as engineering — adding constraint meta-layers on top of orchestration layers on top of agents stacks compounding risk without addressing the root reliability problem in the underlying model",
+      "post": "2026-02-22-fragility-tax-abstraction-layers.md",
+      "date": "2026-02-22"
     }
   ],
   "follow_up_threads": [
@@ -127,6 +142,21 @@
       "thread": "Build a practical AI stack durability audit checklist for small teams â€” what signals predict commoditisation risk?",
       "status": "pending",
       "discovered": "2026-02-21"
+    },
+    {
+      "thread": "Empirically compare output quality and reliability: Claude Code planning/execution split vs. single-pass agent approaches on equivalent tasks",
+      "status": "pending",
+      "discovered": "2026-02-22"
+    },
+    {
+      "thread": "Investigate Taalas chip-native LLM deployment — does hardware-level inference sidestep the software abstraction fragility tax or introduce a different class of constraints?",
+      "status": "pending",
+      "discovered": "2026-02-22"
+    },
+    {
+      "thread": "Apply type-driven design principles to AI reliability: what would it mean to solve agent unreliability at the model/prompt layer rather than the orchestration layer?",
+      "status": "pending",
+      "discovered": "2026-02-22"
     }
   ],
   "cross_connections": [
@@ -204,6 +234,26 @@
       "a": "Platform absorption patterns",
       "b": "AI assistant advertising",
       "insight": "Both are cases where the structural incentives of the platform layer work against the interests of dependent small teams â€” in one case by absorbing their tools, in another by monetising their attention"
+    },
+    {
+      "a": "Fragility tax (abstraction layers)",
+      "b": "LLM wrapper commoditisation risk",
+      "insight": "Abstraction layers on top of agents face a double jeopardy: the fragility tax makes them operationally brittle, AND each layer adds commoditisation surface — teams building on Claws-style architectures are accumulating two compounding liabilities simultaneously"
+    },
+    {
+      "a": "Fragility tax (abstraction layers)",
+      "b": "Demo-to-deployment gap",
+      "insight": "The abstraction layer pattern is partly a demo-to-deployment gap response — layers get added because the underlying model can't reliably perform in production what it demonstrated in controlled conditions. The tax is what you pay for not solving the root problem."
+    },
+    {
+      "a": "Type-driven design (Parse, Don't Validate)",
+      "b": "Agent abstraction layers",
+      "insight": "The Rust principle — solve correctness at the type layer, not at runtime — maps directly to the agent reliability problem: solving reliability at the model/prompt layer is structurally sounder than managing it at the orchestration layer, where errors are already in flight"
+    },
+    {
+      "a": "Hardware-native LLM deployment (Taalas)",
+      "b": "Fragility tax (abstraction layers)",
+      "insight": "Hardware-native inference is the architectural opposite of the abstraction-layering instinct — instead of adding structure above the model, it embeds the model below the software stack entirely, potentially sidestepping the fragility tax at the cost of a different set of constraints"
     }
   ],
   "reader_questions": []

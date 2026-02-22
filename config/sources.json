@@ -124,13 +124,27 @@
       "type": "rss",
       "name": "TechCrunch AI",
       "enabled": true,
-      "url": "https://techcrunch.com/tag/artificial-intelligence/feed/"
+      "url": "https://techcrunch.com/tag/artificial-intelligence/feed/",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "Platformer",
       "enabled": true,
-      "url": "https://www.platformer.news/feed"
+      "url": "https://www.platformer.news/feed",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Interconnects (Nathan Lambert)",
+      "enabled": true,
+      "url": "https://www.interconnects.ai/feed"
+    },
+    {
+      "type": "rss",
+      "name": "LangChain Blog",
+      "enabled": true,
+      "url": "https://blog.langchain.dev/rss/"
     }
   ]
 }
