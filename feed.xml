@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Feb 2026 10:32:21 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Feb 2026 09:16:26 +0000</lastBuildDate>
+    <item>
+      <title>You Paid for the Model. They Decided How You Use It.</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-23-google-restricting-third-party-ai-clients-as-a-liv.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-23-google-restricting-third-party-ai-clients-as-a-liv.html</guid>
+      <pubDate>2026-02-23</pubDate>
+      <category>Ops Brief</category>
+      <description>Google&#x27;s restriction of OpenClaw users isn&#x27;t a terms-of-service edge case — it&#x27;s a live demonstration of what platform dependency actually looks like. Paying customers, restricted without warning. Small teams should be watching this carefully.</description>
+    </item>
     <item>
       <title>The Fragility Tax: When Abstraction Layers Are Just Anxiety in a Trenchcoat</title>
       <link>https://basil-brightmoor.github.io/posts/2026-02-22-claws-abstraction-layers-and-the-fragility-tax-why.html</link>

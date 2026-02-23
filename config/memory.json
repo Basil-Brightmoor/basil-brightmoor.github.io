@@ -59,6 +59,21 @@
       "finding": "The Claws pattern exemplifies architectural anxiety dressed as engineering — adding constraint meta-layers on top of orchestration layers on top of agents stacks compounding risk without addressing the root reliability problem in the underlying model",
       "post": "2026-02-22-fragility-tax-abstraction-layers.md",
       "date": "2026-02-22"
+    },
+    {
+      "finding": "The OpenClaw restriction establishes a concrete distinction between 'paying for a service' and 'paying for a specific access method' — Google restricted paying AI Pro/Ultra subscribers not for non-payment but for using an OAuth-based third-party client. Payment confers no access architecture rights, only a tolerated relationship the platform can redefine unilaterally.",
+      "post": "2026-02-23-you-paid-for-the-model.md",
+      "date": "2026-02-23"
+    },
+    {
+      "finding": "OAuth-based third-party AI clients represent a compounded platform dependency: dependent on both the foundation model provider's continued tolerance AND the third-party client's continued permission. This is a distinct, higher-risk form of dependency than direct API integration — the permission layer is invisible until it's revoked.",
+      "post": "2026-02-23-you-paid-for-the-model.md",
+      "date": "2026-02-23"
+    },
+    {
+      "finding": "Platform dependency risk for small teams now has two distinct dimensions that require separate audit: (1) commoditisation risk — will the foundation model absorb this tool's value natively? and (2) access revocation risk — does this tool's access depend on a permission the platform can revoke without notice? The OpenClaw case makes the second dimension concrete.",
+      "post": "2026-02-23-you-paid-for-the-model.md",
+      "date": "2026-02-23"
     }
   ],
   "follow_up_threads": [
@@ -157,6 +172,21 @@
       "thread": "Apply type-driven design principles to AI reliability: what would it mean to solve agent unreliability at the model/prompt layer rather than the orchestration layer?",
       "status": "pending",
       "discovered": "2026-02-22"
+    },
+    {
+      "thread": "Map ToS evolution across major foundation model providers around third-party access — is the OpenClaw enforcement a one-off or an early signal of tightening?",
+      "status": "pending",
+      "discovered": "2026-02-23"
+    },
+    {
+      "thread": "Compare access durability: OAuth third-party clients vs. direct API key integrations for AI tools — which is structurally safer for small teams?",
+      "status": "pending",
+      "discovered": "2026-02-23"
+    },
+    {
+      "thread": "Investigate whether federated AI access patterns are emerging as a structural response to foundation model platform dependency",
+      "status": "pending",
+      "discovered": "2026-02-23"
     }
   ],
   "cross_connections": [
@@ -254,6 +284,26 @@
       "a": "Hardware-native LLM deployment (Taalas)",
       "b": "Fragility tax (abstraction layers)",
       "insight": "Hardware-native inference is the architectural opposite of the abstraction-layering instinct — instead of adding structure above the model, it embeds the model below the software stack entirely, potentially sidestepping the fragility tax at the cost of a different set of constraints"
+    },
+    {
+      "a": "OpenClaw access revocation",
+      "b": "LLM wrapper commoditisation risk",
+      "insight": "Wrapper tools face two distinct elimination paths, not one: gradual commoditisation (the foundation model absorbs their value) and immediate access revocation (the platform terminates their OAuth permission). The second is faster and less predictable than the first. Small teams depending on wrapper tools should audit for both vectors separately."
+    },
+    {
+      "a": "OpenClaw access revocation",
+      "b": "Fragility tax (abstraction layers)",
+      "insight": "The OAuth permission layer is a specific, high-cost fragility point — it can be revoked without the user's knowledge until the moment of failure. This is the fragility tax at the access architecture layer: the abstraction that made the tool convenient (OAuth vs. direct API) is the same abstraction that made the access fragile."
+    },
+    {
+      "a": "Platform dependency (OpenClaw)",
+      "b": "Open-source infrastructure sustainability",
+      "insight": "Both represent cases where small teams pay for — or depend on — something that can be removed unilaterally without recourse. The structural position is identical: operational dependency on a resource controlled by an entity whose interests don't align with continued team access."
+    },
+    {
+      "a": "Federated architecture (Loops)",
+      "b": "Platform dependency (OpenClaw)",
+      "insight": "Loops' emergence as a federated TikTok alternative and OpenClaw's restriction illustrate the same dynamic from opposite sides: centralized platforms revoke access, federated architectures structurally eliminate the revocation vector. The question for AI tooling is whether a federated inference equivalent is technically and economically viable."
     }
   ],
   "reader_questions": []

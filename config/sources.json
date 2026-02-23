@@ -138,13 +138,21 @@
       "type": "rss",
       "name": "Interconnects (Nathan Lambert)",
       "enabled": true,
-      "url": "https://www.interconnects.ai/feed"
+      "url": "https://www.interconnects.ai/feed",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "LangChain Blog",
       "enabled": true,
-      "url": "https://blog.langchain.dev/rss/"
+      "url": "https://blog.langchain.dev/rss/",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Google AI Developer Forum",
+      "enabled": true,
+      "url": "https://discuss.ai.google.dev/latest.rss"
     }
   ]
 }

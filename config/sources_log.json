@@ -75,5 +75,16 @@
       "url": "https://blog.langchain.dev/rss/"
     },
     "reason": "Primary source for orchestration layer developments — useful as a counterpoint to track how the abstraction-layer instinct gets justified in practice"
+  },
+  {
+    "date": "2026-02-23",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Google AI Developer Forum",
+      "enabled": true,
+      "url": "https://discuss.ai.google.dev/latest.rss"
+    },
+    "reason": "The OpenClaw thread surfaced in this forum — it's a reliable early-signal source for foundation model policy changes that affect third-party integrations before they reach mainstream coverage"
   }
 ]
