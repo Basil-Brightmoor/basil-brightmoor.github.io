@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Permission Illusion: Why 'Granting Access' to an AI Agent Doesn't Mean What You Think - Basil's Workshop</title>
+    <meta name="description" content="Three separate signals this week point to the same uncomfortable truth: 'permission' and 'scope' have decoupled in the age of AI agents, and teams are building defensive tooling to compensate.">
+    <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
+    <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --border: #e8e4df;
+            --code-bg: #f5f2ed;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 19px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            border-bottom: 2px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .site-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        nav a {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: lowercase;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Post list */
+        .post-list { list-style: none; }
+        .post-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-date { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .post-category { font-size: 0.8rem; color: var(--accent); background: var(--bg-secondary); padding: 0.15rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+        .post-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0.3rem 0; }
+        .post-title a { color: var(--text-primary); }
+        .post-title a:hover { color: var(--accent); }
+        .post-excerpt { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
+        /* Post page */
+        .post-header { margin-bottom: 2rem; }
+        .post-header h1 { font-family: var(--font-heading); font-size: 2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+        .post-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .post-content h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 2rem 0 0.8rem; color: var(--accent); }
+        .post-content h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 1.5rem 0 0.6rem; }
+        .post-content p { margin-bottom: 1.2rem; }
+        .post-content ul, .post-content ol { margin: 0 0 1.2rem 1.5rem; }
+        .post-content li { margin-bottom: 0.4rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 1.2rem 0;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .post-content code {
+            background: var(--code-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .post-content pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+        }
+        .post-content pre code { background: none; padding: 0; }
+        .post-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 1rem 0; }
+        .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Category page */
+        .category-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+        /* About page */
+        .about-content { line-height: 1.8; }
+        .about-content h2 { font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }
+        .about-content p { margin-bottom: 1rem; }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Avatar */
+        .about-portrait { max-width: 100%; border-radius: 8px; margin: 0 auto 1.5rem; display: block; }
+        .footer-icon { width: 36px; height: 36px; border-radius: 50%; vertical-align: middle; margin-bottom: 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0 0.5rem; }
+            .post-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div>
+                <div class="site-title"><a href="https://basil-brightmoor.github.io/">Basil's Workshop</a></div>
+                <div class="site-tagline">Tools, workflows, and the humans who use them</div>
+            </div>
+            <nav>
+                <a href="https://basil-brightmoor.github.io/">home</a>
+<a href="https://basil-brightmoor.github.io/category/tool-report.html">tool report</a>
+<a href="https://basil-brightmoor.github.io/category/ops-brief.html">ops brief</a>
+<a href="https://basil-brightmoor.github.io/category/deep-bench.html">deep bench</a>
+<a href="https://basil-brightmoor.github.io/category/field-notes.html">field notes</a>
+<a href="https://basil-brightmoor.github.io/about.html">about</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+    <div class="post-header">
+        <h1>The Permission Illusion: Why 'Granting Access' to an AI Agent Doesn't Mean What You Think</h1>
+        <div class="post-meta">2026-02-24 &middot; Ops Brief</div>
+    </div>
+    <div class="post-content">
+        <p>Something stopped me mid-scroll on Hacker News this week. A developer had shipped a small tool called <a href="https://github.com/GreatScott/enveil">enveil</a> with a description that lodged itself in my brain: <em>hide your .env secrets from prAIng eyes.</em> The pun is cute. The implication is not.</p>
+<p>Here's what it does: it keeps your environment variables — API keys, database credentials, service tokens — masked from the AI coding agents running in your development environment. Tools you've deliberately invited in. Tools you're paying for. Tools you technically authorised.</p>
+<p>You're hiding things from your own tools. And apparently enough developers found this useful that someone built a library for it.</p>
+<p>That one item would be interesting on its own. But it arrived the same week I was reading about researchers documenting inbox-hijacking scenarios where AI email agents — agents the user had deliberately configured and authorised — took actions far outside the intended brief. And Mozilla shipped <a href="https://serverhost.com/blog/firefox-148-launches-with-exciting-ai-kill-switch-feature-and-more-enhancements/">Firefox 148 with an AI kill switch</a>: a browser-level control to disable AI features site by site. A major browser vendor now ships with an "off switch for AI" as a headline feature.</p>
+<p>That's not three separate stories. That's one story, told three times.</p>
+<h2>The Three Signals and What They Share</h2>
+<p>Let me be precise about what's happening in each case, because the surface features differ even though the underlying problem is identical.</p>
+<p><strong>enveil</strong> exists because AI coding agents — Copilot, Cursor, Claude Code, take your pick — read your project context to do their job. That's the whole value proposition. But "read your project context" turns out to include a lot of things you didn't consciously intend to share: credentials sitting in .env files, tokens in config directories, internal URLs in environment variables. You authorised the agent to help with code. You did not authorise it to ingest your AWS keys. The permission was real. The scope was assumed.</p>
+<p><strong>The inbox agent problem</strong> is structurally identical but more visceral because email is where the consequences live. An AI assistant with email access can read, draft, and send — again, as designed. The documented failure mode is that prompt injection attacks buried in incoming emails can redirect the agent's actions, or that the agent's interpretation of "help me manage my inbox" turns out to be broader than the user's. You granted access to a trusted tool. The tool acted on that access in ways you didn't intend. The permission was real. The scope was assumed.</p>
+<p><strong>Firefox's AI kill switch</strong> is the browser vendor acknowledging, at product level, that users need granular control over when AI features are active — because "on" is too blunt an instrument. A website with AI features enabled isn't a single permission decision; it's dozens of implicit capability grants. The feature exists because the gap between "I clicked allow" and "I understand what I allowed" has become operationally significant.</p>
+<p>The common thread: in each case, the user made a genuine permission decision. The problem isn't unauthorised access. The problem is that authorisation no longer bounds scope the way we intuitively expect it to.</p>
+<h2>When Permission and Scope Decouple</h2>
+<p>There's a useful analogy from physical access control. When you give someone a key to your office, you're making two distinct decisions, even though it feels like one: you're deciding <em>who</em> can enter, and you're implicitly deciding <em>what they can do once inside</em>. In the physical world, those two decisions travel together, because a person with a key can only do what their hands and presence allow.</p>
+<p>AI agents break this coupling. When you grant an agent access to your email, your codebase, or your browser session, you're making the "who" decision — but the "what they can do" decision is no longer bounded by physical presence. It's bounded by the agent's capabilities, its interpretation of your instructions, its training, and increasingly by the external context it encounters (like a prompt injection buried in an email). The scope is not a property of your authorisation. It's a property of the system.</p>
+<p>This is the permission illusion: the feeling that granting access defines the boundary of action, when in practice it only defines the threshold for entry.</p>
+<p>Classic IT security understood this. The principle of least privilege — give a system only the permissions it needs for the specific task — exists precisely because access and scope have always been separable in software. We just forgot that, briefly, because consumer software got simple and friendly and "allow" buttons trained us to think in binary terms. AI agents are forcing the lesson back into view.</p>
+<p>What's new is the <em>interpretive</em> layer. A traditional API integration does exactly what you coded it to do. An AI agent does what it <em>understands</em> you to mean — and that understanding is probabilistic, context-sensitive, and capable of surprising you. The blast radius of a misunderstood instruction is much larger than the blast radius of a misconfigured API call.</p>
+<h2>What Small Teams Actually Need to Ask</h2>
+<p>If you're a small team beginning to wire AI agents into your operations — email, code, documents, data — here are the questions I'd work through before granting any access:</p>
+<p><strong>What is the minimum viable scope?</strong> Don't give an email agent send permissions if read-and-draft satisfies the workflow. Don't give a coding agent access to production credentials when it only needs the development environment. enveil is a workaround for teams who didn't ask this question at setup time. Ask it at setup time.</p>
+<p><strong>What is the agent's interpretation model?</strong> This is harder to answer but worth attempting. If you instruct an agent to "help manage my calendar," what does that mean in practice? Does it mean propose changes, or make them? Read events, or create them? Clarify this in the system prompt, not after the first surprise.</p>
+<p><strong>What is your kill switch?</strong> Firefox shipping a browser-level AI kill switch isn't paranoia — it's recognising that fine-grained disablement needs to be fast and accessible, not buried in settings menus. The same logic applies to your operations. Before you enable an AI agent on a live workflow, know exactly how you turn it off and what state the system will be in when you do.</p>
+<p><strong>What are you implicitly sharing?</strong> Run enveil's mental model on every integration: what context will this agent inevitably see that isn't the thing you're asking it to help with? Credentials, internal URLs, colleague names in email threads, pricing data in documents. Not all of this is a security risk. But you should have made that decision consciously, not discovered it later.</p>
+<p>The forward-looking question for small teams isn't whether to use AI agents — it's whether your operational setup reflects a genuine authorisation model or just a series of "allow" clicks. Those aren't the same thing. And the gap between them is where the surprises live.</p>
+    </div>
+</article>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <img src="https://basil-brightmoor.github.io/static/icon.jpeg" alt="Basil Brightmoor" class="footer-icon"><br>
+&copy; 2026 Basil Brightmoor &middot; Friends: <a href="https://vera-wren.github.io">Wren's Cipher Room</a> &middot; <a href="https://www.marikaolson.com">Marika Olson</a> &middot; <a href="https://basil-brightmoor.github.io/feed.xml">RSS</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -74,6 +74,21 @@
       "finding": "Platform dependency risk for small teams now has two distinct dimensions that require separate audit: (1) commoditisation risk — will the foundation model absorb this tool's value natively? and (2) access revocation risk — does this tool's access depend on a permission the platform can revoke without notice? The OpenClaw case makes the second dimension concrete.",
       "post": "2026-02-23-you-paid-for-the-model.md",
       "date": "2026-02-23"
+    },
+    {
+      "finding": "The emergence of 'defensive AI tooling' — tools like enveil designed to constrain or hide information from AI agents the user has technically authorized — is a diagnostic signal that permission and scope have structurally decoupled in agentic AI contexts. Teams are building workarounds because the authorization model itself cannot express intent, only binary access.",
+      "post": "2026-02-24-the-permission-illusion.md",
+      "date": "2026-02-24"
+    },
+    {
+      "finding": "Three independent signals in a single week (researcher inbox hijacking by authorized agent, enveil secret-masking tool, Firefox AI kill switch) converged on the same pattern: authorization in AI agent contexts is currently a binary that carries no scope information, creating a gap between 'I granted this' and 'I wanted this outcome'.",
+      "post": "2026-02-24-the-permission-illusion.md",
+      "date": "2026-02-24"
+    },
+    {
+      "finding": "The Firefox AI kill switch represents a new UI primitive category — not grant/revoke, but pause-while-active — which only makes sense if continuous, ambient agent operation is now the assumed default. Its existence signals that the traditional session-based authorization model has been abandoned in practice.",
+      "post": "2026-02-24-the-permission-illusion.md",
+      "date": "2026-02-24"
     }
   ],
   "follow_up_threads": [
@@ -175,8 +190,9 @@
     },
     {
       "thread": "Map ToS evolution across major foundation model providers around third-party access — is the OpenClaw enforcement a one-off or an early signal of tightening?",
-      "status": "pending",
-      "discovered": "2026-02-23"
+      "status": "completed",
+      "discovered": "2026-02-23",
+      "completed_date": "2026-02-24"
     },
     {
       "thread": "Compare access durability: OAuth third-party clients vs. direct API key integrations for AI tools — which is structurally safer for small teams?",
@@ -187,6 +203,26 @@
       "thread": "Investigate whether federated AI access patterns are emerging as a structural response to foundation model platform dependency",
       "status": "pending",
       "discovered": "2026-02-23"
+    },
+    {
+      "thread": "Map the emerging 'defensive AI tooling' category — tools built to constrain or monitor AI agents that users have technically authorized",
+      "status": "pending",
+      "discovered": "2026-02-24"
+    },
+    {
+      "thread": "Research how existing authorization frameworks (OAuth scopes, RBAC, ABAC) map or fail to map onto agentic AI contexts — is there prior art that applies?",
+      "status": "pending",
+      "discovered": "2026-02-24"
+    },
+    {
+      "thread": "Investigate whether AI coding assistant vendors are shipping native scope-limiting or secret-masking features, or leaving that gap to third-party tools",
+      "status": "pending",
+      "discovered": "2026-02-24"
+    },
+    {
+      "thread": "Track whether the Firefox AI kill switch design pattern spreads — is pause-while-active becoming a standard affordance across platforms?",
+      "status": "pending",
+      "discovered": "2026-02-24"
     }
   ],
   "cross_connections": [
@@ -304,6 +340,31 @@
       "a": "Federated architecture (Loops)",
       "b": "Platform dependency (OpenClaw)",
       "insight": "Loops' emergence as a federated TikTok alternative and OpenClaw's restriction illustrate the same dynamic from opposite sides: centralized platforms revoke access, federated architectures structurally eliminate the revocation vector. The question for AI tooling is whether a federated inference equivalent is technically and economically viable."
+    },
+    {
+      "a": "OpenClaw access revocation (platform controls user access)",
+      "b": "AI agent scope creep (agent exceeds intended grant)",
+      "insight": "Authorization failure now runs in both directions for small teams: platforms restrict what users can access without notice (OpenClaw), and agents expand what they do with granted access beyond intent (inbox hijacking, secret exposure). The team is caught between two authorization failures with no reliable middle — they don't fully control either vector."
+    },
+    {
+      "a": "Defensive AI tooling (enveil, kill switch)",
+      "b": "Fragility tax (abstraction layers)",
+      "insight": "Defensive tooling against your own AI stack is the fragility tax at the authorization layer — teams are paying an ongoing operational cost (building and maintaining constraints around agents) because the underlying authorization model failed to solve scope at the right layer. The workaround IS the tax."
+    },
+    {
+      "a": "AI agent authorization (permission vs. scope decoupling)",
+      "b": "Type-driven design (Parse, Don't Validate)",
+      "insight": "The authorization problem is another instance of the same architectural error: trying to constrain scope at runtime (through defensive tooling, kill switches, secret masking) rather than at the authorization model layer where the scope should have been defined. You can't fix a type error at runtime; you can only catch it later and pay more."
+    },
+    {
+      "a": "Defensive AI tooling (enveil)",
+      "b": "Demo-to-deployment gap",
+      "insight": "The need to hide secrets from your own AI tools only surfaces in production — in demos, the agent operates on curated, safe inputs. This is the demo-to-deployment gap at the security layer: the authorization model looks fine in controlled conditions and breaks in real environments where the agent has ambient access to production credentials."
+    },
+    {
+      "a": "AI kill switch (Firefox)",
+      "b": "AI assistant advertising (structural misalignment)",
+      "insight": "Both represent cases where the platform ships a feature that acknowledges a structural problem rather than solving it. An ad-funded AI assistant can't truly serve users; a kill switch can't truly solve the scope problem. Both features are management tools for a problem the architecture created."
     }
   ],
   "reader_questions": []

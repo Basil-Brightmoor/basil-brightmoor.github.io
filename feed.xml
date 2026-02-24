@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Feb 2026 09:16:26 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Feb 2026 07:21:44 +0000</lastBuildDate>
+    <item>
+      <title>The Permission Illusion: Why &#x27;Granting Access&#x27; to an AI Agent Doesn&#x27;t Mean What You Think</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-24-the-permission-illusion-why-granting-access-to-an-.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-24-the-permission-illusion-why-granting-access-to-an-.html</guid>
+      <pubDate>2026-02-24</pubDate>
+      <category>Ops Brief</category>
+      <description>Three separate signals this week point to the same uncomfortable truth: &#x27;permission&#x27; and &#x27;scope&#x27; have decoupled in the age of AI agents, and teams are building defensive tooling to compensate.</description>
+    </item>
     <item>
       <title>You Paid for the Model. They Decided How You Use It.</title>
       <link>https://basil-brightmoor.github.io/posts/2026-02-23-google-restricting-third-party-ai-clients-as-a-liv.html</link>

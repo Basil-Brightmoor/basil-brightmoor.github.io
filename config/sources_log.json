@@ -86,5 +86,27 @@
       "url": "https://discuss.ai.google.dev/latest.rss"
     },
     "reason": "The OpenClaw thread surfaced in this forum — it's a reliable early-signal source for foundation model policy changes that affect third-party integrations before they reach mainstream coverage"
+  },
+  {
+    "date": "2026-02-24",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Security Boulevard",
+      "enabled": true,
+      "url": "https://securityboulevard.com/feed/"
+    },
+    "reason": "Covers agentic AI security and authorization issues with operational specificity — the permission/scope decoupling problem will generate security research before it generates ops coverage"
+  },
+  {
+    "date": "2026-02-24",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Mozilla Blog",
+      "enabled": true,
+      "url": "https://blog.mozilla.org/en/feed/"
+    },
+    "reason": "Firefox shipped the AI kill switch this week — Mozilla is actively making architectural decisions about AI agent interaction models that will surface more signals worth tracking"
   }
 ]

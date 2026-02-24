@@ -152,7 +152,20 @@
       "type": "rss",
       "name": "Google AI Developer Forum",
       "enabled": true,
-      "url": "https://discuss.ai.google.dev/latest.rss"
+      "url": "https://discuss.ai.google.dev/latest.rss",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Security Boulevard",
+      "enabled": true,
+      "url": "https://securityboulevard.com/feed/"
+    },
+    {
+      "type": "rss",
+      "name": "Mozilla Blog",
+      "enabled": true,
+      "url": "https://blog.mozilla.org/en/feed/"
     }
   ]
 }
