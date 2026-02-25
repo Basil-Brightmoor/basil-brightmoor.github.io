@@ -40,7 +40,11 @@
     "Secret management in AI-augmented development environments",
     "The 'kill switch' as a new UI primitive for AI agent control",
     "Ambient authority risks in AI agent architectures",
-    "The operationalisation of least-privilege principles for AI agents"
+    "The operationalisation of least-privilege principles for AI agents",
+    "Programmatic control surfaces in AI coding agents — the socket layer beneath the interactive UI",
+    "Third-party tooling as ambient authority diagnostic — what gets built on top reveals what was always underneath",
+    "The distinction between capability creation vs. capability exposure in AI agent security",
+    "Remote orchestration patterns for AI coding agents — CI integration, pipeline handoff, headless operation"
   ],
   "developing_opinions": [
     {
@@ -92,9 +96,9 @@
     },
     {
       "topic": "AI stack auditing",
-      "stance": "AI stack auditing now requires three distinct axes: (1) commoditisation risk — will the foundation model absorb this tool natively? (2) access revocation risk — can the platform terminate access without notice? (3) scope risk — once granted, does the agent operate within the bounds you intended, or does 'permission' become ambient authority? The third axis is the newest and currently the least understood by small teams.",
+      "stance": "AI stack auditing now requires four distinct axes: (1) commoditisation risk — will the foundation model absorb this tool natively? (2) access revocation risk — can the platform terminate access without notice? (3) scope risk — once granted, does the agent operate within the bounds you intended? (4) surface risk — does the agent maintain a control surface that can be addressed from outside your session, by tooling you didn't authorize and may not know exists? The fourth axis is the newest and currently invisible to most small teams.",
       "since": "2026-02-21",
-      "updated": "2026-02-24"
+      "updated": "2026-02-25"
     },
     {
       "topic": "Architectural layering in AI",
@@ -125,8 +129,9 @@
     },
     {
       "topic": "AI agent authorization models",
-      "stance": "The current authorization model for AI agents is a binary that has no concept of scope — 'granted' means the agent can do anything the permission technically allows, not what you intended when you granted it. This isn't an implementation gap; it's a category error baked into how authorization is currently designed for agents.",
-      "since": "2026-02-24"
+      "stance": "The current authorization model for AI agents is a binary with no concept of scope — 'granted' means the agent can do anything the permission technically allows, not what you intended when you granted it. The Claude Code Remote Control case adds a third dimension: 'granted' also means the agent is driveable by anything that can reach its control surface, not just the session you opened. You didn't just authorize the agent; you authorized whoever can address it.",
+      "since": "2026-02-24",
+      "updated": "2026-02-25"
     },
     {
       "topic": "Defensive tooling against your own AI stack",
@@ -137,6 +142,16 @@
       "topic": "AI kill switches as a UI primitive",
       "stance": "Firefox shipping a kill switch isn't a safety feature — it's an admission that the grant/revoke model is insufficient for agents operating in continuous, ambient contexts. The kill switch is what you add when 'I authorized this' no longer reliably predicts 'I wanted this outcome'.",
       "since": "2026-02-24"
+    },
+    {
+      "topic": "Third-party AI agent tooling as security diagnostic",
+      "stance": "When a third party can build a remote control for your coding agent, the tool isn't the story — the fact that the socket was always there is. Third-party tooling built on top of authorized agents is an unintentional audit of ambient authority surface. The more capable the remote, the more authority the agent was quietly holding.",
+      "since": "2026-02-25"
+    },
+    {
+      "topic": "Shell access grants for AI coding agents",
+      "stance": "Granting a coding agent shell access isn't a one-time authorization decision — it's the opening of an ambient authority surface that persists, listens, and can be driven from outside the session you think you're controlling. Most small teams frame this as a capability grant; it's actually a continuous exposure.",
+      "since": "2026-02-25"
     }
   ],
   "threads_to_explore": [
@@ -176,9 +191,12 @@
     "Map the emerging 'defensive AI tooling' product category — what other tools exist to constrain, monitor, or limit AI agents that users have technically authorized?",
     "Research how existing authorization frameworks (OAuth scopes, RBAC, ABAC) map — or fail to map — onto agentic AI contexts",
     "Investigate whether any AI coding assistant vendors are shipping native scope-limiting or secret-masking features natively, vs. leaving it to third-party tools like enveil",
-    "Track whether 'ambient authority' becomes a recognized security concern in AI agent contexts the way it is in operating system security",
     "Investigate Steerling-8B's token explainability approach — does interpretability at the token level offer a different path to agent scope verification?",
-    "Research whether the Firefox AI kill switch design pattern is spreading to other browsers or platforms — is this becoming a standard affordance?"
+    "Research whether the Firefox AI kill switch design pattern is spreading to other browsers or platforms — is this becoming a standard affordance?",
+    "Map which AI coding agents expose programmatic control surfaces and what the authorization model for those surfaces looks like — is the socket pattern common across Cursor, Copilot, Aider, etc.?",
+    "Investigate whether 'ambient authority surface mapping' is emerging as a security practice for AI-augmented development environments — any tooling or frameworks for this?",
+    "Research whether the Claude Code Remote Control architecture (socket-based, session-addressable) is intentional design or incidental exposure — does Anthropic treat this as a feature or a surface?",
+    "Track whether remote control tooling for AI coding agents becomes a product category — and whether its normalization signals that ambient authority is being accepted rather than solved"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -187,16 +205,16 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "'Anxiety in a trenchcoat' is effective because it makes the architectural critique personal and slightly ridiculous — it implies the engineer is solving their own discomfort, not the system's problem",
-    "Using a specific, real tool (Claude Code) as 'evidence either way' rather than a clean example gives the post analytical credibility — it signals the writer isn't cherry-picking",
-    "The 'fragility tax' metaphor works because taxes are unavoidable, cumulative, and often invisible until you total them up — all true of abstraction layer costs",
     "The post title 'You Paid for the Model. They Decided How You Use It.' works because it exposes the asymmetry in a single sentence — the reader expects payment to confer rights and the title immediately reveals it doesn't. The gap between expectation and reality is the whole argument.",
     "Framing a live event as a 'working demonstration' rather than a warning or prediction earns credibility — the evidence is already in, which changes the rhetorical register from speculation to documentation",
     "The 'not a bug in the system — it is the system' construction is worth repeating across posts where structural incentives explain surface behavior. It short-circuits the instinct to treat platform actions as mistakes.",
     "The cognitive dissonance frame — 'hiding things from tools you invited in, tools you're paying for' — earns its keep by making the reader feel the wrongness before the argument explains it. Lead with the feeling, then supply the framework.",
     "Three unconnected signals validating a single pattern is more persuasive than one strong example — it removes the 'cherry-picking' objection before it forms. The reader thinks: if these three independent things all point the same direction, the direction is real.",
     "The pun ('prAIng eyes') is a useful entry point precisely because it's cute — it disarms before the implication lands. The contrast between the lightness of the pun and the weight of the implication is the rhetorical move.",
-    "'Permission and scope have decoupled' is worth keeping as a repeatable phrase — it names a real phenomenon precisely, in five words, without jargon. These are the phrases worth banking."
+    "'Permission and scope have decoupled' is worth keeping as a repeatable phrase — it names a real phenomenon precisely, in five words, without jargon. These are the phrases worth banking.",
+    "'Someone built a remote for your coding agent. That's the diagnosis.' works because it performs the pivot in the title — reader comes in for a product review and the second sentence tells them they're actually reading a security diagnostic. The structure of the title enacts the structure of the post.",
+    "The 'listening socket' metaphor earns its keep by being technically precise and intuitively threatening simultaneously — it doesn't require the reader to understand networking to feel the implication. A socket that listens is waiting for instructions you didn't know it was waiting for.",
+    "Reframing the key question from 'is this tool useful?' to 'did you know your agent was always driveable?' is the rhetorical move that converts a tool report into structural analysis — it shifts agency from the tool to the reader's prior assumptions."
   ],
-  "last_updated": "2026-02-24"
+  "last_updated": "2026-02-25"
 }

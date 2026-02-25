@@ -108,5 +108,27 @@
       "url": "https://blog.mozilla.org/en/feed/"
     },
     "reason": "Firefox shipped the AI kill switch this week — Mozilla is actively making architectural decisions about AI agent interaction models that will surface more signals worth tracking"
+  },
+  {
+    "date": "2026-02-25",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "PortSwigger Daily Swig",
+      "enabled": true,
+      "url": "https://portswigger.net/daily-swig/rss"
+    },
+    "reason": "Security news with consistent coverage of emerging attack surfaces — useful for tracking whether ambient authority in AI agents gets formalized as a vulnerability class"
+  },
+  {
+    "date": "2026-02-25",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Claude Code Releases",
+      "enabled": true,
+      "url": "https://github.com/anthropics/claude-code/releases.atom"
+    },
+    "reason": "Direct signal on when Anthropic ships native scope-limiting, secret-masking, or control-surface features — the gap this post documented"
   }
 ]

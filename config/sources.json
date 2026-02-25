@@ -159,13 +159,27 @@
       "type": "rss",
       "name": "Security Boulevard",
       "enabled": true,
-      "url": "https://securityboulevard.com/feed/"
+      "url": "https://securityboulevard.com/feed/",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "Mozilla Blog",
       "enabled": true,
-      "url": "https://blog.mozilla.org/en/feed/"
+      "url": "https://blog.mozilla.org/en/feed/",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "PortSwigger Daily Swig",
+      "enabled": true,
+      "url": "https://portswigger.net/daily-swig/rss"
+    },
+    {
+      "type": "rss",
+      "name": "Claude Code Releases",
+      "enabled": true,
+      "url": "https://github.com/anthropics/claude-code/releases.atom"
     }
   ]
 }

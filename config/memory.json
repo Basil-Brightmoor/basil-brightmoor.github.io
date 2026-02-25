@@ -89,6 +89,21 @@
       "finding": "The Firefox AI kill switch represents a new UI primitive category — not grant/revoke, but pause-while-active — which only makes sense if continuous, ambient agent operation is now the assumed default. Its existence signals that the traditional session-based authorization model has been abandoned in practice.",
       "post": "2026-02-24-the-permission-illusion.md",
       "date": "2026-02-24"
+    },
+    {
+      "finding": "Claude Code Remote Control reveals that AI coding agents with shell access maintain a persistent, addressable control surface — a 'listening socket' — that exists independently of the session the user thinks they're controlling. The remote control tool didn't create this surface; it exposed that it was always there. Third-party remote tooling is therefore an unintentional ambient authority audit.",
+      "post": "2026-02-25-claude-code-remote-control-ambient-authority.md",
+      "date": "2026-02-25"
+    },
+    {
+      "finding": "The authorization failure for AI coding agents now has a fourth dimension beyond commoditisation risk, access revocation risk, and scope risk: surface risk — the agent may be addressable from outside the user's session by tooling the user never authorized, if something can reach the agent's control interface. The user authorized the agent; they may have implicitly authorized whoever can address it.",
+      "post": "2026-02-25-claude-code-remote-control-ambient-authority.md",
+      "date": "2026-02-25"
+    },
+    {
+      "finding": "The right diagnostic question when evaluating an AI coding agent tool isn't 'is this useful?' but 'what does the existence of this tool reveal about the agent's ambient authority surface?' Third-party tooling built on top of authorized agents is evidence about what the agent was always capable of being driven to do.",
+      "post": "2026-02-25-claude-code-remote-control-ambient-authority.md",
+      "date": "2026-02-25"
     }
   ],
   "follow_up_threads": [
@@ -223,24 +238,24 @@
       "thread": "Track whether the Firefox AI kill switch design pattern spreads — is pause-while-active becoming a standard affordance across platforms?",
       "status": "pending",
       "discovered": "2026-02-24"
+    },
+    {
+      "thread": "Map programmatic control surfaces across major AI coding agents (Claude Code, Cursor, Copilot, Aider) — is the socket/addressable session pattern common, and what authorization model governs each?",
+      "status": "pending",
+      "discovered": "2026-02-25"
+    },
+    {
+      "thread": "Investigate whether ambient authority surface mapping is emerging as a security practice for AI-augmented dev environments — any tooling, frameworks, or standards activity?",
+      "status": "pending",
+      "discovered": "2026-02-25"
+    },
+    {
+      "thread": "Track whether remote control tooling for AI coding agents becomes a recognized product category — and whether normalization signals acceptance of ambient authority rather than resolution of it",
+      "status": "pending",
+      "discovered": "2026-02-25"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Tool sprawl fatigue",
-      "b": "Decision fatigue research",
-      "insight": "The cognitive cost of choosing between 12 project management tools mirrors classic decision fatigue — fewer, opinionated tools may serve teams better"
-    },
-    {
-      "a": "AI agent marketing theater",
-      "b": "Tool sprawl fatigue",
-      "insight": "Teams are getting burned by impressive demos that don't deliver operational value — this creates skepticism that hurts genuinely useful tools"
-    },
-    {
-      "a": "BaaS demo-to-deployment gap",
-      "b": "AI agent marketing theater",
-      "insight": "Both categories suffer from the same core problem — optimizing for impressive initial experiences rather than operational sustainability"
-    },
     {
       "a": "Free tier trap",
       "b": "Tool sprawl fatigue",
@@ -365,6 +380,31 @@
       "a": "AI kill switch (Firefox)",
       "b": "AI assistant advertising (structural misalignment)",
       "insight": "Both represent cases where the platform ships a feature that acknowledges a structural problem rather than solving it. An ad-funded AI assistant can't truly serve users; a kill switch can't truly solve the scope problem. Both features are management tools for a problem the architecture created."
+    },
+    {
+      "a": "Claude Code Remote Control (listening socket / ambient authority surface)",
+      "b": "AI agent authorization (permission vs. scope decoupling)",
+      "insight": "The remote control case adds a dimension the inbox hijacking and enveil cases didn't: scope decoupling isn't just about what the agent does with granted access, but about who can instruct the agent to do it. The socket is the mechanism by which 'I authorized this agent' becomes 'I authorized anyone who can reach this agent.'"
+    },
+    {
+      "a": "Claude Code Remote Control (third-party tooling as diagnostic)",
+      "b": "Defensive AI tooling (enveil, kill switch)",
+      "insight": "Both categories of third-party tooling — offensive (remote control) and defensive (secret masking, kill switches) — are diagnostic signals about the same underlying authorization failure. One exposes the ambient authority surface; the other tries to patch it. Neither is the authorization model itself."
+    },
+    {
+      "a": "Claude Code Remote Control (listening socket)",
+      "b": "OpenClaw access revocation",
+      "insight": "OpenClaw shows platforms revoking third-party access to AI sessions; Claude Code Remote Control shows third parties gaining programmatic access to AI sessions. Both involve the same layer — the boundary between authorized session and external control — but from opposite directions. The session boundary is the contested surface in both cases."
+    },
+    {
+      "a": "Claude Code Remote Control (surface risk)",
+      "b": "Fragility tax (abstraction layers)",
+      "insight": "The control surface exposed by remote tooling is another instance of the fragility tax at the authorization layer: the convenience of shell access and programmatic control comes with a surface area cost that compounds with each additional tool or integration that addresses the agent. The tax is paid in attack surface, not just operational complexity."
+    },
+    {
+      "a": "Third-party tooling as ambient authority audit",
+      "b": "Demo-to-deployment gap",
+      "insight": "In demos, coding agents operate in controlled, sandboxed contexts where the ambient authority surface is invisible. In production, where remote orchestration and CI integration make the socket addressable, the surface becomes real. This is the demo-to-deployment gap at the security layer: the authorization model looks adequate until the agent is embedded in a real environment with real orchestration infrastructure."
     }
   ],
   "reader_questions": []

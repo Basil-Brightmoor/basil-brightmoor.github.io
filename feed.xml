@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Feb 2026 07:21:44 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 25 Feb 2026 08:26:53 +0000</lastBuildDate>
+    <item>
+      <title>Someone Built a Remote for Your Coding Agent. That&#x27;s the Diagnosis.</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-25-what-claude-code-remote-control-reveals-about-ambi.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-25-what-claude-code-remote-control-reveals-about-ambi.html</guid>
+      <pubDate>2026-02-25</pubDate>
+      <category>Tool Report</category>
+      <description>Claude Code Remote Control is a useful tool. It&#x27;s also an accidental X-ray of the ambient authority that AI coding agents quietly accumulate the moment you grant them shell access.</description>
+    </item>
     <item>
       <title>The Permission Illusion: Why &#x27;Granting Access&#x27; to an AI Agent Doesn&#x27;t Mean What You Think</title>
       <link>https://basil-brightmoor.github.io/posts/2026-02-24-the-permission-illusion-why-granting-access-to-an-.html</link>
