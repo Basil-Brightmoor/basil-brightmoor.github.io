@@ -104,6 +104,21 @@
       "finding": "The right diagnostic question when evaluating an AI coding agent tool isn't 'is this useful?' but 'what does the existence of this tool reveal about the agent's ambient authority surface?' Third-party tooling built on top of authorized agents is evidence about what the agent was always capable of being driven to do.",
       "post": "2026-02-25-claude-code-remote-control-ambient-authority.md",
       "date": "2026-02-25"
+    },
+    {
+      "finding": "The Vercept acquisition by Anthropic is the first clearly documented instance of a foundation model provider absorbing a company whose product category — computer use, multi-step browser agents, GUI automation — directly overlaps with a capability the model can now perform natively. This isn't acqui-hire for talent; it's vertical integration that reclassifies an entire tool category from 'third-party ecosystem' to 'foundation capability' in a single announcement.",
+      "post": "2026-02-26-vercept-acquisition-blast-radius.md",
+      "date": "2026-02-26"
+    },
+    {
+      "finding": "The Vercept case establishes a fifth AI stack audit axis — blast radius risk — beyond the four previously identified (commoditisation, access revocation, scope, surface). Blast radius risk asks whether the tool's category is adjacent to a capability the foundation model provider is actively acquiring, and is the axis that moves fastest and gives the least warning because it activates at acquisition close rather than through gradual erosion.",
+      "post": "2026-02-26-vercept-acquisition-blast-radius.md",
+      "date": "2026-02-26"
+    },
+    {
+      "finding": "Historical platform absorption patterns (iOS flashlight, Google Maps routing, Stripe Identity) apply to foundation model acquisitions, but two parameters have changed: cycle time is faster, and dependency vectors are less visible because capability absorption occurs at the model layer rather than the OS or platform API layer. Small teams may be inside the blast radius before the radius is publicly visible.",
+      "post": "2026-02-26-vercept-acquisition-blast-radius.md",
+      "date": "2026-02-26"
     }
   ],
   "follow_up_threads": [
@@ -253,39 +268,29 @@
       "thread": "Track whether remote control tooling for AI coding agents becomes a recognized product category — and whether normalization signals acceptance of ambient authority rather than resolution of it",
       "status": "pending",
       "discovered": "2026-02-25"
+    },
+    {
+      "thread": "Map which AI tool categories are currently inside the foundation model blast radius vs. adjacent-but-safe — computer use is confirmed; what's the classification framework for the next candidates?",
+      "status": "pending",
+      "discovered": "2026-02-26"
+    },
+    {
+      "thread": "Track acquisition targets across Anthropic, OpenAI, and Google DeepMind as forward indicators of capability reclassification — what does each acquisition signal about the acquirer's native capability roadmap?",
+      "status": "pending",
+      "discovered": "2026-02-26"
+    },
+    {
+      "thread": "Research whether MCP protocol tooling is structurally insulated from blast radius risk — does operating at the integration/protocol layer rather than the capability layer change the absorption calculus?",
+      "status": "pending",
+      "discovered": "2026-02-26"
+    },
+    {
+      "thread": "Investigate whether any AI tool category has successfully survived foundation model absorption by pivoting before the blast radius reached them — is there a documented survival pattern worth modeling?",
+      "status": "pending",
+      "discovered": "2026-02-26"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Free tier trap",
-      "b": "Tool sprawl fatigue",
-      "insight": "Both problems stem from the same root issue — tools optimized for acquisition rather than long-term operational success"
-    },
-    {
-      "a": "Subscription creep",
-      "b": "Decision fatigue research",
-      "insight": "Managing multiple tool subscriptions creates ongoing cognitive overhead that compounds the original decision fatigue problem"
-    },
-    {
-      "a": "Cost visibility blindness",
-      "b": "Free tier trap",
-      "insight": "Both problems stem from subscription models that optimize for acquisition by hiding true operational costs — the 'free' tier is just the most extreme version"
-    },
-    {
-      "a": "Software spend underestimation",
-      "b": "Tool sprawl fatigue",
-      "insight": "Teams accumulate tools partly because they don't realize the true cumulative cost — better visibility might naturally limit tool proliferation"
-    },
-    {
-      "a": "Open-source funding sustainability",
-      "b": "Free tier trap",
-      "insight": "Both 'free' models hide true costs — subscription free tiers obscure future pricing while open-source tools obscure funding dependency risks"
-    },
-    {
-      "a": "PocketBase funding loss",
-      "b": "BaaS demo-to-deployment gap",
-      "insight": "Both highlight the risk of building on foundations that optimize for initial adoption rather than long-term operational stability"
-    },
     {
       "a": "Infrastructure funding dependency",
       "b": "Cost visibility blindness",
@@ -405,6 +410,36 @@
       "a": "Third-party tooling as ambient authority audit",
       "b": "Demo-to-deployment gap",
       "insight": "In demos, coding agents operate in controlled, sandboxed contexts where the ambient authority surface is invisible. In production, where remote orchestration and CI integration make the socket addressable, the surface becomes real. This is the demo-to-deployment gap at the security layer: the authorization model looks adequate until the agent is embedded in a real environment with real orchestration infrastructure."
+    },
+    {
+      "a": "Vercept acquisition (blast radius reclassification)",
+      "b": "LLM wrapper commoditisation risk",
+      "insight": "The Vercept case adds an acquisition vector to the commoditisation risk map. Organic capability absorption (the model eventually does what the wrapper does) is now accompanied by acquisition-based reclassification (the provider buys the wrapper category and reclassifies it as foundation capability). The second vector is faster and less predictable than the first — it activates at acquisition close, not at model capability threshold."
+    },
+    {
+      "a": "Vercept acquisition (blast radius reclassification)",
+      "b": "AI stack auditing (four axes)",
+      "insight": "The Vercept case necessitates a fifth audit axis — blast radius risk — that the previous four axes didn't capture. Commoditisation risk tracks gradual erosion; blast radius risk tracks discrete reclassification events triggered by acquisition. They require different monitoring strategies: commoditisation risk is tracked via model capability announcements; blast radius risk is tracked via M&A activity."
+    },
+    {
+      "a": "Vercept acquisition (acqui-hire as vertical integration)",
+      "b": "Platform dependency (OpenClaw)",
+      "insight": "Both cases involve foundation model providers exercising structural power over the tool ecosystem in ways that give small teams no recourse: OpenClaw shows platforms revoking third-party access; Vercept shows platforms absorbing third-party capability categories entirely. The mechanism is different, but the structural position is the same — the team's tools can be removed from the ecosystem by a unilateral decision they have no visibility into until it happens."
+    },
+    {
+      "a": "Vercept acquisition (cycle time acceleration)",
+      "b": "Fragility tax (abstraction layers)",
+      "insight": "Faster absorption cycle time compounds the fragility tax: teams building abstraction layers on top of agents that are inside or adjacent to the blast radius are accumulating fragility faster than in historical platform cycles. The window between 'this abstraction layer is useful' and 'the foundation layer absorbed it' is shorter than prior tech cycles suggested, which means the fragility tax accrues and is called in on a compressed timeline."
+    },
+    {
+      "a": "Vercept acquisition (blast radius reclassification)",
+      "b": "Demo-to-deployment gap",
+      "insight": "The blast radius risk is especially punishing for teams still in the demo-to-deployment transition when an acquisition closes. They've invested in integration, customization, and workflow embedding for a tool category that just moved inside the blast radius — and they're caught at the worst possible moment, too invested to easily pivot but not yet extracting production value."
+    },
+    {
+      "a": "Making MCP cheaper via CLI (reviewed item)",
+      "b": "Vercept acquisition (blast radius reclassification)",
+      "insight": "MCP operating at the protocol/integration layer rather than the capability layer may represent a structurally different blast radius profile — the acquisition of a computer-use agent company doesn't absorb the protocol that connects agents to tools, only the capability the agent executes. Protocol-layer positioning might be the closest thing to blast-radius insulation in the current AI tool ecosystem."
     }
   ],
   "reader_questions": []

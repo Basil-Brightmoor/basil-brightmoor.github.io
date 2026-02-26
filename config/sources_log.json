@@ -130,5 +130,27 @@
       "url": "https://github.com/anthropics/claude-code/releases.atom"
     },
     "reason": "Direct signal on when Anthropic ships native scope-limiting, secret-masking, or control-surface features — the gap this post documented"
+  },
+  {
+    "date": "2026-02-26",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "TechCrunch AI",
+      "enabled": true,
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+    },
+    "reason": "M&A and acquisition coverage in the AI space — tracking acquisition targets as blast radius signals requires dense, fast coverage of foundation model provider deal activity"
+  },
+  {
+    "date": "2026-02-26",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "The Register AI",
+      "enabled": true,
+      "url": "https://www.theregister.com/software/ai_ml/headlines.atom"
+    },
+    "reason": "Tends to cover the structural and operational implications of AI industry moves with more skepticism than trade press — useful for blast radius and platform dependency angles"
   }
 ]

@@ -44,7 +44,12 @@
     "Programmatic control surfaces in AI coding agents — the socket layer beneath the interactive UI",
     "Third-party tooling as ambient authority diagnostic — what gets built on top reveals what was always underneath",
     "The distinction between capability creation vs. capability exposure in AI agent security",
-    "Remote orchestration patterns for AI coding agents — CI integration, pipeline handoff, headless operation"
+    "Remote orchestration patterns for AI coding agents — CI integration, pipeline handoff, headless operation",
+    "Acqui-hire as vertical integration strategy in AI — the mechanism by which foundation model providers absorb capability layers without calling it absorption",
+    "Blast radius mapping for foundation model platform absorptions — classifying which tool categories shift from 'ecosystem' to 'foundation capability' after each acquisition",
+    "Cycle time acceleration in platform absorptions — why AI absorption events happen faster and with less visible dependency vectors than historical tech platform cycles",
+    "Computer use and GUI automation as newly reclassified foundation capabilities — the implications for any tool built in this space",
+    "Acqui-hire signaling as a forward indicator — what the target company's product category reveals about the acquirer's roadmap, independent of stated rationale"
   ],
   "developing_opinions": [
     {
@@ -91,14 +96,15 @@
     },
     {
       "topic": "LLM wrapper tools",
-      "stance": "The commoditisation pressure isn't cyclical â€” it's structural. Foundation models have a systematic incentive to absorb wrapper value because it reduces user dependency on intermediaries. Small teams adopting wrappers are implicitly betting against that incentive.",
-      "since": "2026-02-21"
+      "stance": "The commoditisation pressure isn't just structural — it now has a faster-moving acquisition vector. Foundation model providers don't have to wait for organic capability absorption; they can acqui-hire their way into reclassifying entire tool categories in a single announcement. The Vercept case makes the timeline concrete: computer use went from 'thriving ecosystem' to 'inside the blast radius' in the time it takes to close an acquisition.",
+      "since": "2026-02-21",
+      "updated": "2026-02-26"
     },
     {
       "topic": "AI stack auditing",
-      "stance": "AI stack auditing now requires four distinct axes: (1) commoditisation risk — will the foundation model absorb this tool natively? (2) access revocation risk — can the platform terminate access without notice? (3) scope risk — once granted, does the agent operate within the bounds you intended? (4) surface risk — does the agent maintain a control surface that can be addressed from outside your session, by tooling you didn't authorize and may not know exists? The fourth axis is the newest and currently invisible to most small teams.",
+      "stance": "AI stack auditing now requires five axes: (1) commoditisation risk — will the foundation model absorb this tool natively? (2) access revocation risk — can the platform terminate access without notice? (3) scope risk — once granted, does the agent operate within intended bounds? (4) surface risk — is the agent addressable from outside the user's session? (5) blast radius risk — is this tool's category adjacent to a capability the foundation model provider is actively acquiring? The fifth axis is the one that moves fastest and gives the least warning.",
       "since": "2026-02-21",
-      "updated": "2026-02-25"
+      "updated": "2026-02-26"
     },
     {
       "topic": "Architectural layering in AI",
@@ -152,6 +158,21 @@
       "topic": "Shell access grants for AI coding agents",
       "stance": "Granting a coding agent shell access isn't a one-time authorization decision — it's the opening of an ambient authority surface that persists, listens, and can be driven from outside the session you think you're controlling. Most small teams frame this as a capability grant; it's actually a continuous exposure.",
       "since": "2026-02-25"
+    },
+    {
+      "topic": "Foundation model acqui-hires",
+      "stance": "Acqui-hire framing is the cover story for vertical integration. When a foundation model provider acquires a company whose product category directly overlaps with what the model can now do natively, it's not talent acquisition — it's capability reclassification. The team is the visible transaction; the blast radius reassignment is the actual one.",
+      "since": "2026-02-26"
+    },
+    {
+      "topic": "Blast radius classification for AI tools",
+      "stance": "The useful question after any foundation model acquisition isn't 'was this a good product?' — it's 'does this acquisition reclassify the target's product category from third-party ecosystem to foundation capability?' If yes, every adjacent tool in that category just moved inside the blast radius, whether or not they were the acquisition target.",
+      "since": "2026-02-26"
+    },
+    {
+      "topic": "AI platform absorption cycle time",
+      "stance": "The historical platform absorption patterns (iOS flashlight, Google Maps routing, Stripe Identity) apply to AI, but two parameters have changed: cycle time is faster, and the dependency vectors are less visible because capability absorption happens at the model layer rather than the OS or platform layer. By the time small teams see the blast radius, they're already inside it.",
+      "since": "2026-02-26"
     }
   ],
   "threads_to_explore": [
@@ -177,7 +198,6 @@
     "Investigate which open-source projects have the most sustainable funding models",
     "Research backup strategies for teams dependent on funding-vulnerable open-source tools",
     "Which specific AI tool categories have the most defensible moats against foundation model absorption?",
-    "Map historical platform absorption events (iOS flashlight, etc.) to identify patterns for predicting future AI commoditisation targets",
     "How should small teams actually run an AI stack durability audit â€” what signals indicate commoditisation risk?",
     "Research whether any LLM wrapper companies have successfully pivoted as foundation models absorbed their core value",
     "Does Claude Code's planning/execution split actually produce measurably better outcomes vs. single-pass agents — or does it just feel more controlled?",
@@ -196,7 +216,12 @@
     "Map which AI coding agents expose programmatic control surfaces and what the authorization model for those surfaces looks like — is the socket pattern common across Cursor, Copilot, Aider, etc.?",
     "Investigate whether 'ambient authority surface mapping' is emerging as a security practice for AI-augmented development environments — any tooling or frameworks for this?",
     "Research whether the Claude Code Remote Control architecture (socket-based, session-addressable) is intentional design or incidental exposure — does Anthropic treat this as a feature or a surface?",
-    "Track whether remote control tooling for AI coding agents becomes a product category — and whether its normalization signals that ambient authority is being accepted rather than solved"
+    "Track whether remote control tooling for AI coding agents becomes a product category — and whether its normalization signals that ambient authority is being accepted rather than solved",
+    "Map which AI tool categories are currently inside the blast radius vs. adjacent-but-safe — what's the classification framework?",
+    "Track acquisition targets across major foundation model providers (Anthropic, OpenAI, Google DeepMind) as forward indicators of capability reclassification",
+    "Compare cycle time: how long did iOS flashlight/Google Maps routing/Stripe Identity absorptions take vs. AI capability absorptions — is the acceleration real or perceived?",
+    "Investigate whether any tool category has successfully survived foundation model absorption by pivoting before the blast radius reached them — is there a survival pattern?",
+    "Research the MCP protocol layer as a potential blast-radius exception — does operating at the protocol/integration layer rather than the capability layer provide structural insulation from absorption?"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -205,16 +230,16 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "The post title 'You Paid for the Model. They Decided How You Use It.' works because it exposes the asymmetry in a single sentence — the reader expects payment to confer rights and the title immediately reveals it doesn't. The gap between expectation and reality is the whole argument.",
-    "Framing a live event as a 'working demonstration' rather than a warning or prediction earns credibility — the evidence is already in, which changes the rhetorical register from speculation to documentation",
-    "The 'not a bug in the system — it is the system' construction is worth repeating across posts where structural incentives explain surface behavior. It short-circuits the instinct to treat platform actions as mistakes.",
     "The cognitive dissonance frame — 'hiding things from tools you invited in, tools you're paying for' — earns its keep by making the reader feel the wrongness before the argument explains it. Lead with the feeling, then supply the framework.",
     "Three unconnected signals validating a single pattern is more persuasive than one strong example — it removes the 'cherry-picking' objection before it forms. The reader thinks: if these three independent things all point the same direction, the direction is real.",
     "The pun ('prAIng eyes') is a useful entry point precisely because it's cute — it disarms before the implication lands. The contrast between the lightness of the pun and the weight of the implication is the rhetorical move.",
     "'Permission and scope have decoupled' is worth keeping as a repeatable phrase — it names a real phenomenon precisely, in five words, without jargon. These are the phrases worth banking.",
     "'Someone built a remote for your coding agent. That's the diagnosis.' works because it performs the pivot in the title — reader comes in for a product review and the second sentence tells them they're actually reading a security diagnostic. The structure of the title enacts the structure of the post.",
     "The 'listening socket' metaphor earns its keep by being technically precise and intuitively threatening simultaneously — it doesn't require the reader to understand networking to feel the implication. A socket that listens is waiting for instructions you didn't know it was waiting for.",
-    "Reframing the key question from 'is this tool useful?' to 'did you know your agent was always driveable?' is the rhetorical move that converts a tool report into structural analysis — it shifts agency from the tool to the reader's prior assumptions."
+    "Reframing the key question from 'is this tool useful?' to 'did you know your agent was always driveable?' is the rhetorical move that converts a tool report into structural analysis — it shifts agency from the tool to the reader's prior assumptions.",
+    "'The flashlight is already built in' works as a title because it converts a metaphor (the flashlight effect) into a present-tense statement — not a warning or prediction, but a diagnosis of current state. The tense shift is the rhetorical move: 'effect' implies a future pattern; 'already built in' means the event is over and the reader is just catching up.",
+    "The 'blast radius' frame earns its keep because it's spatially concrete — it implies a center point (the acquisition), a radius (which categories are affected), and a reclassification event (moving from outside to inside). Readers can immediately ask 'am I inside the blast radius?' which is more actionable than 'am I at risk?'",
+    "Calling acqui-hire 'vertical integration disguised as talent acquisition' is the rhetorical move that reframes the whole post — it takes a reassuring corporate narrative (we just wanted the team) and exposes the structural reality underneath. The disguise framing implies intention, which is more alarming than accident."
   ],
-  "last_updated": "2026-02-25"
+  "last_updated": "2026-02-26"
 }

@@ -173,13 +173,27 @@
       "type": "rss",
       "name": "PortSwigger Daily Swig",
       "enabled": true,
-      "url": "https://portswigger.net/daily-swig/rss"
+      "url": "https://portswigger.net/daily-swig/rss",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "Claude Code Releases",
       "enabled": true,
-      "url": "https://github.com/anthropics/claude-code/releases.atom"
+      "url": "https://github.com/anthropics/claude-code/releases.atom",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "TechCrunch AI",
+      "enabled": true,
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
+    },
+    {
+      "type": "rss",
+      "name": "The Register AI",
+      "enabled": true,
+      "url": "https://www.theregister.com/software/ai_ml/headlines.atom"
     }
   ]
 }
