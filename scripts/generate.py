@@ -535,7 +535,7 @@ def step_manage_sources(repo_root, config):
     print(f"  Sources managed ({disabled} disabled)")
 
 
-def step_build_and_commit(repo_root, dry_run=False, push=False):
+def step_build_and_commit(repo_root, dry_run=False):
     """Step 8: Build site and commit all changes."""
     print("\n=== STEP 8: Build & Commit ===")
     build_site(repo_root)
@@ -566,15 +566,19 @@ def step_build_and_commit(repo_root, dry_run=False, push=False):
     subprocess.run(["git", "commit", "-m", commit_msg], cwd=repo_root, capture_output=True)
     print(f"  Committed: {commit_msg}")
 
-    # Push (in CI or when --push flag is set)
-    if os.environ.get("GITHUB_ACTIONS") or push:
-        subprocess.run(["git", "push"], cwd=repo_root, capture_output=True)
-        print("  Pushed to remote")
+    # Push to remote (pull --rebase first to handle any remote changes)
+    if not dry_run:
+        subprocess.run(["git", "pull", "--rebase", "origin", "main"], cwd=repo_root, capture_output=True)
+        result = subprocess.run(["git", "push"], cwd=repo_root, capture_output=True, text=True)
+        if result.returncode == 0:
+            print("  Pushed to remote")
+        else:
+            print(f"  Push failed: {result.stderr[:200]}")
 
 
 # --- Main orchestrator ---
 
-def run_cycle(repo_root, api_key, dry_run=False, fetch_only=False, category=None, reflect_only=False, push=False):
+def run_cycle(repo_root, api_key, dry_run=False, fetch_only=False, category=None, reflect_only=False):
     """Run the full autonomous generation cycle."""
     print(f"\n{'='*60}")
     print(f"  BLOG BOT GENERATION CYCLE")
@@ -603,7 +607,7 @@ def run_cycle(repo_root, api_key, dry_run=False, fetch_only=False, category=None
         # Just do reflection with empty post
         print("\n[REFLECT ONLY] Running reflection step.")
         step_reflect(config, {"topic": "reflection only"}, fetched_items, "", api_key, repo_root)
-        step_build_and_commit(repo_root, dry_run, push=push)
+        step_build_and_commit(repo_root, dry_run)
         return
 
     # Step 3: Select topic
@@ -639,7 +643,7 @@ def run_cycle(repo_root, api_key, dry_run=False, fetch_only=False, category=None
     step_manage_sources(repo_root, config)
 
     # Step 8: Build and commit
-    step_build_and_commit(repo_root, dry_run, push=push)
+    step_build_and_commit(repo_root, dry_run)
 
     print(f"\n{'='*60}")
     print(f"  CYCLE COMPLETE")
@@ -654,7 +658,6 @@ def main():
     parser.add_argument("--fetch-only", action="store_true", help="Only fetch sources, don't generate")
     parser.add_argument("--category", type=str, help="Override category for this post")
     parser.add_argument("--reflect-only", action="store_true", help="Only run reflection step")
-    parser.add_argument("--push", action="store_true", help="Push to remote after commit")
     args = parser.parse_args()
 
     repo_root = args.repo_root or os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -667,7 +670,6 @@ def main():
         fetch_only=args.fetch_only,
         category=args.category,
         reflect_only=args.reflect_only,
-        push=args.push,
     )
 
 

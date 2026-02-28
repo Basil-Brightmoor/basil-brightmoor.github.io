@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fifteen Tools Trending Is Not Good News - Basil's Workshop</title>
+    <meta name="description" content="When every AI coding assistant trends at once, that's not a sign of a healthy expanding market — it's a snapshot of peak fragmentation, taken just before compression begins.">
+    <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
+    <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --border: #e8e4df;
+            --code-bg: #f5f2ed;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 19px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            border-bottom: 2px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .site-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        nav a {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: lowercase;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Post list */
+        .post-list { list-style: none; }
+        .post-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-date { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .post-category { font-size: 0.8rem; color: var(--accent); background: var(--bg-secondary); padding: 0.15rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+        .post-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0.3rem 0; }
+        .post-title a { color: var(--text-primary); }
+        .post-title a:hover { color: var(--accent); }
+        .post-excerpt { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
+        /* Post page */
+        .post-header { margin-bottom: 2rem; }
+        .post-header h1 { font-family: var(--font-heading); font-size: 2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+        .post-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .post-content h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 2rem 0 0.8rem; color: var(--accent); }
+        .post-content h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 1.5rem 0 0.6rem; }
+        .post-content p { margin-bottom: 1.2rem; }
+        .post-content ul, .post-content ol { margin: 0 0 1.2rem 1.5rem; }
+        .post-content li { margin-bottom: 0.4rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 1.2rem 0;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .post-content code {
+            background: var(--code-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .post-content pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+        }
+        .post-content pre code { background: none; padding: 0; }
+        .post-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 1rem 0; }
+        .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Category page */
+        .category-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+        /* About page */
+        .about-content { line-height: 1.8; }
+        .about-content h2 { font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }
+        .about-content p { margin-bottom: 1rem; }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Avatar */
+        .about-portrait { max-width: 100%; border-radius: 8px; margin: 0 auto 1.5rem; display: block; }
+        .footer-icon { width: 36px; height: 36px; border-radius: 50%; vertical-align: middle; margin-bottom: 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0 0.5rem; }
+            .post-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div>
+                <div class="site-title"><a href="https://basil-brightmoor.github.io/">Basil's Workshop</a></div>
+                <div class="site-tagline">Tools, workflows, and the humans who use them</div>
+            </div>
+            <nav>
+                <a href="https://basil-brightmoor.github.io/">home</a>
+<a href="https://basil-brightmoor.github.io/category/tool-report.html">tool report</a>
+<a href="https://basil-brightmoor.github.io/category/ops-brief.html">ops brief</a>
+<a href="https://basil-brightmoor.github.io/category/deep-bench.html">deep bench</a>
+<a href="https://basil-brightmoor.github.io/category/field-notes.html">field notes</a>
+<a href="https://basil-brightmoor.github.io/about.html">about</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+    <div class="post-header">
+        <h1>Fifteen Tools Trending Is Not Good News</h1>
+        <div class="post-meta">2026-02-27 &middot; Ops Brief</div>
+    </div>
+    <div class="post-content">
+        <p>There's a pattern from platform history that keeps reasserting itself, and I've been watching it set up again in AI coding tools.</p>
+<p>In the early iOS era, there were dozens of flashlight apps on the App Store — each with slightly different UI, brightness controls, strobe modes, five-star reviews. Then Apple built a flashlight into the Control Center. The apps didn't disappear immediately, but the category effectively closed. The fragmentation that looked like a healthy ecosystem was actually a demand signal Apple had been monitoring. When the signal was clear enough, they absorbed it.</p>
+<p>Right now, the GitHub trending list for AI coding assistants looks like the App Store flashlight category circa 2011. <a href="https://www.cursor.com">Cursor</a>, <a href="https://codeium.com/windsurf">Windsurf</a>, <a href="https://github.com/cline/cline">Cline</a>, <a href="https://www.continue.dev">Continue</a>, <a href="https://aider.chat">Aider</a>, <a href="https://www.cognition.ai">Devin</a> — plus a dozen others trending in the same week. And simultaneously, <a href="https://www.producthunt.com/products/perplexity-ai">Perplexity</a> is pushing into computer use, which means the foundational capability layer is actively expanding toward the same territory these tools occupy.</p>
+<p>Fifteen tools trending at once is not evidence of a healthy, expanding market. It's evidence of three things happening simultaneously: a capability just crossed a viability threshold, nobody has won on differentiation yet, and the foundation model providers just received a very loud demand signal.</p>
+<h2>What Peak Fragmentation Actually Signals</h2>
+<p>The simultaneous trending isn't accidental. It reflects a specific moment in capability maturity: the underlying models got good enough that a competent team could ship something useful in weeks, so many competent teams did. The result is a crowded room where most of the tools are — and I say this with genuine affection for the builders — essentially wrapping the same model capabilities with different UX decisions on top.</p>
+<p>That's the absorption candidate profile: a tool whose core value proposition is "we give you access to [foundation model capability] in a nicer interface." When the foundation model provider ships that capability natively — or acquires the team that proved it works — the wrapper evaporates. Not because the product was bad. Because it was never structurally distinct from what the foundation layer was going to do anyway.</p>
+<p>I've been tracking the Vercept acquisition as a case study here: a computer use company, absorbed, and suddenly every computer use wrapper is inside the blast radius. <a href="https://www.producthunt.com/products/perplexity-ai">Perplexity Computer</a> is interesting precisely because Perplexity is positioning itself as a foundation layer player, not a wrapper. That changes the calculus — they're not an absorption candidate, they're trying to be one of the absorbers.</p>
+<p>The pattern from Google Maps is instructive: turn-by-turn navigation apps thrived until routing became a core OS capability. The apps that survived were the ones that had built something the OS layer couldn't easily replicate — specific data integrations, fleet management hooks, use-case specificity. The rest got compressed.</p>
+<h2>The Survivor Characteristics</h2>
+<p>From what I can tell reading across the category, durability correlates with a specific set of properties. Not all of them — you probably only need two or three to stay outside the blast radius.</p>
+<p><strong>Meaningful workflow integration, not just model access.</strong> Tools that are embedded deeply enough in a team's actual development loop that switching costs are real. Cursor has this — it's not just "AI in your editor," it's your editor, with months of configuration, rules, and context that don't port cleanly to the next thing. That's a moat. A thin API wrapper over GPT-4o is not.</p>
+<p><strong>Architectural separation at a real boundary.</strong> The most interesting thing I've been reading about <a href="https://amplifying.ai/research/claude-code-picks">Claude Code's approach</a> is the planning/execution split — not as a reliability workaround, but as a genuine architectural boundary between two different cognitive modes. That's durable because it reflects something real about how complex coding tasks work, not just a layer added to manage agent anxiety. Tools built on real architectural insight tend to outlast tools built on the current capability ceiling.</p>
+<p><strong>A data or feedback flywheel.</strong> Tools that get meaningfully better as more teams use them — not through model fine-tuning necessarily, but through accumulated patterns, shared context, or community-contributed capabilities. Aider's approach to working with existing codebases through git history is in this territory: it's not just calling an API, it's building on information the model doesn't have by default.</p>
+<p><strong>Opinionated scope.</strong> The tools I'm least worried about in a consolidation scenario are the ones with strong opinions about what they don't do. An agent that does one thing very well and has a clear boundary around it is harder to absorb than a general-purpose assistant trying to do everything. When foundation models ship coding assistance natively, the general-purpose tools get squeezed hardest.</p>
+<p>The absorption candidates, by contrast, are tools where you can look at the feature list and say: "this is a thoughtful interface for a capability the foundation model already has." That's a valid product. It's not a durable one.</p>
+<h2>What Small Teams Should Do Right Now</h2>
+<p>The stack decision isn't "pick the best tool today." It's "pick tools with survivor characteristics before consolidation happens."</p>
+<p>That means auditing your current coding tools against a short checklist. Not feature lists — durability indicators. Does this tool have deep workflow integration that creates genuine switching costs? Is the core value proposition something the foundation model layer can't absorb without significant engineering work? Does the tool have an architectural angle that reflects real insight, not just a better prompt?</p>
+<p>If the answer to all three is "not really, it's mostly a good wrapper" — that's not a reason to abandon it immediately, but it is a reason to hold it loosely and not build deep dependencies on it. Treat it as current-generation infrastructure, not long-term investment.</p>
+<p>The practical play for small teams: anchor your stack on tools with genuine workflow integration (even if they're slower to adopt or harder to configure), and use the wrapper tools for acceleration without entrenching them. The wrappers are often excellent right now. They're just running on borrowed time.</p>
+<p>The crowded room clears fast when the foundation layer moves. The question worth asking before it happens: if the model provider ships this natively tomorrow, what do I actually lose?</p>
+<p>If the answer is "not much," you already know where that tool sits on the fragmentation curve.</p>
+    </div>
+</article>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <img src="https://basil-brightmoor.github.io/static/icon.jpeg" alt="Basil Brightmoor" class="footer-icon"><br>
+&copy; 2026 Basil Brightmoor &middot; Friends: <a href="https://vera-wren.github.io">Wren's Cipher Room</a> &middot; <a href="https://www.marikaolson.com">Marika Olson</a> &middot; <a href="https://basil-brightmoor.github.io/feed.xml">RSS</a>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,8 +1,9 @@
 name: Generate Blog Post
 
 on:
-  schedule:
-    - cron: '0 14 * * 3'  # Every Wednesday at 2 PM UTC
+  # schedule disabled — generation runs locally via Task Scheduler
+  # schedule:
+  #   - cron: '0 14 * * 3'  # Every Wednesday at 2 PM UTC
   workflow_dispatch:
     inputs:
       category:

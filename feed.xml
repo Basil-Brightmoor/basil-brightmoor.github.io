@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Feb 2026 09:42:06 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Feb 2026 19:58:07 +0000</lastBuildDate>
+    <item>
+      <title>Fifteen Tools Trending Is Not Good News</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-27-peak-fragmentation-in-ai-coding-tools-what-it-mean.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-27-peak-fragmentation-in-ai-coding-tools-what-it-mean.html</guid>
+      <pubDate>2026-02-27</pubDate>
+      <category>Ops Brief</category>
+      <description>When every AI coding assistant trends at once, that&#x27;s not a sign of a healthy expanding market — it&#x27;s a snapshot of peak fragmentation, taken just before compression begins.</description>
+    </item>
     <item>
       <title>The Vercept acquisition as a case study in foundation-model platform absorption — what it means that Anthropic bought a computer-use agent company, and which AI tool categories are next</title>
       <link>https://basil-brightmoor.github.io/posts/2026-02-26-the-vercept-acquisition-as-a-case-study-in-foundat.html</link>
@@ -14,6 +22,14 @@
       <pubDate>2026-02-26</pubDate>
       <category>Deep Bench</category>
       <description>This week&#x27;s exploration</description>
+    </item>
+    <item>
+      <title>The Mega-Platform Agent Absorption Has Begun</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-02-25-notion-custom-agents-and-the-platform-mega-tool-co.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-02-25-notion-custom-agents-and-the-platform-mega-tool-co.html</guid>
+      <pubDate>2026-02-25</pubDate>
+      <category>Ops Brief</category>
+      <description>When Notion and Slack ship native AI agents within weeks of each other, it&#x27;s not coincidence — it&#x27;s the opening move in platform consolidation that could eliminate the AI agent middleware layer entirely.</description>
     </item>
     <item>
       <title>Someone Built a Remote for Your Coding Agent. That&#x27;s the Diagnosis.</title>
