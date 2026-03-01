@@ -423,10 +423,16 @@ def build_site(repo_root=None):
 
 def _generate_interest_wordcloud(interests, repo_root, config):
     """Generate a word cloud PNG from interest phrases. Returns relative path or None."""
+    rel_path = "assets/img/interest-cloud.png"
     try:
         from wordcloud import WordCloud
     except ImportError:
-        print("  wordcloud not installed, skipping cloud image")
+        # Fall back to existing PNG if the library isn't available (e.g. CI runner)
+        existing = os.path.join(repo_root, rel_path)
+        if os.path.exists(existing):
+            print("  wordcloud not installed, using existing cloud image")
+            return rel_path
+        print("  wordcloud not installed and no existing image, skipping cloud")
         return None
 
     # Build word frequencies from all interest phrases
@@ -471,7 +477,7 @@ def _generate_interest_wordcloud(interests, repo_root, config):
     img_path = os.path.join(img_dir, "interest-cloud.png")
     wc.to_file(img_path)
     print(f"  Generated word cloud: {img_path}")
-    return "assets/img/interest-cloud.png"
+    return rel_path
 
 
 def build_about_page(repo_root, config=None, template=None):
