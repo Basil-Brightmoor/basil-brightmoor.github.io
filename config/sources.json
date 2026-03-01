@@ -32,7 +32,8 @@
     {
       "type": "reddit",
       "subreddit": "businessanalysis",
-      "enabled": true,
+      "enabled": false,
+      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
       "name": "r/businessanalysis",
       "limit": 10,
       "_last_success": true
@@ -40,7 +41,8 @@
     {
       "type": "reddit",
       "subreddit": "nocode",
-      "enabled": true,
+      "enabled": false,
+      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
       "name": "r/nocode",
       "limit": 10,
       "_last_success": true
@@ -48,7 +50,8 @@
     {
       "type": "reddit",
       "subreddit": "SaaS",
-      "enabled": true,
+      "enabled": false,
+      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
       "name": "r/SaaS",
       "limit": 8,
       "_last_success": true
@@ -56,7 +59,8 @@
     {
       "type": "reddit",
       "subreddit": "automation",
-      "enabled": true,
+      "enabled": false,
+      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
       "name": "r/automation",
       "limit": 8,
       "_last_success": true
@@ -72,7 +76,8 @@
     {
       "type": "reddit",
       "subreddit": "ProductManagement",
-      "enabled": true,
+      "enabled": false,
+      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
       "name": "r/ProductManagement",
       "limit": 8,
       "_last_success": true
@@ -80,7 +85,8 @@
     {
       "type": "reddit",
       "subreddit": "startups",
-      "enabled": true,
+      "enabled": false,
+      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
       "name": "r/startups",
       "limit": 8,
       "_last_success": true
@@ -97,12 +103,15 @@
       "url": "https://www.make.com/en/blog",
       "enabled": true,
       "name": "Make.com Blog",
+      "enabled": false,
+      "_disabled_reason": "Returns 403 Forbidden",
       "_last_success": true
     },
     {
       "type": "rss",
       "name": "ArXiv AI Papers",
-      "enabled": true,
+      "enabled": false,
+      "_disabled_reason": "Not a valid RSS feed (HTML page), causes XML parse errors",
       "url": "https://arxiv.org/list/cs.AI/recent",
       "_last_success": true
     },
@@ -172,7 +181,8 @@
     {
       "type": "rss",
       "name": "PortSwigger Daily Swig",
-      "enabled": true,
+      "enabled": false,
+      "_disabled_reason": "RSS feed has undefined XML entities, causes parse errors",
       "url": "https://portswigger.net/daily-swig/rss",
       "_last_success": true
     },
@@ -185,8 +195,9 @@
     },
     {
       "type": "rss",
-      "name": "TechCrunch AI",
-      "enabled": true,
+      "name": "TechCrunch AI (alt)",
+      "enabled": false,
+      "_disabled_reason": "Duplicate of TechCrunch AI above",
       "url": "https://techcrunch.com/category/artificial-intelligence/feed/"
     },
     {
