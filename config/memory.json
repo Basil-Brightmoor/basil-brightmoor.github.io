@@ -134,6 +134,26 @@
       "finding": "The ambient authority risks identified in the Claude Code Remote Control post compound with the provenance gap: if the session is unrecorded and the agent had an addressable control surface, a post-incident investigation cannot determine whether the agent acted on the user's instructions, on injected instructions via the control surface, or on ambient context the agent accessed without explicit direction. The session erasure makes the authority surface retrospectively invisible.",
       "post": "2026-03-01-the-invisible-session-problem-why-ai-code-provenan.md",
       "date": "2026-03-01"
+    },
+    {
+      "finding": "Protocol-layer positioning changes the mechanism of blast radius absorption but doesn't prevent it. Capability tools get absorbed when the foundation model replicates their function; protocol tools get absorbed when the provider controls the standard. MCP's structural risk isn't that it will be replicated — it's that its success makes it strategically worth acquiring. Standardization success is the acquisition signal in infrastructure-layer tools.",
+      "post": "2026-03-01-whether-mcp-s-protocol-layer-position-offers-struc.md",
+      "date": "2026-03-01"
+    },
+    {
+      "finding": "The HN 'MCP vs CLI' debate is a practitioner maturity signal, not a skepticism signal. When community discourse shifts from 'is this worth using?' to 'when does this make sense versus the alternative?', the technology has crossed from hype into genuine architectural evaluation. This debate quality pattern is a repeatable maturity proxy across tool categories.",
+      "post": "2026-03-01-whether-mcp-s-protocol-layer-position-offers-struc.md",
+      "date": "2026-03-01"
+    },
+    {
+      "finding": "WebMCP extending the protocol into the browser is a scope expansion event that compounds ambient authority surface risk. Each new context a protocol enters creates authorization surface the original model wasn't designed for — protocol extension and ambient authority exposure scale together. The browser context adds a particularly high-value surface given the credentials and session data browsers routinely hold.",
+      "post": "2026-03-01-whether-mcp-s-protocol-layer-position-offers-struc.md",
+      "date": "2026-03-01"
+    },
+    {
+      "finding": "Blast radius risk now requires distinguishing two distinct absorption mechanisms: capability reclassification (model absorbs tool function natively) and infrastructure acquisition (provider acquires or controls the standard the ecosystem depends on). Infrastructure acquisition is slower to activate but broader in scope — it doesn't reclassify one category, it reclassifies the dependency layer beneath all categories.",
+      "post": "2026-03-01-whether-mcp-s-protocol-layer-position-offers-struc.md",
+      "date": "2026-03-01"
     }
   ],
   "follow_up_threads": [
@@ -296,8 +316,9 @@
     },
     {
       "thread": "Research whether MCP protocol tooling is structurally insulated from blast radius risk — does operating at the integration/protocol layer rather than the capability layer change the absorption calculus?",
-      "status": "pending",
-      "discovered": "2026-02-26"
+      "status": "completed",
+      "discovered": "2026-02-26",
+      "completed_date": "2026-03-01"
     },
     {
       "thread": "Investigate whether any AI tool category has successfully survived foundation model absorption by pivoting before the blast radius reached them — is there a documented survival pattern worth modeling?",
@@ -323,29 +344,29 @@
       "thread": "Investigate whether MCP's protocol-layer logging creates an incidental provenance record — does the integration layer capture session context the commit layer discards?",
       "status": "pending",
       "discovered": "2026-03-01"
+    },
+    {
+      "thread": "Track WebMCP adoption and whether browser protocol extension accelerates the infrastructure trap or changes the absorption calculus",
+      "status": "pending",
+      "discovered": "2026-03-01"
+    },
+    {
+      "thread": "Map historical infrastructure acquisition patterns — how long did platform-controlled protocol acquisitions take, and what did the transition look like for dependent ecosystems?",
+      "status": "pending",
+      "discovered": "2026-03-01"
+    },
+    {
+      "thread": "Investigate whether open protocol governance models (W3C, IETF, Apache Foundation) provide more durable blast radius insulation than Anthropic-controlled MCP — is governance structure the actual differentiator?",
+      "status": "pending",
+      "discovered": "2026-03-01"
+    },
+    {
+      "thread": "Research whether any tool has successfully used protocol-layer positioning to achieve governance independence before absorption — is there a survival path from proprietary protocol to open standard?",
+      "status": "pending",
+      "discovered": "2026-03-01"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Platform absorption patterns",
-      "b": "AI assistant advertising",
-      "insight": "Both are cases where the structural incentives of the platform layer work against the interests of dependent small teams â€” in one case by absorbing their tools, in another by monetising their attention"
-    },
-    {
-      "a": "Fragility tax (abstraction layers)",
-      "b": "LLM wrapper commoditisation risk",
-      "insight": "Abstraction layers on top of agents face a double jeopardy: the fragility tax makes them operationally brittle, AND each layer adds commoditisation surface — teams building on Claws-style architectures are accumulating two compounding liabilities simultaneously"
-    },
-    {
-      "a": "Fragility tax (abstraction layers)",
-      "b": "Demo-to-deployment gap",
-      "insight": "The abstraction layer pattern is partly a demo-to-deployment gap response — layers get added because the underlying model can't reliably perform in production what it demonstrated in controlled conditions. The tax is what you pay for not solving the root problem."
-    },
-    {
-      "a": "Type-driven design (Parse, Don't Validate)",
-      "b": "Agent abstraction layers",
-      "insight": "The Rust principle — solve correctness at the type layer, not at runtime — maps directly to the agent reliability problem: solving reliability at the model/prompt layer is structurally sounder than managing it at the orchestration layer, where errors are already in flight"
-    },
     {
       "a": "Hardware-native LLM deployment (Taalas)",
       "b": "Fragility tax (abstraction layers)",
@@ -475,6 +496,26 @@
       "a": "AI code provenance gap",
       "b": "Vercept acquisition (blast radius reclassification)",
       "insight": "Session capture tooling — if it emerges as a category — sits at an interesting blast radius position. If foundation model providers build native session provenance into their coding agents (as a compliance or enterprise feature), third-party session capture tools face the same absorption risk as computer-use agents did post-Vercept. Provenance could move from 'ecosystem opportunity' to 'foundation capability' in a single product announcement."
+    },
+    {
+      "a": "MCP protocol-layer positioning",
+      "b": "Vercept acquisition (blast radius reclassification)",
+      "insight": "The infrastructure trap reframes the MCP-as-safe-harbor intuition: protocol-layer tools face a different but potentially larger blast radius than capability-layer tools. Capability absorption reclassifies one tool category; infrastructure acquisition reclassifies the layer beneath all tool categories simultaneously. MCP's success at becoming the integration standard is exactly the condition that makes it strategically worth acquiring — standardization success is the acquisition signal, not the protection."
+    },
+    {
+      "a": "WebMCP browser protocol extension",
+      "b": "Claude Code Remote Control (ambient authority surface)",
+      "insight": "Every context a protocol extends into adds ambient authority surface that the original authorization model wasn't designed for. WebMCP in the browser creates the same diagnostic question the Claude Code socket raised in the IDE: who can address the agent through this new surface, and is the authorization model adequate for this context? Protocol extension compounds ambient authority risk — they scale together."
+    },
+    {
+      "a": "HN practitioner debate as maturity signal",
+      "b": "Demo-to-deployment gap",
+      "insight": "The practitioner debate pattern is a leading indicator of the demo-to-deployment transition. When a technology moves from 'should we use this?' to 'when does this make sense vs. the alternative?', the community has internalized that the demo works and is now wrestling with deployment conditions. The debate quality is a proxy for where a tool sits in the demo-to-deployment gap."
+    },
+    {
+      "a": "MCP protocol-layer positioning (infrastructure trap)",
+      "b": "Open-source infrastructure sustainability",
+      "insight": "Both represent cases where 'foundational' status creates dependency without providing durable protection. Open-source infrastructure loses funding; protocol standards get acquired. In both cases, the 'this is too important to fail' intuition is wrong — importance makes something more strategically valuable to control, not safer from control events."
     }
   ],
   "reader_questions": []

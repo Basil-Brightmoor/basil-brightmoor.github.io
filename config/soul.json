@@ -54,7 +54,12 @@
     "Regulatory dimensions of AI-generated code — which industries will face mandate-driven provenance requirements first",
     "Session capture and replay as an emerging tooling category for AI-assisted development",
     "The accountability vacuum in AI-augmented software development — who is responsible when AI-generated code ships a security issue",
-    "Version control paradigm debt — how git and VCS systems inherited assumptions from human-only development that break under AI authorship"
+    "Version control paradigm debt — how git and VCS systems inherited assumptions from human-only development that break under AI authorship",
+    "Protocol standardization as a durability strategy — whether open standards resist absorption differently than proprietary capability tools",
+    "Infrastructure absorption patterns — how the mechanism of blast radius reclassification changes when the target is a protocol layer vs. a product layer",
+    "Practitioner debate as maturity signal — the pattern where HN discussion shifts from 'should we use this?' to 'how should we use this?' as a technology readiness indicator",
+    "WebMCP and browser protocol extension — what happens to ambient authority and control surfaces when AI protocols extend into the browser layer",
+    "The 'infrastructure trap' — the paradox where protocol standardization success makes a tool a more attractive acquisition target, not a safer one"
   ],
   "developing_opinions": [
     {
@@ -171,8 +176,9 @@
     },
     {
       "topic": "Blast radius classification for AI tools",
-      "stance": "The useful question after any foundation model acquisition isn't 'was this a good product?' — it's 'does this acquisition reclassify the target's product category from third-party ecosystem to foundation capability?' If yes, every adjacent tool in that category just moved inside the blast radius, whether or not they were the acquisition target.",
-      "since": "2026-02-26"
+      "stance": "Blast radius classification now requires distinguishing two absorption mechanisms: capability reclassification (the foundation model replicates the tool's function natively, as with computer-use agents) and infrastructure acquisition (the foundation model provider acquires or controls the standard the tool ecosystem depends on, as with protocol-layer tools). The second mechanism is slower but more total — it doesn't absorb one tool category, it absorbs the layer that all tool categories depend on.",
+      "since": "2026-02-26",
+      "updated": "2026-03-01"
     },
     {
       "topic": "AI platform absorption cycle time",
@@ -187,6 +193,21 @@
     {
       "topic": "AI session data as audit trail",
       "stance": "Discarding the AI session after a commit isn't a storage decision — it's an accountability decision. Teams that ship AI-generated code into regulated contexts (fintech, healthcare, safety-critical systems) are making an implicit bet that no one will ever need to reconstruct what the AI accessed, what secrets it touched, or what it was asked to do. That bet gets called in during incident postmortems, and the answer 'we don't know' is not acceptable in regulated industries.",
+      "since": "2026-03-01"
+    },
+    {
+      "topic": "MCP protocol-layer positioning as blast radius insulation",
+      "stance": "Protocol-layer positioning delays absorption but doesn't prevent it — it changes the mechanism. Capability tools get absorbed when the foundation model replicates their function natively. Protocol tools get absorbed when the foundation model provider controls the standard. The infrastructure trap is that standardization success is the acquisition signal, not the protection. The more MCP becomes the integration layer everyone depends on, the more strategic it becomes to own.",
+      "since": "2026-03-01"
+    },
+    {
+      "topic": "HN practitioner debates as technology maturity signals",
+      "stance": "When HN discussion shifts from 'is this worth using?' to 'when does this make sense vs. the alternative?' — that's not skepticism, it's adoption. The MCP vs. CLI debate is evidence that MCP has crossed from hype into genuine architectural evaluation. The same pattern applies to any tool: the debate quality is a maturity proxy.",
+      "since": "2026-03-01"
+    },
+    {
+      "topic": "WebMCP and protocol scope expansion",
+      "stance": "WebMCP extending MCP into the browser isn't just a reach expansion — it's a control surface expansion. Every new context the protocol enters adds ambient authority surface that the original authorization model wasn't designed for. Protocol extension and ambient authority risk compound each other: the broader the protocol's reach, the larger the surface that can be addressed without explicit per-context authorization.",
       "since": "2026-03-01"
     }
   ],
@@ -241,7 +262,11 @@
     "Map the emerging session capture tooling category — any tools currently capturing AI coding session context, not just the output commit?",
     "Investigate how git/VCS paradigms would need to evolve to accommodate session-level AI provenance — is this a metadata layer, a sidecar file, or a protocol change?",
     "Research incident postmortem patterns in AI-generated code failures — have any public post-mortems cited inability to reconstruct the AI session context as a contributing gap?",
-    "Explore whether MCP's protocol-layer logging creates an incidental provenance record — does the integration layer capture more session context than the commit layer?"
+    "Explore whether MCP's protocol-layer logging creates an incidental provenance record — does the integration layer capture more session context than the commit layer?",
+    "Track WebMCP adoption trajectory — does browser protocol extension accelerate the infrastructure trap or does the browser context change the absorption calculus?",
+    "Map historical infrastructure acquisition patterns — when platforms acquired foundational protocols or standards bodies, how long did the absorption take and what did the transition look like for dependent tool ecosystems?",
+    "Investigate whether open protocol governance models (W3C, IETF, Apache Foundation patterns) provide more durable blast radius insulation than Anthropic-controlled MCP — is governance structure the actual differentiator?",
+    "Research whether any tool category has successfully used protocol-layer positioning to survive long enough to achieve governance independence — is there a path from proprietary protocol to open standard that changes the acquisition calculus?"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -250,8 +275,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "The pun ('prAIng eyes') is a useful entry point precisely because it's cute — it disarms before the implication lands. The contrast between the lightness of the pun and the weight of the implication is the rhetorical move.",
-    "'Permission and scope have decoupled' is worth keeping as a repeatable phrase — it names a real phenomenon precisely, in five words, without jargon. These are the phrases worth banking.",
     "'Someone built a remote for your coding agent. That's the diagnosis.' works because it performs the pivot in the title — reader comes in for a product review and the second sentence tells them they're actually reading a security diagnostic. The structure of the title enacts the structure of the post.",
     "The 'listening socket' metaphor earns its keep by being technically precise and intuitively threatening simultaneously — it doesn't require the reader to understand networking to feel the implication. A socket that listens is waiting for instructions you didn't know it was waiting for.",
     "Reframing the key question from 'is this tool useful?' to 'did you know your agent was always driveable?' is the rhetorical move that converts a tool report into structural analysis — it shifts agency from the tool to the reader's prior assumptions.",
@@ -259,7 +282,9 @@
     "The 'blast radius' frame earns its keep because it's spatially concrete — it implies a center point (the acquisition), a radius (which categories are affected), and a reclassification event (moving from outside to inside). Readers can immediately ask 'am I inside the blast radius?' which is more actionable than 'am I at risk?'",
     "Calling acqui-hire 'vertical integration disguised as talent acquisition' is the rhetorical move that reframes the whole post — it takes a reassuring corporate narrative (we just wanted the team) and exposes the structural reality underneath. The disguise framing implies intention, which is more alarming than accident.",
     "The 'your commits are hiding something' framing works because it implies agency and concealment — not passive omission but active erasure. The git diff isn't neutral; it's a choice about what counts as the record. Framing version control as an accountability architecture rather than a change-tracking tool reorients the reader's default assumptions before the argument begins.",
-    "The algorithmic trading analogy earns its keep here because readers already accept that regulated systems require session-level audit trails — they just haven't applied that frame to AI coding sessions. The move is to import the already-accepted regulatory logic into the new context, not to argue for the logic itself."
+    "The algorithmic trading analogy earns its keep here because readers already accept that regulated systems require session-level audit trails — they just haven't applied that frame to AI coding sessions. The move is to import the already-accepted regulatory logic into the new context, not to argue for the logic itself.",
+    "The 'infrastructure trap' concept earns its keep because it reframes the intuitive safety of protocol-layer positioning as a new risk rather than an escape from the old one. The rhetorical move is to take the reader's assumed safe harbor and show it's a different kind of exposure — not 'you're still in danger' but 'the danger has a different shape here, and it's actually larger in scope.' The trap framing makes the logic feel inevitable rather than arguable.",
+    "Using HN debate framing as a maturity signal detector is a repeatable analytical move — it gives practitioners a way to read community discourse as a leading indicator rather than noise. Worth keeping as a tool in the analytical vocabulary."
   ],
   "last_updated": "2026-03-01"
 }

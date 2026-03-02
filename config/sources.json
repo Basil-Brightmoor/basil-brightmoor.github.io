@@ -210,7 +210,14 @@
       "type": "rss",
       "name": "NIST Cybersecurity Blog",
       "enabled": true,
-      "url": "https://feeds.feedburner.com/TheDailySwing"
+      "url": "https://feeds.feedburner.com/TheDailySwing",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "MCP Official Blog",
+      "enabled": true,
+      "url": "https://modelcontextprotocol.io/blog/rss.xml"
     }
   ]
 }

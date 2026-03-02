@@ -163,5 +163,16 @@
       "url": "https://feeds.feedburner.com/TheDailySwing"
     },
     "reason": "Regulatory signals on AI code accountability and secure development standards — early warning for mandate-driven provenance requirements"
+  },
+  {
+    "date": "2026-03-01",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "MCP Official Blog",
+      "enabled": true,
+      "url": "https://modelcontextprotocol.io/blog/rss.xml"
+    },
+    "reason": "Direct signal on protocol evolution, governance decisions, and scope expansion — critical for tracking the infrastructure trap thesis and WebMCP adoption trajectory"
   }
 ]
