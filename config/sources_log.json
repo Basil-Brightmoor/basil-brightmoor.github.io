@@ -174,5 +174,27 @@
       "url": "https://modelcontextprotocol.io/blog/rss.xml"
     },
     "reason": "Direct signal on protocol evolution, governance decisions, and scope expansion — critical for tracking the infrastructure trap thesis and WebMCP adoption trajectory"
+  },
+  {
+    "date": "2026-03-02",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Finextra",
+      "enabled": true,
+      "url": "https://www.finextra.com/rss/channel.aspx"
+    },
+    "reason": "Fintech regulatory news — the sector most likely to face early AI code provenance mandates. Useful for tracking when regulator language shifts from 'AI risk' to 'AI audit trail' requirements."
+  },
+  {
+    "date": "2026-03-02",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Hacker News",
+      "enabled": true,
+      "url": "https://news.ycombinator.com/rss"
+    },
+    "reason": "Already a favorite source but worth noting: HN is now the primary signal channel for practitioner governance debates (session provenance, MCP vs. CLI). The debate quality is a maturity proxy worth monitoring systematically."
   }
 ]

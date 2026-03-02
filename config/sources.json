@@ -219,6 +219,18 @@
       "enabled": true,
       "url": "https://modelcontextprotocol.io/blog/rss.xml",
       "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Finextra",
+      "enabled": true,
+      "url": "https://www.finextra.com/rss/channel.aspx"
+    },
+    {
+      "type": "rss",
+      "name": "Hacker News",
+      "enabled": true,
+      "url": "https://news.ycombinator.com/rss"
     }
   ]
 }

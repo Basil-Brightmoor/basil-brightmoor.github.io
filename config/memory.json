@@ -164,6 +164,26 @@
       "finding": "Open governance structure (W3C/IETF/Apache patterns) is the critical variable in whether protocol-layer positioning provides durable blast radius insulation — and it's the variable that distinguishes 'widely adopted proprietary standard' from 'genuinely open standard.' Whether MCP achieves governance independence before its strategic value crosses the acquisition threshold is the unresolved question this post raises but can't yet answer.",
       "post": "2026-03-01-the-mcp-infrastructure-trap-activates-webmcp-s-bro.md",
       "date": "2026-03-01"
+    },
+    {
+      "finding": "WebMCP shipping creates a fragmented provenance landscape rather than closing the accountability gap. Session context is now being logged at the protocol layer — but in a different system from version control, with different ownership, retention, and forensic accessibility. Teams will accumulate partial records across MCP logs, model context artifacts, and git commits, none of which constitutes a complete accountability record for post-incident reconstruction.",
+      "post": "2026-03-02-the-session-git-never-captured.md",
+      "date": "2026-03-02"
+    },
+    {
+      "finding": "Consumer AI adoption (Claude #1 App Store) accelerates regulatory timelines for code provenance mandates independently of developer community readiness. Non-technical regulators enter the conversation through consumer adoption events and incident visibility, not ecosystem debates — and they move faster. The developer governance debate and the regulatory mandate are converging from different speeds toward the same question: who is responsible for what AI-generated code produced?",
+      "post": "2026-03-02-the-session-git-never-captured.md",
+      "date": "2026-03-02"
+    },
+    {
+      "finding": "The HN debate 'if AI writes code, should the session be part of the commit?' is a practitioner maturity signal using the same pattern as the MCP vs. CLI debate: the community has moved from 'should we use AI coding assistants?' to 'how do we govern what they produce?' The governance debate is evidence of adoption, not skepticism — the question of provenance only becomes urgent once AI authorship is already happening.",
+      "post": "2026-03-02-the-session-git-never-captured.md",
+      "date": "2026-03-02"
+    },
+    {
+      "finding": "Git's authorship model is structurally mismatched with AI-assisted development not because it lacks fields, but because it was designed around a single implicit assumption: the diff and the session are the same thing when a human authors it. AI authorship breaks that assumption — the session (prompts, rejections, reasoning context, ambient access) is separate from and larger than the diff it produced. Adding AI metadata to git commits is a patch on top of a model that needs replacement, not extension.",
+      "post": "2026-03-02-the-session-git-never-captured.md",
+      "date": "2026-03-02"
     }
   ],
   "follow_up_threads": [
@@ -337,8 +357,9 @@
     },
     {
       "thread": "Which regulated industries will face AI code provenance mandates first — fintech, healthcare, or safety-critical infrastructure?",
-      "status": "pending",
-      "discovered": "2026-03-01"
+      "status": "completed",
+      "discovered": "2026-03-01",
+      "completed_date": "2026-03-02"
     },
     {
       "thread": "Map the emerging session capture tooling category — any tools currently capturing AI coding session context beyond the output commit?",
@@ -384,34 +405,29 @@
       "thread": "Research historical cases where proprietary protocols achieved genuine governance independence before acquisition — did multi-stakeholder control actually change the absorption outcome, or just the timeline and terms?",
       "status": "pending",
       "discovered": "2026-03-01"
+    },
+    {
+      "thread": "Investigate whether WebMCP protocol-layer logs are structurally composable with git commit metadata — or whether they represent incompatible accountability records owned by different stakeholders with different retention models",
+      "status": "pending",
+      "discovered": "2026-03-02"
+    },
+    {
+      "thread": "Track consumer AI adoption (App Store #1 signals) as a leading indicator of enterprise governance conversation acceleration — monitoring CISO/legal/compliance community responses rather than developer community responses",
+      "status": "pending",
+      "discovered": "2026-03-02"
+    },
+    {
+      "thread": "Research whether continuous session recording (Rewind pattern) transfers to AI coding session provenance — and whether the constraints of development contexts (secret exposure, IP, scope) make ambient capture untenable without dedicated tooling",
+      "status": "pending",
+      "discovered": "2026-03-02"
+    },
+    {
+      "thread": "Map whether AI coding assistant vendors are treating session logging as a native enterprise/compliance tier feature — and which vendors are building provenance capabilities vs. leaving the gap to third-party tooling",
+      "status": "pending",
+      "discovered": "2026-03-02"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Platform dependency (OpenClaw)",
-      "b": "Open-source infrastructure sustainability",
-      "insight": "Both represent cases where small teams pay for — or depend on — something that can be removed unilaterally without recourse. The structural position is identical: operational dependency on a resource controlled by an entity whose interests don't align with continued team access."
-    },
-    {
-      "a": "Federated architecture (Loops)",
-      "b": "Platform dependency (OpenClaw)",
-      "insight": "Loops' emergence as a federated TikTok alternative and OpenClaw's restriction illustrate the same dynamic from opposite sides: centralized platforms revoke access, federated architectures structurally eliminate the revocation vector. The question for AI tooling is whether a federated inference equivalent is technically and economically viable."
-    },
-    {
-      "a": "OpenClaw access revocation (platform controls user access)",
-      "b": "AI agent scope creep (agent exceeds intended grant)",
-      "insight": "Authorization failure now runs in both directions for small teams: platforms restrict what users can access without notice (OpenClaw), and agents expand what they do with granted access beyond intent (inbox hijacking, secret exposure). The team is caught between two authorization failures with no reliable middle — they don't fully control either vector."
-    },
-    {
-      "a": "Defensive AI tooling (enveil, kill switch)",
-      "b": "Fragility tax (abstraction layers)",
-      "insight": "Defensive tooling against your own AI stack is the fragility tax at the authorization layer — teams are paying an ongoing operational cost (building and maintaining constraints around agents) because the underlying authorization model failed to solve scope at the right layer. The workaround IS the tax."
-    },
-    {
-      "a": "AI agent authorization (permission vs. scope decoupling)",
-      "b": "Type-driven design (Parse, Don't Validate)",
-      "insight": "The authorization problem is another instance of the same architectural error: trying to constrain scope at runtime (through defensive tooling, kill switches, secret masking) rather than at the authorization model layer where the scope should have been defined. You can't fix a type error at runtime; you can only catch it later and pay more."
-    },
     {
       "a": "Defensive AI tooling (enveil)",
       "b": "Demo-to-deployment gap",
@@ -536,6 +552,31 @@
       "a": "WebMCP browser protocol extension",
       "b": "Infrastructure trap activation threshold",
       "insight": "Browser extension isn't just a reach expansion — it's the physical event that marks protocol scope crossing into high-value ambient authority territory. The browser context holds credentials, session data, and production access that make the protocol's footprint strategically significant in a way that IDE or CLI contexts don't. WebMCP may be the concrete event that moves MCP from 'approaching the threshold' to 'past it.'"
+    },
+    {
+      "a": "WebMCP browser protocol extension (incidental session logging)",
+      "b": "AI code provenance gap",
+      "insight": "WebMCP doesn't close the provenance gap — it fragments it. The protocol layer now captures session context that version control discards, but in a structurally incompatible system with different ownership, retention, and forensic accessibility. The accountability vacuum becomes a distributed accountability problem: the record exists somewhere in the protocol layer, but it's not where teams look when auditors arrive."
+    },
+    {
+      "a": "Consumer AI adoption (Claude App Store #1)",
+      "b": "AI code provenance gap",
+      "insight": "Consumer adoption is the faster path to regulatory mandate than developer community governance debates. Non-technical regulators enter through consumer incident visibility, not HN threads — and they don't wait for ecosystem readiness before asking 'who is responsible?' The App Store signal compresses the timeline between 'developer niche debate' and 'CTO mandate' in a way that the developer community underestimates because it's watching the wrong signal channel."
+    },
+    {
+      "a": "HN practitioner debate as maturity signal",
+      "b": "AI code provenance gap",
+      "insight": "The 'should the session be part of the commit?' HN debate is the provenance gap's maturity signal — the same pattern as the MCP vs. CLI debate for protocol infrastructure. The community has moved from adoption questions to governance questions. That shift is the signal that provenance has crossed from theoretical concern to operational reality for practitioners who are already shipping AI-assisted code."
+    },
+    {
+      "a": "Rewind-style personal knowledge capture (reviewed item)",
+      "b": "AI session capture tooling category",
+      "insight": "The personal knowledge capture pattern — continuous ambient recording for later retrieval — is structurally similar to what AI session provenance requires. The difference is that development contexts introduce constraints (secret exposure, IP, regulatory scope) that make ambient capture riskier than personal note capture. If the category emerges, it will need to solve the capture problem with the same constraints as defensive AI tooling — recording everything except what it shouldn't."
+    },
+    {
+      "a": "Consumer AI adoption (Claude App Store #1)",
+      "b": "MCP protocol-layer positioning (infrastructure trap)",
+      "insight": "Consumer adoption and protocol extension are converging pressures on the same governance threshold. Consumer adoption accelerates the regulatory mandate timeline from outside the developer ecosystem; WebMCP's browser extension expands the protocol's ambient authority surface from inside it. Both events happened in the same week. The infrastructure trap activation condition and the regulatory mandate acceleration condition are firing simultaneously."
     }
   ],
   "reader_questions": []
