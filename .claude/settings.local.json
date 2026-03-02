@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cd:*)",
+      "Bash(grep:*)",
+      "Bash(git config:*)",
+      "Bash(schtasks:*)",
+      "Bash(git:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(python:*)",
+      "Bash(ls:*)"
+    ]
+  }
+}

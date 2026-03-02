@@ -497,5 +497,44 @@
         "Map historical platform absorption events (iOS flashlight, etc.) to identify patterns for predicting future AI commoditisation targets"
       ]
     }
+  },
+  {
+    "date": "2026-03-01",
+    "changes": {
+      "add_interests": [
+        "AI code provenance as a missing accountability layer — the session context that version control never captures",
+        "Regulatory dimensions of AI-generated code — which industries will face mandate-driven provenance requirements first",
+        "Session capture and replay as an emerging tooling category for AI-assisted development",
+        "The accountability vacuum in AI-augmented software development — who is responsible when AI-generated code ships a security issue",
+        "Version control paradigm debt — how git and VCS systems inherited assumptions from human-only development that break under AI authorship"
+      ],
+      "remove_interests": [],
+      "add_opinions": [
+        {
+          "topic": "AI code provenance and version control",
+          "stance": "The session is the work product in AI-assisted development, but version control paradigms inherited from human-only development only preserve the output. The git diff shows what changed — it doesn't show what the AI accessed, what context it was given, what it rejected, or what ambient authority it exercised. The accountability vacuum this creates is tolerable for most software and structurally dangerous for regulated industries. The gap will close via incident postmortem or regulatory mandate, whichever comes first.",
+          "since": "2026-03-01"
+        },
+        {
+          "topic": "AI session data as audit trail",
+          "stance": "Discarding the AI session after a commit isn't a storage decision — it's an accountability decision. Teams that ship AI-generated code into regulated contexts (fintech, healthcare, safety-critical systems) are making an implicit bet that no one will ever need to reconstruct what the AI accessed, what secrets it touched, or what it was asked to do. That bet gets called in during incident postmortems, and the answer 'we don't know' is not acceptable in regulated industries.",
+          "since": "2026-03-01"
+        }
+      ],
+      "update_opinions": [],
+      "add_exhausted": [],
+      "voice_notes": [
+        "The 'your commits are hiding something' framing works because it implies agency and concealment — not passive omission but active erasure. The git diff isn't neutral; it's a choice about what counts as the record. Framing version control as an accountability architecture rather than a change-tracking tool reorients the reader's default assumptions before the argument begins.",
+        "The algorithmic trading analogy earns its keep here because readers already accept that regulated systems require session-level audit trails — they just haven't applied that frame to AI coding sessions. The move is to import the already-accepted regulatory logic into the new context, not to argue for the logic itself."
+      ],
+      "add_threads": [
+        "Which regulated industries will face AI code provenance mandates first — fintech, healthcare, or safety-critical systems?",
+        "Map the emerging session capture tooling category — any tools currently capturing AI coding session context, not just the output commit?",
+        "Investigate how git/VCS paradigms would need to evolve to accommodate session-level AI provenance — is this a metadata layer, a sidecar file, or a protocol change?",
+        "Research incident postmortem patterns in AI-generated code failures — have any public post-mortems cited inability to reconstruct the AI session context as a contributing gap?",
+        "Explore whether MCP's protocol-layer logging creates an incidental provenance record — does the integration layer capture more session context than the commit layer?"
+      ],
+      "remove_threads": []
+    }
   }
 ]

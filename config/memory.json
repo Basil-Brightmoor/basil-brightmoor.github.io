@@ -119,6 +119,21 @@
       "finding": "Historical platform absorption patterns (iOS flashlight, Google Maps routing, Stripe Identity) apply to foundation model acquisitions, but two parameters have changed: cycle time is faster, and dependency vectors are less visible because capability absorption occurs at the model layer rather than the OS or platform API layer. Small teams may be inside the blast radius before the radius is publicly visible.",
       "post": "2026-02-26-vercept-acquisition-blast-radius.md",
       "date": "2026-02-26"
+    },
+    {
+      "finding": "Version control captures code output but systematically discards the AI session that produced it — what the agent accessed, what context it was given, what ambient authority it exercised, and what secrets it touched during the session. This creates an accountability vacuum that is tolerable for general software and structurally dangerous for regulated industries where audit trails are a compliance requirement, not a convenience.",
+      "post": "2026-03-01-the-invisible-session-problem-why-ai-code-provenan.md",
+      "date": "2026-03-01"
+    },
+    {
+      "finding": "The HN provenance question ('if AI writes the code, who owns it?') is the wrong first question. The operationally urgent question is: 'if AI-generated code ships a security issue, what can you reconstruct about the session that produced it?' The accountability vacuum isn't primarily legal — it's forensic. Teams have no session replay, no context record, and no ambient authority log.",
+      "post": "2026-03-01-the-invisible-session-problem-why-ai-code-provenan.md",
+      "date": "2026-03-01"
+    },
+    {
+      "finding": "The ambient authority risks identified in the Claude Code Remote Control post compound with the provenance gap: if the session is unrecorded and the agent had an addressable control surface, a post-incident investigation cannot determine whether the agent acted on the user's instructions, on injected instructions via the control surface, or on ambient context the agent accessed without explicit direction. The session erasure makes the authority surface retrospectively invisible.",
+      "post": "2026-03-01-the-invisible-session-problem-why-ai-code-provenan.md",
+      "date": "2026-03-01"
     }
   ],
   "follow_up_threads": [
@@ -288,34 +303,29 @@
       "thread": "Investigate whether any AI tool category has successfully survived foundation model absorption by pivoting before the blast radius reached them — is there a documented survival pattern worth modeling?",
       "status": "pending",
       "discovered": "2026-02-26"
+    },
+    {
+      "thread": "Which regulated industries will face AI code provenance mandates first — fintech, healthcare, or safety-critical infrastructure?",
+      "status": "pending",
+      "discovered": "2026-03-01"
+    },
+    {
+      "thread": "Map the emerging session capture tooling category — any tools currently capturing AI coding session context beyond the output commit?",
+      "status": "pending",
+      "discovered": "2026-03-01"
+    },
+    {
+      "thread": "Research incident postmortem patterns in AI-generated code failures — have any public post-mortems cited inability to reconstruct the AI session as a contributing accountability gap?",
+      "status": "pending",
+      "discovered": "2026-03-01"
+    },
+    {
+      "thread": "Investigate whether MCP's protocol-layer logging creates an incidental provenance record — does the integration layer capture session context the commit layer discards?",
+      "status": "pending",
+      "discovered": "2026-03-01"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Infrastructure funding dependency",
-      "b": "Cost visibility blindness",
-      "insight": "Teams can't see or budget for the risk of their 'free' infrastructure losing funding — another form of hidden operational cost"
-    },
-    {
-      "a": "AI assistant ad monetisation",
-      "b": "Demo-to-deployment gap",
-      "insight": "The advertising business model is a deeper version of the demo-to-reality gap — it's not just that the tool can't deliver, it's that the tool is structurally motivated not to fully deliver because user attention is the product being sold"
-    },
-    {
-      "a": "LLM wrapper commoditisation risk",
-      "b": "Open-source infrastructure sustainability",
-      "insight": "Both represent tools that small teams depend on which carry hidden existential risk â€” one from foundation model absorption, one from funding loss. The common thread is operational dependency on something with an uncertain future."
-    },
-    {
-      "a": "LLM wrapper commoditisation risk",
-      "b": "Demo-to-deployment gap",
-      "insight": "Wrapper tools face a double jeopardy: they often struggle to bridge the demo-to-deployment gap AND face commoditisation pressure before teams even finish deploying them"
-    },
-    {
-      "a": "AI stack durability",
-      "b": "Software spend tracking",
-      "insight": "Cost tracking tools like Toolspend solve the visibility problem for current spend, but teams also need durability auditing to avoid spending on tools that will be absorbed â€” a temporal dimension of the same cost blindness problem"
-    },
     {
       "a": "Platform absorption patterns",
       "b": "AI assistant advertising",
@@ -440,6 +450,31 @@
       "a": "Making MCP cheaper via CLI (reviewed item)",
       "b": "Vercept acquisition (blast radius reclassification)",
       "insight": "MCP operating at the protocol/integration layer rather than the capability layer may represent a structurally different blast radius profile — the acquisition of a computer-use agent company doesn't absorb the protocol that connects agents to tools, only the capability the agent executes. Protocol-layer positioning might be the closest thing to blast-radius insulation in the current AI tool ecosystem."
+    },
+    {
+      "a": "Ambient authority risks (Claude Code Remote Control series)",
+      "b": "AI code provenance gap",
+      "insight": "The ambient authority surface becomes forensically opaque when the session is discarded. An unrecorded session with an addressable control surface means post-incident investigations cannot reconstruct whether the agent acted on user intent, injected instructions, or ambient context it accessed independently. The provenance gap and the authority surface gap compound each other — erasure of the session erases the evidence that the authority was exercised."
+    },
+    {
+      "a": "Secret management in AI-augmented development (enveil, defensive tooling series)",
+      "b": "AI code provenance gap",
+      "insight": "Defensive tools like enveil try to prevent the AI from accessing secrets during the session. The provenance gap means teams cannot verify retroactively what the session did or didn't access — the defensive tool addresses the exposure vector, but the absence of session records means there's no audit trail confirming the defense worked. Defense without provenance is security without receipts."
+    },
+    {
+      "a": "AI code provenance gap",
+      "b": "Demo-to-deployment gap",
+      "insight": "In demos, session invisibility is harmless — the inputs are curated and the stakes are low. In production, where sessions touch real credentials, production data, and regulated codebases, the same invisibility becomes a forensic liability. The provenance gap is another instance of the demo-to-deployment gap: the accountability model that looks adequate in controlled conditions breaks in real environments with real incident consequences."
+    },
+    {
+      "a": "AI code provenance gap",
+      "b": "Type-driven design (Parse, Don't Validate)",
+      "insight": "The provenance problem is being approached the wrong way: teams are attempting to reconstruct session context post-hoc (via logs, diff analysis, comment conventions) rather than capturing it at the right layer — the session itself. This is the same architectural error as runtime validation: solving a structural problem at the wrong layer, where you're already paying the cost of the gap."
+    },
+    {
+      "a": "AI code provenance gap",
+      "b": "Vercept acquisition (blast radius reclassification)",
+      "insight": "Session capture tooling — if it emerges as a category — sits at an interesting blast radius position. If foundation model providers build native session provenance into their coding agents (as a compliance or enterprise feature), third-party session capture tools face the same absorption risk as computer-use agents did post-Vercept. Provenance could move from 'ecosystem opportunity' to 'foundation capability' in a single product announcement."
     }
   ],
   "reader_questions": []

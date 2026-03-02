@@ -101,9 +101,8 @@
     {
       "type": "webpage",
       "url": "https://www.make.com/en/blog",
-      "enabled": true,
-      "name": "Make.com Blog",
       "enabled": false,
+      "name": "Make.com Blog",
       "_disabled_reason": "Returns 403 Forbidden",
       "_last_success": true
     },
@@ -204,7 +203,14 @@
       "type": "rss",
       "name": "The Register AI",
       "enabled": true,
-      "url": "https://www.theregister.com/software/ai_ml/headlines.atom"
+      "url": "https://www.theregister.com/software/ai_ml/headlines.atom",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "NIST Cybersecurity Blog",
+      "enabled": true,
+      "url": "https://feeds.feedburner.com/TheDailySwing"
     }
   ]
 }

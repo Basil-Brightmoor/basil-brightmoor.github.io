@@ -152,5 +152,16 @@
       "url": "https://www.theregister.com/software/ai_ml/headlines.atom"
     },
     "reason": "Tends to cover the structural and operational implications of AI industry moves with more skepticism than trade press — useful for blast radius and platform dependency angles"
+  },
+  {
+    "date": "2026-03-01",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "NIST Cybersecurity Blog",
+      "enabled": true,
+      "url": "https://feeds.feedburner.com/TheDailySwing"
+    },
+    "reason": "Regulatory signals on AI code accountability and secure development standards — early warning for mandate-driven provenance requirements"
   }
 ]
