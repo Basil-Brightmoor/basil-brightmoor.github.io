@@ -306,7 +306,7 @@ Format: {format_desc}
 Source material:
 {source_context}
 
-Output the post in this EXACT format (start with --- on the first line):
+CRITICAL: Output ONLY the post in markdown with YAML frontmatter. No commentary, no meta-discussion, no "here's the post", no soul/memory notes, no questions. Start your response with --- on the very first line and end with the post body. Nothing else.
 
 ---
 title: "Your Post Title Here"

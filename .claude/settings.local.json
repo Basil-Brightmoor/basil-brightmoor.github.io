@@ -8,7 +8,8 @@
       "Bash(git:*)",
       "Bash(cmd.exe:*)",
       "Bash(python:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(rm:*)"
     ]
   }
 }

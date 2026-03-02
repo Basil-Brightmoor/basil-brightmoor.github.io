@@ -154,6 +154,16 @@
       "finding": "Blast radius risk now requires distinguishing two distinct absorption mechanisms: capability reclassification (model absorbs tool function natively) and infrastructure acquisition (provider acquires or controls the standard the ecosystem depends on). Infrastructure acquisition is slower to activate but broader in scope — it doesn't reclassify one category, it reclassifies the dependency layer beneath all categories.",
       "post": "2026-03-01-whether-mcp-s-protocol-layer-position-offers-struc.md",
       "date": "2026-03-01"
+    },
+    {
+      "finding": "The infrastructure trap's activation condition is standardization success, not failure. When a protocol becomes the layer everyone depends on, it becomes strategically worth acquiring — not because it's failing, but because controlling it confers structural power over everything built on top. WebMCP's browser extension and the HN maturity debate are the two observable indicators that MCP has reached this activation threshold in the same week.",
+      "post": "2026-03-01-the-mcp-infrastructure-trap-activates-webmcp-s-bro.md",
+      "date": "2026-03-01"
+    },
+    {
+      "finding": "Open governance structure (W3C/IETF/Apache patterns) is the critical variable in whether protocol-layer positioning provides durable blast radius insulation — and it's the variable that distinguishes 'widely adopted proprietary standard' from 'genuinely open standard.' Whether MCP achieves governance independence before its strategic value crosses the acquisition threshold is the unresolved question this post raises but can't yet answer.",
+      "post": "2026-03-01-the-mcp-infrastructure-trap-activates-webmcp-s-bro.md",
+      "date": "2026-03-01"
     }
   ],
   "follow_up_threads": [
@@ -364,24 +374,19 @@
       "thread": "Research whether any tool has successfully used protocol-layer positioning to achieve governance independence before absorption — is there a survival path from proprietary protocol to open standard?",
       "status": "pending",
       "discovered": "2026-03-01"
+    },
+    {
+      "thread": "Monitor whether Anthropic establishes external governance for MCP (foundation, standards body, consortium) — this is the observable event that would change the acquisition calculus, and its absence is itself a signal",
+      "status": "pending",
+      "discovered": "2026-03-01"
+    },
+    {
+      "thread": "Research historical cases where proprietary protocols achieved genuine governance independence before acquisition — did multi-stakeholder control actually change the absorption outcome, or just the timeline and terms?",
+      "status": "pending",
+      "discovered": "2026-03-01"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Hardware-native LLM deployment (Taalas)",
-      "b": "Fragility tax (abstraction layers)",
-      "insight": "Hardware-native inference is the architectural opposite of the abstraction-layering instinct — instead of adding structure above the model, it embeds the model below the software stack entirely, potentially sidestepping the fragility tax at the cost of a different set of constraints"
-    },
-    {
-      "a": "OpenClaw access revocation",
-      "b": "LLM wrapper commoditisation risk",
-      "insight": "Wrapper tools face two distinct elimination paths, not one: gradual commoditisation (the foundation model absorbs their value) and immediate access revocation (the platform terminates their OAuth permission). The second is faster and less predictable than the first. Small teams depending on wrapper tools should audit for both vectors separately."
-    },
-    {
-      "a": "OpenClaw access revocation",
-      "b": "Fragility tax (abstraction layers)",
-      "insight": "The OAuth permission layer is a specific, high-cost fragility point — it can be revoked without the user's knowledge until the moment of failure. This is the fragility tax at the access architecture layer: the abstraction that made the tool convenient (OAuth vs. direct API) is the same abstraction that made the access fragile."
-    },
     {
       "a": "Platform dependency (OpenClaw)",
       "b": "Open-source infrastructure sustainability",
@@ -516,6 +521,21 @@
       "a": "MCP protocol-layer positioning (infrastructure trap)",
       "b": "Open-source infrastructure sustainability",
       "insight": "Both represent cases where 'foundational' status creates dependency without providing durable protection. Open-source infrastructure loses funding; protocol standards get acquired. In both cases, the 'this is too important to fail' intuition is wrong — importance makes something more strategically valuable to control, not safer from control events."
+    },
+    {
+      "a": "Infrastructure trap (standardization success as acquisition signal)",
+      "b": "Open-source infrastructure sustainability",
+      "insight": "'Too important to fail' is not protection — it's exposure in both cases. Open-source infrastructure that becomes critical gets defunded or abandoned when external funding evaporates; protocol standards that become critical get acquired or controlled when strategic value crosses a threshold. The importance that made them foundational is the same property that makes them worth owning."
+    },
+    {
+      "a": "HN practitioner debate as maturity signal",
+      "b": "Infrastructure trap activation",
+      "insight": "The maturity signal and the trap activation are the same event viewed from different angles. When practitioners debate deployment conditions rather than adoption decisions, the technology has crossed into infrastructure — and that crossing is precisely when the acquisition calculus changes. The HN thread is simultaneously evidence of maturity and evidence of elevated acquisition risk. Both readings are correct."
+    },
+    {
+      "a": "WebMCP browser protocol extension",
+      "b": "Infrastructure trap activation threshold",
+      "insight": "Browser extension isn't just a reach expansion — it's the physical event that marks protocol scope crossing into high-value ambient authority territory. The browser context holds credentials, session data, and production access that make the protocol's footprint strategically significant in a way that IDE or CLI contexts don't. WebMCP may be the concrete event that moves MCP from 'approaching the threshold' to 'past it.'"
     }
   ],
   "reader_questions": []

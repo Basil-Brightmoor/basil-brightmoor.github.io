@@ -6,22 +6,14 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Mar 2026 19:00:58 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2026 19:43:29 +0000</lastBuildDate>
     <item>
-      <title>The Invisible Session Problem: why AI code provenance matters and what your commits are hiding</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-01-the-invisible-session-problem-why-ai-code-provenan.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-01-the-invisible-session-problem-why-ai-code-provenan.html</guid>
+      <title>The Infrastructure Trap Activates</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-01-the-mcp-infrastructure-trap-activates-webmcp-s-bro.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-01-the-mcp-infrastructure-trap-activates-webmcp-s-bro.html</guid>
       <pubDate>2026-03-01</pubDate>
       <category>Deep Bench</category>
-      <description>This week&#x27;s exploration</description>
-    </item>
-    <item>
-      <title>Whether MCP&#x27;s protocol-layer position offers structural insulation from foundation model absorption — or just delays it</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-01-whether-mcp-s-protocol-layer-position-offers-struc.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-01-whether-mcp-s-protocol-layer-position-offers-struc.html</guid>
-      <pubDate>2026-03-01</pubDate>
-      <category>Deep Bench</category>
-      <description>This week&#x27;s exploration</description>
+      <description>Two events this week confirm MCP has crossed from experiment to infrastructure. That crossing is exactly when the acquisition risk turns on — not off.</description>
     </item>
     <item>
       <title>Fifteen Tools Trending Is Not Good News</title>

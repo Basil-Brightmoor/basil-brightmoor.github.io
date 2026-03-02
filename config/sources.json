@@ -217,7 +217,8 @@
       "type": "rss",
       "name": "MCP Official Blog",
       "enabled": true,
-      "url": "https://modelcontextprotocol.io/blog/rss.xml"
+      "url": "https://modelcontextprotocol.io/blog/rss.xml",
+      "_last_success": true
     }
   ]
 }
