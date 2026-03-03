@@ -184,6 +184,21 @@
       "finding": "Git's authorship model is structurally mismatched with AI-assisted development not because it lacks fields, but because it was designed around a single implicit assumption: the diff and the session are the same thing when a human authors it. AI authorship breaks that assumption — the session (prompts, rejections, reasoning context, ambient access) is separate from and larger than the diff it produced. Adding AI metadata to git commits is a patch on top of a model that needs replacement, not extension.",
       "post": "2026-03-02-the-session-git-never-captured.md",
       "date": "2026-03-02"
+    },
+    {
+      "finding": "The 295% ChatGPT uninstall surge after the OpenAI DoD deal is the first documented instance of operator ethics functioning as a mass consumer switching trigger in AI — distinct from capability, price, or switching cost changes. The product was identical before and after; what changed was the implied operator association. Values alignment is functioning as a latent switching trigger that activates on association events, not product events.",
+      "post": "2026-03-03-dod-deal-values-alignment-switching-trigger.md",
+      "date": "2026-03-03"
+    },
+    {
+      "finding": "Near-zero AI switching costs amplify values-driven exits rather than dampen them. The industry interpreted low switching costs as user indifference; the DoD response reveals it was latent volatility. Low friction means values misalignment events produce rapid, large-scale responses rather than slow, gradual drift. The structural assumption underlying 'users won't switch for ethical reasons' was wrong about the direction of the relationship.",
+      "post": "2026-03-03-dod-deal-values-alignment-switching-trigger.md",
+      "date": "2026-03-03"
+    },
+    {
+      "finding": "The Ars Technica AI fabrication controversy — reporter fired after AI-assisted content included fabricated quotes — establishes a media accountability precedent: named, consequential attribution of AI-generated content failure. This is distinct from anonymous model errors; a named professional faced career consequences for AI output. The accountability layer is activating in journalism before it has activated in software development.",
+      "post": "2026-03-03-dod-deal-values-alignment-switching-trigger.md",
+      "date": "2026-03-03"
     }
   ],
   "follow_up_threads": [
@@ -425,29 +440,29 @@
       "thread": "Map whether AI coding assistant vendors are treating session logging as a native enterprise/compliance tier feature — and which vendors are building provenance capabilities vs. leaving the gap to third-party tooling",
       "status": "pending",
       "discovered": "2026-03-02"
+    },
+    {
+      "thread": "Research historical precedent for consumer boycotts permanently reshaping tech market share — did values-driven exits hold durably or collapse back to performance competition after the news cycle?",
+      "status": "pending",
+      "discovered": "2026-03-03"
+    },
+    {
+      "thread": "Track whether Claude/Anthropic's positioning on defense and surveillance contracts is becoming an explicit product strategy signal — and whether the DoD uninstall response creates market pressure to make that positioning visible",
+      "status": "pending",
+      "discovered": "2026-03-03"
+    },
+    {
+      "thread": "Investigate whether enterprise AI procurement teams are beginning to treat consumer values-alignment signals (uninstall surges, public backlash events) as vendor risk indicators in procurement decisions",
+      "status": "pending",
+      "discovered": "2026-03-03"
+    },
+    {
+      "thread": "Map the 'identity-laden product' transition pattern in other consumer industries — where did operator ethics first become a durable purchase factor vs. a temporary protest behavior, and what conditions determined which outcome held?",
+      "status": "pending",
+      "discovered": "2026-03-03"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Defensive AI tooling (enveil)",
-      "b": "Demo-to-deployment gap",
-      "insight": "The need to hide secrets from your own AI tools only surfaces in production — in demos, the agent operates on curated, safe inputs. This is the demo-to-deployment gap at the security layer: the authorization model looks fine in controlled conditions and breaks in real environments where the agent has ambient access to production credentials."
-    },
-    {
-      "a": "AI kill switch (Firefox)",
-      "b": "AI assistant advertising (structural misalignment)",
-      "insight": "Both represent cases where the platform ships a feature that acknowledges a structural problem rather than solving it. An ad-funded AI assistant can't truly serve users; a kill switch can't truly solve the scope problem. Both features are management tools for a problem the architecture created."
-    },
-    {
-      "a": "Claude Code Remote Control (listening socket / ambient authority surface)",
-      "b": "AI agent authorization (permission vs. scope decoupling)",
-      "insight": "The remote control case adds a dimension the inbox hijacking and enveil cases didn't: scope decoupling isn't just about what the agent does with granted access, but about who can instruct the agent to do it. The socket is the mechanism by which 'I authorized this agent' becomes 'I authorized anyone who can reach this agent.'"
-    },
-    {
-      "a": "Claude Code Remote Control (third-party tooling as diagnostic)",
-      "b": "Defensive AI tooling (enveil, kill switch)",
-      "insight": "Both categories of third-party tooling — offensive (remote control) and defensive (secret masking, kill switches) — are diagnostic signals about the same underlying authorization failure. One exposes the ambient authority surface; the other tries to patch it. Neither is the authorization model itself."
-    },
     {
       "a": "Claude Code Remote Control (listening socket)",
       "b": "OpenClaw access revocation",
@@ -577,6 +592,26 @@
       "a": "Consumer AI adoption (Claude App Store #1)",
       "b": "MCP protocol-layer positioning (infrastructure trap)",
       "insight": "Consumer adoption and protocol extension are converging pressures on the same governance threshold. Consumer adoption accelerates the regulatory mandate timeline from outside the developer ecosystem; WebMCP's browser extension expands the protocol's ambient authority surface from inside it. Both events happened in the same week. The infrastructure trap activation condition and the regulatory mandate acceleration condition are firing simultaneously."
+    },
+    {
+      "a": "Consumer AI adoption (Claude App Store #1 as regulatory accelerant)",
+      "b": "Values alignment as consumer switching trigger (DoD uninstall surge)",
+      "insight": "Both signals involve consumer AI behavior moving faster than developer community analysis predicted — but in opposite directions. App Store adoption accelerates the mandate timeline for provenance governance; the DoD uninstall surge accelerates the mandate timeline for values and use-restriction governance. Consumer behavior is driving two distinct regulatory conversations simultaneously, neither of which the ecosystem debate anticipated."
+    },
+    {
+      "a": "Values alignment as consumer switching trigger",
+      "b": "Platform dependency (OpenClaw access revocation)",
+      "insight": "The OpenClaw case showed platforms exercising structural power over users; the DoD case shows users exercising structural power over platforms via exit. Both involve the same relationship — user trust in the platform's intentions — but the power flow is reversed. OpenClaw revealed how little structural recourse users have when platforms act against their interests; the DoD response reveals the one genuine lever users retain: exit at scale."
+    },
+    {
+      "a": "Values alignment as consumer switching trigger",
+      "b": "Demo-to-deployment gap",
+      "insight": "The values alignment signal is another instance of assumptions that looked correct in controlled conditions (demos, enthusiast communities) breaking in production (mass consumer markets). In controlled contexts, users optimize for capability. In mass markets, users import consumer brand logic — including ethical associations — that the AI industry didn't build its competitive models around. The deployment context changed the relevant competitive variable."
+    },
+    {
+      "a": "Ars Technica AI fabrication controversy (named accountability event)",
+      "b": "AI code provenance gap",
+      "insight": "The Ars Technica case demonstrates what named AI accountability looks like when it activates — a professional faces career consequences for AI output bearing their byline. The code provenance argument is that software development doesn't yet have this accountability structure: AI-generated code ships without a named human accountable for the session that produced it. Journalism got there first because bylines already existed as an accountability mechanism; software development has commits but not sessions."
     }
   ],
   "reader_questions": []

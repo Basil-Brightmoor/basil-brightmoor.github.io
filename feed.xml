@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Mar 2026 09:54:28 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 03 Mar 2026 01:02:35 +0000</lastBuildDate>
+    <item>
+      <title>The DoD Deal Did Something Nobody Predicted</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-03-the-295-chatgpt-uninstall-surge-as-evidence-that-v.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-03-the-295-chatgpt-uninstall-surge-as-evidence-that-v.html</guid>
+      <pubDate>2026-03-03</pubDate>
+      <category>Field Notes</category>
+      <description>ChatGPT uninstalls surged 295% after the DoD deal. The capabilities didn&#x27;t change. The users did. That&#x27;s worth sitting with.</description>
+    </item>
     <item>
       <title>The session git never captured: why version control was designed for human authors and what the AI provenance gap actually costs</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-02-the-session-git-never-captured-why-version-control.html</link>

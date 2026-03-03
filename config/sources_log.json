@@ -196,5 +196,16 @@
       "url": "https://news.ycombinator.com/rss"
     },
     "reason": "Already a favorite source but worth noting: HN is now the primary signal channel for practitioner governance debates (session provenance, MCP vs. CLI). The debate quality is a maturity proxy worth monitoring systematically."
+  },
+  {
+    "date": "2026-03-03",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "TechCrunch",
+      "enabled": true,
+      "url": "https://techcrunch.com/feed/"
+    },
+    "reason": "The DoD/ChatGPT uninstall story broke here first. Consumer AI behavior, market share shifts, and operator ethics stories consistently appear here before HN surfaces them."
   }
 ]

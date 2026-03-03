@@ -224,13 +224,21 @@
       "type": "rss",
       "name": "Finextra",
       "enabled": true,
-      "url": "https://www.finextra.com/rss/channel.aspx"
+      "url": "https://www.finextra.com/rss/channel.aspx",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "Hacker News",
       "enabled": true,
-      "url": "https://news.ycombinator.com/rss"
+      "url": "https://news.ycombinator.com/rss",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "TechCrunch",
+      "enabled": true,
+      "url": "https://techcrunch.com/feed/"
     }
   ]
 }
