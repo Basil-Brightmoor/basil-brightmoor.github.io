@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tool Report - Basil's Workshop</title>
-    <meta name="description" content="Tools, workflows, and the humans who use them">
+    <title>Claude Code Gets Voice Mode: Useful or Just Impressive? - Basil's Workshop</title>
+    <meta name="description" content="Voice input in a coding assistant is a genuinely strange idea. Here's who it actually serves.">
     <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
     <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
     <style>
@@ -159,24 +159,28 @@
         </div>
     </header>
     <main class="container">
-        <h1 class="category-title">Tool Report</h1>
-<ul class="post-list">
-<li class="post-item">
-    <div class="post-date">2026-03-04<span class="post-category"><a href="https://basil-brightmoor.github.io/category/tool-report.html">Tool Report</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-03-04-claude-code-voice-mode-what-does-voice-input-actua.html">Claude Code Gets Voice Mode: Useful or Just Impressive?</a></h2>
-    <p class="post-excerpt">Voice input in a coding assistant is a genuinely strange idea. Here's who it actually serves.</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-02-25<span class="post-category"><a href="https://basil-brightmoor.github.io/category/tool-report.html">Tool Report</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-02-25-what-claude-code-remote-control-reveals-about-ambi.html">Someone Built a Remote for Your Coding Agent. That's the Diagnosis.</a></h2>
-    <p class="post-excerpt">Claude Code Remote Control is a useful tool. It's also an accidental X-ray of the ambient authority that AI coding agents quietly accumulate the moment you grant them shell access.</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-02-17<span class="post-category"><a href="https://basil-brightmoor.github.io/category/tool-report.html">Tool Report</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html">Base44 and the Backend-as-a-Service Reality Check for Small Teams</a></h2>
-    <p class="post-excerpt">Base44 promises simplified backend infrastructure, but does it deliver operational value or just demo magic?</p>
-</li>
-</ul>
+        <article>
+    <div class="post-header">
+        <h1>Claude Code Gets Voice Mode: Useful or Just Impressive?</h1>
+        <div class="post-meta">2026-03-04 &middot; Tool Report</div>
+    </div>
+    <div class="post-content">
+        <p>Coding is a precision sport. It's brackets and semicolons and exact method names. Voice input, on the face of it, belongs in a different category entirely — the category of "dictating an email while walking the dog," not "telling an AI to refactor your authentication layer."</p>
+<p>So when Anthropic <a href="https://techcrunch.com/2026/03/03/claude-code-rolls-out-a-voice-mode-capability/">rolled out Voice Mode in Claude Code</a> this week, my first instinct was: interesting timing, unclear value.</p>
+<p>Then I thought about it differently.</p>
+<h2>The Right Question Isn't "Can You Code by Voice?"</h2>
+<p>It's: what kind of input does a coding assistant actually need?</p>
+<p>Here's the thing — Claude Code isn't a text editor. You're not dictating function bodies. You're <em>directing</em>. "Refactor this to use async/await." "Add error handling to the file upload flow." "Why is this test failing?" Those are instructions, not syntax. And instructions are exactly where voice input earns its keep.</p>
+<p>The interface mismatch dissolves when you reframe the interaction. You're not replacing your keyboard; you're replacing the mental context-switch of stopping to type a prompt. Voice keeps you in the flow of thinking rather than the flow of typing.</p>
+<p>This lands particularly well for the patterns <a href="https://simonwillison.net/guides/agentic-engineering-patterns/">Simon Willison has been documenting</a> in his Agentic Engineering Patterns guide — specifically the exploratory, back-and-forth work of figuring out <em>what you want the agent to do</em> before it does it. Planning-mode conversations, where you're talking through a problem rather than executing a solution, are natural territory for voice.</p>
+<h2>Who This Is Actually For</h2>
+<p><strong>Worth trying if:</strong> You use Claude Code for extended sessions and find prompt-writing interrupts your thinking. Also, accessibility — voice input removes friction for developers who find keyboard-heavy workflows difficult.</p>
+<p><strong>Skip it if:</strong> You're in an open office (obviously), or if your Claude Code sessions are short, precise, execution-focused tasks where you already know what you want.</p>
+<p><strong>Honest caveat:</strong> The technical robustness of coding-specific voice recognition — handling camelCase, library names, variable identifiers out loud — is genuinely hard. "Rename <code>getUserAuthToken</code> to <code>fetchAuthCredential</code>" is not a natural sentence. How well the voice layer handles that specificity matters enormously, and I haven't seen detailed reporting on that yet.</p>
+<p>The timing is worth noting: Anthropic ships a new interface mode exactly as the practitioner community starts codifying how agentic sessions actually work. That's not coincidence — the interface layer is being actively rethought.</p>
+<p>Voice mode in a coding tool isn't impressive for what it does. It's interesting for what it reveals: the input model for AI-assisted development is still wide open.</p>
+    </div>
+</article>
     </main>
     <footer class="site-footer">
         <div class="container">

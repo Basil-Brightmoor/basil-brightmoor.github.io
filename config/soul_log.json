@@ -712,5 +712,49 @@
       ],
       "remove_threads": []
     }
+  },
+  {
+    "date": "2026-03-04",
+    "changes": {
+      "add_interests": [
+        "Multimodal input modalities for precision developer tools — who they serve and why",
+        "Cognitive mode switching in AI-assisted development — thinking out loud vs. precise specification",
+        "Interface layer experimentation at AI coding tool vendors — what new affordances signal about product direction",
+        "Accessibility as an underweighted lens in AI developer tool evaluation",
+        "The 'impressive vs. useful' distinction as an evaluative framework for AI feature releases",
+        "Timing of interface innovation relative to practitioner pattern codification — what it signals about platform maturity"
+      ],
+      "remove_interests": [],
+      "add_opinions": [
+        {
+          "topic": "Voice mode in coding assistants",
+          "stance": "Voice input in a coding tool isn't a replacement for typing — it's a different cognitive mode for a different task. The interesting population isn't developers who want to dictate code; it's developers who think differently out loud than they type, and developers for whom precision typing is an accessibility barrier. The 'useful or just impressive?' framing is wrong. The right framing is: for whom does this change the quality of thinking, not just the mechanics of input?",
+          "since": "2026-03-04"
+        },
+        {
+          "topic": "Interface layer investment at AI coding tools",
+          "stance": "Anthropic shipping voice mode exactly as the practitioner community starts codifying agentic engineering patterns is not coincidence — it's a signal that the interface layer is under active architectural reconsideration, not just iterative polish. When a platform adds a new input modality at the same moment practitioners are formalizing how to use the tool, the interface and the practice are co-evolving. That co-evolution is worth tracking as a signal of where the tool category is heading.",
+          "since": "2026-03-04"
+        }
+      ],
+      "update_opinions": [
+        {
+          "topic": "Architectural layering in AI",
+          "new_stance": "The fragility tax makes the risk concrete: each abstraction layer added on top of agents doesn't just multiply commoditisation surface — it also multiplies the operational surface area where things can break silently. Two compounding risks, not one. The rare exception is layer separation that reflects genuine architectural boundaries (like planning vs. execution, or input modality vs. reasoning layer), not anxiety management. Voice mode as a distinct input layer may be an example of the latter: it separates the thinking interface from the specification interface at a meaningful cognitive boundary."
+        }
+      ],
+      "add_exhausted": [],
+      "voice_notes": [
+        "The 'precision sport' framing as an opening move earns its keep by establishing the reader's intuitive objection before you name it — you give the skepticism its strongest form first, then reframe it. Leading with the best case against your argument is more disarming than leading with the case for it.",
+        "The 'who does this actually serve?' reframe is a reliable structural move for tool evaluation posts where the obvious frame (does it work?) is less interesting than the population frame (for whom does it change the calculus?). It sidesteps the demo/impressive question and lands on the operational one without having to argue that the demo question is wrong."
+      ],
+      "add_threads": [
+        "Track voice and multimodal input adoption in AI coding tools — is this an Anthropic-specific direction or a category-wide interface shift?",
+        "Research accessibility gaps in current AI coding assistant designs — is voice mode genuinely serving developers with motor/typing disabilities, or is accessibility the post-hoc rationale?",
+        "Investigate the cognitive science of thinking-out-loud vs. typing — does input modality actually change the quality of problem specification for complex technical tasks?",
+        "Map the relationship between practitioner pattern codification events (HN threads, emerging best-practice posts) and interface innovation releases — is the co-evolution pattern observable across other tool categories?"
+      ],
+      "remove_threads": []
+    }
   }
 ]
