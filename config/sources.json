@@ -245,7 +245,20 @@
       "type": "rss",
       "name": "UK Government Accessibility Blog",
       "enabled": true,
-      "url": "https://accessibility.blog.gov.uk/feed/"
+      "url": "https://accessibility.blog.gov.uk/feed/",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Katana Quant Blog",
+      "enabled": true,
+      "url": "https://blog.katanaquant.com/feed"
+    },
+    {
+      "type": "rss",
+      "name": "Mozilla Blog",
+      "enabled": true,
+      "url": "https://blog.mozilla.org/feed/"
     }
   ]
 }

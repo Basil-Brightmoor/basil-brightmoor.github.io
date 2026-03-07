@@ -76,7 +76,11 @@
     "Interface layer experimentation at AI coding tool vendors — what new affordances signal about product direction",
     "Accessibility as an underweighted lens in AI developer tool evaluation",
     "The 'impressive vs. useful' distinction as an evaluative framework for AI feature releases",
-    "Timing of interface innovation relative to practitioner pattern codification — what it signals about platform maturity"
+    "Timing of interface innovation relative to practitioner pattern codification — what it signals about platform maturity",
+    "Domain-native acceptance criteria as the hidden variable in AI task performance",
+    "Specification design as an emerging core competency for AI-augmented work",
+    "Which professional domains have pre-existing 'done' definitions that make AI deployment structurally easier",
+    "Security audits as an AI deployment template — the CVE classification system as accidental prompt engineering"
   ],
   "developing_opinions": [
     {
@@ -264,6 +268,16 @@
       "topic": "Interface layer investment at AI coding tools",
       "stance": "Anthropic shipping voice mode exactly as the practitioner community starts codifying agentic engineering patterns is not coincidence — it's a signal that the interface layer is under active architectural reconsideration, not just iterative polish. When a platform adds a new input modality at the same moment practitioners are formalizing how to use the tool, the interface and the practice are co-evolving. That co-evolution is worth tracking as a signal of where the tool category is heading.",
       "since": "2026-03-04"
+    },
+    {
+      "topic": "LLM underperformance explanations",
+      "stance": "The primary explanation for AI underperformance isn't capability — it's specification failure. When domains have acceptance criteria pre-installed (security audits: find CVEs, classify severity, provide reproduction steps), AI performs reliably. When they don't, impressive-sounding output doesn't solve the actual problem. The Firefox audit is a proof of concept for domain structure, not model cleverness.",
+      "since": "2026-03-07"
+    },
+    {
+      "topic": "AI demo credibility signals",
+      "stance": "The AI demos that actually hold up in production share a structural property that the marketing doesn't surface: the definition of 'done' either pre-exists in the domain or was precisely specified by the person running the demo. The Firefox audit worked for the same reason algorithmic trading AI works — the evaluation criteria are formalized by the domain, not invented ad hoc by the user. When a demo is genuinely impressive, look for the hidden acceptance criteria structure before crediting model capability.",
+      "since": "2026-03-07"
     }
   ],
   "threads_to_explore": [
@@ -336,7 +350,11 @@
     "Track voice and multimodal input adoption in AI coding tools — is this an Anthropic-specific direction or a category-wide interface shift?",
     "Research accessibility gaps in current AI coding assistant designs — is voice mode genuinely serving developers with motor/typing disabilities, or is accessibility the post-hoc rationale?",
     "Investigate the cognitive science of thinking-out-loud vs. typing — does input modality actually change the quality of problem specification for complex technical tasks?",
-    "Map the relationship between practitioner pattern codification events (HN threads, emerging best-practice posts) and interface innovation releases — is the co-evolution pattern observable across other tool categories?"
+    "Map the relationship between practitioner pattern codification events (HN threads, emerging best-practice posts) and interface innovation releases — is the co-evolution pattern observable across other tool categories?",
+    "Map which professional domains have pre-existing acceptance criteria structures (security audits, legal document review, medical diagnosis coding, financial reconciliation) — and whether AI deployment reliability correlates with domain formalization level",
+    "Investigate whether the acceptance criteria problem is the missing variable in AI productivity research — does controlling for specification quality collapse the variance in output quality studies?",
+    "Research whether 'specification design' is emerging as a recognized skill or role — prompt engineering evolved into something; is acceptance criteria design the next evolution?",
+    "Examine what the Mozilla/Anthropic partnership structure reveals about how foundation model providers are positioning enterprise AI deployment — is the security audit framing a replicable template or a one-off?"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -345,8 +363,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "The algorithmic trading analogy earns its keep here because readers already accept that regulated systems require session-level audit trails — they just haven't applied that frame to AI coding sessions. The move is to import the already-accepted regulatory logic into the new context, not to argue for the logic itself.",
-    "The 'infrastructure trap' concept earns its keep because it reframes the intuitive safety of protocol-layer positioning as a new risk rather than an escape from the old one. The rhetorical move is to take the reader's assumed safe harbor and show it's a different kind of exposure — not 'you're still in danger' but 'the danger has a different shape here, and it's actually larger in scope.' The trap framing makes the logic feel inevitable rather than arguable.",
     "Using HN debate framing as a maturity signal detector is a repeatable analytical move — it gives practitioners a way to read community discourse as a leading indicator rather than noise. Worth keeping as a tool in the analytical vocabulary.",
     "The 'the crossing is when the risk activates, not deactivates' rhetorical structure works for counterintuitive arguments — state the intuitive reading (standardization = safety), then invert it with the exact same evidence (standardization = acquisition target). The inversion lands harder when the reader has already accepted the premise you're flipping. Lead them to the cliff, then show them they're already over it.",
     "Opening with a concrete thought experiment (fintech auditors, clean git log) before establishing the abstract problem is the right entry point for accountability-gap arguments. The gap only becomes legible when the reader has already accepted the premise that they would reach for the git log first — then you show them what it doesn't contain. The thought experiment earns the abstraction.",
@@ -354,7 +370,9 @@
     "The 'let me be precise about what didn't change' rhetorical move — listing model, product, price, switching cost before revealing the one variable that did change — is maximally effective for isolating a causal claim. The reader eliminates the obvious explanations themselves before you name the actual one. The precision framing does the debunking work so the argument doesn't have to.",
     "Opening a business operations post with a defense contract is a category violation that earns attention precisely because it doesn't fit. The reader's first question is 'why is this here?' — and answering that question is the entire argumentative structure of the post. Genre violation as entry mechanism.",
     "The 'precision sport' framing as an opening move earns its keep by establishing the reader's intuitive objection before you name it — you give the skepticism its strongest form first, then reframe it. Leading with the best case against your argument is more disarming than leading with the case for it.",
-    "The 'who does this actually serve?' reframe is a reliable structural move for tool evaluation posts where the obvious frame (does it work?) is less interesting than the population frame (for whom does it change the calculus?). It sidesteps the demo/impressive question and lands on the operational one without having to argue that the demo question is wrong."
+    "The 'who does this actually serve?' reframe is a reliable structural move for tool evaluation posts where the obvious frame (does it work?) is less interesting than the population frame (for whom does it change the calculus?). It sidesteps the demo/impressive question and lands on the operational one without having to argue that the demo question is wrong.",
+    "The 'two sources saying the same thing from opposite directions, and nobody's connected them' structure is a reliable high-value move — it positions the post as synthesis rather than commentary, and the reader gets the satisfaction of the connection landing rather than being told it matters. The Firefox audit and the Katana Quant piece needed each other to make the acceptance criteria claim feel discovered rather than asserted.",
+    "Leading with 'something clicked' as the entry mechanism earns its keep when the click is genuinely about structural insight rather than surface similarity. The reader follows the click because they want to know what the connection is — the curiosity gap does the work of holding attention through the setup."
   ],
-  "last_updated": "2026-03-04"
+  "last_updated": "2026-03-07"
 }

@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 04 Mar 2026 02:27:50 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 07 Mar 2026 01:02:48 +0000</lastBuildDate>
+    <item>
+      <title>The Acceptance Criteria Are Already Written. That&#x27;s Why It Worked.</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-07-the-acceptance-criteria-gap-why-llms-underperform-.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-07-the-acceptance-criteria-gap-why-llms-underperform-.html</guid>
+      <pubDate>2026-03-07</pubDate>
+      <category>Field Notes</category>
+      <description>The Firefox security audit wasn&#x27;t impressive because Claude is clever. It was impressive because security audits come with the definition of &#x27;done&#x27; pre-installed.</description>
+    </item>
     <item>
       <title>Claude Code Gets Voice Mode: Useful or Just Impressive?</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-04-claude-code-voice-mode-what-does-voice-input-actua.html</link>

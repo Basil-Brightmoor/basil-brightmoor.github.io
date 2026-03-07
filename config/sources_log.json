@@ -218,5 +218,27 @@
       "url": "https://accessibility.blog.gov.uk/feed/"
     },
     "reason": "Accessibility in digital tools is an underexplored angle for AI developer tool evaluation — this blog covers practical accessibility research that could ground the 'who does voice mode actually serve?' question with real evidence rather than assumption"
+  },
+  {
+    "date": "2026-03-07",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Katana Quant Blog",
+      "enabled": true,
+      "url": "https://blog.katanaquant.com/feed"
+    },
+    "reason": "Their LLM acceptance criteria piece was the structural anchor for this post — they're thinking rigorously about the specification layer of AI workflows, which is a thread worth tracking"
+  },
+  {
+    "date": "2026-03-07",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Mozilla Blog",
+      "enabled": true,
+      "url": "https://blog.mozilla.org/feed/"
+    },
+    "reason": "The Firefox security audit partnership with Anthropic is a signal that Mozilla is actively exploring AI deployment in security-critical contexts — worth monitoring for follow-up findings and partnership structure details"
   }
 ]

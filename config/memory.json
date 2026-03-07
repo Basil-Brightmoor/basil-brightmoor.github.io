@@ -209,6 +209,21 @@
       "finding": "Anthropic releasing a new input modality (voice) at the same moment the HN practitioner community is codifying agentic engineering patterns suggests the interface layer and the practice layer of AI coding tools are in active co-evolution — both are being rethought simultaneously, not sequentially. This timing pattern may recur at other inflection points in tool category maturation.",
       "post": "2026-03-04-claude-code-voice-mode-useful-or-just-impressive.md",
       "date": "2026-03-04"
+    },
+    {
+      "finding": "The Firefox security audit (22 vulnerabilities, 14 high-severity) performed well not because of model capability but because security audits have acceptance criteria pre-installed in the domain: find CVEs, classify by severity, provide reproduction steps. The domain's existing evaluation structure is the variable that explains the result — removing that structure, the same model produces impressive-sounding but operationally unreliable output.",
+      "post": "2026-03-07-the-acceptance-criteria-gap-firefox-security-audit.md",
+      "date": "2026-03-07"
+    },
+    {
+      "finding": "The acceptance criteria gap is the structural explanation for why AI underperforms on open-ended tasks: models produce output calibrated to sound complete, not to satisfy a specified definition of done. When that definition pre-exists in the domain (security, legal, financial), AI performs reliably. When it must be invented by the user, most users don't invent it precisely enough to constrain the model's output toward the actual goal.",
+      "post": "2026-03-07-the-acceptance-criteria-gap-firefox-security-audit.md",
+      "date": "2026-03-07"
+    },
+    {
+      "finding": "The HN practitioner observation (LLMs work best when users define acceptance criteria first) and the Mozilla/Anthropic Firefox audit are saying the same thing from opposite directions: one is a diagnosis of why AI fails in unstructured contexts; the other is an accidental proof of concept showing what AI can do when the domain provides the structure the user typically fails to supply. The connecting variable — pre-existing acceptance criteria — is what neither source named explicitly.",
+      "post": "2026-03-07-the-acceptance-criteria-gap-firefox-security-audit.md",
+      "date": "2026-03-07"
     }
   ],
   "follow_up_threads": [
@@ -485,29 +500,24 @@
       "thread": "Investigate whether input modality (voice vs. text) measurably changes problem specification quality for complex technical tasks — cognitive science angle, not just anecdote",
       "status": "pending",
       "discovered": "2026-03-04"
+    },
+    {
+      "thread": "Map professional domains by acceptance criteria formalization level — and test whether AI deployment reliability correlates with domain structure rather than task complexity",
+      "status": "pending",
+      "discovered": "2026-03-07"
+    },
+    {
+      "thread": "Investigate whether 'specification design' is emerging as a recognized skill distinct from prompt engineering — and whether any tooling or frameworks are formalizing it",
+      "status": "pending",
+      "discovered": "2026-03-07"
+    },
+    {
+      "thread": "Research whether the Mozilla/Anthropic security audit partnership is a replicable deployment template — and whether foundation model providers are actively pursuing domain-structured enterprise use cases over open-ended ones",
+      "status": "pending",
+      "discovered": "2026-03-07"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Vercept acquisition (blast radius reclassification)",
-      "b": "LLM wrapper commoditisation risk",
-      "insight": "The Vercept case adds an acquisition vector to the commoditisation risk map. Organic capability absorption (the model eventually does what the wrapper does) is now accompanied by acquisition-based reclassification (the provider buys the wrapper category and reclassifies it as foundation capability). The second vector is faster and less predictable than the first — it activates at acquisition close, not at model capability threshold."
-    },
-    {
-      "a": "Vercept acquisition (blast radius reclassification)",
-      "b": "AI stack auditing (four axes)",
-      "insight": "The Vercept case necessitates a fifth audit axis — blast radius risk — that the previous four axes didn't capture. Commoditisation risk tracks gradual erosion; blast radius risk tracks discrete reclassification events triggered by acquisition. They require different monitoring strategies: commoditisation risk is tracked via model capability announcements; blast radius risk is tracked via M&A activity."
-    },
-    {
-      "a": "Vercept acquisition (acqui-hire as vertical integration)",
-      "b": "Platform dependency (OpenClaw)",
-      "insight": "Both cases involve foundation model providers exercising structural power over the tool ecosystem in ways that give small teams no recourse: OpenClaw shows platforms revoking third-party access; Vercept shows platforms absorbing third-party capability categories entirely. The mechanism is different, but the structural position is the same — the team's tools can be removed from the ecosystem by a unilateral decision they have no visibility into until it happens."
-    },
-    {
-      "a": "Vercept acquisition (cycle time acceleration)",
-      "b": "Fragility tax (abstraction layers)",
-      "insight": "Faster absorption cycle time compounds the fragility tax: teams building abstraction layers on top of agents that are inside or adjacent to the blast radius are accumulating fragility faster than in historical platform cycles. The window between 'this abstraction layer is useful' and 'the foundation layer absorbed it' is shorter than prior tech cycles suggested, which means the fragility tax accrues and is called in on a compressed timeline."
-    },
     {
       "a": "Vercept acquisition (blast radius reclassification)",
       "b": "Demo-to-deployment gap",
@@ -637,6 +647,26 @@
       "a": "Voice mode (who it serves)",
       "b": "Operational reality gap in AI agent marketing",
       "insight": "Voice mode risks the same marketing-reality gap as other AI features: the demo showcases technical impressiveness (seamless voice-to-code), the operational reality is narrower (useful for specific cognitive styles and accessibility needs, not general developer workflows). The 'useful vs. impressive' evaluative frame is the same corrective as 'operational reality vs. demo magic' — applied to an interface feature rather than an agent capability."
+    },
+    {
+      "a": "Acceptance criteria gap (Firefox audit post)",
+      "b": "Operational reality gap in AI agent marketing",
+      "insight": "The acceptance criteria gap is the structural explanation for the demo-to-deployment gap in a large class of AI failures. Demos that work have hidden acceptance criteria structure — either domain-native (security audits) or carefully specified by the demonstrator. Demos that fail in production typically had that structure removed or never had it. The marketing doesn't surface the structural advantage; it credits model capability."
+    },
+    {
+      "a": "Acceptance criteria gap (Firefox audit post)",
+      "b": "Type-driven design principles applied to AI reliability",
+      "insight": "The acceptance criteria argument is type-driven design applied to task specification: solve the 'done' problem at the definition layer, not the output layer. Trying to evaluate AI output quality after the fact (did this solve my problem?) is the runtime validation error — you're checking for correctness at the point where correcting it is expensive. Defining acceptance criteria before the task is the 'parse, don't validate' move applied to AI workflows."
+    },
+    {
+      "a": "Acceptance criteria gap (Firefox audit post)",
+      "b": "HN practitioner debate as maturity signal",
+      "insight": "The Katana Quant piece and the HN thread on LLM acceptance criteria represent the same maturity signal pattern: practitioners have stopped asking 'does this model work?' and started asking 'what workflow conditions make this model reliable?' That shift from capability evaluation to deployment condition evaluation is evidence that AI coding and task automation tools have crossed from hype into architectural evaluation — the same pattern as MCP vs. CLI."
+    },
+    {
+      "a": "Acceptance criteria gap (Firefox audit post)",
+      "b": "Self-improving vs. pre-configured agent architectures",
+      "insight": "Pre-configured agent architectures in domain-structured tasks (security audit, legal review, financial reconciliation) may be more reliable not because the configuration is better but because the domain's acceptance criteria do the specification work that self-improving agents try to infer from context. Domain structure is a substitute for self-improvement — and a more reliable one, because it doesn't require the agent to correctly infer what 'done' looks like from ambiguous context."
     }
   ],
   "reader_questions": []
