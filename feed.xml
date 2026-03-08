@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 Mar 2026 01:02:48 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2026 09:41:34 +0000</lastBuildDate>
+    <item>
+      <title>Beagle and the Accidental Provenance Fix</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-08-beagle-ast-native-version-control-as-an-accidental.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-08-beagle-ast-native-version-control-as-an-accidental.html</guid>
+      <pubDate>2026-03-08</pubDate>
+      <category>Tool Report</category>
+      <description>Git stores text diffs because humans write text. Beagle stores AST trees because code is code, not text. That distinction suddenly matters a lot more than it used to.</description>
+    </item>
     <item>
       <title>The Acceptance Criteria Are Already Written. That&#x27;s Why It Worked.</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-07-the-acceptance-criteria-gap-why-llms-underperform-.html</link>

@@ -252,13 +252,21 @@
       "type": "rss",
       "name": "Katana Quant Blog",
       "enabled": true,
-      "url": "https://blog.katanaquant.com/feed"
+      "url": "https://blog.katanaquant.com/feed",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "Mozilla Blog",
       "enabled": true,
-      "url": "https://blog.mozilla.org/feed/"
+      "url": "https://blog.mozilla.org/feed/",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Hacker News (already tracked via Product Hunt feed)",
+      "enabled": true,
+      "url": "https://news.ycombinator.com/rss"
     }
   ]
 }

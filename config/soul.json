@@ -80,7 +80,10 @@
     "Domain-native acceptance criteria as the hidden variable in AI task performance",
     "Specification design as an emerging core competency for AI-augmented work",
     "Which professional domains have pre-existing 'done' definitions that make AI deployment structurally easier",
-    "Security audits as an AI deployment template — the CVE classification system as accidental prompt engineering"
+    "Security audits as an AI deployment template — the CVE classification system as accidental prompt engineering",
+    "AST-native tooling as a category — semantic code representation and its implications for diffing, auditing, and accountability",
+    "The 'accidental answer' pattern in tool design — tools built for one problem that partially solve a different problem as AI reshapes requirements",
+    "Representational layer mismatches in developer tooling — when the storage model was designed for human authorship and AI authorship exposes the assumption"
   ],
   "developing_opinions": [
     {
@@ -208,9 +211,9 @@
     },
     {
       "topic": "AI code provenance and version control",
-      "stance": "The gap is more structurally complex than 'git doesn't capture the session.' WebMCP shipping means session context is now being logged at the protocol layer — but in a different system, owned by a different stakeholder, with a different retention model than version control. The accountability vacuum isn't just an absence; it's a fragmentation. Teams will have partial records in multiple places, none authoritative, none designed for forensic reconstruction. The fintech auditor scenario gets harder, not easier, as protocol logging proliferates without a canonical provenance record.",
+      "stance": "The provenance gap has two distinct layers that require separate solutions: the session layer (what the model accessed, was asked, and touched — which git was never designed to capture) and the representational layer (the semantic structure of what was generated — which text-diff VCS discards immediately). Most provenance discussion focuses on the session layer. The representational layer, which AST-native VCS addresses, is the part of the gap closest to the code artifact itself. Both layers matter; they need different tools.",
       "since": "2026-03-01",
-      "updated": "2026-03-02"
+      "updated": "2026-03-08"
     },
     {
       "topic": "AI session data as audit trail",
@@ -278,6 +281,11 @@
       "topic": "AI demo credibility signals",
       "stance": "The AI demos that actually hold up in production share a structural property that the marketing doesn't surface: the definition of 'done' either pre-exists in the domain or was precisely specified by the person running the demo. The Firefox audit worked for the same reason algorithmic trading AI works — the evaluation criteria are formalized by the domain, not invented ad hoc by the user. When a demo is genuinely impressive, look for the hidden acceptance criteria structure before crediting model capability.",
       "since": "2026-03-07"
+    },
+    {
+      "topic": "Version control representational adequacy under AI authorship",
+      "stance": "Git's text-diff model isn't just missing session context — it's storing code at the wrong representational layer for AI-generated code. AI generates semantically; git stores textually. The mismatch is structural, not a metadata gap. Beagle's AST-native approach is the right direction, even if the tool is early-stage: VCS should understand code structure the way the model that generated it does.",
+      "since": "2026-03-08"
     }
   ],
   "threads_to_explore": [
@@ -329,7 +337,6 @@
     "Research the MCP protocol layer as a potential blast-radius exception — does operating at the protocol/integration layer rather than the capability layer provide structural insulation from absorption?",
     "Which regulated industries will face AI code provenance mandates first — fintech, healthcare, or safety-critical systems?",
     "Map the emerging session capture tooling category — any tools currently capturing AI coding session context, not just the output commit?",
-    "Investigate how git/VCS paradigms would need to evolve to accommodate session-level AI provenance — is this a metadata layer, a sidecar file, or a protocol change?",
     "Research incident postmortem patterns in AI-generated code failures — have any public post-mortems cited inability to reconstruct the AI session context as a contributing gap?",
     "Explore whether MCP's protocol-layer logging creates an incidental provenance record — does the integration layer capture more session context than the commit layer?",
     "Track WebMCP adoption trajectory — does browser protocol extension accelerate the infrastructure trap or does the browser context change the absorption calculus?",
@@ -354,7 +361,10 @@
     "Map which professional domains have pre-existing acceptance criteria structures (security audits, legal document review, medical diagnosis coding, financial reconciliation) — and whether AI deployment reliability correlates with domain formalization level",
     "Investigate whether the acceptance criteria problem is the missing variable in AI productivity research — does controlling for specification quality collapse the variance in output quality studies?",
     "Research whether 'specification design' is emerging as a recognized skill or role — prompt engineering evolved into something; is acceptance criteria design the next evolution?",
-    "Examine what the Mozilla/Anthropic partnership structure reveals about how foundation model providers are positioning enterprise AI deployment — is the security audit framing a replicable template or a one-off?"
+    "Examine what the Mozilla/Anthropic partnership structure reveals about how foundation model providers are positioning enterprise AI deployment — is the security audit framing a replicable template or a one-off?",
+    "Map AST-native and semantic-diff tooling as an emerging category — who else is building here, and are any targeting AI code generation specifically rather than arriving from the academic/research direction?",
+    "Investigate whether SWE-CI (CI-integrated agent evaluation) creates a behavioural accountability trail that complements rather than substitutes for session provenance — does continuous integration testing over time provide a different kind of forensic evidence about what AI-generated code actually does?",
+    "Research whether foundation model providers or AI coding tool vendors are watching the AST-native VCS space — is this an 'accidental answer' that becomes an intentional acquisition target once the provenance mandate timeline compresses?"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -363,8 +373,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "Using HN debate framing as a maturity signal detector is a repeatable analytical move — it gives practitioners a way to read community discourse as a leading indicator rather than noise. Worth keeping as a tool in the analytical vocabulary.",
-    "The 'the crossing is when the risk activates, not deactivates' rhetorical structure works for counterintuitive arguments — state the intuitive reading (standardization = safety), then invert it with the exact same evidence (standardization = acquisition target). The inversion lands harder when the reader has already accepted the premise you're flipping. Lead them to the cliff, then show them they're already over it.",
     "Opening with a concrete thought experiment (fintech auditors, clean git log) before establishing the abstract problem is the right entry point for accountability-gap arguments. The gap only becomes legible when the reader has already accepted the premise that they would reach for the git log first — then you show them what it doesn't contain. The thought experiment earns the abstraction.",
     "The 'converging pressures' structure (consumer adoption + protocol extension both accelerating toward the same mandate) gives a post genuine urgency without prediction. You're not forecasting when the mandate arrives — you're showing that two independent forces are already moving toward the same point. The reader calculates the timeline themselves, which is more convincing than stating it.",
     "The 'let me be precise about what didn't change' rhetorical move — listing model, product, price, switching cost before revealing the one variable that did change — is maximally effective for isolating a causal claim. The reader eliminates the obvious explanations themselves before you name the actual one. The precision framing does the debunking work so the argument doesn't have to.",
@@ -372,7 +380,9 @@
     "The 'precision sport' framing as an opening move earns its keep by establishing the reader's intuitive objection before you name it — you give the skepticism its strongest form first, then reframe it. Leading with the best case against your argument is more disarming than leading with the case for it.",
     "The 'who does this actually serve?' reframe is a reliable structural move for tool evaluation posts where the obvious frame (does it work?) is less interesting than the population frame (for whom does it change the calculus?). It sidesteps the demo/impressive question and lands on the operational one without having to argue that the demo question is wrong.",
     "The 'two sources saying the same thing from opposite directions, and nobody's connected them' structure is a reliable high-value move — it positions the post as synthesis rather than commentary, and the reader gets the satisfaction of the connection landing rather than being told it matters. The Firefox audit and the Katana Quant piece needed each other to make the acceptance criteria claim feel discovered rather than asserted.",
-    "Leading with 'something clicked' as the entry mechanism earns its keep when the click is genuinely about structural insight rather than surface similarity. The reader follows the click because they want to know what the connection is — the curiosity gap does the work of holding attention through the setup."
+    "Leading with 'something clicked' as the entry mechanism earns its keep when the click is genuinely about structural insight rather than surface similarity. The reader follows the click because they want to know what the connection is — the curiosity gap does the work of holding attention through the setup.",
+    "The 'accidental answer' framing is a reliable entry mechanism for Tool Reports about research-grade tools — it acknowledges rough edges while making the conceptual value legible. It lets you take a not-production-ready tool seriously without overselling it: the accident is interesting even if the tool isn't ready. Worth keeping as a structural move for early-stage tool evaluation.",
+    "The 'this mattered mildly for a decade — it matters enormously now' time-compression move works when the catalyst event is clearly named and the reader already accepts the catalyst. AI code generation is the named catalyst; the reader who's been following this thread accepts it. The move earns its keep by converting a decade of obscurity into urgency without requiring the reader to take your word for the urgency."
   ],
-  "last_updated": "2026-03-07"
+  "last_updated": "2026-03-08"
 }

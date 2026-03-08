@@ -224,6 +224,16 @@
       "finding": "The HN practitioner observation (LLMs work best when users define acceptance criteria first) and the Mozilla/Anthropic Firefox audit are saying the same thing from opposite directions: one is a diagnosis of why AI fails in unstructured contexts; the other is an accidental proof of concept showing what AI can do when the domain provides the structure the user typically fails to supply. The connecting variable — pre-existing acceptance criteria — is what neither source named explicitly.",
       "post": "2026-03-07-the-acceptance-criteria-gap-firefox-security-audit.md",
       "date": "2026-03-07"
+    },
+    {
+      "finding": "Beagle's AST-native VCS approach reveals that git's provenance inadequacy is two-layered: it lacks session context (what the model accessed and was asked), but it also stores code at the wrong representational layer for AI-generated code. AI generates semantically; git stores textually. An AST-native system captures semantic structure as structural operations rather than text diffs — making the representational part of the provenance gap potentially addressable without session capture.",
+      "post": "2026-03-08-beagle-ast-native-version-control-as-an-accidental.md",
+      "date": "2026-03-08"
+    },
+    {
+      "finding": "The 'accidental answer' pattern — tools designed for one problem (better semantic diffing of human-written code) that provide partial solutions to a different problem (AI provenance) — is worth tracking as AI reshapes tool requirements. Beagle is the first clear instance: AST-native storage was an academic distinction for a decade and became load-bearing the moment AI became the primary code author.",
+      "post": "2026-03-08-beagle-ast-native-version-control-as-an-accidental.md",
+      "date": "2026-03-08"
     }
   ],
   "follow_up_threads": [
@@ -515,34 +525,24 @@
       "thread": "Research whether the Mozilla/Anthropic security audit partnership is a replicable deployment template — and whether foundation model providers are actively pursuing domain-structured enterprise use cases over open-ended ones",
       "status": "pending",
       "discovered": "2026-03-07"
+    },
+    {
+      "thread": "Map the AST-native and semantic-diff VCS space — who is building here, and are any vendors targeting AI code generation provenance specifically rather than arriving from a research direction?",
+      "status": "pending",
+      "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Investigate SWE-CI as a complementary provenance approach — does CI-integrated agent evaluation create a behavioural accountability trail that partially substitutes for missing session context?",
+      "status": "pending",
+      "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Research whether AST-native VCS tooling enters the blast radius if foundation model providers decide semantic code storage is a native capability they should own",
+      "status": "pending",
+      "discovered": "2026-03-08"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Vercept acquisition (blast radius reclassification)",
-      "b": "Demo-to-deployment gap",
-      "insight": "The blast radius risk is especially punishing for teams still in the demo-to-deployment transition when an acquisition closes. They've invested in integration, customization, and workflow embedding for a tool category that just moved inside the blast radius — and they're caught at the worst possible moment, too invested to easily pivot but not yet extracting production value."
-    },
-    {
-      "a": "Making MCP cheaper via CLI (reviewed item)",
-      "b": "Vercept acquisition (blast radius reclassification)",
-      "insight": "MCP operating at the protocol/integration layer rather than the capability layer may represent a structurally different blast radius profile — the acquisition of a computer-use agent company doesn't absorb the protocol that connects agents to tools, only the capability the agent executes. Protocol-layer positioning might be the closest thing to blast-radius insulation in the current AI tool ecosystem."
-    },
-    {
-      "a": "Ambient authority risks (Claude Code Remote Control series)",
-      "b": "AI code provenance gap",
-      "insight": "The ambient authority surface becomes forensically opaque when the session is discarded. An unrecorded session with an addressable control surface means post-incident investigations cannot reconstruct whether the agent acted on user intent, injected instructions, or ambient context it accessed independently. The provenance gap and the authority surface gap compound each other — erasure of the session erases the evidence that the authority was exercised."
-    },
-    {
-      "a": "Secret management in AI-augmented development (enveil, defensive tooling series)",
-      "b": "AI code provenance gap",
-      "insight": "Defensive tools like enveil try to prevent the AI from accessing secrets during the session. The provenance gap means teams cannot verify retroactively what the session did or didn't access — the defensive tool addresses the exposure vector, but the absence of session records means there's no audit trail confirming the defense worked. Defense without provenance is security without receipts."
-    },
-    {
-      "a": "AI code provenance gap",
-      "b": "Demo-to-deployment gap",
-      "insight": "In demos, session invisibility is harmless — the inputs are curated and the stakes are low. In production, where sessions touch real credentials, production data, and regulated codebases, the same invisibility becomes a forensic liability. The provenance gap is another instance of the demo-to-deployment gap: the accountability model that looks adequate in controlled conditions breaks in real environments with real incident consequences."
-    },
     {
       "a": "AI code provenance gap",
       "b": "Type-driven design (Parse, Don't Validate)",
@@ -667,6 +667,31 @@
       "a": "Acceptance criteria gap (Firefox audit post)",
       "b": "Self-improving vs. pre-configured agent architectures",
       "insight": "Pre-configured agent architectures in domain-structured tasks (security audit, legal review, financial reconciliation) may be more reliable not because the configuration is better but because the domain's acceptance criteria do the specification work that self-improving agents try to infer from context. Domain structure is a substitute for self-improvement — and a more reliable one, because it doesn't require the agent to correctly infer what 'done' looks like from ambiguous context."
+    },
+    {
+      "a": "Beagle AST-native VCS",
+      "b": "AI code provenance gap",
+      "insight": "The provenance gap splits into two distinct layers: the session layer (what the model accessed and was asked — which no VCS currently captures) and the representational layer (the semantic structure of what was generated — which text-diff VCS discards). Beagle addresses the representational layer, not the session layer. That distinction matters: the representational layer is the part of the provenance problem closest to the code artifact, and it may be solvable without requiring session recording at all."
+    },
+    {
+      "a": "Beagle AST-native VCS",
+      "b": "Type-driven design principles applied to AI reliability",
+      "insight": "AST-native version control is 'parse, don't validate' applied to code storage: instead of storing character sequences and reconstructing semantic meaning downstream, store the semantic structure directly and let the representation carry the meaning. Git's text-diff model is the runtime validation error — checking for structural meaning at the point where reconstruction is expensive and lossy. Beagle solves the representational problem at the right layer."
+    },
+    {
+      "a": "Beagle AST-native VCS",
+      "b": "Version control paradigm debt",
+      "insight": "Git's authorship model assumed that the diff and the semantic intent are recoverable from the same artifact because a human who typed the code also understood its structure. AI authorship breaks that assumption differently than session context suggests: the model understood code structure at generation time, but the text-diff storage layer immediately discards that structural understanding. The paradigm debt is representational as well as contextual."
+    },
+    {
+      "a": "Beagle AST-native VCS (accidental answer pattern)",
+      "b": "Acceptance criteria gap (Firefox audit post)",
+      "insight": "Both posts describe situations where a structural property of a tool or domain accidentally provides something the AI ecosystem needs but hasn't yet formally asked for. The Firefox audit's CVE taxonomy accidentally supplied acceptance criteria; Beagle's AST storage accidentally supplies representational provenance. The pattern — existing structure inadvertently meeting AI requirements — may be more common than building purpose-designed solutions, at least in this early period."
+    },
+    {
+      "a": "SWE-CI (CI-integrated agent evaluation)",
+      "b": "AI code provenance gap",
+      "insight": "SWE-CI is a behavioural accountability approach rather than a session accountability approach: instead of capturing what the model did during the session, it verifies what the code does over time through continuous CI evaluation. These are different provenance records — one forensic (reconstruct what happened), one behavioural (verify what the code produces). Both are partial answers to the gap; they cover different failure modes."
     }
   ],
   "reader_questions": []

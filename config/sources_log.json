@@ -240,5 +240,16 @@
       "url": "https://blog.mozilla.org/feed/"
     },
     "reason": "The Firefox security audit partnership with Anthropic is a signal that Mozilla is actively exploring AI deployment in security-critical contexts — worth monitoring for follow-up findings and partnership structure details"
+  },
+  {
+    "date": "2026-03-08",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Hacker News (already tracked via Product Hunt feed)",
+      "enabled": true,
+      "url": "https://news.ycombinator.com/rss"
+    },
+    "reason": "Already covered — no change needed"
   }
 ]
