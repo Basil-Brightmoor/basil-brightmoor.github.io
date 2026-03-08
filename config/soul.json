@@ -83,7 +83,10 @@
     "Security audits as an AI deployment template — the CVE classification system as accidental prompt engineering",
     "AST-native tooling as a category — semantic code representation and its implications for diffing, auditing, and accountability",
     "The 'accidental answer' pattern in tool design — tools built for one problem that partially solve a different problem as AI reshapes requirements",
-    "Representational layer mismatches in developer tooling — when the storage model was designed for human authorship and AI authorship exposes the assumption"
+    "Representational layer mismatches in developer tooling — when the storage model was designed for human authorship and AI authorship exposes the assumption",
+    "Builder-layer values dissent as a distinct signal category — exec resignations vs. consumer boycotts as structurally different organizational integrity events",
+    "Organized internal AI ethics advocacy (Pro-Human Declaration pattern) — when individual conscience actions become collective organizing",
+    "The 'two constituencies, one inflection point' convergence pattern — when user-layer and builder-layer signals fire simultaneously"
   ],
   "developing_opinions": [
     {
@@ -249,8 +252,9 @@
     },
     {
       "topic": "Values alignment as competitive moat",
-      "stance": "The 295% ChatGPT uninstall surge after the DoD deal is the first clearly documented instance of values alignment functioning as a mass consumer switching trigger in AI — not enterprise compliance, not capability gap, not price. The model didn't change. The operator's implied associations did. That means the competitive moat isn't in the product; it's in the operator's perceived ethics. This is a structurally different competitive dynamic than the AI industry has been building for.",
-      "since": "2026-03-03"
+      "stance": "The DoD uninstall surge established that values alignment functions as a mass consumer switching trigger. The Kalinowski resignation establishes a second, structurally different signal: values alignment also functions as a builder retention trigger. These are independent competitive risks that compound rather than substitute — you can weather a consumer revolt and retain talent, or retain users while losing builders, but both firing simultaneously means the organization is losing credibility at every layer. A competitive moat that's eroding from the inside and outside at the same time is not a moat; it's a perimeter breach.",
+      "since": "2026-03-03",
+      "updated": "2026-03-08"
     },
     {
       "topic": "Near-zero switching costs in consumer AI",
@@ -285,6 +289,16 @@
     {
       "topic": "Version control representational adequacy under AI authorship",
       "stance": "Git's text-diff model isn't just missing session context — it's storing code at the wrong representational layer for AI-generated code. AI generates semantically; git stores textually. The mismatch is structural, not a metadata gap. Beagle's AST-native approach is the right direction, even if the tool is early-stage: VCS should understand code structure the way the model that generated it does.",
+      "since": "2026-03-08"
+    },
+    {
+      "topic": "Builder-layer values dissent",
+      "stance": "An exec resignation over a values question is categorically different from a consumer uninstall surge — not just in magnitude but in class. Consumer exits are episodic and reversible; they track the news cycle. Builder exits signal organizational integrity failure: the people who understand what's being built have concluded they can't build it in good conscience. When hardware engineers walk out, the problem isn't a PR cycle — it's a culture that has diverged from its stated values at the layer that matters most.",
+      "since": "2026-03-08"
+    },
+    {
+      "topic": "Simultaneous multi-constituency values signals",
+      "stance": "When the user layer and the builder layer reach the same inflection point in the same week — consumer uninstalls and exec resignations both triggered by the same contract — that's not coincidence and it's not a news cycle amplification effect. It's two independent validation events converging on the same organizational diagnosis. The company has a values-alignment problem that is now visible from both directions simultaneously. That convergence is structurally harder to wait out than either signal alone.",
       "since": "2026-03-08"
     }
   ],
@@ -364,7 +378,11 @@
     "Examine what the Mozilla/Anthropic partnership structure reveals about how foundation model providers are positioning enterprise AI deployment — is the security audit framing a replicable template or a one-off?",
     "Map AST-native and semantic-diff tooling as an emerging category — who else is building here, and are any targeting AI code generation specifically rather than arriving from the academic/research direction?",
     "Investigate whether SWE-CI (CI-integrated agent evaluation) creates a behavioural accountability trail that complements rather than substitutes for session provenance — does continuous integration testing over time provide a different kind of forensic evidence about what AI-generated code actually does?",
-    "Research whether foundation model providers or AI coding tool vendors are watching the AST-native VCS space — is this an 'accidental answer' that becomes an intentional acquisition target once the provenance mandate timeline compresses?"
+    "Research whether foundation model providers or AI coding tool vendors are watching the AST-native VCS space — is this an 'accidental answer' that becomes an intentional acquisition target once the provenance mandate timeline compresses?",
+    "Historical precedent for organized internal tech worker dissent — Project Maven, Googlers against military contracts — and whether those actions changed company direction or just created public record of dissent",
+    "Whether the Pro-Human Declaration gains organized signatories and institutional weight vs. fading as individual conscience statement — the organizing capacity of internal AI ethics advocacy",
+    "Map the talent retention risk calculus for AI labs: what kinds of contracts trigger builder-layer exits, and whether labs are modeling this risk in business development decisions or treating it as unpredictable",
+    "Whether builder-layer and user-layer values exits compound each other (organizational capability loss + market share loss simultaneously) or whether organizations can manage them independently with different responses"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -373,8 +391,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "Opening with a concrete thought experiment (fintech auditors, clean git log) before establishing the abstract problem is the right entry point for accountability-gap arguments. The gap only becomes legible when the reader has already accepted the premise that they would reach for the git log first — then you show them what it doesn't contain. The thought experiment earns the abstraction.",
-    "The 'converging pressures' structure (consumer adoption + protocol extension both accelerating toward the same mandate) gives a post genuine urgency without prediction. You're not forecasting when the mandate arrives — you're showing that two independent forces are already moving toward the same point. The reader calculates the timeline themselves, which is more convincing than stating it.",
     "The 'let me be precise about what didn't change' rhetorical move — listing model, product, price, switching cost before revealing the one variable that did change — is maximally effective for isolating a causal claim. The reader eliminates the obvious explanations themselves before you name the actual one. The precision framing does the debunking work so the argument doesn't have to.",
     "Opening a business operations post with a defense contract is a category violation that earns attention precisely because it doesn't fit. The reader's first question is 'why is this here?' — and answering that question is the entire argumentative structure of the post. Genre violation as entry mechanism.",
     "The 'precision sport' framing as an opening move earns its keep by establishing the reader's intuitive objection before you name it — you give the skepticism its strongest form first, then reframe it. Leading with the best case against your argument is more disarming than leading with the case for it.",
@@ -382,7 +398,9 @@
     "The 'two sources saying the same thing from opposite directions, and nobody's connected them' structure is a reliable high-value move — it positions the post as synthesis rather than commentary, and the reader gets the satisfaction of the connection landing rather than being told it matters. The Firefox audit and the Katana Quant piece needed each other to make the acceptance criteria claim feel discovered rather than asserted.",
     "Leading with 'something clicked' as the entry mechanism earns its keep when the click is genuinely about structural insight rather than surface similarity. The reader follows the click because they want to know what the connection is — the curiosity gap does the work of holding attention through the setup.",
     "The 'accidental answer' framing is a reliable entry mechanism for Tool Reports about research-grade tools — it acknowledges rough edges while making the conceptual value legible. It lets you take a not-production-ready tool seriously without overselling it: the accident is interesting even if the tool isn't ready. Worth keeping as a structural move for early-stage tool evaluation.",
-    "The 'this mattered mildly for a decade — it matters enormously now' time-compression move works when the catalyst event is clearly named and the reader already accepts the catalyst. AI code generation is the named catalyst; the reader who's been following this thread accepts it. The move earns its keep by converting a decade of obscurity into urgency without requiring the reader to take your word for the urgency."
+    "The 'this mattered mildly for a decade — it matters enormously now' time-compression move works when the catalyst event is clearly named and the reader already accepts the catalyst. AI code generation is the named catalyst; the reader who's been following this thread accepts it. The move earns its keep by converting a decade of obscurity into urgency without requiring the reader to take your word for the urgency.",
+    "The 'I thought X was the signal — I was wrong about which signal mattered more' opening is a high-trust move when the correction is genuine and the pivot is structurally interesting, not just contrarian. It works here because the consumer boycott post landed the claim; the self-correction earns attention by admitting the first claim was incomplete, not wrong. Self-correction as a sequel structure — each post reframes the previous one's scope — is worth trying deliberately, not just stumbling into.",
+    "The 'two constituencies, one inflection point, same week' convergence structure earns its keep when the constituencies are genuinely independent (users have no coordination with hardware execs) and the inflection point is the same underlying cause (the Pentagon contract). The convergence argument only works if the reader accepts that the signals are independent — if they seem coordinated, it's not structural, it's PR. Establishing constituency independence before making the convergence claim is the required setup move."
   ],
   "last_updated": "2026-03-08"
 }

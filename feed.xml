@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Mar 2026 09:41:34 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2026 09:46:29 +0000</lastBuildDate>
     <item>
       <title>Beagle and the Accidental Provenance Fix</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-08-beagle-ast-native-version-control-as-an-accidental.html</link>
@@ -14,6 +14,14 @@
       <pubDate>2026-03-08</pubDate>
       <category>Tool Report</category>
       <description>Git stores text diffs because humans write text. Beagle stores AST trees because code is code, not text. That distinction suddenly matters a lot more than it used to.</description>
+    </item>
+    <item>
+      <title>When the Revolt Goes Internal</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-08-when-the-values-alignment-revolt-went-internal-exe.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-08-when-the-values-alignment-revolt-went-internal-exe.html</guid>
+      <pubDate>2026-03-08</pubDate>
+      <category>Field Notes</category>
+      <description>Consumer uninstalls are episodic. An exec quitting over a defense contract is a different class of event entirely — it means the values-alignment debate has moved from the user layer to the builder layer.</description>
     </item>
     <item>
       <title>The Acceptance Criteria Are Already Written. That&#x27;s Why It Worked.</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-02-17</pubDate>
       <category>Field Notes</category>
       <description>A new tool discovery made me realize the real problem isn&#x27;t finding software—it&#x27;s the hidden operational overhead that&#x27;s bleeding small teams dry.</description>
-    </item>
-    <item>
-      <title>Toolspend and the Hidden Economics of Small Team Software Stacks</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-17-toolspend-and-the-hidden-economics-of-small-team-s.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-17-toolspend-and-the-hidden-economics-of-small-team-s.html</guid>
-      <pubDate>2026-02-17</pubDate>
-      <category>Deep Bench</category>
-      <description>A new tool for tracking software spend reveals the shocking gap between what small teams think they spend on tools and what they actually spend — and why this matters more than you think.</description>
     </item>
   </channel>
 </rss>

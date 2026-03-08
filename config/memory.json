@@ -234,6 +234,16 @@
       "finding": "The 'accidental answer' pattern — tools designed for one problem (better semantic diffing of human-written code) that provide partial solutions to a different problem (AI provenance) — is worth tracking as AI reshapes tool requirements. Beagle is the first clear instance: AST-native storage was an academic distinction for a decade and became load-bearing the moment AI became the primary code author.",
       "post": "2026-03-08-beagle-ast-native-version-control-as-an-accidental.md",
       "date": "2026-03-08"
+    },
+    {
+      "finding": "The Kalinowski resignation establishes that values-alignment signals operate at two structurally distinct layers: the user layer (consumer boycotts — episodic, reversible, news-cycle-dependent) and the builder layer (exec resignations — organizational integrity signal, not reversible on the same timeline). These are different classes of event requiring different durability analyses. The same underlying trigger (Pentagon contract) firing both signals in the same week is a convergence event, not an amplification event.",
+      "post": "2026-03-08-when-the-values-alignment-revolt-went-internal-exe.md",
+      "date": "2026-03-08"
+    },
+    {
+      "finding": "The Pro-Human Declaration landing in the same week as the Kalinowski resignation suggests the builder-layer signal is not purely individual conscience action — there is concurrent organized advocacy from the AI safety and ethics community responding to the same trigger. Two independent constituencies (hardware execs and organized AI ethics advocates) reaching the same inflection point simultaneously in the same week strengthens the case that the organizational integrity signal is structural, not episodic.",
+      "post": "2026-03-08-when-the-values-alignment-revolt-went-internal-exe.md",
+      "date": "2026-03-08"
     }
   ],
   "follow_up_threads": [
@@ -483,8 +493,9 @@
     },
     {
       "thread": "Track whether Claude/Anthropic's positioning on defense and surveillance contracts is becoming an explicit product strategy signal — and whether the DoD uninstall response creates market pressure to make that positioning visible",
-      "status": "pending",
-      "discovered": "2026-03-03"
+      "status": "completed",
+      "discovered": "2026-03-03",
+      "completed_date": "2026-03-08"
     },
     {
       "thread": "Investigate whether enterprise AI procurement teams are beginning to treat consumer values-alignment signals (uninstall surges, public backlash events) as vendor risk indicators in procurement decisions",
@@ -540,24 +551,24 @@
       "thread": "Research whether AST-native VCS tooling enters the blast radius if foundation model providers decide semantic code storage is a native capability they should own",
       "status": "pending",
       "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Historical tech worker dissent precedents (Project Maven, Google military contract protests) — did organized internal dissent actually change company direction, or does it create public record without operational consequence?",
+      "status": "pending",
+      "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Whether the Pro-Human Declaration becomes an organized movement with institutional weight, or fades as a conscience statement without coordination mechanism",
+      "status": "pending",
+      "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Talent retention risk modeling in AI labs — are labs factoring builder-layer exit risk into business development decisions around defense and surveillance contracts, or treating it as unpredictable externality?",
+      "status": "pending",
+      "discovered": "2026-03-08"
     }
   ],
   "cross_connections": [
-    {
-      "a": "AI code provenance gap",
-      "b": "Type-driven design (Parse, Don't Validate)",
-      "insight": "The provenance problem is being approached the wrong way: teams are attempting to reconstruct session context post-hoc (via logs, diff analysis, comment conventions) rather than capturing it at the right layer — the session itself. This is the same architectural error as runtime validation: solving a structural problem at the wrong layer, where you're already paying the cost of the gap."
-    },
-    {
-      "a": "AI code provenance gap",
-      "b": "Vercept acquisition (blast radius reclassification)",
-      "insight": "Session capture tooling — if it emerges as a category — sits at an interesting blast radius position. If foundation model providers build native session provenance into their coding agents (as a compliance or enterprise feature), third-party session capture tools face the same absorption risk as computer-use agents did post-Vercept. Provenance could move from 'ecosystem opportunity' to 'foundation capability' in a single product announcement."
-    },
-    {
-      "a": "MCP protocol-layer positioning",
-      "b": "Vercept acquisition (blast radius reclassification)",
-      "insight": "The infrastructure trap reframes the MCP-as-safe-harbor intuition: protocol-layer tools face a different but potentially larger blast radius than capability-layer tools. Capability absorption reclassifies one tool category; infrastructure acquisition reclassifies the layer beneath all tool categories simultaneously. MCP's success at becoming the integration standard is exactly the condition that makes it strategically worth acquiring — standardization success is the acquisition signal, not the protection."
-    },
     {
       "a": "WebMCP browser protocol extension",
       "b": "Claude Code Remote Control (ambient authority surface)",
@@ -692,6 +703,21 @@
       "a": "SWE-CI (CI-integrated agent evaluation)",
       "b": "AI code provenance gap",
       "insight": "SWE-CI is a behavioural accountability approach rather than a session accountability approach: instead of capturing what the model did during the session, it verifies what the code does over time through continuous CI evaluation. These are different provenance records — one forensic (reconstruct what happened), one behavioural (verify what the code produces). Both are partial answers to the gap; they cover different failure modes."
+    },
+    {
+      "a": "Values alignment as consumer switching trigger (DoD uninstall surge)",
+      "b": "Builder-layer values dissent (Kalinowski resignation)",
+      "insight": "The same underlying event (Pentagon contract) triggered two structurally different signal classes in the same week: user-layer exits (episodic, reversible) and builder-layer exits (organizational integrity, slower recovery). The consumer boycott literature asks whether users return after the news cycle; that question doesn't apply to the builder signal. Talent exits compound capability loss independently of whether market share recovers. An organization can lose both credibility layers simultaneously while optimizing its PR response for only one of them."
+    },
+    {
+      "a": "Near-zero switching costs in consumer AI (amplifies values exits)",
+      "b": "Builder-layer values dissent (Kalinowski resignation)",
+      "insight": "Low switching costs amplify consumer exits; high switching costs (career, equity, professional relationships) make builder exits even more meaningful signals. When someone exits despite high personal switching costs, the values misalignment must be above a much higher threshold. Consumer exits are low-friction responses to association discomfort; builder exits are high-friction responses to organizational integrity failure. The cost asymmetry is what makes the two signals structurally different, not just different in scale."
+    },
+    {
+      "a": "Consumer AI adoption as regulatory accelerant",
+      "b": "Builder-layer values dissent (Kalinowski resignation)",
+      "insight": "Consumer adoption accelerates regulatory mandate timelines from outside; builder dissent accelerates organizational accountability from inside. Both compress the timeline for organizations to make values alignment explicit rather than implicit. The regulatory pressure and the internal pressure are converging on the same question — 'what contracts are acceptable?' — from opposite directions. Organizations that haven't answered that question explicitly are now being asked to by both their users and their builders simultaneously."
     }
   ],
   "reader_questions": []
