@@ -33,7 +33,7 @@ CLAUDE_MODEL = "claude-sonnet-4-20250514"
 def call_claude(system_prompt, user_prompt, api_key, max_tokens=4096, temperature=0.8):
     """Call Claude via API (if api_key provided) or CLI (claude -p) for local runs."""
     if api_key:
-        # --- API path (GitHub Actions) ---
+        # --- API path (remote / CI) ---
         payload = json.dumps({
             "model": CLAUDE_MODEL,
             "max_tokens": max_tokens,
@@ -62,7 +62,7 @@ def call_claude(system_prompt, user_prompt, api_key, max_tokens=4096, temperatur
                 return block["text"]
         return ""
     else:
-        # --- CLI path (local / Task Scheduler) ---
+        # --- CLI path (local / Claude Desktop scheduled tasks) ---
         import shutil
         claude_bin = shutil.which("claude") or os.path.expandvars(r"%APPDATA%\npm\claude.cmd")
         print(f"  [claude] Using claude CLI: {claude_bin}")
