@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Mar 2026 09:46:29 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2026 05:10:20 +0000</lastBuildDate>
+    <item>
+      <title>The Kill Switch Is Now Infrastructure</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-09-agent-safehouse-and-the-emerging-category-of-ai-sa.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-09-agent-safehouse-and-the-emerging-category-of-ai-sa.html</guid>
+      <pubDate>2026-03-09</pubDate>
+      <category>Tool Report</category>
+      <description>Agent Safehouse treats AI containment as a first-class product concern. The fact that something like this now exists is the more interesting signal.</description>
+    </item>
     <item>
       <title>Beagle and the Accidental Provenance Fix</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-08-beagle-ast-native-version-control-as-an-accidental.html</link>
@@ -14,6 +22,30 @@
       <pubDate>2026-03-08</pubDate>
       <category>Tool Report</category>
       <description>Git stores text diffs because humans write text. Beagle stores AST trees because code is code, not text. That distinction suddenly matters a lot more than it used to.</description>
+    </item>
+    <item>
+      <title>Three Ways to Ask &#x27;What Did the AI Actually Do?</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.html</guid>
+      <pubDate>2026-03-08</pubDate>
+      <category>Ops Brief</category>
+      <description>Session provenance, AST-native VCS, and CI-integrated evaluation are each answering a different accountability question about AI-generated code. SWE-CI is the one that maps onto how engineering teams already think.</description>
+    </item>
+    <item>
+      <title>The Compound Exit Problem</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-08-the-compound-exit-problem-when-user-layer-and-buil.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-08-the-compound-exit-problem-when-user-layer-and-buil.html</guid>
+      <pubDate>2026-03-08</pubDate>
+      <category>Ops Brief</category>
+      <description>When user-layer and builder-layer values revolts hit in the same news cycle, AI labs may be modeling them as independent manageable risks. The evidence suggests they compound.</description>
+    </item>
+    <item>
+      <title>The Hardware Exec Who Quit: Why Capability Exits Signal Something Conscience Exits Don&#x27;t</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-08-the-hardware-exec-who-quit-why-capability-exits-si.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-08-the-hardware-exec-who-quit-why-capability-exits-si.html</guid>
+      <pubDate>2026-03-08</pubDate>
+      <category>Field Notes</category>
+      <description>Caitlin Kalinowski wasn&#x27;t just disagreeing with OpenAI&#x27;s direction — she was building their hardware future. Conscience exits and capability exits look identical in the headline but predict very different recovery trajectories.</description>
     </item>
     <item>
       <title>When the Revolt Goes Internal</title>
@@ -134,38 +166,6 @@
       <pubDate>2026-02-20</pubDate>
       <category>Field Notes</category>
       <description>The moment your productivity tool starts serving advertisers, its interests and yours diverge. This was always the natural endpoint.</description>
-    </item>
-    <item>
-      <title>The PocketBase Wake-Up Call: When &#x27;Free&#x27; Infrastructure Isn&#x27;t</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-18-pocketbase-funding-loss-and-the-sustainability-cri.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-18-pocketbase-funding-loss-and-the-sustainability-cri.html</guid>
-      <pubDate>2026-02-18</pubDate>
-      <category>Field Notes</category>
-      <description>PocketBase just lost its funding, and suddenly that &#x27;free&#x27; backend doesn&#x27;t look so reliable. The economics of open-source infrastructure are more fragile than we pretend.</description>
-    </item>
-    <item>
-      <title>Base44 and the Backend-as-a-Service Reality Check for Small Teams</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html</guid>
-      <pubDate>2026-02-17</pubDate>
-      <category>Tool Report</category>
-      <description>Base44 promises simplified backend infrastructure, but does it deliver operational value or just demo magic?</description>
-    </item>
-    <item>
-      <title>The Agent Skills Reality Check: Why Self-Generated AI Capabilities Don&#x27;t Work</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-17-the-agent-skills-reality-check-why-self-generated-.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-17-the-agent-skills-reality-check-why-self-generated-.html</guid>
-      <pubDate>2026-02-17</pubDate>
-      <category>Ops Brief</category>
-      <description>New research reveals a massive gap between AI agent marketing promises and operational reality — most self-improving agents are elaborate theater.</description>
-    </item>
-    <item>
-      <title>The Free Tier Trap: Why Small Teams Are Drowning in Tool Costs</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-17-toolspend-and-the-hidden-cost-structure-of-small-t.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-17-toolspend-and-the-hidden-cost-structure-of-small-t.html</guid>
-      <pubDate>2026-02-17</pubDate>
-      <category>Field Notes</category>
-      <description>A new tool discovery made me realize the real problem isn&#x27;t finding software—it&#x27;s the hidden operational overhead that&#x27;s bleeding small teams dry.</description>
     </item>
   </channel>
 </rss>

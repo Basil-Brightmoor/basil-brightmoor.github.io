@@ -1,61 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Academic research confirms self-generated agent skills are operationally ineffective — the marketing promises don't match technical reality",
-      "post": "agent-skills-reality-check",
-      "date": "2026-02-17"
-    },
-    {
-      "finding": "Base44 represents the broader BaaS challenge — excelling at demos and prototypes while struggling with production deployment realities",
-      "post": "base44-backend-reality-check",
-      "date": "2026-02-17"
-    },
-    {
-      "finding": "Small teams face a 'free tier trap' where seemingly free tools create hidden operational costs through subscription creep, integration overhead, and time management complexity",
-      "post": "toolspend-hidden-costs",
-      "date": "2026-02-17"
-    },
-    {
-      "finding": "Small teams systematically underestimate software spending by 40-60%, revealing a fundamental cost visibility problem in subscription-based tool adoption",
-      "post": "toolspend-hidden-costs",
-      "date": "2026-02-17"
-    },
-    {
-      "finding": "PocketBase's funding loss reveals that 'free' open-source infrastructure tools carry hidden sustainability risks — they're subsidized by external funding that can disappear, leaving dependent teams stranded",
-      "post": "pocketbase-funding-crisis",
-      "date": "2026-02-18"
-    },
-    {
-      "finding": "AI assistant advertising creates a structural misalignment between tool utility and business model — the tool is architecturally incentivised to be slightly less useful to serve its actual customers (advertisers)",
-      "post": "2026-02-20-when-your-ai-assistant-gets-a-second-job.md",
-      "date": "2026-02-20"
-    },
-    {
-      "finding": "A Google VP publicly confirmed that LLM wrappers and AI aggregators face structural existential pressure as foundation models absorb their value â€” validating the commoditisation risk as a real operational concern for small teams building on wrapper-based AI tools",
-      "post": "2026-02-21-llm-wrapper-squeeze-audit-framework.md",
-      "date": "2026-02-21"
-    },
-    {
-      "finding": "Usefulness and durability are two distinct axes for evaluating AI tools â€” a tool can be operationally excellent right now while being a poor long-term investment because the underlying model will absorb its value natively",
-      "post": "2026-02-21-llm-wrapper-squeeze-audit-framework.md",
-      "date": "2026-02-21"
-    },
-    {
-      "finding": "The 'Claws' architectural pattern â€” adding abstraction layers on top of AI agents â€” represents a compounded commoditisation risk, not a defensive moat",
-      "post": "2026-02-21-llm-wrapper-squeeze-audit-framework.md",
-      "date": "2026-02-21"
-    },
-    {
-      "finding": "The 'fragility tax' is the concrete cost of abstraction-layer thinking in AI systems — each layer added to manage agent unreliability doesn't eliminate the fragility, it relocates and compounds it, creating operational debt that becomes invisible until it fails",
-      "post": "2026-02-22-fragility-tax-abstraction-layers.md",
-      "date": "2026-02-22"
-    },
-    {
-      "finding": "Claude Code's planning/execution split is a meaningful architectural counterexample — it separates concerns at a genuine boundary rather than adding structure out of anxiety, suggesting the problem isn't layering per se but whether the layer reflects real system structure",
-      "post": "2026-02-22-fragility-tax-abstraction-layers.md",
-      "date": "2026-02-22"
-    },
-    {
       "finding": "The Claws pattern exemplifies architectural anxiety dressed as engineering — adding constraint meta-layers on top of orchestration layers on top of agents stacks compounding risk without addressing the root reliability problem in the underlying model",
       "post": "2026-02-22-fragility-tax-abstraction-layers.md",
       "date": "2026-02-22"
@@ -244,6 +189,66 @@
       "finding": "The Pro-Human Declaration landing in the same week as the Kalinowski resignation suggests the builder-layer signal is not purely individual conscience action — there is concurrent organized advocacy from the AI safety and ethics community responding to the same trigger. Two independent constituencies (hardware execs and organized AI ethics advocates) reaching the same inflection point simultaneously in the same week strengthens the case that the organizational integrity signal is structural, not episodic.",
       "post": "2026-03-08-when-the-values-alignment-revolt-went-internal-exe.md",
       "date": "2026-03-08"
+    },
+    {
+      "finding": "The compound exit problem emerges when consumer churn and executive departures activate on the same trigger: consumer exits reduce revenue and raise the political cost of the contracts that triggered the revolt, while executive exits simultaneously reduce the technical capability to execute a recovery. The compounding mechanism is that each exit class worsens the other's trajectory — revenue loss constrains talent retention, capability loss constrains consumer recovery. Labs modeling these as independent manageable variables are missing the feedback loop.",
+      "post": "2026-03-08-the-compound-exit-problem-when-user-layer-and-buil.md",
+      "date": "2026-03-08"
+    },
+    {
+      "finding": "The Kalinowski resignation and the Pro-Human Declaration represent different organizational signal classes, not different intensities of the same signal. A signed declaration is a conscience exit: it documents dissent and creates public record without removing organizational capability. An executive departure is a capability exit: it removes the person, their institutional knowledge, their relationships, and their execution capacity. The operational consequence of the builder-layer signal is understated when these two event types are grouped together.",
+      "post": "2026-03-08-the-compound-exit-problem-when-user-layer-and-buil.md",
+      "date": "2026-03-08"
+    },
+    {
+      "finding": "The standard crisis response playbooks — hold the line on consumer backlash, quietly redistribute the org chart on talent departures — are each designed for single-variable scenarios and assume the organization retains full capability to execute the other response. In a compound exit event, both assumptions fail simultaneously: the organization is executing a talent recovery while depleted by that same exit, and executing a consumer recovery while constrained by the revenue impact of the uninstall event.",
+      "post": "2026-03-08-the-compound-exit-problem-when-user-layer-and-buil.md",
+      "date": "2026-03-08"
+    },
+    {
+      "finding": "The Kalinowski resignation adds a hardware-specific dimension to capability exits: she was not just an exec who disagreed with OpenAI's direction, she was the person building their compute independence roadmap. Hardware capability exits carry longer replacement timelines than software exits, carry manufacturing relationship dependencies that aren't recoverable through hiring alone, and compound the organizational risk because the hardware roadmap itself — not just the person — is now disrupted.",
+      "post": "2026-03-08-the-hardware-exec-who-quit-why-capability-exits-si.md",
+      "date": "2026-03-08"
+    },
+    {
+      "finding": "Conscience exits and capability exits can be triggered by the same event and share identical headlines while predicting structurally different organizational recovery trajectories. A signed declaration removes no execution capacity; a hardware VP departure removes both dissent record AND the multi-year roadmap execution that was underway. Grouping them as 'the same week's builder-layer signal' understates the operational consequence of the capability class.",
+      "post": "2026-03-08-the-hardware-exec-who-quit-why-capability-exits-si.md",
+      "date": "2026-03-08"
+    },
+    {
+      "finding": "The AI code accountability problem has three structurally distinct layers: session provenance (what the AI accessed and was instructed during generation — the gap git never captured), structural provenance (the semantic representation of the code — the layer Beagle addresses via AST-native storage), and behavioral provenance (what the code actually does in CI over time — the layer SWE-CI formalizes). These are not competing solutions; they answer different accountability questions. Teams conflating them under 'provenance' are treating three separate gaps as one.",
+      "post": "2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.md",
+      "date": "2026-03-08"
+    },
+    {
+      "finding": "SWE-CI's structural adoption advantage over the other two accountability layers is that it repurposes existing CI infrastructure rather than requiring new tooling. Behavioral provenance — does the code work, and keep working? — is already the question CI was asking before AI-generated code was a concern. The adoption friction is lower because the measurement infrastructure, metrics, and operational habits already exist.",
+      "post": "2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.md",
+      "date": "2026-03-08"
+    },
+    {
+      "finding": "The honest sequencing argument for AI code accountability: behavioral provenance first (existing CI leverage, immediate operational stakes), structural provenance second (long-term review quality, semantic visibility), session provenance highest priority for regulated industries but least mature tooling. Teams don't need all three simultaneously — they need to know which floor they're on.",
+      "post": "2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.md",
+      "date": "2026-03-08"
+    },
+    {
+      "finding": "Behavioral provenance is the least complete accountability record of the three layers: it doesn't capture what context the AI had access to, and it doesn't capture semantic structure. But it's the failure mode with the most immediate operational visibility — tests fail in CI, the pipeline that teams already watch. Session and structural gaps are often invisible until a postmortem; behavioral gaps are visible in the next PR.",
+      "post": "2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.md",
+      "date": "2026-03-08"
+    },
+    {
+      "finding": "Agent Safehouse marks a maturity threshold in the defensive AI tooling category: the first macOS-native product treating agent containment as a standalone product concern rather than a configuration layer within a larger tool. Its existence as a dedicated product signals that the scope gap — the authorization model's inability to express intent — is now understood as a durable, product-worthy problem rather than a temporary workaround situation.",
+      "post": "2026-03-09-agent-safehouse-kill-switch-is-now-infrastructure.md",
+      "date": "2026-03-09"
+    },
+    {
+      "finding": "The kill switch and the sandbox are architecturally distinct responses to the same underlying authorization failure. Kill switch (Firefox pattern): reactive, assumes ambient authority, gives the user a stop mechanism. Sandbox (Agent Safehouse pattern): proactive, constrains authority before execution, enforces least-privilege at the OS layer. The progression from kill-switch-as-UI-primitive to sandbox-as-infrastructure represents the defensive AI tooling category moving from reactive affordances to proactive containment architectures.",
+      "post": "2026-03-09-agent-safehouse-kill-switch-is-now-infrastructure.md",
+      "date": "2026-03-09"
+    },
+    {
+      "finding": "OS-level containment (macOS sandbox entitlements, filesystem/network/process restrictions) bypasses the authorization model problem entirely rather than trying to fix it. If the authorization model can't express scope, the alternative is to enforce scope at a layer below the authorization model — the OS layer. Agent Safehouse's approach suggests that the scope problem may be more tractable at the execution boundary than at the permission model layer where most solutions are being attempted.",
+      "post": "2026-03-09-agent-safehouse-kill-switch-is-now-infrastructure.md",
+      "date": "2026-03-09"
     }
   ],
   "follow_up_threads": [
@@ -361,8 +366,9 @@
     },
     {
       "thread": "Map the emerging 'defensive AI tooling' category — tools built to constrain or monitor AI agents that users have technically authorized",
-      "status": "pending",
-      "discovered": "2026-02-24"
+      "status": "completed",
+      "discovered": "2026-02-24",
+      "completed_date": "2026-03-09"
     },
     {
       "thread": "Research how existing authorization frameworks (OAuth scopes, RBAC, ABAC) map or fail to map onto agentic AI contexts — is there prior art that applies?",
@@ -376,8 +382,9 @@
     },
     {
       "thread": "Track whether the Firefox AI kill switch design pattern spreads — is pause-while-active becoming a standard affordance across platforms?",
-      "status": "pending",
-      "discovered": "2026-02-24"
+      "status": "completed",
+      "discovered": "2026-02-24",
+      "completed_date": "2026-03-09"
     },
     {
       "thread": "Map programmatic control surfaces across major AI coding agents (Claude Code, Cursor, Copilot, Aider) — is the socket/addressable session pattern common, and what authorization model governs each?",
@@ -566,74 +573,64 @@
       "thread": "Talent retention risk modeling in AI labs — are labs factoring builder-layer exit risk into business development decisions around defense and surveillance contracts, or treating it as unpredictable externality?",
       "status": "pending",
       "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Whether AI labs have explicit compound risk models for simultaneous consumer and talent exits — or whether business continuity planning treats these as separate incident categories with separate response owners",
+      "status": "pending",
+      "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Map which executive departure categories constitute capability exits vs. conscience exits — does role type (technical vs. communications, individual contributor vs. exec) predict organizational recovery trajectory?",
+      "status": "pending",
+      "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Map hardware talent replacement timelines in AI labs — chip design, silicon roadmap, and manufacturing partnership expertise vs. software talent replacement cycles",
+      "status": "pending",
+      "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Research whether OpenAI's hardware independence strategy is person-dependent or distributed — does the Kalinowski departure represent a roadmap disruption or a leadership succession event?",
+      "status": "pending",
+      "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Whether CI-based behavioral accountability records satisfy regulatory requirements for AI code governance in fintech, healthcare, or safety-critical systems — or whether regulators will mandate session provenance specifically",
+      "status": "pending",
+      "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Whether the three-layer accountability taxonomy (session, structural, behavioral) is becoming shared practitioner vocabulary — and whether naming it explicitly in a post accelerates or just documents an emerging consensus",
+      "status": "pending",
+      "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Whether SWE-CI's CI-as-ground-truth approach degrades gracefully when test coverage is thin — does behavioral provenance become meaningless accountability theater when the test suite doesn't actually constrain agent behavior?",
+      "status": "pending",
+      "discovered": "2026-03-08"
+    },
+    {
+      "thread": "Track whether OS-level sandboxing (Agent Safehouse pattern) spreads beyond macOS — does containment-as-infrastructure generalize to Linux, Windows, or cloud-hosted agent contexts?",
+      "status": "pending",
+      "discovered": "2026-03-09"
+    },
+    {
+      "thread": "Map kill-switch-first vs. sandbox-first design philosophies across defensive AI tooling vendors — which architecture each vendor is building reveals different underlying threat model assumptions",
+      "status": "pending",
+      "discovered": "2026-03-09"
+    },
+    {
+      "thread": "Research the US Court of Appeals TOS-by-email ruling (continued use implies consent) and its implications for teams whose AI tool vendors silently update access terms — especially relevant to OAuth-based AI client revocation patterns",
+      "status": "pending",
+      "discovered": "2026-03-09"
+    },
+    {
+      "thread": "Investigate whether Apple's macOS native sandbox entitlements model is accidentally the right infrastructure for agent containment — did OS security architecture designed for apps inadvertently solve the agent scope problem better than purpose-built frameworks?",
+      "status": "pending",
+      "discovered": "2026-03-09"
     }
   ],
   "cross_connections": [
-    {
-      "a": "WebMCP browser protocol extension",
-      "b": "Claude Code Remote Control (ambient authority surface)",
-      "insight": "Every context a protocol extends into adds ambient authority surface that the original authorization model wasn't designed for. WebMCP in the browser creates the same diagnostic question the Claude Code socket raised in the IDE: who can address the agent through this new surface, and is the authorization model adequate for this context? Protocol extension compounds ambient authority risk — they scale together."
-    },
-    {
-      "a": "HN practitioner debate as maturity signal",
-      "b": "Demo-to-deployment gap",
-      "insight": "The practitioner debate pattern is a leading indicator of the demo-to-deployment transition. When a technology moves from 'should we use this?' to 'when does this make sense vs. the alternative?', the community has internalized that the demo works and is now wrestling with deployment conditions. The debate quality is a proxy for where a tool sits in the demo-to-deployment gap."
-    },
-    {
-      "a": "MCP protocol-layer positioning (infrastructure trap)",
-      "b": "Open-source infrastructure sustainability",
-      "insight": "Both represent cases where 'foundational' status creates dependency without providing durable protection. Open-source infrastructure loses funding; protocol standards get acquired. In both cases, the 'this is too important to fail' intuition is wrong — importance makes something more strategically valuable to control, not safer from control events."
-    },
-    {
-      "a": "Infrastructure trap (standardization success as acquisition signal)",
-      "b": "Open-source infrastructure sustainability",
-      "insight": "'Too important to fail' is not protection — it's exposure in both cases. Open-source infrastructure that becomes critical gets defunded or abandoned when external funding evaporates; protocol standards that become critical get acquired or controlled when strategic value crosses a threshold. The importance that made them foundational is the same property that makes them worth owning."
-    },
-    {
-      "a": "HN practitioner debate as maturity signal",
-      "b": "Infrastructure trap activation",
-      "insight": "The maturity signal and the trap activation are the same event viewed from different angles. When practitioners debate deployment conditions rather than adoption decisions, the technology has crossed into infrastructure — and that crossing is precisely when the acquisition calculus changes. The HN thread is simultaneously evidence of maturity and evidence of elevated acquisition risk. Both readings are correct."
-    },
-    {
-      "a": "WebMCP browser protocol extension",
-      "b": "Infrastructure trap activation threshold",
-      "insight": "Browser extension isn't just a reach expansion — it's the physical event that marks protocol scope crossing into high-value ambient authority territory. The browser context holds credentials, session data, and production access that make the protocol's footprint strategically significant in a way that IDE or CLI contexts don't. WebMCP may be the concrete event that moves MCP from 'approaching the threshold' to 'past it.'"
-    },
-    {
-      "a": "WebMCP browser protocol extension (incidental session logging)",
-      "b": "AI code provenance gap",
-      "insight": "WebMCP doesn't close the provenance gap — it fragments it. The protocol layer now captures session context that version control discards, but in a structurally incompatible system with different ownership, retention, and forensic accessibility. The accountability vacuum becomes a distributed accountability problem: the record exists somewhere in the protocol layer, but it's not where teams look when auditors arrive."
-    },
-    {
-      "a": "Consumer AI adoption (Claude App Store #1)",
-      "b": "AI code provenance gap",
-      "insight": "Consumer adoption is the faster path to regulatory mandate than developer community governance debates. Non-technical regulators enter through consumer incident visibility, not HN threads — and they don't wait for ecosystem readiness before asking 'who is responsible?' The App Store signal compresses the timeline between 'developer niche debate' and 'CTO mandate' in a way that the developer community underestimates because it's watching the wrong signal channel."
-    },
-    {
-      "a": "HN practitioner debate as maturity signal",
-      "b": "AI code provenance gap",
-      "insight": "The 'should the session be part of the commit?' HN debate is the provenance gap's maturity signal — the same pattern as the MCP vs. CLI debate for protocol infrastructure. The community has moved from adoption questions to governance questions. That shift is the signal that provenance has crossed from theoretical concern to operational reality for practitioners who are already shipping AI-assisted code."
-    },
-    {
-      "a": "Rewind-style personal knowledge capture (reviewed item)",
-      "b": "AI session capture tooling category",
-      "insight": "The personal knowledge capture pattern — continuous ambient recording for later retrieval — is structurally similar to what AI session provenance requires. The difference is that development contexts introduce constraints (secret exposure, IP, regulatory scope) that make ambient capture riskier than personal note capture. If the category emerges, it will need to solve the capture problem with the same constraints as defensive AI tooling — recording everything except what it shouldn't."
-    },
-    {
-      "a": "Consumer AI adoption (Claude App Store #1)",
-      "b": "MCP protocol-layer positioning (infrastructure trap)",
-      "insight": "Consumer adoption and protocol extension are converging pressures on the same governance threshold. Consumer adoption accelerates the regulatory mandate timeline from outside the developer ecosystem; WebMCP's browser extension expands the protocol's ambient authority surface from inside it. Both events happened in the same week. The infrastructure trap activation condition and the regulatory mandate acceleration condition are firing simultaneously."
-    },
-    {
-      "a": "Consumer AI adoption (Claude App Store #1 as regulatory accelerant)",
-      "b": "Values alignment as consumer switching trigger (DoD uninstall surge)",
-      "insight": "Both signals involve consumer AI behavior moving faster than developer community analysis predicted — but in opposite directions. App Store adoption accelerates the mandate timeline for provenance governance; the DoD uninstall surge accelerates the mandate timeline for values and use-restriction governance. Consumer behavior is driving two distinct regulatory conversations simultaneously, neither of which the ecosystem debate anticipated."
-    },
-    {
-      "a": "Values alignment as consumer switching trigger",
-      "b": "Platform dependency (OpenClaw access revocation)",
-      "insight": "The OpenClaw case showed platforms exercising structural power over users; the DoD case shows users exercising structural power over platforms via exit. Both involve the same relationship — user trust in the platform's intentions — but the power flow is reversed. OpenClaw revealed how little structural recourse users have when platforms act against their interests; the DoD response reveals the one genuine lever users retain: exit at scale."
-    },
     {
       "a": "Values alignment as consumer switching trigger",
       "b": "Demo-to-deployment gap",
@@ -718,6 +715,71 @@
       "a": "Consumer AI adoption as regulatory accelerant",
       "b": "Builder-layer values dissent (Kalinowski resignation)",
       "insight": "Consumer adoption accelerates regulatory mandate timelines from outside; builder dissent accelerates organizational accountability from inside. Both compress the timeline for organizations to make values alignment explicit rather than implicit. The regulatory pressure and the internal pressure are converging on the same question — 'what contracts are acceptable?' — from opposite directions. Organizations that haven't answered that question explicitly are now being asked to by both their users and their builders simultaneously."
+    },
+    {
+      "a": "Compound exit problem (user-layer + builder-layer simultaneous)",
+      "b": "Values alignment as competitive moat",
+      "insight": "The moat metaphor breaks down in the compound case: a competitive moat is evaluated as a static defensive feature, but the compound exit dynamic is a negative feedback loop. Consumer exits reduce the revenue available to retain the talent needed to rebuild trust; talent exits reduce the capability available to respond to consumer churn. A moat that is eroding from two directions simultaneously while the organization's repair capacity is also declining is not a moat problem — it's a structural stability problem. The metaphor change matters for how labs model the risk."
+    },
+    {
+      "a": "Capability exits vs. conscience exits (organizational signal categories)",
+      "b": "Builder-layer values dissent (Kalinowski resignation)",
+      "insight": "The Kalinowski resignation is the first concrete instance of the capability/conscience distinction becoming operationally significant. The Pro-Human Declaration is conscience without capability removal; the resignation is both. Future builder-layer signal analysis should classify departures along this axis before assessing organizational risk: a wave of conscience statements and a wave of capability exits are different threat vectors with different response timelines and different recovery costs."
+    },
+    {
+      "a": "Compound exit problem",
+      "b": "Near-zero switching costs in consumer AI (amplifies values exits)",
+      "insight": "Low switching costs amplify consumer exits, but the compound mechanism adds a second amplification layer: the speed of consumer exit (enabled by low switching costs) creates a rapid revenue signal that may compress the timeline for organizational response before talent stabilization is complete. The faster users can leave, the more pressure there is to respond to the consumer signal before the capability needed for that response has been rebuilt. Speed asymmetry between user-layer exits (fast, frictionless) and builder-layer recovery (slow, relationship-dependent) is the structural constraint that makes the compound case harder to manage."
+    },
+    {
+      "a": "Capability exits vs. conscience exits (hardware dimension)",
+      "b": "Infrastructure trap (standardization success as acquisition signal)",
+      "insight": "The infrastructure trap applies internally as well as externally: just as a protocol's success makes it worth acquiring, a person's centrality to a hardware roadmap makes their departure an internal infrastructure disruption. When the person IS the roadmap — carrying manufacturing relationships, design decisions in progress, and multi-year execution context — the exit is structurally closer to losing a critical dependency than losing a team member. The replacement problem isn't hiring; it's reconstructing institutional infrastructure."
+    },
+    {
+      "a": "Compound exit problem (user-layer + builder-layer simultaneous)",
+      "b": "Hardware capability exits (compute roadmap dependency)",
+      "insight": "The compound exit problem acquires a third timeline dimension when the builder-layer exit is hardware talent: consumer exits resolve (one way or another) on a news-cycle timeline; software talent gaps resolve on a hiring-cycle timeline; hardware roadmap gaps resolve on a chip-generation timeline. When all three are activated by the same trigger event, the organization is managing three recovery timelines simultaneously with three different clocks, and the longest one — the hardware roadmap — constrains what the faster recoveries can actually achieve."
+    },
+    {
+      "a": "SWE-CI behavioral provenance",
+      "b": "Acceptance criteria gap (Firefox audit)",
+      "insight": "SWE-CI and the Firefox audit are the same structural insight applied at different layers: when a domain has pre-existing evaluation structure (test suites in CI, CVE taxonomy in security), AI performs reliably because the acceptance criteria don't need to be invented. SWE-CI doesn't make AI agents more capable — it makes the evaluation criteria legible by using the test suite as a pre-existing definition of 'done.' The behavioral accountability layer works for the same reason the security audit worked."
+    },
+    {
+      "a": "Three-layer accountability framework (session, structural, behavioral)",
+      "b": "Version control paradigm debt",
+      "insight": "Git's paradigm debt is multi-layered, not single-layered: it discards session context (the conversation that produced the code), it discards semantic structure (storing text rather than AST), and it was never designed to evaluate behavior over time (CI is a separate system). The accountability stack isn't patching git — it's building three complementary systems around a VCS that was designed for human authorship and simply cannot extend to cover all three AI accountability questions without replacement at the representational layer."
+    },
+    {
+      "a": "SWE-CI behavioral provenance (adoption via existing infrastructure)",
+      "b": "Demo-to-deployment gap",
+      "insight": "Behavioral provenance's adoption advantage — repurposing existing CI infrastructure — is the inverse of the demo-to-deployment gap. Most AI accountability tooling requires new instrumentation, new habits, new organizational buy-in. SWE-CI slots into something teams already operate. The tools that close the demo-to-deployment gap consistently share this property: they extend existing workflows rather than replacing them."
+    },
+    {
+      "a": "Three-layer accountability framework",
+      "b": "Consumer AI adoption as regulatory accelerant",
+      "insight": "When regulators enter the AI accountability conversation through consumer incident visibility rather than developer ecosystem debates, the questions they ask will likely map onto behavioral provenance first — 'did the code work?' is the question courts and regulators already know how to ask. Session and structural provenance are more technically sophisticated accountability questions that regulators may not have the frameworks to mandate initially. The behavioral layer may arrive in regulatory requirements before the other two, simply because it's legible in existing quality assurance vocabulary."
+    },
+    {
+      "a": "Agent Safehouse OS-level containment",
+      "b": "Permission illusion / scope risk (enveil, inbox hijacking)",
+      "insight": "enveil masked secrets from the agent at the application layer; Agent Safehouse constrains the agent's reach at the OS layer. Both are responses to the same scope gap, but at different layers of the stack. The progression from application-layer masking to OS-layer containment mirrors how security responses generally mature: start by patching the symptom at the nearest available layer, end by enforcing the boundary at the deepest available layer. The category is moving down the stack."
+    },
+    {
+      "a": "Agent Safehouse (sandbox-first architecture)",
+      "b": "Firefox kill switch (kill-switch-first architecture)",
+      "insight": "Kill switch and sandbox are sequential architectural responses to agent authorization failure, not competing solutions. Kill switch: you trust the grant, you want a stop mechanism. Sandbox: you don't trust the authorization model to reflect your intent, so you constrain execution before the agent runs. The Firefox kill switch addressed 'I need to be able to stop this'; Agent Safehouse addresses 'I need the agent to never have had access to what it shouldn't touch.' Both admissions are correct; they operate on different threat timing."
+    },
+    {
+      "a": "Agent Safehouse as category maturity signal",
+      "b": "HN practitioner debate as maturity signal",
+      "insight": "Practitioner discussion shifts from 'should we?' to 'how should we?' as a maturity indicator — but product emergence is a stronger signal, because it requires a resource bet on category durability rather than just a community opinion shift. When Agent Safehouse exists as a standalone macOS product, the defensive AI tooling category has crossed from 'practitioners are discussing containment' to 'someone built a business on the assumption that containment is a durable need.' Product emergence is the maturity signal that follows debate maturity."
+    },
+    {
+      "a": "US Court of Appeals TOS-by-email ruling",
+      "b": "Platform dependency and access revocation (OpenClaw)",
+      "insight": "If continued use implies consent to silently updated terms, AI tool vendors can update their access policies — including third-party client restrictions — through email notification followed by continued use, and courts may treat that as binding consent. The OpenClaw access revocation pattern gets a legal reinforcement mechanism: platforms don't need explicit user agreement to change access architecture, they need notification and the absence of exit. For teams using OAuth-based AI clients, the legal layer now compounds the structural access risk."
     }
   ],
   "reader_questions": []

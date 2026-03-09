@@ -268,6 +268,19 @@
       "enabled": true,
       "url": "https://news.ycombinator.com/rss",
       "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "arXiv SWE/agent evaluation papers",
+      "enabled": true,
+      "url": "https://arxiv.org/search/?searchtype=all&query=SWE+CI+agent+evaluation&start=0",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Objective-See (Patrick Wardle)",
+      "enabled": true,
+      "url": "https://objective-see.org/blog.rss"
     }
   ]
 }

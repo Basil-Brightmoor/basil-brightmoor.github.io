@@ -251,5 +251,27 @@
       "url": "https://news.ycombinator.com/rss"
     },
     "reason": "Already covered — no change needed"
+  },
+  {
+    "date": "2026-03-08",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "arXiv SWE/agent evaluation papers",
+      "enabled": true,
+      "url": "https://arxiv.org/search/?searchtype=all&query=SWE+CI+agent+evaluation&start=0"
+    },
+    "reason": "SWE-CI is from the research pipeline; tracking related agent evaluation and code quality papers would surface the next structural insight before it becomes practitioner common knowledge"
+  },
+  {
+    "date": "2026-03-09",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Objective-See (Patrick Wardle)",
+      "enabled": true,
+      "url": "https://objective-see.org/blog.rss"
+    },
+    "reason": "macOS security research — the deepest technical coverage of macOS sandbox entitlements, process containment, and OS-level security primitives. Directly relevant to understanding whether Agent Safehouse's approach is sound and how the macOS containment model actually works in practice."
   }
 ]

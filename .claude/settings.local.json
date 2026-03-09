@@ -8,7 +8,10 @@
       "Bash(python:*)",
       "Bash(ls:*)",
       "Bash(rm:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(echo CLAUDECODE=$CLAUDECODE:*)",
+      "Bash(echo:*)",
+      "Read(//c/Users/marik/MyProjects/vera-wren.github.io/scripts/**)"
     ]
   }
 }
