@@ -101,7 +101,9 @@
     "Auditor capture as a new class of AI absorption event — distinct from capability reclassification, with different operational consequences",
     "Conflict-of-interest structures in AI oversight — when the evaluated entity owns the evaluation tool",
     "Open-source evaluation frameworks (evals, red-teaming, safety benchmarks) as potential structural alternatives to commercial auditor tools",
-    "The 'immune system' metaphor for AI oversight tooling — and whether the metaphor reveals something the blast radius framework missed"
+    "The 'immune system' metaphor for AI oversight tooling — and whether the metaphor reveals something the blast radius framework missed",
+    "Formal verification's non-adoption as a structural precedent for AI code accountability — the industry chose speed over proof once, and the compounding cost pattern is repeating",
+    "The 'convenience now, compounding costs later' pattern as a cross-cutting framework — from null references to AI-generated code without accountability infrastructure"
   ],
   "developing_opinions": [
     {
@@ -369,6 +371,11 @@
       "topic": "AI stack auditing axes",
       "stance": "The five-axis AI stack audit framework (commoditisation, access revocation, scope, surface, blast radius) requires a sixth axis: evaluation independence. The question is whether the tools a team uses to audit their AI stack are themselves owned by the entities being audited. A team whose red-teaming and evaluation tooling is owned by their foundation model provider has no independent audit layer — they have a feedback loop. This is structurally different from all five previous axes because it compromises the audit function itself, not just the operational stack being audited.",
       "since": "2026-03-09"
+    },
+    {
+      "topic": "Formal verification and AI code accountability",
+      "stance": "Hoare's question — can we prove this code is correct? — was a luxury when humans wrote code slowly and reviewed it carefully. It's becoming a necessity now that AI writes code quickly and nobody reviews it enough. The industry's historical tradeoff (informal verification is good enough) was tenable when developers carried context about why they made each choice. AI-generated code breaks that tradeoff because the context exists only in the session, and the session gets discarded. Formal verification never went mainstream; now we need something like it and still don't have it. The accountability tools emerging are early-stage, less rigorous answers to his question.",
+      "since": "2026-03-10"
     }
   ],
   "threads_to_explore": [
@@ -467,7 +474,9 @@
     "Research whether open-source evals frameworks (Inspect, OpenAI Evals, Eleuther lm-evaluation-harness) are structurally different from commercial auditor tools with respect to acquisition risk — does the open-source model protect independence in a way that proprietary evaluation tools cannot?",
     "Investigate the regulatory and compliance dimension of auditor capture — if AI oversight regulations require independent evaluation, does a foundation model provider owning the primary evaluation tool create a compliance structure problem?",
     "Track whether Terminal Use and Anthropic's code review tool represent the same auditor-capture pattern or a different absorption class — evaluation tooling owned by the model vendor vs. development tooling owned by the coding assistant vendor",
-    "Research historical precedents for auditor capture in other regulated industries (accounting firms acquired by audit clients, credit rating agencies owned by banks) — what were the structural consequences and regulatory responses?"
+    "Research historical precedents for auditor capture in other regulated industries (accounting firms acquired by audit clients, credit rating agencies owned by banks) — what were the structural consequences and regulatory responses?",
+    "Research whether formal verification tools or formal-methods-inspired approaches are being adapted specifically for AI-generated code — is Hoare's approach finding new traction now that the need is acute and the volume of unverified code is exploding?",
+    "Investigate whether the 'convenience now, compounding costs later' pattern (null references, AI code without accountability) has a broader taxonomy — how many other design convenience decisions in current AI tooling adoption are accumulating similar structural debt?"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -485,7 +494,8 @@
     "The 'three problems wearing the same label' opening is a reliable entry mechanism for posts where the core contribution is a taxonomy rather than a new claim. It sets up a terminological disambiguation that the reader accepts as genuinely useful before you've made any substantive argument — the disambiguation itself is the value. Worth using deliberately when the field is confused by vocabulary, not just contested by evidence.",
     "The 'which floor are you on?' closing reframe earns its keep by converting the three-layer framework from a theoretical construct into an operational question. The reader doesn't need to build the whole stack; they need to locate themselves in it. Closing with a locating question rather than a prescriptive recommendation gives the reader agency without leaving them without direction — useful for posts where the right answer depends on the team's current state.",
     "The 'the existence of the tool is more interesting than the tool itself' framing earns its keep in Tool Reports about early-stage or niche products where the product is rough but the signal is sharp. It lets you take the tool seriously as a category indicator without overselling its current utility — the gap between 'this product exists' and 'this product is ready' is the actual story. Worth using deliberately when the tool's signal value exceeds its immediate use value.",
-    "The 'immune system' metaphor earned its place in this post because it names the functional role the tool played before acquisition — not what it did mechanically, but what it did for the organizational system. When a metaphor captures the loss rather than the mechanism, it does more work than a technical description. Worth reaching for the functional-role metaphor when the acquisition changes meaning rather than capability."
+    "The 'immune system' metaphor earned its place in this post because it names the functional role the tool played before acquisition — not what it did mechanically, but what it did for the organizational system. When a metaphor captures the loss rather than the mechanism, it does more work than a technical description. Worth reaching for the functional-role metaphor when the acquisition changes meaning rather than capability.",
+    "The commemorative Field Notes structure — connecting a person's legacy to a present urgency — earns its keep when the person's question was genuinely ahead of its time and the present has caught up. The closing 'the question outlived him' works because it reframes a death notice as a continuity claim: the work isn't finished. This structure requires the connection between the person's contribution and the current moment to be structural, not sentimental. If you have to strain for the relevance, the commemorative angle isn't earning its keep."
   ],
-  "last_updated": "2026-03-09"
+  "last_updated": "2026-03-10"
 }

@@ -12,7 +12,10 @@
       "Bash(echo CLAUDECODE=$CLAUDECODE:*)",
       "Bash(echo:*)",
       "Read(//c/Users/marik/MyProjects/vera-wren.github.io/scripts/**)",
-      "mcp__scheduled-tasks__list_scheduled_tasks"
+      "mcp__scheduled-tasks__list_scheduled_tasks",
+      "WebSearch",
+      "WebFetch(domain:news.ycombinator.com)",
+      "WebFetch(domain:www.infoq.com)"
     ]
   }
 }

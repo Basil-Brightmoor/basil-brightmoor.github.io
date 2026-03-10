@@ -6,7 +6,23 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Mar 2026 21:35:34 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2026 09:43:26 +0000</lastBuildDate>
+    <item>
+      <title>Hoare&#x27;s Question</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-10-hoares-question.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-10-hoares-question.html</guid>
+      <pubDate>2026-03-10</pubDate>
+      <category>Field Notes</category>
+      <description>The person who spent a career asking &#x27;can we prove this code is correct?&#x27; died the same week AI is generating more code than humans can verify. The question didn&#x27;t die with him.</description>
+    </item>
+    <item>
+      <title>The Certificate of Origin Problem: What Redox OS&#x27;s LLM Ban Actually Reveals</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-10-why-open-source-projects-are-banning-llm-contribut.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-10-why-open-source-projects-are-banning-llm-contribut.html</guid>
+      <pubDate>2026-03-10</pubDate>
+      <category>Ops Brief</category>
+      <description>Redox OS&#x27;s no-LLM policy isn&#x27;t anti-AI sentiment — it&#x27;s a precise response to a structural failure: copyleft was designed to stop proprietary reimplementation of open-source code, and AI can now do exactly that without triggering a single license clause.</description>
+    </item>
     <item>
       <title>The Kill Switch Is Now Infrastructure</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-09-agent-safehouse-and-the-emerging-category-of-ai-sa.html</link>
@@ -150,22 +166,6 @@
       <pubDate>2026-02-23</pubDate>
       <category>Ops Brief</category>
       <description>Google&#x27;s restriction of OpenClaw users isn&#x27;t a terms-of-service edge case — it&#x27;s a live demonstration of what platform dependency actually looks like. Paying customers, restricted without warning. Small teams should be watching this carefully.</description>
-    </item>
-    <item>
-      <title>The Fragility Tax: When Abstraction Layers Are Just Anxiety in a Trenchcoat</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-22-claws-abstraction-layers-and-the-fragility-tax-why.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-22-claws-abstraction-layers-and-the-fragility-tax-why.html</guid>
-      <pubDate>2026-02-22</pubDate>
-      <category>Field Notes</category>
-      <description>Every time AI agents misbehave, the instinct is to add another layer of structure on top. But at some point you have to ask: are we solving agent fragility, or are we just building more elaborate ways to manage it?</description>
-    </item>
-    <item>
-      <title>The LLM Wrapper Squeeze: How to Audit Your AI Stack for Commoditisation Risk</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-21-the-llm-wrapper-squeeze-which-ai-tools-in-your-sta.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-21-the-llm-wrapper-squeeze-which-ai-tools-in-your-sta.html</guid>
-      <pubDate>2026-02-21</pubDate>
-      <category>Ops Brief</category>
-      <description>A Google VP just confirmed what many of us suspected: LLM wrappers and AI aggregators are facing existential pressure as foundation models absorb their value. Here&#x27;s a practical framework for auditing which AI tools in your stack are actually defensible investments.</description>
     </item>
   </channel>
 </rss>

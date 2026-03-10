@@ -249,6 +249,11 @@
       "finding": "Terminal Use and Anthropic's code review tool landing the same week as the Promptfoo acquisition signals that the AI evaluation and oversight tooling category is maturing and being absorbed simultaneously — the same pattern as defensive AI tooling (enveil → Agent Safehouse) but at the foundation model layer rather than the user containment layer.",
       "post": "2026-03-09-openai-s-acquisition-of-promptfoo-marks-the-moment.md",
       "date": "2026-03-09"
+    },
+    {
+      "finding": "Tony Hoare's 'billion dollar mistake' (null references — a design convenience that compounded into decades of bugs) is a structural parallel for AI-generated code without accountability infrastructure. The pattern is identical: convenience now, compounding costs later. Formal verification (Hoare logic) never went mainstream because the cost exceeded the perceived benefit when humans wrote code slowly. AI code generation breaks that tradeoff by outpacing informal verification capacity — more code, less embedded context, degraded review. The accountability tools emerging now (behavioral CI verification, session provenance, AST-native VCS) are early-stage, less rigorous answers to Hoare's original question.",
+      "post": "2026-03-10-hoares-question.md",
+      "date": "2026-03-10"
     }
   ],
   "follow_up_threads": [
