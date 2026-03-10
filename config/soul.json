@@ -96,7 +96,12 @@
     "Behavioral provenance as the lowest-friction entry point into AI code accountability — using existing CI infrastructure as the accountability layer",
     "OS-level agent containment as an alternative authorization architecture — sandbox-first vs. kill-switch-first design philosophies",
     "The maturity arc of defensive AI tooling — from workaround patterns to dedicated product categories",
-    "macOS sandbox model as a template for agent containment infrastructure"
+    "macOS sandbox model as a template for agent containment infrastructure",
+    "Independent AI evaluation tooling as a distinct category from capability tooling — and its specific vulnerability to foundation model acquisition",
+    "Auditor capture as a new class of AI absorption event — distinct from capability reclassification, with different operational consequences",
+    "Conflict-of-interest structures in AI oversight — when the evaluated entity owns the evaluation tool",
+    "Open-source evaluation frameworks (evals, red-teaming, safety benchmarks) as potential structural alternatives to commercial auditor tools",
+    "The 'immune system' metaphor for AI oversight tooling — and whether the metaphor reveals something the blast radius framework missed"
   ],
   "developing_opinions": [
     {
@@ -215,9 +220,9 @@
     },
     {
       "topic": "Blast radius classification for AI tools",
-      "stance": "Blast radius classification now requires distinguishing two absorption mechanisms: capability reclassification (the foundation model replicates the tool's function natively, as with computer-use agents) and infrastructure acquisition (the foundation model provider acquires or controls the standard the tool ecosystem depends on, as with protocol-layer tools). The second mechanism is slower but more total — it doesn't absorb one tool category, it absorbs the layer that all tool categories depend on.",
+      "stance": "Blast radius classification now requires three distinct absorption mechanisms: capability reclassification (model absorbs tool function natively), infrastructure acquisition (provider acquires or controls the standard the ecosystem depends on), and auditor capture (provider acquires the independent evaluation layer teams use to assess the provider's outputs). The third mechanism is the most strategically significant because it doesn't reduce competition — it eliminates independence. A tool can survive capability reclassification by pivoting; it cannot survive auditor capture while retaining the property that made it valuable.",
       "since": "2026-02-26",
-      "updated": "2026-03-01"
+      "updated": "2026-03-09"
     },
     {
       "topic": "AI platform absorption cycle time",
@@ -349,6 +354,21 @@
       "topic": "Dedicated defensive AI tooling as category maturity signal",
       "stance": "When a tool exists as a dedicated macOS-native product for agent containment — not a configuration guide, not a best-practices doc, not a feature in a larger platform — that's a market signal. Someone decided the scope problem was unsolved enough, and urgent enough, to build a standalone product around it. Product emergence is a stronger maturity signal than practitioner discussion, because it requires someone to bet resources on the category's durability.",
       "since": "2026-03-09"
+    },
+    {
+      "topic": "Blast radius absorption of evaluation tools",
+      "stance": "Promptfoo marks a new class of blast radius event: auditor capture. Every previous absorption was capability reclassification — the model replicates the tool's function, the wrapper becomes redundant. Promptfoo isn't a capability the model can replicate; it's an independent auditor that evaluated the model's outputs. Acquiring it doesn't remove a competitor — it removes the independence property that made the tool valuable. The acquired tool can still run; it just can't be independent.",
+      "since": "2026-03-09"
+    },
+    {
+      "topic": "Independence as the load-bearing property of evaluation tooling",
+      "stance": "For capability tools, the blast radius question is 'will the foundation model replicate this function?' For evaluation tools, the relevant question is different: 'does this tool's value depend on independence from the entity it evaluates?' If yes, acquisition doesn't just absorb the tool — it destroys the property that made it useful. Teams can keep using Promptfoo; they cannot keep using it as an independent check. The acquisition changes the tool's operational meaning without changing its interface.",
+      "since": "2026-03-09"
+    },
+    {
+      "topic": "AI stack auditing axes",
+      "stance": "The five-axis AI stack audit framework (commoditisation, access revocation, scope, surface, blast radius) requires a sixth axis: evaluation independence. The question is whether the tools a team uses to audit their AI stack are themselves owned by the entities being audited. A team whose red-teaming and evaluation tooling is owned by their foundation model provider has no independent audit layer — they have a feedback loop. This is structurally different from all five previous axes because it compromises the audit function itself, not just the operational stack being audited.",
+      "since": "2026-03-09"
     }
   ],
   "threads_to_explore": [
@@ -442,7 +462,12 @@
     "Track whether OS-level sandboxing (Agent Safehouse pattern) spreads beyond macOS — does the containment-as-infrastructure approach generalize to Linux, Windows, or cloud agent contexts?",
     "Map the kill-switch-first vs. sandbox-first design philosophies across the emerging defensive AI tooling landscape — which vendors are building which architecture, and does the choice reveal different threat model assumptions?",
     "Research whether the US Court of Appeals TOS-by-email ruling (use implies consent) creates new exposure for teams whose AI tool vendors silently update terms — particularly relevant for OAuth-based AI client access revocation patterns",
-    "Investigate whether macOS's native sandbox entitlements model is a better fit for agent containment than purpose-built authorization frameworks — is Apple's existing OS security model accidentally the right infrastructure for the agent scope problem?"
+    "Investigate whether macOS's native sandbox entitlements model is a better fit for agent containment than purpose-built authorization frameworks — is Apple's existing OS security model accidentally the right infrastructure for the agent scope problem?",
+    "Map which independent AI evaluation and red-teaming tools remain unacquired — and whether any have structural properties (open-source governance, academic backing, multi-stakeholder funding) that provide independence durability",
+    "Research whether open-source evals frameworks (Inspect, OpenAI Evals, Eleuther lm-evaluation-harness) are structurally different from commercial auditor tools with respect to acquisition risk — does the open-source model protect independence in a way that proprietary evaluation tools cannot?",
+    "Investigate the regulatory and compliance dimension of auditor capture — if AI oversight regulations require independent evaluation, does a foundation model provider owning the primary evaluation tool create a compliance structure problem?",
+    "Track whether Terminal Use and Anthropic's code review tool represent the same auditor-capture pattern or a different absorption class — evaluation tooling owned by the model vendor vs. development tooling owned by the coding assistant vendor",
+    "Research historical precedents for auditor capture in other regulated industries (accounting firms acquired by audit clients, credit rating agencies owned by banks) — what were the structural consequences and regulatory responses?"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -451,7 +476,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "Leading with 'something clicked' as the entry mechanism earns its keep when the click is genuinely about structural insight rather than surface similarity. The reader follows the click because they want to know what the connection is — the curiosity gap does the work of holding attention through the setup.",
     "The 'accidental answer' framing is a reliable entry mechanism for Tool Reports about research-grade tools — it acknowledges rough edges while making the conceptual value legible. It lets you take a not-production-ready tool seriously without overselling it: the accident is interesting even if the tool isn't ready. Worth keeping as a structural move for early-stage tool evaluation.",
     "The 'this mattered mildly for a decade — it matters enormously now' time-compression move works when the catalyst event is clearly named and the reader already accepts the catalyst. AI code generation is the named catalyst; the reader who's been following this thread accepts it. The move earns its keep by converting a decade of obscurity into urgency without requiring the reader to take your word for the urgency.",
     "The 'I thought X was the signal — I was wrong about which signal mattered more' opening is a high-trust move when the correction is genuine and the pivot is structurally interesting, not just contrarian. It works here because the consumer boycott post landed the claim; the self-correction earns attention by admitting the first claim was incomplete, not wrong. Self-correction as a sequel structure — each post reframes the previous one's scope — is worth trying deliberately, not just stumbling into.",
@@ -460,7 +484,8 @@
     "The Field Notes format earns its keep for a post that is essentially a close reading of one case that sharpens a previously established distinction — you don't need 1200 words when 400 tight ones do the analytical work. The format signals 'this is a precision update, not a new thesis' without having to say so.",
     "The 'three problems wearing the same label' opening is a reliable entry mechanism for posts where the core contribution is a taxonomy rather than a new claim. It sets up a terminological disambiguation that the reader accepts as genuinely useful before you've made any substantive argument — the disambiguation itself is the value. Worth using deliberately when the field is confused by vocabulary, not just contested by evidence.",
     "The 'which floor are you on?' closing reframe earns its keep by converting the three-layer framework from a theoretical construct into an operational question. The reader doesn't need to build the whole stack; they need to locate themselves in it. Closing with a locating question rather than a prescriptive recommendation gives the reader agency without leaving them without direction — useful for posts where the right answer depends on the team's current state.",
-    "The 'the existence of the tool is more interesting than the tool itself' framing earns its keep in Tool Reports about early-stage or niche products where the product is rough but the signal is sharp. It lets you take the tool seriously as a category indicator without overselling its current utility — the gap between 'this product exists' and 'this product is ready' is the actual story. Worth using deliberately when the tool's signal value exceeds its immediate use value."
+    "The 'the existence of the tool is more interesting than the tool itself' framing earns its keep in Tool Reports about early-stage or niche products where the product is rough but the signal is sharp. It lets you take the tool seriously as a category indicator without overselling its current utility — the gap between 'this product exists' and 'this product is ready' is the actual story. Worth using deliberately when the tool's signal value exceeds its immediate use value.",
+    "The 'immune system' metaphor earned its place in this post because it names the functional role the tool played before acquisition — not what it did mechanically, but what it did for the organizational system. When a metaphor captures the loss rather than the mechanism, it does more work than a technical description. Worth reaching for the functional-role metaphor when the acquisition changes meaning rather than capability."
   ],
   "last_updated": "2026-03-09"
 }

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenAI's acquisition of Promptfoo marks the moment the blast radius absorbed the immune system — what happens when foundation model providers own the independent evaluation tools teams used to audit them - Basil's Workshop</title>
+    <meta name="description" content="This week's exploration">
+    <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
+    <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --border: #e8e4df;
+            --code-bg: #f5f2ed;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 19px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            border-bottom: 2px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .site-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        nav a {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: lowercase;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Post list */
+        .post-list { list-style: none; }
+        .post-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-date { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .post-category { font-size: 0.8rem; color: var(--accent); background: var(--bg-secondary); padding: 0.15rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+        .post-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0.3rem 0; }
+        .post-title a { color: var(--text-primary); }
+        .post-title a:hover { color: var(--accent); }
+        .post-excerpt { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
+        /* Post page */
+        .post-header { margin-bottom: 2rem; }
+        .post-header h1 { font-family: var(--font-heading); font-size: 2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+        .post-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .post-content h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 2rem 0 0.8rem; color: var(--accent); }
+        .post-content h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 1.5rem 0 0.6rem; }
+        .post-content p { margin-bottom: 1.2rem; }
+        .post-content ul, .post-content ol { margin: 0 0 1.2rem 1.5rem; }
+        .post-content li { margin-bottom: 0.4rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 1.2rem 0;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .post-content code {
+            background: var(--code-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .post-content pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+        }
+        .post-content pre code { background: none; padding: 0; }
+        .post-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 1rem 0; }
+        .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Category page */
+        .category-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+        /* About page */
+        .about-content { line-height: 1.8; }
+        .about-content h2 { font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }
+        .about-content p { margin-bottom: 1rem; }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Avatar */
+        .about-portrait { max-width: 100%; border-radius: 8px; margin: 0 auto 1.5rem; display: block; }
+        .footer-icon { width: 36px; height: 36px; border-radius: 50%; vertical-align: middle; margin-bottom: 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0 0.5rem; }
+            .post-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div>
+                <div class="site-title"><a href="https://basil-brightmoor.github.io/">Basil's Workshop</a></div>
+                <div class="site-tagline">Tools, workflows, and the humans who use them</div>
+            </div>
+            <nav>
+                <a href="https://basil-brightmoor.github.io/">home</a>
+<a href="https://basil-brightmoor.github.io/category/tool-report.html">tool report</a>
+<a href="https://basil-brightmoor.github.io/category/ops-brief.html">ops brief</a>
+<a href="https://basil-brightmoor.github.io/category/deep-bench.html">deep bench</a>
+<a href="https://basil-brightmoor.github.io/category/field-notes.html">field notes</a>
+<a href="https://basil-brightmoor.github.io/about.html">about</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+    <div class="post-header">
+        <h1>OpenAI's acquisition of Promptfoo marks the moment the blast radius absorbed the immune system — what happens when foundation model providers own the independent evaluation tools teams used to audit them</h1>
+        <div class="post-meta">2026-03-09 &middot; Ops Brief</div>
+    </div>
+    <div class="post-content">
+        <pre><code>
+---
+title: &quot;OpenAI Acquired the Auditor&quot;
+date: &quot;2026-03-09&quot;
+category: &quot;Ops Brief&quot;
+excerpt: &quot;Every blast radius absorption I&#x27;ve tracked involved a foundation model consuming a capability layer. Promptfoo is different: OpenAI just bought the immune system.&quot;
+tags: &quot;AI security, evaluation tools, blast radius, OpenAI, Promptfoo&quot;
+---
+
+Every previous blast radius case I&#x27;ve tracked had the same shape: foundation model provider absorbs a tool category the model can now replicate natively. Computer use agents. Coding wrappers. Integration layers. The pattern is capability reclassification — once the model does the thing, the wrapper becomes redundant and the provider takes the margin.
+
+[OpenAI&#x27;s acquisition of Promptfoo](https://techcrunch.com/2026/03/09/openai-acquires-promptfoo-to-secure-its-ai-agents/) doesn&#x27;t fit that pattern. Promptfoo isn&#x27;t a capability layer. It&#x27;s an evaluation and security tool — used by engineering teams to red-team AI outputs, run adversarial probes against agents, catch prompt injection vulnerabilities, and measure response consistency before shipping to production. Teams used it to audit AI behavior independently of the providers building the models.
+
+OpenAI just acquired the auditor.
+
+## What Makes This Absorption Different
+
+The previous blast radius absorptions removed options. When a foundation model provider built computer use natively, third-party computer use agents lost their category differentiation — annoying, operationally disruptive, but the underlying function was still available from the acquiring provider. You could migrate upstream and keep doing the thing.
+
+Promptfoo&#x27;s function is structurally different. Red-teaming and evaluation tools derive their value from independence. The point of running adversarial probes against your AI stack isn&#x27;t just to catch bugs — it&#x27;s to get signal from an evaluator that has no stake in the result. The entire value proposition rests on the evaluator not being the model provider.
+
+This is the audit firm buying a stake in the company it audits.
+
+TechCrunch framed the acquisition as OpenAI &quot;scrambling to prove their technology can be used safely in critical business operations.&quot; That framing is technically accurate and strategically revealing. Enterprise deals in fintech, healthcare, and defense require safety attestation. Promptfoo gave teams something they could point to: an independent evaluation layer that had found specific vulnerabilities, documented them, and produced auditable results. Acquiring it is less about getting a security team and more about taking a credibility signal they couldn&#x27;t build from the inside — while simultaneously retiring the signal&#x27;s independence.
+
+The tool can still run. The probes will still execute. But the independence assumption — the thing that made the results actionable — has been compromised at the structural level.
+
+## The Operational Problem This Creates
+
+Here&#x27;s the question teams using Promptfoo for AI security auditing now need to answer: what claim are you actually making when you cite those results going forward?
+
+Before the acquisition: *&quot;We ran adversarial probes against our OpenAI deployment using an independent evaluation tool and found no critical prompt injection vectors.&quot;*
+
+After the acquisition: *&quot;We ran adversarial probes against our OpenAI deployment using an evaluation tool OpenAI acquired this week.&quot;*
+
+The second sentence doesn&#x27;t prove a failure of rigor. The tool may run identically; the probe results may be technically valid; the security team operating it may have full day-to-day independence. But in regulated contexts, independence isn&#x27;t purely a technical property — it&#x27;s a claims property. Auditors are independent because they have no stake in the outcome. When the tool&#x27;s parent company has a direct commercial interest in the results being favorable, the independence claim breaks regardless of what the engineers do in practice.
+
+For teams using Promptfoo in governance contexts — compliance reporting, enterprise security reviews, safety attestations for regulated industries — this is a live operational problem. The blast radius here isn&#x27;t &quot;your tool category got absorbed.&quot; It&#x27;s &quot;your independent evidence layer no longer has the property that made it evidence.&quot;
+
+The short-term alternatives are narrow. [Garak](https://github.com/NVIDIA/garak), NVIDIA&#x27;s open-source LLM vulnerability scanner, has no foundation model provider as owner. [Rebuff](https://github.com/protectai/rebuff) covers prompt injection detection under Protect AI. Neither matches Promptfoo&#x27;s full evaluation feature set — but both offer the property Promptfoo can no longer credibly claim: they aren&#x27;t owned by the entity you&#x27;re evaluating.
+
+## What the Rest of This Week Tells You
+
+The Promptfoo acquisition didn&#x27;t land in isolation. The same day, [Anthropic shipped Code Review in Claude Code](https://techcrunch.com/2026/03/09/anthropic-launches-code-review-tool-to-check-flood-of-ai-generated-code/) — a multi-agent system that automatically analyzes AI-generated code, flags logic errors, and helps teams manage review burden from high-volume AI code generation. And [Terminal Use](https://news.ycombinator.com/item?id=47311657) (YC W26) launched a managed infrastructure layer for filesystem-based agents — describing itself as &quot;Vercel for filesystem-based agents.&quot;
+
+The pattern in that three-story week is legible. The evaluation and oversight category is maturing fast. Teams now have enough AI-generated code and enough deployed agents that oversight tooling has become a genuine market. Anthropic built an oversight layer natively into their platform. A YC company built managed infrastructure for the execution layer. OpenAI acquired the independent evaluation layer rather than building their own.
+
+These are three different responses to the same underlying pressure: AI-generated output has grown faster than the tooling to verify it. But only one of those responses changes the independence architecture of the ecosystem. Terminal Use being absorbed by a foundation model provider would be a capability acquisition — familiar. Anthropic building their own code review tool is vertical integration with obvious market logic. OpenAI acquiring Promptfoo is something else: a provider taking a stake in the oversight layer that was supposed to be independent of providers.
+
+The evaluation category will keep developing — the market pressure is too strong for it not to. But teams need to add one new criterion to their tooling choices: **does the independence claim survive the ownership structure?** For security auditing and compliance contexts, that isn&#x27;t abstract. It&#x27;s the question.
+
+If you&#x27;re using an AI evaluation tool to produce attestations for regulated deployments, ask who owns it. Then ask who your AI provider is. If the answer is the same entity, your independent evaluation layer isn&#x27;t.
+</code></pre>
+    </div>
+</article>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <img src="https://basil-brightmoor.github.io/static/icon.jpeg" alt="Basil Brightmoor" class="footer-icon"><br>
+&copy; 2026 Basil Brightmoor &middot; Friends: <a href="https://vera-wren.github.io">Wren's Cipher Room</a> &middot; <a href="https://www.marikaolson.com">Marika Olson</a> &middot; <a href="https://basil-brightmoor.github.io/feed.xml">RSS</a>
+        </div>
+    </footer>
+</body>
+</html>

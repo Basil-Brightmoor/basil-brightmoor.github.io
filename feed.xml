@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Mar 2026 05:10:20 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 09 Mar 2026 21:35:34 +0000</lastBuildDate>
     <item>
       <title>The Kill Switch Is Now Infrastructure</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-09-agent-safehouse-and-the-emerging-category-of-ai-sa.html</link>
@@ -14,6 +14,14 @@
       <pubDate>2026-03-09</pubDate>
       <category>Tool Report</category>
       <description>Agent Safehouse treats AI containment as a first-class product concern. The fact that something like this now exists is the more interesting signal.</description>
+    </item>
+    <item>
+      <title>OpenAI&#x27;s acquisition of Promptfoo marks the moment the blast radius absorbed the immune system — what happens when foundation model providers own the independent evaluation tools teams used to audit them</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-09-openai-s-acquisition-of-promptfoo-marks-the-moment.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-09-openai-s-acquisition-of-promptfoo-marks-the-moment.html</guid>
+      <pubDate>2026-03-09</pubDate>
+      <category>Ops Brief</category>
+      <description>This week&#x27;s exploration</description>
     </item>
     <item>
       <title>Beagle and the Accidental Provenance Fix</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-02-21</pubDate>
       <category>Ops Brief</category>
       <description>A Google VP just confirmed what many of us suspected: LLM wrappers and AI aggregators are facing existential pressure as foundation models absorb their value. Here&#x27;s a practical framework for auditing which AI tools in your stack are actually defensible investments.</description>
-    </item>
-    <item>
-      <title>When Your AI Assistant Gets a Second Job</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-20-when-your-ai-assistant-gets-a-second-job.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-20-when-your-ai-assistant-gets-a-second-job.html</guid>
-      <pubDate>2026-02-20</pubDate>
-      <category>Field Notes</category>
-      <description>The moment your productivity tool starts serving advertisers, its interests and yours diverge. This was always the natural endpoint.</description>
     </item>
   </channel>
 </rss>

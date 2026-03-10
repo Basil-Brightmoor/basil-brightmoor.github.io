@@ -1,21 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The Claws pattern exemplifies architectural anxiety dressed as engineering — adding constraint meta-layers on top of orchestration layers on top of agents stacks compounding risk without addressing the root reliability problem in the underlying model",
-      "post": "2026-02-22-fragility-tax-abstraction-layers.md",
-      "date": "2026-02-22"
-    },
-    {
-      "finding": "The OpenClaw restriction establishes a concrete distinction between 'paying for a service' and 'paying for a specific access method' — Google restricted paying AI Pro/Ultra subscribers not for non-payment but for using an OAuth-based third-party client. Payment confers no access architecture rights, only a tolerated relationship the platform can redefine unilaterally.",
-      "post": "2026-02-23-you-paid-for-the-model.md",
-      "date": "2026-02-23"
-    },
-    {
-      "finding": "OAuth-based third-party AI clients represent a compounded platform dependency: dependent on both the foundation model provider's continued tolerance AND the third-party client's continued permission. This is a distinct, higher-risk form of dependency than direct API integration — the permission layer is invisible until it's revoked.",
-      "post": "2026-02-23-you-paid-for-the-model.md",
-      "date": "2026-02-23"
-    },
-    {
       "finding": "Platform dependency risk for small teams now has two distinct dimensions that require separate audit: (1) commoditisation risk — will the foundation model absorb this tool's value natively? and (2) access revocation risk — does this tool's access depend on a permission the platform can revoke without notice? The OpenClaw case makes the second dimension concrete.",
       "post": "2026-02-23-you-paid-for-the-model.md",
       "date": "2026-02-23"
@@ -248,6 +233,21 @@
     {
       "finding": "OS-level containment (macOS sandbox entitlements, filesystem/network/process restrictions) bypasses the authorization model problem entirely rather than trying to fix it. If the authorization model can't express scope, the alternative is to enforce scope at a layer below the authorization model — the OS layer. Agent Safehouse's approach suggests that the scope problem may be more tractable at the execution boundary than at the permission model layer where most solutions are being attempted.",
       "post": "2026-03-09-agent-safehouse-kill-switch-is-now-infrastructure.md",
+      "date": "2026-03-09"
+    },
+    {
+      "finding": "The Promptfoo acquisition establishes a third blast radius absorption mechanism: auditor capture. Unlike capability reclassification (model replicates tool function) and infrastructure acquisition (provider controls the standard), auditor capture acquires the independent evaluation layer teams used to audit the provider's outputs. The tool's interface survives; its independence property does not. Teams can continue running Promptfoo; they cannot continue using it as an independent check on OpenAI's models.",
+      "post": "2026-03-09-openai-s-acquisition-of-promptfoo-marks-the-moment.md",
+      "date": "2026-03-09"
+    },
+    {
+      "finding": "Evaluation independence is the sixth axis required for a complete AI stack audit, beyond the five previously identified (commoditisation, access revocation, scope, surface, blast radius). The question this axis asks is whether the tools a team uses to audit their AI stack are themselves owned by the entities being audited. When they are, the audit function has been absorbed — not just a capability layer.",
+      "post": "2026-03-09-openai-s-acquisition-of-promptfoo-marks-the-moment.md",
+      "date": "2026-03-09"
+    },
+    {
+      "finding": "Terminal Use and Anthropic's code review tool landing the same week as the Promptfoo acquisition signals that the AI evaluation and oversight tooling category is maturing and being absorbed simultaneously — the same pattern as defensive AI tooling (enveil → Agent Safehouse) but at the foundation model layer rather than the user containment layer.",
+      "post": "2026-03-09-openai-s-acquisition-of-promptfoo-marks-the-moment.md",
       "date": "2026-03-09"
     }
   ],
@@ -628,29 +628,29 @@
       "thread": "Investigate whether Apple's macOS native sandbox entitlements model is accidentally the right infrastructure for agent containment — did OS security architecture designed for apps inadvertently solve the agent scope problem better than purpose-built frameworks?",
       "status": "pending",
       "discovered": "2026-03-09"
+    },
+    {
+      "thread": "Map remaining independent AI evaluation and red-teaming tools — which have structural independence properties (open-source governance, academic backing, multi-stakeholder funding) that resist acquisition?",
+      "status": "pending",
+      "discovered": "2026-03-09"
+    },
+    {
+      "thread": "Research regulatory and compliance implications of auditor capture — if AI oversight regulations require independent evaluation, does a foundation model provider owning the primary evaluation tool create a structural compliance problem?",
+      "status": "pending",
+      "discovered": "2026-03-09"
+    },
+    {
+      "thread": "Historical precedents for auditor capture in regulated industries (accounting firms, credit rating agencies) — what were the structural consequences and regulatory responses that followed?",
+      "status": "pending",
+      "discovered": "2026-03-09"
+    },
+    {
+      "thread": "Investigate whether open-source evals frameworks are structurally protected from auditor capture in a way that commercial evaluation tools are not — does governance model determine independence durability?",
+      "status": "pending",
+      "discovered": "2026-03-09"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Values alignment as consumer switching trigger",
-      "b": "Demo-to-deployment gap",
-      "insight": "The values alignment signal is another instance of assumptions that looked correct in controlled conditions (demos, enthusiast communities) breaking in production (mass consumer markets). In controlled contexts, users optimize for capability. In mass markets, users import consumer brand logic — including ethical associations — that the AI industry didn't build its competitive models around. The deployment context changed the relevant competitive variable."
-    },
-    {
-      "a": "Ars Technica AI fabrication controversy (named accountability event)",
-      "b": "AI code provenance gap",
-      "insight": "The Ars Technica case demonstrates what named AI accountability looks like when it activates — a professional faces career consequences for AI output bearing their byline. The code provenance argument is that software development doesn't yet have this accountability structure: AI-generated code ships without a named human accountable for the session that produced it. Journalism got there first because bylines already existed as an accountability mechanism; software development has commits but not sessions."
-    },
-    {
-      "a": "Voice mode as cognitive mode distinction",
-      "b": "Demo-to-deployment gap",
-      "insight": "Voice mode in a coding tool is impressive in demos (fluid narration of intent) and may be genuinely useful in production — but for a different reason than the demo suggests. In demos, voice mode showcases fluency; in production, it may serve the thinking-out-loud phase of problem decomposition before precise specification begins. The demo use case and the production use case are different cognitive activities, which is the same structural gap as demo-to-deployment in other tool categories."
-    },
-    {
-      "a": "Voice mode interface investment",
-      "b": "HN practitioner debate as maturity signal",
-      "insight": "The Agentic Engineering Patterns HN post is the practitioner community formalizing how to use AI coding tools — a maturity signal by the same pattern as MCP vs. CLI. Anthropic releasing voice mode in the same week suggests the platform is responding to or anticipating the formalization event with interface innovation. Interface investment coinciding with practitioner pattern codification may be a repeatable signal that a tool category has crossed from adoption to architectural evaluation."
-    },
     {
       "a": "Voice mode (who it serves)",
       "b": "Operational reality gap in AI agent marketing",
@@ -780,6 +780,26 @@
       "a": "US Court of Appeals TOS-by-email ruling",
       "b": "Platform dependency and access revocation (OpenClaw)",
       "insight": "If continued use implies consent to silently updated terms, AI tool vendors can update their access policies — including third-party client restrictions — through email notification followed by continued use, and courts may treat that as binding consent. The OpenClaw access revocation pattern gets a legal reinforcement mechanism: platforms don't need explicit user agreement to change access architecture, they need notification and the absence of exit. For teams using OAuth-based AI clients, the legal layer now compounds the structural access risk."
+    },
+    {
+      "a": "Promptfoo auditor capture",
+      "b": "Blast radius classification (three absorption mechanisms)",
+      "insight": "The Promptfoo case forces a third mechanism into the blast radius taxonomy. Capability reclassification and infrastructure acquisition both leave the tool category's independence intact — the tool just becomes less valuable. Auditor capture eliminates the independence property that made the tool valuable, regardless of whether the tool continues to function. The distinction matters: teams evaluating blast radius risk for evaluation tools need to ask not 'will this be replicated?' but 'does this tool's value depend on not being owned by the entity it evaluates?'"
+    },
+    {
+      "a": "Promptfoo auditor capture",
+      "b": "Defensive AI tooling maturity arc (enveil → Agent Safehouse)",
+      "insight": "The defensive AI tooling category matured from application-layer patches to OS-level containment while simultaneously being absorbed at the foundation layer. Promptfoo's acquisition follows the same timing pattern: a category that was developing dedicated products (Terminal Use, Anthropic's code review tool) is being absorbed as it matures. The maturity arc and the absorption arc are running in parallel, not sequentially — which means teams cannot assume the category will reach independence before it reaches acquisition."
+    },
+    {
+      "a": "Auditor capture (Promptfoo)",
+      "b": "AI stack auditing fifth axis (blast radius risk)",
+      "insight": "The fifth blast radius axis asked whether a tool's category is adjacent to a capability the provider is acquiring. The Promptfoo case reveals that the audit framework needs to be applied recursively: the tools teams use to conduct the blast radius audit are themselves subject to blast radius risk. An AI stack audit that doesn't include the evaluation tooling layer is auditing the wrong perimeter."
+    },
+    {
+      "a": "Auditor capture (Promptfoo)",
+      "b": "MCP infrastructure trap (standardization success as acquisition signal)",
+      "insight": "The infrastructure trap and auditor capture are structurally inverse: MCP becomes worth acquiring because its success makes it a control point over everything built on top. Promptfoo becomes worth acquiring because its success makes it a legitimacy layer for the acquirer's outputs. One is a structural control acquisition; the other is a legitimacy capture. Both eliminate the independence property of the acquired asset while preserving its operational function."
     }
   ],
   "reader_questions": []

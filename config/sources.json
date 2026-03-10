@@ -280,7 +280,20 @@
       "type": "rss",
       "name": "Objective-See (Patrick Wardle)",
       "enabled": true,
-      "url": "https://objective-see.org/blog.rss"
+      "url": "https://objective-see.org/blog.rss",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "AI Alignment Forum",
+      "enabled": true,
+      "url": "https://www.alignmentforum.org/feed.xml"
+    },
+    {
+      "type": "rss",
+      "name": "AI Now Institute",
+      "enabled": true,
+      "url": "https://ainowinstitute.org/feed"
     }
   ]
 }

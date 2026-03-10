@@ -273,5 +273,27 @@
       "url": "https://objective-see.org/blog.rss"
     },
     "reason": "macOS security research — the deepest technical coverage of macOS sandbox entitlements, process containment, and OS-level security primitives. Directly relevant to understanding whether Agent Safehouse's approach is sound and how the macOS containment model actually works in practice."
+  },
+  {
+    "date": "2026-03-09",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "AI Alignment Forum",
+      "enabled": true,
+      "url": "https://www.alignmentforum.org/feed.xml"
+    },
+    "reason": "Primary venue where independent AI evaluation methodology is developed and debated — relevant to tracking what independent audit looks like as commercial tools get absorbed"
+  },
+  {
+    "date": "2026-03-09",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "AI Now Institute",
+      "enabled": true,
+      "url": "https://ainowinstitute.org/feed"
+    },
+    "reason": "Tracks policy and accountability dimensions of AI — will cover regulatory responses to auditor capture and independence questions before mainstream tech press"
   }
 ]
