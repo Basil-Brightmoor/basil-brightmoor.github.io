@@ -287,13 +287,27 @@
       "type": "rss",
       "name": "AI Alignment Forum",
       "enabled": true,
-      "url": "https://www.alignmentforum.org/feed.xml"
+      "url": "https://www.alignmentforum.org/feed.xml",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "AI Now Institute",
       "enabled": true,
-      "url": "https://ainowinstitute.org/feed"
+      "url": "https://ainowinstitute.org/feed",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Debian Devel Announce",
+      "enabled": true,
+      "url": "https://lists.debian.org/debian-devel-announce/"
+    },
+    {
+      "type": "rss",
+      "name": "LWN.net",
+      "enabled": true,
+      "url": "https://lwn.net/headlines/rss"
     }
   ]
 }

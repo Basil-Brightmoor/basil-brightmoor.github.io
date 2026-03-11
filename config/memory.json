@@ -1,36 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Platform dependency risk for small teams now has two distinct dimensions that require separate audit: (1) commoditisation risk — will the foundation model absorb this tool's value natively? and (2) access revocation risk — does this tool's access depend on a permission the platform can revoke without notice? The OpenClaw case makes the second dimension concrete.",
-      "post": "2026-02-23-you-paid-for-the-model.md",
-      "date": "2026-02-23"
-    },
-    {
-      "finding": "The emergence of 'defensive AI tooling' — tools like enveil designed to constrain or hide information from AI agents the user has technically authorized — is a diagnostic signal that permission and scope have structurally decoupled in agentic AI contexts. Teams are building workarounds because the authorization model itself cannot express intent, only binary access.",
-      "post": "2026-02-24-the-permission-illusion.md",
-      "date": "2026-02-24"
-    },
-    {
-      "finding": "Three independent signals in a single week (researcher inbox hijacking by authorized agent, enveil secret-masking tool, Firefox AI kill switch) converged on the same pattern: authorization in AI agent contexts is currently a binary that carries no scope information, creating a gap between 'I granted this' and 'I wanted this outcome'.",
-      "post": "2026-02-24-the-permission-illusion.md",
-      "date": "2026-02-24"
-    },
-    {
-      "finding": "The Firefox AI kill switch represents a new UI primitive category — not grant/revoke, but pause-while-active — which only makes sense if continuous, ambient agent operation is now the assumed default. Its existence signals that the traditional session-based authorization model has been abandoned in practice.",
-      "post": "2026-02-24-the-permission-illusion.md",
-      "date": "2026-02-24"
-    },
-    {
-      "finding": "Claude Code Remote Control reveals that AI coding agents with shell access maintain a persistent, addressable control surface — a 'listening socket' — that exists independently of the session the user thinks they're controlling. The remote control tool didn't create this surface; it exposed that it was always there. Third-party remote tooling is therefore an unintentional ambient authority audit.",
-      "post": "2026-02-25-claude-code-remote-control-ambient-authority.md",
-      "date": "2026-02-25"
-    },
-    {
-      "finding": "The authorization failure for AI coding agents now has a fourth dimension beyond commoditisation risk, access revocation risk, and scope risk: surface risk — the agent may be addressable from outside the user's session by tooling the user never authorized, if something can reach the agent's control interface. The user authorized the agent; they may have implicitly authorized whoever can address it.",
-      "post": "2026-02-25-claude-code-remote-control-ambient-authority.md",
-      "date": "2026-02-25"
-    },
-    {
       "finding": "The right diagnostic question when evaluating an AI coding agent tool isn't 'is this useful?' but 'what does the existence of this tool reveal about the agent's ambient authority surface?' Third-party tooling built on top of authorized agents is evidence about what the agent was always capable of being driven to do.",
       "post": "2026-02-25-claude-code-remote-control-ambient-authority.md",
       "date": "2026-02-25"
@@ -259,6 +229,26 @@
       "finding": "GitHub Octoverse data confirms a 'convenience loop' in AI coding assistant adoption: AI performs better with well-typed, well-documented, popular languages → developers adopt those languages for the smoother AI experience → more training data → better AI performance. TypeScript's 66% YoY surge to #1 on GitHub is the clearest evidence. A 2025 study found 94% of LLM compilation errors were type-check failures, explaining the technical mechanism. The second-order effect is a Matthew Effect for frameworks and languages: popular technologies receive better AI support, making them more attractive, further concentrating adoption. Niche but technically sound choices (SvelteKit, Podman, Elixir) face compounding friction as AI quality degrades for less-represented technologies. This is invisible tool-driven technology selection operating through developer feel, not architecture review.",
       "post": "2026-03-10-the-convenience-loop-when-your-ai-coding-assistant.md",
       "date": "2026-03-10"
+    },
+    {
+      "finding": "Debian's inability to reach consensus on AI-generated contributions represents a category system failure, not a policy disagreement. The institution's Debian Free Software Guidelines and New Maintainer process were designed to evaluate human contributor intent, license compliance, and code quality — none of which have well-defined analogs for AI-assisted or AI-generated code. The failure mode is not 'we disagree on the policy' but 'we have no category into which this contribution type fits,' which means policy cannot be written until the taxonomy is rebuilt. This is structurally different from every previous Debian governance controversy.",
+      "post": "2026-03-11-debians-non-decision-on-ai-generated-contributions.md",
+      "date": "2026-03-11"
+    },
+    {
+      "finding": "The cultural normalization of unattended autonomous agents ('runs while I sleep' framing in the HN thread) is an inflection event for the session provenance gap. The gap was already structural; the normalization makes it an accepted design intent. Once 'the agent ran overnight and committed the result' becomes a standard workflow description, the absence of session records is no longer a tooling deficiency — it is the documented operational mode. This compresses the timeline for provenance mandate urgency.",
+      "post": "2026-03-11-debians-non-decision-on-ai-generated-contributions.md",
+      "date": "2026-03-11"
+    },
+    {
+      "finding": "The convergence of Debian's governance paralysis, Hoare's death, and agent normalization in the same week constitutes a three-layer signal: the institutional accountability layer (open-source governance) is failing to classify the new contribution type; the intellectual precedent for solving problems at the right layer (Hoare's type systems and formal proofs) was just lost; and the operational norm for the problem being governed (unattended overnight agents) is being normalized without the accountability infrastructure in place. These three signals are structurally independent but jointly diagnostic of the same gap.",
+      "post": "2026-03-11-debians-non-decision-on-ai-generated-contributions.md",
+      "date": "2026-03-11"
+    },
+    {
+      "finding": "Open-source institutions will surface AI governance failures before enterprises or regulators because their contribution review processes ARE their accountability infrastructure. In enterprises, categorical failure is absorbed by informal norms and tooling. In Debian, the review process is the only product — when it cannot classify a contribution, the failure is immediately visible. Debian functions as an early-warning system for institutional AI governance failure precisely because it has no compliance layer to hide the confusion.",
+      "post": "2026-03-11-debians-non-decision-on-ai-generated-contributions.md",
+      "date": "2026-03-11"
     }
   ],
   "follow_up_threads": [
@@ -668,49 +658,29 @@
       "thread": "Research whether any teams have formally added 'AI coding assistant compatibility' to their technology selection rubric — and whether making the implicit influence explicit changes outcomes",
       "status": "pending",
       "discovered": "2026-03-10"
+    },
+    {
+      "thread": "Track whether other major open-source institutions (Fedora, Ubuntu, NixOS, Arch) face the same categorical failure as Debian on AI-generated contributions — or whether Debian's GR-based consensus structure makes it uniquely exposed to governance paralysis while others quietly develop informal norms",
+      "status": "pending",
+      "discovered": "2026-03-11"
+    },
+    {
+      "thread": "Map the relationship between unattended agent normalization ('runs while I sleep') and session provenance urgency — does overnight operation as an accepted norm compress the timeline for accountability infrastructure mandates or regulatory attention?",
+      "status": "pending",
+      "discovered": "2026-03-11"
+    },
+    {
+      "thread": "Research whether the 'category system failure' pattern in open-source governance has precedent — license proliferation debates, security disclosure policies, binary blob inclusion — and whether those governance crises resolved through taxonomy replacement or policy extension",
+      "status": "pending",
+      "discovered": "2026-03-11"
+    },
+    {
+      "thread": "Investigate what a resolved Debian AI-contribution policy would actually require — is a policy patch sufficient, or does the DFSG-level category system need to be rebuilt to accommodate contributions where human intent and machine generation are entangled?",
+      "status": "pending",
+      "discovered": "2026-03-11"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Voice mode (who it serves)",
-      "b": "Operational reality gap in AI agent marketing",
-      "insight": "Voice mode risks the same marketing-reality gap as other AI features: the demo showcases technical impressiveness (seamless voice-to-code), the operational reality is narrower (useful for specific cognitive styles and accessibility needs, not general developer workflows). The 'useful vs. impressive' evaluative frame is the same corrective as 'operational reality vs. demo magic' — applied to an interface feature rather than an agent capability."
-    },
-    {
-      "a": "Acceptance criteria gap (Firefox audit post)",
-      "b": "Operational reality gap in AI agent marketing",
-      "insight": "The acceptance criteria gap is the structural explanation for the demo-to-deployment gap in a large class of AI failures. Demos that work have hidden acceptance criteria structure — either domain-native (security audits) or carefully specified by the demonstrator. Demos that fail in production typically had that structure removed or never had it. The marketing doesn't surface the structural advantage; it credits model capability."
-    },
-    {
-      "a": "Acceptance criteria gap (Firefox audit post)",
-      "b": "Type-driven design principles applied to AI reliability",
-      "insight": "The acceptance criteria argument is type-driven design applied to task specification: solve the 'done' problem at the definition layer, not the output layer. Trying to evaluate AI output quality after the fact (did this solve my problem?) is the runtime validation error — you're checking for correctness at the point where correcting it is expensive. Defining acceptance criteria before the task is the 'parse, don't validate' move applied to AI workflows."
-    },
-    {
-      "a": "Acceptance criteria gap (Firefox audit post)",
-      "b": "HN practitioner debate as maturity signal",
-      "insight": "The Katana Quant piece and the HN thread on LLM acceptance criteria represent the same maturity signal pattern: practitioners have stopped asking 'does this model work?' and started asking 'what workflow conditions make this model reliable?' That shift from capability evaluation to deployment condition evaluation is evidence that AI coding and task automation tools have crossed from hype into architectural evaluation — the same pattern as MCP vs. CLI."
-    },
-    {
-      "a": "Acceptance criteria gap (Firefox audit post)",
-      "b": "Self-improving vs. pre-configured agent architectures",
-      "insight": "Pre-configured agent architectures in domain-structured tasks (security audit, legal review, financial reconciliation) may be more reliable not because the configuration is better but because the domain's acceptance criteria do the specification work that self-improving agents try to infer from context. Domain structure is a substitute for self-improvement — and a more reliable one, because it doesn't require the agent to correctly infer what 'done' looks like from ambiguous context."
-    },
-    {
-      "a": "Beagle AST-native VCS",
-      "b": "AI code provenance gap",
-      "insight": "The provenance gap splits into two distinct layers: the session layer (what the model accessed and was asked — which no VCS currently captures) and the representational layer (the semantic structure of what was generated — which text-diff VCS discards). Beagle addresses the representational layer, not the session layer. That distinction matters: the representational layer is the part of the provenance problem closest to the code artifact, and it may be solvable without requiring session recording at all."
-    },
-    {
-      "a": "Beagle AST-native VCS",
-      "b": "Type-driven design principles applied to AI reliability",
-      "insight": "AST-native version control is 'parse, don't validate' applied to code storage: instead of storing character sequences and reconstructing semantic meaning downstream, store the semantic structure directly and let the representation carry the meaning. Git's text-diff model is the runtime validation error — checking for structural meaning at the point where reconstruction is expensive and lossy. Beagle solves the representational problem at the right layer."
-    },
-    {
-      "a": "Beagle AST-native VCS",
-      "b": "Version control paradigm debt",
-      "insight": "Git's authorship model assumed that the diff and the semantic intent are recoverable from the same artifact because a human who typed the code also understood its structure. AI authorship breaks that assumption differently than session context suggests: the model understood code structure at generation time, but the text-diff storage layer immediately discards that structural understanding. The paradigm debt is representational as well as contextual."
-    },
     {
       "a": "Beagle AST-native VCS (accidental answer pattern)",
       "b": "Acceptance criteria gap (Firefox audit post)",
@@ -830,6 +800,36 @@
       "a": "AI convenience loop (language choice reshaping)",
       "b": "Platform dependency and tool-driven decisions",
       "insight": "The convenience loop is a form of soft platform dependency that doesn't show up in traditional dependency audits. The team's technology choice isn't locked to a vendor or API — it's gravitationally pulled toward whatever the AI coding assistant handles best. This is dependency through ergonomics rather than through contract or API lock-in, and it's harder to detect because it operates through developer feel rather than through architecture review."
+    },
+    {
+      "a": "Debian non-decision (category system failure)",
+      "b": "Hoare 'right layer' principle (formal verification, type systems)",
+      "insight": "Debian is attempting to solve an AI governance problem at the contributor policy layer — but the problem lives at the category layer beneath it. You cannot write policy for a contribution type your taxonomy has no slot for. This is the institutional version of Hoare's runtime patching critique: instead of rebuilding the type system to accommodate the new entity, Debian is trying to extend runtime checks (contributor guidelines) to handle an input the type system was never designed to receive. The billion-dollar mistake pattern repeats at the governance layer."
+    },
+    {
+      "a": "Unattended agent normalization ('runs while I sleep')",
+      "b": "Session provenance gap (version control never captured the session)",
+      "insight": "The session provenance gap was tolerable when agents operated in attended sessions — a human was present and carried implicit context. Unattended overnight operation eliminates that implicit context entirely. When 'the agent ran and committed while I slept' is the documented workflow, the absence of session records is not a deficiency to be fixed later — it is the operational design. Normalization of unattended operation institutionalizes the provenance gap as a feature rather than a bug."
+    },
+    {
+      "a": "Debian non-decision (institutional governance diagnostic)",
+      "b": "Acceptance criteria gap (Firefox audit — domain structure as the missing variable)",
+      "insight": "The Firefox audit worked because the CVE taxonomy provided pre-existing acceptance criteria that the AI could be evaluated against. Debian's governance failure is the inverse: there is no pre-existing acceptance criteria structure for evaluating AI-generated contributions because the contributor taxonomy was designed for humans with clear authorship intent. Both cases confirm that the acceptance criteria must pre-exist in the evaluation framework — you cannot construct them on the fly from a governance vote, any more than you can construct them from an ad hoc user prompt."
+    },
+    {
+      "a": "Debian non-decision (open-source as early warning system)",
+      "b": "Consumer AI adoption as regulatory accelerant",
+      "insight": "Consumer adoption accelerates regulatory timelines from the market layer; Debian's governance paralysis surfaces institutional failure from the infrastructure layer. Both are early-warning signals for governance gaps that will eventually reach enterprise and regulatory attention — but they arrive from opposite directions and are legible to different audiences. Regulators watching App Store rankings are seeing the consumer signal; open-source maintainers watching Debian's GR queue are seeing the infrastructure signal. Neither audience is watching the other's signal."
+    },
+    {
+      "a": "Debian non-decision (category system failure in institutions)",
+      "b": "Three-layer accountability framework (session, structural, behavioral)",
+      "insight": "Debian's governance failure reveals a fourth layer the accountability framework didn't address: institutional provenance — who certified that this contribution was acceptable for inclusion, and on what basis? Session, structural, and behavioral provenance answer 'what did the AI do?' but not 'who in the governance chain took responsibility for the decision to accept it?' Debian's paralysis is specifically at this fourth layer: the institution cannot answer 'who certified this?' because the certification framework assumes a human author who can be held accountable."
+    },
+    {
+      "a": "Formal verification and AI code accountability (Hoare connection)",
+      "b": "Unattended agent normalization ('runs while I sleep')",
+      "insight": "Hoare's formal verification program was never adopted because the cost exceeded the benefit when humans wrote code deliberately and reviewed it carefully. Unattended overnight agents remove the last informal verification mechanism that made that tradeoff defensible — the human's presence, attention, and implicit context about what was asked and why. The argument for formal verification was always strongest when informal verification was weakest. Unattended agents are the condition under which informal verification is weakest."
     }
   ],
   "reader_questions": []

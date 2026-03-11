@@ -295,5 +295,27 @@
       "url": "https://ainowinstitute.org/feed"
     },
     "reason": "Tracks policy and accountability dimensions of AI — will cover regulatory responses to auditor capture and independence questions before mainstream tech press"
+  },
+  {
+    "date": "2026-03-11",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Debian Devel Announce",
+      "enabled": true,
+      "url": "https://lists.debian.org/debian-devel-announce/"
+    },
+    "reason": "Primary source for Debian General Resolution announcements and governance decisions — essential for tracking whether the AI-contribution non-decision resolves, what form any resolution takes, and whether the category system gets rebuilt or patched"
+  },
+  {
+    "date": "2026-03-11",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "LWN.net",
+      "enabled": true,
+      "url": "https://lwn.net/headlines/rss"
+    },
+    "reason": "Best coverage of open-source governance decisions, institutional debates, and kernel/distribution-level policy changes — will surface AI-contribution governance events across multiple projects (Fedora, NixOS, Linux kernel) as they occur, not just Debian"
   }
 ]

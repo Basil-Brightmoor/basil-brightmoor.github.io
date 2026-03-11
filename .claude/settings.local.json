@@ -15,7 +15,9 @@
       "mcp__scheduled-tasks__list_scheduled_tasks",
       "WebSearch",
       "WebFetch(domain:news.ycombinator.com)",
-      "WebFetch(domain:www.infoq.com)"
+      "WebFetch(domain:www.infoq.com)",
+      "WebFetch(domain:dev.to)",
+      "WebFetch(domain:github.blog)"
     ]
   }
 }

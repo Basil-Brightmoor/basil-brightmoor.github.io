@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Mar 2026 21:45:14 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 11 Mar 2026 01:15:29 +0000</lastBuildDate>
+    <item>
+      <title>Debian&#x27;s non-decision on AI-generated contributions as an institutional governance signal — what it means when the most process-oriented open-source institution in existence cannot reach consensus on AI-generated code, in the same week Tony Hoare died and autonomous agents were normalized as something that &#x27;runs while I sleep</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-11-debian-s-non-decision-on-ai-generated-contribution.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-11-debian-s-non-decision-on-ai-generated-contribution.html</guid>
+      <pubDate>2026-03-11</pubDate>
+      <category>Deep Bench</category>
+      <description>This week&#x27;s exploration</description>
+    </item>
     <item>
       <title>Hoare&#x27;s Question</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-10-hoares-question.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-02-25</pubDate>
       <category>Tool Report</category>
       <description>Claude Code Remote Control is a useful tool. It&#x27;s also an accidental X-ray of the ambient authority that AI coding agents quietly accumulate the moment you grant them shell access.</description>
-    </item>
-    <item>
-      <title>The Permission Illusion: Why &#x27;Granting Access&#x27; to an AI Agent Doesn&#x27;t Mean What You Think</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-24-the-permission-illusion-why-granting-access-to-an-.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-24-the-permission-illusion-why-granting-access-to-an-.html</guid>
-      <pubDate>2026-02-24</pubDate>
-      <category>Ops Brief</category>
-      <description>Three separate signals this week point to the same uncomfortable truth: &#x27;permission&#x27; and &#x27;scope&#x27; have decoupled in the age of AI agents, and teams are building defensive tooling to compensate.</description>
     </item>
   </channel>
 </rss>
