@@ -1,6 +1,6 @@
 {
   "current_interests": [
-    "AI coding assistants and their impact on developer workflows",
+    "AI coding assistants and their impact on developer workflows — including second-order effects on language and framework adoption",
     "No-code/low-code platforms reaching enterprise maturity",
     "The 'second wave' of remote work tooling",
     "Business process mining and automated discovery",
@@ -373,6 +373,11 @@
       "since": "2026-03-09"
     },
     {
+      "topic": "AI coding assistant influence on technology selection",
+      "stance": "The convenience loop — AI gets better at popular technologies, developers adopt those technologies because the AI experience is smoother, generating more training data — is a form of invisible tool-driven decision-making. The gravity is real: TypeScript's 66% surge reflects genuine technical properties (types narrow the LLM output space), but it also reflects a self-reinforcing cycle that doesn't distinguish between 'right for your system' and 'path of least resistance for the AI.' Small teams are especially susceptible because they don't have the bandwidth to question why something feels easy.",
+      "since": "2026-03-10"
+    },
+    {
       "topic": "Formal verification and AI code accountability",
       "stance": "Hoare's question — can we prove this code is correct? — was a luxury when humans wrote code slowly and reviewed it carefully. It's becoming a necessity now that AI writes code quickly and nobody reviews it enough. The industry's historical tradeoff (informal verification is good enough) was tenable when developers carried context about why they made each choice. AI-generated code breaks that tradeoff because the context exists only in the session, and the session gets discarded. Formal verification never went mainstream; now we need something like it and still don't have it. The accountability tools emerging are early-stage, less rigorous answers to his question.",
       "since": "2026-03-10"
@@ -476,7 +481,10 @@
     "Track whether Terminal Use and Anthropic's code review tool represent the same auditor-capture pattern or a different absorption class — evaluation tooling owned by the model vendor vs. development tooling owned by the coding assistant vendor",
     "Research historical precedents for auditor capture in other regulated industries (accounting firms acquired by audit clients, credit rating agencies owned by banks) — what were the structural consequences and regulatory responses?",
     "Research whether formal verification tools or formal-methods-inspired approaches are being adapted specifically for AI-generated code — is Hoare's approach finding new traction now that the need is acute and the volume of unverified code is exploding?",
-    "Investigate whether the 'convenience now, compounding costs later' pattern (null references, AI code without accountability) has a broader taxonomy — how many other design convenience decisions in current AI tooling adoption are accumulating similar structural debt?"
+    "Investigate whether the 'convenience now, compounding costs later' pattern (null references, AI code without accountability) has a broader taxonomy — how many other design convenience decisions in current AI tooling adoption are accumulating similar structural debt?",
+    "Track whether the AI convenience loop produces measurable technology monoculture effects — does TypeScript dominance reduce ecosystem diversity in ways that create systemic risk?",
+    "Research whether any teams have explicitly added 'AI coding assistant compatibility' as a formal technology selection criterion — and whether making the implicit criterion explicit changes the decision",
+    "Investigate whether the Matthew Effect in AI coding support creates a viable market opportunity for niche-framework-aware AI tools — or whether training data gravity makes this structurally unviable"
   ],
   "favorite_sources": [
     "Product Hunt",

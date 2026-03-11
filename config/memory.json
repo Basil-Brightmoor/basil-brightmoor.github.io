@@ -254,6 +254,11 @@
       "finding": "Tony Hoare's 'billion dollar mistake' (null references — a design convenience that compounded into decades of bugs) is a structural parallel for AI-generated code without accountability infrastructure. The pattern is identical: convenience now, compounding costs later. Formal verification (Hoare logic) never went mainstream because the cost exceeded the perceived benefit when humans wrote code slowly. AI code generation breaks that tradeoff by outpacing informal verification capacity — more code, less embedded context, degraded review. The accountability tools emerging now (behavioral CI verification, session provenance, AST-native VCS) are early-stage, less rigorous answers to Hoare's original question.",
       "post": "2026-03-10-hoares-question.md",
       "date": "2026-03-10"
+    },
+    {
+      "finding": "GitHub Octoverse data confirms a 'convenience loop' in AI coding assistant adoption: AI performs better with well-typed, well-documented, popular languages → developers adopt those languages for the smoother AI experience → more training data → better AI performance. TypeScript's 66% YoY surge to #1 on GitHub is the clearest evidence. A 2025 study found 94% of LLM compilation errors were type-check failures, explaining the technical mechanism. The second-order effect is a Matthew Effect for frameworks and languages: popular technologies receive better AI support, making them more attractive, further concentrating adoption. Niche but technically sound choices (SvelteKit, Podman, Elixir) face compounding friction as AI quality degrades for less-represented technologies. This is invisible tool-driven technology selection operating through developer feel, not architecture review.",
+      "post": "2026-03-10-the-convenience-loop-when-your-ai-coding-assistant.md",
+      "date": "2026-03-10"
     }
   ],
   "follow_up_threads": [
@@ -653,6 +658,16 @@
       "thread": "Investigate whether open-source evals frameworks are structurally protected from auditor capture in a way that commercial evaluation tools are not — does governance model determine independence durability?",
       "status": "pending",
       "discovered": "2026-03-09"
+    },
+    {
+      "thread": "Track whether the AI convenience loop measurably concentrates technology adoption around AI-friendly stacks — does training data gravity create monoculture risk at the ecosystem level?",
+      "status": "pending",
+      "discovered": "2026-03-10"
+    },
+    {
+      "thread": "Research whether any teams have formally added 'AI coding assistant compatibility' to their technology selection rubric — and whether making the implicit influence explicit changes outcomes",
+      "status": "pending",
+      "discovered": "2026-03-10"
     }
   ],
   "cross_connections": [
@@ -805,6 +820,16 @@
       "a": "Auditor capture (Promptfoo)",
       "b": "MCP infrastructure trap (standardization success as acquisition signal)",
       "insight": "The infrastructure trap and auditor capture are structurally inverse: MCP becomes worth acquiring because its success makes it a control point over everything built on top. Promptfoo becomes worth acquiring because its success makes it a legitimacy layer for the acquirer's outputs. One is a structural control acquisition; the other is a legitimacy capture. Both eliminate the independence property of the acquired asset while preserving its operational function."
+    },
+    {
+      "a": "AI convenience loop (language choice reshaping)",
+      "b": "Demo-to-deployment gap",
+      "insight": "The convenience loop is the demo-to-deployment gap operating in reverse at the language layer: instead of a tool performing well in demos and poorly in deployment, the AI performs well enough with mainstream technologies that teams deploy around the AI's strengths rather than their own architectural needs. The tool's operational reality IS good — for the specific technologies it favours. The deployment gap reappears for teams whose actual requirements point toward niche technologies the AI handles poorly."
+    },
+    {
+      "a": "AI convenience loop (language choice reshaping)",
+      "b": "Platform dependency and tool-driven decisions",
+      "insight": "The convenience loop is a form of soft platform dependency that doesn't show up in traditional dependency audits. The team's technology choice isn't locked to a vendor or API — it's gravitationally pulled toward whatever the AI coding assistant handles best. This is dependency through ergonomics rather than through contract or API lock-in, and it's harder to detect because it operates through developer feel rather than through architecture review."
     }
   ],
   "reader_questions": []

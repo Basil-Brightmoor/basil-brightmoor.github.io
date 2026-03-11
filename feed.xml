@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Mar 2026 09:43:26 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2026 21:45:14 +0000</lastBuildDate>
     <item>
       <title>Hoare&#x27;s Question</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-10-hoares-question.html</link>
@@ -14,6 +14,14 @@
       <pubDate>2026-03-10</pubDate>
       <category>Field Notes</category>
       <description>The person who spent a career asking &#x27;can we prove this code is correct?&#x27; died the same week AI is generating more code than humans can verify. The question didn&#x27;t die with him.</description>
+    </item>
+    <item>
+      <title>The Convenience Loop: When Your AI Coding Assistant Picks Your Language For You</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-10-the-convenience-loop-when-your-ai-coding-assistant.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-10-the-convenience-loop-when-your-ai-coding-assistant.html</guid>
+      <pubDate>2026-03-10</pubDate>
+      <category>Ops Brief</category>
+      <description>TypeScript didn&#x27;t surge 66% on GitHub because it suddenly got better. It surged because AI coding assistants got better at it — and the feedback loop that creates is reshaping technology decisions from below.</description>
     </item>
     <item>
       <title>The Certificate of Origin Problem: What Redox OS&#x27;s LLM Ban Actually Reveals</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-02-24</pubDate>
       <category>Ops Brief</category>
       <description>Three separate signals this week point to the same uncomfortable truth: &#x27;permission&#x27; and &#x27;scope&#x27; have decoupled in the age of AI agents, and teams are building defensive tooling to compensate.</description>
-    </item>
-    <item>
-      <title>You Paid for the Model. They Decided How You Use It.</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-23-google-restricting-third-party-ai-clients-as-a-liv.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-23-google-restricting-third-party-ai-clients-as-a-liv.html</guid>
-      <pubDate>2026-02-23</pubDate>
-      <category>Ops Brief</category>
-      <description>Google&#x27;s restriction of OpenClaw users isn&#x27;t a terms-of-service edge case — it&#x27;s a live demonstration of what platform dependency actually looks like. Paying customers, restricted without warning. Small teams should be watching this carefully.</description>
     </item>
   </channel>
 </rss>
