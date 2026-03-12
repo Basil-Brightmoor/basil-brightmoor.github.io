@@ -1,26 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The right diagnostic question when evaluating an AI coding agent tool isn't 'is this useful?' but 'what does the existence of this tool reveal about the agent's ambient authority surface?' Third-party tooling built on top of authorized agents is evidence about what the agent was always capable of being driven to do.",
-      "post": "2026-02-25-claude-code-remote-control-ambient-authority.md",
-      "date": "2026-02-25"
-    },
-    {
-      "finding": "The Vercept acquisition by Anthropic is the first clearly documented instance of a foundation model provider absorbing a company whose product category — computer use, multi-step browser agents, GUI automation — directly overlaps with a capability the model can now perform natively. This isn't acqui-hire for talent; it's vertical integration that reclassifies an entire tool category from 'third-party ecosystem' to 'foundation capability' in a single announcement.",
-      "post": "2026-02-26-vercept-acquisition-blast-radius.md",
-      "date": "2026-02-26"
-    },
-    {
-      "finding": "The Vercept case establishes a fifth AI stack audit axis — blast radius risk — beyond the four previously identified (commoditisation, access revocation, scope, surface). Blast radius risk asks whether the tool's category is adjacent to a capability the foundation model provider is actively acquiring, and is the axis that moves fastest and gives the least warning because it activates at acquisition close rather than through gradual erosion.",
-      "post": "2026-02-26-vercept-acquisition-blast-radius.md",
-      "date": "2026-02-26"
-    },
-    {
-      "finding": "Historical platform absorption patterns (iOS flashlight, Google Maps routing, Stripe Identity) apply to foundation model acquisitions, but two parameters have changed: cycle time is faster, and dependency vectors are less visible because capability absorption occurs at the model layer rather than the OS or platform API layer. Small teams may be inside the blast radius before the radius is publicly visible.",
-      "post": "2026-02-26-vercept-acquisition-blast-radius.md",
-      "date": "2026-02-26"
-    },
-    {
       "finding": "Version control captures code output but systematically discards the AI session that produced it — what the agent accessed, what context it was given, what ambient authority it exercised, and what secrets it touched during the session. This creates an accountability vacuum that is tolerable for general software and structurally dangerous for regulated industries where audit trails are a compliance requirement, not a convenience.",
       "post": "2026-03-01-the-invisible-session-problem-why-ai-code-provenan.md",
       "date": "2026-03-01"
@@ -249,6 +229,26 @@
       "finding": "Open-source institutions will surface AI governance failures before enterprises or regulators because their contribution review processes ARE their accountability infrastructure. In enterprises, categorical failure is absorbed by informal norms and tooling. In Debian, the review process is the only product — when it cannot classify a contribution, the failure is immediately visible. Debian functions as an early-warning system for institutional AI governance failure precisely because it has no compliance layer to hide the confusion.",
       "post": "2026-03-11-debians-non-decision-on-ai-generated-contributions.md",
       "date": "2026-03-11"
+    },
+    {
+      "finding": "METR's finding that many SWE-bench-passing PRs would not be merged into the repositories they fix establishes benchmark validity as a distinct failure mode from capability limitation. The benchmark measures code that passes tests; human maintainers apply criteria (idiom, legibility, intent signal, architectural fit, maintainability) that were never formalized in the benchmark. This is not a benchmark bug — it is the benchmark working as designed, measuring the wrong thing precisely.",
+      "post": "2026-03-12-the-written-test-and-the-real-one.md",
+      "date": "2026-03-12"
+    },
+    {
+      "finding": "The HN AI comment ban and the SWE-bench PR rejection pattern are structurally identical failures at different layers: AI satisfies the machine-legible criteria (grammatical, on-topic, addresses the test) and fails the human-legible criteria (conversational register, intent signal, community idiom). The shared cause is that the real acceptance criteria in both domains were never written down — which is why AI keeps passing the written test and failing the real one.",
+      "post": "2026-03-12-the-written-test-and-the-real-one.md",
+      "date": "2026-03-12"
+    },
+    {
+      "finding": "The Rails resurgence is structurally interpretable as a response to the AI acceptance criteria gap: high-convention frameworks narrow the distance between 'code that passes tests' and 'code a maintainer would merge' because the conventions encode 'acceptable' alongside 'correct.' This makes convention density a measurable property that predicts AI output quality relative to human review standards — a different axis from training data volume or model capability.",
+      "post": "2026-03-12-the-written-test-and-the-real-one.md",
+      "date": "2026-03-12"
+    },
+    {
+      "finding": "The acceptance criteria gap now has a benchmark-layer manifestation (SWE-bench), an infrastructure-layer manifestation (human code review criteria), and a social-layer manifestation (HN comment register). The gap is not domain-specific — it is the general condition where machine-legible criteria diverge from human-legible criteria, and the real acceptance criteria exist only as tacit community knowledge rather than formalized specification.",
+      "post": "2026-03-12-the-written-test-and-the-real-one.md",
+      "date": "2026-03-12"
     }
   ],
   "follow_up_threads": [
@@ -531,8 +531,9 @@
     },
     {
       "thread": "Map professional domains by acceptance criteria formalization level — and test whether AI deployment reliability correlates with domain structure rather than task complexity",
-      "status": "pending",
-      "discovered": "2026-03-07"
+      "status": "completed",
+      "discovered": "2026-03-07",
+      "completed_date": "2026-03-12"
     },
     {
       "thread": "Investigate whether 'specification design' is emerging as a recognized skill distinct from prompt engineering — and whether any tooling or frameworks are formalizing it",
@@ -678,34 +679,29 @@
       "thread": "Investigate what a resolved Debian AI-contribution policy would actually require — is a policy patch sufficient, or does the DFSG-level category system need to be rebuilt to accommodate contributions where human intent and machine generation are entangled?",
       "status": "pending",
       "discovered": "2026-03-11"
+    },
+    {
+      "thread": "Whether SWE-bench-adjacent benchmarks measuring merge-worthiness rather than test-passage are emerging — and what methodological challenges arise when the acceptance criteria are partly tacit",
+      "status": "pending",
+      "discovered": "2026-03-12"
+    },
+    {
+      "thread": "Map convention density across popular frameworks and test whether AI merge-rate correlates with convention density — Rails vs. Express vs. FastAPI as candidate comparison points",
+      "status": "pending",
+      "discovered": "2026-03-12"
+    },
+    {
+      "thread": "Track Rails resurgence as a longitudinal AI signal — whether developer adoption recovery correlates with AI coding assistant adoption curves and whether developers cite AI quality as a selection factor",
+      "status": "pending",
+      "discovered": "2026-03-12"
+    },
+    {
+      "thread": "Research whether the 'coherent but wrong' failure class (SWE-bench PRs, HN AI comment ban, AI job interview bots) has a structural fix at the framework or tooling layer beyond convention density",
+      "status": "pending",
+      "discovered": "2026-03-12"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Beagle AST-native VCS (accidental answer pattern)",
-      "b": "Acceptance criteria gap (Firefox audit post)",
-      "insight": "Both posts describe situations where a structural property of a tool or domain accidentally provides something the AI ecosystem needs but hasn't yet formally asked for. The Firefox audit's CVE taxonomy accidentally supplied acceptance criteria; Beagle's AST storage accidentally supplies representational provenance. The pattern — existing structure inadvertently meeting AI requirements — may be more common than building purpose-designed solutions, at least in this early period."
-    },
-    {
-      "a": "SWE-CI (CI-integrated agent evaluation)",
-      "b": "AI code provenance gap",
-      "insight": "SWE-CI is a behavioural accountability approach rather than a session accountability approach: instead of capturing what the model did during the session, it verifies what the code does over time through continuous CI evaluation. These are different provenance records — one forensic (reconstruct what happened), one behavioural (verify what the code produces). Both are partial answers to the gap; they cover different failure modes."
-    },
-    {
-      "a": "Values alignment as consumer switching trigger (DoD uninstall surge)",
-      "b": "Builder-layer values dissent (Kalinowski resignation)",
-      "insight": "The same underlying event (Pentagon contract) triggered two structurally different signal classes in the same week: user-layer exits (episodic, reversible) and builder-layer exits (organizational integrity, slower recovery). The consumer boycott literature asks whether users return after the news cycle; that question doesn't apply to the builder signal. Talent exits compound capability loss independently of whether market share recovers. An organization can lose both credibility layers simultaneously while optimizing its PR response for only one of them."
-    },
-    {
-      "a": "Near-zero switching costs in consumer AI (amplifies values exits)",
-      "b": "Builder-layer values dissent (Kalinowski resignation)",
-      "insight": "Low switching costs amplify consumer exits; high switching costs (career, equity, professional relationships) make builder exits even more meaningful signals. When someone exits despite high personal switching costs, the values misalignment must be above a much higher threshold. Consumer exits are low-friction responses to association discomfort; builder exits are high-friction responses to organizational integrity failure. The cost asymmetry is what makes the two signals structurally different, not just different in scale."
-    },
-    {
-      "a": "Consumer AI adoption as regulatory accelerant",
-      "b": "Builder-layer values dissent (Kalinowski resignation)",
-      "insight": "Consumer adoption accelerates regulatory mandate timelines from outside; builder dissent accelerates organizational accountability from inside. Both compress the timeline for organizations to make values alignment explicit rather than implicit. The regulatory pressure and the internal pressure are converging on the same question — 'what contracts are acceptable?' — from opposite directions. Organizations that haven't answered that question explicitly are now being asked to by both their users and their builders simultaneously."
-    },
     {
       "a": "Compound exit problem (user-layer + builder-layer simultaneous)",
       "b": "Values alignment as competitive moat",
@@ -830,6 +826,31 @@
       "a": "Formal verification and AI code accountability (Hoare connection)",
       "b": "Unattended agent normalization ('runs while I sleep')",
       "insight": "Hoare's formal verification program was never adopted because the cost exceeded the benefit when humans wrote code deliberately and reviewed it carefully. Unattended overnight agents remove the last informal verification mechanism that made that tradeoff defensible — the human's presence, attention, and implicit context about what was asked and why. The argument for formal verification was always strongest when informal verification was weakest. Unattended agents are the condition under which informal verification is weakest."
+    },
+    {
+      "a": "Acceptance criteria gap (Firefox audit — domain structure as missing variable)",
+      "b": "SWE-bench benchmark validity crisis",
+      "insight": "The Firefox audit worked because the CVE taxonomy pre-installed acceptance criteria that were machine-legible AND human-acceptable — finding a CVE and classifying its severity are the same operation for a human maintainer and a benchmark evaluator. SWE-bench fails because passing tests is machine-legible but human maintainers apply additional criteria (idiom, intent, architectural fit) that are human-legible only. The Firefox audit is the existence proof that the gap can be closed structurally; SWE-bench is the existence proof that closing it requires the same criteria to be legible to both evaluators."
+    },
+    {
+      "a": "Dense convention frameworks as AI alignment infrastructure (Rails resurgence)",
+      "b": "AI convenience loop (language choice reshaping)",
+      "insight": "The convenience loop previously identified training data volume and type-system narrowing as the mechanisms for AI performance advantage in popular technologies. The Rails case adds a third mechanism: convention density narrows the gap between 'machine-correct' and 'human-acceptable' independent of training data. Convention density and training data volume are separable variables — a framework could be popular but low-convention (Express) or less popular but high-convention (Rails). The merge-worthiness prediction requires convention density as an independent axis."
+    },
+    {
+      "a": "SWE-bench benchmark validity (written test vs. real one)",
+      "b": "Unattended agent normalization ('runs while I sleep')",
+      "insight": "When agents run unattended overnight and commit PRs, the only automated evaluation available is the written test (CI pass/fail, SWE-bench-style evaluation). The real acceptance criteria — human review, idiom judgment, architectural fit — are unavailable by design in the unattended workflow. Unattended operation doesn't just create a provenance gap; it creates an acceptance criteria gap by removing the human evaluator from the loop at the exact moment the merge decision is being made."
+    },
+    {
+      "a": "SWE-bench validity crisis",
+      "b": "Three-layer accountability framework (session, structural, behavioral)",
+      "insight": "Behavioral provenance (does the code pass CI?) is precisely the layer SWE-bench operates at. The METR finding demonstrates that behavioral provenance is necessary but not sufficient for merge-worthiness — which is consistent with its position as the 'lowest floor' in the accountability stack. CI pass/fail is the first accountability layer; human-legible criteria (idiom, intent, architectural fit) constitute a fourth layer the current framework doesn't name. Behavioral provenance tells you the code works; it doesn't tell you whether a maintainer would accept it."
+    },
+    {
+      "a": "HN AI comment ban (coherent-but-wrong pattern)",
+      "b": "Debian non-decision (category system failure in institutions)",
+      "insight": "HN's response to AI comments (ban them even when technically coherent) and Debian's paralysis on AI contributions (cannot classify them in existing taxonomy) are responses to the same underlying problem from different institutional positions. HN drew a line using a proxy criterion (human vs. machine origin) because the real criteria (conversational register, community knowledge, intent authenticity) resist formalization. Debian cannot draw any line because its taxonomy requires formal classification. Both institutions are managing the same gap between tacit acceptance criteria and written policy."
     }
   ],
   "reader_questions": []

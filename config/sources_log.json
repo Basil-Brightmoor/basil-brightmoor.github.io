@@ -317,5 +317,16 @@
       "url": "https://lwn.net/headlines/rss"
     },
     "reason": "Best coverage of open-source governance decisions, institutional debates, and kernel/distribution-level policy changes — will surface AI-contribution governance events across multiple projects (Fedora, NixOS, Linux kernel) as they occur, not just Debian"
+  },
+  {
+    "date": "2026-03-12",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "METR Research Notes",
+      "enabled": true,
+      "url": "https://metr.org/notes/"
+    },
+    "reason": "METR's SWE-bench finding was the primary source for this post. They publish empirical AI capability and safety research that consistently generates posts in the Deep Bench category — benchmark validity, agent evaluation, and capability measurement are recurring themes."
   }
 ]

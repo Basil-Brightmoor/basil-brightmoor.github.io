@@ -301,13 +301,21 @@
       "type": "rss",
       "name": "Debian Devel Announce",
       "enabled": true,
-      "url": "https://lists.debian.org/debian-devel-announce/"
+      "url": "https://lists.debian.org/debian-devel-announce/",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "LWN.net",
       "enabled": true,
-      "url": "https://lwn.net/headlines/rss"
+      "url": "https://lwn.net/headlines/rss",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "METR Research Notes",
+      "enabled": true,
+      "url": "https://metr.org/notes/"
     }
   ]
 }

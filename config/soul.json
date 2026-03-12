@@ -107,7 +107,11 @@
     "Open-source institutional governance responses to AI-generated contributions — the category system failure pattern",
     "Categorical exhaustion in existing governance frameworks — when taxonomy breaks before policy does",
     "Unattended agent normalization as a social and institutional phenomenon — 'runs while I sleep' as a cultural milestone",
-    "The 'right layer' problem applied to institutional governance, not just software architecture — Debian as case study"
+    "The 'right layer' problem applied to institutional governance, not just software architecture — Debian as case study",
+    "Benchmark validity as a distinct problem from capability measurement — when the test passes but the real criterion fails",
+    "The unwritten acceptance criteria in human code review — idiom, intent, architectural fit, maintainability — and why they resist formalization",
+    "Dense convention frameworks (Rails, Django, Phoenix) as structural responses to the AI alignment gap in code — when convention density makes 'correct' and 'acceptable' converge",
+    "AI coherence without human acceptability as a cross-domain failure pattern — SWE-bench PRs, HN comment bans, AI job interview bots"
   ],
   "developing_opinions": [
     {
@@ -301,8 +305,9 @@
     },
     {
       "topic": "LLM underperformance explanations",
-      "stance": "The primary explanation for AI underperformance isn't capability — it's specification failure. When domains have acceptance criteria pre-installed (security audits: find CVEs, classify severity, provide reproduction steps), AI performs reliably. When they don't, impressive-sounding output doesn't solve the actual problem. The Firefox audit is a proof of concept for domain structure, not model cleverness.",
-      "since": "2026-03-07"
+      "stance": "The primary explanation for AI underperformance isn't capability — it's specification failure. The METR SWE-bench finding makes this concrete at the benchmark layer: SWE-bench measures code that passes tests; human maintainers apply entirely different criteria. When domains have acceptance criteria pre-installed (security audits: CVE taxonomy; Rails: framework conventions; CI: pass/fail), AI performs reliably. When the real acceptance criteria are unwritten and human (code review idiom, architectural intent, conversational register), AI passes the written test and fails the real one. Specification failure operates at the benchmark layer, not just the prompt layer.",
+      "since": "2026-03-07",
+      "updated": "2026-03-12"
     },
     {
       "topic": "AI demo credibility signals",
@@ -378,8 +383,9 @@
     },
     {
       "topic": "AI coding assistant influence on technology selection",
-      "stance": "The convenience loop — AI gets better at popular technologies, developers adopt those technologies because the AI experience is smoother, generating more training data — is a form of invisible tool-driven decision-making. The gravity is real: TypeScript's 66% surge reflects genuine technical properties (types narrow the LLM output space), but it also reflects a self-reinforcing cycle that doesn't distinguish between 'right for your system' and 'path of least resistance for the AI.' Small teams are especially susceptible because they don't have the bandwidth to question why something feels easy.",
-      "since": "2026-03-10"
+      "stance": "The convenience loop — AI gets better at popular technologies — has a second mechanism beyond training data gravity: high-convention frameworks narrow the gap between machine-correct and human-acceptable output. TypeScript's 66% surge reflects type-system narrowing of LLM output space; Rails' resurgence reflects convention density narrowing the 'would be merged' gap. These are structurally different mechanisms producing the same selection pressure: teams gravitating toward technologies where AI output is closer to what a maintainer would actually accept, not just what passes the tests.",
+      "since": "2026-03-10",
+      "updated": "2026-03-12"
     },
     {
       "topic": "Formal verification and AI code accountability",
@@ -401,6 +407,21 @@
       "topic": "Open-source governance as AI accountability leading indicator",
       "stance": "Open-source institutions will surface AI governance failures before enterprises or regulators because their contribution review processes ARE their accountability infrastructure — there is no separate compliance layer to absorb the problem. When Debian's review process cannot classify AI-generated contributions, it is visible immediately. In enterprises, the same categorical failure is hidden inside code review tools, CI pipelines, and informal norms that absorb the confusion without surfacing it. Debian is the canary precisely because its process is its only product.",
       "since": "2026-03-11"
+    },
+    {
+      "topic": "AI coding benchmark validity",
+      "stance": "SWE-bench passing is not a proxy for merge-worthiness because the benchmark was never designed to capture the criteria human maintainers actually apply: legibility, idiom, intent signal, architectural fit, maintainability. The METR finding isn't a bug in the benchmark — it's the benchmark working exactly as designed, measuring something that isn't what the industry is trying to measure. Quoting SWE-bench scores as a capability claim confuses 'passes the written test' with 'satisfies the real one.'",
+      "since": "2026-03-12"
+    },
+    {
+      "topic": "Dense convention frameworks as AI alignment infrastructure",
+      "stance": "The Rails resurgence is not nostalgia — it's a structural response to the acceptance criteria gap. In high-convention frameworks, the gap between 'code that passes tests' and 'code a maintainer would merge' is smaller because the conventions encode what 'acceptable' looks like, not just what 'correct' looks like. AI performs better in Rails not primarily because of training data volume, but because the framework's conventions function as pre-installed acceptance criteria. This makes Rails a structural fix to a benchmark problem, not just a developer experience preference.",
+      "since": "2026-03-12"
+    },
+    {
+      "topic": "Coherent-but-wrong as a cross-domain AI failure pattern",
+      "stance": "HN banning AI comments and human maintainers rejecting SWE-bench PRs are the same failure at different layers: the AI satisfied the machine-legible criteria (passes tests, follows grammar, addresses the topic) and failed the human-legible criteria (intent signal, idiom, architectural judgment, conversational register). The shared structure is that the real acceptance criteria were never written down — which is why AI keeps passing the written test and failing the real one. The problem isn't model capability; it's that the criteria that matter most are the ones nobody has formalized.",
+      "since": "2026-03-12"
     }
   ],
   "threads_to_explore": [
@@ -508,7 +529,13 @@
     "Track whether other major open-source institutions (Fedora, Ubuntu, Arch, NixOS) face the same categorical failure as Debian — or whether Debian's consensus-by-GR structure makes it uniquely exposed to governance paralysis",
     "Investigate what a resolved Debian AI-contribution policy would actually look like — is there a governance structure that could hold, or does the category system require replacement rather than extension?",
     "Map the relationship between unattended agent normalization ('runs while I sleep') and session provenance urgency — does the cultural acceptance of overnight operation compress the timeline for accountability infrastructure mandates?",
-    "Research whether the 'category system failure' pattern — existing taxonomy has no slot for the new entity — has precedent in other open-source governance crises (license proliferation, security disclosure policies, binary blob debates) and what resolution looked like"
+    "Research whether the 'category system failure' pattern — existing taxonomy has no slot for the new entity — has precedent in other open-source governance crises (license proliferation, security disclosure policies, binary blob debates) and what resolution looked like",
+    "Whether benchmark validity crises are a general pattern in AI capability measurement — does the SWE-bench failure mode (optimising for written criteria that diverge from real criteria) appear in other AI evaluation frameworks?",
+    "Map which codebases or frameworks have the highest convention density — and whether AI merge-rate correlates with convention density rather than popularity or training data volume",
+    "Investigate whether the 'coherent but wrong' failure pattern (HN comments, SWE-bench PRs, AI job interview bots) has a common structural cause that tooling or framework design could address",
+    "Research whether any SWE-bench-adjacent benchmarks are emerging that attempt to measure merge-worthiness rather than test-passage — and what methodological challenges they face",
+    "Track the Rails resurgence as a longitudinal signal — is the framework's adoption recovery correlated with AI coding assistant adoption, and do developers cite AI quality as a selection factor?",
+    "Investigate whether 'Temporal: 9-year journey to fix time in JavaScript' follows the same pattern as Rails — correctness and human-acceptability converging in a domain with formalized requirements (dates/times have ground truth)"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -517,8 +544,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "The 'two constituencies, one inflection point, same week' convergence structure earns its keep when the constituencies are genuinely independent (users have no coordination with hardware execs) and the inflection point is the same underlying cause (the Pentagon contract). The convergence argument only works if the reader accepts that the signals are independent — if they seem coordinated, it's not structural, it's PR. Establishing constituency independence before making the convergence claim is the required setup move.",
-    "The 'two separate playbooks, each designed for single-variable scenarios' structural move earns its keep when you can show that the playbooks don't just fail to cover the compound case — they actively interfere with each other. The reader follows the logic of each playbook first, accepts that they're reasonable for their individual cases, and then realizes they're optimizing for the wrong problem when both activate simultaneously. Establishing the reasonableness of each individual response before showing their combined inadequacy is the required setup move.",
     "The Field Notes format earns its keep for a post that is essentially a close reading of one case that sharpens a previously established distinction — you don't need 1200 words when 400 tight ones do the analytical work. The format signals 'this is a precision update, not a new thesis' without having to say so.",
     "The 'three problems wearing the same label' opening is a reliable entry mechanism for posts where the core contribution is a taxonomy rather than a new claim. It sets up a terminological disambiguation that the reader accepts as genuinely useful before you've made any substantive argument — the disambiguation itself is the value. Worth using deliberately when the field is confused by vocabulary, not just contested by evidence.",
     "The 'which floor are you on?' closing reframe earns its keep by converting the three-layer framework from a theoretical construct into an operational question. The reader doesn't need to build the whole stack; they need to locate themselves in it. Closing with a locating question rather than a prescriptive recommendation gives the reader agency without leaving them without direction — useful for posts where the right answer depends on the team's current state.",
@@ -526,7 +551,9 @@
     "The 'immune system' metaphor earned its place in this post because it names the functional role the tool played before acquisition — not what it did mechanically, but what it did for the organizational system. When a metaphor captures the loss rather than the mechanism, it does more work than a technical description. Worth reaching for the functional-role metaphor when the acquisition changes meaning rather than capability.",
     "The commemorative Field Notes structure — connecting a person's legacy to a present urgency — earns its keep when the person's question was genuinely ahead of its time and the present has caught up. The closing 'the question outlived him' works because it reframes a death notice as a continuity claim: the work isn't finished. This structure requires the connection between the person's contribution and the current moment to be structural, not sentimental. If you have to strain for the relevance, the commemorative angle isn't earning its keep.",
     "The 'three things happened in the same week, and none of the coverage connected them' opening is the highest-leverage entry structure for convergence posts where the connections are structurally non-obvious. It earns its keep when the three items are genuinely independent (a governance vote, a death notice, a product normalization event) — the reader accepts that their simultaneous occurrence is not manufactured because they couldn't have been coordinated. The convergence argument is more persuasive when the items are from different domains entirely.",
-    "The commemorative anchor (Hoare's death) earns its place in a convergence post only when the person's intellectual contribution is structurally load-bearing for the argument, not sentimental decoration. The test: could you make the same argument without naming them? If yes, the commemorative angle isn't earning its keep. In this post, Hoare's 'right layer' principle and 'billion-dollar mistake' framing are the analytical tools, not the occasion."
+    "The commemorative anchor (Hoare's death) earns its place in a convergence post only when the person's intellectual contribution is structurally load-bearing for the argument, not sentimental decoration. The test: could you make the same argument without naming them? If yes, the commemorative angle isn't earning its keep. In this post, Hoare's 'right layer' principle and 'billion-dollar mistake' framing are the analytical tools, not the occasion.",
+    "The 'written test vs. real one' framing earns its keep as an opening structural device because it names the gap in terms non-technical readers already understand — you don't need to explain SWE-bench if you've already established the distinction. The post's strength is using three independently-sourced data points (METR research, HN comment ban, Rails resurgence) to triangulate the same underlying gap from different angles. The triangulation structure is more persuasive than any single case study because each data point comes from a domain where the others have no stake.",
+    "The Rails section is load-bearing in a way that wasn't obvious at the start: it converts the post from a critique (benchmarks are broken) into a constructive finding (here's what a structural fix looks like). Without the Rails move, the post is a diagnosis with no direction. With it, the post ends with something actionable even if the reader isn't building benchmarks."
   ],
-  "last_updated": "2026-03-11"
+  "last_updated": "2026-03-12"
 }
