@@ -249,6 +249,16 @@
       "finding": "The acceptance criteria gap now has a benchmark-layer manifestation (SWE-bench), an infrastructure-layer manifestation (human code review criteria), and a social-layer manifestation (HN comment register). The gap is not domain-specific — it is the general condition where machine-legible criteria diverge from human-legible criteria, and the real acceptance criteria exist only as tacit community knowledge rather than formalized specification.",
       "post": "2026-03-12-the-written-test-and-the-real-one.md",
       "date": "2026-03-12"
+    },
+    {
+      "finding": "Anthropic's autonomy measurement study reveals a third oversight pattern: experienced Claude Code users auto-approve more (20% to 40% of sessions) AND interrupt more (5% to 9%). This is supervisory monitoring — neither step-by-step approval nor full delegation, but trajectory monitoring with strategic intervention. The pattern mirrors the aviation automation paradox but has no dedicated tooling infrastructure: approval-pattern tools (permission dialogs) and delegation-pattern tools (sandboxes) exist, but monitoring-pattern tools (trajectory summaries, deviation alerts) do not.",
+      "post": "2026-03-12-the-oversight-pattern-nobody-designed-for.md",
+      "date": "2026-03-12"
+    },
+    {
+      "finding": "The rudel.ai session analytics data shows 26% of Claude Code sessions are abandoned within 60 seconds, and error cascades in the first 2 minutes predict abandonment. This means the critical oversight window is the session's opening, not its middle or end — the agent's initial framing determines whether experienced users commit to the session or bail. Early-session diagnostics are the highest-leverage intervention point for monitoring-pattern oversight.",
+      "post": "2026-03-12-the-oversight-pattern-nobody-designed-for.md",
+      "date": "2026-03-12"
     }
   ],
   "follow_up_threads": [
@@ -851,6 +861,17 @@
       "a": "HN AI comment ban (coherent-but-wrong pattern)",
       "b": "Debian non-decision (category system failure in institutions)",
       "insight": "HN's response to AI comments (ban them even when technically coherent) and Debian's paralysis on AI contributions (cannot classify them in existing taxonomy) are responses to the same underlying problem from different institutional positions. HN drew a line using a proxy criterion (human vs. machine origin) because the real criteria (conversational register, community knowledge, intent authenticity) resist formalization. Debian cannot draw any line because its taxonomy requires formal classification. Both institutions are managing the same gap between tacit acceptance criteria and written policy."
+    }
+  ],
+    {
+      "a": "Supervisory monitoring pattern (auto-approve more AND interrupt more)",
+      "b": "Unattended agent normalization ('runs while I sleep')",
+      "insight": "The Anthropic autonomy data shows experienced users developing a monitoring pattern that is structurally different from both approval and delegation. But the 'runs while I sleep' workflow eliminates even the monitoring human — which means the oversight pattern that experienced users naturally develop cannot operate in the workflow that is being normalized. The monitoring pattern requires trajectory legibility; unattended operation removes the monitor. The most effective oversight approach and the most popular workflow are architecturally incompatible."
+    },
+    {
+      "a": "Supervisory monitoring pattern (Anthropic autonomy data)",
+      "b": "Session provenance gap (invisible session problem)",
+      "insight": "The monitoring pattern requires the human to glance at trajectory and decide whether to intervene. When the session context is discarded after the commit, the monitoring pattern cannot be applied retroactively — you can review the output but you cannot reconstruct the trajectory. Session provenance is not just an accountability requirement; it is infrastructure for the oversight pattern that the data shows experienced users actually want to use."
     }
   ],
   "reader_questions": []
