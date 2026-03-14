@@ -264,6 +264,11 @@
       "finding": "ETH Zurich study across 138 repositories found that LLM-generated AGENTS.md files reduce AI coding agent task success by 3% and increase costs by 20%+ compared to no context file. Human-written files provide marginal 4% improvement but also increase costs by up to 19%. The mechanism: agents follow context file instructions dutifully, running extra tests and exploring extra directories, but this thoroughness is mostly irrelevant to the specific task. Context files only helped (2.7% improvement) when all other documentation was stripped from the repository — they are redundant with discoverable information. The practical principle: specification value is inversely proportional to discoverability. Tell the agent what it can't find out on its own; for everything else, trust it to explore.",
       "post": "2026-03-13-the-context-file-paradox-when-more-instructions-mak.md",
       "date": "2026-03-13"
+    },
+    {
+      "finding": "Anthropic's removal of the long-context pricing premium (2x input / 1.5x output above 200K tokens) for Claude Opus 4.6 and Sonnet 4.6 is a commoditisation event, not a capability event. The 1M context window existed in beta; the pricing change eliminates a decision point that was causing teams to architect around cost thresholds (aggressive chunking, retrieval workarounds) rather than problem requirements. Competitive asymmetry: OpenAI (GPT-5.4) still charges 2x above 272K tokens, Google (Gemini 3.1 Pro) still charges 2x above 200K. Anthropic is the only provider where both top-tier models offer 1M context at flat per-token rates. The Cursor community immediately asking 'when will this be reflected?' is demand signal that context-length pricing was a felt workflow constraint.",
+      "post": "2026-03-14-the-context-window-tax-just-disappeared.md",
+      "date": "2026-03-14"
     }
   ],
   "follow_up_threads": [

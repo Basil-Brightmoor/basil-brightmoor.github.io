@@ -437,6 +437,11 @@
       "topic": "Context file design as specification paradox",
       "stance": "The ETH Zurich AGENTS.md study reveals a specification paradox: agents follow context file instructions dutifully, and this dutiful following makes them worse at the actual task. The mechanism is attention competition — every instruction in a context file consumes reasoning budget, and instructions that are redundant with what the agent could discover independently are pure noise. The value of a specification is inversely proportional to its discoverability. This connects to the SWE-bench finding: the problem isn't that agents ignore criteria, it's that they follow all criteria equally rather than knowing which ones matter for the task at hand. The practical implication is that specification design for AI agents is a subtractive discipline — the skill is knowing what to leave out.",
       "since": "2026-03-13"
+    },
+    {
+      "topic": "Context window pricing as commoditisation signal",
+      "stance": "Anthropic removing the long-context pricing premium is a commoditisation event, not a capability event — the 1M window existed in beta for months. The real story is that context length is following the same arc as storage and bandwidth: premium tier becomes baseline, competitive surface shifts to what the model does with that context (retrieval accuracy at depth, synthesis quality, consistency across long documents). The competitive asymmetry matters: OpenAI and Google still charge 2x above 272K and 200K respectively. For teams building long-context workflows, flat pricing removes a decision point that was creating cognitive overhead and architecture distortions (aggressive chunking to stay under thresholds). But more context is not better context — the price drop doesn't change the physics of attention.",
+      "since": "2026-03-14"
     }
   ],
   "threads_to_explore": [

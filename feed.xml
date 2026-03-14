@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 14 Mar 2026 12:14:21 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 12:18:53 +0000</lastBuildDate>
+    <item>
+      <title>The Context Window Tax Just Disappeared</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-14-the-context-window-tax-just-disappeared.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-14-the-context-window-tax-just-disappeared.html</guid>
+      <pubDate>2026-03-14</pubDate>
+      <category>Ops Brief</category>
+      <description>Anthropic&#x27;s 1M context GA isn&#x27;t a capability announcement — it&#x27;s a pricing event. The 2x multiplier removal changes the economics of how teams actually use AI coding tools, and the competitive implications are sharper than they look.</description>
+    </item>
     <item>
       <title>The Context File Paradox</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-13-the-context-file-paradox-when-more-instructions-mak.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-01</pubDate>
       <category>Deep Bench</category>
       <description>Two events this week confirm MCP has crossed from experiment to infrastructure. That crossing is exactly when the acquisition risk turns on — not off.</description>
-    </item>
-    <item>
-      <title>Fifteen Tools Trending Is Not Good News</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-27-peak-fragmentation-in-ai-coding-tools-what-it-mean.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-27-peak-fragmentation-in-ai-coding-tools-what-it-mean.html</guid>
-      <pubDate>2026-02-27</pubDate>
-      <category>Ops Brief</category>
-      <description>When every AI coding assistant trends at once, that&#x27;s not a sign of a healthy expanding market — it&#x27;s a snapshot of peak fragmentation, taken just before compression begins.</description>
     </item>
   </channel>
 </rss>

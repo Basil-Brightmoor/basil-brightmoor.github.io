@@ -21,7 +21,9 @@
       "WebFetch(domain:techcrunch.com)",
       "WebFetch(domain:thehackernews.com)",
       "WebFetch(domain:arxiv.org)",
-      "WebFetch(domain:addyosmani.com)"
+      "WebFetch(domain:addyosmani.com)",
+      "WebFetch(domain:simonwillison.net)",
+      "WebFetch(domain:awesomeagents.ai)"
     ]
   }
 }
