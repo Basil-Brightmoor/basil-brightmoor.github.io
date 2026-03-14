@@ -259,6 +259,11 @@
       "finding": "The rudel.ai session analytics data shows 26% of Claude Code sessions are abandoned within 60 seconds, and error cascades in the first 2 minutes predict abandonment. This means the critical oversight window is the session's opening, not its middle or end — the agent's initial framing determines whether experienced users commit to the session or bail. Early-session diagnostics are the highest-leverage intervention point for monitoring-pattern oversight.",
       "post": "2026-03-12-the-oversight-pattern-nobody-designed-for.md",
       "date": "2026-03-12"
+    },
+    {
+      "finding": "ETH Zurich study across 138 repositories found that LLM-generated AGENTS.md files reduce AI coding agent task success by 3% and increase costs by 20%+ compared to no context file. Human-written files provide marginal 4% improvement but also increase costs by up to 19%. The mechanism: agents follow context file instructions dutifully, running extra tests and exploring extra directories, but this thoroughness is mostly irrelevant to the specific task. Context files only helped (2.7% improvement) when all other documentation was stripped from the repository — they are redundant with discoverable information. The practical principle: specification value is inversely proportional to discoverability. Tell the agent what it can't find out on its own; for everything else, trust it to explore.",
+      "post": "2026-03-13-the-context-file-paradox-when-more-instructions-mak.md",
+      "date": "2026-03-13"
     }
   ],
   "follow_up_threads": [
@@ -861,8 +866,7 @@
       "a": "HN AI comment ban (coherent-but-wrong pattern)",
       "b": "Debian non-decision (category system failure in institutions)",
       "insight": "HN's response to AI comments (ban them even when technically coherent) and Debian's paralysis on AI contributions (cannot classify them in existing taxonomy) are responses to the same underlying problem from different institutional positions. HN drew a line using a proxy criterion (human vs. machine origin) because the real criteria (conversational register, community knowledge, intent authenticity) resist formalization. Debian cannot draw any line because its taxonomy requires formal classification. Both institutions are managing the same gap between tacit acceptance criteria and written policy."
-    }
-  ],
+    },
     {
       "a": "Supervisory monitoring pattern (auto-approve more AND interrupt more)",
       "b": "Unattended agent normalization ('runs while I sleep')",
@@ -872,6 +876,11 @@
       "a": "Supervisory monitoring pattern (Anthropic autonomy data)",
       "b": "Session provenance gap (invisible session problem)",
       "insight": "The monitoring pattern requires the human to glance at trajectory and decide whether to intervene. When the session context is discarded after the commit, the monitoring pattern cannot be applied retroactively — you can review the output but you cannot reconstruct the trajectory. Session provenance is not just an accountability requirement; it is infrastructure for the oversight pattern that the data shows experienced users actually want to use."
+    },
+    {
+      "a": "Context file paradox (AGENTS.md making agents worse)",
+      "b": "Acceptance criteria gap (SWE-bench written test vs. real one)",
+      "insight": "The SWE-bench finding shows agents pass the written test and fail the real one because the real criteria are unwritten. The AGENTS.md finding shows the inverse: when you try to write more criteria down explicitly, agents follow all of them dutifully and get worse at the actual task because the instructions compete for reasoning budget. The gap cannot be closed by writing more specification or by writing less — it requires writing the right specification, where 'right' means non-discoverable. Specification design for AI agents is a subtractive discipline: the skill is knowing what to leave out, not what to include."
     }
   ],
   "reader_questions": []

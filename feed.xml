@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 12 Mar 2026 21:11:12 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 14 Mar 2026 12:14:21 +0000</lastBuildDate>
+    <item>
+      <title>The Context File Paradox</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-13-the-context-file-paradox-when-more-instructions-mak.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-13-the-context-file-paradox-when-more-instructions-mak.html</guid>
+      <pubDate>2026-03-13</pubDate>
+      <category>Ops Brief</category>
+      <description>An ETH Zurich study found that AGENTS.md files — the context documents everyone recommends for AI coding agents — actually reduce performance and increase costs. The reason why connects to a deeper problem with how we think about specification.</description>
+    </item>
     <item>
       <title>The Written Test and the Real One</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-12-swe-bench-passing-prs-that-wouldn-t-be-merged-as-a.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-02-27</pubDate>
       <category>Ops Brief</category>
       <description>When every AI coding assistant trends at once, that&#x27;s not a sign of a healthy expanding market — it&#x27;s a snapshot of peak fragmentation, taken just before compression begins.</description>
-    </item>
-    <item>
-      <title>The Vercept acquisition as a case study in foundation-model platform absorption — what it means that Anthropic bought a computer-use agent company, and which AI tool categories are next</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-02-26-the-vercept-acquisition-as-a-case-study-in-foundat.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-02-26-the-vercept-acquisition-as-a-case-study-in-foundat.html</guid>
-      <pubDate>2026-02-26</pubDate>
-      <category>Deep Bench</category>
-      <description>This week&#x27;s exploration</description>
     </item>
   </channel>
 </rss>

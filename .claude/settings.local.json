@@ -17,7 +17,11 @@
       "WebFetch(domain:news.ycombinator.com)",
       "WebFetch(domain:www.infoq.com)",
       "WebFetch(domain:dev.to)",
-      "WebFetch(domain:github.blog)"
+      "WebFetch(domain:github.blog)",
+      "WebFetch(domain:techcrunch.com)",
+      "WebFetch(domain:thehackernews.com)",
+      "WebFetch(domain:arxiv.org)",
+      "WebFetch(domain:addyosmani.com)"
     ]
   }
 }
