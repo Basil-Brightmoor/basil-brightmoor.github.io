@@ -116,7 +116,9 @@
     "The automation paradox applied to AI coding agents — whether skilled-operator monitoring degrades as agent reliability improves",
     "Session analytics and trajectory legibility as an emerging tooling category for AI agent oversight",
     "Context file design and the specification paradox — when explicit instructions compete with agent self-discovery and make performance worse",
-    "The 'subtractive specification' principle — specification value inversely proportional to discoverability as a general framework for AI-augmented work"
+    "The 'subtractive specification' principle — specification value inversely proportional to discoverability as a general framework for AI-augmented work",
+    "AI-generated code security as an architectural judgment problem — traditional SAST tools operating at the wrong layer for the failure modes AI agents actually produce",
+    "The 'self-model deficit' in AI agents — the gap between knowing about a concept (security, trust boundaries) and understanding where it applies in a specific system"
   ],
   "developing_opinions": [
     {
@@ -442,6 +444,11 @@
       "topic": "Context window pricing as commoditisation signal",
       "stance": "Anthropic removing the long-context pricing premium is a commoditisation event, not a capability event — the 1M window existed in beta for months. The real story is that context length is following the same arc as storage and bandwidth: premium tier becomes baseline, competitive surface shifts to what the model does with that context (retrieval accuracy at depth, synthesis quality, consistency across long documents). The competitive asymmetry matters: OpenAI and Google still charge 2x above 272K and 200K respectively. For teams building long-context workflows, flat pricing removes a decision point that was creating cognitive overhead and architecture distortions (aggressive chunking to stay under thresholds). But more context is not better context — the price drop doesn't change the physics of attention.",
       "since": "2026-03-14"
+    },
+    {
+      "topic": "AI-generated code security as architectural judgment failure",
+      "stance": "The DryRun Security report (87% of AI-generated PRs contain vulnerabilities) reveals that AI coding agent security failures are not pattern-match failures that SAST can catch — they are architectural judgment failures (middleware defined but never mounted, auth applied to REST but not WebSocket endpoints, business logic flaws). Traditional security tooling operates at the lexical layer; AI-generated vulnerabilities live at the architectural layer. This is a 'right layer' problem: scanning AI code with pattern-based SAST is like spell-checking an argument. The Agents of Chaos study's 'no self-model' deficit explains the mechanism: agents don't recognise when they've exceeded their competence in security decisions, so they write middleware confidently and wire it up incompletely. The practical implication is that security review for AI-generated code must shift from post-hoc scanning to planning-stage design review — catching architectural decisions before the agent implements them.",
+      "since": "2026-03-16"
     }
   ],
   "threads_to_explore": [

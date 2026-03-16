@@ -23,7 +23,10 @@
       "WebFetch(domain:arxiv.org)",
       "WebFetch(domain:addyosmani.com)",
       "WebFetch(domain:simonwillison.net)",
-      "WebFetch(domain:awesomeagents.ai)"
+      "WebFetch(domain:awesomeagents.ai)",
+      "WebFetch(domain:thenewstack.io)",
+      "WebFetch(domain:www.secondtalent.com)",
+      "WebFetch(domain:www.fast.ai)"
     ]
   }
 }

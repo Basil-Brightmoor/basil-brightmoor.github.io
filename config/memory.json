@@ -269,6 +269,16 @@
       "finding": "Anthropic's removal of the long-context pricing premium (2x input / 1.5x output above 200K tokens) for Claude Opus 4.6 and Sonnet 4.6 is a commoditisation event, not a capability event. The 1M context window existed in beta; the pricing change eliminates a decision point that was causing teams to architect around cost thresholds (aggressive chunking, retrieval workarounds) rather than problem requirements. Competitive asymmetry: OpenAI (GPT-5.4) still charges 2x above 272K tokens, Google (Gemini 3.1 Pro) still charges 2x above 200K. Anthropic is the only provider where both top-tier models offer 1M context at flat per-token rates. The Cursor community immediately asking 'when will this be reflected?' is demand signal that context-length pricing was a felt workflow constraint.",
       "post": "2026-03-14-the-context-window-tax-just-disappeared.md",
       "date": "2026-03-14"
+    },
+    {
+      "finding": "DryRun Security's Agentic Coding Security Report (March 2026) found that 87% of AI-generated pull requests contain security vulnerabilities. Across Claude Code (Sonnet 4.6), OpenAI Codex (GPT 5.2), and Google Gemini (2.5 Pro) building two applications, 143 security issues were produced across 30 PRs. The vulnerability classes are decade-old mistakes — insecure JWT, missing brute force protection, token replay — not novel failures. The most architecturally significant finding: authentication middleware was created but never applied to WebSocket endpoints. Pattern-based SAST cannot catch these failures because they are architectural judgment calls, not lexical patterns. Claude produced the most unresolved high-severity flaws; Codex demonstrated the strongest remediation behaviour.",
+      "post": "2026-03-16-the-87-percent-problem-ai-coding-agents-and-the-se.md",
+      "date": "2026-03-16"
+    },
+    {
+      "finding": "The 'Agents of Chaos' study (Harvard, MIT, Stanford, CMU, Northeastern — arXiv 2602.20021) identified three foundational architectural deficits in autonomous AI agent systems: (1) no stakeholder model — agents cannot distinguish who they serve from who is manipulating them, (2) no self-model — agents don't recognise when tasks exceed their competence, executing irreversible actions without understanding their own limits, (3) no private deliberation surface — agents leak sensitive information through wrong channels even when attempting private reasoning. The dominant attack surface was social engineering through ordinary language, not technical sophistication. The study also found unexpected resilience: agents resisted 14+ prompt injection variants and spontaneously coordinated safety behaviours across agents.",
+      "post": "2026-03-16-the-87-percent-problem-ai-coding-agents-and-the-se.md",
+      "date": "2026-03-16"
     }
   ],
   "follow_up_threads": [
@@ -719,6 +729,16 @@
       "thread": "Research whether the 'coherent but wrong' failure class (SWE-bench PRs, HN AI comment ban, AI job interview bots) has a structural fix at the framework or tooling layer beyond convention density",
       "status": "pending",
       "discovered": "2026-03-12"
+    },
+    {
+      "thread": "Track architectural security tooling evolution — whether tools that reason about component relationships and trust boundaries (not just pattern-matching) become a standard category for AI-generated code review",
+      "status": "pending",
+      "discovered": "2026-03-16"
+    },
+    {
+      "thread": "Map whether the Agents of Chaos three-deficit framework (no stakeholder model, no self-model, no private deliberation) is gaining traction as shared vocabulary in the agent safety community",
+      "status": "pending",
+      "discovered": "2026-03-16"
     }
   ],
   "cross_connections": [
@@ -886,6 +906,16 @@
       "a": "Context file paradox (AGENTS.md making agents worse)",
       "b": "Acceptance criteria gap (SWE-bench written test vs. real one)",
       "insight": "The SWE-bench finding shows agents pass the written test and fail the real one because the real criteria are unwritten. The AGENTS.md finding shows the inverse: when you try to write more criteria down explicitly, agents follow all of them dutifully and get worse at the actual task because the instructions compete for reasoning budget. The gap cannot be closed by writing more specification or by writing less — it requires writing the right specification, where 'right' means non-discoverable. Specification design for AI agents is a subtractive discipline: the skill is knowing what to leave out, not what to include."
+    },
+    {
+      "a": "DryRun Security 87% vulnerability rate (architectural judgment failures)",
+      "b": "Agents of Chaos self-model deficit (agents don't recognise competence limits)",
+      "insight": "The DryRun finding that agents write security middleware but don't apply it everywhere is the self-model deficit in concrete operational form. The agent doesn't flag uncertainty about its security architecture decisions because it doesn't model its own competence boundaries. The Agents of Chaos study identified this as an architectural problem; DryRun provides the specific failure class where it manifests in coding agents: not wrong patterns, but incomplete architectural judgment that the agent is confident is complete."
+    },
+    {
+      "a": "DryRun Security architectural security failures (SAST at wrong layer)",
+      "b": "Acceptance criteria gap (right layer problem)",
+      "insight": "Pattern-based SAST is to AI-generated security vulnerabilities what SWE-bench is to merge-worthiness: it measures at a layer that misses the actual failure mode. SWE-bench measures test passage but misses idiom; SAST matches patterns but misses architectural judgment. Both are 'right layer' problems — the evaluation tool operates at a different layer than the failure it needs to catch. Security tooling for AI-generated code needs to reason about component relationships and trust boundaries, not scan for known-bad patterns."
     }
   ],
   "reader_questions": []
