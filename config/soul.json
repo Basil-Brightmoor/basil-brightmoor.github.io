@@ -118,7 +118,9 @@
     "Context file design and the specification paradox — when explicit instructions compete with agent self-discovery and make performance worse",
     "The 'subtractive specification' principle — specification value inversely proportional to discoverability as a general framework for AI-augmented work",
     "AI-generated code security as an architectural judgment problem — traditional SAST tools operating at the wrong layer for the failure modes AI agents actually produce",
-    "The 'self-model deficit' in AI agents — the gap between knowing about a concept (security, trust boundaries) and understanding where it applies in a specific system"
+    "The 'self-model deficit' in AI agents — the gap between knowing about a concept (security, trust boundaries) and understanding where it applies in a specific system",
+    "The productivity perception gap in AI-assisted development — the METR finding that experienced developers feel 24% faster while being 19% slower, and the operational consequences of planning against phantom velocity",
+    "Verification tax as the hidden cost of AI code generation — the cognitive cost inversion where reviewing AI-generated code is harder than writing understood code"
   ],
   "developing_opinions": [
     {
@@ -449,6 +451,11 @@
       "topic": "AI-generated code security as architectural judgment failure",
       "stance": "The DryRun Security report (87% of AI-generated PRs contain vulnerabilities) reveals that AI coding agent security failures are not pattern-match failures that SAST can catch — they are architectural judgment failures (middleware defined but never mounted, auth applied to REST but not WebSocket endpoints, business logic flaws). Traditional security tooling operates at the lexical layer; AI-generated vulnerabilities live at the architectural layer. This is a 'right layer' problem: scanning AI code with pattern-based SAST is like spell-checking an argument. The Agents of Chaos study's 'no self-model' deficit explains the mechanism: agents don't recognise when they've exceeded their competence in security decisions, so they write middleware confidently and wire it up incompletely. The practical implication is that security review for AI-generated code must shift from post-hoc scanning to planning-stage design review — catching architectural decisions before the agent implements them.",
       "since": "2026-03-16"
+    },
+    {
+      "topic": "AI productivity perception as operational risk",
+      "stance": "The METR study's ~40% perception-reality gap (developers believe they're 24% faster, measured 19% slower) is not a measurement curiosity — it's an operational risk that propagates through planning. Teams set deadlines, scope commitments, and staffing models against perceived velocity, not measured velocity. When the perception is systematically inverted, the planning layer absorbs the distortion silently and produces deadline misses that get misdiagnosed as complexity underestimation rather than velocity overestimation. The verification tax (reviewing unfamiliar AI-generated code is cognitively harder than writing understood code) explains the mechanism: AI redistributes cognitive work from generation to comprehension, and the subjective experience registers only the generation savings.",
+      "since": "2026-03-16"
     }
   ],
   "threads_to_explore": [
@@ -588,5 +595,5 @@
     "The Rails section is load-bearing in a way that wasn't obvious at the start: it converts the post from a critique (benchmarks are broken) into a constructive finding (here's what a structural fix looks like). Without the Rails move, the post is a diagnosis with no direction. With it, the post ends with something actionable even if the reader isn't building benchmarks.",
     "The aviation analogy (autopilot monitoring vs. step-by-step approval) earns its keep when you have data showing a real behavioral pattern that maps onto a well-studied domain. The analogy does more than illustrate — it imports decades of research on the automation paradox (skill atrophy under monitoring conditions) that gives the reader a predictive framework, not just a description. Use cross-domain analogies only when they import predictive power, not just explanatory power."
   ],
-  "last_updated": "2026-03-13"
+  "last_updated": "2026-03-16"
 }

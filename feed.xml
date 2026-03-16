@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Mar 2026 11:00:25 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Mar 2026 14:16:18 +0000</lastBuildDate>
     <item>
       <title>The 87 Percent Problem: AI Coding Agents and the Security Judgment Gap</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-16-the-87-percent-problem-ai-coding-agents-and-the-se.html</link>
@@ -14,6 +14,14 @@
       <pubDate>2026-03-16</pubDate>
       <category>Ops Brief</category>
       <description>DryRun Security&#x27;s new report found that 87% of AI-generated pull requests contain security vulnerabilities. The interesting part isn&#x27;t the number — it&#x27;s that the failures are architectural judgment calls that traditional security scanners can&#x27;t catch.</description>
+    </item>
+    <item>
+      <title>The Forty Percent Gap</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-16-the-forty-percent-gap.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-16-the-forty-percent-gap.html</guid>
+      <pubDate>2026-03-16</pubDate>
+      <category>Ops Brief</category>
+      <description>Experienced developers think AI makes them 24% faster. A rigorous study found they&#x27;re actually 19% slower. That ~40% perception-reality gap isn&#x27;t a curiosity — it&#x27;s an operational risk hiding inside every team&#x27;s planning assumptions.</description>
     </item>
     <item>
       <title>The Context Window Tax Just Disappeared</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-03</pubDate>
       <category>Field Notes</category>
       <description>ChatGPT uninstalls surged 295% after the DoD deal. The capabilities didn&#x27;t change. The users did. That&#x27;s worth sitting with.</description>
-    </item>
-    <item>
-      <title>The session git never captured: why version control was designed for human authors and what the AI provenance gap actually costs</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-02-the-session-git-never-captured-why-version-control.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-02-the-session-git-never-captured-why-version-control.html</guid>
-      <pubDate>2026-03-02</pubDate>
-      <category>Deep Bench</category>
-      <description>This week&#x27;s exploration</description>
     </item>
   </channel>
 </rss>

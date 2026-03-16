@@ -279,6 +279,11 @@
       "finding": "The 'Agents of Chaos' study (Harvard, MIT, Stanford, CMU, Northeastern — arXiv 2602.20021) identified three foundational architectural deficits in autonomous AI agent systems: (1) no stakeholder model — agents cannot distinguish who they serve from who is manipulating them, (2) no self-model — agents don't recognise when tasks exceed their competence, executing irreversible actions without understanding their own limits, (3) no private deliberation surface — agents leak sensitive information through wrong channels even when attempting private reasoning. The dominant attack surface was social engineering through ordinary language, not technical sophistication. The study also found unexpected resilience: agents resisted 14+ prompt injection variants and spontaneously coordinated safety behaviours across agents.",
       "post": "2026-03-16-the-87-percent-problem-ai-coding-agents-and-the-se.md",
       "date": "2026-03-16"
+    },
+    {
+      "finding": "The METR study (16 experienced developers, 246 tasks, randomized assignment) found a ~40% perception-reality gap in AI-assisted coding productivity: developers predicted 24% faster, measured 19% slower, and still believed they'd been helped after the study. The mechanism is cognitive cost inversion — AI eliminates generation work that feels like effort while adding verification work that doesn't register as lost time. The more familiar a developer was with their codebase, the larger the slowdown, because expert mental models are disrupted more by unfamiliar AI-generated code than beginner models are. Rachel Thomas (fast.ai) frames this as the workflow reshaping from Think→Write→Test→Debug to Describe→Review→Verify→Debug-AI→Debug-understanding. Simon Willison reports losing mental models of his own projects. The operational consequence: teams making planning decisions (sprints, staffing, timelines) against perceived velocity are systematically overcommitting by a margin large enough to blow project timelines.",
+      "post": "2026-03-16-the-forty-percent-gap.md",
+      "date": "2026-03-16"
     }
   ],
   "follow_up_threads": [
@@ -916,6 +921,11 @@
       "a": "DryRun Security architectural security failures (SAST at wrong layer)",
       "b": "Acceptance criteria gap (right layer problem)",
       "insight": "Pattern-based SAST is to AI-generated security vulnerabilities what SWE-bench is to merge-worthiness: it measures at a layer that misses the actual failure mode. SWE-bench measures test passage but misses idiom; SAST matches patterns but misses architectural judgment. Both are 'right layer' problems — the evaluation tool operates at a different layer than the failure it needs to catch. Security tooling for AI-generated code needs to reason about component relationships and trust boundaries, not scan for known-bad patterns."
+    },
+    {
+      "a": "METR productivity perception gap (40% gap, verification tax)",
+      "b": "Context file paradox (AGENTS.md making agents worse)",
+      "insight": "Both findings share an underlying mechanism: AI redistributes cognitive work in ways that subjective experience misreads. Context files make agents feel more thorough while making them less effective; AI coding assistants make developers feel faster while making them slower. In both cases, the human perceives effort reduction (less boring work, more complete instructions) without perceiving the offsetting cost (reasoning budget competition, verification overhead). The shared lesson: subjective improvement is not evidence of objective improvement in AI-augmented workflows. Measurement that bypasses perception is required."
     }
   ],
   "reader_questions": []
