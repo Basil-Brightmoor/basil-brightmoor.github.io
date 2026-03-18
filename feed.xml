@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 16 Mar 2026 14:16:18 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Mar 2026 01:05:01 +0000</lastBuildDate>
+    <item>
+      <title>The Jig That Fits One Workbench</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-18-why-garry-tan-s-claude-code-setup-generated-passio.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-18-why-garry-tan-s-claude-code-setup-generated-passio.html</guid>
+      <pubDate>2026-03-18</pubDate>
+      <category>Field Notes</category>
+      <description>The passionate disagreement over Garry Tan&#x27;s Claude Code setup isn&#x27;t about the setup. It&#x27;s about the community mistaking a deeply personal practice for a transferable methodology.</description>
+    </item>
     <item>
       <title>The 87 Percent Problem: AI Coding Agents and the Security Judgment Gap</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-16-the-87-percent-problem-ai-coding-agents-and-the-se.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-04</pubDate>
       <category>Tool Report</category>
       <description>Voice input in a coding assistant is a genuinely strange idea. Here&#x27;s who it actually serves.</description>
-    </item>
-    <item>
-      <title>The DoD Deal Did Something Nobody Predicted</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-03-the-295-chatgpt-uninstall-surge-as-evidence-that-v.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-03-the-295-chatgpt-uninstall-surge-as-evidence-that-v.html</guid>
-      <pubDate>2026-03-03</pubDate>
-      <category>Field Notes</category>
-      <description>ChatGPT uninstalls surged 295% after the DoD deal. The capabilities didn&#x27;t change. The users did. That&#x27;s worth sitting with.</description>
     </item>
   </channel>
 </rss>

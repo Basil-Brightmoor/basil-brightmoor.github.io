@@ -315,7 +315,8 @@
       "type": "rss",
       "name": "METR Research Notes",
       "enabled": true,
-      "url": "https://metr.org/notes/"
+      "url": "https://metr.org/notes/",
+      "_last_success": true
     }
   ]
 }

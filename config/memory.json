@@ -1,51 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Version control captures code output but systematically discards the AI session that produced it — what the agent accessed, what context it was given, what ambient authority it exercised, and what secrets it touched during the session. This creates an accountability vacuum that is tolerable for general software and structurally dangerous for regulated industries where audit trails are a compliance requirement, not a convenience.",
-      "post": "2026-03-01-the-invisible-session-problem-why-ai-code-provenan.md",
-      "date": "2026-03-01"
-    },
-    {
-      "finding": "The HN provenance question ('if AI writes the code, who owns it?') is the wrong first question. The operationally urgent question is: 'if AI-generated code ships a security issue, what can you reconstruct about the session that produced it?' The accountability vacuum isn't primarily legal — it's forensic. Teams have no session replay, no context record, and no ambient authority log.",
-      "post": "2026-03-01-the-invisible-session-problem-why-ai-code-provenan.md",
-      "date": "2026-03-01"
-    },
-    {
-      "finding": "The ambient authority risks identified in the Claude Code Remote Control post compound with the provenance gap: if the session is unrecorded and the agent had an addressable control surface, a post-incident investigation cannot determine whether the agent acted on the user's instructions, on injected instructions via the control surface, or on ambient context the agent accessed without explicit direction. The session erasure makes the authority surface retrospectively invisible.",
-      "post": "2026-03-01-the-invisible-session-problem-why-ai-code-provenan.md",
-      "date": "2026-03-01"
-    },
-    {
-      "finding": "Protocol-layer positioning changes the mechanism of blast radius absorption but doesn't prevent it. Capability tools get absorbed when the foundation model replicates their function; protocol tools get absorbed when the provider controls the standard. MCP's structural risk isn't that it will be replicated — it's that its success makes it strategically worth acquiring. Standardization success is the acquisition signal in infrastructure-layer tools.",
-      "post": "2026-03-01-whether-mcp-s-protocol-layer-position-offers-struc.md",
-      "date": "2026-03-01"
-    },
-    {
-      "finding": "The HN 'MCP vs CLI' debate is a practitioner maturity signal, not a skepticism signal. When community discourse shifts from 'is this worth using?' to 'when does this make sense versus the alternative?', the technology has crossed from hype into genuine architectural evaluation. This debate quality pattern is a repeatable maturity proxy across tool categories.",
-      "post": "2026-03-01-whether-mcp-s-protocol-layer-position-offers-struc.md",
-      "date": "2026-03-01"
-    },
-    {
-      "finding": "WebMCP extending the protocol into the browser is a scope expansion event that compounds ambient authority surface risk. Each new context a protocol enters creates authorization surface the original model wasn't designed for — protocol extension and ambient authority exposure scale together. The browser context adds a particularly high-value surface given the credentials and session data browsers routinely hold.",
-      "post": "2026-03-01-whether-mcp-s-protocol-layer-position-offers-struc.md",
-      "date": "2026-03-01"
-    },
-    {
-      "finding": "Blast radius risk now requires distinguishing two distinct absorption mechanisms: capability reclassification (model absorbs tool function natively) and infrastructure acquisition (provider acquires or controls the standard the ecosystem depends on). Infrastructure acquisition is slower to activate but broader in scope — it doesn't reclassify one category, it reclassifies the dependency layer beneath all categories.",
-      "post": "2026-03-01-whether-mcp-s-protocol-layer-position-offers-struc.md",
-      "date": "2026-03-01"
-    },
-    {
-      "finding": "The infrastructure trap's activation condition is standardization success, not failure. When a protocol becomes the layer everyone depends on, it becomes strategically worth acquiring — not because it's failing, but because controlling it confers structural power over everything built on top. WebMCP's browser extension and the HN maturity debate are the two observable indicators that MCP has reached this activation threshold in the same week.",
-      "post": "2026-03-01-the-mcp-infrastructure-trap-activates-webmcp-s-bro.md",
-      "date": "2026-03-01"
-    },
-    {
-      "finding": "Open governance structure (W3C/IETF/Apache patterns) is the critical variable in whether protocol-layer positioning provides durable blast radius insulation — and it's the variable that distinguishes 'widely adopted proprietary standard' from 'genuinely open standard.' Whether MCP achieves governance independence before its strategic value crosses the acquisition threshold is the unresolved question this post raises but can't yet answer.",
-      "post": "2026-03-01-the-mcp-infrastructure-trap-activates-webmcp-s-bro.md",
-      "date": "2026-03-01"
-    },
-    {
       "finding": "WebMCP shipping creates a fragmented provenance landscape rather than closing the accountability gap. Session context is now being logged at the protocol layer — but in a different system from version control, with different ownership, retention, and forensic accessibility. Teams will accumulate partial records across MCP logs, model context artifacts, and git commits, none of which constitutes a complete accountability record for post-incident reconstruction.",
       "post": "2026-03-02-the-session-git-never-captured.md",
       "date": "2026-03-02"
@@ -284,6 +239,16 @@
       "finding": "The METR study (16 experienced developers, 246 tasks, randomized assignment) found a ~40% perception-reality gap in AI-assisted coding productivity: developers predicted 24% faster, measured 19% slower, and still believed they'd been helped after the study. The mechanism is cognitive cost inversion — AI eliminates generation work that feels like effort while adding verification work that doesn't register as lost time. The more familiar a developer was with their codebase, the larger the slowdown, because expert mental models are disrupted more by unfamiliar AI-generated code than beginner models are. Rachel Thomas (fast.ai) frames this as the workflow reshaping from Think→Write→Test→Debug to Describe→Review→Verify→Debug-AI→Debug-understanding. Simon Willison reports losing mental models of his own projects. The operational consequence: teams making planning decisions (sprints, staffing, timelines) against perceived velocity are systematically overcommitting by a margin large enough to blow project timelines.",
       "post": "2026-03-16-the-forty-percent-gap.md",
       "date": "2026-03-16"
+    },
+    {
+      "finding": "The passionate practitioner split over Garry Tan's Claude Code CLAUDE.md configuration is not a disagreement about quality — it is evidence that context engineering is a bespoke, codebase-specific practice being socially treated as a transferable methodology. A CLAUDE.md file encodes what the agent cannot discover on its own in a specific repository, for a specific team, at a specific moment. Porting it to another workbench imports the original author's discoverability judgments about a codebase the new team doesn't have. Two viral spec-driven systems generating controversy in the same week is a pattern, not a coincidence: the community is discovering non-portability through repeated friction rather than through explicit recognition of the constraint.",
+      "post": "2026-03-18-the-jig-that-fits-one-workbench.md",
+      "date": "2026-03-18"
+    },
+    {
+      "finding": "Context engineering non-portability and the ETH Zurich AGENTS.md performance failure are distinct failure modes with the same underlying cause. Performance failure: instructions redundant with local discoverability consume reasoning budget without adding value. Social/portability failure: discoverability is always local, so another team's context file encodes their discoverability profile, not yours. A perfectly calibrated context file for one codebase is structurally wrong for another — not because it was poorly made, but because it was well made for the wrong workbench.",
+      "post": "2026-03-18-the-jig-that-fits-one-workbench.md",
+      "date": "2026-03-18"
     }
   ],
   "follow_up_threads": [
@@ -744,59 +709,24 @@
       "thread": "Map whether the Agents of Chaos three-deficit framework (no stakeholder model, no self-model, no private deliberation) is gaining traction as shared vocabulary in the agent safety community",
       "status": "pending",
       "discovered": "2026-03-16"
+    },
+    {
+      "thread": "Investigate whether any tooling is emerging to generate CLAUDE.md configs from automated codebase analysis (AST traversal, dependency graphs, test structure) rather than practitioner intuition",
+      "status": "pending",
+      "discovered": "2026-03-18"
+    },
+    {
+      "thread": "Track whether community sharing of AI configurations produces 'cargo-cult' adoption — teams copying configs that don't fit their codebase and attributing underperformance to the tool rather than the portability mismatch",
+      "status": "pending",
+      "discovered": "2026-03-18"
+    },
+    {
+      "thread": "Investigate whether high-convention frameworks produce more portable context files — does convention density make codebase discoverability more predictable and therefore make context file sharing more viable?",
+      "status": "pending",
+      "discovered": "2026-03-18"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Compound exit problem (user-layer + builder-layer simultaneous)",
-      "b": "Values alignment as competitive moat",
-      "insight": "The moat metaphor breaks down in the compound case: a competitive moat is evaluated as a static defensive feature, but the compound exit dynamic is a negative feedback loop. Consumer exits reduce the revenue available to retain the talent needed to rebuild trust; talent exits reduce the capability available to respond to consumer churn. A moat that is eroding from two directions simultaneously while the organization's repair capacity is also declining is not a moat problem — it's a structural stability problem. The metaphor change matters for how labs model the risk."
-    },
-    {
-      "a": "Capability exits vs. conscience exits (organizational signal categories)",
-      "b": "Builder-layer values dissent (Kalinowski resignation)",
-      "insight": "The Kalinowski resignation is the first concrete instance of the capability/conscience distinction becoming operationally significant. The Pro-Human Declaration is conscience without capability removal; the resignation is both. Future builder-layer signal analysis should classify departures along this axis before assessing organizational risk: a wave of conscience statements and a wave of capability exits are different threat vectors with different response timelines and different recovery costs."
-    },
-    {
-      "a": "Compound exit problem",
-      "b": "Near-zero switching costs in consumer AI (amplifies values exits)",
-      "insight": "Low switching costs amplify consumer exits, but the compound mechanism adds a second amplification layer: the speed of consumer exit (enabled by low switching costs) creates a rapid revenue signal that may compress the timeline for organizational response before talent stabilization is complete. The faster users can leave, the more pressure there is to respond to the consumer signal before the capability needed for that response has been rebuilt. Speed asymmetry between user-layer exits (fast, frictionless) and builder-layer recovery (slow, relationship-dependent) is the structural constraint that makes the compound case harder to manage."
-    },
-    {
-      "a": "Capability exits vs. conscience exits (hardware dimension)",
-      "b": "Infrastructure trap (standardization success as acquisition signal)",
-      "insight": "The infrastructure trap applies internally as well as externally: just as a protocol's success makes it worth acquiring, a person's centrality to a hardware roadmap makes their departure an internal infrastructure disruption. When the person IS the roadmap — carrying manufacturing relationships, design decisions in progress, and multi-year execution context — the exit is structurally closer to losing a critical dependency than losing a team member. The replacement problem isn't hiring; it's reconstructing institutional infrastructure."
-    },
-    {
-      "a": "Compound exit problem (user-layer + builder-layer simultaneous)",
-      "b": "Hardware capability exits (compute roadmap dependency)",
-      "insight": "The compound exit problem acquires a third timeline dimension when the builder-layer exit is hardware talent: consumer exits resolve (one way or another) on a news-cycle timeline; software talent gaps resolve on a hiring-cycle timeline; hardware roadmap gaps resolve on a chip-generation timeline. When all three are activated by the same trigger event, the organization is managing three recovery timelines simultaneously with three different clocks, and the longest one — the hardware roadmap — constrains what the faster recoveries can actually achieve."
-    },
-    {
-      "a": "SWE-CI behavioral provenance",
-      "b": "Acceptance criteria gap (Firefox audit)",
-      "insight": "SWE-CI and the Firefox audit are the same structural insight applied at different layers: when a domain has pre-existing evaluation structure (test suites in CI, CVE taxonomy in security), AI performs reliably because the acceptance criteria don't need to be invented. SWE-CI doesn't make AI agents more capable — it makes the evaluation criteria legible by using the test suite as a pre-existing definition of 'done.' The behavioral accountability layer works for the same reason the security audit worked."
-    },
-    {
-      "a": "Three-layer accountability framework (session, structural, behavioral)",
-      "b": "Version control paradigm debt",
-      "insight": "Git's paradigm debt is multi-layered, not single-layered: it discards session context (the conversation that produced the code), it discards semantic structure (storing text rather than AST), and it was never designed to evaluate behavior over time (CI is a separate system). The accountability stack isn't patching git — it's building three complementary systems around a VCS that was designed for human authorship and simply cannot extend to cover all three AI accountability questions without replacement at the representational layer."
-    },
-    {
-      "a": "SWE-CI behavioral provenance (adoption via existing infrastructure)",
-      "b": "Demo-to-deployment gap",
-      "insight": "Behavioral provenance's adoption advantage — repurposing existing CI infrastructure — is the inverse of the demo-to-deployment gap. Most AI accountability tooling requires new instrumentation, new habits, new organizational buy-in. SWE-CI slots into something teams already operate. The tools that close the demo-to-deployment gap consistently share this property: they extend existing workflows rather than replacing them."
-    },
-    {
-      "a": "Three-layer accountability framework",
-      "b": "Consumer AI adoption as regulatory accelerant",
-      "insight": "When regulators enter the AI accountability conversation through consumer incident visibility rather than developer ecosystem debates, the questions they ask will likely map onto behavioral provenance first — 'did the code work?' is the question courts and regulators already know how to ask. Session and structural provenance are more technically sophisticated accountability questions that regulators may not have the frameworks to mandate initially. The behavioral layer may arrive in regulatory requirements before the other two, simply because it's legible in existing quality assurance vocabulary."
-    },
-    {
-      "a": "Agent Safehouse OS-level containment",
-      "b": "Permission illusion / scope risk (enveil, inbox hijacking)",
-      "insight": "enveil masked secrets from the agent at the application layer; Agent Safehouse constrains the agent's reach at the OS layer. Both are responses to the same scope gap, but at different layers of the stack. The progression from application-layer masking to OS-layer containment mirrors how security responses generally mature: start by patching the symptom at the nearest available layer, end by enforcing the boundary at the deepest available layer. The category is moving down the stack."
-    },
     {
       "a": "Agent Safehouse (sandbox-first architecture)",
       "b": "Firefox kill switch (kill-switch-first architecture)",
@@ -926,6 +856,26 @@
       "a": "METR productivity perception gap (40% gap, verification tax)",
       "b": "Context file paradox (AGENTS.md making agents worse)",
       "insight": "Both findings share an underlying mechanism: AI redistributes cognitive work in ways that subjective experience misreads. Context files make agents feel more thorough while making them less effective; AI coding assistants make developers feel faster while making them slower. In both cases, the human perceives effort reduction (less boring work, more complete instructions) without perceiving the offsetting cost (reasoning budget competition, verification overhead). The shared lesson: subjective improvement is not evidence of objective improvement in AI-augmented workflows. Measurement that bypasses perception is required."
+    },
+    {
+      "a": "Context file paradox (AGENTS.md performance failure — subtractive specification principle)",
+      "b": "Context engineering non-portability (Garry Tan CLAUDE.md controversy)",
+      "insight": "The ETH Zurich finding and the Garry Tan controversy are two distinct failure modes of the same underlying property: specification value is inversely proportional to discoverability, and discoverability is always local. The performance failure is 'you specified things the agent could discover, wasting reasoning budget.' The portability failure is 'you specified things the agent couldn't discover in YOUR codebase — but they're perfectly discoverable in mine, so your file is noise for me.' A context file can simultaneously be well-calibrated for its origin codebase and structurally mismatched for every other codebase. Both failures are invisible to the practitioner sharing the file because they're calibrated for their own discoverability context."
+    },
+    {
+      "a": "Dense convention frameworks as AI alignment infrastructure (Rails resurgence)",
+      "b": "Context engineering non-portability (CLAUDE.md as bespoke artifact)",
+      "insight": "High-convention frameworks may be the partial exception to context engineering non-portability: if convention density makes a codebase's structure more predictable, it may also make discoverability more consistent across codebases using the same framework. A CLAUDE.md written for one Rails app may transfer better to another Rails app than a context file written for a bespoke Express monolith transfers to any other codebase. Convention density doesn't just narrow the 'correct vs. acceptable' gap for AI output — it may also make context engineering more socializable by reducing codebase-specific discoverability variance."
+    },
+    {
+      "a": "Supervisory monitoring pattern (auto-approve more AND interrupt more — non-designed infrastructure)",
+      "b": "Context engineering non-portability (CLAUDE.md as accumulated personal practice)",
+      "insight": "Both the monitoring pattern and context engineering are bespoke artifacts that accumulate through familiarity with a specific agent operating in a specific environment. An experienced user's intervention thresholds are calibrated to their codebase and their agent's behavioral tendencies in that codebase; another user's context file is calibrated to their discoverability profile. Neither the oversight pattern nor the context file transfers cleanly. The community sharing CLAUDE.md configs is making the same structural error as sharing interrupt thresholds: the artifact looks like knowledge, but it encodes familiarity."
+    },
+    {
+      "a": "HN practitioner debate as technology maturity signal",
+      "b": "Context engineering non-portability (community controversy as diagnostic)",
+      "insight": "The MCP vs. CLI debate was a maturity signal because discourse had shifted from 'is this worth using?' to 'when does this make sense versus the alternative?' The Garry Tan CLAUDE.md controversy is a different kind of maturity signal: the community has adopted context engineering enough to share configurations, but has not yet recognized that the practice is non-portable. The controversy is the community discovering non-portability through friction rather than through explicit recognition. This is a different maturity event — not 'we're past the hype' but 'we're past adoption and haven't yet understood the structural limits of the practice.'"
     }
   ],
   "reader_questions": []

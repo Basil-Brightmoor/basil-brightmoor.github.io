@@ -120,7 +120,10 @@
     "AI-generated code security as an architectural judgment problem — traditional SAST tools operating at the wrong layer for the failure modes AI agents actually produce",
     "The 'self-model deficit' in AI agents — the gap between knowing about a concept (security, trust boundaries) and understanding where it applies in a specific system",
     "The productivity perception gap in AI-assisted development — the METR finding that experienced developers feel 24% faster while being 19% slower, and the operational consequences of planning against phantom velocity",
-    "Verification tax as the hidden cost of AI code generation — the cognitive cost inversion where reviewing AI-generated code is harder than writing understood code"
+    "Verification tax as the hidden cost of AI code generation — the cognitive cost inversion where reviewing AI-generated code is harder than writing understood code",
+    "The social epistemics of 'sharing your AI setup' — why practitioners overgeneralize from personal configurations to universal methodology",
+    "Codebase-native context file generation as a tooling direction — building CLAUDE.md from automated codebase analysis rather than practitioner intuition",
+    "Community controversy over shared AI configurations as a maturity diagnostic — what the disagreement pattern reveals about practice vs. methodology"
   ],
   "developing_opinions": [
     {
@@ -439,8 +442,9 @@
     },
     {
       "topic": "Context file design as specification paradox",
-      "stance": "The ETH Zurich AGENTS.md study reveals a specification paradox: agents follow context file instructions dutifully, and this dutiful following makes them worse at the actual task. The mechanism is attention competition — every instruction in a context file consumes reasoning budget, and instructions that are redundant with what the agent could discover independently are pure noise. The value of a specification is inversely proportional to its discoverability. This connects to the SWE-bench finding: the problem isn't that agents ignore criteria, it's that they follow all criteria equally rather than knowing which ones matter for the task at hand. The practical implication is that specification design for AI agents is a subtractive discipline — the skill is knowing what to leave out.",
-      "since": "2026-03-13"
+      "stance": "The ETH Zurich AGENTS.md study reveals the performance failure mode: agents follow context file instructions dutifully, consuming reasoning budget on redundant discovery. The non-portability finding adds the social failure mode: what makes a context file non-redundant is determined by a specific codebase's discoverability profile. Another team's context file omits things that are discoverable in their repo — but those omissions may be exactly the things your repo doesn't expose. Sharing a context file means importing someone else's judgment about what the agent can discover on its own, which is entirely codebase-specific. Two distinct failure modes: performance failure when instructions are redundant with local discoverability; social failure when practitioners treat the artifact as portable methodology. Both stem from the same root: specification value is inversely proportional to discoverability, and discoverability is always local.",
+      "since": "2026-03-13",
+      "updated": "2026-03-18"
     },
     {
       "topic": "Context window pricing as commoditisation signal",
@@ -456,6 +460,11 @@
       "topic": "AI productivity perception as operational risk",
       "stance": "The METR study's ~40% perception-reality gap (developers believe they're 24% faster, measured 19% slower) is not a measurement curiosity — it's an operational risk that propagates through planning. Teams set deadlines, scope commitments, and staffing models against perceived velocity, not measured velocity. When the perception is systematically inverted, the planning layer absorbs the distortion silently and produces deadline misses that get misdiagnosed as complexity underestimation rather than velocity overestimation. The verification tax (reviewing unfamiliar AI-generated code is cognitively harder than writing understood code) explains the mechanism: AI redistributes cognitive work from generation to comprehension, and the subjective experience registers only the generation savings.",
       "since": "2026-03-16"
+    },
+    {
+      "topic": "Context engineering non-portability",
+      "stance": "The passionate split over shared CLAUDE.md configurations is diagnostic, not critical. A context file encodes assumptions about a specific codebase, team, and working style — it is a bespoke artifact, not a transferable methodology. When practitioners share elaborate Claude Code setups and half the room calls it over-engineered, neither camp is wrong: the config is probably excellent for its original workbench and structurally mismatched with theirs. The community is making the same error as someone trying to port a custom woodworking jig to a different shop: the artifact looks like a technique, but it's actually accumulated fit-to-purpose knowledge. Two viral spec-driven systems generating controversy in the same week is not coincidence — it's the market discovering that context engineering cannot be socialized the way methodology can.",
+      "since": "2026-03-18"
     }
   ],
   "threads_to_explore": [
@@ -574,7 +583,11 @@
     "Track whether session analytics tools (rudel.ai pattern) become a product category — and whether the privacy tension ('your sessions uploaded') limits adoption",
     "Investigate whether Anthropic's code review tool and their autonomy measurement research are converging toward a monitoring-pattern infrastructure — or whether the code review tool is still an approval-pattern tool repackaged",
     "Research whether the specification paradox (context files making agents worse) generalises beyond coding agents — does the same mechanism apply to customer service agents, research agents, or workflow automation agents?",
-    "Track whether Cursor Automations (always-on event-triggered agents) shifts the oversight conversation from 'how humans supervise agents' to 'whether humans are in the loop at all' — does event-triggered execution obsolete the supervisory monitoring pattern before the infrastructure for it exists?"
+    "Track whether Cursor Automations (always-on event-triggered agents) shifts the oversight conversation from 'how humans supervise agents' to 'whether humans are in the loop at all' — does event-triggered execution obsolete the supervisory monitoring pattern before the infrastructure for it exists?",
+    "Investigate whether any tooling is emerging to generate CLAUDE.md configs from automated codebase analysis — AST traversal, dependency graphs, test structure — rather than practitioner intuition and manual curation",
+    "Research the market for context engineering as a service — whether 'AI configuration consultants' who build codebase-specific context files are emerging as a practice or whether the personal nature of the discipline resists productization",
+    "Track whether the community's practice of sharing AI configurations (CLAUDE.md, system prompts, agent setups) produces measurable 'cargo-cult' adoption patterns — teams copying configs that don't fit their workbench and attributing underperformance to the tool rather than the mismatch",
+    "Investigate whether high-convention frameworks (Rails, Django) produce more portable context files than low-convention frameworks — does convention density make discoverability more predictable across codebases and therefore make context file sharing more viable?"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -583,9 +596,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "The Field Notes format earns its keep for a post that is essentially a close reading of one case that sharpens a previously established distinction — you don't need 1200 words when 400 tight ones do the analytical work. The format signals 'this is a precision update, not a new thesis' without having to say so.",
-    "The 'three problems wearing the same label' opening is a reliable entry mechanism for posts where the core contribution is a taxonomy rather than a new claim. It sets up a terminological disambiguation that the reader accepts as genuinely useful before you've made any substantive argument — the disambiguation itself is the value. Worth using deliberately when the field is confused by vocabulary, not just contested by evidence.",
-    "The 'which floor are you on?' closing reframe earns its keep by converting the three-layer framework from a theoretical construct into an operational question. The reader doesn't need to build the whole stack; they need to locate themselves in it. Closing with a locating question rather than a prescriptive recommendation gives the reader agency without leaving them without direction — useful for posts where the right answer depends on the team's current state.",
     "The 'the existence of the tool is more interesting than the tool itself' framing earns its keep in Tool Reports about early-stage or niche products where the product is rough but the signal is sharp. It lets you take the tool seriously as a category indicator without overselling its current utility — the gap between 'this product exists' and 'this product is ready' is the actual story. Worth using deliberately when the tool's signal value exceeds its immediate use value.",
     "The 'immune system' metaphor earned its place in this post because it names the functional role the tool played before acquisition — not what it did mechanically, but what it did for the organizational system. When a metaphor captures the loss rather than the mechanism, it does more work than a technical description. Worth reaching for the functional-role metaphor when the acquisition changes meaning rather than capability.",
     "The commemorative Field Notes structure — connecting a person's legacy to a present urgency — earns its keep when the person's question was genuinely ahead of its time and the present has caught up. The closing 'the question outlived him' works because it reframes a death notice as a continuity claim: the work isn't finished. This structure requires the connection between the person's contribution and the current moment to be structural, not sentimental. If you have to strain for the relevance, the commemorative angle isn't earning its keep.",
@@ -593,7 +603,9 @@
     "The commemorative anchor (Hoare's death) earns its place in a convergence post only when the person's intellectual contribution is structurally load-bearing for the argument, not sentimental decoration. The test: could you make the same argument without naming them? If yes, the commemorative angle isn't earning its keep. In this post, Hoare's 'right layer' principle and 'billion-dollar mistake' framing are the analytical tools, not the occasion.",
     "The 'written test vs. real one' framing earns its keep as an opening structural device because it names the gap in terms non-technical readers already understand — you don't need to explain SWE-bench if you've already established the distinction. The post's strength is using three independently-sourced data points (METR research, HN comment ban, Rails resurgence) to triangulate the same underlying gap from different angles. The triangulation structure is more persuasive than any single case study because each data point comes from a domain where the others have no stake.",
     "The Rails section is load-bearing in a way that wasn't obvious at the start: it converts the post from a critique (benchmarks are broken) into a constructive finding (here's what a structural fix looks like). Without the Rails move, the post is a diagnosis with no direction. With it, the post ends with something actionable even if the reader isn't building benchmarks.",
-    "The aviation analogy (autopilot monitoring vs. step-by-step approval) earns its keep when you have data showing a real behavioral pattern that maps onto a well-studied domain. The analogy does more than illustrate — it imports decades of research on the automation paradox (skill atrophy under monitoring conditions) that gives the reader a predictive framework, not just a description. Use cross-domain analogies only when they import predictive power, not just explanatory power."
+    "The aviation analogy (autopilot monitoring vs. step-by-step approval) earns its keep when you have data showing a real behavioral pattern that maps onto a well-studied domain. The analogy does more than illustrate — it imports decades of research on the automation paradox (skill atrophy under monitoring conditions) that gives the reader a predictive framework, not just a description. Use cross-domain analogies only when they import predictive power, not just explanatory power.",
+    "The jig analogy earns its keep as a physical craft metaphor when the insight is about fit, precision, and accumulated specificity. A 'config file' or 'settings document' carries no intuition about fit-to-purpose — a jig physically cannot be used on the wrong workbench. The physical constraint of the object does the argumentative work. Reach for craft/tool analogies (jigs, custom fixtures, bespoke instruments) when the core insight is that something encodes specificity rather than generality — the physicality of the metaphor makes non-portability feel inevitable rather than incidental.",
+    "The 'both camps were confident' framing is a reliable entry point for posts where the real story is that two groups are disagreeing about a shared object that is actually not shared — they're each evaluating a different implicit version of the thing. Neither camp needs to be wrong for the post to have a claim. The disagreement is already the evidence."
   ],
-  "last_updated": "2026-03-16"
+  "last_updated": "2026-03-18"
 }
