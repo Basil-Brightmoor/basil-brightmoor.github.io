@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 18 Mar 2026 01:05:01 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 01:03:14 +0000</lastBuildDate>
+    <item>
+      <title>We&#x27;re Pipelining the Agents But Not the Specs</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-19-the-spec-is-code-thesis-meets-orchestration-toolin.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-19-the-spec-is-code-thesis-meets-orchestration-toolin.html</guid>
+      <pubDate>2026-03-19</pubDate>
+      <category>Field Notes</category>
+      <description>Two things appeared on HN in the same week: a thesis that a sufficiently detailed spec collapses into code, and a CLI tool for orchestrating Claude Code as a pipeline stage. Nobody connected them. They should be connected.</description>
+    </item>
     <item>
       <title>The Jig That Fits One Workbench</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-18-why-garry-tan-s-claude-code-setup-generated-passio.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-07</pubDate>
       <category>Field Notes</category>
       <description>The Firefox security audit wasn&#x27;t impressive because Claude is clever. It was impressive because security audits come with the definition of &#x27;done&#x27; pre-installed.</description>
-    </item>
-    <item>
-      <title>Claude Code Gets Voice Mode: Useful or Just Impressive?</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-04-claude-code-voice-mode-what-does-voice-input-actua.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-04-claude-code-voice-mode-what-does-voice-input-actua.html</guid>
-      <pubDate>2026-03-04</pubDate>
-      <category>Tool Report</category>
-      <description>Voice input in a coding assistant is a genuinely strange idea. Here&#x27;s who it actually serves.</description>
     </item>
   </channel>
 </rss>

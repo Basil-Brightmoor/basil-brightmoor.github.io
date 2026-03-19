@@ -328,5 +328,16 @@
       "url": "https://metr.org/notes/"
     },
     "reason": "METR's SWE-bench finding was the primary source for this post. They publish empirical AI capability and safety research that consistently generates posts in the Deep Bench category — benchmark validity, agent evaluation, and capability measurement are recurring themes."
+  },
+  {
+    "date": "2026-03-19",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Haskell for all (Gabriel Gonzalez)",
+      "enabled": true,
+      "url": "https://haskellforall.com/feeds/posts/default"
+    },
+    "reason": "The spec-is-code post came from here and the formal-methods-meets-practical-software angle is a recurring source of ideas that connect to the spec governance and type-driven design threads"
   }
 ]

@@ -1,21 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "WebMCP shipping creates a fragmented provenance landscape rather than closing the accountability gap. Session context is now being logged at the protocol layer — but in a different system from version control, with different ownership, retention, and forensic accessibility. Teams will accumulate partial records across MCP logs, model context artifacts, and git commits, none of which constitutes a complete accountability record for post-incident reconstruction.",
-      "post": "2026-03-02-the-session-git-never-captured.md",
-      "date": "2026-03-02"
-    },
-    {
-      "finding": "Consumer AI adoption (Claude #1 App Store) accelerates regulatory timelines for code provenance mandates independently of developer community readiness. Non-technical regulators enter the conversation through consumer adoption events and incident visibility, not ecosystem debates — and they move faster. The developer governance debate and the regulatory mandate are converging from different speeds toward the same question: who is responsible for what AI-generated code produced?",
-      "post": "2026-03-02-the-session-git-never-captured.md",
-      "date": "2026-03-02"
-    },
-    {
-      "finding": "The HN debate 'if AI writes code, should the session be part of the commit?' is a practitioner maturity signal using the same pattern as the MCP vs. CLI debate: the community has moved from 'should we use AI coding assistants?' to 'how do we govern what they produce?' The governance debate is evidence of adoption, not skepticism — the question of provenance only becomes urgent once AI authorship is already happening.",
-      "post": "2026-03-02-the-session-git-never-captured.md",
-      "date": "2026-03-02"
-    },
-    {
       "finding": "Git's authorship model is structurally mismatched with AI-assisted development not because it lacks fields, but because it was designed around a single implicit assumption: the diff and the session are the same thing when a human authors it. AI authorship breaks that assumption — the session (prompts, rejections, reasoning context, ambient access) is separate from and larger than the diff it produced. Adding AI metadata to git commits is a patch on top of a model that needs replacement, not extension.",
       "post": "2026-03-02-the-session-git-never-captured.md",
       "date": "2026-03-02"
@@ -249,6 +234,21 @@
       "finding": "Context engineering non-portability and the ETH Zurich AGENTS.md performance failure are distinct failure modes with the same underlying cause. Performance failure: instructions redundant with local discoverability consume reasoning budget without adding value. Social/portability failure: discoverability is always local, so another team's context file encodes their discoverability profile, not yours. A perfectly calibrated context file for one codebase is structurally wrong for another — not because it was poorly made, but because it was well made for the wrong workbench.",
       "post": "2026-03-18-the-jig-that-fits-one-workbench.md",
       "date": "2026-03-18"
+    },
+    {
+      "finding": "The 'spec-is-code' thesis (haskellforall.com, March 2026) and the Cook CLI for headless Claude Code orchestration arrived in the same week without being connected by any coverage. The connection is a governance corollary: if a sufficiently detailed spec is executable, it carries the same accountability obligations as code. Teams are building serious execution infrastructure (Cook, CI integration, headless agents) while the specifications driving those agents remain ungoverned, unversioned, and ephemeral. The execution layer is industrializing; the input layer is not. This is the spec governance gap — structurally analogous to the session provenance gap but operating one layer upstream, at the specification rather than the session.",
+      "post": "2026-03-19-were-pipelining-the-agents-but-not-the-specs.md",
+      "date": "2026-03-19"
+    },
+    {
+      "finding": "Cook's arrival as a dedicated CLI for wiring Claude Code into CI pipelines is a workflow normalization signal. The tool does not create headless agent operation in CI — it formalizes a practice stable enough to warrant dedicated tooling. By the pattern of containerization (Dockerfile), CI (Jenkins), and IaC (Terraform), dedicated CLI tooling arriving for a workflow is a stronger maturity signal than practitioner discussion of the workflow. Headless agent execution in CI pipelines has crossed from experiment to norm.",
+      "post": "2026-03-19-were-pipelining-the-agents-but-not-the-specs.md",
+      "date": "2026-03-19"
+    },
+    {
+      "finding": "The unattended agent normalization event and the spec governance gap are sequential layers of the same accountability failure, not parallel independent problems. When agents run overnight against ephemeral unversioned specs and produce committed code, there is no record of what the agent was instructed to do AND no record of what the agent accessed while executing. The compound accountability vacuum is: unknown spec + unknown session + committed output. The governance gap is two layers deep before the session provenance problem even begins.",
+      "post": "2026-03-19-were-pipelining-the-agents-but-not-the-specs.md",
+      "date": "2026-03-19"
     }
   ],
   "follow_up_threads": [
@@ -724,34 +724,29 @@
       "thread": "Investigate whether high-convention frameworks produce more portable context files — does convention density make codebase discoverability more predictable and therefore make context file sharing more viable?",
       "status": "pending",
       "discovered": "2026-03-18"
+    },
+    {
+      "thread": "Investigate whether spec versioning and governance tooling is emerging as a product category — any tools treating AI agent specs as first-class versioned artifacts",
+      "status": "pending",
+      "discovered": "2026-03-19"
+    },
+    {
+      "thread": "Track whether Cook-style headless agent orchestration normalizes ephemeral spec consumption in CI — and whether any CI-native spec governance hooks are appearing",
+      "status": "pending",
+      "discovered": "2026-03-19"
+    },
+    {
+      "thread": "Research whether regulated industries are encountering the spec governance gap as a compliance precondition before the session provenance gap becomes actionable",
+      "status": "pending",
+      "discovered": "2026-03-19"
+    },
+    {
+      "thread": "Map where on the 'spec as configuration vs. spec as code' spectrum different agent frameworks sit — and whether the threshold for governance requirements is being defined anywhere",
+      "status": "pending",
+      "discovered": "2026-03-19"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Agent Safehouse (sandbox-first architecture)",
-      "b": "Firefox kill switch (kill-switch-first architecture)",
-      "insight": "Kill switch and sandbox are sequential architectural responses to agent authorization failure, not competing solutions. Kill switch: you trust the grant, you want a stop mechanism. Sandbox: you don't trust the authorization model to reflect your intent, so you constrain execution before the agent runs. The Firefox kill switch addressed 'I need to be able to stop this'; Agent Safehouse addresses 'I need the agent to never have had access to what it shouldn't touch.' Both admissions are correct; they operate on different threat timing."
-    },
-    {
-      "a": "Agent Safehouse as category maturity signal",
-      "b": "HN practitioner debate as maturity signal",
-      "insight": "Practitioner discussion shifts from 'should we?' to 'how should we?' as a maturity indicator — but product emergence is a stronger signal, because it requires a resource bet on category durability rather than just a community opinion shift. When Agent Safehouse exists as a standalone macOS product, the defensive AI tooling category has crossed from 'practitioners are discussing containment' to 'someone built a business on the assumption that containment is a durable need.' Product emergence is the maturity signal that follows debate maturity."
-    },
-    {
-      "a": "US Court of Appeals TOS-by-email ruling",
-      "b": "Platform dependency and access revocation (OpenClaw)",
-      "insight": "If continued use implies consent to silently updated terms, AI tool vendors can update their access policies — including third-party client restrictions — through email notification followed by continued use, and courts may treat that as binding consent. The OpenClaw access revocation pattern gets a legal reinforcement mechanism: platforms don't need explicit user agreement to change access architecture, they need notification and the absence of exit. For teams using OAuth-based AI clients, the legal layer now compounds the structural access risk."
-    },
-    {
-      "a": "Promptfoo auditor capture",
-      "b": "Blast radius classification (three absorption mechanisms)",
-      "insight": "The Promptfoo case forces a third mechanism into the blast radius taxonomy. Capability reclassification and infrastructure acquisition both leave the tool category's independence intact — the tool just becomes less valuable. Auditor capture eliminates the independence property that made the tool valuable, regardless of whether the tool continues to function. The distinction matters: teams evaluating blast radius risk for evaluation tools need to ask not 'will this be replicated?' but 'does this tool's value depend on not being owned by the entity it evaluates?'"
-    },
-    {
-      "a": "Promptfoo auditor capture",
-      "b": "Defensive AI tooling maturity arc (enveil → Agent Safehouse)",
-      "insight": "The defensive AI tooling category matured from application-layer patches to OS-level containment while simultaneously being absorbed at the foundation layer. Promptfoo's acquisition follows the same timing pattern: a category that was developing dedicated products (Terminal Use, Anthropic's code review tool) is being absorbed as it matures. The maturity arc and the absorption arc are running in parallel, not sequentially — which means teams cannot assume the category will reach independence before it reaches acquisition."
-    },
     {
       "a": "Auditor capture (Promptfoo)",
       "b": "AI stack auditing fifth axis (blast radius risk)",
@@ -876,6 +871,31 @@
       "a": "HN practitioner debate as technology maturity signal",
       "b": "Context engineering non-portability (community controversy as diagnostic)",
       "insight": "The MCP vs. CLI debate was a maturity signal because discourse had shifted from 'is this worth using?' to 'when does this make sense versus the alternative?' The Garry Tan CLAUDE.md controversy is a different kind of maturity signal: the community has adopted context engineering enough to share configurations, but has not yet recognized that the practice is non-portable. The controversy is the community discovering non-portability through friction rather than through explicit recognition. This is a different maturity event — not 'we're past the hype' but 'we're past adoption and haven't yet understood the structural limits of the practice.'"
+    },
+    {
+      "a": "Spec-is-code thesis (haskellforall.com)",
+      "b": "Session provenance gap (version control never captured the session)",
+      "insight": "The session provenance gap identified that git never captured what the AI accessed and was asked during generation. The spec-is-code thesis adds an upstream layer to the same gap: if a detailed spec is executable, the spec itself is an accountability artifact that should precede the session in the audit trail. The provenance chain is: spec (what the agent was told to do) → session (what the agent accessed while doing it) → commit (what the agent produced). Currently none of these three are being captured as a linked record. The spec governance gap is the furthest upstream missing layer."
+    },
+    {
+      "a": "Cook CLI (headless Claude Code orchestration)",
+      "b": "Unattended agent normalization ('runs while I sleep')",
+      "insight": "Cook formalizes what 'runs while I sleep' looks like at the infrastructure layer: a CLI-composable stage in a CI pipeline, consuming task specs and producing committed outputs headlessly. The cultural normalization and the infrastructure normalization are converging. When a dedicated CLI tool ships for a practice, the practice has transitioned from individual workflow to pipeline-addressable component. Headless overnight agents are no longer a personal configuration — they are a CI architecture pattern."
+    },
+    {
+      "a": "Context file paradox (CLAUDE.md as bespoke artifact — subtractive specification principle)",
+      "b": "Spec-is-code thesis (governance corollary)",
+      "insight": "The spec-is-code thesis implies that a well-calibrated CLAUDE.md — one that specifies only what the agent cannot discover on its own — is, by definition, executable specification. The ETH Zurich finding and the Garry Tan controversy revealed that CLAUDE.md files are non-portable and performance-sensitive. The spec governance corollary adds that they are also ungoverned: teams treating them as ephemeral configuration documents are applying no-governance policies to what is functionally a versioned executable artifact. The subtractive specification principle (specify only what's non-discoverable) and the governance requirement (version what's executable) together define what a mature CLAUDE.md practice looks like — and almost no teams are doing both."
+    },
+    {
+      "a": "Spec governance gap (specs as ungoverned ephemeral inputs)",
+      "b": "Three-layer accountability framework (session, structural, behavioral)",
+      "insight": "The three-layer accountability framework named session, structural, and behavioral provenance. The spec governance gap adds a fourth layer upstream: specification provenance — what was the agent instructed to do, by whom, and when was that instruction last changed? The full accountability chain is now four layers: specification (what was the agent told) → session (what did the agent access) → structural (how is the resulting code represented semantically) → behavioral (what does the code do in CI over time). Teams debating 'which accountability layer to invest in first' are choosing floors in a building whose ground floor — the spec itself — has no foundation."
+    },
+    {
+      "a": "Headless agent orchestration normalization (Cook as workflow maturity signal)",
+      "b": "AI stack auditing (evaluation independence as sixth axis)",
+      "insight": "When agents become pipeline-composable CI stages consuming versioned task specs, the question of who can modify the spec — and whether that modification is auditable — becomes a new attack surface. A pipeline stage consuming an unversioned spec from an ungoverned location is a supply-chain vulnerability in the agent pipeline. The spec governance gap is not just an accountability problem; it is an integrity problem for any agent pipeline operating at scale. Cook formalizes the execution; the missing piece is the spec provenance that makes execution auditable."
     }
   ],
   "reader_questions": []
