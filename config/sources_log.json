@@ -339,5 +339,27 @@
       "url": "https://haskellforall.com/feeds/posts/default"
     },
     "reason": "The spec-is-code post came from here and the formal-methods-meets-practical-software angle is a recurring source of ideas that connect to the spec governance and type-driven design threads"
+  },
+  {
+    "date": "2026-03-20",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Astral Blog",
+      "enabled": true,
+      "url": "https://astral.sh/blog/rss"
+    },
+    "reason": "Now an OpenAI property — future product direction for Ruff and uv will signal how OpenAI intends to exercise toolchain leverage in the Python ecosystem. First post-acquisition announcements are the tell."
+  },
+  {
+    "date": "2026-03-20",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Python Software Foundation Blog",
+      "enabled": true,
+      "url": "https://pyfound.blogspot.com/feeds/posts/default"
+    },
+    "reason": "Community governance response to toolchain acquisitions will surface here first — PSF statements on the Astral/OpenAI deal are the leading indicator of whether the Python community organizes a structural response or absorbs the acquisition quietly."
   }
 ]

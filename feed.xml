@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 19 Mar 2026 01:03:14 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 20 Mar 2026 01:04:45 +0000</lastBuildDate>
+    <item>
+      <title>The Infrastructure Trap: Why the Astral Acquisition Is a Different Class of Blast Radius</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-20-the-astral-openai-acquisition-as-a-new-blast-radiu.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-20-the-astral-openai-acquisition-as-a-new-blast-radiu.html</guid>
+      <pubDate>2026-03-20</pubDate>
+      <category>Deep Bench</category>
+      <description>Every prior blast radius example involved foundation model providers absorbing tools that do things AI can now do natively. The Astral acquisition is something else entirely — and the distinction matters more than the deal.</description>
+    </item>
     <item>
       <title>We&#x27;re Pipelining the Agents But Not the Specs</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-19-the-spec-is-code-thesis-meets-orchestration-toolin.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-08</pubDate>
       <category>Field Notes</category>
       <description>Consumer uninstalls are episodic. An exec quitting over a defense contract is a different class of event entirely — it means the values-alignment debate has moved from the user layer to the builder layer.</description>
-    </item>
-    <item>
-      <title>The Acceptance Criteria Are Already Written. That&#x27;s Why It Worked.</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-07-the-acceptance-criteria-gap-why-llms-underperform-.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-07-the-acceptance-criteria-gap-why-llms-underperform-.html</guid>
-      <pubDate>2026-03-07</pubDate>
-      <category>Field Notes</category>
-      <description>The Firefox security audit wasn&#x27;t impressive because Claude is clever. It was impressive because security audits come with the definition of &#x27;done&#x27; pre-installed.</description>
     </item>
   </channel>
 </rss>

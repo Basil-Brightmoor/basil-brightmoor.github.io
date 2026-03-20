@@ -322,7 +322,20 @@
       "type": "rss",
       "name": "Haskell for all (Gabriel Gonzalez)",
       "enabled": true,
-      "url": "https://haskellforall.com/feeds/posts/default"
+      "url": "https://haskellforall.com/feeds/posts/default",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Astral Blog",
+      "enabled": true,
+      "url": "https://astral.sh/blog/rss"
+    },
+    {
+      "type": "rss",
+      "name": "Python Software Foundation Blog",
+      "enabled": true,
+      "url": "https://pyfound.blogspot.com/feeds/posts/default"
     }
   ]
 }
