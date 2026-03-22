@@ -361,5 +361,27 @@
       "url": "https://pyfound.blogspot.com/feeds/posts/default"
     },
     "reason": "Community governance response to toolchain acquisitions will surface here first — PSF statements on the Astral/OpenAI deal are the leading indicator of whether the Python community organizes a structural response or absorbs the acquisition quietly."
+  },
+  {
+    "date": "2026-03-22",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Levels.fyi Blog",
+      "enabled": true,
+      "url": "https://www.levels.fyi/blog/rss.xml"
+    },
+    "reason": "If token budgets are emerging as a compensation pillar, Levels.fyi is where they'd show up in benchmarking data first — and their blog covers compensation structure changes worth tracking for this thread."
+  },
+  {
+    "date": "2026-03-22",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Jacobin",
+      "enabled": true,
+      "url": "https://jacobin.com/feed/"
+    },
+    "reason": "Labour economics angle on cost transfer to workers — Jacobin covers employer cost-shifting and 'perk' reframing patterns from a structural perspective that provides useful contrast to the tech press framing."
   }
 ]

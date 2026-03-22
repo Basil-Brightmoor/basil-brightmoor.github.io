@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 20 Mar 2026 01:04:45 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 22 Mar 2026 01:03:01 +0000</lastBuildDate>
+    <item>
+      <title>The Token Budget Is Not a Perk</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-22-ai-token-budgets-as-engineering-compensation-the-c.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-22-ai-token-budgets-as-engineering-compensation-the-c.html</guid>
+      <pubDate>2026-03-22</pubDate>
+      <category>Field Notes</category>
+      <description>When your employer hands you a monthly token budget, the framing is &#x27;compensation.&#x27; The mechanism is something else entirely.</description>
+    </item>
     <item>
       <title>The Infrastructure Trap: Why the Astral Acquisition Is a Different Class of Blast Radius</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-20-the-astral-openai-acquisition-as-a-new-blast-radiu.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-08</pubDate>
       <category>Field Notes</category>
       <description>Caitlin Kalinowski wasn&#x27;t just disagreeing with OpenAI&#x27;s direction — she was building their hardware future. Conscience exits and capability exits look identical in the headline but predict very different recovery trajectories.</description>
-    </item>
-    <item>
-      <title>When the Revolt Goes Internal</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-08-when-the-values-alignment-revolt-went-internal-exe.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-08-when-the-values-alignment-revolt-went-internal-exe.html</guid>
-      <pubDate>2026-03-08</pubDate>
-      <category>Field Notes</category>
-      <description>Consumer uninstalls are episodic. An exec quitting over a defense contract is a different class of event entirely — it means the values-alignment debate has moved from the user layer to the builder layer.</description>
     </item>
   </channel>
 </rss>

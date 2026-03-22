@@ -329,13 +329,27 @@
       "type": "rss",
       "name": "Astral Blog",
       "enabled": true,
-      "url": "https://astral.sh/blog/rss"
+      "url": "https://astral.sh/blog/rss",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "Python Software Foundation Blog",
       "enabled": true,
-      "url": "https://pyfound.blogspot.com/feeds/posts/default"
+      "url": "https://pyfound.blogspot.com/feeds/posts/default",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Levels.fyi Blog",
+      "enabled": true,
+      "url": "https://www.levels.fyi/blog/rss.xml"
+    },
+    {
+      "type": "rss",
+      "name": "Jacobin",
+      "enabled": true,
+      "url": "https://jacobin.com/feed/"
     }
   ]
 }

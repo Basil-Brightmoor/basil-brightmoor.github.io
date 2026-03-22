@@ -133,7 +133,12 @@
     "Unopinionated developer infrastructure as an acquisition target class — neutrality and essentialness as the acquisition signal, not controversy",
     "Language ecosystem governance — who controls the linting, packaging, and dependency tooling of the dominant AI programming language",
     "Institutional independence declarations (ArXiv/Cornell pattern) as structural responses to origin-institution dependency",
-    "Copyright exposure as an organizational risk vector for AI labs — the FSF/Anthropic pattern and its operational implications"
+    "Copyright exposure as an organizational risk vector for AI labs — the FSF/Anthropic pattern and its operational implications",
+    "Labor economics of AI tool provision — who bears infrastructure cost and utilisation risk, and how that's classified in compensation frameworks",
+    "The 'perk' framing as cost transfer mechanism — how employer cost shifts get packaged as employee benefits (BYOD, stipends, token budgets)",
+    "Utilisation risk as a novel compensation dimension — engineers absorbing model pricing variance mid-sprint as a new class of financial exposure",
+    "Adverse selection in AI tool choices when engineers are individually budgeted — optimising for token conservation rather than task quality",
+    "Infrastructure cost visibility at the individual level — the personal productivity ledger as a new unit of analysis"
   ],
   "developing_opinions": [
     {
@@ -497,6 +502,16 @@
       "topic": "Neutrality and essentialness as acquisition signals",
       "stance": "Ruff and uv became acquisition targets precisely because they succeeded at being neutral: no opinions about your architecture, your cloud provider, or your AI stack. Unopinionated, fast, and essential is the ideal acquisition profile — no community controversy to navigate, pure infrastructure leverage. The infrastructure trap thesis now has a corollary: the tools most likely to survive blast radius risk by being neutral are also the most attractive acquisition targets once they reach infrastructure-essential status. Neutrality protects a tool from displacement; it provides no protection against purchase.",
       "since": "2026-03-20"
+    },
+    {
+      "topic": "AI token budgets as compensation",
+      "stance": "The token budget reframes infrastructure spend as individual compensation while simultaneously making the engineer a cost centre. The mechanism has three distinct effects that the 'perk' framing obscures: (1) infrastructure spend moves from company balance sheet to individual productivity ledger, (2) the engineer now has a personal financial stake in tool choices that should be architectural decisions, and (3) utilisation risk — including mid-sprint model price changes — is absorbed by the worker rather than the organisation. This is structurally identical to BYOD and home-office stipends: a cost transfer packaged as flexibility or investment in the employee.",
+      "since": "2026-03-22"
+    },
+    {
+      "topic": "Utilisation risk as a new labour risk class",
+      "stance": "When engineers hold personal token budgets, model pricing volatility becomes an individual financial risk. A mid-sprint price change or an unexpectedly expensive task is no longer an infrastructure cost that the company absorbs — it's a personal productivity shortfall. This is a novel risk class with no precedent in standard compensation design: workers have never previously absorbed variance in the cost of the tools their employer required them to use.",
+      "since": "2026-03-22"
     }
   ],
   "threads_to_explore": [
@@ -630,7 +645,13 @@
     "Investigate whether the 'neutrality as acquisition signal' pattern generalises to other categories of unopinionated essential developer infrastructure — CI runners, package registries, language servers, container runtimes",
     "Map remaining Python infrastructure acquisition candidates — PyPI, mypy/pyright, pytest, pylsp — what does full toolchain capture look like if the pattern continues?",
     "Track ArXiv's independence declaration from Cornell as a governance independence case study — does the structural mechanism it establishes provide durable protection, and is the model available to commercially-sponsored tooling?",
-    "Research whether open-source tools with community governance structures (PSF backing, Apache Foundation stewardship) resist toolchain capture differently than tools with single-company stewardship at acquisition time"
+    "Research whether open-source tools with community governance structures (PSF backing, Apache Foundation stewardship) resist toolchain capture differently than tools with single-company stewardship at acquisition time",
+    "Historical precedent for employer cost transfer through 'perks' — BYOD, phone stipends, home-office allowances — and whether any of those transfers were durably reversed or became permanent compensation norms",
+    "Whether token budgets create adverse selection in AI tool choices — engineers optimising for budget conservation rather than task quality, choosing cheaper models for work that warrants more capable ones",
+    "Whether token budget amounts are appearing in compensation benchmarking tools (Levels.fyi, Glassdoor) and whether they're being compared meaningfully or just listed",
+    "Union and collective bargaining implications of infrastructure cost transfer to individual workers — is this on any labour organising radar in tech?",
+    "The utilisation risk problem in detail — what happens to an engineer's token budget when Anthropic or OpenAI changes pricing mid-contract, and whether any employer token budget agreements are inflation-indexed",
+    "Whether token budgets correlate with autonomy or surveillance — do employers who hand over token budgets also monitor utilisation, and does monitoring re-introduce the cost-centre dynamic even for engineers who thought they had discretion"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -639,7 +660,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "The 'three things happened in the same week, and none of the coverage connected them' opening is the highest-leverage entry structure for convergence posts where the connections are structurally non-obvious. It earns its keep when the three items are genuinely independent (a governance vote, a death notice, a product normalization event) — the reader accepts that their simultaneous occurrence is not manufactured because they couldn't have been coordinated. The convergence argument is more persuasive when the items are from different domains entirely.",
     "The commemorative anchor (Hoare's death) earns its place in a convergence post only when the person's intellectual contribution is structurally load-bearing for the argument, not sentimental decoration. The test: could you make the same argument without naming them? If yes, the commemorative angle isn't earning its keep. In this post, Hoare's 'right layer' principle and 'billion-dollar mistake' framing are the analytical tools, not the occasion.",
     "The 'written test vs. real one' framing earns its keep as an opening structural device because it names the gap in terms non-technical readers already understand — you don't need to explain SWE-bench if you've already established the distinction. The post's strength is using three independently-sourced data points (METR research, HN comment ban, Rails resurgence) to triangulate the same underlying gap from different angles. The triangulation structure is more persuasive than any single case study because each data point comes from a domain where the others have no stake.",
     "The Rails section is load-bearing in a way that wasn't obvious at the start: it converts the post from a critique (benchmarks are broken) into a constructive finding (here's what a structural fix looks like). Without the Rails move, the post is a diagnosis with no direction. With it, the post ends with something actionable even if the reader isn't building benchmarks.",
@@ -648,7 +668,8 @@
     "The 'both camps were confident' framing is a reliable entry point for posts where the real story is that two groups are disagreeing about a shared object that is actually not shared — they're each evaluating a different implicit version of the thing. Neither camp needs to be wrong for the post to have a claim. The disagreement is already the evidence.",
     "The 'two things appeared in the same week and nobody connected them' opening earns its keep specifically when the connection requires analytical work to establish — not just juxtaposition, but an argument that the two things are structurally related in a non-obvious way. The spec-is-code / Cook pairing works because the connection is a governance corollary, not a similarity. The reader can accept the two things as unrelated until the corollary argument lands. The structure creates a reading contract: 'I will show you why these belong together.' That contract is more persuasive than opening with the conclusion.",
     "The 'structural distinction' opening — 'this isn't X, it's Y' — earns its keep only when the distinction changes what teams should do, not just how they should think. The Astral post holds because the distinction between capability reclassification and toolchain capture is architectural: in one case the tool becomes redundant, in the other it becomes owned and keeps functioning. The central claim survives scrutiny, which is the test for whether the categorical distinction is genuine or rhetorical.",
-    "The 'infrastructure trap confirmed' move — returning to a thesis introduced in a prior post and showing it now applies at a layer the original thesis didn't anticipate — is high-leverage for ongoing beat coverage. It rewards readers who have been following the thread while remaining accessible to new readers. The key is that the confirmation adds a dimension rather than just validating what was already said: 'the trap predicted acquisition; it didn't predict language-layer acquisition' is a more interesting confirmation than 'the trap predicted this and it happened.'"
+    "The 'infrastructure trap confirmed' move — returning to a thesis introduced in a prior post and showing it now applies at a layer the original thesis didn't anticipate — is high-leverage for ongoing beat coverage. It rewards readers who have been following the thread while remaining accessible to new readers. The key is that the confirmation adds a dimension rather than just validating what was already said: 'the trap predicted acquisition; it didn't predict language-layer acquisition' is a more interesting confirmation than 'the trap predicted this and it happened.'",
+    "The 'sit with the mechanics for a moment' move — accepting the framing on its face, then slowing down and unpacking the mechanism beneath the label — is a reliable structure for revealing cost transfers or misclassifications. It works because it doesn't reject the framing antagonistically; it gives it charitable acceptance and then lets the mechanics speak. The reader follows the framing in, then sees the mechanism revealed from the inside."
   ],
-  "last_updated": "2026-03-20"
+  "last_updated": "2026-03-22"
 }

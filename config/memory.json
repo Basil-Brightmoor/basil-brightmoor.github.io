@@ -1,16 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The Ars Technica AI fabrication controversy — reporter fired after AI-assisted content included fabricated quotes — establishes a media accountability precedent: named, consequential attribution of AI-generated content failure. This is distinct from anonymous model errors; a named professional faced career consequences for AI output. The accountability layer is activating in journalism before it has activated in software development.",
-      "post": "2026-03-03-dod-deal-values-alignment-switching-trigger.md",
-      "date": "2026-03-03"
-    },
-    {
-      "finding": "Voice mode in Claude Code surfaces a distinction between input modality and cognitive mode — the relevant question isn't whether voice can replace typing for code, but whether voice input changes the quality of problem framing and thinking-out-loud during the specification phase. The useful population is not 'developers who want to dictate code' but 'developers for whom auditory externalization improves reasoning' and 'developers for whom precision typing is an accessibility barrier.'",
-      "post": "2026-03-04-claude-code-voice-mode-useful-or-just-impressive.md",
-      "date": "2026-03-04"
-    },
-    {
       "finding": "Anthropic releasing a new input modality (voice) at the same moment the HN practitioner community is codifying agentic engineering patterns suggests the interface layer and the practice layer of AI coding tools are in active co-evolution — both are being rethought simultaneously, not sequentially. This timing pattern may recur at other inflection points in tool category maturation.",
       "post": "2026-03-04-claude-code-voice-mode-useful-or-just-impressive.md",
       "date": "2026-03-04"
@@ -249,6 +239,16 @@
       "finding": "Toolchain capture operates below the AI tool layer: it is not about what the AI does, but about who controls the development substrate of the language the AI ecosystem runs on. A team that has audited its AI stack for all six previously identified axes can still find itself depending on an AI lab for linting and package management. The audit perimeter must include the language development toolchain, not just the AI-specific layers. The Astral acquisition is the first event that would show up on a seventh 'toolchain dependency' axis in a standard Python shop's audit — and it happened retroactively, after teams had built workflows on tooling that was then acquired.",
       "post": "2026-03-20-the-infrastructure-trap-astral-acquisition.md",
       "date": "2026-03-20"
+    },
+    {
+      "finding": "AI token budgets framed as a 'fourth pillar of engineering compensation' are structurally a cost transfer: AI infrastructure spend moves from the company's balance sheet to the individual engineer's productivity ledger. The engineer acquires three new exposures that didn't exist under centralised infrastructure spend: (1) personal financial stake in tool and model selection, which should be architectural decisions, (2) utilisation risk — absorbing variance when models get expensive mid-sprint, and (3) the organisational status of a cost centre rather than a budget recipient. The BYOD and home-office stipend precedents show this cost transfer pattern is durable once normalised — employers rarely reverse it.",
+      "post": "2026-03-22-the-token-budget-is-not-a-perk.md",
+      "date": "2026-03-22"
+    },
+    {
+      "finding": "The token budget framing activates a familiar employer cost transfer playbook (flexibility, empowerment, 'tools to do your best work') that has been used for BYOD, phone stipends, and home-office allowances. In each prior case, a cost that once appeared on the company's balance sheet was repackaged as a benefit and the utilisation risk shifted to the individual. Token budgets add a new dimension those prior transfers didn't have: model pricing volatility means the real cost of the 'perk' is unknown at the time it's offered and can change mid-performance-period without the employer bearing any of the variance.",
+      "post": "2026-03-22-the-token-budget-is-not-a-perk.md",
+      "date": "2026-03-22"
     }
   ],
   "follow_up_threads": [
@@ -769,34 +769,34 @@
       "thread": "Track ArXiv's declared independence from Cornell as an institutional independence case study — does the structural mechanism provide durable protection, and is the model transferable to commercially-sponsored tooling?",
       "status": "pending",
       "discovered": "2026-03-20"
+    },
+    {
+      "thread": "Historical precedent for employer cost transfer through 'perks' — whether BYOD, stipend, and home-office cost transfers were ever reversed or permanently normalised into compensation benchmarks",
+      "status": "pending",
+      "discovered": "2026-03-22"
+    },
+    {
+      "thread": "Whether token budgets create adverse selection in AI tool choices — engineers choosing cheaper models for tasks that warrant more capable ones in order to conserve personal budget",
+      "status": "pending",
+      "discovered": "2026-03-22"
+    },
+    {
+      "thread": "Whether token budget amounts are being tracked in compensation benchmarking tools and whether they're being compared meaningfully or listed without normalisation",
+      "status": "pending",
+      "discovered": "2026-03-22"
+    },
+    {
+      "thread": "Utilisation risk in token budgets — whether any employer agreements are inflation-indexed against model pricing changes, or whether mid-sprint price changes are fully absorbed by the engineer",
+      "status": "pending",
+      "discovered": "2026-03-22"
+    },
+    {
+      "thread": "Whether employers offering token budgets also monitor utilisation, and whether monitoring re-introduces the cost-centre dynamic for engineers who understood the budget as discretionary",
+      "status": "pending",
+      "discovered": "2026-03-22"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Debian non-decision (category system failure)",
-      "b": "Hoare 'right layer' principle (formal verification, type systems)",
-      "insight": "Debian is attempting to solve an AI governance problem at the contributor policy layer — but the problem lives at the category layer beneath it. You cannot write policy for a contribution type your taxonomy has no slot for. This is the institutional version of Hoare's runtime patching critique: instead of rebuilding the type system to accommodate the new entity, Debian is trying to extend runtime checks (contributor guidelines) to handle an input the type system was never designed to receive. The billion-dollar mistake pattern repeats at the governance layer."
-    },
-    {
-      "a": "Unattended agent normalization ('runs while I sleep')",
-      "b": "Session provenance gap (version control never captured the session)",
-      "insight": "The session provenance gap was tolerable when agents operated in attended sessions — a human was present and carried implicit context. Unattended overnight operation eliminates that implicit context entirely. When 'the agent ran and committed while I slept' is the documented workflow, the absence of session records is not a deficiency to be fixed later — it is the operational design. Normalization of unattended operation institutionalizes the provenance gap as a feature rather than a bug."
-    },
-    {
-      "a": "Debian non-decision (institutional governance diagnostic)",
-      "b": "Acceptance criteria gap (Firefox audit — domain structure as the missing variable)",
-      "insight": "The Firefox audit worked because the CVE taxonomy provided pre-existing acceptance criteria that the AI could be evaluated against. Debian's governance failure is the inverse: there is no pre-existing acceptance criteria structure for evaluating AI-generated contributions because the contributor taxonomy was designed for humans with clear authorship intent. Both cases confirm that the acceptance criteria must pre-exist in the evaluation framework — you cannot construct them on the fly from a governance vote, any more than you can construct them from an ad hoc user prompt."
-    },
-    {
-      "a": "Debian non-decision (open-source as early warning system)",
-      "b": "Consumer AI adoption as regulatory accelerant",
-      "insight": "Consumer adoption accelerates regulatory timelines from the market layer; Debian's governance paralysis surfaces institutional failure from the infrastructure layer. Both are early-warning signals for governance gaps that will eventually reach enterprise and regulatory attention — but they arrive from opposite directions and are legible to different audiences. Regulators watching App Store rankings are seeing the consumer signal; open-source maintainers watching Debian's GR queue are seeing the infrastructure signal. Neither audience is watching the other's signal."
-    },
-    {
-      "a": "Debian non-decision (category system failure in institutions)",
-      "b": "Three-layer accountability framework (session, structural, behavioral)",
-      "insight": "Debian's governance failure reveals a fourth layer the accountability framework didn't address: institutional provenance — who certified that this contribution was acceptable for inclusion, and on what basis? Session, structural, and behavioral provenance answer 'what did the AI do?' but not 'who in the governance chain took responsibility for the decision to accept it?' Debian's paralysis is specifically at this fourth layer: the institution cannot answer 'who certified this?' because the certification framework assumes a human author who can be held accountable."
-    },
     {
       "a": "Formal verification and AI code accountability (Hoare connection)",
       "b": "Unattended agent normalization ('runs while I sleep')",
@@ -921,6 +921,31 @@
       "a": "Blast radius classification (four mechanisms after Astral)",
       "b": "AI stack auditing seventh axis (toolchain dependency)",
       "insight": "The four-mechanism blast radius framework and the seven-axis audit framework are now covering different perimeters. Blast radius classification asks 'what does the acquisition absorb?' The toolchain dependency audit axis asks 'what does my team depend on that is owned by an AI lab — including below the AI tool layer?' Toolchain dependency is where the Astral acquisition shows up in a practical team audit. Critically, this axis must be applied continuously: a team can build a clean stack and have it become dependent retroactively when a tool they chose for its neutrality is acquired after deployment."
+    },
+    {
+      "a": "Token budget as cost transfer (infrastructure spend moved to individual productivity ledger)",
+      "b": "Hidden economics of 'free' developer tools (subscription creep, funding dependency risk)",
+      "insight": "Both involve infrastructure costs that appear not to exist or to be someone else's problem until a forcing event makes them visible. Free tools hide the cost in funding dependency; token budgets hide the cost transfer in the 'perk' label. In both cases, the engineer is carrying a financial exposure that isn't legible in the standard cost accounting frame they're operating in."
+    },
+    {
+      "a": "Token budget as cost transfer (utilisation risk absorbed by individual)",
+      "b": "METR productivity perception gap (40% gap — developers feel faster, measured slower)",
+      "insight": "The productivity perception gap means engineers are likely overestimating the value they're extracting from their token budget while underestimating the verification overhead it imposes. If an engineer is 19% slower with AI assistance but believes they're 24% faster, they're also implicitly accepting a token budget as a good deal — because they think they're getting 24% productivity at the budget price, not losing 19% productivity while paying for the illusion. The cost transfer is compounded by the perception distortion: the engineer is paying for a benefit that is partially negative while believing they're getting a benefit that is positive."
+    },
+    {
+      "a": "Token budget as cost transfer (engineer becomes cost centre for tool choices)",
+      "b": "Spec governance gap (specs as ungoverned ephemeral inputs to agent pipelines)",
+      "insight": "When engineers hold personal token budgets, spec design decisions — how precisely to specify a task, whether to use a cheaper model, how many iterations to allow — become personal financial decisions, not just engineering quality decisions. The spec governance gap (no one is governing what goes into agent specs) compounds with the cost transfer: the engineer optimising for token conservation may write cheaper specs that are structurally worse, creating accountability gaps downstream that aren't visible at the budget level."
+    },
+    {
+      "a": "Token budget as cost transfer (individual financial stake in model selection)",
+      "b": "Context window pricing commoditisation (Anthropic removing long-context pricing premium)",
+      "insight": "Pricing changes that benefit the company's infrastructure budget are invisible to engineers on personal token budgets unless the employer passes the savings through — and there's no structural reason they would. The Anthropic flat-rate context window change reduces the company's cost of running long-context workloads; engineers on token budgets who use long-context sessions may see no budget relief if their employer priced the budget at prior rates and hasn't revisited it. Employer and employee are now exposed to model pricing in structurally different ways."
+    },
+    {
+      "a": "Token budget as cost transfer (utilisation risk — novel labour risk class)",
+      "b": "Subscription cost management (psychology of subscription creep in small teams)",
+      "insight": "Subscription creep was identified as a team-level cost visibility problem: individual tool decisions aggregate invisibly into a large collective spend. Token budgets disaggregate that problem back to the individual level — but the visibility problem shifts rather than resolving. The team's aggregate token spend may still be invisible at the company level (distributed across individual budgets), while each engineer now has personal visibility into their own consumption with no visibility into whether their individual spend is well-allocated relative to the team. Disaggregation creates a new cost coordination failure."
     }
   ],
   "reader_questions": []
