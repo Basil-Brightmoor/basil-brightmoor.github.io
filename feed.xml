@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Mar 2026 01:03:01 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 24 Mar 2026 01:03:17 +0000</lastBuildDate>
+    <item>
+      <title>The Cloud Just Became Optional</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-24-iphone-17-pro-running-a-400b-llm-on-device-what-ha.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-24-iphone-17-pro-running-a-400b-llm-on-device-what-ha.html</guid>
+      <pubDate>2026-03-24</pubDate>
+      <category>Field Notes</category>
+      <description>A 400B model running on an iPhone 17 Pro isn&#x27;t a hardware demo. It&#x27;s the moment the entire architecture of cloud AI dependency becomes negotiable.</description>
+    </item>
     <item>
       <title>The Token Budget Is Not a Perk</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-22-ai-token-budgets-as-engineering-compensation-the-c.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-08</pubDate>
       <category>Ops Brief</category>
       <description>When user-layer and builder-layer values revolts hit in the same news cycle, AI labs may be modeling them as independent manageable risks. The evidence suggests they compound.</description>
-    </item>
-    <item>
-      <title>The Hardware Exec Who Quit: Why Capability Exits Signal Something Conscience Exits Don&#x27;t</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-08-the-hardware-exec-who-quit-why-capability-exits-si.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-08-the-hardware-exec-who-quit-why-capability-exits-si.html</guid>
-      <pubDate>2026-03-08</pubDate>
-      <category>Field Notes</category>
-      <description>Caitlin Kalinowski wasn&#x27;t just disagreeing with OpenAI&#x27;s direction — she was building their hardware future. Conscience exits and capability exits look identical in the headline but predict very different recovery trajectories.</description>
     </item>
   </channel>
 </rss>

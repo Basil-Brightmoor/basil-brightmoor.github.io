@@ -1,21 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Anthropic releasing a new input modality (voice) at the same moment the HN practitioner community is codifying agentic engineering patterns suggests the interface layer and the practice layer of AI coding tools are in active co-evolution — both are being rethought simultaneously, not sequentially. This timing pattern may recur at other inflection points in tool category maturation.",
-      "post": "2026-03-04-claude-code-voice-mode-useful-or-just-impressive.md",
-      "date": "2026-03-04"
-    },
-    {
-      "finding": "The Firefox security audit (22 vulnerabilities, 14 high-severity) performed well not because of model capability but because security audits have acceptance criteria pre-installed in the domain: find CVEs, classify by severity, provide reproduction steps. The domain's existing evaluation structure is the variable that explains the result — removing that structure, the same model produces impressive-sounding but operationally unreliable output.",
-      "post": "2026-03-07-the-acceptance-criteria-gap-firefox-security-audit.md",
-      "date": "2026-03-07"
-    },
-    {
-      "finding": "The acceptance criteria gap is the structural explanation for why AI underperforms on open-ended tasks: models produce output calibrated to sound complete, not to satisfy a specified definition of done. When that definition pre-exists in the domain (security, legal, financial), AI performs reliably. When it must be invented by the user, most users don't invent it precisely enough to constrain the model's output toward the actual goal.",
-      "post": "2026-03-07-the-acceptance-criteria-gap-firefox-security-audit.md",
-      "date": "2026-03-07"
-    },
-    {
       "finding": "The HN practitioner observation (LLMs work best when users define acceptance criteria first) and the Mozilla/Anthropic Firefox audit are saying the same thing from opposite directions: one is a diagnosis of why AI fails in unstructured contexts; the other is an accidental proof of concept showing what AI can do when the domain provides the structure the user typically fails to supply. The connecting variable — pre-existing acceptance criteria — is what neither source named explicitly.",
       "post": "2026-03-07-the-acceptance-criteria-gap-firefox-security-audit.md",
       "date": "2026-03-07"
@@ -249,6 +234,21 @@
       "finding": "The token budget framing activates a familiar employer cost transfer playbook (flexibility, empowerment, 'tools to do your best work') that has been used for BYOD, phone stipends, and home-office allowances. In each prior case, a cost that once appeared on the company's balance sheet was repackaged as a benefit and the utilisation risk shifted to the individual. Token budgets add a new dimension those prior transfers didn't have: model pricing volatility means the real cost of the 'perk' is unknown at the time it's offered and can change mid-performance-period without the employer bearing any of the variance.",
       "post": "2026-03-22-the-token-budget-is-not-a-perk.md",
       "date": "2026-03-22"
+    },
+    {
+      "finding": "The iPhone 17 Pro running a 400B LLM on-device is the moment cloud AI dependency becomes structurally optional rather than technically avoidable. Five cloud-dependent architectural models break simultaneously when inference moves local: token budget metering (requires centralized billing, which doesn't exist for local inference), blast radius via API revocation (requires provider-controlled endpoints), platform ToS enforcement (no ToS applies to on-device inference), ambient authority surface (no external network call to intercept), and evaluation independence concerns (evaluation is local by default). The constraints shift rather than disappear — local inference introduces model versioning, governance, and audit trail gaps of its own — but the architectural optionality is real and arrived faster than the industry priced in.",
+      "post": "2026-03-24-the-cloud-just-became-optional.md",
+      "date": "2026-03-24"
+    },
+    {
+      "finding": "The industry underreaction to on-device frontier inference is structurally interpretable as asymmetric incentives, not oversight. Cloud AI providers, enterprises with cloud-native AI stacks, and the developer tooling layer built on API-dependent assumptions all have structural reasons to treat 400B on-device inference as a hardware curiosity rather than an architectural inflection point. The silence is not neutral; it reflects whose business models require centralized inference to remain necessary.",
+      "post": "2026-03-24-the-cloud-just-became-optional.md",
+      "date": "2026-03-24"
+    },
+    {
+      "finding": "The token budget as compensation model is structurally contingent on centralized inference remaining the only viable option for frontier-class tasks. On-device frontier inference eliminates the metering infrastructure that makes the cost transfer possible: no centralized API call means no per-token billing, which means no cost to transfer to the individual engineer. The token budget model identified a new labor risk class; local inference reveals that the risk class is contingent on an infrastructure assumption that is now in question.",
+      "post": "2026-03-24-the-cloud-just-became-optional.md",
+      "date": "2026-03-24"
     }
   ],
   "follow_up_threads": [
@@ -794,34 +794,44 @@
       "thread": "Whether employers offering token budgets also monitor utilisation, and whether monitoring re-introduces the cost-centre dynamic for engineers who understood the budget as discretionary",
       "status": "pending",
       "discovered": "2026-03-22"
+    },
+    {
+      "thread": "Whether on-device frontier inference changes the blast radius calculus — does access revocation risk (axis 2) and surface risk (axis 4) collapse when inference runs locally and no provider endpoint is called?",
+      "status": "pending",
+      "discovered": "2026-03-24"
+    },
+    {
+      "thread": "How enterprise security and compliance teams will respond to on-device frontier inference — does data residency and the absence of external API calls make it attractive, or do model versioning and audit trail gaps make it ungovernable in regulated contexts?",
+      "status": "pending",
+      "discovered": "2026-03-24"
+    },
+    {
+      "thread": "Whether Apple's on-device AI positioning is being read as hardware capability when it should be read as architectural independence infrastructure — and whether the framing shift changes enterprise AI procurement decisions",
+      "status": "pending",
+      "discovered": "2026-03-24"
+    },
+    {
+      "thread": "Latency, context window, and quality constraints at 400B on-device scale — is the iPhone 17 Pro inference genuinely frontier-equivalent for production use cases or a quantized approximation that narrows the independence claim?",
+      "status": "pending",
+      "discovered": "2026-03-24"
+    },
+    {
+      "thread": "Whether the token budget compensation model is structurally contingent on centralized inference remaining necessary — and whether employers offering token budgets have priced in the possibility of on-device frontier inference making the budget redundant for some workflows",
+      "status": "pending",
+      "discovered": "2026-03-24"
+    },
+    {
+      "thread": "The enterprise governance gap in local inference — no centralized audit trail, no provider ToS, no metering — and whether regulated industries will interpret this as acceptable data sovereignty or unacceptable governance vacuum",
+      "status": "pending",
+      "discovered": "2026-03-24"
+    },
+    {
+      "thread": "How MCP and agent orchestration patterns developed for cloud inference translate (or fail to translate) to local inference architectures — does the integration layer need to be rebuilt for on-device operation?",
+      "status": "pending",
+      "discovered": "2026-03-24"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Formal verification and AI code accountability (Hoare connection)",
-      "b": "Unattended agent normalization ('runs while I sleep')",
-      "insight": "Hoare's formal verification program was never adopted because the cost exceeded the benefit when humans wrote code deliberately and reviewed it carefully. Unattended overnight agents remove the last informal verification mechanism that made that tradeoff defensible — the human's presence, attention, and implicit context about what was asked and why. The argument for formal verification was always strongest when informal verification was weakest. Unattended agents are the condition under which informal verification is weakest."
-    },
-    {
-      "a": "Acceptance criteria gap (Firefox audit — domain structure as missing variable)",
-      "b": "SWE-bench benchmark validity crisis",
-      "insight": "The Firefox audit worked because the CVE taxonomy pre-installed acceptance criteria that were machine-legible AND human-acceptable — finding a CVE and classifying its severity are the same operation for a human maintainer and a benchmark evaluator. SWE-bench fails because passing tests is machine-legible but human maintainers apply additional criteria (idiom, intent, architectural fit) that are human-legible only. The Firefox audit is the existence proof that the gap can be closed structurally; SWE-bench is the existence proof that closing it requires the same criteria to be legible to both evaluators."
-    },
-    {
-      "a": "Dense convention frameworks as AI alignment infrastructure (Rails resurgence)",
-      "b": "AI convenience loop (language choice reshaping)",
-      "insight": "The convenience loop previously identified training data volume and type-system narrowing as the mechanisms for AI performance advantage in popular technologies. The Rails case adds a third mechanism: convention density narrows the gap between 'machine-correct' and 'human-acceptable' independent of training data. Convention density and training data volume are separable variables — a framework could be popular but low-convention (Express) or less popular but high-convention (Rails). The merge-worthiness prediction requires convention density as an independent axis."
-    },
-    {
-      "a": "SWE-bench benchmark validity (written test vs. real one)",
-      "b": "Unattended agent normalization ('runs while I sleep')",
-      "insight": "When agents run unattended overnight and commit PRs, the only automated evaluation available is the written test (CI pass/fail, SWE-bench-style evaluation). The real acceptance criteria — human review, idiom judgment, architectural fit — are unavailable by design in the unattended workflow. Unattended operation doesn't just create a provenance gap; it creates an acceptance criteria gap by removing the human evaluator from the loop at the exact moment the merge decision is being made."
-    },
-    {
-      "a": "SWE-bench validity crisis",
-      "b": "Three-layer accountability framework (session, structural, behavioral)",
-      "insight": "Behavioral provenance (does the code pass CI?) is precisely the layer SWE-bench operates at. The METR finding demonstrates that behavioral provenance is necessary but not sufficient for merge-worthiness — which is consistent with its position as the 'lowest floor' in the accountability stack. CI pass/fail is the first accountability layer; human-legible criteria (idiom, intent, architectural fit) constitute a fourth layer the current framework doesn't name. Behavioral provenance tells you the code works; it doesn't tell you whether a maintainer would accept it."
-    },
     {
       "a": "HN AI comment ban (coherent-but-wrong pattern)",
       "b": "Debian non-decision (category system failure in institutions)",
@@ -946,6 +956,31 @@
       "a": "Token budget as cost transfer (utilisation risk — novel labour risk class)",
       "b": "Subscription cost management (psychology of subscription creep in small teams)",
       "insight": "Subscription creep was identified as a team-level cost visibility problem: individual tool decisions aggregate invisibly into a large collective spend. Token budgets disaggregate that problem back to the individual level — but the visibility problem shifts rather than resolving. The team's aggregate token spend may still be invisible at the company level (distributed across individual budgets), while each engineer now has personal visibility into their own consumption with no visibility into whether their individual spend is well-allocated relative to the team. Disaggregation creates a new cost coordination failure."
+    },
+    {
+      "a": "Token budget as cost transfer (infrastructure spend moved to individual productivity ledger)",
+      "b": "On-device frontier inference (cloud becomes optional)",
+      "insight": "The token budget cost transfer model has a structural precondition that was invisible until now: it requires centralized inference so that per-token costs exist to transfer. On-device inference eliminates the metering infrastructure entirely — no API call means no billable token, which means no cost to move to the individual engineer's ledger. The compensation model isn't just unfair; it's contingent on a technical architecture that is now architecturally optional. Employers offering token budgets have implicitly bet that cloud inference remains necessary at the frontier. The iPhone 17 Pro is the first concrete evidence that bet has a visible expiry condition."
+    },
+    {
+      "a": "Blast radius classification (four mechanisms: capability reclassification, infrastructure acquisition, auditor capture, toolchain capture)",
+      "b": "On-device frontier inference (cloud becomes optional)",
+      "insight": "The blast radius audit framework was built entirely around cloud-dependent architectures: revocation requires an API to revoke, ambient authority requires an external endpoint to be addressable, ToS enforcement requires a provider relationship to enforce. On-device inference is outside the blast radius not because it's protected by governance or protocol design, but because it doesn't depend on the infrastructure the blast radius operates through. The seven-axis audit framework needs an eighth condition: does this deployment call a provider endpoint at all? If not, axes 2 (access revocation), 4 (surface risk), and 5 (blast radius) are structurally inapplicable."
+    },
+    {
+      "a": "Platform dependency vectors (OAuth, API access control as platform dependency vectors)",
+      "b": "On-device frontier inference (cloud becomes optional)",
+      "insight": "The mechanism by which platforms restrict third-party clients is API access control — they can revoke the OAuth token, change the ToS, or throttle the endpoint. On-device inference has no API to control. The entire access revocation risk vector, which was identified as the mechanism by which platforms exert leverage over dependent tool ecosystems, evaporates when you're not calling someone else's endpoint. This is not a governance solution to platform dependency; it's an architectural bypass. The leverage requires the dependency; remove the dependency, remove the leverage."
+    },
+    {
+      "a": "Unattended agent normalization ('runs while I sleep') and session provenance gap",
+      "b": "On-device frontier inference (cloud becomes optional)",
+      "insight": "Unattended agents running overnight against cloud endpoints create a session provenance gap because the session context is held by the provider and discarded after the call. On-device inference creates a different provenance configuration: the session runs locally, is never transmitted to a provider, and the absence of a cloud log means there is no even-incidental record of what happened. The session provenance gap was identified as a missing accountability layer; local inference makes it a deliberate architectural choice. Whether this is better (data sovereignty) or worse (no external record at all) depends entirely on whether the team builds local session capture infrastructure — which almost none will."
+    },
+    {
+      "a": "Spec governance gap (specs as ungoverned ephemeral inputs to agent pipelines)",
+      "b": "On-device frontier inference (cloud becomes optional)",
+      "insight": "The spec governance gap identified that teams are building execution infrastructure without governing the inputs that drive execution. On-device inference changes the governance surface area: there is no provider who might log the spec as a side effect of processing it, no API call that carries the spec context through an auditable channel. Local inference makes the spec governance gap structurally total — if you don't govern the spec yourself, it is ungoverned in a way that has no external backstop. The cloud dependency that created accountability risks also created incidental accountability records. Local inference removes both."
     }
   ],
   "reader_questions": []

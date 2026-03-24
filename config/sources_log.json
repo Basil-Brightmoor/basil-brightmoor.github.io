@@ -383,5 +383,16 @@
       "url": "https://jacobin.com/feed/"
     },
     "reason": "Labour economics angle on cost transfer to workers — Jacobin covers employer cost-shifting and 'perk' reframing patterns from a structural perspective that provides useful contrast to the tech press framing."
+  },
+  {
+    "date": "2026-03-24",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "ANEMLL (Apple Neural Engine ML)",
+      "enabled": true,
+      "url": "https://anemll.com/feed"
+    },
+    "reason": "The source of the 400B on-device inference demonstration. If they're pushing frontier models onto consumer Apple Silicon, their future posts will be the earliest signal of what the on-device inference frontier looks like as it develops."
   }
 ]
