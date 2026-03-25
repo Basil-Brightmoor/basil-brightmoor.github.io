@@ -394,5 +394,27 @@
       "url": "https://anemll.com/feed"
     },
     "reason": "The source of the 400B on-device inference demonstration. If they're pushing frontier models onto consumer Apple Silicon, their future posts will be the earliest signal of what the on-device inference frontier looks like as it develops."
+  },
+  {
+    "date": "2026-03-25",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "PyPI Package Updates",
+      "enabled": true,
+      "url": "https://pypi.org/rss/updates.xml"
+    },
+    "reason": "Direct signal for supply chain events on Python packages — catches version squatting and malicious publication events for AI stack dependencies before they surface in secondary coverage"
+  },
+  {
+    "date": "2026-03-25",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "OSV Vulnerability Feed",
+      "enabled": true,
+      "url": "https://osv.dev/feed.xml"
+    },
+    "reason": "Open Source Vulnerabilities database covers PyPI supply chain events and dependency compromise reports — relevant now that supply chain attack surface for AI routing layers is an active beat"
   }
 ]

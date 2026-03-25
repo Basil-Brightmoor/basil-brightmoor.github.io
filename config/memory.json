@@ -1,21 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The HN practitioner observation (LLMs work best when users define acceptance criteria first) and the Mozilla/Anthropic Firefox audit are saying the same thing from opposite directions: one is a diagnosis of why AI fails in unstructured contexts; the other is an accidental proof of concept showing what AI can do when the domain provides the structure the user typically fails to supply. The connecting variable — pre-existing acceptance criteria — is what neither source named explicitly.",
-      "post": "2026-03-07-the-acceptance-criteria-gap-firefox-security-audit.md",
-      "date": "2026-03-07"
-    },
-    {
-      "finding": "Beagle's AST-native VCS approach reveals that git's provenance inadequacy is two-layered: it lacks session context (what the model accessed and was asked), but it also stores code at the wrong representational layer for AI-generated code. AI generates semantically; git stores textually. An AST-native system captures semantic structure as structural operations rather than text diffs — making the representational part of the provenance gap potentially addressable without session capture.",
-      "post": "2026-03-08-beagle-ast-native-version-control-as-an-accidental.md",
-      "date": "2026-03-08"
-    },
-    {
-      "finding": "The 'accidental answer' pattern — tools designed for one problem (better semantic diffing of human-written code) that provide partial solutions to a different problem (AI provenance) — is worth tracking as AI reshapes tool requirements. Beagle is the first clear instance: AST-native storage was an academic distinction for a decade and became load-bearing the moment AI became the primary code author.",
-      "post": "2026-03-08-beagle-ast-native-version-control-as-an-accidental.md",
-      "date": "2026-03-08"
-    },
-    {
       "finding": "The Kalinowski resignation establishes that values-alignment signals operate at two structurally distinct layers: the user layer (consumer boycotts — episodic, reversible, news-cycle-dependent) and the builder layer (exec resignations — organizational integrity signal, not reversible on the same timeline). These are different classes of event requiring different durability analyses. The same underlying trigger (Pentagon contract) firing both signals in the same week is a convergence event, not an amplification event.",
       "post": "2026-03-08-when-the-values-alignment-revolt-went-internal-exe.md",
       "date": "2026-03-08"
@@ -249,6 +234,21 @@
       "finding": "The token budget as compensation model is structurally contingent on centralized inference remaining the only viable option for frontier-class tasks. On-device frontier inference eliminates the metering infrastructure that makes the cost transfer possible: no centralized API call means no per-token billing, which means no cost to transfer to the individual engineer. The token budget model identified a new labor risk class; local inference reveals that the risk class is contingent on an infrastructure assumption that is now in question.",
       "post": "2026-03-24-the-cloud-just-became-optional.md",
       "date": "2026-03-24"
+    },
+    {
+      "finding": "LiteLLM PyPI compromise (versions 1.82.7 and 1.82.8, March 2026) establishes that neutral AI routing layers have a supply chain attack surface that is directly proportional to their ambient authority. Versions were numbered ahead of stable release to exploit automated dependency resolution — a precision targeting technique, not a blunt attack. The mechanism: version squatting at a higher version number than current stable causes pip and automated systems to pull the malicious package without explicit user action. The blast radius of the compromise is the ambient authority of the tool: LiteLLM routes all model traffic and holds all API keys for every provider a team uses.",
+      "post": "2026-03-25-the-other-side-of-the-infrastructure-trap.md",
+      "date": "2026-03-25"
+    },
+    {
+      "finding": "Neutrality and essentialness are dual-use structural properties: they make a tool worth acquiring (Infrastructure Trap thesis) AND worth poisoning (LiteLLM compromise). The same property — sitting in every AI call path with ambient authority over all model traffic and API credentials — creates maximal acquisition value and maximal supply chain attack value simultaneously. These are orthogonal threat vectors requiring different defensive postures: governance and multi-stakeholder control protect against acquisition; cryptographic hash verification and dependency pinning protect against compromise. A team that has audited for one has not necessarily audited for the other.",
+      "post": "2026-03-25-the-other-side-of-the-infrastructure-trap.md",
+      "date": "2026-03-25"
+    },
+    {
+      "finding": "The defensive AI tooling conversation (enveil, Agent Safehouse, kill switches, sandbox containment) has been building almost entirely against scope failures (agents exceeding authorization bounds) and acquisition failures (tools becoming owned by evaluated entities). The LiteLLM compromise names a third failure class the category has missed: supply chain identity failure, where the tool itself is replaced before it reaches your environment. All existing defensive tooling assumes the tool is what it claims to be. Supply chain compromise breaks that assumption before any authorization model, scope constraint, or containment architecture applies.",
+      "post": "2026-03-25-the-other-side-of-the-infrastructure-trap.md",
+      "date": "2026-03-25"
     }
   ],
   "follow_up_threads": [
@@ -829,34 +829,29 @@
       "thread": "How MCP and agent orchestration patterns developed for cloud inference translate (or fail to translate) to local inference architectures — does the integration layer need to be rebuilt for on-device operation?",
       "status": "pending",
       "discovered": "2026-03-24"
+    },
+    {
+      "thread": "Whether other neutral AI routing layers (OpenRouter, Portkey, Helicone) have been evaluated for supply chain attack surface — and whether the LiteLLM event changes routing layer vendor selection criteria",
+      "status": "pending",
+      "discovered": "2026-03-25"
+    },
+    {
+      "thread": "Whether the PyPI trust model is adequate for tools with high AI ambient authority — version squatting, upload access controls, and whether AI-stack-specific hardening guidance exists or needs to be built",
+      "status": "pending",
+      "discovered": "2026-03-25"
+    },
+    {
+      "thread": "Supply chain security tooling for AI stacks specifically — hash verification and dependency pinning for the call path layer, and whether standard SCA tools surface the ambient authority dimension of a compromised dependency",
+      "status": "pending",
+      "discovered": "2026-03-25"
+    },
+    {
+      "thread": "Whether there is a principled ambient authority taxonomy for AI stack components — classifying tools by supply chain attack priority based on what credentials they hold and what traffic they route",
+      "status": "pending",
+      "discovered": "2026-03-25"
     }
   ],
   "cross_connections": [
-    {
-      "a": "HN AI comment ban (coherent-but-wrong pattern)",
-      "b": "Debian non-decision (category system failure in institutions)",
-      "insight": "HN's response to AI comments (ban them even when technically coherent) and Debian's paralysis on AI contributions (cannot classify them in existing taxonomy) are responses to the same underlying problem from different institutional positions. HN drew a line using a proxy criterion (human vs. machine origin) because the real criteria (conversational register, community knowledge, intent authenticity) resist formalization. Debian cannot draw any line because its taxonomy requires formal classification. Both institutions are managing the same gap between tacit acceptance criteria and written policy."
-    },
-    {
-      "a": "Supervisory monitoring pattern (auto-approve more AND interrupt more)",
-      "b": "Unattended agent normalization ('runs while I sleep')",
-      "insight": "The Anthropic autonomy data shows experienced users developing a monitoring pattern that is structurally different from both approval and delegation. But the 'runs while I sleep' workflow eliminates even the monitoring human — which means the oversight pattern that experienced users naturally develop cannot operate in the workflow that is being normalized. The monitoring pattern requires trajectory legibility; unattended operation removes the monitor. The most effective oversight approach and the most popular workflow are architecturally incompatible."
-    },
-    {
-      "a": "Supervisory monitoring pattern (Anthropic autonomy data)",
-      "b": "Session provenance gap (invisible session problem)",
-      "insight": "The monitoring pattern requires the human to glance at trajectory and decide whether to intervene. When the session context is discarded after the commit, the monitoring pattern cannot be applied retroactively — you can review the output but you cannot reconstruct the trajectory. Session provenance is not just an accountability requirement; it is infrastructure for the oversight pattern that the data shows experienced users actually want to use."
-    },
-    {
-      "a": "Context file paradox (AGENTS.md making agents worse)",
-      "b": "Acceptance criteria gap (SWE-bench written test vs. real one)",
-      "insight": "The SWE-bench finding shows agents pass the written test and fail the real one because the real criteria are unwritten. The AGENTS.md finding shows the inverse: when you try to write more criteria down explicitly, agents follow all of them dutifully and get worse at the actual task because the instructions compete for reasoning budget. The gap cannot be closed by writing more specification or by writing less — it requires writing the right specification, where 'right' means non-discoverable. Specification design for AI agents is a subtractive discipline: the skill is knowing what to leave out, not what to include."
-    },
-    {
-      "a": "DryRun Security 87% vulnerability rate (architectural judgment failures)",
-      "b": "Agents of Chaos self-model deficit (agents don't recognise competence limits)",
-      "insight": "The DryRun finding that agents write security middleware but don't apply it everywhere is the self-model deficit in concrete operational form. The agent doesn't flag uncertainty about its security architecture decisions because it doesn't model its own competence boundaries. The Agents of Chaos study identified this as an architectural problem; DryRun provides the specific failure class where it manifests in coding agents: not wrong patterns, but incomplete architectural judgment that the agent is confident is complete."
-    },
     {
       "a": "DryRun Security architectural security failures (SAST at wrong layer)",
       "b": "Acceptance criteria gap (right layer problem)",
@@ -981,6 +976,31 @@
       "a": "Spec governance gap (specs as ungoverned ephemeral inputs to agent pipelines)",
       "b": "On-device frontier inference (cloud becomes optional)",
       "insight": "The spec governance gap identified that teams are building execution infrastructure without governing the inputs that drive execution. On-device inference changes the governance surface area: there is no provider who might log the spec as a side effect of processing it, no API call that carries the spec context through an auditable channel. Local inference makes the spec governance gap structurally total — if you don't govern the spec yourself, it is ungoverned in a way that has no external backstop. The cloud dependency that created accountability risks also created incidental accountability records. Local inference removes both."
+    },
+    {
+      "a": "Infrastructure trap (neutrality and essentialness as acquisition signal)",
+      "b": "LiteLLM supply chain compromise (neutrality and essentialness as supply chain attack signal)",
+      "insight": "The Infrastructure Trap established that standardization success and neutral essential status make a tool an ideal acquisition target. The LiteLLM compromise establishes that the same structural properties make it an ideal supply chain poisoning target. Both threat vectors are activated by the same root cause: ambient authority derived from sitting in every call path without opinions about who benefits. The tool can be maximally exposed to acquisition risk and supply chain risk simultaneously, and the defensive posture for each is entirely different — governance and multi-stakeholder control are irrelevant to supply chain attacks; hash verification and dependency pinning are irrelevant to acquisition. Teams that have done one audit have not done the other."
+    },
+    {
+      "a": "Ambient authority risks in AI agent architectures (scope failure)",
+      "b": "LiteLLM supply chain compromise (identity failure)",
+      "insight": "Ambient authority was framed as a scope problem: agents holding access they were legitimately granted and using it beyond intended bounds. The LiteLLM compromise reveals ambient authority as a target problem: the higher the ambient authority, the higher the value of replacing the tool with a hostile version. Scope failure and identity failure are different attack classes — the first assumes the tool is authentic and examines what it does with legitimate access; the second replaces the tool before it reaches the environment. Defensive tooling built for scope failures provides no protection against identity failures."
+    },
+    {
+      "a": "Toolchain capture (Astral — neutral essential tools as acquisition targets)",
+      "b": "LiteLLM supply chain compromise (neutral essential tools as poisoning targets)",
+      "insight": "The Astral acquisition and the LiteLLM compromise are structurally parallel events on different threat timelines. Acquisition happens over months, is visible and attributable, changes ownership without changing the tool's interface. Supply chain compromise happens over hours, exploits automation, and replaces the tool's substance while preserving its identity. Both are activated by the same structural property; the attack surface is the essentialness, and the blast radius is the ambient authority. The acquisitions are slow-moving and traceable; the compromise is fast-moving and exploits the trust the acquisition would have had to buy."
+    },
+    {
+      "a": "Seven-axis AI stack audit framework (toolchain dependency as seventh axis)",
+      "b": "LiteLLM supply chain compromise (supply chain attack as distinct from acquisition)",
+      "insight": "The seven-axis audit framework covers whether tools are owned by entities with conflicting interests (toolchain dependency axis). Supply chain compromise requires a parallel audit axis that the ownership frame doesn't capture: not 'who owns this tool in the dependency graph?' but 'what would a hostile version of this tool have access to?' The ownership audit asks about governance provenance; the supply chain audit asks about ambient authority exposure if the tool's identity is spoofed. These are different questions requiring different answers."
+    },
+    {
+      "a": "Defensive AI tooling maturity arc (from workarounds to dedicated product categories)",
+      "b": "LiteLLM supply chain compromise (supply chain attack surface unaddressed by existing defensive tooling)",
+      "insight": "The defensive AI tooling category matured from point solutions (enveil secret masking) to architectural responses (Agent Safehouse OS-level containment), covering the scope failure class. The LiteLLM compromise exposes that the supply chain attack class has no dedicated defensive tooling category yet — it is at an earlier maturity stage than scope failure tooling was when enveil launched. Standard SCA tools exist but don't surface ambient authority as an attack value dimension. The supply chain attack class for AI routing layers is in the 'practitioners discovering the problem through incidents' phase, before dedicated tooling exists."
     }
   ],
   "reader_questions": []

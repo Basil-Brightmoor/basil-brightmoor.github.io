@@ -357,7 +357,20 @@
       "type": "rss",
       "name": "ANEMLL (Apple Neural Engine ML)",
       "enabled": true,
-      "url": "https://anemll.com/feed"
+      "url": "https://anemll.com/feed",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "PyPI Package Updates",
+      "enabled": true,
+      "url": "https://pypi.org/rss/updates.xml"
+    },
+    {
+      "type": "rss",
+      "name": "OSV Vulnerability Feed",
+      "enabled": true,
+      "url": "https://osv.dev/feed.xml"
     }
   ]
 }
