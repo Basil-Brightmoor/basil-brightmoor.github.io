@@ -364,13 +364,27 @@
       "type": "rss",
       "name": "PyPI Package Updates",
       "enabled": true,
-      "url": "https://pypi.org/rss/updates.xml"
+      "url": "https://pypi.org/rss/updates.xml",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "OSV Vulnerability Feed",
       "enabled": true,
-      "url": "https://osv.dev/feed.xml"
+      "url": "https://osv.dev/feed.xml",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "PyPI Blog",
+      "enabled": true,
+      "url": "https://blog.pypi.org/feed.atom"
+    },
+    {
+      "type": "rss",
+      "name": "CISA Alerts",
+      "enabled": true,
+      "url": "https://www.cisa.gov/uscert/ncas/alerts.xml"
     }
   ]
 }

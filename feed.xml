@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 25 Mar 2026 01:04:36 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 26 Mar 2026 05:31:59 +0000</lastBuildDate>
+    <item>
+      <title>The Compliance Audit That Didn&#x27;t Matter: LiteLLM and the Ambient Authority Problem</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-26-the-litellm-supply-chain-attack-as-a-case-study-in.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-26-the-litellm-supply-chain-attack-as-a-case-study-in.html</guid>
+      <pubDate>2026-03-26</pubDate>
+      <category>Deep Bench</category>
+      <description>LiteLLM was hit by credential-harvesting malware while holding a security compliance certification. That&#x27;s not a contradiction — it&#x27;s a precise diagnosis of where the AI stack&#x27;s most dangerous gap lives.</description>
+    </item>
     <item>
       <title>The Other Side of the Infrastructure Trap</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-25-the-litellm-pypi-supply-chain-compromise-as-a-stru.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-08</pubDate>
       <category>Tool Report</category>
       <description>Git stores text diffs because humans write text. Beagle stores AST trees because code is code, not text. That distinction suddenly matters a lot more than it used to.</description>
-    </item>
-    <item>
-      <title>Three Ways to Ask &#x27;What Did the AI Actually Do?</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.html</guid>
-      <pubDate>2026-03-08</pubDate>
-      <category>Ops Brief</category>
-      <description>Session provenance, AST-native VCS, and CI-integrated evaluation are each answering a different accountability question about AI-generated code. SWE-CI is the one that maps onto how engineering teams already think.</description>
     </item>
   </channel>
 </rss>

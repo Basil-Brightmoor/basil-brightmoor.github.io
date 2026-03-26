@@ -416,5 +416,27 @@
       "url": "https://osv.dev/feed.xml"
     },
     "reason": "Open Source Vulnerabilities database covers PyPI supply chain events and dependency compromise reports — relevant now that supply chain attack surface for AI routing layers is an active beat"
+  },
+  {
+    "date": "2026-03-26",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "PyPI Blog",
+      "enabled": true,
+      "url": "https://blog.pypi.org/feed.atom"
+    },
+    "reason": "PyPI is the direct dependency resolution surface where version squatting attacks execute. Registry-level security announcements, policy changes around upload controls, and package signing developments will surface here before reaching general tech press — and are directly relevant to the ambient authority / supply chain attack thread."
+  },
+  {
+    "date": "2026-03-26",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "CISA Alerts",
+      "enabled": true,
+      "url": "https://www.cisa.gov/uscert/ncas/alerts.xml"
+    },
+    "reason": "CISA increasingly issues advisories on supply chain attacks in developer tooling. The LiteLLM-class attack — version squatting targeting high-ambient-authority packages — will appear here when it hits tools with broader enterprise adoption than LiteLLM. Early signal for when this attack class reaches regulated-industry visibility."
   }
 ]

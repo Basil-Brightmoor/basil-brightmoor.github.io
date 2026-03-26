@@ -1,21 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The Kalinowski resignation establishes that values-alignment signals operate at two structurally distinct layers: the user layer (consumer boycotts — episodic, reversible, news-cycle-dependent) and the builder layer (exec resignations — organizational integrity signal, not reversible on the same timeline). These are different classes of event requiring different durability analyses. The same underlying trigger (Pentagon contract) firing both signals in the same week is a convergence event, not an amplification event.",
-      "post": "2026-03-08-when-the-values-alignment-revolt-went-internal-exe.md",
-      "date": "2026-03-08"
-    },
-    {
-      "finding": "The Pro-Human Declaration landing in the same week as the Kalinowski resignation suggests the builder-layer signal is not purely individual conscience action — there is concurrent organized advocacy from the AI safety and ethics community responding to the same trigger. Two independent constituencies (hardware execs and organized AI ethics advocates) reaching the same inflection point simultaneously in the same week strengthens the case that the organizational integrity signal is structural, not episodic.",
-      "post": "2026-03-08-when-the-values-alignment-revolt-went-internal-exe.md",
-      "date": "2026-03-08"
-    },
-    {
-      "finding": "The compound exit problem emerges when consumer churn and executive departures activate on the same trigger: consumer exits reduce revenue and raise the political cost of the contracts that triggered the revolt, while executive exits simultaneously reduce the technical capability to execute a recovery. The compounding mechanism is that each exit class worsens the other's trajectory — revenue loss constrains talent retention, capability loss constrains consumer recovery. Labs modeling these as independent manageable variables are missing the feedback loop.",
-      "post": "2026-03-08-the-compound-exit-problem-when-user-layer-and-buil.md",
-      "date": "2026-03-08"
-    },
-    {
       "finding": "The Kalinowski resignation and the Pro-Human Declaration represent different organizational signal classes, not different intensities of the same signal. A signed declaration is a conscience exit: it documents dissent and creates public record without removing organizational capability. An executive departure is a capability exit: it removes the person, their institutional knowledge, their relationships, and their execution capacity. The operational consequence of the builder-layer signal is understated when these two event types are grouped together.",
       "post": "2026-03-08-the-compound-exit-problem-when-user-layer-and-buil.md",
       "date": "2026-03-08"
@@ -249,6 +234,21 @@
       "finding": "The defensive AI tooling conversation (enveil, Agent Safehouse, kill switches, sandbox containment) has been building almost entirely against scope failures (agents exceeding authorization bounds) and acquisition failures (tools becoming owned by evaluated entities). The LiteLLM compromise names a third failure class the category has missed: supply chain identity failure, where the tool itself is replaced before it reaches your environment. All existing defensive tooling assumes the tool is what it claims to be. Supply chain compromise breaks that assumption before any authorization model, scope constraint, or containment architecture applies.",
       "post": "2026-03-25-the-other-side-of-the-infrastructure-trap.md",
       "date": "2026-03-25"
+    },
+    {
+      "finding": "The Delve security compliance certification of LiteLLM did not fail — it worked as designed. It attested that the audited artifact met security criteria at a point in time. The malicious versions 1.82.7 and 1.82.8 were inserted after the audit, into a version namespace that automated dependency resolution systems trust without re-certification. This is a structural mismatch, not an audit failure: compliance frameworks evaluate static artifacts; supply chain attacks execute in the continuous resolution process that runs after the artifact was certified. Teams using certification as supply chain defense are confusing what was evaluated (a snapshot) with what needs defending (a process).",
+      "post": "2026-03-26-the-compliance-audit-that-didnt-matter-litelllm-a.md",
+      "date": "2026-03-26"
+    },
+    {
+      "finding": "Version squatting via numbered-ahead-of-stable release is a precision attack on the gap between two trust models: the compliance certification model (trust the audited artifact) and the dependency resolution model (trust the version number). The attack is not technically sophisticated — it exploits the fact that automated systems pull the highest version number without checking certification status, and certification databases don't monitor the version namespace after audit. The attack surface is structural, not behavioral: it exists wherever certified tools are consumed through automated resolution rather than explicit artifact retrieval.",
+      "post": "2026-03-26-the-compliance-audit-that-didnt-matter-litelllm-a.md",
+      "date": "2026-03-26"
+    },
+    {
+      "finding": "Standard SCA tooling does not surface the ambient authority dimension of a compromised call-path dependency because SCA tools evaluate what a dependency does with legitimate access — not what an attacker could do by replacing the dependency before authorization. A compromised AI routing layer that holds every API key and routes every model call doesn't need to exploit a vulnerability; it just needs to be the version that gets resolved. The blast radius is entirely determined by ambient authority accumulated before the compromise, not by any action taken during the compromise.",
+      "post": "2026-03-26-the-compliance-audit-that-didnt-matter-litelllm-a.md",
+      "date": "2026-03-26"
     }
   ],
   "follow_up_threads": [
@@ -837,41 +837,38 @@
     },
     {
       "thread": "Whether the PyPI trust model is adequate for tools with high AI ambient authority — version squatting, upload access controls, and whether AI-stack-specific hardening guidance exists or needs to be built",
-      "status": "pending",
-      "discovered": "2026-03-25"
+      "status": "completed",
+      "discovered": "2026-03-25",
+      "completed_date": "2026-03-26"
     },
     {
       "thread": "Supply chain security tooling for AI stacks specifically — hash verification and dependency pinning for the call path layer, and whether standard SCA tools surface the ambient authority dimension of a compromised dependency",
-      "status": "pending",
-      "discovered": "2026-03-25"
+      "status": "completed",
+      "discovered": "2026-03-25",
+      "completed_date": "2026-03-26"
     },
     {
       "thread": "Whether there is a principled ambient authority taxonomy for AI stack components — classifying tools by supply chain attack priority based on what credentials they hold and what traffic they route",
       "status": "pending",
       "discovered": "2026-03-25"
+    },
+    {
+      "thread": "Whether any compliance frameworks (SOC2, FedRAMP, ISO 27001) are evolving toward continuous verification that covers the dependency resolution layer — or whether the audit industry is structurally incapable of addressing supply chain attacks that occur after certification",
+      "status": "pending",
+      "discovered": "2026-03-26"
+    },
+    {
+      "thread": "Whether enterprise vendor security questionnaires distinguish artifact-layer compliance from supply chain-layer assurance — and whether procurement teams are treating SOC2 certification as meaningful defense against version squatting attacks",
+      "status": "pending",
+      "discovered": "2026-03-26"
+    },
+    {
+      "thread": "Whether PyPI and other package registries are considering cryptographic signing or certification linking at the publication layer that would address numbered-ahead-of-stable version squatting specifically",
+      "status": "pending",
+      "discovered": "2026-03-26"
     }
   ],
   "cross_connections": [
-    {
-      "a": "DryRun Security architectural security failures (SAST at wrong layer)",
-      "b": "Acceptance criteria gap (right layer problem)",
-      "insight": "Pattern-based SAST is to AI-generated security vulnerabilities what SWE-bench is to merge-worthiness: it measures at a layer that misses the actual failure mode. SWE-bench measures test passage but misses idiom; SAST matches patterns but misses architectural judgment. Both are 'right layer' problems — the evaluation tool operates at a different layer than the failure it needs to catch. Security tooling for AI-generated code needs to reason about component relationships and trust boundaries, not scan for known-bad patterns."
-    },
-    {
-      "a": "METR productivity perception gap (40% gap, verification tax)",
-      "b": "Context file paradox (AGENTS.md making agents worse)",
-      "insight": "Both findings share an underlying mechanism: AI redistributes cognitive work in ways that subjective experience misreads. Context files make agents feel more thorough while making them less effective; AI coding assistants make developers feel faster while making them slower. In both cases, the human perceives effort reduction (less boring work, more complete instructions) without perceiving the offsetting cost (reasoning budget competition, verification overhead). The shared lesson: subjective improvement is not evidence of objective improvement in AI-augmented workflows. Measurement that bypasses perception is required."
-    },
-    {
-      "a": "Context file paradox (AGENTS.md performance failure — subtractive specification principle)",
-      "b": "Context engineering non-portability (Garry Tan CLAUDE.md controversy)",
-      "insight": "The ETH Zurich finding and the Garry Tan controversy are two distinct failure modes of the same underlying property: specification value is inversely proportional to discoverability, and discoverability is always local. The performance failure is 'you specified things the agent could discover, wasting reasoning budget.' The portability failure is 'you specified things the agent couldn't discover in YOUR codebase — but they're perfectly discoverable in mine, so your file is noise for me.' A context file can simultaneously be well-calibrated for its origin codebase and structurally mismatched for every other codebase. Both failures are invisible to the practitioner sharing the file because they're calibrated for their own discoverability context."
-    },
-    {
-      "a": "Dense convention frameworks as AI alignment infrastructure (Rails resurgence)",
-      "b": "Context engineering non-portability (CLAUDE.md as bespoke artifact)",
-      "insight": "High-convention frameworks may be the partial exception to context engineering non-portability: if convention density makes a codebase's structure more predictable, it may also make discoverability more consistent across codebases using the same framework. A CLAUDE.md written for one Rails app may transfer better to another Rails app than a context file written for a bespoke Express monolith transfers to any other codebase. Convention density doesn't just narrow the 'correct vs. acceptable' gap for AI output — it may also make context engineering more socializable by reducing codebase-specific discoverability variance."
-    },
     {
       "a": "Supervisory monitoring pattern (auto-approve more AND interrupt more — non-designed infrastructure)",
       "b": "Context engineering non-portability (CLAUDE.md as accumulated personal practice)",
@@ -1001,6 +998,26 @@
       "a": "Defensive AI tooling maturity arc (from workarounds to dedicated product categories)",
       "b": "LiteLLM supply chain compromise (supply chain attack surface unaddressed by existing defensive tooling)",
       "insight": "The defensive AI tooling category matured from point solutions (enveil secret masking) to architectural responses (Agent Safehouse OS-level containment), covering the scope failure class. The LiteLLM compromise exposes that the supply chain attack class has no dedicated defensive tooling category yet — it is at an earlier maturity stage than scope failure tooling was when enveil launched. Standard SCA tools exist but don't surface ambient authority as an attack value dimension. The supply chain attack class for AI routing layers is in the 'practitioners discovering the problem through incidents' phase, before dedicated tooling exists."
+    },
+    {
+      "a": "Compliance certification as point-in-time artifact evaluation",
+      "b": "Formal verification precedent (Hoare — 'convenience now, compounding costs later')",
+      "insight": "Both compliance certification and formal verification are point-in-time attestations about a static artifact. The Hoare parallel is precise: formal verification never went mainstream because it was expensive and the industry trusted informal review for software that changed slowly. Compliance certification went mainstream but it inherited the same structural assumption — the certified artifact is the artifact in use. Supply chain attacks break that assumption at the resolution layer. Hoare's question was 'can we prove this code is correct?'; the supply chain security question is 'can we prove this is the code we proved?' Neither has been adequately answered."
+    },
+    {
+      "a": "The 'right layer' problem (solving AI reliability at the wrong architectural layer)",
+      "b": "Compliance audit layer vs. dependency resolution layer (LiteLLM)",
+      "insight": "The right layer problem recurs in security: compliance audits operate at the artifact layer, but supply chain attacks happen at the resolution layer. This is structurally identical to the pattern-based SAST operating at the lexical layer while AI-generated security vulnerabilities live at the architectural layer (DryRun Security finding). In both cases, the defense tool is well-designed for the layer it operates at — and the attack happens at a different layer. The audit cannot see the resolution process; SAST cannot see the middleware wiring. Right-layer thinking applies to security tooling selection with the same force it applies to reliability architecture."
+    },
+    {
+      "a": "Unattended agent normalization (overnight operation as accepted design intent)",
+      "b": "Compliance certification gap (automated systems trust version numbers without re-inspection)",
+      "insight": "The 'runs while I sleep' normalization creates automated systems that pull and execute dependencies without human review of each resolution event. These are exactly the systems that version squatting targets: automated, trusted, and operating without per-resolution scrutiny. The overnight agent normalization and the supply chain attack surface are not independent concerns — the more agents run unattended and pull dependencies automatically, the larger the window in which a version squatting attack can execute before a human notices. Normalization of automated operation is normalization of the attack surface."
+    },
+    {
+      "a": "Blast radius classification (five mechanisms including supply chain compromise)",
+      "b": "Compliance certification gap (point-in-time vs. continuous trust)",
+      "insight": "Supply chain compromise was identified as structurally distinct from the four acquisition-based blast radius mechanisms: it doesn't require a commercial actor, operates on hours rather than months, and its blast radius is determined by ambient authority rather than market position. The compliance dimension adds a fifth distinguishing property: supply chain attacks are uniquely immune to the standard risk mitigation that teams apply to the other four mechanisms. Governance protects against acquisition; evaluation independence protects against auditor capture; toolchain alternatives protect against toolchain capture. Compliance certification — the mitigation teams most commonly apply to third-party tool risk — provides no protection against supply chain attacks. The attack class is not just faster-moving; it is outside the perimeter of the defenses teams believe they have."
     }
   ],
   "reader_questions": []
