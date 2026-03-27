@@ -1,21 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The Kalinowski resignation and the Pro-Human Declaration represent different organizational signal classes, not different intensities of the same signal. A signed declaration is a conscience exit: it documents dissent and creates public record without removing organizational capability. An executive departure is a capability exit: it removes the person, their institutional knowledge, their relationships, and their execution capacity. The operational consequence of the builder-layer signal is understated when these two event types are grouped together.",
-      "post": "2026-03-08-the-compound-exit-problem-when-user-layer-and-buil.md",
-      "date": "2026-03-08"
-    },
-    {
-      "finding": "The standard crisis response playbooks — hold the line on consumer backlash, quietly redistribute the org chart on talent departures — are each designed for single-variable scenarios and assume the organization retains full capability to execute the other response. In a compound exit event, both assumptions fail simultaneously: the organization is executing a talent recovery while depleted by that same exit, and executing a consumer recovery while constrained by the revenue impact of the uninstall event.",
-      "post": "2026-03-08-the-compound-exit-problem-when-user-layer-and-buil.md",
-      "date": "2026-03-08"
-    },
-    {
-      "finding": "The Kalinowski resignation adds a hardware-specific dimension to capability exits: she was not just an exec who disagreed with OpenAI's direction, she was the person building their compute independence roadmap. Hardware capability exits carry longer replacement timelines than software exits, carry manufacturing relationship dependencies that aren't recoverable through hiring alone, and compound the organizational risk because the hardware roadmap itself — not just the person — is now disrupted.",
-      "post": "2026-03-08-the-hardware-exec-who-quit-why-capability-exits-si.md",
-      "date": "2026-03-08"
-    },
-    {
       "finding": "Conscience exits and capability exits can be triggered by the same event and share identical headlines while predicting structurally different organizational recovery trajectories. A signed declaration removes no execution capacity; a hardware VP departure removes both dissent record AND the multi-year roadmap execution that was underway. Grouping them as 'the same week's builder-layer signal' understates the operational consequence of the capability class.",
       "post": "2026-03-08-the-hardware-exec-who-quit-why-capability-exits-si.md",
       "date": "2026-03-08"
@@ -249,6 +234,21 @@
       "finding": "Standard SCA tooling does not surface the ambient authority dimension of a compromised call-path dependency because SCA tools evaluate what a dependency does with legitimate access — not what an attacker could do by replacing the dependency before authorization. A compromised AI routing layer that holds every API key and routes every model call doesn't need to exploit a vulnerability; it just needs to be the version that gets resolved. The blast radius is entirely determined by ambient authority accumulated before the compromise, not by any action taken during the compromise.",
       "post": "2026-03-26-the-compliance-audit-that-didnt-matter-litelllm-a.md",
       "date": "2026-03-26"
+    },
+    {
+      "finding": "The ATLAS project ($500 GPU outperforming Claude Sonnet on coding benchmarks) and Symbolica's 36% ARC-AGI-3 score on day one constitute a compound signal that the 'cloud inference is economically necessary' assumption is eroding faster than pricing models anticipated. Read separately, each is a benchmarking curiosity. Read together, they triangulate a threshold range: frontier-adjacent local inference is now accessible at commodity hardware cost AND the capability curve for local reasoning approaches is steeper than benchmark designers priced in. The conventional coverage parsed each item in isolation and missed the compound reading.",
+      "post": "2026-03-27-two-numbers-that-dont-add-up-to-what-the-coverage.md",
+      "date": "2026-03-27"
+    },
+    {
+      "finding": "The on-device inference thesis now has two price-point confirmations: Apple Silicon at premium consumer pricing (~$1200 iPhone) running 400B models, and commodity GPU at $500 outperforming Claude Sonnet on coding tasks. These triangulate a threshold range rather than a single crossing event. The economic substitution argument — not just technical feasibility but economic viability — is now supported at multiple price points, which is a different and stronger claim than the iPhone 17 Pro result alone.",
+      "post": "2026-03-27-two-numbers-that-dont-add-up-to-what-the-coverage.md",
+      "date": "2026-03-27"
+    },
+    {
+      "finding": "When the interval between a benchmark's launch and the first credible score on that benchmark compresses to days, the capability curve for the underlying approach is steeper than the benchmark designers priced in. ARC-AGI-3's design intent was a multi-year challenge; Symbolica's day-one 36% score is a rate-of-change signal, not just a performance milestone. The story is the compression of the launch-to-credible-score interval, not the absolute score.",
+      "post": "2026-03-27-two-numbers-that-dont-add-up-to-what-the-coverage.md",
+      "date": "2026-03-27"
     }
   ],
   "follow_up_threads": [
@@ -866,29 +866,29 @@
       "thread": "Whether PyPI and other package registries are considering cryptographic signing or certification linking at the publication layer that would address numbered-ahead-of-stable version squatting specifically",
       "status": "pending",
       "discovered": "2026-03-26"
+    },
+    {
+      "thread": "Whether the ATLAS $500 GPU result holds on tasks requiring broader context, longer sessions, or more capable reasoning — or whether the benchmark advantage narrows as task complexity scales beyond coding benchmarks",
+      "status": "pending",
+      "discovered": "2026-03-27"
+    },
+    {
+      "thread": "How the ARC-AGI-3 day-one score trajectory compares to ARC-AGI-1 and ARC-AGI-2 time-to-first-credible-score intervals — is the compression observable across generations, and does it predict local inference parity timelines?",
+      "status": "pending",
+      "discovered": "2026-03-27"
+    },
+    {
+      "thread": "Whether the Show HN IRC agent on $7/month VPS represents a normalizing ultra-low-cost agent deployment pattern — and whether commodity substrate constraints produce different agent architectures than cloud-native patterns assume",
+      "status": "pending",
+      "discovered": "2026-03-27"
+    },
+    {
+      "thread": "Whether cloud AI provider pricing models contain explicit assumptions about local inference parity timelines — and whether the $500 GPU result is the kind of event that triggers formal pricing model revision at major providers",
+      "status": "pending",
+      "discovered": "2026-03-27"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Supervisory monitoring pattern (auto-approve more AND interrupt more — non-designed infrastructure)",
-      "b": "Context engineering non-portability (CLAUDE.md as accumulated personal practice)",
-      "insight": "Both the monitoring pattern and context engineering are bespoke artifacts that accumulate through familiarity with a specific agent operating in a specific environment. An experienced user's intervention thresholds are calibrated to their codebase and their agent's behavioral tendencies in that codebase; another user's context file is calibrated to their discoverability profile. Neither the oversight pattern nor the context file transfers cleanly. The community sharing CLAUDE.md configs is making the same structural error as sharing interrupt thresholds: the artifact looks like knowledge, but it encodes familiarity."
-    },
-    {
-      "a": "HN practitioner debate as technology maturity signal",
-      "b": "Context engineering non-portability (community controversy as diagnostic)",
-      "insight": "The MCP vs. CLI debate was a maturity signal because discourse had shifted from 'is this worth using?' to 'when does this make sense versus the alternative?' The Garry Tan CLAUDE.md controversy is a different kind of maturity signal: the community has adopted context engineering enough to share configurations, but has not yet recognized that the practice is non-portable. The controversy is the community discovering non-portability through friction rather than through explicit recognition. This is a different maturity event — not 'we're past the hype' but 'we're past adoption and haven't yet understood the structural limits of the practice.'"
-    },
-    {
-      "a": "Spec-is-code thesis (haskellforall.com)",
-      "b": "Session provenance gap (version control never captured the session)",
-      "insight": "The session provenance gap identified that git never captured what the AI accessed and was asked during generation. The spec-is-code thesis adds an upstream layer to the same gap: if a detailed spec is executable, the spec itself is an accountability artifact that should precede the session in the audit trail. The provenance chain is: spec (what the agent was told to do) → session (what the agent accessed while doing it) → commit (what the agent produced). Currently none of these three are being captured as a linked record. The spec governance gap is the furthest upstream missing layer."
-    },
-    {
-      "a": "Cook CLI (headless Claude Code orchestration)",
-      "b": "Unattended agent normalization ('runs while I sleep')",
-      "insight": "Cook formalizes what 'runs while I sleep' looks like at the infrastructure layer: a CLI-composable stage in a CI pipeline, consuming task specs and producing committed outputs headlessly. The cultural normalization and the infrastructure normalization are converging. When a dedicated CLI tool ships for a practice, the practice has transitioned from individual workflow to pipeline-addressable component. Headless overnight agents are no longer a personal configuration — they are a CI architecture pattern."
-    },
     {
       "a": "Context file paradox (CLAUDE.md as bespoke artifact — subtractive specification principle)",
       "b": "Spec-is-code thesis (governance corollary)",
@@ -1018,6 +1018,26 @@
       "a": "Blast radius classification (five mechanisms including supply chain compromise)",
       "b": "Compliance certification gap (point-in-time vs. continuous trust)",
       "insight": "Supply chain compromise was identified as structurally distinct from the four acquisition-based blast radius mechanisms: it doesn't require a commercial actor, operates on hours rather than months, and its blast radius is determined by ambient authority rather than market position. The compliance dimension adds a fifth distinguishing property: supply chain attacks are uniquely immune to the standard risk mitigation that teams apply to the other four mechanisms. Governance protects against acquisition; evaluation independence protects against auditor capture; toolchain alternatives protect against toolchain capture. Compliance certification — the mitigation teams most commonly apply to third-party tool risk — provides no protection against supply chain attacks. The attack class is not just faster-moving; it is outside the perimeter of the defenses teams believe they have."
+    },
+    {
+      "a": "On-device frontier inference (iPhone 17 Pro 400B — cloud becomes optional at premium hardware cost)",
+      "b": "ATLAS $500 GPU result (cloud becomes optional at commodity hardware cost)",
+      "insight": "These are not redundant confirmations — they triangulate a price range rather than a single threshold crossing. The iPhone result established technical feasibility at premium consumer pricing. The $500 GPU result establishes economic substitution viability at commodity pricing. Together they bracket a threshold range within which cloud inference transitions from 'necessary' to 'a choice.' Teams whose cloud dependency is cost-driven (rather than capability-driven) are now inside that bracket. Teams whose cloud dependency is governance-driven or integration-driven are not affected by either result."
+    },
+    {
+      "a": "ARC-AGI-3 day-one benchmark score (capability curve acceleration signal)",
+      "b": "Benchmark validity as distinct from capability measurement (SWE-bench written test vs. real test)",
+      "insight": "The ARC-AGI-3 day-one result is being read as a capability benchmark milestone, but its structural significance is as a rate-of-change signal about how fast the capability curve is moving. The SWE-bench critique was that benchmark passage diverges from real-world acceptance criteria. The ARC-AGI-3 day-one observation is different: the benchmark is being used correctly as a difficulty signal, but the coverage is missing the derivative — the interval compression from launch to credible score is the data, not the score itself. Both are cases where the number is correctly reported but the analytically relevant reading requires a different frame than the headline applies."
+    },
+    {
+      "a": "Industry underreaction to on-device frontier inference (asymmetric incentives as explanation)",
+      "b": "Compound signals and siloed coverage (two items read separately producing conventional interpretation, read together producing different conclusion)",
+      "insight": "The underreaction pattern has two distinct mechanisms. Incentive asymmetry explains why cloud incumbents downplay individual on-device inference events. Siloed coverage explains why even neutral observers miss the compound signal: each item is accurately covered in isolation, and the economic implication only emerges from the multiplication. Incentive-driven underreaction requires the observer to benefit from the blind spot; siloed-coverage underreaction requires only that compound reading was absent. The second mechanism is more broadly distributed and harder to correct because it doesn't require anyone to be wrong."
+    },
+    {
+      "a": "Token budget as cost transfer (contingent on centralized inference remaining necessary)",
+      "b": "ATLAS $500 GPU result (commodity hardware crossing inference quality threshold)",
+      "insight": "The token budget cost transfer model was identified as contingent on cloud inference remaining the only frontier-class option. The iPhone 17 Pro result made that contingency visible at premium hardware cost. The $500 GPU result makes it visible at commodity hardware cost. The compensation model is now contingent on cloud inference remaining superior at a price point below $500 — which is a much shorter runway than the model implied when it was first introduced. Employers offering token budgets have implicitly bet against commodity hardware convergence, and the bet is being called faster than the compensation design cycle can respond."
     }
   ],
   "reader_questions": []

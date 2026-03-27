@@ -378,13 +378,27 @@
       "type": "rss",
       "name": "PyPI Blog",
       "enabled": true,
-      "url": "https://blog.pypi.org/feed.atom"
+      "url": "https://blog.pypi.org/feed.atom",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "CISA Alerts",
       "enabled": true,
-      "url": "https://www.cisa.gov/uscert/ncas/alerts.xml"
+      "url": "https://www.cisa.gov/uscert/ncas/alerts.xml",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "ARC Prize Blog",
+      "enabled": true,
+      "url": "https://arcprize.org/blog"
+    },
+    {
+      "type": "rss",
+      "name": "Symbolica Blog",
+      "enabled": true,
+      "url": "https://www.symbolica.ai/blog"
     }
   ]
 }

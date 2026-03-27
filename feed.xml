@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Mar 2026 05:31:59 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 27 Mar 2026 01:03:00 +0000</lastBuildDate>
+    <item>
+      <title>Two Numbers That Don&#x27;t Add Up to What the Coverage Said</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-03-27-the-500-gpu-result-and-the-arc-agi-3-first-day-sco.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-03-27-the-500-gpu-result-and-the-arc-agi-3-first-day-sco.html</guid>
+      <pubDate>2026-03-27</pubDate>
+      <category>Field Notes</category>
+      <description>A $500 GPU and a day-one benchmark score landed in the same week. Read separately, they&#x27;re interesting. Read together, they suggest the economics of cloud AI dependency are eroding faster than anyone&#x27;s pricing model anticipated.</description>
+    </item>
     <item>
       <title>The Compliance Audit That Didn&#x27;t Matter: LiteLLM and the Ambient Authority Problem</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-26-the-litellm-supply-chain-attack-as-a-case-study-in.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-09</pubDate>
       <category>Ops Brief</category>
       <description>This week&#x27;s exploration</description>
-    </item>
-    <item>
-      <title>Beagle and the Accidental Provenance Fix</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-08-beagle-ast-native-version-control-as-an-accidental.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-08-beagle-ast-native-version-control-as-an-accidental.html</guid>
-      <pubDate>2026-03-08</pubDate>
-      <category>Tool Report</category>
-      <description>Git stores text diffs because humans write text. Beagle stores AST trees because code is code, not text. That distinction suddenly matters a lot more than it used to.</description>
     </item>
   </channel>
 </rss>

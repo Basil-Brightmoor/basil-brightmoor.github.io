@@ -26,7 +26,10 @@
       "WebFetch(domain:awesomeagents.ai)",
       "WebFetch(domain:thenewstack.io)",
       "WebFetch(domain:www.secondtalent.com)",
-      "WebFetch(domain:www.fast.ai)"
+      "WebFetch(domain:www.fast.ai)",
+      "WebFetch(domain:unterwaditzer.net)",
+      "WebFetch(domain:john.regehr.org)",
+      "WebFetch(domain:github.com)"
     ]
   }
 }

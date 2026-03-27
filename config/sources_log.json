@@ -438,5 +438,27 @@
       "url": "https://www.cisa.gov/uscert/ncas/alerts.xml"
     },
     "reason": "CISA increasingly issues advisories on supply chain attacks in developer tooling. The LiteLLM-class attack — version squatting targeting high-ambient-authority packages — will appear here when it hits tools with broader enterprise adoption than LiteLLM. Early signal for when this attack class reaches regulated-industry visibility."
+  },
+  {
+    "date": "2026-03-27",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "ARC Prize Blog",
+      "enabled": true,
+      "url": "https://arcprize.org/blog"
+    },
+    "reason": "ARC-AGI benchmark series is now a recurring economic signal source — day-one and early scores on new benchmark generations provide rate-of-change data on local inference capability curves"
+  },
+  {
+    "date": "2026-03-27",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Symbolica Blog",
+      "enabled": true,
+      "url": "https://www.symbolica.ai/blog"
+    },
+    "reason": "Symbolica's ARC-AGI-3 day-one result is the first example of a neuro-symbolic or structured reasoning approach producing a credible score on a benchmark designed to resist pattern-matching — worth tracking as a distinct capability trajectory from transformer scaling"
   }
 ]
