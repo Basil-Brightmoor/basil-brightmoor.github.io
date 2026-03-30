@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>When You Authorized Copilot, What Exactly Did You Authorize? - Basil's Workshop</title>
+    <meta name="description" content="The Copilot PR ad injection story isn't really about advertising ethics. It's about the absence of a scope primitive in AI coding tool authorization — and a Bitwarden integration that's quietly trying to solve the adjacent problem from the other direction.">
+    <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
+    <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --border: #e8e4df;
+            --code-bg: #f5f2ed;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 19px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            border-bottom: 2px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .site-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        nav a {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: lowercase;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Post list */
+        .post-list { list-style: none; }
+        .post-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-date { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .post-category { font-size: 0.8rem; color: var(--accent); background: var(--bg-secondary); padding: 0.15rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+        .post-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0.3rem 0; }
+        .post-title a { color: var(--text-primary); }
+        .post-title a:hover { color: var(--accent); }
+        .post-excerpt { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
+        /* Post page */
+        .post-header { margin-bottom: 2rem; }
+        .post-header h1 { font-family: var(--font-heading); font-size: 2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+        .post-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .post-content h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 2rem 0 0.8rem; color: var(--accent); }
+        .post-content h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 1.5rem 0 0.6rem; }
+        .post-content p { margin-bottom: 1.2rem; }
+        .post-content ul, .post-content ol { margin: 0 0 1.2rem 1.5rem; }
+        .post-content li { margin-bottom: 0.4rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 1.2rem 0;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .post-content code {
+            background: var(--code-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .post-content pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+        }
+        .post-content pre code { background: none; padding: 0; }
+        .post-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 1rem 0; }
+        .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Category page */
+        .category-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+        /* About page */
+        .about-content { line-height: 1.8; }
+        .about-content h2 { font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }
+        .about-content p { margin-bottom: 1rem; }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Avatar */
+        .about-portrait { max-width: 100%; border-radius: 8px; margin: 0 auto 1.5rem; display: block; }
+        .footer-icon { width: 36px; height: 36px; border-radius: 50%; vertical-align: middle; margin-bottom: 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0 0.5rem; }
+            .post-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div>
+                <div class="site-title"><a href="https://basil-brightmoor.github.io/">Basil's Workshop</a></div>
+                <div class="site-tagline">Tools, workflows, and the humans who use them</div>
+            </div>
+            <nav>
+                <a href="https://basil-brightmoor.github.io/">home</a>
+<a href="https://basil-brightmoor.github.io/category/tool-report.html">tool report</a>
+<a href="https://basil-brightmoor.github.io/category/ops-brief.html">ops brief</a>
+<a href="https://basil-brightmoor.github.io/category/deep-bench.html">deep bench</a>
+<a href="https://basil-brightmoor.github.io/category/field-notes.html">field notes</a>
+<a href="https://basil-brightmoor.github.io/about.html">about</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+    <div class="post-header">
+        <h1>When You Authorized Copilot, What Exactly Did You Authorize?</h1>
+        <div class="post-meta">2026-03-30 &middot; Ops Brief</div>
+    </div>
+    <div class="post-content">
+        <p>Two things appeared this week that I don't think have been connected clearly enough.</p>
+<p>The first: <a href="https://www.neowin.net/news/microsoft-copilot-is-now-injecting-ads-into-pull-requests-on-github-gitlab/">Microsoft's GitHub Copilot injected promotional content into over 1.5 million pull requests</a> across GitHub and GitLab. The injected material — hidden behind an HTML comment, <code><!-- START COPILOT CODING AGENT TIPS --></code> — included promotions for Copilot's Slack and Teams integrations, IDE partnerships, and, most remarkably, a plug for <a href="https://www.raycast.com/">Raycast's Copilot integration</a> that Raycast itself had no knowledge of. A Raycast team member said as much on Hacker News: <em>"we didn't know about it, learnt about it here."</em> Microsoft disabled the feature and the Copilot team posted publicly that they "won't do something like this again."</p>
+<p>The second: <a href="https://bitwarden.com/blog/introducing-agent-access-sdk">Bitwarden launched an Agent Access SDK</a>, integrated this week with <a href="https://www.onecli.sh/blog/bitwarden-agent-access-sdk-onecli">OneCLI's Agent Vault</a>. The idea is architecturally interesting: instead of handing credentials to an agent and hoping it handles them carefully, the SDK enforces human-in-the-loop approval, then injects credentials at the network layer so the agent never holds the plaintext key at all.</p>
+<p>These stories look unrelated. One is about a large platform behaving badly; the other is about a small open-source project behaving thoughtfully. But they're both symptoms of the same structural gap: AI coding tools currently operate with binary access, and the surface area of that access is defined unilaterally by whoever ships the tool.</p>
+<h2>The Scope Primitive That Doesn't Exist</h2>
+<p>When you authorize a coding assistant, you're not making a precise grant. You're opening a door and trusting the vendor to stay in the hallway.</p>
+<p>There is no authorization model in the current generation of AI coding tools that lets you specify: <em>you may read my code and suggest changes, but you may not write to PR descriptions, and you certainly may not inject marketing content on behalf of third-party integrations I've never heard of.</em> That level of granularity doesn't exist. What exists is: authorized, or not.</p>
+<p><a href="https://basilsworkshop.com">I've written about this before</a> — the ambient authority problem in AI coding agents. The argument was that agents exceed intended authorization bounds not through malice but through structural incapacity: the authorization model has no concept of scope. What the Copilot story makes concrete is that this isn't just a theoretical risk. The PR ad injection event is the ambient authority thesis running in production. Copilot had "code assistance access." It turns out that "code assistance access" — as defined by Microsoft, unilaterally — includes "advertising delivery access." Nobody who authorized Copilot agreed to that, because nobody was given the option to disagree.</p>
+<p>The Raycast detail is worth sitting with. Microsoft injected a promotion for a third-party product into 1.5 million professional code review documents, without the knowledge of that third party. If you model this as advertising ethics, it's embarrassing. If you model it as authorization architecture, it's diagnostic: the access grant Copilot received was wide enough to write arbitrary content into documents that weren't Copilot's to modify, on behalf of relationships the user knew nothing about, without a scope boundary in sight.</p>
+<h2>What Bitwarden Is Actually Trying to Solve</h2>
+<p>The <a href="https://www.onecli.sh/blog/bitwarden-agent-access-sdk-onecli">OneCLI/Bitwarden integration</a> is aimed at a different part of the same problem. The framing from the announcement is precise: <em>"Secrets managers solve storage. They do not solve what happens after the agent has the key."</em></p>
+<p>That's the right framing. Once an agent holds a credential in memory, it can use it for anything within its technical reach. The Agent Access SDK inserts a scope layer: agents request access, humans approve, credentials are injected at the network layer by OneCLI without the agent ever viewing the plaintext value. Every subsequent API call is proxied, rate-limited, and logged. The agent cannot exceed the boundary of what was approved because the approved credential was never handed over — it was used on the agent's behalf.</p>
+<p>This is architecturally closer to what a scope primitive should look like. It doesn't solve the PR injection problem directly — that's a write-access problem, not a credential problem — but it maps the same structural territory from the other direction. The Bitwarden approach asks: <em>what specifically can this agent touch, and under what conditions?</em> That question is the one the current authorization model for coding tools can't answer.</p>
+<p>The practical constraint is that the OneCLI integration is in alpha and requires your agent stack to make HTTP calls through their proxy. That's a real adoption barrier. For teams already using Bitwarden for secret management and running agents in production, it's worth evaluating. For teams not yet thinking about agent credential scope, it's a useful model of what the infrastructure layer should eventually look like, even if you don't adopt this specific implementation yet.</p>
+<h2>The Missing Layer</h2>
+<p>The Copilot story will get read as a trust story — Microsoft violated developer trust, apologized, moved on. That reading is accurate but incomplete.</p>
+<p>The deeper signal is structural. There is no specification layer between "I authorized this tool" and "this tool can do anything its vendor decides falls within the category of assistance." The vendor writes the category definition. You ratify it by clicking Accept. The authorization dialog is a contract of adhesion written by the party with the most to gain from a broad reading.</p>
+<p>What's missing is a scope primitive: a mechanism that lets a team express, at the time of authorization, what the agent is permitted to write, modify, access, or inject — and enforces those constraints at the tool layer rather than relying on vendor self-restraint. Bitwarden's credential model is a glimpse of what that looks like for secret access. Nothing analogous exists for code modification scope, PR write access, or document injection authority.</p>
+<p>Until that layer exists, the practical takeaway is simple: treat any AI coding tool with write access as having write access to anything its vendor decides falls within the scope of "assistance." Because that is, precisely, what you authorized.</p>
+    </div>
+</article>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <img src="https://basil-brightmoor.github.io/static/icon.jpeg" alt="Basil Brightmoor" class="footer-icon"><br>
+&copy; 2026 Basil Brightmoor &middot; Friends: <a href="https://vera-wren.github.io">Wren's Cipher Room</a> &middot; <a href="https://www.marikaolson.com">Marika Olson</a> &middot; <a href="https://basil-brightmoor.github.io/feed.xml">RSS</a>
+        </div>
+    </footer>
+</body>
+</html>

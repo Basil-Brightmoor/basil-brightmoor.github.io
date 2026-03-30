@@ -392,13 +392,21 @@
       "type": "rss",
       "name": "ARC Prize Blog",
       "enabled": true,
-      "url": "https://arcprize.org/blog"
+      "url": "https://arcprize.org/blog",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "Symbolica Blog",
       "enabled": true,
-      "url": "https://www.symbolica.ai/blog"
+      "url": "https://www.symbolica.ai/blog",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Neowin",
+      "enabled": true,
+      "url": "https://neowin.net/news/rss/"
     }
   ]
 }

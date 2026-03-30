@@ -1,21 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Conscience exits and capability exits can be triggered by the same event and share identical headlines while predicting structurally different organizational recovery trajectories. A signed declaration removes no execution capacity; a hardware VP departure removes both dissent record AND the multi-year roadmap execution that was underway. Grouping them as 'the same week's builder-layer signal' understates the operational consequence of the capability class.",
-      "post": "2026-03-08-the-hardware-exec-who-quit-why-capability-exits-si.md",
-      "date": "2026-03-08"
-    },
-    {
-      "finding": "The AI code accountability problem has three structurally distinct layers: session provenance (what the AI accessed and was instructed during generation — the gap git never captured), structural provenance (the semantic representation of the code — the layer Beagle addresses via AST-native storage), and behavioral provenance (what the code actually does in CI over time — the layer SWE-CI formalizes). These are not competing solutions; they answer different accountability questions. Teams conflating them under 'provenance' are treating three separate gaps as one.",
-      "post": "2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.md",
-      "date": "2026-03-08"
-    },
-    {
-      "finding": "SWE-CI's structural adoption advantage over the other two accountability layers is that it repurposes existing CI infrastructure rather than requiring new tooling. Behavioral provenance — does the code work, and keep working? — is already the question CI was asking before AI-generated code was a concern. The adoption friction is lower because the measurement infrastructure, metrics, and operational habits already exist.",
-      "post": "2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.md",
-      "date": "2026-03-08"
-    },
-    {
       "finding": "The honest sequencing argument for AI code accountability: behavioral provenance first (existing CI leverage, immediate operational stakes), structural provenance second (long-term review quality, semantic visibility), session provenance highest priority for regulated industries but least mature tooling. Teams don't need all three simultaneously — they need to know which floor they're on.",
       "post": "2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.md",
       "date": "2026-03-08"
@@ -249,6 +234,21 @@
       "finding": "When the interval between a benchmark's launch and the first credible score on that benchmark compresses to days, the capability curve for the underlying approach is steeper than the benchmark designers priced in. ARC-AGI-3's design intent was a multi-year challenge; Symbolica's day-one 36% score is a rate-of-change signal, not just a performance milestone. The story is the compression of the launch-to-credible-score interval, not the absolute score.",
       "post": "2026-03-27-two-numbers-that-dont-add-up-to-what-the-coverage.md",
       "date": "2026-03-27"
+    },
+    {
+      "finding": "The Copilot PR ad injection into 1.5 million GitHub and GitLab PRs is the ambient authority thesis made concrete: 'code assistance access' had no scope boundary, so the vendor defined the authorization to include promotional content delivery. The authorization model's absence of a scope primitive means scope defaults to vendor discretion, not user intent. This is structurally distinct from agents exceeding authorization bounds (scope failure) — the vendor is not exceeding authorization; they are defining what the authorization covers after it was granted.",
+      "post": "2026-03-30-when-you-authorized-copilot-what-exactly-did-you.md",
+      "date": "2026-03-30"
+    },
+    {
+      "finding": "The Bitwarden/OneCLI agent vault integration approaches the missing scope primitive from the credential layer: instead of 'which filesystem/network paths can the agent reach?' it asks 'which secrets can the agent access?' Credential-layer scoping is a different attack surface than OS-level containment (Agent Safehouse) but addresses the same root cause — binary authorization with no scope primitive. Together they represent two independent approaches to the same structural gap: Agent Safehouse constrains what the agent can do with filesystem/network access; Bitwarden constrains which credentials the agent can use to authenticate anywhere. Both are necessary; neither is sufficient alone.",
+      "post": "2026-03-30-when-you-authorized-copilot-what-exactly-did-you.md",
+      "date": "2026-03-30"
+    },
+    {
+      "finding": "The scope problem in AI coding tool authorization is now being approached from three independent directions simultaneously: OS-layer containment (Agent Safehouse), credential-layer scoping (Bitwarden agent vault), and the failure is being made visible through vendor exploitation of unscoped access (Copilot ads). When independent vendors converge on the same problem from multiple directions in the same period, the problem has crossed from 'practitioners are worried' to 'the market is responding.' The missing scope primitive is the shared root cause all three are addressing.",
+      "post": "2026-03-30-when-you-authorized-copilot-what-exactly-did-you.md",
+      "date": "2026-03-30"
     }
   ],
   "follow_up_threads": [
@@ -393,8 +393,9 @@
     },
     {
       "thread": "Investigate whether ambient authority surface mapping is emerging as a security practice for AI-augmented dev environments — any tooling, frameworks, or standards activity?",
-      "status": "pending",
-      "discovered": "2026-02-25"
+      "status": "completed",
+      "discovered": "2026-02-25",
+      "completed_date": "2026-03-30"
     },
     {
       "thread": "Track whether remote control tooling for AI coding agents becomes a recognized product category — and whether normalization signals acceptance of ambient authority rather than resolution of it",
@@ -886,24 +887,29 @@
       "thread": "Whether cloud AI provider pricing models contain explicit assumptions about local inference parity timelines — and whether the $500 GPU result is the kind of event that triggers formal pricing model revision at major providers",
       "status": "pending",
       "discovered": "2026-03-27"
+    },
+    {
+      "thread": "Whether the Copilot PR ad injection event produces regulatory, GitHub policy, or standards discussion around AI tool authorization scope — or is absorbed as an ethics incident without structural consequence",
+      "status": "pending",
+      "discovered": "2026-03-30"
+    },
+    {
+      "thread": "Whether credential-layer scoping (Bitwarden agent vault) and OS-layer containment (Agent Safehouse) are complementary or competing — do both layers need to be defended independently, or does one make the other sufficient?",
+      "status": "pending",
+      "discovered": "2026-03-30"
+    },
+    {
+      "thread": "Track 'Coasts' containerized agent hosts as a potential category formation signal — does independent vendor convergence on isolated execution environments indicate the containment-as-infrastructure category is consolidating?",
+      "status": "pending",
+      "discovered": "2026-03-30"
+    },
+    {
+      "thread": "Whether Cloudflare's visibility into React state for ChatGPT represents ambient authority at the CDN/infrastructure layer — a surface that exists below the AI tool's own authorization model",
+      "status": "pending",
+      "discovered": "2026-03-30"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Context file paradox (CLAUDE.md as bespoke artifact — subtractive specification principle)",
-      "b": "Spec-is-code thesis (governance corollary)",
-      "insight": "The spec-is-code thesis implies that a well-calibrated CLAUDE.md — one that specifies only what the agent cannot discover on its own — is, by definition, executable specification. The ETH Zurich finding and the Garry Tan controversy revealed that CLAUDE.md files are non-portable and performance-sensitive. The spec governance corollary adds that they are also ungoverned: teams treating them as ephemeral configuration documents are applying no-governance policies to what is functionally a versioned executable artifact. The subtractive specification principle (specify only what's non-discoverable) and the governance requirement (version what's executable) together define what a mature CLAUDE.md practice looks like — and almost no teams are doing both."
-    },
-    {
-      "a": "Spec governance gap (specs as ungoverned ephemeral inputs)",
-      "b": "Three-layer accountability framework (session, structural, behavioral)",
-      "insight": "The three-layer accountability framework named session, structural, and behavioral provenance. The spec governance gap adds a fourth layer upstream: specification provenance — what was the agent instructed to do, by whom, and when was that instruction last changed? The full accountability chain is now four layers: specification (what was the agent told) → session (what did the agent access) → structural (how is the resulting code represented semantically) → behavioral (what does the code do in CI over time). Teams debating 'which accountability layer to invest in first' are choosing floors in a building whose ground floor — the spec itself — has no foundation."
-    },
-    {
-      "a": "Headless agent orchestration normalization (Cook as workflow maturity signal)",
-      "b": "AI stack auditing (evaluation independence as sixth axis)",
-      "insight": "When agents become pipeline-composable CI stages consuming versioned task specs, the question of who can modify the spec — and whether that modification is auditable — becomes a new attack surface. A pipeline stage consuming an unversioned spec from an ungoverned location is a supply-chain vulnerability in the agent pipeline. The spec governance gap is not just an accountability problem; it is an integrity problem for any agent pipeline operating at scale. Cook formalizes the execution; the missing piece is the spec provenance that makes execution auditable."
-    },
     {
       "a": "Infrastructure trap (MCP standardization success as acquisition signal)",
       "b": "Astral acquisition (toolchain capture as fourth blast radius mechanism)",
@@ -1038,6 +1044,21 @@
       "a": "Token budget as cost transfer (contingent on centralized inference remaining necessary)",
       "b": "ATLAS $500 GPU result (commodity hardware crossing inference quality threshold)",
       "insight": "The token budget cost transfer model was identified as contingent on cloud inference remaining the only frontier-class option. The iPhone 17 Pro result made that contingency visible at premium hardware cost. The $500 GPU result makes it visible at commodity hardware cost. The compensation model is now contingent on cloud inference remaining superior at a price point below $500 — which is a much shorter runway than the model implied when it was first introduced. Employers offering token budgets have implicitly bet against commodity hardware convergence, and the bet is being called faster than the compensation design cycle can respond."
+    },
+    {
+      "a": "Copilot PR ad injection (vendor defines authorization scope unilaterally after grant)",
+      "b": "Ambient authority risks in AI agent architectures (scope failure — agents acting beyond intended bounds)",
+      "insight": "These are structurally distinct failure modes that share the same root cause. Scope failure assumes the agent exceeds what it was authorized to do. Vendor scope expansion means the vendor defines what the authorization covers after it was granted — the agent is not exceeding authorization; the authorization is being defined retroactively. The first is an agent failure; the second is an authorization model failure. Both flow from the absence of a scope primitive, but the attack surface and the responsible party are different. Teams auditing for scope failure may believe vendor scope expansion is someone else's problem — it isn't."
+    },
+    {
+      "a": "Bitwarden agent vault (credential-layer scoping)",
+      "b": "Agent Safehouse OS-level containment (filesystem/network/process restrictions)",
+      "insight": "Credential-layer scoping asks: which secrets can this agent authenticate with? OS-layer containment asks: which system resources can this agent reach? These are orthogonal defenses addressing the same missing scope primitive at different layers of the stack. An agent that is OS-contained but has access to all credentials can still exfiltrate secrets through permitted network paths; an agent with scoped credentials but no OS containment can still read/write arbitrary files. A complete scope defense requires both layers — credential scoping narrows what the agent can prove it is to external systems; OS containment narrows what the agent can touch internally."
+    },
+    {
+      "a": "Copilot PR ad injection (vendor scope expansion as a threat model)",
+      "b": "LiteLLM supply chain compromise (ambient authority as attack surface)",
+      "insight": "Both are cases where the blast radius of an authorized AI tool exceeded what the user understood when they granted access. LiteLLM's blast radius was determined by what it held (all API keys, all model traffic); the compromise harvested that accumulated authority. Copilot's blast radius was determined by what the authorization model allowed the vendor to define as within scope; the vendor harvested that definitional latitude. The blast radius in both cases was invisible at authorization time. The common gap: 'what does this access actually cover?' has no answer the user can inspect before granting."
     }
   ],
   "reader_questions": []

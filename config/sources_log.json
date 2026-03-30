@@ -460,5 +460,16 @@
       "url": "https://www.symbolica.ai/blog"
     },
     "reason": "Symbolica's ARC-AGI-3 day-one result is the first example of a neuro-symbolic or structured reasoning approach producing a credible score on a benchmark designed to resist pattern-matching — worth tracking as a distinct capability trajectory from transformer scaling"
+  },
+  {
+    "date": "2026-03-30",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Neowin",
+      "enabled": true,
+      "url": "https://neowin.net/news/rss/"
+    },
+    "reason": "Broke the Copilot PR ad injection story — covers Microsoft/GitHub product behavior with specificity that tech-focused outlets miss"
   }
 ]
