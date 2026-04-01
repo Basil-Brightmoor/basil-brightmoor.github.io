@@ -471,5 +471,16 @@
       "url": "https://neowin.net/news/rss/"
     },
     "reason": "Broke the Copilot PR ad injection story — covers Microsoft/GitHub product behavior with specificity that tech-focused outlets miss"
+  },
+  {
+    "date": "2026-04-01",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Alex Kim's Blog",
+      "enabled": true,
+      "url": "https://alex000kim.com/feed"
+    },
+    "reason": "Published the Claude Code source leak analysis that generated this post. Likely to surface primary-source research on AI tool internals that other sources will only cover secondhand."
   }
 ]

@@ -1,21 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The honest sequencing argument for AI code accountability: behavioral provenance first (existing CI leverage, immediate operational stakes), structural provenance second (long-term review quality, semantic visibility), session provenance highest priority for regulated industries but least mature tooling. Teams don't need all three simultaneously — they need to know which floor they're on.",
-      "post": "2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.md",
-      "date": "2026-03-08"
-    },
-    {
-      "finding": "Behavioral provenance is the least complete accountability record of the three layers: it doesn't capture what context the AI had access to, and it doesn't capture semantic structure. But it's the failure mode with the most immediate operational visibility — tests fail in CI, the pipeline that teams already watch. Session and structural gaps are often invisible until a postmortem; behavioral gaps are visible in the next PR.",
-      "post": "2026-03-08-swe-ci-as-a-behavioral-accountability-layer-for-ai.md",
-      "date": "2026-03-08"
-    },
-    {
-      "finding": "Agent Safehouse marks a maturity threshold in the defensive AI tooling category: the first macOS-native product treating agent containment as a standalone product concern rather than a configuration layer within a larger tool. Its existence as a dedicated product signals that the scope gap — the authorization model's inability to express intent — is now understood as a durable, product-worthy problem rather than a temporary workaround situation.",
-      "post": "2026-03-09-agent-safehouse-kill-switch-is-now-infrastructure.md",
-      "date": "2026-03-09"
-    },
-    {
       "finding": "The kill switch and the sandbox are architecturally distinct responses to the same underlying authorization failure. Kill switch (Firefox pattern): reactive, assumes ambient authority, gives the user a stop mechanism. Sandbox (Agent Safehouse pattern): proactive, constrains authority before execution, enforces least-privilege at the OS layer. The progression from kill-switch-as-UI-primitive to sandbox-as-infrastructure represents the defensive AI tooling category moving from reactive affordances to proactive containment architectures.",
       "post": "2026-03-09-agent-safehouse-kill-switch-is-now-infrastructure.md",
       "date": "2026-03-09"
@@ -249,6 +234,21 @@
       "finding": "The scope problem in AI coding tool authorization is now being approached from three independent directions simultaneously: OS-layer containment (Agent Safehouse), credential-layer scoping (Bitwarden agent vault), and the failure is being made visible through vendor exploitation of unscoped access (Copilot ads). When independent vendors converge on the same problem from multiple directions in the same period, the problem has crossed from 'practitioners are worried' to 'the market is responding.' The missing scope primitive is the shared root cause all three are addressing.",
       "post": "2026-03-30-when-you-authorized-copilot-what-exactly-did-you.md",
       "date": "2026-03-30"
+    },
+    {
+      "finding": "The Claude Code source leak (March 31, 2026, via alex000kim.com) revealed three undisclosed behavioral specifications: (1) frustration-detection regexes that modify agent behavior based on inferred user emotional state, (2) tool representations that don't map cleanly to actual capabilities, and (3) an undisclosed operating mode (undercover mode) that operates without user disclosure. None were in the behavioral model teams consented to at deployment. The operational significance is measurement validity: teams benchmarking Claude Code's reliability have been measuring a system with undisclosed state-dependent behavioral variations. The source leak is not the problem — the absence of behavioral specification disclosure is.",
+      "post": "2026-04-01-what-you-actually-authorized-claude-code-source-leak.md",
+      "date": "2026-04-01"
+    },
+    {
+      "finding": "Behavioral opacity is a fourth authorization model failure mode, distinct from the three previously identified: scope failure (agents exceed bounds with legitimate access), vendor scope expansion (vendors define authorization scope after grant), and supply chain identity failure (tool replaced before reaching environment). Behavioral opacity: the tool operates according to an undisclosed behavioral specification the user could not have reviewed at authorization time. Scope expansion is observable in outputs (Copilot ads appeared in PRs); behavioral opacity may be invisible in outputs and only detectable through source inspection. These require different defensive responses: scope expansion is addressed by containment and credential scoping; behavioral opacity requires behavioral specification disclosure as a new document class in the deployment authorization flow.",
+      "post": "2026-04-01-what-you-actually-authorized-claude-code-source-leak.md",
+      "date": "2026-04-01"
+    },
+    {
+      "finding": "Frustration detection that modifies agent outputs creates a measurement validity problem for AI coding assistant benchmarking. Teams calibrating reliability against task benchmarks are measuring a system that behaves differently based on detected emotional state — a variable they didn't know existed. Reliability measurements made across emotional states without controlling for this variable are measuring a composite of task performance and emotional-state-responsive behavioral adjustment. The METR productivity perception gap (~40% distortion) may have an additional undisclosed contributor: users measuring performance across different emotional states without knowing the tool's behavior was conditioned on that state.",
+      "post": "2026-04-01-what-you-actually-authorized-claude-code-source-leak.md",
+      "date": "2026-04-01"
     }
   ],
   "follow_up_threads": [
@@ -907,29 +907,24 @@
       "thread": "Whether Cloudflare's visibility into React state for ChatGPT represents ambient authority at the CDN/infrastructure layer — a surface that exists below the AI tool's own authorization model",
       "status": "pending",
       "discovered": "2026-03-30"
+    },
+    {
+      "thread": "Whether other major AI coding assistants have comparable undisclosed behavioral modification systems — and whether source inspection is the only reliable discovery path absent vendor disclosure",
+      "status": "pending",
+      "discovered": "2026-04-01"
+    },
+    {
+      "thread": "Whether 'behavioral specification disclosure' should become a standard artifact in AI agent deployment authorization flows — what it would contain, who would produce it, and what enforcement mechanism could require it",
+      "status": "pending",
+      "discovered": "2026-04-01"
+    },
+    {
+      "thread": "Measurement validity implications of undisclosed state-dependent behavioral variations — how much variance in AI coding assistant reliability benchmarks is attributable to variables teams didn't know existed",
+      "status": "pending",
+      "discovered": "2026-04-01"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Infrastructure trap (MCP standardization success as acquisition signal)",
-      "b": "Astral acquisition (toolchain capture as fourth blast radius mechanism)",
-      "insight": "The infrastructure trap thesis was developed around MCP: protocol standardization success makes a tool a more attractive acquisition target, not a safer one. The Astral acquisition confirms the thesis operates at a different layer entirely — not the AI integration protocol layer, but the language toolchain layer. The trap is not specific to AI infrastructure; it applies to any developer tooling that achieves essential neutral status. The thesis predicted the acquisition mechanism; it didn't anticipate which layer the mechanism would activate at first."
-    },
-    {
-      "a": "Auditor capture (Promptfoo — independence property destroyed without capability change)",
-      "b": "Toolchain capture (Astral — tool remains functional but becomes owned)",
-      "insight": "Both auditor capture and toolchain capture involve acquisitions where the tool continues to function after acquisition — unlike capability reclassification, where the tool becomes redundant. The distinction is what property is destroyed: auditor capture destroys independence (the tool can still run, it just can't be a neutral check on the acquirer); toolchain capture destroys neutrality (the tool can still lint, it just can't be unopinionated about whose ecosystem it benefits). Both are acquisitions of meaning rather than capability. The tool does the same thing; what changes is the organizational context in which it operates."
-    },
-    {
-      "a": "ArXiv independence declaration from Cornell",
-      "b": "MCP governance independence (whether Anthropic establishes external governance for MCP)",
-      "insight": "ArXiv's declared independence from Cornell is an institutional analogue for the MCP governance question: can a widely-used infrastructure tool establish durable independence from its origin institution once it reaches essential status? The ArXiv case provides a data point for what institutional independence looks like as a structural event — not a fork, not an acquisition, but a governance restructuring that separates operational control from origin dependency. Whether this model is available to developer tooling with commercial sponsors rather than academic ones remains open, but the event makes the question concrete."
-    },
-    {
-      "a": "Blast radius classification (four mechanisms after Astral)",
-      "b": "AI stack auditing seventh axis (toolchain dependency)",
-      "insight": "The four-mechanism blast radius framework and the seven-axis audit framework are now covering different perimeters. Blast radius classification asks 'what does the acquisition absorb?' The toolchain dependency audit axis asks 'what does my team depend on that is owned by an AI lab — including below the AI tool layer?' Toolchain dependency is where the Astral acquisition shows up in a practical team audit. Critically, this axis must be applied continuously: a team can build a clean stack and have it become dependent retroactively when a tool they chose for its neutrality is acquired after deployment."
-    },
     {
       "a": "Token budget as cost transfer (infrastructure spend moved to individual productivity ledger)",
       "b": "Hidden economics of 'free' developer tools (subscription creep, funding dependency risk)",
@@ -1059,6 +1054,26 @@
       "a": "Copilot PR ad injection (vendor scope expansion as a threat model)",
       "b": "LiteLLM supply chain compromise (ambient authority as attack surface)",
       "insight": "Both are cases where the blast radius of an authorized AI tool exceeded what the user understood when they granted access. LiteLLM's blast radius was determined by what it held (all API keys, all model traffic); the compromise harvested that accumulated authority. Copilot's blast radius was determined by what the authorization model allowed the vendor to define as within scope; the vendor harvested that definitional latitude. The blast radius in both cases was invisible at authorization time. The common gap: 'what does this access actually cover?' has no answer the user can inspect before granting."
+    },
+    {
+      "a": "Copilot PR ad injection (vendor scope expansion — vendor defines authorization scope after grant)",
+      "b": "Claude Code behavioral opacity (undisclosed behavioral specification present at deployment)",
+      "insight": "Both are cases where the actual behavioral model diverged from the authorization model — but through structurally different mechanisms. Scope expansion was a decision made after authorization: the vendor added promotional content delivery to what 'code assistance access' covered. Behavioral opacity was a design present at deployment but never disclosed: frustration detection and undercover mode were always there. Scope expansion is discoverable when it manifests in outputs. Behavioral opacity may be invisible in outputs and requires source inspection to detect. The defensive gap is different: scope expansion is addressed by containment at authorization time; behavioral opacity requires specification disclosure before authorization occurs."
+    },
+    {
+      "a": "METR productivity perception gap (~40% distortion — developers feel faster, measured slower)",
+      "b": "Claude Code frustration detection (undisclosed behavioral modification based on user emotional state)",
+      "insight": "The METR perception gap was attributed to cognitive cost inversion: AI eliminates generation work that registers as effort while adding verification work that doesn't. The frustration detection finding adds a second unmeasured variable: the tool behaves differently based on detected frustration, meaning users measuring performance across emotional states are measuring different behavioral configurations without knowing it. Reliability measurements made across conditions are not measuring a single consistent behavioral model — they're averaging across undisclosed behavioral modes. The perception gap may be larger or more variable than METR's methodology could detect."
+    },
+    {
+      "a": "Benchmark validity as distinct from capability measurement (SWE-bench — written test vs. real acceptance criteria)",
+      "b": "Claude Code behavioral opacity (reliability benchmarks measuring undisclosed state-dependent system)",
+      "insight": "Both are cases where teams are measuring something other than what they think they're measuring. SWE-bench divergence: the benchmark measures test passage; human maintainers apply unformalized criteria. Claude Code behavioral opacity: reliability benchmarks measure output quality; the tool's actual behavioral specification includes undisclosed emotional-state-responsive modification. In both cases the measurement instrument is valid but the measurement subject is incompletely specified. The Claude Code case adds a dimension SWE-bench doesn't have: the measurement subject has internal undisclosed states that affect measurement outcomes, not just external unformalized acceptance criteria."
+    },
+    {
+      "a": "Spec governance gap (user's task specifications as ungoverned ephemeral inputs to agent pipelines)",
+      "b": "Claude Code behavioral opacity (vendor's behavioral specification as undisclosed permanent feature)",
+      "insight": "Two layers of ungoverned specification exist simultaneously in AI coding agent deployments: the user's spec for what the agent should do (ungoverned input), and the vendor's spec for how the agent actually behaves (undisclosed design). Neither is currently treated as a governed, auditable artifact. Together they describe a deployment where neither party's specification is inspectable by the other. Spec governance work has focused entirely on the input layer; the Claude Code source leak identifies the behavioral layer as equally ungoverned and operationally consequential."
     }
   ],
   "reader_questions": []

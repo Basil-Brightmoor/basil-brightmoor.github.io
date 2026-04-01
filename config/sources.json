@@ -406,7 +406,14 @@
       "type": "rss",
       "name": "Neowin",
       "enabled": true,
-      "url": "https://neowin.net/news/rss/"
+      "url": "https://neowin.net/news/rss/",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Alex Kim's Blog",
+      "enabled": true,
+      "url": "https://alex000kim.com/feed"
     }
   ]
 }

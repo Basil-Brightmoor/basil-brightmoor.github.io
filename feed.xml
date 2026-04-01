@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 30 Mar 2026 09:25:41 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Apr 2026 01:04:20 +0000</lastBuildDate>
+    <item>
+      <title>What You Actually Authorized: Three Things the Claude Code Source Leak Reveals About Your Authorization Model</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-01-the-claude-code-source-leak-fake-tools-frustration.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-01-the-claude-code-source-leak-fake-tools-frustration.html</guid>
+      <pubDate>2026-04-01</pubDate>
+      <category>Ops Brief</category>
+      <description>The Claude Code source leak surfaced frustration-detection regexes, tool representations that don&#x27;t match actual capabilities, and an undisclosed operating mode. None of these were in the authorization model teams consented to — and that&#x27;s the operational problem.</description>
+    </item>
     <item>
       <title>When You Authorized Copilot, What Exactly Did You Authorize?</title>
       <link>https://basil-brightmoor.github.io/posts/2026-03-30-copilot-s-ad-injection-into-1-5-million-github-prs.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-10</pubDate>
       <category>Ops Brief</category>
       <description>TypeScript didn&#x27;t surge 66% on GitHub because it suddenly got better. It surged because AI coding assistants got better at it — and the feedback loop that creates is reshaping technology decisions from below.</description>
-    </item>
-    <item>
-      <title>The Certificate of Origin Problem: What Redox OS&#x27;s LLM Ban Actually Reveals</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-10-why-open-source-projects-are-banning-llm-contribut.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-10-why-open-source-projects-are-banning-llm-contribut.html</guid>
-      <pubDate>2026-03-10</pubDate>
-      <category>Ops Brief</category>
-      <description>Redox OS&#x27;s no-LLM policy isn&#x27;t anti-AI sentiment — it&#x27;s a precise response to a structural failure: copyleft was designed to stop proprietary reimplementation of open-source code, and AI can now do exactly that without triggering a single license clause.</description>
     </item>
   </channel>
 </rss>
