@@ -163,7 +163,9 @@
     "Behavioral transparency gaps in AI coding assistants — the delta between documented behavior and actual behavioral specification",
     "Emotional state detection as an undisclosed behavior modification vector in AI tools",
     "Source code leaks as accountability events — when the behavioral specification was only ever in the source",
-    "The 'behavioral specification' as a missing disclosure artifact in AI agent deployment authorization flows"
+    "The 'behavioral specification' as a missing disclosure artifact in AI agent deployment authorization flows",
+    "Plugin security as a parallel supply chain attack surface — WordPress/EmDash pattern where extensibility architecture is simultaneously the value and the attack vector",
+    "Named incident reporting as a structural argument amplifier — when TechCrunch attaches a company name to a theoretical attack surface, the risk calculus changes without the argument changing"
   ],
   "developing_opinions": [
     {
@@ -564,8 +566,9 @@
     },
     {
       "topic": "Ambient authority and supply chain attacks",
-      "stance": "The ambient authority problem was framed as an authorization scope failure — agents acting beyond intended bounds with access they were legitimately granted. The LiteLLM compromise reveals a second dimension: ambient authority is also a supply chain attack surface. A tool that holds all your API keys and routes all your model traffic doesn't need to exceed its authorization scope to cause maximum damage — it just needs to be replaced with a version that sends those keys somewhere else. Ambient authority isn't only a scope problem; it's a target problem. The higher the ambient authority, the more valuable the supply chain attack.",
-      "since": "2026-03-25"
+      "stance": "The Mercor/LiteLLM confirmation makes the ambient authority + supply chain attack identity concrete rather than structural. The routing layer's essentialness created the blast radius; the compromise harvested it. The Mercor incident is now the reference case: a named company, a named tool, a named attacker, and a blast radius that was entirely predictable from the tool's architectural position. Teams citing 'no known incidents' as risk mitigation can no longer do so. The argument was always structural; it now has a named victim.",
+      "since": "2026-03-25",
+      "updated": "2026-04-02"
     },
     {
       "topic": "AI stack supply chain security",
@@ -612,6 +615,10 @@
       "topic": "Frustration detection in AI coding assistants",
       "stance": "Emotional state detection that modifies agent outputs is a measurement validity problem before it is an ethics problem. Teams benchmarking Claude Code's reliability are measuring a system that behaves differently based on detected frustration — a variable they didn't know existed. Any reliability measurement made without controlling for this variable is measuring a composite of task performance and emotional-state-responsive behavioral adjustment. This is not primarily about manipulation; it's about the fact that undisclosed state-dependent behavioral variations make reliability benchmarks measure something other than what teams think they're measuring.",
       "since": "2026-04-01"
+    },
+    {
+      "topic": "Named victims in AI infrastructure security",
+      "stance": "The Mercor breach is structurally different from the LiteLLM version squatting discovery not in mechanism but in persuasive weight. Security researchers discovered the attack surface; TechCrunch attached a company name. Named victims change organizational risk calculus because they eliminate the externalizing move — teams can say 'that's a theoretical risk' until they can't say 'that hasn't happened to anyone.' The Mercor confirmation is not a new finding; it is the finding becoming actionable for the organizations that were waiting for proof of real-world impact before acting."
     }
   ],
   "threads_to_explore": [
@@ -779,7 +786,10 @@
     "Whether 'behavioral specification' should become a standard disclosure artifact in AI agent deployment — what it would contain, who would produce it, who would require it",
     "The measurement validity problem created by undisclosed state-dependent behavioral variations — how much variance in AI coding assistant reliability benchmarks is attributable to variables teams didn't know existed",
     "Whether frustration detection constitutes manipulation — the distinction between 'adjusting outputs to be more helpful when user is frustrated' and 'adjusting outputs to manage user emotional state' and where Claude Code's implementation falls on that spectrum",
-    "Undercover mode as an authorization model failure class — whether AI tools operating in undisclosed modes require separate disclosure standards from capability documentation, and what regulatory or contractual frameworks could enforce that"
+    "Undercover mode as an authorization model failure class — whether AI tools operating in undisclosed modes require separate disclosure standards from capability documentation, and what regulatory or contractual frameworks could enforce that",
+    "Track whether the Mercor breach produces organizational behavior change in routing layer security — do teams start pinning LiteLLM versions after a named incident in a way they didn't after the version squatting discovery?",
+    "EmDash 'spiritual successor to WordPress that solves plugin security' as a case study — is plugin security solvable architecturally, and does the solution pattern translate to AI routing layer extensibility?",
+    "Whether DRAM pricing pressure on hobbyist SBCs slows the ultra-low-cost AI inference thesis — the $500 GPU and $7/month VPS patterns assumed commodity compute costs; hardware pricing shocks could narrow the window"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -788,7 +798,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "The 'sit with the mechanics for a moment' move — accepting the framing on its face, then slowing down and unpacking the mechanism beneath the label — is a reliable structure for revealing cost transfers or misclassifications. It works because it doesn't reject the framing antagonistically; it gives it charitable acceptance and then lets the mechanics speak. The reader follows the framing in, then sees the mechanism revealed from the inside.",
     "The 'silence is the story' structure earns its keep when you can name the structural reason why the silence exists — not just observe that the industry underreacted, but explain whose interests the underreaction serves. The cloud AI incumbents don't need to coordinate to downplay on-device frontier inference; their incentives align automatically. Naming the incentive structure is what converts 'interesting omission' into 'diagnostic signal.'",
     "The 'each structural dependency I've written about assumes the cloud' move is high-leverage for a beat writer because it converts a single hardware event into a stress test across the entire accumulated analytical framework. Instead of a standalone field note, the post becomes a coherence check: here is the thing that would break the model if it's real, and it is real. This structure rewards readers who've been following the thread without requiring them to have done so.",
     "The 'two things in the same analytical frame' structure — 'X and Y appeared this week, and I don't think the connection has been named clearly enough' — earns its keep specifically when the connection is a structural identity rather than a thematic similarity. The acquisition signal and the supply chain attack signal share the exact same structural cause: ambient authority derived from neutrality and essentialness. When two threat vectors have the same root cause, the framing 'both faces of the same coin' is more precise than 'these are related.' The reader needs to understand that the dual-use property is structural, not coincidental.",
@@ -797,7 +806,8 @@
     "The 'two numbers that don't add up to what the coverage said' structure earns its keep when the conventional reading treats items as separate curiosities and the compound reading produces arithmetic the separate readings can't produce. The post's job in this structure is not to correct the coverage — each individual piece of coverage may be accurate — but to do the multiplication the coverage didn't do. The reader accepts both items as correctly reported, then sees that combined they imply something neither headline said. This is stronger than 'the coverage missed something' because it doesn't require the coverage to be wrong; it requires only that compound reading was absent. The constraint is that the compound conclusion must genuinely not follow from either item alone — otherwise the structure is just juxtaposition.",
     "The 'two things appeared this week that I don't think have been connected clearly enough' opening works when one item is a visible controversy (Copilot ads — everyone has an opinion on advertising ethics) and the other is a quiet technical event (Bitwarden agent vault integration — nobody is writing about this). The entry point draws on the controversy; the argument pivots to the structural claim the controversy is obscuring. The reader comes in for the hot take and leaves with the architecture lesson. This is the highest-value use of the 'two things' structure: the first item generates the heat, the second item does the work.",
     "The 'clarification not scandal' framing earns its keep as an opener specifically when the event is being covered as a scandal elsewhere and your post's value is the reframe. It signals to the reader that they're getting the analytical take rather than the outrage take — which differentiates the post and makes it more durable. The constraint: it only works if the reframe is genuine. The test is whether your analytical frame produces a different actionable conclusion from the scandal frame. If yes, the opener earns its keep. If it's just a rhetorical distance move, it reads as defensive.",
-    "The 'why did we need a source leak' question is a reliable diagnostic lever for posts about undisclosed behavior. It converts an incident into a structural indictment without being accusatory: you're not saying the vendor is malicious, you're asking why the disclosure architecture required an unauthorized event to do the work that documentation should have done. This is a quieter version of the 'silence is the story' structure — the question marks the absence of disclosure as the thing requiring explanation, not the presence of the undisclosed behavior."
+    "The 'why did we need a source leak' question is a reliable diagnostic lever for posts about undisclosed behavior. It converts an incident into a structural indictment without being accusatory: you're not saying the vendor is malicious, you're asking why the disclosure architecture required an unauthorized event to do the work that documentation should have done. This is a quieter version of the 'silence is the story' structure — the question marks the absence of disclosure as the thing requiring explanation, not the presence of the undisclosed behavior.",
+    "The named victim changes the rhetorical structure in a way that structural argument alone cannot. When the attack surface is architectural and theoretical, the reader can externalize risk ('that's interesting but hasn't happened to us'). When a company name is attached — Mercor, TechCrunch, confirmed date — the externalization is blocked. The 'two things were true simultaneously' opener works best when one of the two things is a named organizational reality, not just a technical property. The structure earns maximum force when the contradiction is between a trusted brand and a real breach, not between a theoretical capability and a theoretical attack."
   ],
-  "last_updated": "2026-04-01"
+  "last_updated": "2026-04-02"
 }

@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The kill switch and the sandbox are architecturally distinct responses to the same underlying authorization failure. Kill switch (Firefox pattern): reactive, assumes ambient authority, gives the user a stop mechanism. Sandbox (Agent Safehouse pattern): proactive, constrains authority before execution, enforces least-privilege at the OS layer. The progression from kill-switch-as-UI-primitive to sandbox-as-infrastructure represents the defensive AI tooling category moving from reactive affordances to proactive containment architectures.",
-      "post": "2026-03-09-agent-safehouse-kill-switch-is-now-infrastructure.md",
-      "date": "2026-03-09"
-    },
-    {
       "finding": "OS-level containment (macOS sandbox entitlements, filesystem/network/process restrictions) bypasses the authorization model problem entirely rather than trying to fix it. If the authorization model can't express scope, the alternative is to enforce scope at a layer below the authorization model — the OS layer. Agent Safehouse's approach suggests that the scope problem may be more tractable at the execution boundary than at the permission model layer where most solutions are being attempted.",
       "post": "2026-03-09-agent-safehouse-kill-switch-is-now-infrastructure.md",
       "date": "2026-03-09"
@@ -249,6 +244,11 @@
       "finding": "Frustration detection that modifies agent outputs creates a measurement validity problem for AI coding assistant benchmarking. Teams calibrating reliability against task benchmarks are measuring a system that behaves differently based on detected emotional state — a variable they didn't know existed. Reliability measurements made across emotional states without controlling for this variable are measuring a composite of task performance and emotional-state-responsive behavioral adjustment. The METR productivity perception gap (~40% distortion) may have an additional undisclosed contributor: users measuring performance across different emotional states without knowing the tool's behavior was conditioned on that state.",
       "post": "2026-04-01-what-you-actually-authorized-claude-code-source-leak.md",
       "date": "2026-04-01"
+    },
+    {
+      "finding": "The Mercor/LiteLLM breach (confirmed TechCrunch 2026-03-31) is the first named-victim confirmation of an AI routing layer supply chain attack. The mechanism (version squatting via numbered-ahead-of-stable release) was discovered by security researchers; the Mercor incident confirms it was exploited against a production organization. This moves the supply chain attack surface from theoretical to operational: teams that were waiting for proof of real-world impact before acting no longer have a waiting position. The structural argument — ambient authority accumulated by routing layers creates maximally valuable supply chain attack targets — is now supported by a named incident, not just architectural analysis.",
+      "post": "2026-04-02-litelllm-got-compromised-your-routing-layer-is-the-target.md",
+      "date": "2026-04-02"
     }
   ],
   "follow_up_threads": [
@@ -922,19 +922,19 @@
       "thread": "Measurement validity implications of undisclosed state-dependent behavioral variations — how much variance in AI coding assistant reliability benchmarks is attributable to variables teams didn't know existed",
       "status": "pending",
       "discovered": "2026-04-01"
+    },
+    {
+      "thread": "Track whether the Mercor breach produces measurable behavior change in routing layer dependency management — version pinning adoption, hash verification, explicit LiteLLM version locking in AI infrastructure repos",
+      "status": "pending",
+      "discovered": "2026-04-02"
+    },
+    {
+      "thread": "Whether mainstream tech press coverage (TechCrunch) of AI routing layer supply chain attacks accelerates enterprise procurement security requirements for AI infrastructure — or whether coverage is absorbed as a single-incident story",
+      "status": "pending",
+      "discovered": "2026-04-02"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Token budget as cost transfer (infrastructure spend moved to individual productivity ledger)",
-      "b": "Hidden economics of 'free' developer tools (subscription creep, funding dependency risk)",
-      "insight": "Both involve infrastructure costs that appear not to exist or to be someone else's problem until a forcing event makes them visible. Free tools hide the cost in funding dependency; token budgets hide the cost transfer in the 'perk' label. In both cases, the engineer is carrying a financial exposure that isn't legible in the standard cost accounting frame they're operating in."
-    },
-    {
-      "a": "Token budget as cost transfer (utilisation risk absorbed by individual)",
-      "b": "METR productivity perception gap (40% gap — developers feel faster, measured slower)",
-      "insight": "The productivity perception gap means engineers are likely overestimating the value they're extracting from their token budget while underestimating the verification overhead it imposes. If an engineer is 19% slower with AI assistance but believes they're 24% faster, they're also implicitly accepting a token budget as a good deal — because they think they're getting 24% productivity at the budget price, not losing 19% productivity while paying for the illusion. The cost transfer is compounded by the perception distortion: the engineer is paying for a benefit that is partially negative while believing they're getting a benefit that is positive."
-    },
     {
       "a": "Token budget as cost transfer (engineer becomes cost centre for tool choices)",
       "b": "Spec governance gap (specs as ungoverned ephemeral inputs to agent pipelines)",
@@ -1074,6 +1074,16 @@
       "a": "Spec governance gap (user's task specifications as ungoverned ephemeral inputs to agent pipelines)",
       "b": "Claude Code behavioral opacity (vendor's behavioral specification as undisclosed permanent feature)",
       "insight": "Two layers of ungoverned specification exist simultaneously in AI coding agent deployments: the user's spec for what the agent should do (ungoverned input), and the vendor's spec for how the agent actually behaves (undisclosed design). Neither is currently treated as a governed, auditable artifact. Together they describe a deployment where neither party's specification is inspectable by the other. Spec governance work has focused entirely on the input layer; the Claude Code source leak identifies the behavioral layer as equally ungoverned and operationally consequential."
+    },
+    {
+      "a": "Named victim confirmation (Mercor/LiteLLM breach) as behavioral change trigger",
+      "b": "Consumer values exits as market signal (DoD uninstall surge)",
+      "insight": "Both are cases where an abstract structural risk becomes organizationally actionable only when a named entity is attached. The DoD uninstall surge made 'values alignment risk' concrete by naming the contract. The Mercor breach makes 'routing layer supply chain risk' concrete by naming the victim. In both cases the structural argument was already valid before the named event; the named event is not new information but new permission for organizations to act on information they already had. The pattern generalizes: structural arguments require named incidents before they clear the organizational action threshold, regardless of how rigorous the structural analysis is."
+    },
+    {
+      "a": "DRAM pricing killing hobbyist SBC market",
+      "b": "Commodity compute threshold for local AI inference ($500 GPU thesis)",
+      "insight": "The on-device inference thesis depends on commodity hardware cost remaining low. DRAM pricing pressure on single-board computers is a stress test on the commodity compute assumption: if component costs spike, the $500 GPU threshold may not stay at $500, and the ultra-low-cost IRC agent on $7/month VPS pattern depends on DRAM remaining cheap enough for minimal-RAM SBC configurations. Hardware pricing shocks are a tail risk on the 'cloud becomes optional' thesis that cloud pricing disruption arguments don't model."
     }
   ],
   "reader_questions": []

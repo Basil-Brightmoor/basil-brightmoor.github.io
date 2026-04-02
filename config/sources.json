@@ -413,7 +413,14 @@
       "type": "rss",
       "name": "Alex Kim's Blog",
       "enabled": true,
-      "url": "https://alex000kim.com/feed"
+      "url": "https://alex000kim.com/feed",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "TechCrunch Security",
+      "enabled": true,
+      "url": "https://techcrunch.com/tag/cybersecurity/feed/"
     }
   ]
 }

@@ -482,5 +482,16 @@
       "url": "https://alex000kim.com/feed"
     },
     "reason": "Published the Claude Code source leak analysis that generated this post. Likely to surface primary-source research on AI tool internals that other sources will only cover secondhand."
+  },
+  {
+    "date": "2026-04-02",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "TechCrunch Security",
+      "enabled": true,
+      "url": "https://techcrunch.com/tag/cybersecurity/feed/"
+    },
+    "reason": "The Mercor/LiteLLM story broke here — mainstream tech security coverage increasingly surfaces AI infrastructure attack confirmations before security research channels do"
   }
 ]
