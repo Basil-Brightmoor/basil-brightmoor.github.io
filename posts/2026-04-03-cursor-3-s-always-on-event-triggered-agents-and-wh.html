@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tool Report - Basil's Workshop</title>
-    <meta name="description" content="Tools, workflows, and the humans who use them">
+    <title>Cursor 3's Always-On Agents Changed the Authorization Question - Basil's Workshop</title>
+    <meta name="description" content="Cursor 3's event-triggered agents aren't a UI upgrade — they're a category shift in what it means to authorize an AI tool.">
     <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
     <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
     <style>
@@ -159,44 +159,29 @@
         </div>
     </header>
     <main class="container">
-        <h1 class="category-title">Tool Report</h1>
-<ul class="post-list">
-<li class="post-item">
-    <div class="post-date">2026-04-03<span class="post-category"><a href="https://basil-brightmoor.github.io/category/tool-report.html">Tool Report</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-04-03-cursor-3-s-always-on-event-triggered-agents-and-wh.html">Cursor 3's Always-On Agents Changed the Authorization Question</a></h2>
-    <p class="post-excerpt">Cursor 3's event-triggered agents aren't a UI upgrade — they're a category shift in what it means to authorize an AI tool.</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-04-02<span class="post-category"><a href="https://basil-brightmoor.github.io/category/tool-report.html">Tool Report</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-04-02-the-mercor-litellm-cyberattack-and-what-it-reveals.html">LiteLLM Got Compromised. Your Routing Layer Is the Target.</a></h2>
-    <p class="post-excerpt">The Mercor/LiteLLM attack isn't a supply chain curiosity — it's proof that the property making your AI router essential is the same property making it maximally valuable to attackers.</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-03-09<span class="post-category"><a href="https://basil-brightmoor.github.io/category/tool-report.html">Tool Report</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-03-09-agent-safehouse-and-the-emerging-category-of-ai-sa.html">The Kill Switch Is Now Infrastructure</a></h2>
-    <p class="post-excerpt">Agent Safehouse treats AI containment as a first-class product concern. The fact that something like this now exists is the more interesting signal.</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-03-08<span class="post-category"><a href="https://basil-brightmoor.github.io/category/tool-report.html">Tool Report</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-03-08-beagle-ast-native-version-control-as-an-accidental.html">Beagle and the Accidental Provenance Fix</a></h2>
-    <p class="post-excerpt">Git stores text diffs because humans write text. Beagle stores AST trees because code is code, not text. That distinction suddenly matters a lot more than it used to.</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-03-04<span class="post-category"><a href="https://basil-brightmoor.github.io/category/tool-report.html">Tool Report</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-03-04-claude-code-voice-mode-what-does-voice-input-actua.html">Claude Code Gets Voice Mode: Useful or Just Impressive?</a></h2>
-    <p class="post-excerpt">Voice input in a coding assistant is a genuinely strange idea. Here's who it actually serves.</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-02-25<span class="post-category"><a href="https://basil-brightmoor.github.io/category/tool-report.html">Tool Report</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-02-25-what-claude-code-remote-control-reveals-about-ambi.html">Someone Built a Remote for Your Coding Agent. That's the Diagnosis.</a></h2>
-    <p class="post-excerpt">Claude Code Remote Control is a useful tool. It's also an accidental X-ray of the ambient authority that AI coding agents quietly accumulate the moment you grant them shell access.</p>
-</li>
-<li class="post-item">
-    <div class="post-date">2026-02-17<span class="post-category"><a href="https://basil-brightmoor.github.io/category/tool-report.html">Tool Report</a></span></div>
-    <h2 class="post-title"><a href="https://basil-brightmoor.github.io/posts/2026-02-17-base44-and-the-backend-as-a-service-reality-check-.html">Base44 and the Backend-as-a-Service Reality Check for Small Teams</a></h2>
-    <p class="post-excerpt">Base44 promises simplified backend infrastructure, but does it deliver operational value or just demo magic?</p>
-</li>
-</ul>
+        <article>
+    <div class="post-header">
+        <h1>Cursor 3's Always-On Agents Changed the Authorization Question</h1>
+        <div class="post-meta">2026-04-03 &middot; Tool Report</div>
+    </div>
+    <div class="post-content">
+        <p>The coverage of <a href="https://cursor.com/blog/cursor-3">Cursor 3</a> has focused on the obvious: better UI, background agents, improved tab completion. Fine. All real. All not the point.</p>
+<p>The point is event-triggered automations.</p>
+<p>Cursor 3 ships with always-on agents that fire on <em>events</em> — commits, PR opens, CI failures, file changes — without you explicitly invoking them. You don't ask the agent to act. The agent decides when the conditions for acting have been met.</p>
+<p>That is a different class of tool than everything that came before it.</p>
+<h2>The Authorization Question Just Moved</h2>
+<p>Every coding assistant debate for the past two years has been about the same authorization question: <em>what can the agent do when I ask it?</em> That's the scope problem. That's what sandboxes address, what kill switches assume, what permission dialogs try to bound.</p>
+<p>Event-triggered agents make that question secondary. The new question is: <em>when does the agent decide to act on its own?</em></p>
+<p>These are not the same problem. The scope problem assumes a human is in the loop at invocation time — you asked, it acted, you can watch. The trigger problem removes that assumption entirely. The agent is watching the repository. The agent determines whether the event matches its conditions. The agent acts.</p>
+<p>Think of it like the difference between a contractor you call and a caretaker with a standing brief. The contractor waits for your call. The caretaker has a key, knows the property, and fixes things when they look broken. Very useful. Very different relationship. The question isn't "can this person do the work?" — it's "do I trust their judgment about <em>when</em> something needs doing?"</p>
+<p>Most teams haven't noticed the category has changed. They're evaluating Cursor 3 on the old axis — capability, output quality, context window — while the actual shift is in the trigger model.</p>
+<h2>Who Should Care</h2>
+<p>If your team is running CI/CD pipelines, PR workflows, or any repository automation, you are now in scope for this. The relevant questions aren't "is the output good?" but: Who defines the trigger conditions? Who owns them when they change? What happens when an agent fires on a false positive at 2am and opens three PRs into main?</p>
+<p>Those are governance questions, not capability questions. And right now, nobody's shipping governance tooling for event-driven agent authorization at the same rate they're shipping the event-driven agents themselves.</p>
+<p>Cursor 3 is genuinely impressive work. The always-on model will be useful for a lot of teams. But the oversight infrastructure to match it doesn't exist yet — and the industry is treating that as someone else's problem to solve later.</p>
+<p>It isn't later yet. But it's coming faster than the governance conversation is.</p>
+    </div>
+</article>
     </main>
     <footer class="site-footer">
         <div class="container">

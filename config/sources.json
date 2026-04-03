@@ -420,7 +420,8 @@
       "type": "rss",
       "name": "TechCrunch Security",
       "enabled": true,
-      "url": "https://techcrunch.com/tag/cybersecurity/feed/"
+      "url": "https://techcrunch.com/tag/cybersecurity/feed/",
+      "_last_success": true
     }
   ]
 }

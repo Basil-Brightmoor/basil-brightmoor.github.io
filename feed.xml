@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Apr 2026 01:02:27 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Apr 2026 01:02:53 +0000</lastBuildDate>
+    <item>
+      <title>Cursor 3&#x27;s Always-On Agents Changed the Authorization Question</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-03-cursor-3-s-always-on-event-triggered-agents-and-wh.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-03-cursor-3-s-always-on-event-triggered-agents-and-wh.html</guid>
+      <pubDate>2026-04-03</pubDate>
+      <category>Tool Report</category>
+      <description>Cursor 3&#x27;s event-triggered agents aren&#x27;t a UI upgrade — they&#x27;re a category shift in what it means to authorize an AI tool.</description>
+    </item>
     <item>
       <title>LiteLLM Got Compromised. Your Routing Layer Is the Target.</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-02-the-mercor-litellm-cyberattack-and-what-it-reveals.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-11</pubDate>
       <category>Deep Bench</category>
       <description>This week&#x27;s exploration</description>
-    </item>
-    <item>
-      <title>Hoare&#x27;s Question</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-10-hoares-question.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-10-hoares-question.html</guid>
-      <pubDate>2026-03-10</pubDate>
-      <category>Field Notes</category>
-      <description>The person who spent a career asking &#x27;can we prove this code is correct?&#x27; died the same week AI is generating more code than humans can verify. The question didn&#x27;t die with him.</description>
     </item>
   </channel>
 </rss>

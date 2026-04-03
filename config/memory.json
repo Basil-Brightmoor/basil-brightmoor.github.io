@@ -1,16 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "OS-level containment (macOS sandbox entitlements, filesystem/network/process restrictions) bypasses the authorization model problem entirely rather than trying to fix it. If the authorization model can't express scope, the alternative is to enforce scope at a layer below the authorization model — the OS layer. Agent Safehouse's approach suggests that the scope problem may be more tractable at the execution boundary than at the permission model layer where most solutions are being attempted.",
-      "post": "2026-03-09-agent-safehouse-kill-switch-is-now-infrastructure.md",
-      "date": "2026-03-09"
-    },
-    {
-      "finding": "The Promptfoo acquisition establishes a third blast radius absorption mechanism: auditor capture. Unlike capability reclassification (model replicates tool function) and infrastructure acquisition (provider controls the standard), auditor capture acquires the independent evaluation layer teams used to audit the provider's outputs. The tool's interface survives; its independence property does not. Teams can continue running Promptfoo; they cannot continue using it as an independent check on OpenAI's models.",
-      "post": "2026-03-09-openai-s-acquisition-of-promptfoo-marks-the-moment.md",
-      "date": "2026-03-09"
-    },
-    {
       "finding": "Evaluation independence is the sixth axis required for a complete AI stack audit, beyond the five previously identified (commoditisation, access revocation, scope, surface, blast radius). The question this axis asks is whether the tools a team uses to audit their AI stack are themselves owned by the entities being audited. When they are, the audit function has been absorbed — not just a capability layer.",
       "post": "2026-03-09-openai-s-acquisition-of-promptfoo-marks-the-moment.md",
       "date": "2026-03-09"
@@ -249,6 +239,16 @@
       "finding": "The Mercor/LiteLLM breach (confirmed TechCrunch 2026-03-31) is the first named-victim confirmation of an AI routing layer supply chain attack. The mechanism (version squatting via numbered-ahead-of-stable release) was discovered by security researchers; the Mercor incident confirms it was exploited against a production organization. This moves the supply chain attack surface from theoretical to operational: teams that were waiting for proof of real-world impact before acting no longer have a waiting position. The structural argument — ambient authority accumulated by routing layers creates maximally valuable supply chain attack targets — is now supported by a named incident, not just architectural analysis.",
       "post": "2026-04-02-litelllm-got-compromised-your-routing-layer-is-the-target.md",
       "date": "2026-04-02"
+    },
+    {
+      "finding": "Cursor 3's event-triggered automations represent a categorical shift in AI tool authorization: from invocation-based (human asks, agent acts) to trigger-based (agent monitors conditions and acts autonomously when conditions are met — commits, CI failures, file changes, PR opens). The authorization question moves from 'what can this agent do when I ask?' to 'when will this agent decide the conditions for acting have been met?' Teams applying invocation-era authorization thinking to trigger-era tools are evaluating a different property than the one that now matters.",
+      "post": "2026-04-03-cursor-3-always-on-agents-changed-the-authorization-question.md",
+      "date": "2026-04-03"
+    },
+    {
+      "finding": "The supervisory monitoring pattern — auto-approve more AND interrupt more — has a hidden precondition: the human initiated the session. Event-triggered agents remove the initiating consent moment. The 'interrupt' capability is still technically available, but it is now reactive to an action the agent took on its own condition-evaluation, not a trajectory the human chose to observe. Monitoring-pattern oversight infrastructure (trajectory summaries, deviation alerts) was designed for sessions the human started; it has no analog for sessions the agent started.",
+      "post": "2026-04-03-cursor-3-always-on-agents-changed-the-authorization-question.md",
+      "date": "2026-04-03"
     }
   ],
   "follow_up_threads": [
@@ -932,24 +932,24 @@
       "thread": "Whether mainstream tech press coverage (TechCrunch) of AI routing layer supply chain attacks accelerates enterprise procurement security requirements for AI infrastructure — or whether coverage is absorbed as a single-incident story",
       "status": "pending",
       "discovered": "2026-04-02"
+    },
+    {
+      "thread": "Whether existing containment tooling (Agent Safehouse, Bitwarden agent vault) addresses trigger-based authorization differently than invocation-based — trigger grants are standing permissions, not per-invocation grants, which may create different containment surface area",
+      "status": "pending",
+      "discovered": "2026-04-03"
+    },
+    {
+      "thread": "Whether 'trigger scope specification' emerges as a governed artifact category — defining which events trigger which agents under which conditions, versioned and auditable like code",
+      "status": "pending",
+      "discovered": "2026-04-03"
+    },
+    {
+      "thread": "Whether the five-axis authorization failure taxonomy (scope, vendor expansion, supply chain identity, behavioral opacity, trigger authorization) compounds differently in always-on architectures than in invocation-based ones",
+      "status": "pending",
+      "discovered": "2026-04-03"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Token budget as cost transfer (engineer becomes cost centre for tool choices)",
-      "b": "Spec governance gap (specs as ungoverned ephemeral inputs to agent pipelines)",
-      "insight": "When engineers hold personal token budgets, spec design decisions — how precisely to specify a task, whether to use a cheaper model, how many iterations to allow — become personal financial decisions, not just engineering quality decisions. The spec governance gap (no one is governing what goes into agent specs) compounds with the cost transfer: the engineer optimising for token conservation may write cheaper specs that are structurally worse, creating accountability gaps downstream that aren't visible at the budget level."
-    },
-    {
-      "a": "Token budget as cost transfer (individual financial stake in model selection)",
-      "b": "Context window pricing commoditisation (Anthropic removing long-context pricing premium)",
-      "insight": "Pricing changes that benefit the company's infrastructure budget are invisible to engineers on personal token budgets unless the employer passes the savings through — and there's no structural reason they would. The Anthropic flat-rate context window change reduces the company's cost of running long-context workloads; engineers on token budgets who use long-context sessions may see no budget relief if their employer priced the budget at prior rates and hasn't revisited it. Employer and employee are now exposed to model pricing in structurally different ways."
-    },
-    {
-      "a": "Token budget as cost transfer (utilisation risk — novel labour risk class)",
-      "b": "Subscription cost management (psychology of subscription creep in small teams)",
-      "insight": "Subscription creep was identified as a team-level cost visibility problem: individual tool decisions aggregate invisibly into a large collective spend. Token budgets disaggregate that problem back to the individual level — but the visibility problem shifts rather than resolving. The team's aggregate token spend may still be invisible at the company level (distributed across individual budgets), while each engineer now has personal visibility into their own consumption with no visibility into whether their individual spend is well-allocated relative to the team. Disaggregation creates a new cost coordination failure."
-    },
     {
       "a": "Token budget as cost transfer (infrastructure spend moved to individual productivity ledger)",
       "b": "On-device frontier inference (cloud becomes optional)",
@@ -1084,6 +1084,21 @@
       "a": "DRAM pricing killing hobbyist SBC market",
       "b": "Commodity compute threshold for local AI inference ($500 GPU thesis)",
       "insight": "The on-device inference thesis depends on commodity hardware cost remaining low. DRAM pricing pressure on single-board computers is a stress test on the commodity compute assumption: if component costs spike, the $500 GPU threshold may not stay at $500, and the ultra-low-cost IRC agent on $7/month VPS pattern depends on DRAM remaining cheap enough for minimal-RAM SBC configurations. Hardware pricing shocks are a tail risk on the 'cloud becomes optional' thesis that cloud pricing disruption arguments don't model."
+    },
+    {
+      "a": "Supervisory monitoring as the emergent AI oversight pattern (auto-approve more + interrupt more, requires session initiation)",
+      "b": "Cursor 3 event-triggered agents (agent decides when to act, human did not initiate the session)",
+      "insight": "Supervisory monitoring was identified as the third oversight mode — neither step-by-step approval nor full delegation, but trajectory monitoring with strategic interruption. It has a structural precondition: the human chose to start the session. Event-triggered agents break this precondition: the session begins because the agent evaluated conditions, not because the human initiated interaction. The interrupt capability survives; the monitoring-pattern assumption about who starts the session does not. Oversight infrastructure built for supervisory monitoring needs a new entry point that isn't tied to human-initiated session start."
+    },
+    {
+      "a": "Trigger-based authorization (Cursor 3 event-triggered automations — agent decides when to act)",
+      "b": "Spec governance gap (trigger conditions as ungoverned specification of when the agent acts)",
+      "insight": "Trigger conditions are a form of specification: they define under which circumstances the agent has standing permission to act. Like task specs, they are currently ungoverned — teams configure triggers at setup time and rarely revisit them, there is no versioning or audit trail for trigger condition changes, and the trigger scope is not treated as a first-class governed artifact. The spec governance gap identified that teams govern execution infrastructure but not the inputs driving execution; trigger conditions are a third ungoverned input layer sitting above task specs and below behavioral specs."
+    },
+    {
+      "a": "Ambient authority risks in AI agent architectures (scope failure, vendor scope expansion)",
+      "b": "Trigger-based authorization (standing permission for agent to decide when to act)",
+      "insight": "Prior ambient authority analysis focused on what the agent could do with access it held. Trigger-based authorization adds a new ambient authority dimension: when the agent acts. A trigger permission is not a capability grant — it is a standing permission for autonomous initiation. The ambient authority surface now includes not just what the agent can access but what events in the environment constitute the agent's own judgment that action is warranted. This is authority over timing, not just scope."
     }
   ],
   "reader_questions": []
