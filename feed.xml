@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 03 Apr 2026 01:02:53 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Apr 2026 06:03:53 +0000</lastBuildDate>
+    <item>
+      <title>The Access Surcharge: When the Path Becomes a Line Item</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-05-anthropic-s-openclaw-surcharge-as-the-first-public.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-05-anthropic-s-openclaw-surcharge-as-the-first-public.html</guid>
+      <pubDate>2026-04-05</pubDate>
+      <category>Ops Brief</category>
+      <description>Anthropic&#x27;s OpenClaw surcharge isn&#x27;t a price increase — it&#x27;s the first public test of access-method pricing as a separate economic surface. Most teams never modeled those two things as distinct. This is the week that drift got a bill.</description>
+    </item>
     <item>
       <title>Cursor 3&#x27;s Always-On Agents Changed the Authorization Question</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-03-cursor-3-s-always-on-event-triggered-agents-and-wh.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-12</pubDate>
       <category>Ops Brief</category>
       <description>The first real data on how humans oversee AI coding agents is in. Experienced users don&#x27;t approve each step or fully delegate — they auto-approve more AND interrupt more. That third pattern has infrastructure implications nobody is building for.</description>
-    </item>
-    <item>
-      <title>Debian&#x27;s non-decision on AI-generated contributions as an institutional governance signal — what it means when the most process-oriented open-source institution in existence cannot reach consensus on AI-generated code, in the same week Tony Hoare died and autonomous agents were normalized as something that &#x27;runs while I sleep</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-11-debian-s-non-decision-on-ai-generated-contribution.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-11-debian-s-non-decision-on-ai-generated-contribution.html</guid>
-      <pubDate>2026-03-11</pubDate>
-      <category>Deep Bench</category>
-      <description>This week&#x27;s exploration</description>
     </item>
   </channel>
 </rss>

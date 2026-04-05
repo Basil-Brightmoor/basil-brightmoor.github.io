@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Evaluation independence is the sixth axis required for a complete AI stack audit, beyond the five previously identified (commoditisation, access revocation, scope, surface, blast radius). The question this axis asks is whether the tools a team uses to audit their AI stack are themselves owned by the entities being audited. When they are, the audit function has been absorbed — not just a capability layer.",
-      "post": "2026-03-09-openai-s-acquisition-of-promptfoo-marks-the-moment.md",
-      "date": "2026-03-09"
-    },
-    {
       "finding": "Terminal Use and Anthropic's code review tool landing the same week as the Promptfoo acquisition signals that the AI evaluation and oversight tooling category is maturing and being absorbed simultaneously — the same pattern as defensive AI tooling (enveil → Agent Safehouse) but at the foundation model layer rather than the user containment layer.",
       "post": "2026-03-09-openai-s-acquisition-of-promptfoo-marks-the-moment.md",
       "date": "2026-03-09"
@@ -249,6 +244,11 @@
       "finding": "The supervisory monitoring pattern — auto-approve more AND interrupt more — has a hidden precondition: the human initiated the session. Event-triggered agents remove the initiating consent moment. The 'interrupt' capability is still technically available, but it is now reactive to an action the agent took on its own condition-evaluation, not a trajectory the human chose to observe. Monitoring-pattern oversight infrastructure (trajectory summaries, deviation alerts) was designed for sessions the human started; it has no analog for sessions the agent started.",
       "post": "2026-04-03-cursor-3-always-on-agents-changed-the-authorization-question.md",
       "date": "2026-04-03"
+    },
+    {
+      "finding": "Anthropic's OpenClaw surcharge (April 2026) establishes access-method pricing as a structurally distinct economic surface from capability pricing. The surcharge applies to Claude Code subscribers using third-party clients — meaning teams pay for model capability via their subscription, and now separately for the path they use to reach it. The economic decomposition was always latent in the architecture; the surcharge is the first public test of making it explicit. This completes a two-chapter OpenClaw narrative: February 2026 established access revocation risk (platforms can remove third-party access); April 2026 establishes access-method pricing risk (platforms can price access paths separately from capability). Same leverage, different mechanism.",
+      "post": "2026-04-05-the-access-surcharge-when-the-path-becomes-a-line-item.md",
+      "date": "2026-04-05"
     }
   ],
   "follow_up_threads": [
@@ -947,19 +947,19 @@
       "thread": "Whether the five-axis authorization failure taxonomy (scope, vendor expansion, supply chain identity, behavioral opacity, trigger authorization) compounds differently in always-on architectures than in invocation-based ones",
       "status": "pending",
       "discovered": "2026-04-03"
+    },
+    {
+      "thread": "Whether access-method surcharging spreads across foundation model providers — OpenAI, Google, and others as candidates for the same capability/access-path bundle decomposition",
+      "status": "pending",
+      "discovered": "2026-04-05"
+    },
+    {
+      "thread": "What an access-path audit looks like for teams that have drifted into third-party AI clients — how to identify which paths are in the stack and whether they carry surcharge exposure",
+      "status": "pending",
+      "discovered": "2026-04-05"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Token budget as cost transfer (infrastructure spend moved to individual productivity ledger)",
-      "b": "On-device frontier inference (cloud becomes optional)",
-      "insight": "The token budget cost transfer model has a structural precondition that was invisible until now: it requires centralized inference so that per-token costs exist to transfer. On-device inference eliminates the metering infrastructure entirely — no API call means no billable token, which means no cost to move to the individual engineer's ledger. The compensation model isn't just unfair; it's contingent on a technical architecture that is now architecturally optional. Employers offering token budgets have implicitly bet that cloud inference remains necessary at the frontier. The iPhone 17 Pro is the first concrete evidence that bet has a visible expiry condition."
-    },
-    {
-      "a": "Blast radius classification (four mechanisms: capability reclassification, infrastructure acquisition, auditor capture, toolchain capture)",
-      "b": "On-device frontier inference (cloud becomes optional)",
-      "insight": "The blast radius audit framework was built entirely around cloud-dependent architectures: revocation requires an API to revoke, ambient authority requires an external endpoint to be addressable, ToS enforcement requires a provider relationship to enforce. On-device inference is outside the blast radius not because it's protected by governance or protocol design, but because it doesn't depend on the infrastructure the blast radius operates through. The seven-axis audit framework needs an eighth condition: does this deployment call a provider endpoint at all? If not, axes 2 (access revocation), 4 (surface risk), and 5 (blast radius) are structurally inapplicable."
-    },
     {
       "a": "Platform dependency vectors (OAuth, API access control as platform dependency vectors)",
       "b": "On-device frontier inference (cloud becomes optional)",
@@ -1099,6 +1099,16 @@
       "a": "Ambient authority risks in AI agent architectures (scope failure, vendor scope expansion)",
       "b": "Trigger-based authorization (standing permission for agent to decide when to act)",
       "insight": "Prior ambient authority analysis focused on what the agent could do with access it held. Trigger-based authorization adds a new ambient authority dimension: when the agent acts. A trigger permission is not a capability grant — it is a standing permission for autonomous initiation. The ambient authority surface now includes not just what the agent can access but what events in the environment constitute the agent's own judgment that action is warranted. This is authority over timing, not just scope."
+    },
+    {
+      "a": "OpenClaw ToS enforcement (February 2026 — access revocation risk, third-party clients have no durable rights)",
+      "b": "OpenClaw surcharge (April 2026 — access-method pricing as a separate economic surface from capability pricing)",
+      "insight": "The OpenClaw story now has two chapters describing different mechanisms for the same underlying leverage architecture. February: platforms can revoke third-party client access without notice — the risk is loss of access. April: platforms can price-discriminate between access methods for paying subscribers — the risk is unexpected cost. Both flow from the same structural fact: the subscription bundles capability access and access-path access as a single product, and the platform can unbundle them unilaterally. The first chapter was about the platform's power to remove access; the second is about the platform's power to reprice it. Teams that understood the revocation risk have not necessarily modeled the pricing risk — they are distinct threat surfaces requiring distinct planning responses."
+    },
+    {
+      "a": "Comfortable drift as a risk category (teams accumulating AI tool dependencies without active architectural decisions)",
+      "b": "Access-method surcharging (surcharge only hits teams that drifted into third-party clients without modeling access-path costs)",
+      "insight": "The surcharge is the financial materialization of comfortable drift: teams that accumulated third-party client dependencies without modeling access paths as distinct economic surfaces now encounter those surfaces as unexpected line items. Drift doesn't show up in a stack audit; it shows up in the invoice. A price increase hits all subscribers equally; a surcharge hits specifically the teams that drifted — which makes it a targeting mechanism for teams that never modeled the access-path layer. The planning implication is not 'absorb a higher price' but 'audit which access paths are in your stack and whether you intended them.'"
     }
   ],
   "reader_questions": []

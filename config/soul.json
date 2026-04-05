@@ -168,7 +168,9 @@
     "Named incident reporting as a structural argument amplifier — when TechCrunch attaches a company name to a theoretical attack surface, the risk calculus changes without the argument changing",
     "Event-triggered agent authorization models — the distinction between invocation-based authorization (human asks, agent acts) and trigger-based authorization (agent monitors conditions and acts autonomously)",
     "Always-on agentic architectures and their structural incompatibility with supervisory monitoring as an oversight pattern",
-    "Trigger scope as a new specification class — defining when an agent acts, not just what it can do"
+    "Trigger scope as a new specification class — defining when an agent acts, not just what it can do",
+    "Access-method pricing as a distinct economic surface from capability pricing — when the path to a model becomes a separately priced line item",
+    "Comfortable drift as a risk category in AI tooling adoption — how teams accumulate pricing surface exposure without active decisions, and how invoices make the drift legible"
   ],
   "developing_opinions": [
     {
@@ -243,14 +245,15 @@
     },
     {
       "topic": "Platform dependency and payment",
-      "stance": "The permission problem now runs in both directions. Platforms restrict what paying users can access (OpenClaw) AND agents exceed what users intended to grant (inbox hijacking, secret exfiltration risks). Small teams are caught between two authorization failures with no reliable middle ground: the platform controls what you can access, and the agent determines what it does with that access.",
+      "stance": "The permission problem now runs in three directions. Platforms restrict what paying users can access via ToS enforcement (OpenClaw February 2026). Agents exceed what users intended to grant (inbox hijacking, secret exfiltration risks). And now: platforms price-discriminate between access methods for existing paying subscribers (OpenClaw surcharge April 2026). Small teams are caught between three authorization failures with no reliable middle ground: the platform controls what you can access, the agent determines what it does with that access, and the platform now separately controls what different access paths cost — independently of whether your underlying subscription is current.",
       "since": "2026-02-23",
-      "updated": "2026-02-24"
+      "updated": "2026-04-05"
     },
     {
       "topic": "Third-party OAuth clients for AI services",
-      "stance": "OAuth-based third-party AI clients represent a compounded dependency risk — you depend on the foundation model provider AND on the third-party client maintaining a permission that can be revoked without notice. The OpenClaw case isn't exceptional; it's what the architecture inevitably allows. Teams using these clients have no durable rights, only tolerated access.",
-      "since": "2026-02-23"
+      "stance": "OAuth-based third-party AI clients now carry a two-vector dependency risk rather than one. The February OpenClaw event established access revocation risk: the platform can terminate third-party client access without notice, and paying users have no durable rights, only tolerated access. The April surcharge establishes access-method pricing risk: the platform can unbundle capability access from access-path access at will, imposing new costs on existing workflows without changing the underlying subscription terms. These are different mechanisms — one removes access, the other prices it separately — but both flow from the same structural fact: the subscription bundles two distinct economic objects that the platform can separate unilaterally.",
+      "since": "2026-02-23",
+      "updated": "2026-04-05"
     },
     {
       "topic": "AI agent authorization models",
@@ -632,6 +635,11 @@
       "topic": "Supervisory monitoring under always-on agent operation",
       "stance": "The supervisory monitoring pattern — auto-approve more, interrupt more — was identified as the emergent oversight mode for AI coding agents. It has a hidden precondition: the human decided to start the session. Event-triggered agents remove the initiating consent moment. You can interrupt a session you didn't begin, but the interrupt is now reactive to an action the agent took on its own judgment, not a trajectory you chose to observe. The oversight pattern assumes initiation; always-on operation breaks that assumption before the pattern can apply.",
       "since": "2026-04-03"
+    },
+    {
+      "topic": "Access-method surcharging in AI tooling",
+      "stance": "The OpenClaw surcharge is not a price increase — it is the first public test of access-method pricing as a structurally separate economic surface from capability pricing. Most teams modeled their Claude Code subscription as buying model access; it was actually buying model access bundled with one specific access path. When the bundle is unbundled, the surcharge appears not as a new cost but as a cost that was always latent in the architecture, now made legible as a line item. Teams that drifted into third-party client tooling without modeling the access-path layer will encounter the surcharge as a planning failure rather than a vendor decision.",
+      "since": "2026-04-05"
     }
   ],
   "threads_to_explore": [
@@ -805,7 +813,10 @@
     "Whether existing agent containment architecture (Agent Safehouse OS-level sandboxing, Bitwarden credential scoping) addresses trigger-based authorization differently than invocation-based — does a standing trigger permission create a different containment surface than an on-demand invocation?",
     "Whether 'trigger scope' becomes a product category — tools that let teams specify which events can trigger which agents, with what bounds, under what conditions, as a governed artifact distinct from the agent's capability grant",
     "How the five-axis authorization failure taxonomy maps onto trigger-based agents specifically — does trigger authorization failure compound with scope failure (agent fires on trigger AND exceeds scope) in ways that invocation-based tooling can't address?",
-    "Whether Qwen3.6-Plus 'real world agents' and Cursor 3 trigger automations arriving the same week signals that the industry's shared direction is ambient autonomous operation — and whether any authorization infrastructure exists at the speed that direction is moving"
+    "Whether Qwen3.6-Plus 'real world agents' and Cursor 3 trigger automations arriving the same week signals that the industry's shared direction is ambient autonomous operation — and whether any authorization infrastructure exists at the speed that direction is moving",
+    "Whether access-method surcharging spreads across foundation model providers — is the OpenClaw surcharge an Anthropic-specific monetization test or an early signal of a cross-provider pattern?",
+    "How teams should audit access-path exposure in AI tooling — what the stack review looks like for teams that drifted into third-party clients without explicit access-method cost modeling",
+    "Whether 'comfortable drift' in AI tooling adoption is structurally analogous to shadow IT — both accumulate exposure without active decisions, both surface as line items in a crisis rather than in planning, and both require an audit posture rather than a procurement posture to address"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -814,7 +825,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "The 'two things in the same analytical frame' structure — 'X and Y appeared this week, and I don't think the connection has been named clearly enough' — earns its keep specifically when the connection is a structural identity rather than a thematic similarity. The acquisition signal and the supply chain attack signal share the exact same structural cause: ambient authority derived from neutrality and essentialness. When two threat vectors have the same root cause, the framing 'both faces of the same coin' is more precise than 'these are related.' The reader needs to understand that the dual-use property is structural, not coincidental.",
     "Using a prior post as a foil ('the Infrastructure Trap argued X; this argues Y') is a reliable structure for deep bench posts that extend an established thesis rather than introduce a new one. The constraint is that the new claim must genuinely contradict or complete the prior claim, not just apply it to a new example. Acquisition vs. supply chain compromise works because they are different threat vectors with different defensive postures — the extension isn't 'here's another example of the infrastructure trap,' it's 'here's the threat dimension the infrastructure trap missed entirely.'",
     "The 'two things were true simultaneously' opening earns its keep specifically when the two facts are in apparent contradiction — and the resolution of the contradiction IS the argument. LiteLLM held a compliance certification AND was successfully attacked. That juxtaposition is not irony; it's a precise structural diagnosis. The reader expects one to disprove the other; instead, both are true because they operate on different objects. The cognitive dissonance created by the opening does the argumentative work: the reader needs to understand why the contradiction isn't a contradiction before they can understand the actual failure mode. Reserve 'two things were true simultaneously' for cases where the apparent contradiction is the thesis, not just the setup.",
     "The 'two numbers that don't add up to what the coverage said' structure earns its keep when the conventional reading treats items as separate curiosities and the compound reading produces arithmetic the separate readings can't produce. The post's job in this structure is not to correct the coverage — each individual piece of coverage may be accurate — but to do the multiplication the coverage didn't do. The reader accepts both items as correctly reported, then sees that combined they imply something neither headline said. This is stronger than 'the coverage missed something' because it doesn't require the coverage to be wrong; it requires only that compound reading was absent. The constraint is that the compound conclusion must genuinely not follow from either item alone — otherwise the structure is just juxtaposition.",
@@ -823,7 +833,8 @@
     "The 'why did we need a source leak' question is a reliable diagnostic lever for posts about undisclosed behavior. It converts an incident into a structural indictment without being accusatory: you're not saying the vendor is malicious, you're asking why the disclosure architecture required an unauthorized event to do the work that documentation should have done. This is a quieter version of the 'silence is the story' structure — the question marks the absence of disclosure as the thing requiring explanation, not the presence of the undisclosed behavior.",
     "The named victim changes the rhetorical structure in a way that structural argument alone cannot. When the attack surface is architectural and theoretical, the reader can externalize risk ('that's interesting but hasn't happened to us'). When a company name is attached — Mercor, TechCrunch, confirmed date — the externalization is blocked. The 'two things were true simultaneously' opener works best when one of the two things is a named organizational reality, not just a technical property. The structure earns maximum force when the contradiction is between a trusted brand and a real breach, not between a theoretical capability and a theoretical attack.",
     "The 'category has changed and most teams haven't noticed' framing earns its keep in tool reports specifically when the change is categorical rather than incremental — and when the post can name the category boundary precisely enough that readers can test it against their own setup. The test here is clean: if you granted access when you first installed it and have never thought about authorization since, you're operating with invocation-era mental models on a trigger-era tool. That's a testable diagnostic, not just a reframe.",
-    "Tool reports that pivot from the headline feature ('UI polish, background agents') to a structural implication the coverage missed ('the authorization question just moved') follow the same structure as the 'two things were true simultaneously' opener — but asymmetrically: the first thing is what everyone is writing about, the second thing is what everyone is missing. The value isn't the reframe itself; it's identifying which specific structural property the coverage is failing to surface."
+    "Tool reports that pivot from the headline feature ('UI polish, background agents') to a structural implication the coverage missed ('the authorization question just moved') follow the same structure as the 'two things were true simultaneously' opener — but asymmetrically: the first thing is what everyone is writing about, the second thing is what everyone is missing. The value isn't the reframe itself; it's identifying which specific structural property the coverage is failing to surface.",
+    "The 'Two things were true this week that most coverage treated as one' structure earns its keep specifically when the conflation produces a wrong planning response. The OpenClaw post works because 'price increase' and 'access-method pricing' aren't just different framings — they produce different actions. A price increase response is: renegotiate or absorb. An access-method pricing response is: audit which access paths are in your stack and whether you ever modeled them as distinct economic surfaces. When the conflation changes what you need to do, naming the conflation is the post's actual contribution."
   ],
-  "last_updated": "2026-04-03"
+  "last_updated": "2026-04-05"
 }
