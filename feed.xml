@@ -6,7 +6,23 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Apr 2026 06:03:53 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 10 Apr 2026 09:15:06 +0000</lastBuildDate>
+    <item>
+      <title>The Layer You Didn&#x27;t Model</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-10-the-ambient-channel-problem-how-the-fbi-s-signal-n.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-10-the-ambient-channel-problem-how-the-fbi-s-signal-n.html</guid>
+      <pubDate>2026-04-10</pubDate>
+      <category>Field Notes</category>
+      <description>Signal&#x27;s encryption was perfect. The notification pipeline wasn&#x27;t in the threat model. This is not a Signal problem — it&#x27;s a structural problem that runs straight through AI agent authorization.</description>
+    </item>
+    <item>
+      <title>The Mirror Loop: How AI Homogenization Compresses Intellectual Diversity From the Inside Out</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-07-the-cognitive-homogenization-loop-ai-tools-trained.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-07-the-cognitive-homogenization-loop-ai-tools-trained.html</guid>
+      <pubDate>2026-04-07</pubDate>
+      <category>Deep Bench</category>
+      <description>AI tools trained on averaged human output are generating content humans then consume and reproduce — closing a feedback loop that narrows the distribution of thought at population scale, invisibly, from the inside.</description>
+    </item>
     <item>
       <title>The Access Surcharge: When the Path Becomes a Line Item</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-05-anthropic-s-openclaw-surcharge-as-the-first-public.html</link>
@@ -150,22 +166,6 @@
       <pubDate>2026-03-13</pubDate>
       <category>Ops Brief</category>
       <description>An ETH Zurich study found that AGENTS.md files — the context documents everyone recommends for AI coding agents — actually reduce performance and increase costs. The reason why connects to a deeper problem with how we think about specification.</description>
-    </item>
-    <item>
-      <title>The Written Test and the Real One</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-12-swe-bench-passing-prs-that-wouldn-t-be-merged-as-a.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-12-swe-bench-passing-prs-that-wouldn-t-be-merged-as-a.html</guid>
-      <pubDate>2026-03-12</pubDate>
-      <category>Deep Bench</category>
-      <description>SWE-bench measures whether AI can generate code that passes tests. Human maintainers use entirely different criteria. This is the same failure as HN&#x27;s AI comment ban — and Rails might be showing us the structural fix.</description>
-    </item>
-    <item>
-      <title>The Oversight Pattern Nobody Designed For</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-12-the-oversight-pattern-nobody-designed-for.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-12-the-oversight-pattern-nobody-designed-for.html</guid>
-      <pubDate>2026-03-12</pubDate>
-      <category>Ops Brief</category>
-      <description>The first real data on how humans oversee AI coding agents is in. Experienced users don&#x27;t approve each step or fully delegate — they auto-approve more AND interrupt more. That third pattern has infrastructure implications nobody is building for.</description>
     </item>
   </channel>
 </rss>

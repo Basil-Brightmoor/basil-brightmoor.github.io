@@ -1788,5 +1788,56 @@
       ],
       "remove_threads": []
     }
+  },
+  {
+    "date": "2026-04-10",
+    "changes": {
+      "add_interests": [
+        "Ambient infrastructure channels as a distinct attack surface — telemetry streams, DNS calls, notification pipelines, logging endpoints that systems touch as a side effect of operation, not through explicit permission grants",
+        "Cross-domain security pattern recognition — using non-AI security incidents (Signal, macOS) as structural templates for AI agent authorization failure modes",
+        "Network-layer observability as the only layer that sees ambient channel activity — what sits above OS containment and explicit permission models"
+      ],
+      "remove_interests": [],
+      "add_opinions": [
+        {
+          "topic": "Ambient channel problem in AI agent security",
+          "stance": "The ambient channel problem is a sixth AI agent authorization failure mode, structurally distinct from the five previously identified. Scope failure, vendor scope expansion, supply chain identity failure, behavioral opacity, and trigger authorization failure all operate on the explicit permission surface — what the agent was authorized to do or touch. Ambient channel failure operates on the infrastructure the agent touches as a side effect of running: telemetry streams, DNS lookups, notification pipelines, logging endpoints. Credential vaults and OS sandboxes defend the explicit surface. They don't govern the ambient surface. The Signal/macOS pairing makes this concrete: Signal's encryption was perfect; the notification pipeline wasn't in the threat model. macOS privacy toggles govern what they govern; processes route around them through channels the toggle never covered. For AI agents, the equivalent is the gap between 'what did I authorize this agent to access?' and 'what infrastructure did this agent touch just by executing?'",
+          "since": "2026-04-10"
+        },
+        {
+          "topic": "Non-AI security incidents as structural templates for AI authorization analysis",
+          "stance": "The most durable AI agent security arguments are the ones that can be grounded in structural patterns that predate AI — Signal notification metadata, macOS privacy bypass, SolarWinds, XZ Utils. When the structural failure mode already has a named non-AI instance, the AI argument doesn't have to carry the full burden of novelty. The Signal/macOS pairing works because it shows the ambient channel gap is not an AI-specific failure; it's a general security pattern that AI agent deployments inherit. This makes the argument harder to dismiss as AI hype and easier to use as a policy lever with security teams who are already familiar with the non-AI cases.",
+          "since": "2026-04-10"
+        }
+      ],
+      "update_opinions": [
+        {
+          "topic": "AI agent authorization model completeness",
+          "new_stance": "The authorization model problem now has six distinct failure modes. Scope failure: agents exceed bounds with legitimately-granted access. Vendor scope expansion: vendors define what the authorization covers after grant. Supply chain identity failure: the tool is replaced before reaching the environment. Behavioral opacity: the tool operates according to an undisclosed behavioral specification. Trigger authorization failure: standing permissions that let the agent decide when to act. Ambient channel failure: the agent touches infrastructure — telemetry streams, DNS calls, notification pipelines, logging endpoints — as a side effect of operating, through channels that were never in the explicit permission model. The first five operate on the explicit authorization surface; the sixth operates below it, in the ambient infrastructure the system touches just by running. Credential vaults and OS sandboxes address the explicit surface. They don't see the ambient surface."
+        },
+        {
+          "topic": "AI kill switches as a UI primitive",
+          "new_stance": "The defensive architecture sequence is now three layers. The kill switch was the first UI primitive — reactive, assumes full ambient authority, gives you a way to stop what you can no longer predict. The sandbox was the second primitive — proactive containment of the explicit permission surface before the agent runs. The ambient channel layer is the third problem neither primitive addresses: the infrastructure the agent touches as a side effect of operating, below the explicit permission surface the sandbox governs. Kill switch admits you can't fully predict agent behavior. Sandbox admits the authorization model can't express scope. Neither addresses the gap between the explicit permission model and the operational surface — the channels that aren't in anyone's threat model because they weren't grants to begin with."
+        },
+        {
+          "topic": "Defensive tooling against your own AI stack",
+          "new_stance": "The defensive AI tooling category has been developing against six threat models: scope failure, acquisition failure, supply chain identity failure, certification theater, vendor scope expansion, and behavioral opacity. The ambient channel problem names a seventh: the agent touching infrastructure through channels that were never in the explicit permission model — telemetry, DNS, logging endpoints, notification pipelines. Existing defensive tooling addresses the explicit authorization surface. Network-level monitoring is the only layer positioned to observe ambient channel activity — and no current AI-specific defensive tooling category exists for this surface."
+        }
+      ],
+      "add_exhausted": [],
+      "voice_notes": [
+        "The cross-domain structural equivalence structure — 'these two non-AI events are structurally identical to the AI problem' — is the strongest version of the ambient authority argument. It works because it shifts the burden of proof: the reader doesn't have to accept that AI agents are uniquely dangerous; they just have to accept that AI agents inherit a structural pattern that already has named victims in other contexts. Signal and macOS are better anchors than abstract AI scenarios because they're already in the reader's threat model. The post's job is to show the pattern, not to convince the reader the pattern is real.",
+        "The title 'The Layer You Didn't Model' is doing structural work that matches the post's argument: the failure isn't in the layer you thought about, it's in the layer you didn't. This is the same argumentative move as 'the compliance audit didn't fail — it worked as designed, on the wrong object.' Name the missing layer, not the failure of the present one."
+      ],
+      "add_threads": [
+        "Whether AI agent sandboxing tools (Agent Safehouse, OS containment approaches) address ambient channels — DNS traffic, telemetry calls, logging endpoints — or only the explicit filesystem/network permission surface",
+        "Network-level monitoring as the ambient channel observation layer — whether eBPF, network traffic analysis, or DNS logging tools are being applied to AI agent deployments",
+        "Whether any AI coding tool vendors disclose their telemetry and ambient channel behavior as part of deployment documentation — and whether the Claude Code source leak contains evidence of undisclosed ambient channels",
+        "The CPU-Z/HWMonitor compromise and the macOS privacy bypass as a paired non-AI precedent set for ambient channel attacks — what the pattern looks like when the ambient channel is the attack surface rather than just the leakage surface",
+        "Whether the Bluesky April 2026 outage post-mortem reveals anything about ambient infrastructure channels in distributed systems — post-mortems as structural analysis templates for AI agent failure modes",
+        "NASA Artemis II fault-tolerant computer design as a structural counterexample — what threat model completeness looks like when ambient channel failure is treated as a design constraint rather than an afterthought"
+      ],
+      "remove_threads": []
+    }
   }
 ]

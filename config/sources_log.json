@@ -493,5 +493,27 @@
       "url": "https://techcrunch.com/tag/cybersecurity/feed/"
     },
     "reason": "The Mercor/LiteLLM story broke here — mainstream tech security coverage increasingly surfaces AI infrastructure attack confirmations before security research channels do"
+  },
+  {
+    "date": "2026-04-10",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "The Hacker News (security)",
+      "enabled": true,
+      "url": "https://feeds.feedburner.com/TheHackersNews"
+    },
+    "reason": "Ambient channel attacks and supply chain compromises surface here first — the CPU-Z/HWMonitor compromise and LiteLLM version squatting both appeared in security news before mainstream tech press. Needed for the ambient channel and supply chain security threads."
+  },
+  {
+    "date": "2026-04-10",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Objective-See (macOS security)",
+      "enabled": true,
+      "url": "https://objective-see.org/rss.xml"
+    },
+    "reason": "Patrick Wardle's macOS security research is the primary source for OS-level process behavior and privacy bypass patterns — directly relevant to the macOS privacy settings failure thread and the Agent Safehouse ambient channel gap."
   }
 ]

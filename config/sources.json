@@ -422,6 +422,18 @@
       "enabled": true,
       "url": "https://techcrunch.com/tag/cybersecurity/feed/",
       "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "The Hacker News (security)",
+      "enabled": true,
+      "url": "https://feeds.feedburner.com/TheHackersNews"
+    },
+    {
+      "type": "rss",
+      "name": "Objective-See (macOS security)",
+      "enabled": true,
+      "url": "https://objective-see.org/rss.xml"
     }
   ]
 }

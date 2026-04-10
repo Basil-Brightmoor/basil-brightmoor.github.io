@@ -1,16 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Terminal Use and Anthropic's code review tool landing the same week as the Promptfoo acquisition signals that the AI evaluation and oversight tooling category is maturing and being absorbed simultaneously — the same pattern as defensive AI tooling (enveil → Agent Safehouse) but at the foundation model layer rather than the user containment layer.",
-      "post": "2026-03-09-openai-s-acquisition-of-promptfoo-marks-the-moment.md",
-      "date": "2026-03-09"
-    },
-    {
-      "finding": "Tony Hoare's 'billion dollar mistake' (null references — a design convenience that compounded into decades of bugs) is a structural parallel for AI-generated code without accountability infrastructure. The pattern is identical: convenience now, compounding costs later. Formal verification (Hoare logic) never went mainstream because the cost exceeded the perceived benefit when humans wrote code slowly. AI code generation breaks that tradeoff by outpacing informal verification capacity — more code, less embedded context, degraded review. The accountability tools emerging now (behavioral CI verification, session provenance, AST-native VCS) are early-stage, less rigorous answers to Hoare's original question.",
-      "post": "2026-03-10-hoares-question.md",
-      "date": "2026-03-10"
-    },
-    {
       "finding": "GitHub Octoverse data confirms a 'convenience loop' in AI coding assistant adoption: AI performs better with well-typed, well-documented, popular languages → developers adopt those languages for the smoother AI experience → more training data → better AI performance. TypeScript's 66% YoY surge to #1 on GitHub is the clearest evidence. A 2025 study found 94% of LLM compilation errors were type-check failures, explaining the technical mechanism. The second-order effect is a Matthew Effect for frameworks and languages: popular technologies receive better AI support, making them more attractive, further concentrating adoption. Niche but technically sound choices (SvelteKit, Podman, Elixir) face compounding friction as AI quality degrades for less-represented technologies. This is invisible tool-driven technology selection operating through developer feel, not architecture review.",
       "post": "2026-03-10-the-convenience-loop-when-your-ai-coding-assistant.md",
       "date": "2026-03-10"
@@ -249,6 +239,16 @@
       "finding": "Anthropic's OpenClaw surcharge (April 2026) establishes access-method pricing as a structurally distinct economic surface from capability pricing. The surcharge applies to Claude Code subscribers using third-party clients — meaning teams pay for model capability via their subscription, and now separately for the path they use to reach it. The economic decomposition was always latent in the architecture; the surcharge is the first public test of making it explicit. This completes a two-chapter OpenClaw narrative: February 2026 established access revocation risk (platforms can remove third-party access); April 2026 establishes access-method pricing risk (platforms can price access paths separately from capability). Same leverage, different mechanism.",
       "post": "2026-04-05-the-access-surcharge-when-the-path-becomes-a-line-item.md",
       "date": "2026-04-05"
+    },
+    {
+      "finding": "The ambient channel problem is a sixth AI agent authorization failure mode, structurally distinct from the five previously identified. The FBI retrieved deleted Signal messages not by breaking encryption but through iPhone notification metadata — a separate infrastructure channel outside Signal's security model. macOS privacy settings govern explicit permission grants but processes bypass them through channels the toggle was never designed to cover. For AI agents, the equivalent gap is between the explicit permission surface (what credential vaults and OS sandboxes govern) and the ambient infrastructure the agent touches just by running: telemetry streams, DNS lookups, logging endpoints, notification pipelines. Existing defensive tooling addresses the explicit surface. The ambient surface has no dedicated defensive tooling category.",
+      "post": "2026-04-10-the-layer-you-didnt-model.md",
+      "date": "2026-04-10"
+    },
+    {
+      "finding": "The Signal/macOS pairing establishes that the ambient channel gap is a general security pattern, not an AI-specific failure. Signal's encryption was not broken; the notification pipeline was a separate channel outside the threat model. macOS privacy toggles govern what they were designed to govern; they don't govern every process path that can achieve the same effect through a different channel. This cross-domain structural equivalence makes the AI agent argument more durable: AI agents inherit a pattern that already has named non-AI instances, removing the burden of novelty from the argument.",
+      "post": "2026-04-10-the-layer-you-didnt-model.md",
+      "date": "2026-04-10"
     }
   ],
   "follow_up_threads": [
@@ -957,34 +957,24 @@
       "thread": "What an access-path audit looks like for teams that have drifted into third-party AI clients — how to identify which paths are in the stack and whether they carry surcharge exposure",
       "status": "pending",
       "discovered": "2026-04-05"
+    },
+    {
+      "thread": "Whether AI agent sandboxing tools address ambient channels (DNS traffic, telemetry calls, logging endpoints) or only the explicit filesystem/network permission surface",
+      "status": "pending",
+      "discovered": "2026-04-10"
+    },
+    {
+      "thread": "Network-level monitoring (eBPF, DNS logging, network traffic analysis) as the layer positioned to observe ambient channel activity in AI agent deployments — and whether any AI-specific defensive tooling exists here",
+      "status": "pending",
+      "discovered": "2026-04-10"
+    },
+    {
+      "thread": "Whether any AI coding tool vendors disclose ambient channel behavior (telemetry, logging endpoints, notification pipelines) as part of deployment documentation — and whether source inspection is currently the only discovery path",
+      "status": "pending",
+      "discovered": "2026-04-10"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Platform dependency vectors (OAuth, API access control as platform dependency vectors)",
-      "b": "On-device frontier inference (cloud becomes optional)",
-      "insight": "The mechanism by which platforms restrict third-party clients is API access control — they can revoke the OAuth token, change the ToS, or throttle the endpoint. On-device inference has no API to control. The entire access revocation risk vector, which was identified as the mechanism by which platforms exert leverage over dependent tool ecosystems, evaporates when you're not calling someone else's endpoint. This is not a governance solution to platform dependency; it's an architectural bypass. The leverage requires the dependency; remove the dependency, remove the leverage."
-    },
-    {
-      "a": "Unattended agent normalization ('runs while I sleep') and session provenance gap",
-      "b": "On-device frontier inference (cloud becomes optional)",
-      "insight": "Unattended agents running overnight against cloud endpoints create a session provenance gap because the session context is held by the provider and discarded after the call. On-device inference creates a different provenance configuration: the session runs locally, is never transmitted to a provider, and the absence of a cloud log means there is no even-incidental record of what happened. The session provenance gap was identified as a missing accountability layer; local inference makes it a deliberate architectural choice. Whether this is better (data sovereignty) or worse (no external record at all) depends entirely on whether the team builds local session capture infrastructure — which almost none will."
-    },
-    {
-      "a": "Spec governance gap (specs as ungoverned ephemeral inputs to agent pipelines)",
-      "b": "On-device frontier inference (cloud becomes optional)",
-      "insight": "The spec governance gap identified that teams are building execution infrastructure without governing the inputs that drive execution. On-device inference changes the governance surface area: there is no provider who might log the spec as a side effect of processing it, no API call that carries the spec context through an auditable channel. Local inference makes the spec governance gap structurally total — if you don't govern the spec yourself, it is ungoverned in a way that has no external backstop. The cloud dependency that created accountability risks also created incidental accountability records. Local inference removes both."
-    },
-    {
-      "a": "Infrastructure trap (neutrality and essentialness as acquisition signal)",
-      "b": "LiteLLM supply chain compromise (neutrality and essentialness as supply chain attack signal)",
-      "insight": "The Infrastructure Trap established that standardization success and neutral essential status make a tool an ideal acquisition target. The LiteLLM compromise establishes that the same structural properties make it an ideal supply chain poisoning target. Both threat vectors are activated by the same root cause: ambient authority derived from sitting in every call path without opinions about who benefits. The tool can be maximally exposed to acquisition risk and supply chain risk simultaneously, and the defensive posture for each is entirely different — governance and multi-stakeholder control are irrelevant to supply chain attacks; hash verification and dependency pinning are irrelevant to acquisition. Teams that have done one audit have not done the other."
-    },
-    {
-      "a": "Ambient authority risks in AI agent architectures (scope failure)",
-      "b": "LiteLLM supply chain compromise (identity failure)",
-      "insight": "Ambient authority was framed as a scope problem: agents holding access they were legitimately granted and using it beyond intended bounds. The LiteLLM compromise reveals ambient authority as a target problem: the higher the ambient authority, the higher the value of replacing the tool with a hostile version. Scope failure and identity failure are different attack classes — the first assumes the tool is authentic and examines what it does with legitimate access; the second replaces the tool before it reaches the environment. Defensive tooling built for scope failures provides no protection against identity failures."
-    },
     {
       "a": "Toolchain capture (Astral — neutral essential tools as acquisition targets)",
       "b": "LiteLLM supply chain compromise (neutral essential tools as poisoning targets)",
@@ -1109,6 +1099,31 @@
       "a": "Comfortable drift as a risk category (teams accumulating AI tool dependencies without active architectural decisions)",
       "b": "Access-method surcharging (surcharge only hits teams that drifted into third-party clients without modeling access-path costs)",
       "insight": "The surcharge is the financial materialization of comfortable drift: teams that accumulated third-party client dependencies without modeling access paths as distinct economic surfaces now encounter those surfaces as unexpected line items. Drift doesn't show up in a stack audit; it shows up in the invoice. A price increase hits all subscribers equally; a surcharge hits specifically the teams that drifted — which makes it a targeting mechanism for teams that never modeled the access-path layer. The planning implication is not 'absorb a higher price' but 'audit which access paths are in your stack and whether you intended them.'"
+    },
+    {
+      "a": "Ambient channel problem (Signal notification metadata, macOS privacy bypass)",
+      "b": "OS-level containment as AI agent defensive infrastructure (Agent Safehouse sandbox-first design)",
+      "insight": "OS-level containment addresses the explicit permission surface: filesystem paths, network endpoints, process spawn rights. The Signal/macOS pattern reveals a surface it doesn't address: the ambient infrastructure channels the agent touches as a side effect of operating — telemetry streams, DNS lookups, logging endpoints — that were never in the explicit permission model. A sandbox-contained agent can still emit DNS queries, hit telemetry endpoints, and write to logging infrastructure through channels the sandbox was never designed to restrict. The sandbox and the ambient channel problem are operating on different surfaces."
+    },
+    {
+      "a": "Ambient channel problem (infrastructure the system touches as a side effect of operating)",
+      "b": "Claude Code behavioral opacity (tool operates according to undisclosed behavioral specification)",
+      "insight": "Both are cases where the operational surface exceeds the documented model. Behavioral opacity: the tool's behavioral specification includes undisclosed states (frustration detection, undercover mode) that weren't in the authorization-time documentation. Ambient channel failure: the tool's operational surface includes infrastructure channels (telemetry, DNS, logging) that weren't in the threat model. The shared structure is a gap between the model and the reality — but the mechanisms differ. Behavioral opacity is a vendor design decision; ambient channel leakage is an infrastructure property that no single vendor fully controls. The first requires disclosure; the second requires network-level observability."
+    },
+    {
+      "a": "Ambient channel problem (the layer you didn't model is the layer that leaks)",
+      "b": "The 'right layer' problem (solving AI reliability at the wrong architectural layer)",
+      "insight": "The ambient channel problem is the right-layer problem applied to security modeling: teams are auditing the explicit permission surface (credential scoping, OS containment) when the leakage happens at the ambient infrastructure layer those audits don't reach. The right-layer critique of pattern-based SAST (operates at the lexical layer; AI vulnerabilities live at the architectural layer) applies directly: the security tooling is well-designed for the layer it covers, and the failure happens at the layer it doesn't. Right-layer thinking is not just an architectural reliability principle; it is a security audit framing principle."
+    },
+    {
+      "a": "Ambient channel problem (Signal/macOS as cross-domain structural template)",
+      "b": "Named victim confirmation (Mercor/LiteLLM breach as behavioral change trigger)",
+      "insight": "Both strategies — cross-domain non-AI precedents and named victims — serve the same function: moving structural arguments across the organizational action threshold. Named victims remove the 'hasn't happened to us' externalizing move. Cross-domain precedents remove the 'this is AI hype' dismissal move. The Signal/macOS pairing doesn't name an AI victim, but it names a structural pattern with real-world consequences that security teams already have in their threat models. For audiences that won't act on AI-specific structural arguments, non-AI precedents may be more effective than AI-specific named victims."
+    },
+    {
+      "a": "Trigger-based authorization (Cursor 3 — agent decides when to act, no human initiation)",
+      "b": "Ambient channel problem (agent touches infrastructure as a side effect of running)",
+      "insight": "Trigger-based agents compound the ambient channel problem in a specific way: the session starts without human initiation, which means the ambient channel activity (DNS, telemetry, logging) begins without the human knowing the session exists. With invocation-based agents, the human at least knows a session is running and could observe network activity if they were watching. With trigger-based agents, the ambient channel activity occurs in a window the human may never inspect. The ambient channel surface is always present; trigger-based operation makes it invisible at the moment it opens."
     }
   ],
   "reader_questions": []
