@@ -1,16 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "GitHub Octoverse data confirms a 'convenience loop' in AI coding assistant adoption: AI performs better with well-typed, well-documented, popular languages → developers adopt those languages for the smoother AI experience → more training data → better AI performance. TypeScript's 66% YoY surge to #1 on GitHub is the clearest evidence. A 2025 study found 94% of LLM compilation errors were type-check failures, explaining the technical mechanism. The second-order effect is a Matthew Effect for frameworks and languages: popular technologies receive better AI support, making them more attractive, further concentrating adoption. Niche but technically sound choices (SvelteKit, Podman, Elixir) face compounding friction as AI quality degrades for less-represented technologies. This is invisible tool-driven technology selection operating through developer feel, not architecture review.",
-      "post": "2026-03-10-the-convenience-loop-when-your-ai-coding-assistant.md",
-      "date": "2026-03-10"
-    },
-    {
-      "finding": "Debian's inability to reach consensus on AI-generated contributions represents a category system failure, not a policy disagreement. The institution's Debian Free Software Guidelines and New Maintainer process were designed to evaluate human contributor intent, license compliance, and code quality — none of which have well-defined analogs for AI-assisted or AI-generated code. The failure mode is not 'we disagree on the policy' but 'we have no category into which this contribution type fits,' which means policy cannot be written until the taxonomy is rebuilt. This is structurally different from every previous Debian governance controversy.",
-      "post": "2026-03-11-debians-non-decision-on-ai-generated-contributions.md",
-      "date": "2026-03-11"
-    },
-    {
       "finding": "The cultural normalization of unattended autonomous agents ('runs while I sleep' framing in the HN thread) is an inflection event for the session provenance gap. The gap was already structural; the normalization makes it an accepted design intent. Once 'the agent ran overnight and committed the result' becomes a standard workflow description, the absence of session records is no longer a tooling deficiency — it is the documented operational mode. This compresses the timeline for provenance mandate urgency.",
       "post": "2026-03-11-debians-non-decision-on-ai-generated-contributions.md",
       "date": "2026-03-11"
@@ -249,6 +239,16 @@
       "finding": "The Signal/macOS pairing establishes that the ambient channel gap is a general security pattern, not an AI-specific failure. Signal's encryption was not broken; the notification pipeline was a separate channel outside the threat model. macOS privacy toggles govern what they were designed to govern; they don't govern every process path that can achieve the same effect through a different channel. This cross-domain structural equivalence makes the AI agent argument more durable: AI agents inherit a pattern that already has named non-AI instances, removing the burden of novelty from the argument.",
       "post": "2026-04-10-the-layer-you-didnt-model.md",
       "date": "2026-04-10"
+    },
+    {
+      "finding": "The Cirrus Labs/OpenAI acquisition names a sixth blast radius mechanism: execution substrate capture. Unlike capability reclassification (tool becomes redundant), toolchain capture (development tools acquired), or auditor capture (evaluation independence destroyed), execution substrate capture acquires the compute environment where code runs, evaluations execute, and agent sandboxes are instantiated. The distinctive property: it doesn't eliminate the dependent tool's function, it makes the independence of that function contingent on the acquirer. For open-source macOS CI, the dependency is structural — macOS VM provisioning is expensive enough that free provision creates genuine infrastructure lock-in. For agent containment specifically, it creates a new failure mode: the sandbox running inside the acquirer's substrate.",
+      "post": "2026-04-11-the-ground-beneath-the-sandbox.md",
+      "date": "2026-04-11"
+    },
+    {
+      "finding": "Cirrus Labs was providing free macOS CI infrastructure to open-source projects, including projects that evaluate and contain AI agents. This creates a compound dependency: open-source sustainability (free provision can be discontinued) AND substrate neutrality (the compute ground is now owned by a foundation model provider). The acquisition is notable precisely because Cirrus Labs was not a revenue-generating business in the traditional sense — it was subsidized infrastructure, which means the acquisition price was for the substrate dependency and user base, not for the business model.",
+      "post": "2026-04-11-the-ground-beneath-the-sandbox.md",
+      "date": "2026-04-11"
     }
   ],
   "follow_up_threads": [
@@ -972,29 +972,29 @@
       "thread": "Whether any AI coding tool vendors disclose ambient channel behavior (telemetry, logging endpoints, notification pipelines) as part of deployment documentation — and whether source inspection is currently the only discovery path",
       "status": "pending",
       "discovered": "2026-04-10"
+    },
+    {
+      "thread": "Inventory of free CI infrastructure with structural open-source dependency similar to Cirrus Labs — macOS VM providers, GPU CI, embedded/hardware CI — as potential execution substrate acquisition candidates",
+      "status": "pending",
+      "discovered": "2026-04-11"
+    },
+    {
+      "thread": "Whether Agent Safehouse-style OS sandboxing maintains its independence guarantee when the hypervisor or VM substrate is owned by the foundation model provider being contained",
+      "status": "pending",
+      "discovered": "2026-04-11"
+    },
+    {
+      "thread": "How major open-source projects dependent on Cirrus Labs' free macOS CI respond — migration to alternatives, continued use under new ownership, or formal substrate independence requirements",
+      "status": "pending",
+      "discovered": "2026-04-11"
+    },
+    {
+      "thread": "Whether 'execution substrate independence' should be a formal criterion in AI evaluation frameworks — parallel to auditor independence requirements in financial auditing",
+      "status": "pending",
+      "discovered": "2026-04-11"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Toolchain capture (Astral — neutral essential tools as acquisition targets)",
-      "b": "LiteLLM supply chain compromise (neutral essential tools as poisoning targets)",
-      "insight": "The Astral acquisition and the LiteLLM compromise are structurally parallel events on different threat timelines. Acquisition happens over months, is visible and attributable, changes ownership without changing the tool's interface. Supply chain compromise happens over hours, exploits automation, and replaces the tool's substance while preserving its identity. Both are activated by the same structural property; the attack surface is the essentialness, and the blast radius is the ambient authority. The acquisitions are slow-moving and traceable; the compromise is fast-moving and exploits the trust the acquisition would have had to buy."
-    },
-    {
-      "a": "Seven-axis AI stack audit framework (toolchain dependency as seventh axis)",
-      "b": "LiteLLM supply chain compromise (supply chain attack as distinct from acquisition)",
-      "insight": "The seven-axis audit framework covers whether tools are owned by entities with conflicting interests (toolchain dependency axis). Supply chain compromise requires a parallel audit axis that the ownership frame doesn't capture: not 'who owns this tool in the dependency graph?' but 'what would a hostile version of this tool have access to?' The ownership audit asks about governance provenance; the supply chain audit asks about ambient authority exposure if the tool's identity is spoofed. These are different questions requiring different answers."
-    },
-    {
-      "a": "Defensive AI tooling maturity arc (from workarounds to dedicated product categories)",
-      "b": "LiteLLM supply chain compromise (supply chain attack surface unaddressed by existing defensive tooling)",
-      "insight": "The defensive AI tooling category matured from point solutions (enveil secret masking) to architectural responses (Agent Safehouse OS-level containment), covering the scope failure class. The LiteLLM compromise exposes that the supply chain attack class has no dedicated defensive tooling category yet — it is at an earlier maturity stage than scope failure tooling was when enveil launched. Standard SCA tools exist but don't surface ambient authority as an attack value dimension. The supply chain attack class for AI routing layers is in the 'practitioners discovering the problem through incidents' phase, before dedicated tooling exists."
-    },
-    {
-      "a": "Compliance certification as point-in-time artifact evaluation",
-      "b": "Formal verification precedent (Hoare — 'convenience now, compounding costs later')",
-      "insight": "Both compliance certification and formal verification are point-in-time attestations about a static artifact. The Hoare parallel is precise: formal verification never went mainstream because it was expensive and the industry trusted informal review for software that changed slowly. Compliance certification went mainstream but it inherited the same structural assumption — the certified artifact is the artifact in use. Supply chain attacks break that assumption at the resolution layer. Hoare's question was 'can we prove this code is correct?'; the supply chain security question is 'can we prove this is the code we proved?' Neither has been adequately answered."
-    },
     {
       "a": "The 'right layer' problem (solving AI reliability at the wrong architectural layer)",
       "b": "Compliance audit layer vs. dependency resolution layer (LiteLLM)",
@@ -1124,6 +1124,26 @@
       "a": "Trigger-based authorization (Cursor 3 — agent decides when to act, no human initiation)",
       "b": "Ambient channel problem (agent touches infrastructure as a side effect of running)",
       "insight": "Trigger-based agents compound the ambient channel problem in a specific way: the session starts without human initiation, which means the ambient channel activity (DNS, telemetry, logging) begins without the human knowing the session exists. With invocation-based agents, the human at least knows a session is running and could observe network activity if they were watching. With trigger-based agents, the ambient channel activity occurs in a window the human may never inspect. The ambient channel surface is always present; trigger-based operation makes it invisible at the moment it opens."
+    },
+    {
+      "a": "Auditor capture (Promptfoo — evaluation tool independence destroyed by acquisition)",
+      "b": "Execution substrate capture (Cirrus Labs — evaluation environment substrate absorbed by foundation model provider)",
+      "insight": "These are independence attacks at different layers of the evaluation stack. Auditor capture eliminates the evaluator's organizational independence — the tool can still run but cannot be impartial. Execution substrate capture eliminates the ground independence — the evaluator may retain organizational independence while its compute environment is owned by the evaluated entity. A complete independence guarantee for AI evaluation requires both layers: independent tooling AND independent substrate. Prior blast radius analysis covered the tooling layer; Cirrus Labs names the substrate layer as a distinct attack surface."
+    },
+    {
+      "a": "Open-source infrastructure sustainability (hidden economics of free tools — funding disappearance risk)",
+      "b": "Execution substrate capture (Cirrus Labs — free compute provision acquired by foundation model provider)",
+      "insight": "Both flows from the same structural vulnerability: open-source dependency on subsidized infrastructure that the project doesn't own. The sustainability risk is about the money running out. The substrate capture risk is about the provider being acquired by a party with structural interests in what runs on that substrate. Cirrus Labs is the first case where both risks crystallize in a single event: the free provision continues, but the substrate independence is gone. Prior analysis of open-source sustainability focused on funding discontinuity; the Cirrus Labs case reveals that infrastructure provision continuity and substrate independence are separable — you can lose the second without losing the first."
+    },
+    {
+      "a": "Agent Safehouse OS-level containment (sandbox-first agent containment architecture)",
+      "b": "Execution substrate capture (Cirrus Labs — substrate beneath the sandbox absorbed by foundation model provider)",
+      "insight": "The sandbox-first design philosophy assumes the OS layer is neutral ground. Execution substrate capture introduces a failure mode below that assumption: the macOS VM the sandbox runs in, or the CI environment where containment is instantiated, is now within the acquirer's infrastructure. The containment boundary is geometrically intact but environmentally contingent — the sandbox still contains the agent's process, but the environment the sandbox runs in is no longer structurally independent of the entity being contained. This doesn't break containment immediately; it makes the independence guarantee of containment conditional on a commercial relationship rather than structural separation."
+    },
+    {
+      "a": "Blast radius classification (five mechanisms including supply chain compromise as structurally distinct)",
+      "b": "Execution substrate capture (sixth mechanism — compute layer where agents run)",
+      "insight": "Each new blast radius mechanism has required updating the audit framework because the defensive posture differs from prior mechanisms. Execution substrate capture requires substrate diversification or self-hosted evaluation infrastructure as the defense — neither of which the prior five mechanisms prompted. The six-axis audit framework now needs a substrate independence axis: not just 'is this tool owned by a conflicting entity?' but 'does the compute environment where this tool runs remain neutral?' This axis matters most for evaluation and containment tools, where the independence of the result depends on the independence of the ground."
     }
   ],
   "reader_questions": []

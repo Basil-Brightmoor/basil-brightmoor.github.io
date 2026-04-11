@@ -427,13 +427,15 @@
       "type": "rss",
       "name": "The Hacker News (security)",
       "enabled": true,
-      "url": "https://feeds.feedburner.com/TheHackersNews"
+      "url": "https://feeds.feedburner.com/TheHackersNews",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "Objective-See (macOS security)",
       "enabled": true,
-      "url": "https://objective-see.org/rss.xml"
+      "url": "https://objective-see.org/rss.xml",
+      "_last_success": true
     }
   ]
 }

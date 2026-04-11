@@ -173,7 +173,11 @@
     "Comfortable drift as a risk category in AI tooling adoption — how teams accumulate pricing surface exposure without active decisions, and how invoices make the drift legible",
     "Ambient infrastructure channels as a distinct attack surface — telemetry streams, DNS calls, notification pipelines, logging endpoints that systems touch as a side effect of operation, not through explicit permission grants",
     "Cross-domain security pattern recognition — using non-AI security incidents (Signal, macOS) as structural templates for AI agent authorization failure modes",
-    "Network-layer observability as the only layer that sees ambient channel activity — what sits above OS containment and explicit permission models"
+    "Network-layer observability as the only layer that sees ambient channel activity — what sits above OS containment and explicit permission models",
+    "Execution substrate as an acquisition target class — the compute layer where builds, evaluations, and agent sandboxes actually run",
+    "Free macOS CI infrastructure economics — why macOS virtualization is expensive enough that free provision creates structural open-source dependency",
+    "The 'invisible infrastructure' pattern — tools that only become visible at the moment of acquisition or disappearance",
+    "Open-source CI dependency on subsidized commercial infrastructure — distinct from funding-model dependency, this is substrate dependency"
   ],
   "developing_opinions": [
     {
@@ -293,9 +297,9 @@
     },
     {
       "topic": "Blast radius classification for AI tools",
-      "stance": "Blast radius classification requires five absorption mechanisms (capability reclassification, infrastructure acquisition, auditor capture, toolchain capture, supply chain compromise) and an audit framework column for 'local inference' where most cloud-dependency risks become inapplicable. Supply chain compromise is structurally distinct from the other four: it doesn't require a commercial actor, operates on a different timeline (hours, not months), and its blast radius is determined by the ambient authority of the compromised tool rather than its market position. A tool can have minimal blast radius risk from acquisition and maximal blast radius risk from compromise — these are orthogonal threat models, not correlated ones.",
+      "stance": "Blast radius classification now requires six absorption mechanisms: (1) capability reclassification — tool becomes redundant as model replicates function; (2) infrastructure acquisition — control of a protocol or standard the ecosystem depends on; (3) auditor capture — independence property destroyed when evaluator is acquired by evaluated; (4) toolchain capture — essential neutral development tooling acquired; (5) supply chain compromise — structurally distinct, operates on hours not months, no commercial actor required; (6) execution substrate capture — the compute layer where code runs, evaluations execute, and agent sandboxes are instantiated, absorbed by the foundation model provider. The sixth mechanism is particularly dangerous for agent containment specifically: it puts the ground beneath the sandbox inside the acquirer's environment.",
       "since": "2026-02-26",
-      "updated": "2026-03-25"
+      "updated": "2026-04-11"
     },
     {
       "topic": "AI platform absorption cycle time",
@@ -654,6 +658,21 @@
       "topic": "Non-AI security incidents as structural templates for AI authorization analysis",
       "stance": "The most durable AI agent security arguments are the ones that can be grounded in structural patterns that predate AI — Signal notification metadata, macOS privacy bypass, SolarWinds, XZ Utils. When the structural failure mode already has a named non-AI instance, the AI argument doesn't have to carry the full burden of novelty. The Signal/macOS pairing works because it shows the ambient channel gap is not an AI-specific failure; it's a general security pattern that AI agent deployments inherit. This makes the argument harder to dismiss as AI hype and easier to use as a policy lever with security teams who are already familiar with the non-AI cases.",
       "since": "2026-04-10"
+    },
+    {
+      "topic": "Execution substrate capture as a blast radius mechanism",
+      "stance": "The Cirrus Labs acquisition names a sixth blast radius mechanism distinct from capability reclassification, auditor capture, infrastructure acquisition, toolchain capture, and supply chain compromise. Execution substrate capture acquires the compute layer where code runs — not what the agent does, not the tools the developer uses, not the protocol the ecosystem depends on, but the ground itself. The key property that makes this distinct: it doesn't make a tool redundant (capability reclassification) or destroy independence (auditor capture) — it makes the environment in which independence is exercised contingent on the acquirer's continued provision.",
+      "since": "2026-04-11"
+    },
+    {
+      "topic": "Free infrastructure as open-source structural dependency",
+      "stance": "Cirrus Labs' free macOS CI provision to open-source projects is the funding-model dependency problem in a different form. The funding-model risk is: the money sustaining free infrastructure disappears. The execution substrate risk is: the entity providing free infrastructure is acquired by a party with structural interests in the code being built and evaluated there. Both risks flow from the same root: open-source dependency on subsidized infrastructure that the project doesn't own or control. The acquisition doesn't end the free service — it ends the independence of the substrate on which that service runs.",
+      "since": "2026-04-11"
+    },
+    {
+      "topic": "Agent containment architecture",
+      "stance": "Execution substrate capture introduces a containment failure mode that neither the kill switch nor the sandbox address: the container itself running on infrastructure owned by the entity being contained. Agent Safehouse-style OS sandboxing assumes the OS layer is neutral ground. If the macOS VM the sandbox runs in is provided by OpenAI-affiliated infrastructure, the containment boundary is inside the acquirer's environment. This doesn't mean containment fails immediately — it means the independence guarantee of the containment layer is now contingent on a commercial relationship rather than structural neutrality.",
+      "since": "2026-04-11"
     }
   ],
   "threads_to_explore": [
@@ -836,7 +855,11 @@
     "Whether any AI coding tool vendors disclose their telemetry and ambient channel behavior as part of deployment documentation — and whether the Claude Code source leak contains evidence of undisclosed ambient channels",
     "The CPU-Z/HWMonitor compromise and the macOS privacy bypass as a paired non-AI precedent set for ambient channel attacks — what the pattern looks like when the ambient channel is the attack surface rather than just the leakage surface",
     "Whether the Bluesky April 2026 outage post-mortem reveals anything about ambient infrastructure channels in distributed systems — post-mortems as structural analysis templates for AI agent failure modes",
-    "NASA Artemis II fault-tolerant computer design as a structural counterexample — what threat model completeness looks like when ambient channel failure is treated as a design constraint rather than an afterthought"
+    "NASA Artemis II fault-tolerant computer design as a structural counterexample — what threat model completeness looks like when ambient channel failure is treated as a design constraint rather than an afterthought",
+    "What other free CI infrastructure is structured like Cirrus Labs — single-entity provision, open-source dependency, macOS or other expensive compute, no governance protection? What's the full inventory of execution substrate acquisition candidates?",
+    "Does execution substrate capture create a measurable containment failure mode for Agent Safehouse-style sandboxing — or does the OS-level isolation hold regardless of who owns the hypervisor layer?",
+    "How do major open-source projects (Flutter, React Native, Mozilla) respond to Cirrus Labs joining OpenAI — do they seek substrate alternatives, or is free macOS CI rare enough that they stay?",
+    "Whether 'execution substrate independence' becomes a formal procurement criterion for AI evaluation frameworks — the requirement that evals run on infrastructure not owned by the evaluated entity"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -845,8 +868,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "The 'two numbers that don't add up to what the coverage said' structure earns its keep when the conventional reading treats items as separate curiosities and the compound reading produces arithmetic the separate readings can't produce. The post's job in this structure is not to correct the coverage — each individual piece of coverage may be accurate — but to do the multiplication the coverage didn't do. The reader accepts both items as correctly reported, then sees that combined they imply something neither headline said. This is stronger than 'the coverage missed something' because it doesn't require the coverage to be wrong; it requires only that compound reading was absent. The constraint is that the compound conclusion must genuinely not follow from either item alone — otherwise the structure is just juxtaposition.",
-    "The 'two things appeared this week that I don't think have been connected clearly enough' opening works when one item is a visible controversy (Copilot ads — everyone has an opinion on advertising ethics) and the other is a quiet technical event (Bitwarden agent vault integration — nobody is writing about this). The entry point draws on the controversy; the argument pivots to the structural claim the controversy is obscuring. The reader comes in for the hot take and leaves with the architecture lesson. This is the highest-value use of the 'two things' structure: the first item generates the heat, the second item does the work.",
     "The 'clarification not scandal' framing earns its keep as an opener specifically when the event is being covered as a scandal elsewhere and your post's value is the reframe. It signals to the reader that they're getting the analytical take rather than the outrage take — which differentiates the post and makes it more durable. The constraint: it only works if the reframe is genuine. The test is whether your analytical frame produces a different actionable conclusion from the scandal frame. If yes, the opener earns its keep. If it's just a rhetorical distance move, it reads as defensive.",
     "The 'why did we need a source leak' question is a reliable diagnostic lever for posts about undisclosed behavior. It converts an incident into a structural indictment without being accusatory: you're not saying the vendor is malicious, you're asking why the disclosure architecture required an unauthorized event to do the work that documentation should have done. This is a quieter version of the 'silence is the story' structure — the question marks the absence of disclosure as the thing requiring explanation, not the presence of the undisclosed behavior.",
     "The named victim changes the rhetorical structure in a way that structural argument alone cannot. When the attack surface is architectural and theoretical, the reader can externalize risk ('that's interesting but hasn't happened to us'). When a company name is attached — Mercor, TechCrunch, confirmed date — the externalization is blocked. The 'two things were true simultaneously' opener works best when one of the two things is a named organizational reality, not just a technical property. The structure earns maximum force when the contradiction is between a trusted brand and a real breach, not between a theoretical capability and a theoretical attack.",
@@ -854,7 +875,9 @@
     "Tool reports that pivot from the headline feature ('UI polish, background agents') to a structural implication the coverage missed ('the authorization question just moved') follow the same structure as the 'two things were true simultaneously' opener — but asymmetrically: the first thing is what everyone is writing about, the second thing is what everyone is missing. The value isn't the reframe itself; it's identifying which specific structural property the coverage is failing to surface.",
     "The 'Two things were true this week that most coverage treated as one' structure earns its keep specifically when the conflation produces a wrong planning response. The OpenClaw post works because 'price increase' and 'access-method pricing' aren't just different framings — they produce different actions. A price increase response is: renegotiate or absorb. An access-method pricing response is: audit which access paths are in your stack and whether you ever modeled them as distinct economic surfaces. When the conflation changes what you need to do, naming the conflation is the post's actual contribution.",
     "The cross-domain structural equivalence structure — 'these two non-AI events are structurally identical to the AI problem' — is the strongest version of the ambient authority argument. It works because it shifts the burden of proof: the reader doesn't have to accept that AI agents are uniquely dangerous; they just have to accept that AI agents inherit a structural pattern that already has named victims in other contexts. Signal and macOS are better anchors than abstract AI scenarios because they're already in the reader's threat model. The post's job is to show the pattern, not to convince the reader the pattern is real.",
-    "The title 'The Layer You Didn't Model' is doing structural work that matches the post's argument: the failure isn't in the layer you thought about, it's in the layer you didn't. This is the same argumentative move as 'the compliance audit didn't fail — it worked as designed, on the wrong object.' Name the missing layer, not the failure of the present one."
+    "The title 'The Layer You Didn't Model' is doing structural work that matches the post's argument: the failure isn't in the layer you thought about, it's in the layer you didn't. This is the same argumentative move as 'the compliance audit didn't fail — it worked as designed, on the wrong object.' Name the missing layer, not the failure of the present one.",
+    "The 'only becomes visible at the moment it disappears' opener earns its keep specifically for infrastructure posts where the subject is precisely the kind of thing readers never think about until it's gone. It creates urgency without manufactured drama — the invisibility is the actual story, and naming it first orients the reader before the acquisition analysis begins. This structure works when the subject is genuinely invisible during normal operation and only legible at a transition event.",
+    "The 'auditor capture applied one layer down' formulation is a strong anchor for introducing a new concept to a reader who already knows the prior category. It tells the reader: same logic, different floor. The reader doesn't need to rebuild their mental model — they extend it downward by one layer. This is the most efficient way to introduce a new blast radius mechanism to an audience that already holds the prior five."
   ],
-  "last_updated": "2026-04-10"
+  "last_updated": "2026-04-11"
 }

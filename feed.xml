@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 10 Apr 2026 09:15:06 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 11 Apr 2026 09:20:37 +0000</lastBuildDate>
+    <item>
+      <title>The Ground Beneath the Sandbox</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-11-openai-acquiring-cirrus-labs-what-it-means-when-th.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-11-openai-acquiring-cirrus-labs-what-it-means-when-th.html</guid>
+      <pubDate>2026-04-11</pubDate>
+      <category>Deep Bench</category>
+      <description>OpenAI acquiring Cirrus Labs isn&#x27;t capability reclassification or toolchain capture. It&#x27;s something new: the execution substrate — the compute layer where code actually runs — absorbed by the foundation model provider whose agents you might be trying to contain.</description>
+    </item>
     <item>
       <title>The Layer You Didn&#x27;t Model</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-10-the-ambient-channel-problem-how-the-fbi-s-signal-n.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-14</pubDate>
       <category>Ops Brief</category>
       <description>Anthropic&#x27;s 1M context GA isn&#x27;t a capability announcement — it&#x27;s a pricing event. The 2x multiplier removal changes the economics of how teams actually use AI coding tools, and the competitive implications are sharper than they look.</description>
-    </item>
-    <item>
-      <title>The Context File Paradox</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-13-the-context-file-paradox-when-more-instructions-mak.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-13-the-context-file-paradox-when-more-instructions-mak.html</guid>
-      <pubDate>2026-03-13</pubDate>
-      <category>Ops Brief</category>
-      <description>An ETH Zurich study found that AGENTS.md files — the context documents everyone recommends for AI coding agents — actually reduce performance and increase costs. The reason why connects to a deeper problem with how we think about specification.</description>
     </item>
   </channel>
 </rss>
