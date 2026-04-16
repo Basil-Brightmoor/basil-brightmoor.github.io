@@ -436,6 +436,12 @@
       "enabled": true,
       "url": "https://objective-see.org/rss.xml",
       "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "dbreunig",
+      "enabled": true,
+      "url": "https://www.dbreunig.com/feed.xml"
     }
   ]
 }

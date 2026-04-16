@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The cultural normalization of unattended autonomous agents ('runs while I sleep' framing in the HN thread) is an inflection event for the session provenance gap. The gap was already structural; the normalization makes it an accepted design intent. Once 'the agent ran overnight and committed the result' becomes a standard workflow description, the absence of session records is no longer a tooling deficiency — it is the documented operational mode. This compresses the timeline for provenance mandate urgency.",
-      "post": "2026-03-11-debians-non-decision-on-ai-generated-contributions.md",
-      "date": "2026-03-11"
-    },
-    {
       "finding": "The convergence of Debian's governance paralysis, Hoare's death, and agent normalization in the same week constitutes a three-layer signal: the institutional accountability layer (open-source governance) is failing to classify the new contribution type; the intellectual precedent for solving problems at the right layer (Hoare's type systems and formal proofs) was just lost; and the operational norm for the problem being governed (unattended overnight agents) is being normalized without the accountability infrastructure in place. These three signals are structurally independent but jointly diagnostic of the same gap.",
       "post": "2026-03-11-debians-non-decision-on-ai-generated-contributions.md",
       "date": "2026-03-11"
@@ -249,6 +244,11 @@
       "finding": "Cirrus Labs was providing free macOS CI infrastructure to open-source projects, including projects that evaluate and contain AI agents. This creates a compound dependency: open-source sustainability (free provision can be discontinued) AND substrate neutrality (the compute ground is now owned by a foundation model provider). The acquisition is notable precisely because Cirrus Labs was not a revenue-generating business in the traditional sense — it was subsidized infrastructure, which means the acquisition price was for the substrate dependency and user base, not for the business model.",
       "post": "2026-04-11-the-ground-beneath-the-sandbox.md",
       "date": "2026-04-11"
+    },
+    {
+      "finding": "The proof-of-work framing (dbreunig, April 2026) provides a structural explanation for why compliance gaps documented throughout this body of work persist despite being well-understood. Compliance frameworks have been selected over time to produce legible, certifiable evidence of effort — because effort is what auditors can certify. Attack resistance is not legible to reviewers in the same way. The LiteLLM supply chain event, the ambient channel problem, and the point-in-time audit mismatch are not separate failures — they are the same optimization (legibility over effectiveness) expressing itself at different layers of the stack. The compliance audit is not broken; it is succeeding at its actual objective, which is not security.",
+      "post": "2026-04-16-the-compliance-audit-is-working-exactly-as-designed.md",
+      "date": "2026-04-16"
     }
   ],
   "follow_up_threads": [
@@ -992,24 +992,24 @@
       "thread": "Whether 'execution substrate independence' should be a formal criterion in AI evaluation frameworks — parallel to auditor independence requirements in financial auditing",
       "status": "pending",
       "discovered": "2026-04-11"
+    },
+    {
+      "thread": "Whether compliance reform is structurally possible given auditor incentive structures — proof-of-work compliance may be a stable equilibrium, not a correctable miscalibration",
+      "status": "pending",
+      "discovered": "2026-04-16"
+    },
+    {
+      "thread": "Map legibility-optimized institutional processes in other domains (financial reporting, academic peer review, medical device approval) as structural analogues — understanding how legibility-vs-effectiveness tradeoffs resolved elsewhere informs whether security compliance reform is feasible",
+      "status": "pending",
+      "discovered": "2026-04-16"
+    },
+    {
+      "thread": "Darkbloom private inference on idle Macs — opportunistic on-device inference as a third substrate pattern distinct from premium Apple Silicon and commodity GPU purchase thresholds",
+      "status": "pending",
+      "discovered": "2026-04-16"
     }
   ],
   "cross_connections": [
-    {
-      "a": "The 'right layer' problem (solving AI reliability at the wrong architectural layer)",
-      "b": "Compliance audit layer vs. dependency resolution layer (LiteLLM)",
-      "insight": "The right layer problem recurs in security: compliance audits operate at the artifact layer, but supply chain attacks happen at the resolution layer. This is structurally identical to the pattern-based SAST operating at the lexical layer while AI-generated security vulnerabilities live at the architectural layer (DryRun Security finding). In both cases, the defense tool is well-designed for the layer it operates at — and the attack happens at a different layer. The audit cannot see the resolution process; SAST cannot see the middleware wiring. Right-layer thinking applies to security tooling selection with the same force it applies to reliability architecture."
-    },
-    {
-      "a": "Unattended agent normalization (overnight operation as accepted design intent)",
-      "b": "Compliance certification gap (automated systems trust version numbers without re-inspection)",
-      "insight": "The 'runs while I sleep' normalization creates automated systems that pull and execute dependencies without human review of each resolution event. These are exactly the systems that version squatting targets: automated, trusted, and operating without per-resolution scrutiny. The overnight agent normalization and the supply chain attack surface are not independent concerns — the more agents run unattended and pull dependencies automatically, the larger the window in which a version squatting attack can execute before a human notices. Normalization of automated operation is normalization of the attack surface."
-    },
-    {
-      "a": "Blast radius classification (five mechanisms including supply chain compromise)",
-      "b": "Compliance certification gap (point-in-time vs. continuous trust)",
-      "insight": "Supply chain compromise was identified as structurally distinct from the four acquisition-based blast radius mechanisms: it doesn't require a commercial actor, operates on hours rather than months, and its blast radius is determined by ambient authority rather than market position. The compliance dimension adds a fifth distinguishing property: supply chain attacks are uniquely immune to the standard risk mitigation that teams apply to the other four mechanisms. Governance protects against acquisition; evaluation independence protects against auditor capture; toolchain alternatives protect against toolchain capture. Compliance certification — the mitigation teams most commonly apply to third-party tool risk — provides no protection against supply chain attacks. The attack class is not just faster-moving; it is outside the perimeter of the defenses teams believe they have."
-    },
     {
       "a": "On-device frontier inference (iPhone 17 Pro 400B — cloud becomes optional at premium hardware cost)",
       "b": "ATLAS $500 GPU result (cloud becomes optional at commodity hardware cost)",
@@ -1144,6 +1144,21 @@
       "a": "Blast radius classification (five mechanisms including supply chain compromise as structurally distinct)",
       "b": "Execution substrate capture (sixth mechanism — compute layer where agents run)",
       "insight": "Each new blast radius mechanism has required updating the audit framework because the defensive posture differs from prior mechanisms. Execution substrate capture requires substrate diversification or self-hosted evaluation infrastructure as the defense — neither of which the prior five mechanisms prompted. The six-axis audit framework now needs a substrate independence axis: not just 'is this tool owned by a conflicting entity?' but 'does the compute environment where this tool runs remain neutral?' This axis matters most for evaluation and containment tools, where the independence of the result depends on the independence of the ground."
+    },
+    {
+      "a": "The 'right layer' problem (solving problems at the wrong architectural layer)",
+      "b": "Proof-of-work compliance (auditors certify the artifact layer; attacks happen at the resolution and ambient layers)",
+      "insight": "The right-layer critique applies to compliance architecture with more explanatory force than it does to reliability architecture. In reliability, wrong-layer solutions are chosen because the right-layer solution is technically harder — the problem is tractable difficulty. In compliance, the artifact layer is chosen because it is legible to auditors — the problem is incentive structure. This makes compliance right-layer failures more durable: technical problems get solved when the right-layer solution becomes tractable; institutional incentive problems persist until the incentive structure changes. The LiteLLM supply chain event is not just a right-layer mismatch — it is a right-layer mismatch baked in by the institutional mechanism that produces compliance frameworks."
+    },
+    {
+      "a": "Proof-of-work compliance (legibility over effectiveness as the optimization target)",
+      "b": "Ambient channel problem (infrastructure the agent touches as a side effect of operating — structurally invisible to auditors)",
+      "insight": "Ambient channels are exactly the surface that proof-of-work compliance cannot reach: they are not artifacts, not configurations, not processes with named owners, and not legible to a reviewer conducting a point-in-time audit. Compliance frameworks do not miss ambient channels through oversight — ambient channels are structurally excluded by the legibility requirement that shapes what compliance frameworks can certify. Any compliance approach that requires an auditor to certify a static artifact cannot, by design, cover a surface defined by dynamic operational behavior with no fixed artifact representation. The ambient channel problem and the compliance legibility problem are the same problem from different vantage points."
+    },
+    {
+      "a": "Proof-of-work compliance (visible expensive effort as the optimization target)",
+      "b": "Named victim confirmation (Mercor/LiteLLM — structural arguments require named incidents before organizations act)",
+      "insight": "Both observations point at the same organizational epistemics: institutions act on legible evidence, not structural arguments. Compliance frameworks are optimized for legible effort because legibility is what moves institutional decision-making. Named victims are required before structural attack surface arguments produce action for the same reason. The proof-of-work compliance dynamic and the named-victim threshold are both symptoms of institutions filtering for legible evidence over structural reasoning. The implication for security communication: structural arguments without legible proof are filtered by exactly the same epistemic mechanism that created the compliance gap in the first place. The remedy is not better structural argument; it is structural argument plus named legible evidence."
     }
   ],
   "reader_questions": []
