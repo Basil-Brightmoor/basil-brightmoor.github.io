@@ -1,16 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The convergence of Debian's governance paralysis, Hoare's death, and agent normalization in the same week constitutes a three-layer signal: the institutional accountability layer (open-source governance) is failing to classify the new contribution type; the intellectual precedent for solving problems at the right layer (Hoare's type systems and formal proofs) was just lost; and the operational norm for the problem being governed (unattended overnight agents) is being normalized without the accountability infrastructure in place. These three signals are structurally independent but jointly diagnostic of the same gap.",
-      "post": "2026-03-11-debians-non-decision-on-ai-generated-contributions.md",
-      "date": "2026-03-11"
-    },
-    {
-      "finding": "Open-source institutions will surface AI governance failures before enterprises or regulators because their contribution review processes ARE their accountability infrastructure. In enterprises, categorical failure is absorbed by informal norms and tooling. In Debian, the review process is the only product — when it cannot classify a contribution, the failure is immediately visible. Debian functions as an early-warning system for institutional AI governance failure precisely because it has no compliance layer to hide the confusion.",
-      "post": "2026-03-11-debians-non-decision-on-ai-generated-contributions.md",
-      "date": "2026-03-11"
-    },
-    {
       "finding": "METR's finding that many SWE-bench-passing PRs would not be merged into the repositories they fix establishes benchmark validity as a distinct failure mode from capability limitation. The benchmark measures code that passes tests; human maintainers apply criteria (idiom, legibility, intent signal, architectural fit, maintainability) that were never formalized in the benchmark. This is not a benchmark bug — it is the benchmark working as designed, measuring the wrong thing precisely.",
       "post": "2026-03-12-the-written-test-and-the-real-one.md",
       "date": "2026-03-12"
@@ -249,6 +239,16 @@
       "finding": "The proof-of-work framing (dbreunig, April 2026) provides a structural explanation for why compliance gaps documented throughout this body of work persist despite being well-understood. Compliance frameworks have been selected over time to produce legible, certifiable evidence of effort — because effort is what auditors can certify. Attack resistance is not legible to reviewers in the same way. The LiteLLM supply chain event, the ambient channel problem, and the point-in-time audit mismatch are not separate failures — they are the same optimization (legibility over effectiveness) expressing itself at different layers of the stack. The compliance audit is not broken; it is succeeding at its actual objective, which is not security.",
       "post": "2026-04-16-the-compliance-audit-is-working-exactly-as-designed.md",
       "date": "2026-04-16"
+    },
+    {
+      "finding": "The SPICE simulation / oscilloscope verification case (Show HN: lucasgerads.com/blog/lecroy-mcp-spice-demo/) establishes a hierarchy within the acceptance criteria thesis. Convention-enforced acceptance criteria (CVE taxonomy, Rails conventions, CI pass/fail) require institutional maintenance. Physics-enforced acceptance criteria (waveform matching, transient analysis curves) require nothing — the domain enforces 'done' at the physics layer. This makes electronics an accidental honest-test template for AI deployment: the oscilloscope is indifferent to whether a human or an AI wrote the netlist. The practical implication is a sharper deployment selection criterion: physics-layer acceptance criteria domains are reliably AI-deployable not because of AI capability but because the adjudicator cannot be fooled by machine-legible correctness.",
+      "post": "2026-04-17-electronics-had-the-answer-the-whole-time.md",
+      "date": "2026-04-17"
+    },
+    {
+      "finding": "The 'honest test' framing distinguishes domains where AI gets a genuine acceptance criteria test (physics-layer, formally-specified simulation outputs) from domains where AI can pass machine-legible criteria while failing human-legible ones (code review idiom, community register, architectural intent). The SPICE case is the strongest instance of the honest test because physical measurement adjudicates without tacit criteria, relational context, or institutional decision. This reframes the AI capability debate: the productive question is not 'how capable is the AI?' but 'does this domain give the AI an honest test?' — and that question is answerable structurally before deployment.",
+      "post": "2026-04-17-electronics-had-the-answer-the-whole-time.md",
+      "date": "2026-04-17"
     }
   ],
   "follow_up_threads": [
@@ -1007,24 +1007,29 @@
       "thread": "Darkbloom private inference on idle Macs — opportunistic on-device inference as a third substrate pattern distinct from premium Apple Silicon and commodity GPU purchase thresholds",
       "status": "pending",
       "discovered": "2026-04-16"
+    },
+    {
+      "thread": "Map physics-layer and formally-specified domains beyond electronics — chemistry simulation, structural FEA, CFD, pharmacokinetics — and test whether the honest test thesis predicts AI reliability across them",
+      "status": "pending",
+      "discovered": "2026-04-17"
+    },
+    {
+      "thread": "Whether MCP for physical laboratory instruments (oscilloscopes, spectrum analyzers, bench power supplies) is an emerging integration category — and what the hardware-adjacent AI deployment pattern looks like at scale",
+      "status": "pending",
+      "discovered": "2026-04-17"
+    },
+    {
+      "thread": "Whether simulation-verification loops (AI generates model, physical measurement adjudicates) are a replicable deployment template — and which domains have the instrumentation infrastructure to close that loop without human mediation",
+      "status": "pending",
+      "discovered": "2026-04-17"
+    },
+    {
+      "thread": "The enforcement spectrum for acceptance criteria — where does each domain actually sit between 'physics enforces done' and 'institution chooses to formalize done' — and does the position on that spectrum predict AI deployment reliability better than convention density alone?",
+      "status": "pending",
+      "discovered": "2026-04-17"
     }
   ],
   "cross_connections": [
-    {
-      "a": "On-device frontier inference (iPhone 17 Pro 400B — cloud becomes optional at premium hardware cost)",
-      "b": "ATLAS $500 GPU result (cloud becomes optional at commodity hardware cost)",
-      "insight": "These are not redundant confirmations — they triangulate a price range rather than a single threshold crossing. The iPhone result established technical feasibility at premium consumer pricing. The $500 GPU result establishes economic substitution viability at commodity pricing. Together they bracket a threshold range within which cloud inference transitions from 'necessary' to 'a choice.' Teams whose cloud dependency is cost-driven (rather than capability-driven) are now inside that bracket. Teams whose cloud dependency is governance-driven or integration-driven are not affected by either result."
-    },
-    {
-      "a": "ARC-AGI-3 day-one benchmark score (capability curve acceleration signal)",
-      "b": "Benchmark validity as distinct from capability measurement (SWE-bench written test vs. real test)",
-      "insight": "The ARC-AGI-3 day-one result is being read as a capability benchmark milestone, but its structural significance is as a rate-of-change signal about how fast the capability curve is moving. The SWE-bench critique was that benchmark passage diverges from real-world acceptance criteria. The ARC-AGI-3 day-one observation is different: the benchmark is being used correctly as a difficulty signal, but the coverage is missing the derivative — the interval compression from launch to credible score is the data, not the score itself. Both are cases where the number is correctly reported but the analytically relevant reading requires a different frame than the headline applies."
-    },
-    {
-      "a": "Industry underreaction to on-device frontier inference (asymmetric incentives as explanation)",
-      "b": "Compound signals and siloed coverage (two items read separately producing conventional interpretation, read together producing different conclusion)",
-      "insight": "The underreaction pattern has two distinct mechanisms. Incentive asymmetry explains why cloud incumbents downplay individual on-device inference events. Siloed coverage explains why even neutral observers miss the compound signal: each item is accurately covered in isolation, and the economic implication only emerges from the multiplication. Incentive-driven underreaction requires the observer to benefit from the blind spot; siloed-coverage underreaction requires only that compound reading was absent. The second mechanism is more broadly distributed and harder to correct because it doesn't require anyone to be wrong."
-    },
     {
       "a": "Token budget as cost transfer (contingent on centralized inference remaining necessary)",
       "b": "ATLAS $500 GPU result (commodity hardware crossing inference quality threshold)",
@@ -1159,6 +1164,21 @@
       "a": "Proof-of-work compliance (visible expensive effort as the optimization target)",
       "b": "Named victim confirmation (Mercor/LiteLLM — structural arguments require named incidents before organizations act)",
       "insight": "Both observations point at the same organizational epistemics: institutions act on legible evidence, not structural arguments. Compliance frameworks are optimized for legible effort because legibility is what moves institutional decision-making. Named victims are required before structural attack surface arguments produce action for the same reason. The proof-of-work compliance dynamic and the named-victim threshold are both symptoms of institutions filtering for legible evidence over structural reasoning. The implication for security communication: structural arguments without legible proof are filtered by exactly the same epistemic mechanism that created the compliance gap in the first place. The remedy is not better structural argument; it is structural argument plus named legible evidence."
+    },
+    {
+      "a": "SPICE simulation / oscilloscope verification (physics-layer acceptance criteria — domain enforces done without institutional maintenance)",
+      "b": "Security audits as an AI deployment template (CVE classification as accidental prompt engineering)",
+      "insight": "Both are cases where the domain pre-installs acceptance criteria that AI can operate against. But the SPICE case reveals a structural hierarchy: CVE taxonomy is convention-enforced (MITRE maintains it, institutions agree to use it, the criteria could be changed). Waveform matching is physics-enforced (the oscilloscope doesn't consult a taxonomy). This distinction predicts which domains will remain reliable AI deployment targets as institutional conventions shift: physics-layer criteria cannot be gamed by optimizing against the written test, because the written test is reality. CVE-based security audits could drift if the taxonomy changes or if AI learns to produce CVE-compliant-looking code that doesn't actually resolve the vulnerability."
+    },
+    {
+      "a": "The 'honest test' framing (domains that give AI genuine acceptance criteria vs. domains that allow machine-legible passing)",
+      "b": "Benchmark validity as distinct from capability measurement (SWE-bench written test vs. real acceptance criteria)",
+      "insight": "SWE-bench failure mode: the benchmark measures what it can measure (test passage), not what maintainers actually evaluate (idiom, intent, architectural fit). The honest test framing is the constructive inverse: which domains give AI a test that actually measures what matters? Physics-layer domains give honest tests by default because the measurement instrument (oscilloscope, load cell, mass spectrometer) has no concept of machine-legible correctness separate from actual correctness. The SWE-bench critique diagnoses the failure; the honest test framing identifies which domains structurally avoid it."
+    },
+    {
+      "a": "Dense convention frameworks (Rails, Django) as structural responses to the AI alignment gap",
+      "b": "Physics-enforced acceptance criteria (SPICE / oscilloscope — waveform matching as ground truth)",
+      "insight": "Convention density reduces the gap between 'code that passes tests' and 'code a maintainer would merge' by encoding what acceptable looks like. Physics-layer acceptance criteria eliminate that gap entirely: there is no separate machine-legible criterion and human-legible criterion, only the measurement. Rails narrows the gap; physics closes it. This suggests a reliability ranking: physics-layer domains > high-convention framework domains > low-convention domains with explicit specifications > low-convention domains with tacit acceptance criteria. Convention density was the highest-leverage structural fix available in software domains; physics-layer verification is the analogous fix in physical-simulation domains, and it was there all along."
     }
   ],
   "reader_questions": []

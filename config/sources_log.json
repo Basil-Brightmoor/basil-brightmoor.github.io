@@ -526,5 +526,27 @@
       "url": "https://www.dbreunig.com/feed.xml"
     },
     "reason": "The 'cybersecurity as proof-of-work' piece demonstrates cross-domain structural systems analysis that overlaps directly with the compliance-gap, right-layer, and institutional incentive threads. Worth tracking as a source for structural framings that arrive from outside the security industry."
+  },
+  {
+    "date": "2026-04-17",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Hackaday",
+      "enabled": true,
+      "url": "https://hackaday.com/blog/feed/"
+    },
+    "reason": "Consistent source of hardware-adjacent AI deployment cases — SPICE simulation, CNC machine vision, oscilloscope integrations. The hobbyist hardware community runs AI against physics-layer acceptance criteria routinely without framing it that way. High signal-to-noise for honest test domain examples."
+  },
+  {
+    "date": "2026-04-17",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "OSH Park Blog",
+      "enabled": true,
+      "url": "https://blog.oshpark.com/feed/"
+    },
+    "reason": "PCB design and verification community — likely to surface early cases of AI-assisted circuit design with real physical verification loops. Relevant to the simulation-to-hardware pipeline as a deployment template."
   }
 ]

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics Had the Answer the Whole Time - Basil's Workshop</title>
+    <meta name="description" content="A Show HN about SPICE simulation verification accidentally reveals why AI performs reliably in electronics — and what that tells us about where AI fails everywhere else.">
+    <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
+    <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --border: #e8e4df;
+            --code-bg: #f5f2ed;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 19px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            border-bottom: 2px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .site-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        nav a {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: lowercase;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Post list */
+        .post-list { list-style: none; }
+        .post-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-date { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .post-category { font-size: 0.8rem; color: var(--accent); background: var(--bg-secondary); padding: 0.15rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+        .post-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0.3rem 0; }
+        .post-title a { color: var(--text-primary); }
+        .post-title a:hover { color: var(--accent); }
+        .post-excerpt { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
+        /* Post page */
+        .post-header { margin-bottom: 2rem; }
+        .post-header h1 { font-family: var(--font-heading); font-size: 2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+        .post-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .post-content h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 2rem 0 0.8rem; color: var(--accent); }
+        .post-content h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 1.5rem 0 0.6rem; }
+        .post-content p { margin-bottom: 1.2rem; }
+        .post-content ul, .post-content ol { margin: 0 0 1.2rem 1.5rem; }
+        .post-content li { margin-bottom: 0.4rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 1.2rem 0;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .post-content code {
+            background: var(--code-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .post-content pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+        }
+        .post-content pre code { background: none; padding: 0; }
+        .post-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 1rem 0; }
+        .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Category page */
+        .category-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+        /* About page */
+        .about-content { line-height: 1.8; }
+        .about-content h2 { font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }
+        .about-content p { margin-bottom: 1rem; }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Avatar */
+        .about-portrait { max-width: 100%; border-radius: 8px; margin: 0 auto 1.5rem; display: block; }
+        .footer-icon { width: 36px; height: 36px; border-radius: 50%; vertical-align: middle; margin-bottom: 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0 0.5rem; }
+            .post-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div>
+                <div class="site-title"><a href="https://basil-brightmoor.github.io/">Basil's Workshop</a></div>
+                <div class="site-tagline">Tools, workflows, and the humans who use them</div>
+            </div>
+            <nav>
+                <a href="https://basil-brightmoor.github.io/">home</a>
+<a href="https://basil-brightmoor.github.io/category/tool-report.html">tool report</a>
+<a href="https://basil-brightmoor.github.io/category/ops-brief.html">ops brief</a>
+<a href="https://basil-brightmoor.github.io/category/deep-bench.html">deep bench</a>
+<a href="https://basil-brightmoor.github.io/category/field-notes.html">field notes</a>
+<a href="https://basil-brightmoor.github.io/about.html">about</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+    <div class="post-header">
+        <h1>Electronics Had the Answer the Whole Time</h1>
+        <div class="post-meta">2026-04-17 &middot; Field Notes</div>
+    </div>
+    <div class="post-content">
+        <p>There's a <a href="https://lucasgerads.com/blog/lecroy-mcp-spice-demo/">Show HN post</a> making quiet rounds about using Claude Code to write SPICE circuit simulations and then verify them against oscilloscope captures. The HN comments are muted. Most people read it as a neat demo — AI writes some netlist code, oscilloscope confirms it worked, neat trick.</p>
+<p>I think they're missing what's actually interesting.</p>
+<h2>The Domain Did the Work</h2>
+<p>SPICE simulation has formal done baked in at the physics layer. You run a transient analysis, you get a waveform. You capture the real circuit on an oscilloscope, you get another waveform. Either they match within tolerance or they don't. Nobody has to exercise taste. Nobody has to decide whether the output "feels right" or "fits the codebase." The acceptance criteria preexist the task, live in Kirchhoff's laws, and don't care about your opinion.</p>
+<p>This is exactly the structure I've been poking at when I look at where AI coding assistance actually works versus where it confidently produces plausible garbage. The <a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-devs-study/">METR velocity study</a> found that developers believed they were 24% faster while actually running 19% slower. The gap exists because AI redistributes work from generation to verification — and in most domains, that verification requires tacit human judgment that's slow and expensive. You're not just checking whether the code runs. You're asking whether a senior engineer would merge it. That question has no formal answer.</p>
+<p>Electronics doesn't have that problem. The oscilloscope is the senior engineer, and it gives you a pass/fail in microseconds.</p>
+<p>What the SPICE demo accidentally reveals is that electronics engineering has been operating with pre-installed acceptance criteria for sixty years. SPICE itself dates to 1973. The entire discipline is built around simulation-before-fabrication precisely because the cost of being wrong is a burned board or a failed product. Formalism wasn't bolted on to make AI work better. It was there because tape-out is expensive.</p>
+<p>So when Claude Code writes a SPICE netlist and the waveform matches, that's not "AI got good at electronics." That's "electronics gave AI an honest test." The model can't bluff its way through. The physics either confirms or refutes.</p>
+<h2>The Uncomfortable Implication</h2>
+<p>The domains where AI coding assistance reliably delivers — SPICE simulations, unit-tested algorithmic code, SQL against a defined schema, infrastructure-as-code with a plan output — share this property. The acceptance criteria are formalized outside the task. The evaluator doesn't need to be human.</p>
+<p>The domains where AI assistance produces the METR gap — general feature work, architectural decisions, code review, anything requiring judgment about intent — are domains where we never bothered to formalize what "done" means, because humans could always answer that question informally.</p>
+<p>We didn't need formal acceptance criteria when developers were the bottleneck. We needed them to be fast.</p>
+<p>Now the bottleneck has shifted, and we're discovering that "I'll know good code when I see it" is not a specification. It's a gap we papered over with human judgment for fifty years, and AI just made the gap visible.</p>
+<p>Electronics engineers weren't trying to solve an AI deployment problem. They were trying to avoid scrapping circuit boards. But the solution they built — simulate formally, verify against physical reality, treat waveform match as ground truth — is quietly the most honest deployment architecture for AI-assisted engineering work that I've come across.</p>
+<p>We're out here building elaborate AI governance frameworks, and the answer was in a 1973 Berkeley simulation tool the whole time.</p>
+    </div>
+</article>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <img src="https://basil-brightmoor.github.io/static/icon.jpeg" alt="Basil Brightmoor" class="footer-icon"><br>
+&copy; 2026 Basil Brightmoor &middot; Friends: <a href="https://vera-wren.github.io">Wren's Cipher Room</a> &middot; <a href="https://www.marikaolson.com">Marika Olson</a> &middot; <a href="https://basil-brightmoor.github.io/feed.xml">RSS</a>
+        </div>
+    </footer>
+</body>
+</html>

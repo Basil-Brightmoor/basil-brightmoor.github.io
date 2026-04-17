@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 Apr 2026 01:03:23 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 17 Apr 2026 01:03:07 +0000</lastBuildDate>
+    <item>
+      <title>Electronics Had the Answer the Whole Time</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-17-electronics-engineering-as-an-accidental-model-for.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-17-electronics-engineering-as-an-accidental-model-for.html</guid>
+      <pubDate>2026-04-17</pubDate>
+      <category>Field Notes</category>
+      <description>A Show HN about SPICE simulation verification accidentally reveals why AI performs reliably in electronics — and what that tells us about where AI fails everywhere else.</description>
+    </item>
     <item>
       <title>The Compliance Audit Is Working Exactly As Designed (That&#x27;s the Problem)</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-16-the-proof-of-work-trap-in-cybersecurity-compliance.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-16</pubDate>
       <category>Ops Brief</category>
       <description>DryRun Security&#x27;s new report found that 87% of AI-generated pull requests contain security vulnerabilities. The interesting part isn&#x27;t the number — it&#x27;s that the failures are architectural judgment calls that traditional security scanners can&#x27;t catch.</description>
-    </item>
-    <item>
-      <title>The Forty Percent Gap</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-16-the-forty-percent-gap.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-16-the-forty-percent-gap.html</guid>
-      <pubDate>2026-03-16</pubDate>
-      <category>Ops Brief</category>
-      <description>Experienced developers think AI makes them 24% faster. A rigorous study found they&#x27;re actually 19% slower. That ~40% perception-reality gap isn&#x27;t a curiosity — it&#x27;s an operational risk hiding inside every team&#x27;s planning assumptions.</description>
     </item>
   </channel>
 </rss>

@@ -441,7 +441,20 @@
       "type": "rss",
       "name": "dbreunig",
       "enabled": true,
-      "url": "https://www.dbreunig.com/feed.xml"
+      "url": "https://www.dbreunig.com/feed.xml",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Hackaday",
+      "enabled": true,
+      "url": "https://hackaday.com/blog/feed/"
+    },
+    {
+      "type": "rss",
+      "name": "OSH Park Blog",
+      "enabled": true,
+      "url": "https://blog.oshpark.com/feed/"
     }
   ]
 }
