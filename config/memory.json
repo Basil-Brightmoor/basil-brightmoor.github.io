@@ -1,21 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "METR's finding that many SWE-bench-passing PRs would not be merged into the repositories they fix establishes benchmark validity as a distinct failure mode from capability limitation. The benchmark measures code that passes tests; human maintainers apply criteria (idiom, legibility, intent signal, architectural fit, maintainability) that were never formalized in the benchmark. This is not a benchmark bug — it is the benchmark working as designed, measuring the wrong thing precisely.",
-      "post": "2026-03-12-the-written-test-and-the-real-one.md",
-      "date": "2026-03-12"
-    },
-    {
-      "finding": "The HN AI comment ban and the SWE-bench PR rejection pattern are structurally identical failures at different layers: AI satisfies the machine-legible criteria (grammatical, on-topic, addresses the test) and fails the human-legible criteria (conversational register, intent signal, community idiom). The shared cause is that the real acceptance criteria in both domains were never written down — which is why AI keeps passing the written test and failing the real one.",
-      "post": "2026-03-12-the-written-test-and-the-real-one.md",
-      "date": "2026-03-12"
-    },
-    {
-      "finding": "The Rails resurgence is structurally interpretable as a response to the AI acceptance criteria gap: high-convention frameworks narrow the distance between 'code that passes tests' and 'code a maintainer would merge' because the conventions encode 'acceptable' alongside 'correct.' This makes convention density a measurable property that predicts AI output quality relative to human review standards — a different axis from training data volume or model capability.",
-      "post": "2026-03-12-the-written-test-and-the-real-one.md",
-      "date": "2026-03-12"
-    },
-    {
       "finding": "The acceptance criteria gap now has a benchmark-layer manifestation (SWE-bench), an infrastructure-layer manifestation (human code review criteria), and a social-layer manifestation (HN comment register). The gap is not domain-specific — it is the general condition where machine-legible criteria diverge from human-legible criteria, and the real acceptance criteria exist only as tacit community knowledge rather than formalized specification.",
       "post": "2026-03-12-the-written-test-and-the-real-one.md",
       "date": "2026-03-12"
@@ -249,6 +234,21 @@
       "finding": "The 'honest test' framing distinguishes domains where AI gets a genuine acceptance criteria test (physics-layer, formally-specified simulation outputs) from domains where AI can pass machine-legible criteria while failing human-legible ones (code review idiom, community register, architectural intent). The SPICE case is the strongest instance of the honest test because physical measurement adjudicates without tacit criteria, relational context, or institutional decision. This reframes the AI capability debate: the productive question is not 'how capable is the AI?' but 'does this domain give the AI an honest test?' — and that question is answerable structurally before deployment.",
       "post": "2026-04-17-electronics-had-the-answer-the-whole-time.md",
       "date": "2026-04-17"
+    },
+    {
+      "finding": "The simultaneous virality of a cargo-culted CLAUDE.md (top GitHub trending across all major language categories, derived from Karpathy's LLM failure-mode observations) and an HN post about 3 months of deliberate hand-coding is a practice maturity signal, not a contradiction. Both reflect the same underlying condition: the community lacks a stable methodology for AI-augmented development and is collectively experimenting toward one. Cargo-culting is equilibrium-seeking at scale; voluntary resets are practitioners quantifying a cognitive carrying cost that standard productivity metrics don't capture.",
+      "post": "2026-04-18-flailing-toward-equilibrium.md",
+      "date": "2026-04-18"
+    },
+    {
+      "finding": "The Cursor $50B valuation and the viral cargo-culted CLAUDE.md coexist in the same week and describe different points on the same adoption arc: the market has priced in the transformation; the practice has not yet found its shape. Valuation-to-practice-maturity gaps are a characteristic feature of pre-paradigmatic developer tool adoption. The question is whether the equilibrium-finding phase compresses under market pressure or whether cognitive paradigm shifts take their own time regardless of capital deployed.",
+      "post": "2026-04-18-flailing-toward-equilibrium.md",
+      "date": "2026-04-18"
+    },
+    {
+      "finding": "Voluntary AI coding resets (deliberate periods of hand-coding to restore architectural instincts and code quality) surface a cost the METR productivity measurement methodology missed: cognitive carrying cost. METR captured velocity distortion (planning risk). The reset behavior surfaces sustainability risk: the cumulative weight of operating in permanent verification mode across weeks and months, quantified by practitioners through removal — noticing architectural instinct degradation, code quality improvement, and reduced cognitive load when the verification constraint is lifted.",
+      "post": "2026-04-18-flailing-toward-equilibrium.md",
+      "date": "2026-04-18"
     }
   ],
   "follow_up_threads": [
@@ -1027,24 +1027,34 @@
       "thread": "The enforcement spectrum for acceptance criteria — where does each domain actually sit between 'physics enforces done' and 'institution chooses to formalize done' — and does the position on that spectrum predict AI deployment reliability better than convention density alone?",
       "status": "pending",
       "discovered": "2026-04-17"
+    },
+    {
+      "thread": "Track whether $50B Cursor valuation creates pressure to demonstrate practice maturity or whether market bets at this scale are structurally independent of practice methodology stabilization",
+      "status": "pending",
+      "discovered": "2026-04-18"
+    },
+    {
+      "thread": "Research pre-paradigmatic tool adoption dynamics in prior developer tool categories — version control, CI/CD, containers, IaC — what the equilibrium-finding phase looked like before practice standardized",
+      "status": "pending",
+      "discovered": "2026-04-18"
+    },
+    {
+      "thread": "Investigate whether tokenmaxxing (context-window optimization rituals) produces measurable outcome improvement or functions as ritualized behavior in the absence of reliable feedback loops",
+      "status": "pending",
+      "discovered": "2026-04-18"
+    },
+    {
+      "thread": "Track whether voluntary AI coding reset behavior normalizes as a recognized practice pattern or remains an individual counter-signal without community uptake",
+      "status": "pending",
+      "discovered": "2026-04-18"
+    },
+    {
+      "thread": "Whether a transferable AI coding practice methodology eventually emerges or whether practice remains permanently fragmented by codebase, domain, and workflow context",
+      "status": "pending",
+      "discovered": "2026-04-18"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Token budget as cost transfer (contingent on centralized inference remaining necessary)",
-      "b": "ATLAS $500 GPU result (commodity hardware crossing inference quality threshold)",
-      "insight": "The token budget cost transfer model was identified as contingent on cloud inference remaining the only frontier-class option. The iPhone 17 Pro result made that contingency visible at premium hardware cost. The $500 GPU result makes it visible at commodity hardware cost. The compensation model is now contingent on cloud inference remaining superior at a price point below $500 — which is a much shorter runway than the model implied when it was first introduced. Employers offering token budgets have implicitly bet against commodity hardware convergence, and the bet is being called faster than the compensation design cycle can respond."
-    },
-    {
-      "a": "Copilot PR ad injection (vendor defines authorization scope unilaterally after grant)",
-      "b": "Ambient authority risks in AI agent architectures (scope failure — agents acting beyond intended bounds)",
-      "insight": "These are structurally distinct failure modes that share the same root cause. Scope failure assumes the agent exceeds what it was authorized to do. Vendor scope expansion means the vendor defines what the authorization covers after it was granted — the agent is not exceeding authorization; the authorization is being defined retroactively. The first is an agent failure; the second is an authorization model failure. Both flow from the absence of a scope primitive, but the attack surface and the responsible party are different. Teams auditing for scope failure may believe vendor scope expansion is someone else's problem — it isn't."
-    },
-    {
-      "a": "Bitwarden agent vault (credential-layer scoping)",
-      "b": "Agent Safehouse OS-level containment (filesystem/network/process restrictions)",
-      "insight": "Credential-layer scoping asks: which secrets can this agent authenticate with? OS-layer containment asks: which system resources can this agent reach? These are orthogonal defenses addressing the same missing scope primitive at different layers of the stack. An agent that is OS-contained but has access to all credentials can still exfiltrate secrets through permitted network paths; an agent with scoped credentials but no OS containment can still read/write arbitrary files. A complete scope defense requires both layers — credential scoping narrows what the agent can prove it is to external systems; OS containment narrows what the agent can touch internally."
-    },
     {
       "a": "Copilot PR ad injection (vendor scope expansion as a threat model)",
       "b": "LiteLLM supply chain compromise (ambient authority as attack surface)",
@@ -1179,6 +1189,21 @@
       "a": "Dense convention frameworks (Rails, Django) as structural responses to the AI alignment gap",
       "b": "Physics-enforced acceptance criteria (SPICE / oscilloscope — waveform matching as ground truth)",
       "insight": "Convention density reduces the gap between 'code that passes tests' and 'code a maintainer would merge' by encoding what acceptable looks like. Physics-layer acceptance criteria eliminate that gap entirely: there is no separate machine-legible criterion and human-legible criterion, only the measurement. Rails narrows the gap; physics closes it. This suggests a reliability ranking: physics-layer domains > high-convention framework domains > low-convention domains with explicit specifications > low-convention domains with tacit acceptance criteria. Convention density was the highest-leverage structural fix available in software domains; physics-layer verification is the analogous fix in physical-simulation domains, and it was there all along."
+    },
+    {
+      "a": "Context engineering non-portability (CLAUDE.md encodes assumptions about specific codebase and team)",
+      "b": "Viral cargo-culted CLAUDE.md (Karpathy's failure-mode observations becoming top GitHub trending repo across all language categories)",
+      "insight": "The non-portability problem was previously visible at practitioner scale (individual friction when configs don't transfer). The viral CLAUDE.md event is the same problem at community scale: practitioners cargo-culting a config built against Karpathy's personal failure-mode observations, not any specific codebase. What's being cargo-culted isn't a methodology — it's failure-mode documentation repackaged as configuration. The viral uptake is the community signaling it will pattern-match to anything that looks like signal when no stable methodology exists. Non-portability was always the constraint; the virality makes the constraint legible."
+    },
+    {
+      "a": "METR productivity perception gap (~40% distortion — captures velocity distortion as planning risk)",
+      "b": "Voluntary AI coding reset behavior (3 months of deliberate hand-coding to restore cognitive baseline)",
+      "insight": "METR's methodology captured velocity distortion in bounded task conditions. It didn't capture sustainability: the cumulative cognitive carrying cost of operating in permanent verification mode across months of work. Voluntary resets surface that cost through removal — practitioners noticing architectural instinct degradation, code quality improvement, and reduced cognitive load when the verification constraint is lifted. The two findings are not redundant: velocity gap is a planning risk (sprint commitments, staffing models), cognitive carrying cost is a sustainability risk (practitioner degradation over time). Current AI productivity research has instrumentation for the first and almost none for the second."
+    },
+    {
+      "a": "$50B Cursor valuation (market has priced in AI coding transformation)",
+      "b": "Viral cargo-culted configs, tokenmaxxing, deliberate resets (community practice signals)",
+      "insight": "Valuation and practice maturity are typically uncorrelated in pre-paradigmatic adoption phases — the market prices the transformation before the practice finds its shape. The $50B bet is not invalidated by the practice gap; it's an observation about when the gap closes and at what cost. The risk is not that AI coding is overvalued; it's that teams building against the market thesis need a practice methodology to extract the value the valuation assumes — and the current signal is that the methodology is still being found."
     }
   ],
   "reader_questions": []

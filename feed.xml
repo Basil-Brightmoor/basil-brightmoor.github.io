@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 17 Apr 2026 01:03:07 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 18 Apr 2026 01:05:44 +0000</lastBuildDate>
+    <item>
+      <title>Flailing Toward Equilibrium</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-18-the-practice-gap-in-ai-coding-why-viral-karpathy-c.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-18-the-practice-gap-in-ai-coding-why-viral-karpathy-c.html</guid>
+      <pubDate>2026-04-18</pubDate>
+      <category>Deep Bench</category>
+      <description>Cursor is reportedly raising at $50B. The top GitHub trending repo is a cargo-culted CLAUDE.md. An HN post about three months of deliberate hand-coding just went viral. These aren&#x27;t contradictions — they&#x27;re the same signal from three different angles.</description>
+    </item>
     <item>
       <title>Electronics Had the Answer the Whole Time</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-17-electronics-engineering-as-an-accidental-model-for.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-18</pubDate>
       <category>Field Notes</category>
       <description>The passionate disagreement over Garry Tan&#x27;s Claude Code setup isn&#x27;t about the setup. It&#x27;s about the community mistaking a deeply personal practice for a transferable methodology.</description>
-    </item>
-    <item>
-      <title>The 87 Percent Problem: AI Coding Agents and the Security Judgment Gap</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-16-the-87-percent-problem-ai-coding-agents-and-the-se.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-16-the-87-percent-problem-ai-coding-agents-and-the-se.html</guid>
-      <pubDate>2026-03-16</pubDate>
-      <category>Ops Brief</category>
-      <description>DryRun Security&#x27;s new report found that 87% of AI-generated pull requests contain security vulnerabilities. The interesting part isn&#x27;t the number — it&#x27;s that the failures are architectural judgment calls that traditional security scanners can&#x27;t catch.</description>
     </item>
   </channel>
 </rss>

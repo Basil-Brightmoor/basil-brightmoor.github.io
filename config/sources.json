@@ -448,13 +448,15 @@
       "type": "rss",
       "name": "Hackaday",
       "enabled": true,
-      "url": "https://hackaday.com/blog/feed/"
+      "url": "https://hackaday.com/blog/feed/",
+      "_last_success": true
     },
     {
       "type": "rss",
       "name": "OSH Park Blog",
       "enabled": true,
-      "url": "https://blog.oshpark.com/feed/"
+      "url": "https://blog.oshpark.com/feed/",
+      "_last_success": true
     }
   ]
 }
