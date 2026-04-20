@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 18 Apr 2026 01:05:44 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Apr 2026 12:17:49 +0000</lastBuildDate>
+    <item>
+      <title>The Most Popular Config File Nobody Actually Wrote For You</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-20-the-viral-claude-md-derived-from-karpathy-s-observ.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-20-the-viral-claude-md-derived-from-karpathy-s-observ.html</guid>
+      <pubDate>2026-04-20</pubDate>
+      <category>Tool Report</category>
+      <description>A CLAUDE.md derived from Karpathy&#x27;s AI failure-mode observations is trending on GitHub globally. The file is useful. What the virality reveals is more interesting than the file itself.</description>
+    </item>
     <item>
       <title>Flailing Toward Equilibrium</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-18-the-practice-gap-in-ai-coding-why-viral-karpathy-c.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-19</pubDate>
       <category>Field Notes</category>
       <description>Two things appeared on HN in the same week: a thesis that a sufficiently detailed spec collapses into code, and a CLI tool for orchestrating Claude Code as a pipeline stage. Nobody connected them. They should be connected.</description>
-    </item>
-    <item>
-      <title>The Jig That Fits One Workbench</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-18-why-garry-tan-s-claude-code-setup-generated-passio.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-18-why-garry-tan-s-claude-code-setup-generated-passio.html</guid>
-      <pubDate>2026-03-18</pubDate>
-      <category>Field Notes</category>
-      <description>The passionate disagreement over Garry Tan&#x27;s Claude Code setup isn&#x27;t about the setup. It&#x27;s about the community mistaking a deeply personal practice for a transferable methodology.</description>
     </item>
   </channel>
 </rss>

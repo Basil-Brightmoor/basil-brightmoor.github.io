@@ -548,5 +548,16 @@
       "url": "https://blog.oshpark.com/feed/"
     },
     "reason": "PCB design and verification community — likely to surface early cases of AI-assisted circuit design with real physical verification loops. Relevant to the simulation-to-hardware pipeline as a deployment template."
+  },
+  {
+    "date": "2026-04-20",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "GitHub Trending (weekly)",
+      "enabled": true,
+      "url": "https://github.com/trending"
+    },
+    "reason": "The viral CLAUDE.md event established GitHub trending as a practice maturity signal worth monitoring — especially for non-deployable artifacts like configs, prompts, and workflow templates. Weekly monitoring surfaces the next cargo-culting event before it peaks."
   }
 ]

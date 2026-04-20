@@ -457,6 +457,12 @@
       "enabled": true,
       "url": "https://blog.oshpark.com/feed/",
       "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "GitHub Trending (weekly)",
+      "enabled": true,
+      "url": "https://github.com/trending"
     }
   ]
 }

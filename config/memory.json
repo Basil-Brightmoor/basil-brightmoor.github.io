@@ -1,16 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The acceptance criteria gap now has a benchmark-layer manifestation (SWE-bench), an infrastructure-layer manifestation (human code review criteria), and a social-layer manifestation (HN comment register). The gap is not domain-specific — it is the general condition where machine-legible criteria diverge from human-legible criteria, and the real acceptance criteria exist only as tacit community knowledge rather than formalized specification.",
-      "post": "2026-03-12-the-written-test-and-the-real-one.md",
-      "date": "2026-03-12"
-    },
-    {
-      "finding": "Anthropic's autonomy measurement study reveals a third oversight pattern: experienced Claude Code users auto-approve more (20% to 40% of sessions) AND interrupt more (5% to 9%). This is supervisory monitoring — neither step-by-step approval nor full delegation, but trajectory monitoring with strategic intervention. The pattern mirrors the aviation automation paradox but has no dedicated tooling infrastructure: approval-pattern tools (permission dialogs) and delegation-pattern tools (sandboxes) exist, but monitoring-pattern tools (trajectory summaries, deviation alerts) do not.",
-      "post": "2026-03-12-the-oversight-pattern-nobody-designed-for.md",
-      "date": "2026-03-12"
-    },
-    {
       "finding": "The rudel.ai session analytics data shows 26% of Claude Code sessions are abandoned within 60 seconds, and error cascades in the first 2 minutes predict abandonment. This means the critical oversight window is the session's opening, not its middle or end — the agent's initial framing determines whether experienced users commit to the session or bail. Early-session diagnostics are the highest-leverage intervention point for monitoring-pattern oversight.",
       "post": "2026-03-12-the-oversight-pattern-nobody-designed-for.md",
       "date": "2026-03-12"
@@ -249,6 +239,16 @@
       "finding": "Voluntary AI coding resets (deliberate periods of hand-coding to restore architectural instincts and code quality) surface a cost the METR productivity measurement methodology missed: cognitive carrying cost. METR captured velocity distortion (planning risk). The reset behavior surfaces sustainability risk: the cumulative weight of operating in permanent verification mode across weeks and months, quantified by practitioners through removal — noticing architectural instinct degradation, code quality improvement, and reduced cognitive load when the verification constraint is lifted.",
       "post": "2026-04-18-flailing-toward-equilibrium.md",
       "date": "2026-04-18"
+    },
+    {
+      "finding": "The viral CLAUDE.md (top GitHub trending across every major language filter simultaneously, derived from Karpathy's LLM failure-mode observations) is the most concrete single observable instance of the cargo-culting thesis. A named file, named source, measurable distribution event, and legible mechanism. The file's quality is not the story; the adoption pattern is. Thousands of teams are importing one person's codebase-specific failure-mode documentation into codebases it was never written for and treating the import as methodology. This is not individual practitioner friction (the prior scale of the non-portability finding) — it is the practice gap made visible at community scale, in real time, in citable form.",
+      "post": "2026-04-20-the-most-popular-config-file-nobody-actually-wrote-for-you.md",
+      "date": "2026-04-20"
+    },
+    {
+      "finding": "The GitHub's Fake Star Economy item introduces a second-order problem for the viral CLAUDE.md signal: if GitHub trending is gameable, the mass adoption event may have been amplified artificially. This doesn't change the portability problem — it potentially worsens it by seeding cargo-culting through a manipulated signal rather than an organic one. The reliability of GitHub trending as a practice maturity proxy is lower than assumed, especially for config files and repositories with no deployable artifact.",
+      "post": "2026-04-20-the-most-popular-config-file-nobody-actually-wrote-for-you.md",
+      "date": "2026-04-20"
     }
   ],
   "follow_up_threads": [
@@ -718,8 +718,9 @@
     },
     {
       "thread": "Track whether community sharing of AI configurations produces 'cargo-cult' adoption — teams copying configs that don't fit their codebase and attributing underperformance to the tool rather than the portability mismatch",
-      "status": "pending",
-      "discovered": "2026-03-18"
+      "status": "completed",
+      "discovered": "2026-03-18",
+      "completed_date": "2026-04-20"
     },
     {
       "thread": "Investigate whether high-convention frameworks produce more portable context files — does convention density make codebase discoverability more predictable and therefore make context file sharing more viable?",
@@ -1052,24 +1053,24 @@
       "thread": "Whether a transferable AI coding practice methodology eventually emerges or whether practice remains permanently fragmented by codebase, domain, and workflow context",
       "status": "pending",
       "discovered": "2026-04-18"
+    },
+    {
+      "thread": "Whether GitHub trending is reliable as a practice adoption signal for non-deployable artifacts (config files, prompts, workflow templates) — and whether the Fake Star Economy dynamic was present in the viral CLAUDE.md event specifically",
+      "status": "pending",
+      "discovered": "2026-04-20"
+    },
+    {
+      "thread": "Kimi K2.6 and the open-source coding model trajectory — whether open-source alternatives are narrowing the quality gap fast enough to matter for Claude Code's ecosystem lock-in",
+      "status": "pending",
+      "discovered": "2026-04-20"
+    },
+    {
+      "thread": "'We accepted surveillance as default' as a normalization arc template — mapping the stages at which ambient authority acceptance became ambient authority assumption, and whether AI agent ambient authority is on the same trajectory",
+      "status": "pending",
+      "discovered": "2026-04-20"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Copilot PR ad injection (vendor scope expansion as a threat model)",
-      "b": "LiteLLM supply chain compromise (ambient authority as attack surface)",
-      "insight": "Both are cases where the blast radius of an authorized AI tool exceeded what the user understood when they granted access. LiteLLM's blast radius was determined by what it held (all API keys, all model traffic); the compromise harvested that accumulated authority. Copilot's blast radius was determined by what the authorization model allowed the vendor to define as within scope; the vendor harvested that definitional latitude. The blast radius in both cases was invisible at authorization time. The common gap: 'what does this access actually cover?' has no answer the user can inspect before granting."
-    },
-    {
-      "a": "Copilot PR ad injection (vendor scope expansion — vendor defines authorization scope after grant)",
-      "b": "Claude Code behavioral opacity (undisclosed behavioral specification present at deployment)",
-      "insight": "Both are cases where the actual behavioral model diverged from the authorization model — but through structurally different mechanisms. Scope expansion was a decision made after authorization: the vendor added promotional content delivery to what 'code assistance access' covered. Behavioral opacity was a design present at deployment but never disclosed: frustration detection and undercover mode were always there. Scope expansion is discoverable when it manifests in outputs. Behavioral opacity may be invisible in outputs and requires source inspection to detect. The defensive gap is different: scope expansion is addressed by containment at authorization time; behavioral opacity requires specification disclosure before authorization occurs."
-    },
-    {
-      "a": "METR productivity perception gap (~40% distortion — developers feel faster, measured slower)",
-      "b": "Claude Code frustration detection (undisclosed behavioral modification based on user emotional state)",
-      "insight": "The METR perception gap was attributed to cognitive cost inversion: AI eliminates generation work that registers as effort while adding verification work that doesn't. The frustration detection finding adds a second unmeasured variable: the tool behaves differently based on detected frustration, meaning users measuring performance across emotional states are measuring different behavioral configurations without knowing it. Reliability measurements made across conditions are not measuring a single consistent behavioral model — they're averaging across undisclosed behavioral modes. The perception gap may be larger or more variable than METR's methodology could detect."
-    },
     {
       "a": "Benchmark validity as distinct from capability measurement (SWE-bench — written test vs. real acceptance criteria)",
       "b": "Claude Code behavioral opacity (reliability benchmarks measuring undisclosed state-dependent system)",
@@ -1204,6 +1205,21 @@
       "a": "$50B Cursor valuation (market has priced in AI coding transformation)",
       "b": "Viral cargo-culted configs, tokenmaxxing, deliberate resets (community practice signals)",
       "insight": "Valuation and practice maturity are typically uncorrelated in pre-paradigmatic adoption phases — the market prices the transformation before the practice finds its shape. The $50B bet is not invalidated by the practice gap; it's an observation about when the gap closes and at what cost. The risk is not that AI coding is overvalued; it's that teams building against the market thesis need a practice methodology to extract the value the valuation assumes — and the current signal is that the methodology is still being found."
+    },
+    {
+      "a": "GitHub's Fake Star Economy (GitHub trending as a gameable signal)",
+      "b": "Viral CLAUDE.md (GitHub trending across every language filter as a practice maturity signal)",
+      "insight": "The virality itself may be partially manufactured. If GitHub trending is gameable — and the Fake Star Economy item confirms it is — then the mass adoption signal for the CLAUDE.md is suspect as an organic practice readiness indicator. This matters in two directions: it potentially overstates how many teams are genuinely searching for AI coding methodology (some trending may be artificial), and it potentially understates the harm (if artificial amplification is seeding cargo-culting at a scale that wouldn't have occurred organically, the portability problem is being industrially accelerated rather than just naturally expressed)."
+    },
+    {
+      "a": "'We accepted surveillance as default' (normalization of ambient monitoring as infrastructure)",
+      "b": "Ambient authority normalization in AI agent architectures (kill switch → sandbox → ambient channel as sequential acceptance events)",
+      "insight": "The surveillance normalization arc offers a structural template for predicting how ambient AI agent authority will be absorbed by practice. Surveillance moved from controversial to infrastructure in stages: each new capability was contested, then accepted, then invisible, then assumed. The ambient channel problem is currently at the 'contested' stage — the argument exists, the named victims exist, the pattern is legible. The surveillance history suggests the trajectory from here is not 'the practice community successfully limits ambient authority' but 'ambient authority becomes the assumed operational model and the debate moves to governance after acceptance.' That's a different policy horizon than the current defensive tooling framing assumes."
+    },
+    {
+      "a": "Context engineering non-portability (CLAUDE.md encodes assumptions specific to one codebase and team)",
+      "b": "GitHub's Fake Star Economy (trending as a potentially gamed signal)",
+      "insight": "The portability problem and the signal reliability problem compound: not only is the viral CLAUDE.md a poor fit for most codebases that adopt it, but the scale of its adoption may be artificially amplified by star gaming — meaning the community is receiving an exaggerated signal about how widely 'the methodology' has been validated. Organic virality of a miscalibrated config is a practice problem. Artificial amplification of a miscalibrated config is a practice problem delivered at manufactured scale."
     }
   ],
   "reader_questions": []
