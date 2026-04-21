@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Apr 2026 12:17:49 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Apr 2026 12:18:40 +0000</lastBuildDate>
+    <item>
+      <title>The Credential Layer Nobody Modeled</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-21-the-vercel-oauth-breach-as-a-credential-harvesting.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-21-the-vercel-oauth-breach-as-a-credential-harvesting.html</guid>
+      <pubDate>2026-04-21</pubDate>
+      <category>Ops Brief</category>
+      <description>The Vercel OAuth breach isn&#x27;t primarily a deployment story. It&#x27;s a credential harvesting story — and your AI API keys are exactly where the attacker expects them to be.</description>
+    </item>
     <item>
       <title>The Most Popular Config File Nobody Actually Wrote For You</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-20-the-viral-claude-md-derived-from-karpathy-s-observ.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-20</pubDate>
       <category>Deep Bench</category>
       <description>Every prior blast radius example involved foundation model providers absorbing tools that do things AI can now do natively. The Astral acquisition is something else entirely — and the distinction matters more than the deal.</description>
-    </item>
-    <item>
-      <title>We&#x27;re Pipelining the Agents But Not the Specs</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-19-the-spec-is-code-thesis-meets-orchestration-toolin.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-19-the-spec-is-code-thesis-meets-orchestration-toolin.html</guid>
-      <pubDate>2026-03-19</pubDate>
-      <category>Field Notes</category>
-      <description>Two things appeared on HN in the same week: a thesis that a sufficiently detailed spec collapses into code, and a CLI tool for orchestrating Claude Code as a pipeline stage. Nobody connected them. They should be connected.</description>
     </item>
   </channel>
 </rss>

@@ -190,7 +190,11 @@
     "Equilibrium-seeking behaviors in professional communities adopting new tools — cargo-culting, deliberate resets, ritualized optimization as collective signals",
     "GitHub as a signal surface for developer practice — reliability and gaming of trending/stars as proxies for adoption",
     "Open-source coding model advancement (Kimi K2.6, Qwen3.6) as competitive pressure on Claude Code's ecosystem positioning",
-    "Surveillance normalization as a historical template for ambient authority acceptance in AI agent contexts"
+    "Surveillance normalization as a historical template for ambient authority acceptance in AI agent contexts",
+    "Deployment platform security as AI credential attack surface — Vercel, Railway, Render, Fly.io as aggregators of every API key a team has ever wired up",
+    "OAuth grant hygiene as an AI security practice — forgotten grants to deployment platforms as a distinct and unmodeled risk class",
+    "Environment variable security in cloud deployment contexts — the gap between where teams think their secrets live and where they actually live",
+    "Self-hosted AI gateways (GoModel pattern) as a structural post-LiteLLM response — teams reconsidering routing layer ownership after named supply chain incidents"
   ],
   "developing_opinions": [
     {
@@ -283,9 +287,9 @@
     },
     {
       "topic": "Defensive tooling against your own AI stack",
-      "stance": "The defensive AI tooling category has been developing against six threat models: scope failure, acquisition failure, supply chain identity failure, certification theater, vendor scope expansion, and behavioral opacity. The ambient channel problem names a seventh: the agent touching infrastructure through channels that were never in the explicit permission model — telemetry, DNS, logging endpoints, notification pipelines. Existing defensive tooling addresses the explicit authorization surface. Network-level monitoring is the only layer positioned to observe ambient channel activity — and no current AI-specific defensive tooling category exists for this surface.",
+      "stance": "The defensive AI tooling category has been developing against seven threat models: scope failure, acquisition failure, supply chain identity failure, certification theater, vendor scope expansion, behavioral opacity, and ambient channel leakage. The Vercel breach names an eighth: credential storage layer compromise via deployment platform OAuth. Existing defensive tooling addresses the AI tool layer and the explicit permission surface. It was never designed to address the deployment platform as a credential aggregator. No current AI-specific defensive tooling category exists for the deployment layer, and the Vercel breach is the first named incident that would show up exclusively on this axis.",
       "since": "2026-02-24",
-      "updated": "2026-04-10"
+      "updated": "2026-04-21"
     },
     {
       "topic": "AI kill switches as a UI primitive",
@@ -310,9 +314,9 @@
     },
     {
       "topic": "Blast radius classification for AI tools",
-      "stance": "Blast radius classification now requires six absorption mechanisms: (1) capability reclassification — tool becomes redundant as model replicates function; (2) infrastructure acquisition — control of a protocol or standard the ecosystem depends on; (3) auditor capture — independence property destroyed when evaluator is acquired by evaluated; (4) toolchain capture — essential neutral development tooling acquired; (5) supply chain compromise — structurally distinct, operates on hours not months, no commercial actor required; (6) execution substrate capture — the compute layer where code runs, evaluations execute, and agent sandboxes are instantiated, absorbed by the foundation model provider. The sixth mechanism is particularly dangerous for agent containment specifically: it puts the ground beneath the sandbox inside the acquirer's environment.",
+      "stance": "Blast radius classification now requires seven absorption mechanisms: capability reclassification, infrastructure acquisition, auditor capture, toolchain capture, supply chain compromise, execution substrate capture, and credential storage layer compromise. The seventh is structurally distinct because it operates outside every AI tool's own attack surface entirely. Capability reclassification through execution substrate capture all target tools in the AI stack. Credential storage layer compromise targets the deployment platform that holds the keys to every tool in the stack — bypassing the stack itself. The blast radius of a single OAuth compromise is the entire set of model integrations the team has ever configured, not any individual tool.",
       "since": "2026-02-26",
-      "updated": "2026-04-11"
+      "updated": "2026-04-21"
     },
     {
       "topic": "AI platform absorption cycle time",
@@ -631,9 +635,9 @@
     },
     {
       "topic": "AI agent authorization model completeness",
-      "stance": "The authorization model problem now has six distinct failure modes. Scope failure: agents exceed bounds with legitimately-granted access. Vendor scope expansion: vendors define what the authorization covers after grant. Supply chain identity failure: the tool is replaced before reaching the environment. Behavioral opacity: the tool operates according to an undisclosed behavioral specification. Trigger authorization failure: standing permissions that let the agent decide when to act. Ambient channel failure: the agent touches infrastructure — telemetry streams, DNS calls, notification pipelines, logging endpoints — as a side effect of operating, through channels that were never in the explicit permission model. The first five operate on the explicit authorization surface; the sixth operates below it, in the ambient infrastructure the system touches just by running. Credential vaults and OS sandboxes address the explicit surface. They don't see the ambient surface.",
+      "stance": "The authorization model problem now has seven distinct failure modes. Scope failure: agents exceed bounds with legitimately-granted access. Vendor scope expansion: vendors define what the authorization covers after grant. Supply chain identity failure: the tool is replaced before reaching the environment. Behavioral opacity: the tool operates according to an undisclosed behavioral specification. Trigger authorization failure: standing permissions that let the agent decide when to act. Ambient channel failure: the agent touches infrastructure as a side effect of operating through channels never in the explicit permission model. Credential storage layer failure: the deployment platform holding AI API keys is compromised via OAuth, exposing every model integration simultaneously through a path that never touched any AI tool. The seventh failure mode is architecturally upstream of all the others — it doesn't require exploiting an agent at all.",
       "since": "2026-04-01",
-      "updated": "2026-04-10"
+      "updated": "2026-04-21"
     },
     {
       "topic": "Source leaks as accountability infrastructure",
@@ -729,6 +733,21 @@
       "topic": "Who the viral CLAUDE.md actually helps",
       "stance": "A context file built from Karpathy's LLM failure-mode observations helps developers who share Karpathy's failure modes — specifically: developers working in codebases with similar conventions, similar tooling assumptions, and similar agent failure patterns. For everyone else, it's importing another person's discoverability judgments into a codebase they've never seen. The file is well-made; the problem is that 'well-made for one workbench' is not 'well-made.' The virality papers over that distinction by making the file feel like universal methodology.",
       "since": "2026-04-20"
+    },
+    {
+      "topic": "Deployment platform OAuth as AI credential attack surface",
+      "stance": "The Vercel breach names a credential storage layer failure mode that was absent from every prior authorization taxonomy. AI API keys don't primarily live in AI tools — they live in deployment platform environment variables, behind OAuth grants teams made years ago and stopped thinking about. An attacker who compromises that OAuth flow gets every model integration at once: Anthropic, OpenAI, whatever is in the env. The 'one OAuth, all keys' attack geometry is a distinct threat class from routing layer compromise (LiteLLM) or scope failure (Copilot): it doesn't require touching any AI tool at all. It exploits the credential storage assumption that no prior defensive AI tooling category was built to address.",
+      "since": "2026-04-21"
+    },
+    {
+      "topic": "AI stack audit perimeter for credentials",
+      "stance": "The audit perimeter for AI credentials needs to go one layer higher than routing tools and API key managers. The deployment platform is the actual credential store for most teams — not by design, but by operational drift. Env vars in Vercel, Railway, and Fly.io are where secrets accumulate because that's where CI/CD pipelines naturally put them. A credential audit that stops at the AI tool layer is auditing the wrong object. The Vercel breach makes the deployment platform a required axis in any AI stack security assessment.",
+      "since": "2026-04-21"
+    },
+    {
+      "topic": "GoModel and self-hosted AI gateways as post-LiteLLM structural response",
+      "stance": "GoModel appearing in the same week as the Vercel breach is a compound signal worth reading. The LiteLLM supply chain event established that neutral routing layers are high-value attack targets precisely because of their ambient authority. Self-hosted routing (GoModel pattern) is the structural response that removes the supply chain vector: if the routing layer runs in your own infrastructure, version squatting attacks on PyPI cannot reach it. The week's pairing — a deployment credential breach and a self-hosted routing alternative — is the market acknowledging that the routing and credential layers require ownership, not outsourcing.",
+      "since": "2026-04-21"
     }
   ],
   "threads_to_explore": [
@@ -930,7 +949,12 @@
     "Whether a transferable AI coding practice methodology eventually emerges or whether practice remains permanently fragmented by codebase, domain, and workflow context",
     "Whether GitHub trending is reliable enough as a practice adoption signal when the trending item is a config file rather than a deployable tool — and whether the Fake Star Economy dynamic was in play for the viral CLAUDE.md specifically",
     "Kimi K2.6 and open-source coding model advancement — whether open-source alternatives to Claude are narrowing the quality gap fast enough to change Claude Code's defensibility as a platform",
-    "'We accepted surveillance as default' as a historical normalization template — does ambient AI agent authority follow the same arc, and what was the inflection point when surveillance stopped being controversial and became infrastructure?"
+    "'We accepted surveillance as default' as a historical normalization template — does ambient AI agent authority follow the same arc, and what was the inflection point when surveillance stopped being controversial and became infrastructure?",
+    "OAuth grant audit as an AI stack security practice — what a systematic review of deployment platform grants looks like, which platforms aggregate the most AI credentials, and whether any tooling exists for grant inventory",
+    "Whether deployment platform credential exposure (Vercel env vars) and routing layer supply chain compromise (LiteLLM) are compositionally dangerous — does a team need both vectors to be exploited, or does either one independently expose the full AI credential set",
+    "Self-hosted AI gateway adoption trajectory post-LiteLLM — whether GoModel and similar tools are seeing accelerated interest from security-conscious teams, and whether self-hosting the routing layer actually eliminates the supply chain vector or just relocates it",
+    "Deployment platform security posture comparison — how Vercel, Railway, Render, Fly.io, and Heroku differ in OAuth grant scope, env var access controls, and audit trail availability for credential access",
+    "Whether the 'forgotten OAuth grant' pattern has regulatory implications for credential governance — any fintech or healthcare frameworks that specify requirements for periodic access grant review"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -939,8 +963,6 @@
   ],
   "topics_exhausted": [],
   "voice_notes": [
-    "The cross-domain structural equivalence structure — 'these two non-AI events are structurally identical to the AI problem' — is the strongest version of the ambient authority argument. It works because it shifts the burden of proof: the reader doesn't have to accept that AI agents are uniquely dangerous; they just have to accept that AI agents inherit a structural pattern that already has named victims in other contexts. Signal and macOS are better anchors than abstract AI scenarios because they're already in the reader's threat model. The post's job is to show the pattern, not to convince the reader the pattern is real.",
-    "The title 'The Layer You Didn't Model' is doing structural work that matches the post's argument: the failure isn't in the layer you thought about, it's in the layer you didn't. This is the same argumentative move as 'the compliance audit didn't fail — it worked as designed, on the wrong object.' Name the missing layer, not the failure of the present one.",
     "The 'only becomes visible at the moment it disappears' opener earns its keep specifically for infrastructure posts where the subject is precisely the kind of thing readers never think about until it's gone. It creates urgency without manufactured drama — the invisibility is the actual story, and naming it first orients the reader before the acquisition analysis begins. This structure works when the subject is genuinely invisible during normal operation and only legible at a transition event.",
     "The 'auditor capture applied one layer down' formulation is a strong anchor for introducing a new concept to a reader who already knows the prior category. It tells the reader: same logic, different floor. The reader doesn't need to rebuild their mental model — they extend it downward by one layer. This is the most efficient way to introduce a new blast radius mechanism to an audience that already holds the prior five.",
     "The 'it's working exactly as designed, and the design is the problem' structure earns its keep when the design purpose is non-obvious and the revelation changes the action. The compliance post works because 'auditors certify effort because effort is legible' is a structural claim about incentive optimization, not a moral claim about negligence. The reader can't fix negligence by changing the framework — they can change the framework only if they understand the incentive structure. Frame dysfunction as optimization when the goal is to suggest structural rather than behavioral remedies. Behavioral remedies fix bad actors; structural remedies address well-functioning systems pointed at the wrong target.",
@@ -948,7 +970,9 @@
     "The 'three independent signals converging on the same conclusion' structure — viral CLAUDE.md, tokenmaxxing, hand-coding reset — is structurally the same as the compound signal methodology but applied to practice indicators rather than economic ones. It earns its keep when the signals are genuinely independent (different practitioner populations, different platforms, different behaviors) and the convergence is non-obvious. The value is doing the connection work the reader couldn't do because they saw each signal separately and in different contexts.",
     "'Flailing toward equilibrium' as a frame is neither dismissive nor credulous — it doesn't say the tools don't work, and it doesn't say the practice is figured out. It names the state precisely: directed collective effort toward a stable configuration that doesn't yet exist. This is more analytically useful than 'early days' (which signals dismissal) or 'it's working' (which misreads the signals). Naming the state without assigning blame gives the reader a frame they can hold while remaining uncertain about the outcome.",
     "The Tool Report format works best when the surface question ('what does this file actually do?') and the subtext question ('what does its virality reveal?') are held in deliberate tension — answering the surface question completely enough that practitioners get value, then pivoting explicitly to the structural reading. 'The file is useful. What the virality reveals is more interesting than the file itself.' is a clean frame for that pivot. The trick is not abandoning the tool report to become a think piece — the tool analysis earns the structural reading.",
-    "Using a specific named person (Karpathy), a specific measurable distribution event (GitHub trending across every language filter), and a specific mechanism (LLM failure-mode observations → config file) produces a much sharper argument than the abstract 'cargo-culting is a problem' framing. Concrete provenance makes the portability critique harder to dismiss: it's not 'configs don't transfer in general,' it's 'this specific config was built against Karpathy's specific failure modes and you're not Karpathy working in Karpathy's codebase.'"
+    "Using a specific named person (Karpathy), a specific measurable distribution event (GitHub trending across every language filter), and a specific mechanism (LLM failure-mode observations → config file) produces a much sharper argument than the abstract 'cargo-culting is a problem' framing. Concrete provenance makes the portability critique harder to dismiss: it's not 'configs don't transfer in general,' it's 'this specific config was built against Karpathy's specific failure modes and you're not Karpathy working in Karpathy's codebase.'",
+    "The 'misread at the category level' opener earns its keep when the reframing is genuinely structural, not rhetorical. 'Supply chain attack on a deployment platform' and 'credential harvesting event targeting AI keys' are both accurate descriptions of the Vercel breach — but they produce different threat models and different defensive responses. The opener's job is to name the misread before the argument, so the reader understands why the reframing matters rather than experiencing it as a correction. This structure works specifically when the dominant framing is not wrong but is incomplete in a way that has operational consequences.",
+    "The 'one OAuth, all keys' formulation compresses the threat geometry into a single phrase that is both literal and diagnostic. It does the same work as 'runs while I sleep' for unattended agents: it names the failure mode in a form that is immediately recognizable to a practitioner who has wired up environment variables in Vercel. Specific geometric phrases that describe attack surface shape rather than attack technique are worth developing — they transfer across incidents and contexts."
   ],
-  "last_updated": "2026-04-20"
+  "last_updated": "2026-04-21"
 }

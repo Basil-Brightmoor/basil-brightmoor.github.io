@@ -1,21 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The rudel.ai session analytics data shows 26% of Claude Code sessions are abandoned within 60 seconds, and error cascades in the first 2 minutes predict abandonment. This means the critical oversight window is the session's opening, not its middle or end — the agent's initial framing determines whether experienced users commit to the session or bail. Early-session diagnostics are the highest-leverage intervention point for monitoring-pattern oversight.",
-      "post": "2026-03-12-the-oversight-pattern-nobody-designed-for.md",
-      "date": "2026-03-12"
-    },
-    {
-      "finding": "ETH Zurich study across 138 repositories found that LLM-generated AGENTS.md files reduce AI coding agent task success by 3% and increase costs by 20%+ compared to no context file. Human-written files provide marginal 4% improvement but also increase costs by up to 19%. The mechanism: agents follow context file instructions dutifully, running extra tests and exploring extra directories, but this thoroughness is mostly irrelevant to the specific task. Context files only helped (2.7% improvement) when all other documentation was stripped from the repository — they are redundant with discoverable information. The practical principle: specification value is inversely proportional to discoverability. Tell the agent what it can't find out on its own; for everything else, trust it to explore.",
-      "post": "2026-03-13-the-context-file-paradox-when-more-instructions-mak.md",
-      "date": "2026-03-13"
-    },
-    {
-      "finding": "Anthropic's removal of the long-context pricing premium (2x input / 1.5x output above 200K tokens) for Claude Opus 4.6 and Sonnet 4.6 is a commoditisation event, not a capability event. The 1M context window existed in beta; the pricing change eliminates a decision point that was causing teams to architect around cost thresholds (aggressive chunking, retrieval workarounds) rather than problem requirements. Competitive asymmetry: OpenAI (GPT-5.4) still charges 2x above 272K tokens, Google (Gemini 3.1 Pro) still charges 2x above 200K. Anthropic is the only provider where both top-tier models offer 1M context at flat per-token rates. The Cursor community immediately asking 'when will this be reflected?' is demand signal that context-length pricing was a felt workflow constraint.",
-      "post": "2026-03-14-the-context-window-tax-just-disappeared.md",
-      "date": "2026-03-14"
-    },
-    {
       "finding": "DryRun Security's Agentic Coding Security Report (March 2026) found that 87% of AI-generated pull requests contain security vulnerabilities. Across Claude Code (Sonnet 4.6), OpenAI Codex (GPT 5.2), and Google Gemini (2.5 Pro) building two applications, 143 security issues were produced across 30 PRs. The vulnerability classes are decade-old mistakes — insecure JWT, missing brute force protection, token replay — not novel failures. The most architecturally significant finding: authentication middleware was created but never applied to WebSocket endpoints. Pattern-based SAST cannot catch these failures because they are architectural judgment calls, not lexical patterns. Claude produced the most unresolved high-severity flaws; Codex demonstrated the strongest remediation behaviour.",
       "post": "2026-03-16-the-87-percent-problem-ai-coding-agents-and-the-se.md",
       "date": "2026-03-16"
@@ -249,6 +234,21 @@
       "finding": "The GitHub's Fake Star Economy item introduces a second-order problem for the viral CLAUDE.md signal: if GitHub trending is gameable, the mass adoption event may have been amplified artificially. This doesn't change the portability problem — it potentially worsens it by seeding cargo-culting through a manipulated signal rather than an organic one. The reliability of GitHub trending as a practice maturity proxy is lower than assumed, especially for config files and repositories with no deployable artifact.",
       "post": "2026-04-20-the-most-popular-config-file-nobody-actually-wrote-for-you.md",
       "date": "2026-04-20"
+    },
+    {
+      "finding": "The Vercel OAuth breach (Trend Micro analysis, April 2026) names the credential storage layer as a distinct and previously unmapped attack surface in AI stacks. AI API keys don't primarily live in AI tools — they live in deployment platform environment variables (Vercel, Railway, Fly.io), behind OAuth grants teams configured during initial integration and stopped auditing. An attacker who compromises the deployment platform OAuth flow gets every model integration simultaneously: Anthropic, OpenAI, and any other keys stored as env vars. This is architecturally upstream of all prior authorization failure modes — it doesn't require touching any AI tool, exploiting any agent scope, or compromising any routing layer. The blast radius is the entire credential set, not any individual integration.",
+      "post": "2026-04-21-the-credential-layer-nobody-modeled.md",
+      "date": "2026-04-21"
+    },
+    {
+      "finding": "GoModel (Show HN, week of 2026-04-21) is an open-source AI gateway written in Go. Its appearance in the same week as the Vercel OAuth breach is a compound signal: teams are reconsidering routing layer ownership after the LiteLLM supply chain event, and the deployment credential breach adds a second independent reason to prefer self-hosted routing. Self-hosted routing eliminates the PyPI version squatting attack vector by removing the dependency on a third-party package registry for the call path layer. Whether it addresses the deployment credential vector depends on where the self-hosted gateway's own credentials are stored.",
+      "post": "2026-04-21-the-credential-layer-nobody-modeled.md",
+      "date": "2026-04-21"
+    },
+    {
+      "finding": "The authorization failure taxonomy for AI stacks now has seven distinct failure modes: (1) scope failure, (2) vendor scope expansion, (3) supply chain identity failure, (4) behavioral opacity, (5) trigger authorization failure, (6) ambient channel failure, (7) credential storage layer failure via deployment platform OAuth. The seventh is structurally distinct because it is upstream of all AI tooling — a successful deployment platform OAuth attack requires no AI-specific exploit. Every prior failure mode required the attacker to interact with an AI tool or its authorization surface; credential storage layer compromise bypasses the AI stack entirely.",
+      "post": "2026-04-21-the-credential-layer-nobody-modeled.md",
+      "date": "2026-04-21"
     }
   ],
   "follow_up_threads": [
@@ -1068,34 +1068,34 @@
       "thread": "'We accepted surveillance as default' as a normalization arc template — mapping the stages at which ambient authority acceptance became ambient authority assumption, and whether AI agent ambient authority is on the same trajectory",
       "status": "pending",
       "discovered": "2026-04-20"
+    },
+    {
+      "thread": "OAuth grant audit as an AI stack security practice — systematic review methodology for deployment platform grants, which platforms aggregate the most AI credentials, whether tooling exists for grant inventory and staleness detection",
+      "status": "pending",
+      "discovered": "2026-04-21"
+    },
+    {
+      "thread": "Whether deployment credential exposure (Vercel env vars via OAuth) and routing layer supply chain compromise (LiteLLM version squatting) are compositionally dangerous or independently sufficient for full AI credential exposure",
+      "status": "pending",
+      "discovered": "2026-04-21"
+    },
+    {
+      "thread": "Self-hosted AI gateway adoption trajectory post-LiteLLM — whether GoModel and similar tools are seeing measurable uptake from security-motivated teams, and whether self-hosting the routing layer eliminates or relocates the supply chain attack surface",
+      "status": "pending",
+      "discovered": "2026-04-21"
+    },
+    {
+      "thread": "Deployment platform security posture comparison for AI credential storage — Vercel, Railway, Render, Fly.io, Heroku differences in OAuth grant scope, env var access controls, and audit trail availability",
+      "status": "pending",
+      "discovered": "2026-04-21"
+    },
+    {
+      "thread": "Whether 'forgotten OAuth grant' credential exposure patterns have regulatory implications in fintech or healthcare — any frameworks specifying periodic access grant review requirements that would cover deployment platform integrations",
+      "status": "pending",
+      "discovered": "2026-04-21"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Benchmark validity as distinct from capability measurement (SWE-bench — written test vs. real acceptance criteria)",
-      "b": "Claude Code behavioral opacity (reliability benchmarks measuring undisclosed state-dependent system)",
-      "insight": "Both are cases where teams are measuring something other than what they think they're measuring. SWE-bench divergence: the benchmark measures test passage; human maintainers apply unformalized criteria. Claude Code behavioral opacity: reliability benchmarks measure output quality; the tool's actual behavioral specification includes undisclosed emotional-state-responsive modification. In both cases the measurement instrument is valid but the measurement subject is incompletely specified. The Claude Code case adds a dimension SWE-bench doesn't have: the measurement subject has internal undisclosed states that affect measurement outcomes, not just external unformalized acceptance criteria."
-    },
-    {
-      "a": "Spec governance gap (user's task specifications as ungoverned ephemeral inputs to agent pipelines)",
-      "b": "Claude Code behavioral opacity (vendor's behavioral specification as undisclosed permanent feature)",
-      "insight": "Two layers of ungoverned specification exist simultaneously in AI coding agent deployments: the user's spec for what the agent should do (ungoverned input), and the vendor's spec for how the agent actually behaves (undisclosed design). Neither is currently treated as a governed, auditable artifact. Together they describe a deployment where neither party's specification is inspectable by the other. Spec governance work has focused entirely on the input layer; the Claude Code source leak identifies the behavioral layer as equally ungoverned and operationally consequential."
-    },
-    {
-      "a": "Named victim confirmation (Mercor/LiteLLM breach) as behavioral change trigger",
-      "b": "Consumer values exits as market signal (DoD uninstall surge)",
-      "insight": "Both are cases where an abstract structural risk becomes organizationally actionable only when a named entity is attached. The DoD uninstall surge made 'values alignment risk' concrete by naming the contract. The Mercor breach makes 'routing layer supply chain risk' concrete by naming the victim. In both cases the structural argument was already valid before the named event; the named event is not new information but new permission for organizations to act on information they already had. The pattern generalizes: structural arguments require named incidents before they clear the organizational action threshold, regardless of how rigorous the structural analysis is."
-    },
-    {
-      "a": "DRAM pricing killing hobbyist SBC market",
-      "b": "Commodity compute threshold for local AI inference ($500 GPU thesis)",
-      "insight": "The on-device inference thesis depends on commodity hardware cost remaining low. DRAM pricing pressure on single-board computers is a stress test on the commodity compute assumption: if component costs spike, the $500 GPU threshold may not stay at $500, and the ultra-low-cost IRC agent on $7/month VPS pattern depends on DRAM remaining cheap enough for minimal-RAM SBC configurations. Hardware pricing shocks are a tail risk on the 'cloud becomes optional' thesis that cloud pricing disruption arguments don't model."
-    },
-    {
-      "a": "Supervisory monitoring as the emergent AI oversight pattern (auto-approve more + interrupt more, requires session initiation)",
-      "b": "Cursor 3 event-triggered agents (agent decides when to act, human did not initiate the session)",
-      "insight": "Supervisory monitoring was identified as the third oversight mode — neither step-by-step approval nor full delegation, but trajectory monitoring with strategic interruption. It has a structural precondition: the human chose to start the session. Event-triggered agents break this precondition: the session begins because the agent evaluated conditions, not because the human initiated interaction. The interrupt capability survives; the monitoring-pattern assumption about who starts the session does not. Oversight infrastructure built for supervisory monitoring needs a new entry point that isn't tied to human-initiated session start."
-    },
     {
       "a": "Trigger-based authorization (Cursor 3 event-triggered automations — agent decides when to act)",
       "b": "Spec governance gap (trigger conditions as ungoverned specification of when the agent acts)",
@@ -1220,6 +1220,31 @@
       "a": "Context engineering non-portability (CLAUDE.md encodes assumptions specific to one codebase and team)",
       "b": "GitHub's Fake Star Economy (trending as a potentially gamed signal)",
       "insight": "The portability problem and the signal reliability problem compound: not only is the viral CLAUDE.md a poor fit for most codebases that adopt it, but the scale of its adoption may be artificially amplified by star gaming — meaning the community is receiving an exaggerated signal about how widely 'the methodology' has been validated. Organic virality of a miscalibrated config is a practice problem. Artificial amplification of a miscalibrated config is a practice problem delivered at manufactured scale."
+    },
+    {
+      "a": "LiteLLM supply chain compromise (routing layer as high-value attack target due to ambient authority over all model traffic and API keys)",
+      "b": "Vercel OAuth breach (deployment platform as credential aggregator — env vars hold every AI API key the team has configured)",
+      "insight": "These are two independent paths to the same credential exposure outcome, operating at different layers. LiteLLM compromise targets the routing layer that routes keys and traffic at runtime. Vercel OAuth compromise targets the deployment platform that stores keys at rest. A team that secured its routing layer after LiteLLM (by self-hosting or pinning versions) and did not audit its deployment platform OAuth grants remains fully exposed via the second path. The two attacks are not redundant — they require different defensive responses and auditing the routing layer does not constitute auditing the credential storage layer."
+    },
+    {
+      "a": "GoModel self-hosted AI gateway (open-source, Go, week of 2026-04-21)",
+      "b": "LiteLLM supply chain compromise + Vercel OAuth breach (two consecutive weeks naming routing and credential storage as attack surfaces)",
+      "insight": "GoModel's timing is the market responding to a two-week compound signal. LiteLLM established that outsourced routing layers carry supply chain attack surface. Vercel established that deployment platforms carry credential harvesting surface. Self-hosted routing (GoModel) addresses the first vector by removing PyPI dependency from the call path. Whether it addresses the second depends on deployment architecture — a self-hosted gateway whose API keys are stored in Vercel env vars is still exposed to the deployment credential harvest. The structural response the week's pairing implies is not just self-hosted routing but routing plus credential storage decoupled from deployment platforms."
+    },
+    {
+      "a": "Credential storage layer failure (deployment platform env vars as attack surface)",
+      "b": "Ambient channel problem (agent touches infrastructure as a side effect of operating, outside explicit permission model)",
+      "insight": "Both describe attack surfaces that are outside the AI tool's own authorization model but are structurally adjacent to it. Ambient channels are the infrastructure the agent touches while running. Deployment platform credentials are the secrets the agent uses to authenticate — stored in a layer the agent itself never explicitly touches. Neither surface is addressed by AI-specific defensive tooling: ambient channels require network-layer observability; credential storage layer security requires deployment platform OAuth hygiene. The common pattern is that the AI tool's authorization model accurately describes what the tool can do, while being systematically silent about the environment in which the tool operates."
+    },
+    {
+      "a": "Neutrality and essentialness as dual-use structural properties (LiteLLM — worth acquiring and worth poisoning for the same reason)",
+      "b": "Deployment platform credential aggregation (Vercel — worth using and worth attacking for the same reason)",
+      "insight": "The dual-use structural property pattern generalizes beyond AI routing tools. Vercel is worth using for deployment because it centralizes environment configuration and makes key management operationally convenient. It is worth attacking for exactly the same reason: centralized key management means one OAuth compromise yields all keys. The dual-use pattern (essential + neutral = high acquisition value AND high attack value) applies wherever a tool achieves its value through aggregation — routing tools aggregate traffic, deployment platforms aggregate credentials. Any aggregation convenience creates a corresponding attack concentration."
+    },
+    {
+      "a": "Named victim confirmation threshold (structural arguments require named incidents before organizations act)",
+      "b": "Vercel OAuth breach as the named incident for deployment credential exposure",
+      "insight": "The structural argument that deployment platform env vars hold AI API keys and are reachable via OAuth has been derivable from first principles since teams started storing ANTHROPIC_API_KEY in Vercel. The Vercel breach provides the named incident that moves the argument across the organizational action threshold. The pattern from LiteLLM/Mercor repeats: the attack surface was always there, the analysis was available, and the named event is not new information but new organizational permission to act on existing information."
     }
   ],
   "reader_questions": []

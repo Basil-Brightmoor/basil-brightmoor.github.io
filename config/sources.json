@@ -462,7 +462,14 @@
       "type": "rss",
       "name": "GitHub Trending (weekly)",
       "enabled": true,
-      "url": "https://github.com/trending"
+      "url": "https://github.com/trending",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Trend Micro Research",
+      "enabled": true,
+      "url": "https://www.trendmicro.com/en_us/research.rss"
     }
   ]
 }

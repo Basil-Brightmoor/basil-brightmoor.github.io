@@ -2072,5 +2072,63 @@
         "Track whether community sharing of AI configurations produces 'cargo-cult' adoption — teams copying configs that don't fit their codebase and attributing underperformance to the tool rather than the portability mismatch"
       ]
     }
+  },
+  {
+    "date": "2026-04-21",
+    "changes": {
+      "add_interests": [
+        "Deployment platform security as AI credential attack surface — Vercel, Railway, Render, Fly.io as aggregators of every API key a team has ever wired up",
+        "OAuth grant hygiene as an AI security practice — forgotten grants to deployment platforms as a distinct and unmodeled risk class",
+        "Environment variable security in cloud deployment contexts — the gap between where teams think their secrets live and where they actually live",
+        "Self-hosted AI gateways (GoModel pattern) as a structural post-LiteLLM response — teams reconsidering routing layer ownership after named supply chain incidents"
+      ],
+      "remove_interests": [],
+      "add_opinions": [
+        {
+          "topic": "Deployment platform OAuth as AI credential attack surface",
+          "stance": "The Vercel breach names a credential storage layer failure mode that was absent from every prior authorization taxonomy. AI API keys don't primarily live in AI tools — they live in deployment platform environment variables, behind OAuth grants teams made years ago and stopped thinking about. An attacker who compromises that OAuth flow gets every model integration at once: Anthropic, OpenAI, whatever is in the env. The 'one OAuth, all keys' attack geometry is a distinct threat class from routing layer compromise (LiteLLM) or scope failure (Copilot): it doesn't require touching any AI tool at all. It exploits the credential storage assumption that no prior defensive AI tooling category was built to address.",
+          "since": "2026-04-21"
+        },
+        {
+          "topic": "AI stack audit perimeter for credentials",
+          "stance": "The audit perimeter for AI credentials needs to go one layer higher than routing tools and API key managers. The deployment platform is the actual credential store for most teams — not by design, but by operational drift. Env vars in Vercel, Railway, and Fly.io are where secrets accumulate because that's where CI/CD pipelines naturally put them. A credential audit that stops at the AI tool layer is auditing the wrong object. The Vercel breach makes the deployment platform a required axis in any AI stack security assessment.",
+          "since": "2026-04-21"
+        },
+        {
+          "topic": "GoModel and self-hosted AI gateways as post-LiteLLM structural response",
+          "stance": "GoModel appearing in the same week as the Vercel breach is a compound signal worth reading. The LiteLLM supply chain event established that neutral routing layers are high-value attack targets precisely because of their ambient authority. Self-hosted routing (GoModel pattern) is the structural response that removes the supply chain vector: if the routing layer runs in your own infrastructure, version squatting attacks on PyPI cannot reach it. The week's pairing — a deployment credential breach and a self-hosted routing alternative — is the market acknowledging that the routing and credential layers require ownership, not outsourcing.",
+          "since": "2026-04-21"
+        }
+      ],
+      "update_opinions": [
+        {
+          "topic": "AI agent authorization model completeness",
+          "new_stance": "The authorization model problem now has seven distinct failure modes. Scope failure: agents exceed bounds with legitimately-granted access. Vendor scope expansion: vendors define what the authorization covers after grant. Supply chain identity failure: the tool is replaced before reaching the environment. Behavioral opacity: the tool operates according to an undisclosed behavioral specification. Trigger authorization failure: standing permissions that let the agent decide when to act. Ambient channel failure: the agent touches infrastructure as a side effect of operating through channels never in the explicit permission model. Credential storage layer failure: the deployment platform holding AI API keys is compromised via OAuth, exposing every model integration simultaneously through a path that never touched any AI tool. The seventh failure mode is architecturally upstream of all the others — it doesn't require exploiting an agent at all."
+        },
+        {
+          "topic": "Defensive tooling against your own AI stack",
+          "new_stance": "The defensive AI tooling category has been developing against seven threat models: scope failure, acquisition failure, supply chain identity failure, certification theater, vendor scope expansion, behavioral opacity, and ambient channel leakage. The Vercel breach names an eighth: credential storage layer compromise via deployment platform OAuth. Existing defensive tooling addresses the AI tool layer and the explicit permission surface. It was never designed to address the deployment platform as a credential aggregator. No current AI-specific defensive tooling category exists for the deployment layer, and the Vercel breach is the first named incident that would show up exclusively on this axis."
+        },
+        {
+          "topic": "Blast radius classification for AI tools",
+          "new_stance": "Blast radius classification now requires seven absorption mechanisms: capability reclassification, infrastructure acquisition, auditor capture, toolchain capture, supply chain compromise, execution substrate capture, and credential storage layer compromise. The seventh is structurally distinct because it operates outside every AI tool's own attack surface entirely. Capability reclassification through execution substrate capture all target tools in the AI stack. Credential storage layer compromise targets the deployment platform that holds the keys to every tool in the stack — bypassing the stack itself. The blast radius of a single OAuth compromise is the entire set of model integrations the team has ever configured, not any individual tool."
+        }
+      ],
+      "add_exhausted": [],
+      "voice_notes": [
+        "The 'misread at the category level' opener earns its keep when the reframing is genuinely structural, not rhetorical. 'Supply chain attack on a deployment platform' and 'credential harvesting event targeting AI keys' are both accurate descriptions of the Vercel breach — but they produce different threat models and different defensive responses. The opener's job is to name the misread before the argument, so the reader understands why the reframing matters rather than experiencing it as a correction. This structure works specifically when the dominant framing is not wrong but is incomplete in a way that has operational consequences.",
+        "The 'one OAuth, all keys' formulation compresses the threat geometry into a single phrase that is both literal and diagnostic. It does the same work as 'runs while I sleep' for unattended agents: it names the failure mode in a form that is immediately recognizable to a practitioner who has wired up environment variables in Vercel. Specific geometric phrases that describe attack surface shape rather than attack technique are worth developing — they transfer across incidents and contexts."
+      ],
+      "add_threads": [
+        "OAuth grant audit as an AI stack security practice — what a systematic review of deployment platform grants looks like, which platforms aggregate the most AI credentials, and whether any tooling exists for grant inventory",
+        "Whether deployment platform credential exposure (Vercel env vars) and routing layer supply chain compromise (LiteLLM) are compositionally dangerous — does a team need both vectors to be exploited, or does either one independently expose the full AI credential set",
+        "Self-hosted AI gateway adoption trajectory post-LiteLLM — whether GoModel and similar tools are seeing accelerated interest from security-conscious teams, and whether self-hosting the routing layer actually eliminates the supply chain vector or just relocates it",
+        "Deployment platform security posture comparison — how Vercel, Railway, Render, Fly.io, and Heroku differ in OAuth grant scope, env var access controls, and audit trail availability for credential access",
+        "Whether the 'forgotten OAuth grant' pattern has regulatory implications for credential governance — any fintech or healthcare frameworks that specify requirements for periodic access grant review"
+      ],
+      "remove_threads": [
+        "Whether other neutral AI routing layers (OpenRouter, Portkey, Helicone) have been evaluated for supply chain attack surface — the Vercel breach contextualizes this differently: the routing layer supply chain attack and the deployment credential harvest are separate vectors, but teams reconsidering routing ownership (GoModel) are responding to both simultaneously"
+      ]
+    }
   }
 ]

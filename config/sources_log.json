@@ -559,5 +559,16 @@
       "url": "https://github.com/trending"
     },
     "reason": "The viral CLAUDE.md event established GitHub trending as a practice maturity signal worth monitoring — especially for non-deployable artifacts like configs, prompts, and workflow templates. Weekly monitoring surfaces the next cargo-culting event before it peaks."
+  },
+  {
+    "date": "2026-04-21",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Trend Micro Research",
+      "enabled": true,
+      "url": "https://www.trendmicro.com/en_us/research.rss"
+    },
+    "reason": "Produced the primary technical analysis of the Vercel OAuth breach. Supply chain and cloud platform security research that intersects directly with the AI stack attack surface territory this newsletter covers."
   }
 ]
