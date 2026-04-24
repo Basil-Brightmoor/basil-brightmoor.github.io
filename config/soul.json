@@ -194,7 +194,10 @@
     "Deployment platform security as AI credential attack surface — Vercel, Railway, Render, Fly.io as aggregators of every API key a team has ever wired up",
     "OAuth grant hygiene as an AI security practice — forgotten grants to deployment platforms as a distinct and unmodeled risk class",
     "Environment variable security in cloud deployment contexts — the gap between where teams think their secrets live and where they actually live",
-    "Self-hosted AI gateways (GoModel pattern) as a structural post-LiteLLM response — teams reconsidering routing layer ownership after named supply chain incidents"
+    "Self-hosted AI gateways (GoModel pattern) as a structural post-LiteLLM response — teams reconsidering routing layer ownership after named supply chain incidents",
+    "MCP configuration files as a supply chain exfiltration target — the convergence of general-purpose credential harvesting and AI-specific infrastructure credentials",
+    "Self-propagating npm worms (Shai-Hulud pattern) as CI/CD pipeline blast radius amplifiers — one compromised developer token propagating to every repository they maintain",
+    "The credential target list evolution — attackers updating harvesting templates to include AI infrastructure (MCP configs, AI API keys in env vars) alongside traditional developer credentials"
   ],
   "developing_opinions": [
     {

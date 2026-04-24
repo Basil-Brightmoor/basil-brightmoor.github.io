@@ -249,6 +249,16 @@
       "finding": "The authorization failure taxonomy for AI stacks now has seven distinct failure modes: (1) scope failure, (2) vendor scope expansion, (3) supply chain identity failure, (4) behavioral opacity, (5) trigger authorization failure, (6) ambient channel failure, (7) credential storage layer failure via deployment platform OAuth. The seventh is structurally distinct because it is upstream of all AI tooling — a successful deployment platform OAuth attack requires no AI-specific exploit. Every prior failure mode required the attacker to interact with an AI tool or its authorization surface; credential storage layer compromise bypasses the AI stack entirely.",
       "post": "2026-04-21-the-credential-layer-nobody-modeled.md",
       "date": "2026-04-21"
+    },
+    {
+      "finding": "The Bitwarden CLI supply chain compromise (Shai-Hulud worm, @bitwarden/cli@2026.4.0, April 22 2026) explicitly targets MCP configuration files as an exfiltration target alongside traditional developer credentials (SSH keys, GitHub/npm tokens, .env files, cloud secrets). This marks the convergence of general-purpose supply chain attacks and AI-specific credential surfaces: attackers no longer need to specifically target AI tools because AI infrastructure credentials (MCP configs, AI API keys stored in env vars) are now a standard item on the credential harvesting template. The Vercel OAuth breach attacked AI credentials through the deployment platform layer. The LiteLLM compromise attacked the AI routing layer directly. The Bitwarden/Shai-Hulud worm attacks through any compromised developer tool and sweeps up AI credentials incidentally. Each event names a different entry vector; together they establish that AI infrastructure credentials are harvestable from every layer of the development stack.",
+      "post": "2026-04-23-the-worm-that-reads-your-mcp-config.md",
+      "date": "2026-04-23"
+    },
+    {
+      "finding": "The self-propagating dimension of the Shai-Hulud worm adds a blast radius amplifier absent from prior supply chain attacks in this series. LiteLLM version squatting was a one-shot compromise (malicious package installed, credentials exfiltrated). The Shai-Hulud worm uses stolen CI/CD tokens to inject itself into other pipelines — meaning one developer's compromised npm/GitHub token can publish malicious versions of any package they maintain and inject into any CI/CD pipeline they have write access to. For teams running AI agents through CI/CD pipelines (headless agent execution, which is increasingly normalised), this means a single compromised developer credential can reach AI agent execution infrastructure across every repository their tokens authorise.",
+      "post": "2026-04-23-the-worm-that-reads-your-mcp-config.md",
+      "date": "2026-04-23"
     }
   ],
   "follow_up_threads": [

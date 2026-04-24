@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Apr 2026 12:18:40 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Apr 2026 17:25:35 +0000</lastBuildDate>
+    <item>
+      <title>The Worm That Reads Your MCP Config</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-23-the-worm-that-reads-your-mcp-config.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-23-the-worm-that-reads-your-mcp-config.html</guid>
+      <pubDate>2026-04-23</pubDate>
+      <category>Field Notes</category>
+      <description>The Bitwarden CLI supply chain compromise included targeted exfiltration of MCP configuration files. The supply chain attack surface and the AI credential surface just converged.</description>
+    </item>
     <item>
       <title>The Credential Layer Nobody Modeled</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-21-the-vercel-oauth-breach-as-a-credential-harvesting.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-22</pubDate>
       <category>Field Notes</category>
       <description>When your employer hands you a monthly token budget, the framing is &#x27;compensation.&#x27; The mechanism is something else entirely.</description>
-    </item>
-    <item>
-      <title>The Infrastructure Trap: Why the Astral Acquisition Is a Different Class of Blast Radius</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-20-the-astral-openai-acquisition-as-a-new-blast-radiu.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-20-the-astral-openai-acquisition-as-a-new-blast-radiu.html</guid>
-      <pubDate>2026-03-20</pubDate>
-      <category>Deep Bench</category>
-      <description>Every prior blast radius example involved foundation model providers absorbing tools that do things AI can now do natively. The Astral acquisition is something else entirely — and the distinction matters more than the deal.</description>
     </item>
   </channel>
 </rss>
