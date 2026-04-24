@@ -197,7 +197,10 @@
     "Self-hosted AI gateways (GoModel pattern) as a structural post-LiteLLM response — teams reconsidering routing layer ownership after named supply chain incidents",
     "MCP configuration files as a supply chain exfiltration target — the convergence of general-purpose credential harvesting and AI-specific infrastructure credentials",
     "Self-propagating npm worms (Shai-Hulud pattern) as CI/CD pipeline blast radius amplifiers — one compromised developer token propagating to every repository they maintain",
-    "The credential target list evolution — attackers updating harvesting templates to include AI infrastructure (MCP configs, AI API keys in env vars) alongside traditional developer credentials"
+    "The credential target list evolution — attackers updating harvesting templates to include AI infrastructure (MCP configs, AI API keys in env vars) alongside traditional developer credentials",
+    "Harness-layer quality as distinct from model-layer quality — the Anthropic postmortem as evidence that product decisions (reasoning effort, caching, system prompt constraints) control user-perceived AI quality at least as much as the model itself",
+    "System prompt constraints as intelligence-affecting changes — brevity instructions competing with reasoning capacity, demonstrated by a 3% intelligence drop from a 25-word output limit",
+    "The pricing divergence in foundation models — GPT-5.5 doubling to $5/$30 while DeepSeek V4 arrives at $0.14-$1.74 in the same 24 hours, creating a premium-vs-commodity bifurcation in frontier AI"
   ],
   "developing_opinions": [
     {

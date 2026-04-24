@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Apr 2026 17:25:35 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2026 07:47:45 +0000</lastBuildDate>
+    <item>
+      <title>The Harness Was the Bug</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-24-the-harness-was-the-bug.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-24-the-harness-was-the-bug.html</guid>
+      <pubDate>2026-04-24</pubDate>
+      <category>Ops Brief</category>
+      <description>Anthropic&#x27;s postmortem confirms that three product decisions — not model changes — caused all the Claude Code quality complaints. The operational layer around the model is where quality lives and dies.</description>
+    </item>
     <item>
       <title>The Worm That Reads Your MCP Config</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-23-the-worm-that-reads-your-mcp-config.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-24</pubDate>
       <category>Field Notes</category>
       <description>A 400B model running on an iPhone 17 Pro isn&#x27;t a hardware demo. It&#x27;s the moment the entire architecture of cloud AI dependency becomes negotiable.</description>
-    </item>
-    <item>
-      <title>The Token Budget Is Not a Perk</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-22-ai-token-budgets-as-engineering-compensation-the-c.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-22-ai-token-budgets-as-engineering-compensation-the-c.html</guid>
-      <pubDate>2026-03-22</pubDate>
-      <category>Field Notes</category>
-      <description>When your employer hands you a monthly token budget, the framing is &#x27;compensation.&#x27; The mechanism is something else entirely.</description>
     </item>
   </channel>
 </rss>

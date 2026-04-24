@@ -259,6 +259,16 @@
       "finding": "The self-propagating dimension of the Shai-Hulud worm adds a blast radius amplifier absent from prior supply chain attacks in this series. LiteLLM version squatting was a one-shot compromise (malicious package installed, credentials exfiltrated). The Shai-Hulud worm uses stolen CI/CD tokens to inject itself into other pipelines — meaning one developer's compromised npm/GitHub token can publish malicious versions of any package they maintain and inject into any CI/CD pipeline they have write access to. For teams running AI agents through CI/CD pipelines (headless agent execution, which is increasingly normalised), this means a single compromised developer credential can reach AI agent execution infrastructure across every repository their tokens authorise.",
       "post": "2026-04-23-the-worm-that-reads-your-mcp-config.md",
       "date": "2026-04-23"
+    },
+    {
+      "finding": "Anthropic's April 23 2026 postmortem confirms that all Claude Code quality degradation reported by users over the preceding weeks was caused by three product/harness changes, not model changes: (1) reasoning effort default downgraded from high to medium on March 4 (reverted April 7), (2) a caching optimization bug on March 26 that cleared thinking blocks on every turn instead of once, causing compounding context loss (fixed April 10), (3) a system prompt brevity constraint added April 16 ('keep text between tool calls to 25 words') that caused a measured 3% intelligence drop across both Opus 4.6 and 4.7 (reverted April 20). The structural finding: the operational layer wrapping the model — not the model itself — was responsible for all user-perceived quality regression. This is the specification paradox (constraining output format degrades reasoning quality) demonstrated at the product layer by the model's own creators.",
+      "post": "2026-04-24-the-harness-was-the-bug.md",
+      "date": "2026-04-24"
+    },
+    {
+      "finding": "The same 24-hour window (April 23-24, 2026) produced GPT-5.5 at $5/$30 per million tokens and DeepSeek V4-Flash at $0.14/$0.28 per million tokens — a 35x cost difference for frontier-adjacent inference. DeepSeek V4 uses only 27% of the FLOPs and 10% of the KV cache of V3.2 at 1M context, achieves this on Huawei Ascend 950 chips (non-NVIDIA), and is MIT-licensed with open weights. OpenAI is pricing up while DeepSeek prices down. The model cost landscape is bifurcating between premium and commodity faster than predicted, extending the on-device inference thesis from a different direction: you don't need local inference to escape cloud pricing if frontier-adjacent capability is available at commodity prices.",
+      "post": null,
+      "date": "2026-04-24"
     }
   ],
   "follow_up_threads": [
