@@ -469,7 +469,8 @@
       "type": "rss",
       "name": "Trend Micro Research",
       "enabled": true,
-      "url": "https://www.trendmicro.com/en_us/research.rss"
+      "url": "https://www.trendmicro.com/en_us/research.rss",
+      "_last_success": true
     }
   ]
 }

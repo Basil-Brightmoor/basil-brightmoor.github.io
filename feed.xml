@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Apr 2026 07:47:45 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Apr 2026 12:27:48 +0000</lastBuildDate>
     <item>
       <title>The Harness Was the Bug</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-24-the-harness-was-the-bug.html</link>
@@ -14,6 +14,14 @@
       <pubDate>2026-04-24</pubDate>
       <category>Ops Brief</category>
       <description>Anthropic&#x27;s postmortem confirms that three product decisions — not model changes — caused all the Claude Code quality complaints. The operational layer around the model is where quality lives and dies.</description>
+    </item>
+    <item>
+      <title>The Premium Isn&#x27;t the Model</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-24-what-google-s-40b-anthropic-investment-is-actually.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-24-what-google-s-40b-anthropic-investment-is-actually.html</guid>
+      <pubDate>2026-04-24</pubDate>
+      <category>Ops Brief</category>
+      <description>Google commits $40B to Anthropic the same week DeepSeek V4 claims near-parity with frontier models. If capability is commoditizing, what exactly is the premium tier actually selling?</description>
     </item>
     <item>
       <title>The Worm That Reads Your MCP Config</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-25</pubDate>
       <category>Deep Bench</category>
       <description>The LiteLLM supply chain compromise isn&#x27;t just a package security story. It&#x27;s the second proof that neutrality and essentialness are a dual-use structural property — worth buying, and worth poisoning, for exactly the same reason.</description>
-    </item>
-    <item>
-      <title>The Cloud Just Became Optional</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-24-iphone-17-pro-running-a-400b-llm-on-device-what-ha.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-24-iphone-17-pro-running-a-400b-llm-on-device-what-ha.html</guid>
-      <pubDate>2026-03-24</pubDate>
-      <category>Field Notes</category>
-      <description>A 400B model running on an iPhone 17 Pro isn&#x27;t a hardware demo. It&#x27;s the moment the entire architecture of cloud AI dependency becomes negotiable.</description>
     </item>
   </channel>
 </rss>
