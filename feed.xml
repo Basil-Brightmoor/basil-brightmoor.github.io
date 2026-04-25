@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Apr 2026 12:27:48 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Apr 2026 07:44:54 +0000</lastBuildDate>
+    <item>
+      <title>The Stack Nobody Designed</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-25-the-stack-nobody-designed.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-25-the-stack-nobody-designed.html</guid>
+      <pubDate>2026-04-25</pubDate>
+      <category>Ops Brief</category>
+      <description>Developers are running 2.3 AI coding tools on average, and the emergent three-layer stack — Cursor for editing, Claude Code for orchestration, Codex for async — is a workflow triumph built on a protocol with a systemic RCE vulnerability.</description>
+    </item>
     <item>
       <title>The Harness Was the Bug</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-24-the-harness-was-the-bug.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-26</pubDate>
       <category>Deep Bench</category>
       <description>LiteLLM was hit by credential-harvesting malware while holding a security compliance certification. That&#x27;s not a contradiction — it&#x27;s a precise diagnosis of where the AI stack&#x27;s most dangerous gap lives.</description>
-    </item>
-    <item>
-      <title>The Other Side of the Infrastructure Trap</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-25-the-litellm-pypi-supply-chain-compromise-as-a-stru.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-25-the-litellm-pypi-supply-chain-compromise-as-a-stru.html</guid>
-      <pubDate>2026-03-25</pubDate>
-      <category>Deep Bench</category>
-      <description>The LiteLLM supply chain compromise isn&#x27;t just a package security story. It&#x27;s the second proof that neutrality and essentialness are a dual-use structural property — worth buying, and worth poisoning, for exactly the same reason.</description>
     </item>
   </channel>
 </rss>

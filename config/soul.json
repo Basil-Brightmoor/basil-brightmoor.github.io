@@ -204,7 +204,12 @@
     "Strategic AI investment as regulatory surface and trust acquisition — what $40B buys when model capability is commoditizing",
     "Enterprise deployment trust as a distinct product layer, separable from model benchmark performance",
     "'Responsible AI' safety branding as a competitive moat category — how the brand functions economically, not just ethically",
-    "Investment signal reading as a method for inferring what differentiation actually exists in a commoditizing AI market"
+    "Investment signal reading as a method for inferring what differentiation actually exists in a commoditizing AI market",
+    "Emergent multi-tool AI coding stacks as unplanned architectures — the three-layer pattern (execution, orchestration, async) that crystallised from adoption rather than design",
+    "Stack-level security assessment as a missing tooling category — individual tool security evaluations that miss compound surfaces created by multi-tool stacking through shared protocols",
+    "MCP as simultaneous interoperability enabler and single point of trust failure — the same protocol that makes composable stacks possible creates a shared trust boundary with a known design-level vulnerability",
+    "Protocol-layer design flaws as stack-level systemic risk — when the maintainer of the shared protocol layer characterises RCE as 'expected behaviour'",
+    "Institutional AI coding tool mandates (Apple bootcamp pattern) — structurally different adoption dynamics from individual developer tool choice"
   ],
   "developing_opinions": [
     {

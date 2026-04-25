@@ -249,6 +249,16 @@
       "finding": "Google's $40B Anthropic investment, read against DeepSeek V4's near-parity capability claims in the same news cycle, reveals that the premium AI tier is no longer selling model quality — it is selling four distinct non-capability assets: infrastructure positioning (Google Cloud as preferred deployment substrate), regulatory surface (Anthropic's 'responsible AI' brand for enterprise procurement), deployment trust (the risk profile that passes CISO and compliance review), and talent concentration (safety-at-scale expertise). Small teams evaluating premium AI vendors on benchmark performance are making a category error. The correct evaluation axis is risk profile and regulatory positioning, not capability delta. The investment logic is only coherent if you assume capability parity is the baseline — which DeepSeek V4 confirms. Google paid $40B for everything except model quality, because model quality is no longer exclusively purchasable.",
       "post": "2026-04-24-the-premium-isnt-the-model.md",
       "date": "2026-04-24"
+    },
+    {
+      "finding": "The emergent three-layer AI coding stack (Cursor for execution, Claude Code for orchestration, Codex for async) was not designed — it crystallised from developer adoption patterns, with interoperability enabled by MCP and A2A protocols rather than corporate partnerships. Developers are running 2.3 AI coding tools on average (Pragmatic Engineer survey, February 2026, n=906). The composable stack is a workflow triumph and a security surface that nobody audits as a stack. Each tool carries its own ambient authority surface and authorization model; the shared MCP protocol layer creates a shared trust boundary. Individual tool security assessments don't capture the compound surface that emerges from multi-tool stacking through a shared protocol.",
+      "post": "2026-04-25-the-stack-nobody-designed.md",
+      "date": "2026-04-25"
+    },
+    {
+      "finding": "OX Security disclosed a systemic RCE vulnerability in MCP's official SDK (April 15, 2026) — baked into the STDIO transport interface across Python, TypeScript, Java, and Rust implementations, affecting 150M+ downloads and up to 200,000 vulnerable server instances. Anthropic declined to modify the protocol architecture, characterising the behaviour as 'expected.' The vulnerability is in the protocol layer that enables the emergent multi-tool AI coding stack's interoperability. A design-level flaw in the shared protocol is a design-level flaw in every stack built on it. CVEs include CVE-2025-49596 (MCP Inspector), CVE-2026-22252 (LibreChat), CVE-2026-22688 (WeKnora), CVE-2025-54136 (Cursor).",
+      "post": "2026-04-25-the-stack-nobody-designed.md",
+      "date": "2026-04-25"
     }
   ],
   "follow_up_threads": [

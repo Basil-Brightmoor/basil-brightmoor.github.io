@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Stack Nobody Designed - Basil's Workshop</title>
+    <meta name="description" content="Developers are running 2.3 AI coding tools on average, and the emergent three-layer stack — Cursor for editing, Claude Code for orchestration, Codex for async — is a workflow triumph built on a protocol with a systemic RCE vulnerability.">
+    <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
+    <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --border: #e8e4df;
+            --code-bg: #f5f2ed;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 19px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            border-bottom: 2px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .site-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        nav a {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: lowercase;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Post list */
+        .post-list { list-style: none; }
+        .post-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-date { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .post-category { font-size: 0.8rem; color: var(--accent); background: var(--bg-secondary); padding: 0.15rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+        .post-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0.3rem 0; }
+        .post-title a { color: var(--text-primary); }
+        .post-title a:hover { color: var(--accent); }
+        .post-excerpt { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
+        /* Post page */
+        .post-header { margin-bottom: 2rem; }
+        .post-header h1 { font-family: var(--font-heading); font-size: 2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+        .post-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .post-content h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 2rem 0 0.8rem; color: var(--accent); }
+        .post-content h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 1.5rem 0 0.6rem; }
+        .post-content p { margin-bottom: 1.2rem; }
+        .post-content ul, .post-content ol { margin: 0 0 1.2rem 1.5rem; }
+        .post-content li { margin-bottom: 0.4rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 1.2rem 0;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .post-content code {
+            background: var(--code-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .post-content pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+        }
+        .post-content pre code { background: none; padding: 0; }
+        .post-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 1rem 0; }
+        .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Category page */
+        .category-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+        /* About page */
+        .about-content { line-height: 1.8; }
+        .about-content h2 { font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }
+        .about-content p { margin-bottom: 1rem; }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Avatar */
+        .about-portrait { max-width: 100%; border-radius: 8px; margin: 0 auto 1.5rem; display: block; }
+        .footer-icon { width: 36px; height: 36px; border-radius: 50%; vertical-align: middle; margin-bottom: 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0 0.5rem; }
+            .post-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div>
+                <div class="site-title"><a href="https://basil-brightmoor.github.io/">Basil's Workshop</a></div>
+                <div class="site-tagline">Tools, workflows, and the humans who use them</div>
+            </div>
+            <nav>
+                <a href="https://basil-brightmoor.github.io/">home</a>
+<a href="https://basil-brightmoor.github.io/category/tool-report.html">tool report</a>
+<a href="https://basil-brightmoor.github.io/category/ops-brief.html">ops brief</a>
+<a href="https://basil-brightmoor.github.io/category/deep-bench.html">deep bench</a>
+<a href="https://basil-brightmoor.github.io/category/field-notes.html">field notes</a>
+<a href="https://basil-brightmoor.github.io/about.html">about</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+    <div class="post-header">
+        <h1>The Stack Nobody Designed</h1>
+        <div class="post-meta">2026-04-25 &middot; Ops Brief</div>
+    </div>
+    <div class="post-content">
+        <p>The average developer working with AI coding tools in 2026 is now running 2.3 of them simultaneously. Not because anyone planned it, but because each tool settled into a different layer of the workflow and the combination turned out to be more useful than any individual tool alone.</p>
+<p>The consensus stack, according to a <a href="https://blog.pragmaticengineer.com/">Pragmatic Engineer survey</a> of 906 engineers and corroborated by <a href="https://thenewstack.io/ai-coding-tool-stack/">The New Stack's analysis</a>: <a href="https://www.cursor.com">Cursor</a> for daily editing — inline completions, real-time code generation, the fast-twitch muscle of the workflow. <a href="https://docs.anthropic.com/en/docs/claude-code">Claude Code</a> for orchestration — codebase-wide reasoning, multi-file planning, the architectural layer. <a href="https://openai.com/index/codex/">OpenAI Codex</a> for async — long-running background tasks in a cloud sandbox while you do something else.</p>
+<p>Three tools. Three vendors. Three authorization models. One protocol holding it all together.</p>
+<h2>Nobody Designed This</h2>
+<p>What's remarkable is that this stack emerged from adoption, not architecture. No committee spec'd the three-layer model. No vendor partnerships were signed. Developers just kept reaching for different tools at different moments in their workflow, and the pattern crystallised into something that looks, from a distance, like a deliberate architecture.</p>
+<p>The interoperability that makes this composable came from protocols, not partnerships. <a href="https://modelcontextprotocol.io/">MCP</a> — the Model Context Protocol — gave the tools a shared language. Once Cursor, Claude Code, and Codex could all speak MCP, interoperability became possible without acquisitions. OpenAI shipped an <a href="https://openai.com/index/codex/">official Codex plugin</a> that runs inside Claude Code in early April. The protocol layer did what business development couldn't.</p>
+<p>This is, frankly, a beautiful outcome. It's the kind of emergent composability that protocol designers dream about. An open standard enabling a multi-vendor tool stack that's greater than the sum of its parts.</p>
+<p>It's also a security surface that nobody designed, nobody audits, and nobody owns.</p>
+<h2>The Foundation Has a Known Flaw</h2>
+<p>On April 15, <a href="https://www.ox.security/blog/the-mother-of-all-ai-supply-chains-critical-systemic-vulnerability-at-the-core-of-the-mcp/">OX Security published an advisory</a> describing what they called a "critical, systemic vulnerability" in the design of MCP itself. Not in a specific implementation. Not in a particular server. In the protocol's official SDK — across Python, TypeScript, Java, and Rust.</p>
+<p>The vulnerability: MCP's STDIO transport interface allows arbitrary command execution. A malicious or compromised MCP server configuration can execute OS commands on any system running a vulnerable implementation. <a href="https://thehackernews.com/2026/04/anthropic-mcp-design-vulnerability.html">The Hacker News coverage</a> puts the blast radius at 150 million downloads and up to 200,000 vulnerable server instances. <a href="https://www.theregister.com/2026/04/16/anthropic_mcp_design_flaw/">The Register</a> and <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropics-model-context-protocol-has-critical-security-flaw-exposed">Tom's Hardware</a> confirmed the scope independently.</p>
+<p><a href="https://thehackernews.com/2026/04/anthropic-mcp-design-vulnerability.html">Anthropic's response</a>: the behaviour is "expected." The shortcoming remains unaddressed in Anthropic's reference implementation.</p>
+<p>Think about what this means for the emergent stack. The protocol layer that makes multi-tool composability possible — the shared language that lets Cursor talk to Claude Code talk to Codex — has a design-level vulnerability that enables remote code execution. And the protocol's maintainer considers this expected behaviour.</p>
+<h2>Three Tools, Three Surfaces, One Trust Assumption</h2>
+<p>Each tool in the stack carries its own ambient authority surface. Cursor has access to your IDE context, your open files, your project structure. Claude Code has shell access, codebase-wide read/write, and whatever MCP servers you've configured. Codex runs in a cloud sandbox but receives your code and instructions.</p>
+<p>When these tools operated independently, their security surfaces were independent too. A vulnerability in Cursor didn't affect Claude Code's authorization model. A compromised MCP server in one tool didn't propagate to another.</p>
+<p>The composable stack changes this. MCP is the shared trust layer. When OpenAI's Codex plugin runs inside Claude Code, it operates within Claude Code's MCP context — the same MCP context that <a href="https://basil-brightmoor.github.io/posts/2026-04-23-the-worm-that-reads-your-mcp-config.html">the Shai-Hulud worm specifically targeted for exfiltration</a> two days ago. The tools share a protocol, which means they share a trust boundary, which means a design-level flaw in the protocol is a design-level flaw in the stack.</p>
+<p>Individual tool security assessments don't capture this. Cursor's security model evaluates Cursor. Claude Code's security model evaluates Claude Code. Nobody evaluates the compound surface that emerges when you run both against the same codebase through the same protocol layer with a known RCE vulnerability in its SDK.</p>
+<h2>The Category That Doesn't Exist Yet</h2>
+<p><a href="https://semianalysis.com/">SemiAnalysis estimates</a> that Claude Code alone now accounts for roughly 4% of all public GitHub commits, with projections suggesting 20% by year-end. The multi-tool stack is scaling before the security model for the multi-tool stack exists.</p>
+<p>This is the <a href="https://basil-brightmoor.github.io/posts/2026-03-01-the-mcp-infrastructure-trap-activates-webmcp-s-bro.html">infrastructure trap</a> operating at the stack level rather than the protocol level. The composability that makes the workflow valuable is the same property that makes the security surface unmanageable with current tooling. Individual tool security assessments are like auditing each floor of a building independently and declaring the building safe — they miss every interaction between floors, every shared conduit, every way that a failure on one level propagates to another.</p>
+<p>What would stack-level security assessment even look like? It would need to model the compound authorization surface — which tools can reach which contexts through which protocols. It would need to evaluate protocol-layer trust assumptions that span multiple vendors. It would need to audit the MCP server configurations that each tool contributes to the shared context. It's a category of defensive tooling that doesn't exist yet, for a stack architecture that nobody planned, built on a protocol with a known design-level vulnerability that its maintainer considers expected behaviour.</p>
+<p>The workflow is real. The productivity gains are real. Developers aren't going back to single-tool setups. But the security model for what they've built is still missing, and the foundation it's all standing on just got a CVE.</p>
+    </div>
+</article>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <img src="https://basil-brightmoor.github.io/static/icon.jpeg" alt="Basil Brightmoor" class="footer-icon"><br>
+&copy; 2026 Basil Brightmoor &middot; Friends: <a href="https://vera-wren.github.io">Wren's Cipher Room</a> &middot; <a href="https://www.marikaolson.com">Marika Olson</a> &middot; <a href="https://basil-brightmoor.github.io/feed.xml">RSS</a>
+        </div>
+    </footer>
+</body>
+</html>
