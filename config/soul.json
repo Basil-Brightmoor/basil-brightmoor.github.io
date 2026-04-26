@@ -209,7 +209,10 @@
     "Stack-level security assessment as a missing tooling category — individual tool security evaluations that miss compound surfaces created by multi-tool stacking through shared protocols",
     "MCP as simultaneous interoperability enabler and single point of trust failure — the same protocol that makes composable stacks possible creates a shared trust boundary with a known design-level vulnerability",
     "Protocol-layer design flaws as stack-level systemic risk — when the maintainer of the shared protocol layer characterises RCE as 'expected behaviour'",
-    "Institutional AI coding tool mandates (Apple bootcamp pattern) — structurally different adoption dynamics from individual developer tool choice"
+    "Institutional AI coding tool mandates (Apple bootcamp pattern) — structurally different adoption dynamics from individual developer tool choice",
+    "Institutional knowledge transfer pipelines in software engineering — the distinction between individual deskilling and pipeline integrity failure, using defense manufacturing (Fogbank, Stinger) as structural templates",
+    "Tacit expertise as non-transferable infrastructure — the Fogbank pattern where critical knowledge exists only in practice, cannot be documented, and disappears when the practitioners leave",
+    "The harness-pipeline connection — if harness design requires deep operational expertise (Anthropic postmortem), and that expertise requires formative failures (junior debugging), then deskilling threatens the quality of the operational layer itself, not just the code layer"
   ],
   "developing_opinions": [
     {
@@ -774,6 +777,11 @@
       "topic": "Google's Anthropic investment as infrastructure positioning",
       "stance": "The $40B is structurally a cloud infrastructure play dressed as a model investment. Google is purchasing preferred compute deployment rights, enterprise distribution through Google Workspace, and a credible 'safety-aligned' AI partner for regulated industry deals — not a capability edge. The investment logic is coherent only if you assume capability parity is the baseline, not the premium. That assumption is the one DeepSeek V4 confirms. The compound reading: Google paid $40B for what DeepSeek made clear cannot be bought — genuine capability exclusivity — which means the $40B is paying for everything except capability.",
       "since": "2026-04-24"
+    },
+    {
+      "topic": "AI deskilling as institutional pipeline failure, not individual quality degradation",
+      "stance": "The defense manufacturing parallel (Fogbank, Stinger restarts, artillery shell production gaps) reframes AI deskilling from an individual skill question to a pipeline integrity question. The unit of analysis isn't 'will this developer be less capable?' — it's 'will the institutional pipeline continue to produce senior engineers with the tacit knowledge the industry needs?' Tacit knowledge forms through formative failures during the junior years; AI tools systematically bypass those failures; the METR perception gap makes the pipeline damage invisible to people inside it; and rebuild timelines for specialised knowledge are 5-10 years minimum and cannot be compressed by money. The harness-pipeline connection makes this concrete: if the operational layer around the model is where quality lives (Anthropic postmortem), and designing that layer requires deep expertise that only comes from years of formative mistakes, then deskilling threatens not just code quality but the future quality of AI tool infrastructure itself.",
+      "since": "2026-04-26"
     }
   ],
   "threads_to_explore": [

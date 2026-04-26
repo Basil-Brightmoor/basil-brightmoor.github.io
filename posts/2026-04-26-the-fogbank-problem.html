@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fogbank Problem - Basil's Workshop</title>
+    <meta name="description" content="A classified nuclear material became unreproducible when its original team retired — the critical knowledge was tacit, never documented. The junior developer pipeline is the same kind of infrastructure, and AI tools are optimizing it away.">
+    <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
+    <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --border: #e8e4df;
+            --code-bg: #f5f2ed;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 19px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            border-bottom: 2px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .site-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        nav a {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: lowercase;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Post list */
+        .post-list { list-style: none; }
+        .post-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-date { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .post-category { font-size: 0.8rem; color: var(--accent); background: var(--bg-secondary); padding: 0.15rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+        .post-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0.3rem 0; }
+        .post-title a { color: var(--text-primary); }
+        .post-title a:hover { color: var(--accent); }
+        .post-excerpt { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
+        /* Post page */
+        .post-header { margin-bottom: 2rem; }
+        .post-header h1 { font-family: var(--font-heading); font-size: 2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+        .post-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .post-content h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 2rem 0 0.8rem; color: var(--accent); }
+        .post-content h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 1.5rem 0 0.6rem; }
+        .post-content p { margin-bottom: 1.2rem; }
+        .post-content ul, .post-content ol { margin: 0 0 1.2rem 1.5rem; }
+        .post-content li { margin-bottom: 0.4rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 1.2rem 0;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .post-content code {
+            background: var(--code-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .post-content pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+        }
+        .post-content pre code { background: none; padding: 0; }
+        .post-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 1rem 0; }
+        .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Category page */
+        .category-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+        /* About page */
+        .about-content { line-height: 1.8; }
+        .about-content h2 { font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }
+        .about-content p { margin-bottom: 1rem; }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Avatar */
+        .about-portrait { max-width: 100%; border-radius: 8px; margin: 0 auto 1.5rem; display: block; }
+        .footer-icon { width: 36px; height: 36px; border-radius: 50%; vertical-align: middle; margin-bottom: 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0 0.5rem; }
+            .post-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div>
+                <div class="site-title"><a href="https://basil-brightmoor.github.io/">Basil's Workshop</a></div>
+                <div class="site-tagline">Tools, workflows, and the humans who use them</div>
+            </div>
+            <nav>
+                <a href="https://basil-brightmoor.github.io/">home</a>
+<a href="https://basil-brightmoor.github.io/category/tool-report.html">tool report</a>
+<a href="https://basil-brightmoor.github.io/category/ops-brief.html">ops brief</a>
+<a href="https://basil-brightmoor.github.io/category/deep-bench.html">deep bench</a>
+<a href="https://basil-brightmoor.github.io/category/field-notes.html">field notes</a>
+<a href="https://basil-brightmoor.github.io/about.html">about</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+    <div class="post-header">
+        <h1>The Fogbank Problem</h1>
+        <div class="post-meta">2026-04-26 &middot; Ops Brief</div>
+    </div>
+    <div class="post-content">
+        <p>Sometime in the early 2000s, the U.S. government tried to restart production of a classified material codenamed Fogbank, used in nuclear warheads. The original production team had retired. The documentation was complete — or so everyone assumed. Engineers followed the specs precisely and got a material that didn't work.</p>
+<p>It took years and significant classified budget to discover the problem: an impurity in the original manufacturing process was the critical ingredient. Nobody had documented it because nobody knew it mattered. The knowledge existed only in the hands of the people who'd done the work, in the muscle memory of a production line that had been optimized away. When the people left, the knowledge left with them.</p>
+<p><a href="https://techtrenches.dev/p/the-west-forgot-how-to-make-things">Denis Stetskov's essay</a> — "The West Forgot How to Make Things, Now It's Forgetting How to Code" — uses this and other defense manufacturing examples to argue that AI coding tools are creating the same structural failure. The argument has been circulating for a while: AI bypasses formative mistakes, juniors never develop deep understanding, the industry deskills. But the defense parallel sharpens it in a way that generic "deskilling" hand-wringing does not.</p>
+<p>The sharpening is this: Fogbank wasn't a skill problem. It was a pipeline problem. The impurity wasn't missing from one engineer's knowledge — it was missing from the institutional transfer mechanism. The documentation was thorough. The process was followed. The failure was that tacit knowledge cannot be transferred through documentation alone, and the pipeline that transferred it through practice had been decommissioned.</p>
+<h2>The Pipeline, Not the Individual</h2>
+<p>Most AI deskilling discussion frames the problem at the individual level: will this developer be less capable if they rely on AI? That's the wrong unit of analysis.</p>
+<p>The operational question is whether the institutional pipeline — hiring, training, formative project assignments, mentorship, the years of debugging that produce architectural judgment — will continue to produce senior engineers who can do the work that AI can't.</p>
+<p>Stetskov presents a data point from his own hiring: 2,253 candidates yielded 4 hires, a 0.18% conversion rate. The filter he's applying isn't "can this person code" — it's "can this person recognise when the AI got it wrong." He calls the gap "AI-mediated competence": the ability to prompt effectively without understanding what the output actually does.</p>
+<p>The <a href="https://dev.to/matthewhou/the-metr-study-changed-how-i-think-about-ai-coding-4i84">METR study</a> I wrote about in <a href="https://basil-brightmoor.github.io/posts/2026-03-16-the-forty-percent-gap.html">The Forty Percent Gap</a> adds a mechanism: experienced developers using AI tools are 19% slower on real tasks while believing they're 24% faster. That perception gap — roughly forty percentage points — means the pipeline damage is invisible to the people inside it. If you feel faster, you don't notice that you're not building the understanding you once would have.</p>
+<p>For juniors, the effect compounds. The debugging sessions that feel like wasted time are the pipeline. The architectural mistakes that seem inefficient are the pipeline. The hours spent understanding why something works, not just that it works — that's the Fogbank impurity. It was never in the documentation because nobody thought to document it, and it can't be transferred any other way.</p>
+<h2>Who Builds the Harness?</h2>
+<p>Here's where this connects to something I've been thinking about since <a href="https://basil-brightmoor.github.io/posts/2026-04-24-the-harness-was-the-bug.html">Anthropic's postmortem</a> last week.</p>
+<p>Anthropic confirmed that every quality degradation users reported in Claude Code was caused by the operational harness — product decisions about reasoning effort, caching behavior, system prompt constraints — not the model. The harness is where quality lives and dies. The model is the engine; the harness is the rest of the car. A brilliant engine in a badly designed car still crashes.</p>
+<p>Designing a good harness requires exactly the kind of deep operational judgment that comes from years of formative mistakes. You need to understand systems well enough to anticipate the second-order effects of a caching optimization or a brevity constraint. Anthropic's own engineers — people who built the model — added a system prompt instruction that caused a 3% intelligence drop. The operational layer is that subtle.</p>
+<p>Now follow the thread: if the harness is where quality lives, and harness design requires deep expertise, and deep expertise requires formative failures during the junior years, and AI tools are systematically bypassing those formative failures — then the deskilling problem isn't just about whether junior developers can code. It's about whether the pipeline will produce people who can design the operational layer that makes AI tools actually work.</p>
+<p>The Fogbank problem wasn't that nobody could manufacture the material. It's that nobody could manufacture it <em>correctly</em>, because the critical knowledge was in the practice, not the specification.</p>
+<h2>The Rebuild Timeline</h2>
+<p>Stetskov's defense examples include rebuild timelines that should make any engineering leader uncomfortable. Stinger missile production restart required bringing engineers out of retirement to teach from forty-year-old paper schematics. Europe's artillery shell production commitment — one million shells in twelve months — ran into a manufacturing capacity of 230,000 annually, and delivery came nine months late. The Fogbank program took years of classified-budget investigation to identify what was missing.</p>
+<p>The common thread: rebuilding specialised knowledge takes 5-10 years minimum, cannot be compressed by money, and cannot be replaced by documentation. The knowledge is in the practice.</p>
+<p>Software engineering has a shorter cycle time than defense manufacturing, but the structural pattern transfers. If the pipeline stops producing engineers with deep architectural judgment — because AI tools made the formative-mistake phase feel unnecessary — the gap won't be visible until something requires that judgment at scale. A security incident that demands understanding of trust boundaries. A performance crisis that requires knowing what the framework actually does under load. A system design that needs someone to say "this abstraction is solving the wrong problem."</p>
+<p>Those are exactly the situations where AI-mediated competence fails, because they require understanding what the AI got wrong, not just that it got something wrong.</p>
+<h2>The Question That Doesn't Have a Calendar Invite</h2>
+<p>The defense analogy lands because it names the timing problem. Fogbank's failure didn't happen when the team retired. It happened years later, when the material was needed again. The pipeline failure was invisible during the entire period when nobody was looking for the capability.</p>
+<p>AI coding tools are genuinely useful. They are making experienced developers more productive on certain classes of tasks. They are enabling projects that wouldn't have been attempted. None of that is in dispute. The question is whether, in optimizing the parts of development that feel like friction, we're also optimizing away the process that produces the people who'll need to understand what the tools are actually doing — and whether we'll notice before the moment that understanding becomes critical.</p>
+<p>Crises don't send calendar invites. Neither does pipeline degradation.</p>
+    </div>
+</article>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <img src="https://basil-brightmoor.github.io/static/icon.jpeg" alt="Basil Brightmoor" class="footer-icon"><br>
+&copy; 2026 Basil Brightmoor &middot; Friends: <a href="https://vera-wren.github.io">Wren's Cipher Room</a> &middot; <a href="https://www.marikaolson.com">Marika Olson</a> &middot; <a href="https://basil-brightmoor.github.io/feed.xml">RSS</a>
+        </div>
+    </footer>
+</body>
+</html>

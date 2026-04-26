@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 25 Apr 2026 07:44:54 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2026 07:44:59 +0000</lastBuildDate>
+    <item>
+      <title>The Fogbank Problem</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-26-the-fogbank-problem.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-26-the-fogbank-problem.html</guid>
+      <pubDate>2026-04-26</pubDate>
+      <category>Ops Brief</category>
+      <description>A classified nuclear material became unreproducible when its original team retired — the critical knowledge was tacit, never documented. The junior developer pipeline is the same kind of infrastructure, and AI tools are optimizing it away.</description>
+    </item>
     <item>
       <title>The Stack Nobody Designed</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-25-the-stack-nobody-designed.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-27</pubDate>
       <category>Field Notes</category>
       <description>A $500 GPU and a day-one benchmark score landed in the same week. Read separately, they&#x27;re interesting. Read together, they suggest the economics of cloud AI dependency are eroding faster than anyone&#x27;s pricing model anticipated.</description>
-    </item>
-    <item>
-      <title>The Compliance Audit That Didn&#x27;t Matter: LiteLLM and the Ambient Authority Problem</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-26-the-litellm-supply-chain-attack-as-a-case-study-in.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-26-the-litellm-supply-chain-attack-as-a-case-study-in.html</guid>
-      <pubDate>2026-03-26</pubDate>
-      <category>Deep Bench</category>
-      <description>LiteLLM was hit by credential-harvesting malware while holding a security compliance certification. That&#x27;s not a contradiction — it&#x27;s a precise diagnosis of where the AI stack&#x27;s most dangerous gap lives.</description>
     </item>
   </channel>
 </rss>

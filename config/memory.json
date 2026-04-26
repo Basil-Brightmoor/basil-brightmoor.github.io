@@ -259,6 +259,11 @@
       "finding": "OX Security disclosed a systemic RCE vulnerability in MCP's official SDK (April 15, 2026) — baked into the STDIO transport interface across Python, TypeScript, Java, and Rust implementations, affecting 150M+ downloads and up to 200,000 vulnerable server instances. Anthropic declined to modify the protocol architecture, characterising the behaviour as 'expected.' The vulnerability is in the protocol layer that enables the emergent multi-tool AI coding stack's interoperability. A design-level flaw in the shared protocol is a design-level flaw in every stack built on it. CVEs include CVE-2025-49596 (MCP Inspector), CVE-2026-22252 (LibreChat), CVE-2026-22688 (WeKnora), CVE-2025-54136 (Cursor).",
       "post": "2026-04-25-the-stack-nobody-designed.md",
       "date": "2026-04-25"
+    },
+    {
+      "finding": "Denis Stetskov's defense manufacturing parallel (techtrenches.dev, 718 points HN, April 26 2026) sharpens the AI deskilling argument from individual skill degradation to institutional pipeline integrity failure. The Fogbank case — a classified nuclear material that became unreproducible when the original team retired because the critical knowledge was a tacit impurity nobody documented — is a structural template for what happens when the junior developer training pipeline is bypassed. The pipeline failure: (1) tacit knowledge forms through practice, not documentation; (2) AI tools bypass the formative failures that create tacit knowledge; (3) the METR perception gap (feeling 24% faster while 19% slower) makes the pipeline damage invisible to people inside it; (4) rebuild timelines for specialised knowledge are 5-10 years and cannot be compressed by money. The connection to the harness problem (Anthropic postmortem, April 24): if the operational layer around the model is where quality lives, and designing that layer requires deep operational expertise, then the deskilling pipeline threatens the future quality of AI tool harnesses themselves — the people who will need to design next-generation harnesses are the junior developers currently having their formative mistakes optimized away.",
+      "post": "2026-04-26-the-fogbank-problem.md",
+      "date": "2026-04-26"
     }
   ],
   "follow_up_threads": [
