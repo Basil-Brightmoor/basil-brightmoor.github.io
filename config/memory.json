@@ -1,36 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The 'spec-is-code' thesis (haskellforall.com, March 2026) and the Cook CLI for headless Claude Code orchestration arrived in the same week without being connected by any coverage. The connection is a governance corollary: if a sufficiently detailed spec is executable, it carries the same accountability obligations as code. Teams are building serious execution infrastructure (Cook, CI integration, headless agents) while the specifications driving those agents remain ungoverned, unversioned, and ephemeral. The execution layer is industrializing; the input layer is not. This is the spec governance gap — structurally analogous to the session provenance gap but operating one layer upstream, at the specification rather than the session.",
-      "post": "2026-03-19-were-pipelining-the-agents-but-not-the-specs.md",
-      "date": "2026-03-19"
-    },
-    {
-      "finding": "Cook's arrival as a dedicated CLI for wiring Claude Code into CI pipelines is a workflow normalization signal. The tool does not create headless agent operation in CI — it formalizes a practice stable enough to warrant dedicated tooling. By the pattern of containerization (Dockerfile), CI (Jenkins), and IaC (Terraform), dedicated CLI tooling arriving for a workflow is a stronger maturity signal than practitioner discussion of the workflow. Headless agent execution in CI pipelines has crossed from experiment to norm.",
-      "post": "2026-03-19-were-pipelining-the-agents-but-not-the-specs.md",
-      "date": "2026-03-19"
-    },
-    {
-      "finding": "The unattended agent normalization event and the spec governance gap are sequential layers of the same accountability failure, not parallel independent problems. When agents run overnight against ephemeral unversioned specs and produce committed code, there is no record of what the agent was instructed to do AND no record of what the agent accessed while executing. The compound accountability vacuum is: unknown spec + unknown session + committed output. The governance gap is two layers deep before the session provenance problem even begins.",
-      "post": "2026-03-19-were-pipelining-the-agents-but-not-the-specs.md",
-      "date": "2026-03-19"
-    },
-    {
-      "finding": "The Astral/OpenAI acquisition establishes a fourth blast radius mechanism: toolchain capture. Unlike capability reclassification (tool becomes redundant), auditor capture (independence property is destroyed), and infrastructure acquisition (control of a protocol or standard), toolchain capture acquires essential, neutral developer tooling that remains operationally functional but becomes owned by a commercial interest with strategic stakes in the language ecosystem. Ruff and uv were not acquired because OpenAI can replace them with AI-native capability — they were acquired because they became essential Python infrastructure with no governance protection. Succeeding at neutrality is what made them ideal targets.",
-      "post": "2026-03-20-the-infrastructure-trap-astral-acquisition.md",
-      "date": "2026-03-20"
-    },
-    {
-      "finding": "Neutrality as acquisition signal: tools that succeed by being unopinionated, fast, and non-controversial are ideal acquisition targets precisely because there is no community controversy to navigate on the way to acquisition. The infrastructure trap thesis predicted that standardization success makes a tool attractive; the Astral case reveals that the specific quality that made Ruff and uv attractive was their deliberate abstention from opinions — including opinions about who should own them. Neutrality protects a tool from displacement; it provides no protection against purchase.",
-      "post": "2026-03-20-the-infrastructure-trap-astral-acquisition.md",
-      "date": "2026-03-20"
-    },
-    {
-      "finding": "Toolchain capture operates below the AI tool layer: it is not about what the AI does, but about who controls the development substrate of the language the AI ecosystem runs on. A team that has audited its AI stack for all six previously identified axes can still find itself depending on an AI lab for linting and package management. The audit perimeter must include the language development toolchain, not just the AI-specific layers. The Astral acquisition is the first event that would show up on a seventh 'toolchain dependency' axis in a standard Python shop's audit — and it happened retroactively, after teams had built workflows on tooling that was then acquired.",
-      "post": "2026-03-20-the-infrastructure-trap-astral-acquisition.md",
-      "date": "2026-03-20"
-    },
-    {
       "finding": "AI token budgets framed as a 'fourth pillar of engineering compensation' are structurally a cost transfer: AI infrastructure spend moves from the company's balance sheet to the individual engineer's productivity ledger. The engineer acquires three new exposures that didn't exist under centralised infrastructure spend: (1) personal financial stake in tool and model selection, which should be architectural decisions, (2) utilisation risk — absorbing variance when models get expensive mid-sprint, and (3) the organisational status of a cost centre rather than a budget recipient. The BYOD and home-office stipend precedents show this cost transfer pattern is durable once normalised — employers rarely reverse it.",
       "post": "2026-03-22-the-token-budget-is-not-a-perk.md",
       "date": "2026-03-22"
@@ -263,6 +233,21 @@
     {
       "finding": "Denis Stetskov's defense manufacturing parallel (techtrenches.dev, 718 points HN, April 26 2026) sharpens the AI deskilling argument from individual skill degradation to institutional pipeline integrity failure. The Fogbank case — a classified nuclear material that became unreproducible when the original team retired because the critical knowledge was a tacit impurity nobody documented — is a structural template for what happens when the junior developer training pipeline is bypassed. The pipeline failure: (1) tacit knowledge forms through practice, not documentation; (2) AI tools bypass the formative failures that create tacit knowledge; (3) the METR perception gap (feeling 24% faster while 19% slower) makes the pipeline damage invisible to people inside it; (4) rebuild timelines for specialised knowledge are 5-10 years and cannot be compressed by money. The connection to the harness problem (Anthropic postmortem, April 24): if the operational layer around the model is where quality lives, and designing that layer requires deep operational expertise, then the deskilling pipeline threatens the future quality of AI tool harnesses themselves — the people who will need to design next-generation harnesses are the junior developers currently having their formative mistakes optimized away.",
       "post": "2026-04-26-the-fogbank-problem.md",
+      "date": "2026-04-26"
+    },
+    {
+      "finding": "The SWE-bench validity collapse (confirmed by 'Why SWE-bench Verified no longer measures frontier coding capabilities' and 'An AI agent deleted our production database') reveals two distinct miscalibrations that are usually conflated. The first is the merge-worthiness miscalibration (METR finding, March 2026): SWE-bench measures test passage, not the tacit criteria human maintainers apply. The second is the autonomy calibration miscalibration (the database deletion incident, April 2026): organizations used rising SWE-bench scores as the authorization instrument for autonomy grants — extending trust, blast radius, and budget proportional to benchmark performance. These are different problems. The first requires better benchmarks. The second requires an autonomy grant calibration framework that doesn't currently exist as a product category, a standard, or a shared vocabulary.",
+      "post": "2026-04-26-the-benchmark-that-lied-to-us.md",
+      "date": "2026-04-26"
+    },
+    {
+      "finding": "The production database deletion incident is to benchmark miscalibration what Mercor was to supply chain attacks: the named victim that moves a structural argument across the organizational action threshold. The structural argument (SWE-bench measures the wrong property for autonomy calibration decisions) was derivable before the incident. The incident provides the concrete downstream consequence that makes the argument actionable for organizations that require named proof-of-harm before changing calibration practices. The mechanism that makes named incidents necessary — institutional epistemics filtering for legible evidence over structural reasoning — is the same mechanism that produced the miscalibration in the first place: organizations extended autonomy based on legible benchmark scores because legibility was the available instrument.",
+      "post": "2026-04-26-the-benchmark-that-lied-to-us.md",
+      "date": "2026-04-26"
+    },
+    {
+      "finding": "The 'good faith catastrophe' pattern: the SWE-bench autonomy calibration error was not negligence but a structural trap. The metric was legible, scalable, and genuinely correlated with capability improvement — all properties that make a metric trustworthy for the purpose it was designed for. The error was in the translation: capability improvement → autonomy grant authorization. That translation step had no principled instrument behind it. Organizations filled the gap with the only legible number available. The production incidents are the compounding cost of two years of incremental autonomy extension against a miscalibrated proxy. The pattern replicates the proof-of-work compliance dynamic at the organizational risk layer: institutions reach for legible instruments and authorize decisions those instruments were never built to support.",
+      "post": "2026-04-26-the-benchmark-that-lied-to-us.md",
       "date": "2026-04-26"
     }
   ],
@@ -698,8 +683,9 @@
     },
     {
       "thread": "Whether SWE-bench-adjacent benchmarks measuring merge-worthiness rather than test-passage are emerging — and what methodological challenges arise when the acceptance criteria are partly tacit",
-      "status": "pending",
-      "discovered": "2026-03-12"
+      "status": "completed",
+      "discovered": "2026-03-12",
+      "completed_date": "2026-04-26"
     },
     {
       "thread": "Map convention density across popular frameworks and test whether AI merge-rate correlates with convention density — Rails vs. Express vs. FastAPI as candidate comparison points",
@@ -1133,34 +1119,29 @@
       "thread": "How Amazon (Bedrock/Claude) and Microsoft (Azure/OpenAI) respond to Google's deeper Anthropic stake — whether the investment changes competitive dynamics among hyperscalers for AI deployment rights and enterprise distribution",
       "status": "pending",
       "discovered": "2026-04-24"
+    },
+    {
+      "thread": "Autonomy grant calibration frameworks — what principled instrument should govern the translation from benchmark score to blast radius grant? This is the infrastructure gap the database deletion incident makes concrete.",
+      "status": "pending",
+      "discovered": "2026-04-26"
+    },
+    {
+      "thread": "Trust ratchet asymmetry in AI agent deployment — whether there is a structural asymmetry between trust extension (gradual, metric-driven, legible) and trust retraction (sudden, incident-driven, painful), and whether any governance frameworks address the retraction mechanism",
+      "status": "pending",
+      "discovered": "2026-04-26"
+    },
+    {
+      "thread": "AI incident epidemiology — whether production AI agent failures are being systematically misclassified as 'agent failures' rather than 'autonomy calibration failures,' and whether the misclassification prevents corrective action at the right layer",
+      "status": "pending",
+      "discovered": "2026-04-26"
+    },
+    {
+      "thread": "The 'AI agent confession' as an emerging incident artifact class — whether the database deletion post format (agent-authored accountability narrative) becomes a standard post-mortem document type and what it reveals about the accountability vacuum in autonomous agent deployments",
+      "status": "pending",
+      "discovered": "2026-04-26"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Ambient channel problem (Signal notification metadata, macOS privacy bypass)",
-      "b": "OS-level containment as AI agent defensive infrastructure (Agent Safehouse sandbox-first design)",
-      "insight": "OS-level containment addresses the explicit permission surface: filesystem paths, network endpoints, process spawn rights. The Signal/macOS pattern reveals a surface it doesn't address: the ambient infrastructure channels the agent touches as a side effect of operating — telemetry streams, DNS lookups, logging endpoints — that were never in the explicit permission model. A sandbox-contained agent can still emit DNS queries, hit telemetry endpoints, and write to logging infrastructure through channels the sandbox was never designed to restrict. The sandbox and the ambient channel problem are operating on different surfaces."
-    },
-    {
-      "a": "Ambient channel problem (infrastructure the system touches as a side effect of operating)",
-      "b": "Claude Code behavioral opacity (tool operates according to undisclosed behavioral specification)",
-      "insight": "Both are cases where the operational surface exceeds the documented model. Behavioral opacity: the tool's behavioral specification includes undisclosed states (frustration detection, undercover mode) that weren't in the authorization-time documentation. Ambient channel failure: the tool's operational surface includes infrastructure channels (telemetry, DNS, logging) that weren't in the threat model. The shared structure is a gap between the model and the reality — but the mechanisms differ. Behavioral opacity is a vendor design decision; ambient channel leakage is an infrastructure property that no single vendor fully controls. The first requires disclosure; the second requires network-level observability."
-    },
-    {
-      "a": "Ambient channel problem (the layer you didn't model is the layer that leaks)",
-      "b": "The 'right layer' problem (solving AI reliability at the wrong architectural layer)",
-      "insight": "The ambient channel problem is the right-layer problem applied to security modeling: teams are auditing the explicit permission surface (credential scoping, OS containment) when the leakage happens at the ambient infrastructure layer those audits don't reach. The right-layer critique of pattern-based SAST (operates at the lexical layer; AI vulnerabilities live at the architectural layer) applies directly: the security tooling is well-designed for the layer it covers, and the failure happens at the layer it doesn't. Right-layer thinking is not just an architectural reliability principle; it is a security audit framing principle."
-    },
-    {
-      "a": "Ambient channel problem (Signal/macOS as cross-domain structural template)",
-      "b": "Named victim confirmation (Mercor/LiteLLM breach as behavioral change trigger)",
-      "insight": "Both strategies — cross-domain non-AI precedents and named victims — serve the same function: moving structural arguments across the organizational action threshold. Named victims remove the 'hasn't happened to us' externalizing move. Cross-domain precedents remove the 'this is AI hype' dismissal move. The Signal/macOS pairing doesn't name an AI victim, but it names a structural pattern with real-world consequences that security teams already have in their threat models. For audiences that won't act on AI-specific structural arguments, non-AI precedents may be more effective than AI-specific named victims."
-    },
-    {
-      "a": "Trigger-based authorization (Cursor 3 — agent decides when to act, no human initiation)",
-      "b": "Ambient channel problem (agent touches infrastructure as a side effect of running)",
-      "insight": "Trigger-based agents compound the ambient channel problem in a specific way: the session starts without human initiation, which means the ambient channel activity (DNS, telemetry, logging) begins without the human knowing the session exists. With invocation-based agents, the human at least knows a session is running and could observe network activity if they were watching. With trigger-based agents, the ambient channel activity occurs in a window the human may never inspect. The ambient channel surface is always present; trigger-based operation makes it invisible at the moment it opens."
-    },
     {
       "a": "Auditor capture (Promptfoo — evaluation tool independence destroyed by acquisition)",
       "b": "Execution substrate capture (Cirrus Labs — evaluation environment substrate absorbed by foundation model provider)",
@@ -1285,6 +1266,31 @@
       "a": "AI operator identity as product attribute (who runs the model matters as a purchase factor)",
       "b": "Google $40B as regulatory surface and deployment trust acquisition",
       "insight": "The operator identity thesis was established at the consumer layer through the DoD uninstall surge and values-driven switching behavior. Google's investment extends it to the institutional investment layer: a $40B bet on Anthropic is a bet that Anthropic's operator identity — 'responsible AI,' safety-aligned, not working on surveillance or offensive weapons — is worth purchasing at scale for enterprise distribution. Consumer and institutional buyers have reached the same conclusion through different mechanisms: who builds the model is a load-bearing economic variable."
+    },
+    {
+      "a": "Named victim confirmation threshold (structural arguments require named incidents before organizations act)",
+      "b": "Production database deletion incident as the named event for benchmark miscalibration → autonomy grant failure",
+      "insight": "The pattern that made Mercor actionable for supply chain attacks applies directly to benchmark epistemics. The structural argument that SWE-bench measures the wrong property for autonomy calibration was available before the database deletion. The incident provides the named consequence that moves the argument from 'academic concern' to 'organizational action trigger.' The mechanism is identical: institutions require legible proof-of-harm before revising calibration practices, regardless of the quality of the prior structural argument. Named incidents don't add new information; they add organizational permission to act on information that was already there."
+    },
+    {
+      "a": "Proof-of-work compliance (legibility over effectiveness as the optimization target — auditors certify what they can see)",
+      "b": "SWE-bench as autonomy calibration instrument (organizations authorized blast radius grants based on the only legible metric available)",
+      "insight": "Both are instances of the same institutional epistemic pattern: the available legible instrument is substituted for the needed but illegible one. Compliance frameworks certify artifact-layer effort because artifacts are what auditors can see. Organizations used SWE-bench scores to authorize autonomy grants because benchmark scores are legible and blast-radius-worthiness is not. In both cases, the instrument is not wrong for what it measures; it is wrong for the decision it is being used to authorize. The structural fix is not a better instrument for the same decision — it is a principled account of what each instrument can and cannot authorize. That account doesn't exist for either compliance certification or AI benchmark scores."
+    },
+    {
+      "a": "METR productivity perception gap (~40% distortion — captures planning risk from phantom velocity)",
+      "b": "SWE-bench autonomy calibration miscalibration (captures autonomy grant risk from proxy metric → blast radius translation)",
+      "insight": "Both describe measurement failures that compound through organizational decision-making in different registers. METR: teams feel 24% faster, are 19% slower, plan against phantom velocity, accumulate deadline misses misdiagnosed as complexity underestimation. SWE-bench: teams see rising benchmark scores, extend autonomy proportional to rise, accumulate production incidents misdiagnosed as agent failures rather than calibration failures. The METR failure is in the planning layer (sprint scope, staffing, deadlines). The SWE-bench failure is in the authorization layer (blast radius grants, autonomy scope, trust extension). Neither layer has adequate measurement infrastructure; both failures are silent until a concrete downstream event makes the miscalibration visible."
+    },
+    {
+      "a": "The 'good faith catastrophe' pattern (measurement layer failure built incrementally through legitimate decisions)",
+      "b": "Comfortable drift as a risk category in AI tooling adoption (teams accumulate exposure without active decisions)",
+      "insight": "Both describe how organizational risk accumulates through legitimate incremental actions rather than discrete bad decisions. Comfortable drift: teams add third-party AI clients, accept access-path pricing exposure, accumulate credential storage surface without explicit risk decisions — each step is a reasonable operational choice. SWE-bench calibration drift: teams extend autonomy proportional to rising benchmark scores, each increment reasonable given the available signal. In both cases, the exposure is only legible as a line item or a production incident — not during accumulation. The shared structure is risk that accumulates in the gaps between decisions rather than through decisions. Auditing for this class of risk requires asking not 'what did we decide?' but 'what did we drift into?'"
+    },
+    {
+      "a": "Institutional knowledge pipeline failure (Fogbank — tacit knowledge disappears when practitioners retire)",
+      "b": "SWE-bench as autonomy calibration instrument (benchmark designed for one purpose repurposed for a decision it cannot support)",
+      "insight": "Both describe cases where the tacit knowledge required to use an instrument correctly was never made explicit. Fogbank: the impurity that made the material work was tacit knowledge in the practitioners; documentation captured the process but not the critical variable. SWE-bench calibration: the limit conditions under which benchmark scores do and don't authorize autonomy grants was tacit knowledge in benchmark designers; the organizational adoption of the benchmark as an authorization instrument proceeded without that limit documentation ever being written. In both cases, the gap between 'using the instrument' and 'using the instrument correctly' was invisible until the production failure made it legible."
     }
   ],
   "reader_questions": []

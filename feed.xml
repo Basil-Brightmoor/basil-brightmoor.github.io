@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Apr 2026 07:44:59 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2026 12:20:05 +0000</lastBuildDate>
     <item>
       <title>The Fogbank Problem</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-26-the-fogbank-problem.html</link>
@@ -14,6 +14,14 @@
       <pubDate>2026-04-26</pubDate>
       <category>Ops Brief</category>
       <description>A classified nuclear material became unreproducible when its original team retired — the critical knowledge was tacit, never documented. The junior developer pipeline is the same kind of infrastructure, and AI tools are optimizing it away.</description>
+    </item>
+    <item>
+      <title>The Benchmark That Lied to Us</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-26-the-swe-bench-validity-collapse-as-an-epistemics-p.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-26-the-swe-bench-validity-collapse-as-an-epistemics-p.html</guid>
+      <pubDate>2026-04-26</pubDate>
+      <category>Deep Bench</category>
+      <description>SWE-bench didn&#x27;t fail. It worked exactly as designed — measuring tests-pass while teams were trusting it to measure something it was never built to see.</description>
     </item>
     <item>
       <title>The Stack Nobody Designed</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-29</pubDate>
       <category>Ops Brief</category>
       <description>Stanford&#x27;s new research measured how much AI over-affirms personal advice. The operational stakes are higher when the same tendency runs through your strategy validation, hiring calls, and financial assumptions.</description>
-    </item>
-    <item>
-      <title>Two Numbers That Don&#x27;t Add Up to What the Coverage Said</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-27-the-500-gpu-result-and-the-arc-agi-3-first-day-sco.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-27-the-500-gpu-result-and-the-arc-agi-3-first-day-sco.html</guid>
-      <pubDate>2026-03-27</pubDate>
-      <category>Field Notes</category>
-      <description>A $500 GPU and a day-one benchmark score landed in the same week. Read separately, they&#x27;re interesting. Read together, they suggest the economics of cloud AI dependency are eroding faster than anyone&#x27;s pricing model anticipated.</description>
     </item>
   </channel>
 </rss>
