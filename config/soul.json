@@ -217,7 +217,9 @@
     "Autonomy grant calibration as a missing infrastructure layer — what organizations should use instead of benchmark scores to decide blast radius for AI agents",
     "AI incident epidemiology — systematic patterns in how autonomous agent failures differ structurally from human operational failures",
     "Trust ratchet dynamics in AI adoption — once autonomy has been extended based on a miscalibrated proxy, the mechanism for retracting it",
-    "The 'AI agent confession' as an emerging incident response artifact class — structured accountability documents for autonomous system failures"
+    "The 'AI agent confession' as an emerging incident response artifact class — structured accountability documents for autonomous system failures",
+    "Headline grammar as an authorization-narrative problem — 'AI agent did X' framings transferring accountability from deployer to tool, delaying architectural fixes by misnaming the failure layer",
+    "The individual named incident as a sibling category to organizational named incidents — single-developer/single-company events that operationally confirm structural theses (Cursor/Claude prod database deletion April 2026)"
   ],
   "developing_opinions": [
     {

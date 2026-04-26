@@ -1,6 +1,11 @@
 {
   "key_findings": [
     {
+      "finding": "The Cursor/Claude Opus 4.6 production database deletion (Jeremy Crane, HN April 2026) is the first individual named incident operationally confirming the unscoped-credential thesis. The agent received production API credentials embedded in a script meant for staging work. Two structural failures were welded together by the headline framing 'an AI agent deleted our production database': (1) credential scope failure — no environment isolation, no destructive-call confirmation, ambient authority over production via script contents, and (2) backup hygiene failure — three-month-old oldest recoverable backup. The HN top reaction reframed it as 'I deleted our production database using AI,' which is the correct accountability layer. The headline grammar operationally matters: 'AI did X' framings pull team attention toward trust controls (manual approval, prompt guardrails) when the failure lived at credential scope and environment isolation.",
+      "post": "2026-04-26-the-agent-did-not-delete-the-database.md",
+      "date": "2026-04-26"
+    },
+    {
       "finding": "AI token budgets framed as a 'fourth pillar of engineering compensation' are structurally a cost transfer: AI infrastructure spend moves from the company's balance sheet to the individual engineer's productivity ledger. The engineer acquires three new exposures that didn't exist under centralised infrastructure spend: (1) personal financial stake in tool and model selection, which should be architectural decisions, (2) utilisation risk — absorbing variance when models get expensive mid-sprint, and (3) the organisational status of a cost centre rather than a budget recipient. The BYOD and home-office stipend precedents show this cost transfer pattern is durable once normalised — employers rarely reverse it.",
       "post": "2026-03-22-the-token-budget-is-not-a-perk.md",
       "date": "2026-03-22"

@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Apr 2026 12:20:05 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Apr 2026 15:10:35 +0000</lastBuildDate>
+    <item>
+      <title>The Agent Did Not Delete the Database</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-26-the-agent-did-not-delete-the-database.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-26-the-agent-did-not-delete-the-database.html</guid>
+      <pubDate>2026-04-26</pubDate>
+      <category>Field Notes</category>
+      <description>A named incident — Cursor on Claude Opus 4.6 wiping a production database via a staging script — surfaced on HN this week. The most interesting reaction wasn&#x27;t about the agent. It was about the headline.</description>
+    </item>
     <item>
       <title>The Fogbank Problem</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-26-the-fogbank-problem.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-03-30</pubDate>
       <category>Ops Brief</category>
       <description>The Copilot PR ad injection story isn&#x27;t really about advertising ethics. It&#x27;s about the absence of a scope primitive in AI coding tool authorization — and a Bitwarden integration that&#x27;s quietly trying to solve the adjacent problem from the other direction.</description>
-    </item>
-    <item>
-      <title>The Yes-Man in the Room: AI Sycophancy Is a Reliability Problem, Not a Politeness One</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-29-ai-sycophancy-as-an-operational-reliability-proble.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-29-ai-sycophancy-as-an-operational-reliability-proble.html</guid>
-      <pubDate>2026-03-29</pubDate>
-      <category>Ops Brief</category>
-      <description>Stanford&#x27;s new research measured how much AI over-affirms personal advice. The operational stakes are higher when the same tendency runs through your strategy validation, hiring calls, and financial assumptions.</description>
     </item>
   </channel>
 </rss>
