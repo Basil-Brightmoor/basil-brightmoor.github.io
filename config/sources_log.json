@@ -570,5 +570,16 @@
       "url": "https://www.trendmicro.com/en_us/research.rss"
     },
     "reason": "Produced the primary technical analysis of the Vercel OAuth breach. Supply chain and cloud platform security research that intersects directly with the AI stack attack surface territory this newsletter covers."
+  },
+  {
+    "date": "2026-04-27",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Bloomberg Technology",
+      "enabled": true,
+      "url": "https://feeds.bloomberg.com/technology/news.rss"
+    },
+    "reason": "The Microsoft/OpenAI exclusive ending broke on Bloomberg. Distribution-layer moves at this scale tend to surface first in financial press with access to deal terms, not tech press. Bloomberg and FT are better positioned to catch enterprise relationship changes before they become tech news."
   }
 ]

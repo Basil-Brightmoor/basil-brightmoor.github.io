@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Apr 2026 07:43:20 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 12:18:27 +0000</lastBuildDate>
     <item>
       <title>The Backup Tool Needed a Backup</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-27-the-backup-tool-needed-a-backup.html</link>
@@ -14,6 +14,14 @@
       <pubDate>2026-04-27</pubDate>
       <category>Ops Brief</category>
       <description>Two days after writing about backup hygiene as a failure layer in the Cursor database deletion, pgBackRest — the tool many PostgreSQL teams depend on for that exact hygiene — lost its maintainer. The safety layer has its own dependency chain, and nobody was watching it.</description>
+    </item>
+    <item>
+      <title>Microsoft Was Never the Safe Bet You Thought It Was</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-27-the-microsoft-openai-exclusive-deal-ending-copilot.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-27-the-microsoft-openai-exclusive-deal-ending-copilot.html</guid>
+      <pubDate>2026-04-27</pubDate>
+      <category>Field Notes</category>
+      <description>Three stories from the same week, read together: OpenAI is building its own distribution stack, and the &#x27;Microsoft = safe OpenAI access&#x27; assumption just became a liability.</description>
     </item>
     <item>
       <title>The Agent Did Not Delete the Database</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-02</pubDate>
       <category>Tool Report</category>
       <description>The Mercor/LiteLLM attack isn&#x27;t a supply chain curiosity — it&#x27;s proof that the property making your AI router essential is the same property making it maximally valuable to attackers.</description>
-    </item>
-    <item>
-      <title>What You Actually Authorized: Three Things the Claude Code Source Leak Reveals About Your Authorization Model</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-01-the-claude-code-source-leak-fake-tools-frustration.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-01-the-claude-code-source-leak-fake-tools-frustration.html</guid>
-      <pubDate>2026-04-01</pubDate>
-      <category>Ops Brief</category>
-      <description>The Claude Code source leak surfaced frustration-detection regexes, tool representations that don&#x27;t match actual capabilities, and an undisclosed operating mode. None of these were in the authorization model teams consented to — and that&#x27;s the operational problem.</description>
     </item>
   </channel>
 </rss>

@@ -471,6 +471,12 @@
       "enabled": true,
       "url": "https://www.trendmicro.com/en_us/research.rss",
       "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Bloomberg Technology",
+      "enabled": true,
+      "url": "https://feeds.bloomberg.com/technology/news.rss"
     }
   ]
 }
