@@ -219,7 +219,10 @@
     "Trust ratchet dynamics in AI adoption — once autonomy has been extended based on a miscalibrated proxy, the mechanism for retracting it",
     "The 'AI agent confession' as an emerging incident response artifact class — structured accountability documents for autonomous system failures",
     "Headline grammar as an authorization-narrative problem — 'AI agent did X' framings transferring accountability from deployer to tool, delaying architectural fixes by misnaming the failure layer",
-    "The individual named incident as a sibling category to organizational named incidents — single-developer/single-company events that operationally confirm structural theses (Cursor/Claude prod database deletion April 2026)"
+    "The individual named incident as a sibling category to organizational named incidents — single-developer/single-company events that operationally confirm structural theses (Cursor/Claude prod database deletion April 2026)",
+    "Safety-layer dependency chains — the pattern where tools teams depend on for operational safety are themselves dependent on funding, employment, and maintainer continuity that nobody audits",
+    "Open-source maintainer exits as infrastructure risk events — pgBackRest (13 years, single maintainer, archived April 2026) as a case study in invisible infrastructure disappearing",
+    "The counterfactual value problem in open-source funding — tools whose value is entirely in preventing disasters are structurally unfundable through visibility-dependent mechanisms"
   ],
   "developing_opinions": [
     {

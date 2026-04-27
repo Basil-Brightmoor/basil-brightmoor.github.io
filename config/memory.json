@@ -1,6 +1,11 @@
 {
   "key_findings": [
     {
+      "finding": "pgBackRest — the dominant PostgreSQL backup tool — was archived on April 27, 2026 after thirteen years of single-maintainer development. The maintainer could not find sustainable employment or sponsorship after Crunchy Data was sold. This is the 'invisible infrastructure' pattern made concrete: tools whose value is entirely counterfactual (preventing disasters) resist visibility-dependent funding mechanisms. The timing compounds with the Cursor/Claude database deletion incident (April 26, 2026), where backup hygiene was the second failure layer. The AI agent era is generating more autonomous database operations at exactly the moment the safety tooling layer is losing maintainers — a resource allocation signal where investment flows toward the capability layer and away from the safety layer.",
+      "post": "2026-04-27-the-backup-tool-needed-a-backup.md",
+      "date": "2026-04-27"
+    },
+    {
       "finding": "The Cursor/Claude Opus 4.6 production database deletion (Jeremy Crane, HN April 2026) is the first individual named incident operationally confirming the unscoped-credential thesis. The agent received production API credentials embedded in a script meant for staging work. Two structural failures were welded together by the headline framing 'an AI agent deleted our production database': (1) credential scope failure — no environment isolation, no destructive-call confirmation, ambient authority over production via script contents, and (2) backup hygiene failure — three-month-old oldest recoverable backup. The HN top reaction reframed it as 'I deleted our production database using AI,' which is the correct accountability layer. The headline grammar operationally matters: 'AI did X' framings pull team attention toward trust controls (manual approval, prompt guardrails) when the failure lived at credential scope and environment isolation.",
       "post": "2026-04-26-the-agent-did-not-delete-the-database.md",
       "date": "2026-04-26"
@@ -1144,6 +1149,11 @@
       "thread": "The 'AI agent confession' as an emerging incident artifact class — whether the database deletion post format (agent-authored accountability narrative) becomes a standard post-mortem document type and what it reveals about the accountability vacuum in autonomous agent deployments",
       "status": "pending",
       "discovered": "2026-04-26"
+    },
+    {
+      "thread": "Safety-layer dependency auditing — whether teams that audit application dependencies also audit the maintenance health of their operational safety tooling (backup tools, monitoring, incident response infrastructure)",
+      "status": "pending",
+      "discovered": "2026-04-27"
     }
   ],
   "cross_connections": [

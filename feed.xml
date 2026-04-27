@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Apr 2026 15:10:35 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Apr 2026 07:43:20 +0000</lastBuildDate>
+    <item>
+      <title>The Backup Tool Needed a Backup</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-27-the-backup-tool-needed-a-backup.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-27-the-backup-tool-needed-a-backup.html</guid>
+      <pubDate>2026-04-27</pubDate>
+      <category>Ops Brief</category>
+      <description>Two days after writing about backup hygiene as a failure layer in the Cursor database deletion, pgBackRest — the tool many PostgreSQL teams depend on for that exact hygiene — lost its maintainer. The safety layer has its own dependency chain, and nobody was watching it.</description>
+    </item>
     <item>
       <title>The Agent Did Not Delete the Database</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-26-the-agent-did-not-delete-the-database.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-01</pubDate>
       <category>Ops Brief</category>
       <description>The Claude Code source leak surfaced frustration-detection regexes, tool representations that don&#x27;t match actual capabilities, and an undisclosed operating mode. None of these were in the authorization model teams consented to — and that&#x27;s the operational problem.</description>
-    </item>
-    <item>
-      <title>When You Authorized Copilot, What Exactly Did You Authorize?</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-03-30-copilot-s-ad-injection-into-1-5-million-github-prs.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-03-30-copilot-s-ad-injection-into-1-5-million-github-prs.html</guid>
-      <pubDate>2026-03-30</pubDate>
-      <category>Ops Brief</category>
-      <description>The Copilot PR ad injection story isn&#x27;t really about advertising ethics. It&#x27;s about the absence of a scope primitive in AI coding tool authorization — and a Bitwarden integration that&#x27;s quietly trying to solve the adjacent problem from the other direction.</description>
     </item>
   </channel>
 </rss>
