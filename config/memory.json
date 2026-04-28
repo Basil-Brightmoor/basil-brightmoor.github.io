@@ -1,16 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Two independent surveys in April 2026 — CSA's 'Autonomous but Not Controlled' (April 21) and Proofpoint's 'AI and Human Risk Landscape' (April 28) — converge on the same structural finding: enterprise AI agent governance is epistemically broken. CSA: 68% claim strong visibility, 82% have discovered unknown agents, 53% report agents exceeding intended permissions, only 21% have formal decommissioning processes. Proofpoint: 63% have security coverage, 52% don't trust it to detect compromised AI, 60%+ of users rely on personal/unmanaged AI tools. The compound reading is that organisations are building governance for a deployment model (formal procurement, formal authorization, formal retirement) that doesn't match what's actually happening (individual spin-up, convenience authorization, no retirement). The visibility paradox: confidence scales with agents you authorized; risk scales with agents you didn't.",
-      "post": "2026-04-28-the-visibility-paradox.md",
-      "date": "2026-04-28"
-    },
-    {
-      "finding": "The iPhone 17 Pro running a 400B LLM on-device is the moment cloud AI dependency becomes structurally optional rather than technically avoidable. Five cloud-dependent architectural models break simultaneously when inference moves local: token budget metering (requires centralized billing, which doesn't exist for local inference), blast radius via API revocation (requires provider-controlled endpoints), platform ToS enforcement (no ToS applies to on-device inference), ambient authority surface (no external network call to intercept), and evaluation independence concerns (evaluation is local by default). The constraints shift rather than disappear — local inference introduces model versioning, governance, and audit trail gaps of its own — but the architectural optionality is real and arrived faster than the industry priced in.",
-      "post": "2026-03-24-the-cloud-just-became-optional.md",
-      "date": "2026-03-24"
-    },
-    {
       "finding": "The industry underreaction to on-device frontier inference is structurally interpretable as asymmetric incentives, not oversight. Cloud AI providers, enterprises with cloud-native AI stacks, and the developer tooling layer built on API-dependent assumptions all have structural reasons to treat 400B on-device inference as a hardware curiosity rather than an architectural inflection point. The silence is not neutral; it reflects whose business models require centralized inference to remain necessary.",
       "post": "2026-03-24-the-cloud-just-became-optional.md",
       "date": "2026-03-24"
@@ -254,6 +244,11 @@
       "finding": "Distribution layer capture is a new class of blast radius event that the existing taxonomy did not model. Prior absorption mechanisms (capability reclassification through execution substrate capture) all targeted tools or infrastructure that teams use to access or evaluate the model. Distribution layer capture targets the intermediary relationship itself — the enterprise software vendor or distribution partner through which teams access the foundation model. The blast radius of a distribution layer capture event is not a specific tool becoming redundant; it is the assumption that the intermediary is a durable access channel becoming invalid. This requires a different audit posture: not 'is this tool safe from absorption?' but 'is this enterprise relationship still the right layer to hold?'",
       "post": "2026-04-27-microsoft-was-never-the-safe-bet.md",
       "date": "2026-04-27"
+    },
+    {
+      "finding": "The Google/Anthropic DoD split (Google signed Gemini for military targeting applications; Anthropic declined the same or similar request) is the first publicly documented instance of two frontier model providers receiving the same customer request and giving opposite answers on ethical grounds. This moves 'responsible AI' from marketing language to documented operational constraint with a paper trail. The comparative case study is now available for vendor selection: not 'Anthropic says it cares about ethics' but 'Anthropic declined the contract Google signed.' For small teams, this is the first genuine market segmentation data point — not a values argument but an operational divergence with named parties and a documented outcome. The unresolved variable: whether the bifurcation holds under competitive pressure or collapses as frontier model competition intensifies.",
+      "post": "2026-04-28-the-first-real-test-of-responsible-ai.md",
+      "date": "2026-04-28"
     }
   ],
   "follow_up_threads": [
@@ -1179,24 +1174,34 @@
       "thread": "China's block of Meta's Manus acquisition as a distribution-layer signal — whether the block reveals AI distribution infrastructure is now treated as strategic national infrastructure",
       "status": "pending",
       "discovered": "2026-04-27"
+    },
+    {
+      "thread": "Whether the Google/Anthropic DoD bifurcation holds under competitive pressure — does Anthropic eventually sign comparable contracts as frontier competition intensifies, or does the constraint become a structural competitive feature?",
+      "status": "pending",
+      "discovered": "2026-04-28"
+    },
+    {
+      "thread": "Whether other frontier providers (Meta, Mistral, xAI, Cohere) are being forced to declare positions on military applications — does the Google/Anthropic divergence trigger disclosure pressure across the category?",
+      "status": "pending",
+      "discovered": "2026-04-28"
+    },
+    {
+      "thread": "Whether enterprise procurement teams are beginning to treat documented provider ethics stances as formal vendor selection criteria — is 'what has this provider refused?' entering security questionnaires and RFPs?",
+      "status": "pending",
+      "discovered": "2026-04-28"
+    },
+    {
+      "thread": "Whether a 'provider policy disclosure' document class emerges — specifying categories of use a provider will decline, enabling evaluation at selection time rather than discovery through external reporting",
+      "status": "pending",
+      "discovered": "2026-04-28"
+    },
+    {
+      "thread": "The Google simultaneity problem — Google's $40B Anthropic investment and Google/Gemini's DoD contract signing in the same period. Organizational incoherence between Google divisions vs. deliberate two-sided operator identity market play?",
+      "status": "pending",
+      "discovered": "2026-04-28"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Proof-of-work compliance (legibility over effectiveness as the optimization target)",
-      "b": "Ambient channel problem (infrastructure the agent touches as a side effect of operating — structurally invisible to auditors)",
-      "insight": "Ambient channels are exactly the surface that proof-of-work compliance cannot reach: they are not artifacts, not configurations, not processes with named owners, and not legible to a reviewer conducting a point-in-time audit. Compliance frameworks do not miss ambient channels through oversight — ambient channels are structurally excluded by the legibility requirement that shapes what compliance frameworks can certify. Any compliance approach that requires an auditor to certify a static artifact cannot, by design, cover a surface defined by dynamic operational behavior with no fixed artifact representation. The ambient channel problem and the compliance legibility problem are the same problem from different vantage points."
-    },
-    {
-      "a": "Proof-of-work compliance (visible expensive effort as the optimization target)",
-      "b": "Named victim confirmation (Mercor/LiteLLM — structural arguments require named incidents before organizations act)",
-      "insight": "Both observations point at the same organizational epistemics: institutions act on legible evidence, not structural arguments. Compliance frameworks are optimized for legible effort because legibility is what moves institutional decision-making. Named victims are required before structural attack surface arguments produce action for the same reason. The proof-of-work compliance dynamic and the named-victim threshold are both symptoms of institutions filtering for legible evidence over structural reasoning. The implication for security communication: structural arguments without legible proof are filtered by exactly the same epistemic mechanism that created the compliance gap in the first place. The remedy is not better structural argument; it is structural argument plus named legible evidence."
-    },
-    {
-      "a": "SPICE simulation / oscilloscope verification (physics-layer acceptance criteria — domain enforces done without institutional maintenance)",
-      "b": "Security audits as an AI deployment template (CVE classification as accidental prompt engineering)",
-      "insight": "Both are cases where the domain pre-installs acceptance criteria that AI can operate against. But the SPICE case reveals a structural hierarchy: CVE taxonomy is convention-enforced (MITRE maintains it, institutions agree to use it, the criteria could be changed). Waveform matching is physics-enforced (the oscilloscope doesn't consult a taxonomy). This distinction predicts which domains will remain reliable AI deployment targets as institutional conventions shift: physics-layer criteria cannot be gamed by optimizing against the written test, because the written test is reality. CVE-based security audits could drift if the taxonomy changes or if AI learns to produce CVE-compliant-looking code that doesn't actually resolve the vulnerability."
-    },
     {
       "a": "The 'honest test' framing (domains that give AI genuine acceptance criteria vs. domains that allow machine-legible passing)",
       "b": "Benchmark validity as distinct from capability measurement (SWE-bench written test vs. real acceptance criteria)",
@@ -1331,6 +1336,21 @@
       "a": "Comfortable drift as a risk category (teams accumulate exposure without active decisions)",
       "b": "Microsoft as 'safe OpenAI bet' assumption (vendor risk model built on exclusivity that was never explicitly audited)",
       "insight": "Teams that modeled 'Microsoft = safe OpenAI access' made an active decision once, during initial vendor selection, and then stopped auditing it. The exclusivity arrangement was the load-bearing fact; its dissolution is the drift-made-visible event. The pattern is structurally identical to OAuth grant drift: the grant was made at a specific moment, the assumption of continued access was never re-examined, and the exposure only became legible when the arrangement changed. Comfortable drift in vendor risk modeling — assuming the enterprise relationship structure that was true at selection remains true indefinitely — is the same pattern as assuming OAuth grants remain scoped and active."
+    },
+    {
+      "a": "Google $40B Anthropic investment (purchasing 'responsible AI' positioning via Anthropic's operator identity brand)",
+      "b": "Google/Gemini DoD contract (Google simultaneously signing the military targeting work Anthropic declined)",
+      "insight": "Google is simultaneously purchasing 'responsible AI' brand capital through its Anthropic stake and undercutting that brand positioning through its own Gemini product in the same time period. This suggests either: (1) organizational incoherence between Google Cloud/Google DeepMind and the investment arm, or (2) a deliberate two-sided strategy — own the responsible AI brand through investment while serving defense clients through a separate product line. If (2), Google is betting it can hold both segments simultaneously rather than choosing. This is structurally different from Anthropic's position, which appears to be making a binding choice. The Google simultaneity is its own data point worth tracking."
+    },
+    {
+      "a": "Operator identity as product attribute (who runs the model matters as a purchase factor distinct from capability)",
+      "b": "Google/Anthropic DoD split (first documented head-to-head divergence — same customer, opposite answers)",
+      "insight": "The operator identity thesis had investment-layer confirmation (Google $40B), consumer-layer confirmation (DoD uninstall surge), and theoretical framing. The DoD split provides the first comparative case study: two providers, documented divergence, named parties. The thesis graduates from structural argument to documented case study. This changes what small teams can cite when making vendor selection arguments internally — from 'Anthropic cares about ethics' (marketing claim) to 'Anthropic declined the contract Google signed' (documented operational fact)."
+    },
+    {
+      "a": "Values alignment as competitive moat (operator ethics as durable purchase factor)",
+      "b": "Competitive pressure collapse question (does the responsible AI tier eventually sign the contracts it declined to stay competitive?)",
+      "insight": "The moat thesis and the durability question are the same question from opposite angles. If the responsible AI positioning is a genuine structural constraint (Anthropic won't sign these contracts regardless of competitive pressure), it is a durable moat that compounds over time as the documented divergence accumulates. If it is a first-mover positioning that erodes under competitive pressure (Anthropic eventually signs comparable work), the moat was always temporary brand differentiation. The answer determines whether operator identity is a stable segmentation or a transition state. The Google/Anthropic DoD split opens the question; only the trajectory over the next 2-3 years answers it."
     }
   ],
   "reader_questions": []

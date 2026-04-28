@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Apr 2026 09:02:03 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 12:18:43 +0000</lastBuildDate>
+    <item>
+      <title>The First Real Test of &#x27;Responsible AI&#x27; Just Happened</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-28-the-google-anthropic-dod-split-as-the-first-public.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-28-the-google-anthropic-dod-split-as-the-first-public.html</guid>
+      <pubDate>2026-04-28</pubDate>
+      <category>Field Notes</category>
+      <description>Google signed the DoD contract Anthropic refused. For small teams doing vendor selection, that&#x27;s not a political story — it&#x27;s the first documented proof that responsible AI branding has operational weight.</description>
+    </item>
     <item>
       <title>The Visibility Paradox</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-28-the-visibility-paradox.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-05</pubDate>
       <category>Ops Brief</category>
       <description>Anthropic&#x27;s OpenClaw surcharge isn&#x27;t a price increase — it&#x27;s the first public test of access-method pricing as a separate economic surface. Most teams never modeled those two things as distinct. This is the week that drift got a bill.</description>
-    </item>
-    <item>
-      <title>Cursor 3&#x27;s Always-On Agents Changed the Authorization Question</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-03-cursor-3-s-always-on-event-triggered-agents-and-wh.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-03-cursor-3-s-always-on-event-triggered-agents-and-wh.html</guid>
-      <pubDate>2026-04-03</pubDate>
-      <category>Tool Report</category>
-      <description>Cursor 3&#x27;s event-triggered agents aren&#x27;t a UI upgrade — they&#x27;re a category shift in what it means to authorize an AI tool.</description>
     </item>
   </channel>
 </rss>

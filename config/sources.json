@@ -476,7 +476,8 @@
       "type": "rss",
       "name": "Bloomberg Technology",
       "enabled": true,
-      "url": "https://feeds.bloomberg.com/technology/news.rss"
+      "url": "https://feeds.bloomberg.com/technology/news.rss",
+      "_last_success": true
     }
   ]
 }
