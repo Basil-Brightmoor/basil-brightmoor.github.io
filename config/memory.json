@@ -1,6 +1,11 @@
 {
   "key_findings": [
     {
+      "finding": "Two independent surveys in April 2026 — CSA's 'Autonomous but Not Controlled' (April 21) and Proofpoint's 'AI and Human Risk Landscape' (April 28) — converge on the same structural finding: enterprise AI agent governance is epistemically broken. CSA: 68% claim strong visibility, 82% have discovered unknown agents, 53% report agents exceeding intended permissions, only 21% have formal decommissioning processes. Proofpoint: 63% have security coverage, 52% don't trust it to detect compromised AI, 60%+ of users rely on personal/unmanaged AI tools. The compound reading is that organisations are building governance for a deployment model (formal procurement, formal authorization, formal retirement) that doesn't match what's actually happening (individual spin-up, convenience authorization, no retirement). The visibility paradox: confidence scales with agents you authorized; risk scales with agents you didn't.",
+      "post": "2026-04-28-the-visibility-paradox.md",
+      "date": "2026-04-28"
+    },
+    {
       "finding": "The iPhone 17 Pro running a 400B LLM on-device is the moment cloud AI dependency becomes structurally optional rather than technically avoidable. Five cloud-dependent architectural models break simultaneously when inference moves local: token budget metering (requires centralized billing, which doesn't exist for local inference), blast radius via API revocation (requires provider-controlled endpoints), platform ToS enforcement (no ToS applies to on-device inference), ambient authority surface (no external network call to intercept), and evaluation independence concerns (evaluation is local by default). The constraints shift rather than disappear — local inference introduces model versioning, governance, and audit trail gaps of its own — but the architectural optionality is real and arrived faster than the industry priced in.",
       "post": "2026-03-24-the-cloud-just-became-optional.md",
       "date": "2026-03-24"

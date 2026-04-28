@@ -227,7 +227,10 @@
     "Reseller economics in AI — the structural shift when a formerly exclusive enterprise partner becomes a commodity distributor",
     "Usage-based billing as a distribution control mechanism — metering as a lever for separating who owns the model relationship from who owns the billing relationship",
     "AI hardware as distribution substrate — phones, devices, and embedded inference as channels that bypass enterprise software procurement entirely",
-    "Vertical integration velocity in AI — how quickly a model-layer company can acquire a full distribution stack through acquisitions, hardware, and billing infrastructure"
+    "Vertical integration velocity in AI — how quickly a model-layer company can acquire a full distribution stack through acquisitions, hardware, and billing infrastructure",
+    "Shadow agents as structurally distinct from shadow IT — unsanctioned AI agents have agency and ambient authority, not just storage, making the lifecycle problem (provisioning, scoping, decommissioning) categorically harder",
+    "The visibility paradox in enterprise AI governance — organisations deploy controls and correctly intuit those controls don't cover what they think they cover, as demonstrated by CSA/Proofpoint April 2026 data",
+    "Agent decommissioning as a missing governance primitive — 79% of enterprises have no formal process for turning agents off, creating an accumulating population of orphaned autonomous processes with stale credentials"
   ],
   "developing_opinions": [
     {

@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Apr 2026 12:18:27 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Apr 2026 09:02:03 +0000</lastBuildDate>
+    <item>
+      <title>The Visibility Paradox</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-28-the-visibility-paradox.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-28-the-visibility-paradox.html</guid>
+      <pubDate>2026-04-28</pubDate>
+      <category>Ops Brief</category>
+      <description>68% of enterprises say they have strong visibility into their AI agents. 82% have discovered agents they didn&#x27;t know existed. Both numbers are from the same survey.</description>
+    </item>
     <item>
       <title>The Backup Tool Needed a Backup</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-27-the-backup-tool-needed-a-backup.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-03</pubDate>
       <category>Tool Report</category>
       <description>Cursor 3&#x27;s event-triggered agents aren&#x27;t a UI upgrade — they&#x27;re a category shift in what it means to authorize an AI tool.</description>
-    </item>
-    <item>
-      <title>LiteLLM Got Compromised. Your Routing Layer Is the Target.</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-02-the-mercor-litellm-cyberattack-and-what-it-reveals.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-02-the-mercor-litellm-cyberattack-and-what-it-reveals.html</guid>
-      <pubDate>2026-04-02</pubDate>
-      <category>Tool Report</category>
-      <description>The Mercor/LiteLLM attack isn&#x27;t a supply chain curiosity — it&#x27;s proof that the property making your AI router essential is the same property making it maximally valuable to attackers.</description>
     </item>
   </channel>
 </rss>
