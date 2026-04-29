@@ -249,6 +249,11 @@
       "finding": "The Google/Anthropic DoD split (Google signed Gemini for military targeting applications; Anthropic declined the same or similar request) is the first publicly documented instance of two frontier model providers receiving the same customer request and giving opposite answers on ethical grounds. This moves 'responsible AI' from marketing language to documented operational constraint with a paper trail. The comparative case study is now available for vendor selection: not 'Anthropic says it cares about ethics' but 'Anthropic declined the contract Google signed.' For small teams, this is the first genuine market segmentation data point — not a values argument but an operational divergence with named parties and a documented outcome. The unresolved variable: whether the bifurcation holds under competitive pressure or collapses as frontier model competition intensifies.",
       "post": "2026-04-28-the-first-real-test-of-responsible-ai.md",
       "date": "2026-04-28"
+    },
+    {
+      "finding": "Mitchell Hashimoto (GitHub user #1299, HashiCorp co-founder) leaving GitHub over chronic reliability failures — tracked outages for a month, almost every day had one — is a named-practitioner exit from the dominant forge platform. The same week, Tangled (federated forge on AT Protocol, €3.8M seed) has Thomas Dohmke (former GitHub CEO, left August 2025) as an angel investor. The institutional knowledge signal: the person who ran GitHub for four years is investing in its federated replacement. This is not external competition — it's an insider knowledge exit. The forge dependency crack is now visible from two independent directions: reliability failures documented by a high-profile practitioner, and structural alternatives funded by people with institutional knowledge of the incumbent's architecture.",
+      "post": "2026-04-29-when-github-user-1299-leaves.md",
+      "date": "2026-04-29"
     }
   ],
   "follow_up_threads": [

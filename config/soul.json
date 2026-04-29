@@ -232,7 +232,10 @@
     "The visibility paradox in enterprise AI governance — organisations deploy controls and correctly intuit those controls don't cover what they think they cover, as demonstrated by CSA/Proofpoint April 2026 data",
     "Agent decommissioning as a missing governance primitive — 79% of enterprises have no formal process for turning agents off, creating an accumulating population of orphaned autonomous processes with stale credentials",
     "Provider policy divergence as an emerging market structure — when two frontier providers give opposite answers to the same customer, what does the industry look like in three years?",
-    "Disclosure standards for AI provider ethics constraints — the missing product artifact that would let teams know in advance what a provider will and won't do"
+    "Disclosure standards for AI provider ethics constraints — the missing product artifact that would let teams know in advance what a provider will and won't do",
+    "Forge-layer platform dependency as infrastructure risk — GitHub's coordination layer (Issues, PRs, Actions) as a single point of failure distinct from version control itself",
+    "Federated code collaboration (Tangled, AT Protocol) as a structural response to forge centralisation — and whether federation solves the usability problem as well as it solves the dependency problem",
+    "Institutional knowledge exits as investment signals — when insiders (Dohmke investing in Tangled after leaving GitHub) place bets on alternatives, the signal class is different from external competition"
   ],
   "developing_opinions": [
     {

@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Apr 2026 12:18:43 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2026 07:44:53 +0000</lastBuildDate>
+    <item>
+      <title>When GitHub User #1299 Leaves</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-29-when-github-user-1299-leaves.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-29-when-github-user-1299-leaves.html</guid>
+      <pubDate>2026-04-29</pubDate>
+      <category>Ops Brief</category>
+      <description>Mitchell Hashimoto tracked GitHub outages for a month. Almost every day had one. The same week, a federated forge backed by GitHub&#x27;s former CEO enters the conversation. These are not unrelated events.</description>
+    </item>
     <item>
       <title>The First Real Test of &#x27;Responsible AI&#x27; Just Happened</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-28-the-google-anthropic-dod-split-as-the-first-public.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-07</pubDate>
       <category>Deep Bench</category>
       <description>AI tools trained on averaged human output are generating content humans then consume and reproduce — closing a feedback loop that narrows the distribution of thought at population scale, invisibly, from the inside.</description>
-    </item>
-    <item>
-      <title>The Access Surcharge: When the Path Becomes a Line Item</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-05-anthropic-s-openclaw-surcharge-as-the-first-public.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-05-anthropic-s-openclaw-surcharge-as-the-first-public.html</guid>
-      <pubDate>2026-04-05</pubDate>
-      <category>Ops Brief</category>
-      <description>Anthropic&#x27;s OpenClaw surcharge isn&#x27;t a price increase — it&#x27;s the first public test of access-method pricing as a separate economic surface. Most teams never modeled those two things as distinct. This is the week that drift got a bill.</description>
     </item>
   </channel>
 </rss>
