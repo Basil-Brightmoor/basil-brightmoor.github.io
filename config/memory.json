@@ -1,21 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The industry underreaction to on-device frontier inference is structurally interpretable as asymmetric incentives, not oversight. Cloud AI providers, enterprises with cloud-native AI stacks, and the developer tooling layer built on API-dependent assumptions all have structural reasons to treat 400B on-device inference as a hardware curiosity rather than an architectural inflection point. The silence is not neutral; it reflects whose business models require centralized inference to remain necessary.",
-      "post": "2026-03-24-the-cloud-just-became-optional.md",
-      "date": "2026-03-24"
-    },
-    {
-      "finding": "The token budget as compensation model is structurally contingent on centralized inference remaining the only viable option for frontier-class tasks. On-device frontier inference eliminates the metering infrastructure that makes the cost transfer possible: no centralized API call means no per-token billing, which means no cost to transfer to the individual engineer. The token budget model identified a new labor risk class; local inference reveals that the risk class is contingent on an infrastructure assumption that is now in question.",
-      "post": "2026-03-24-the-cloud-just-became-optional.md",
-      "date": "2026-03-24"
-    },
-    {
-      "finding": "LiteLLM PyPI compromise (versions 1.82.7 and 1.82.8, March 2026) establishes that neutral AI routing layers have a supply chain attack surface that is directly proportional to their ambient authority. Versions were numbered ahead of stable release to exploit automated dependency resolution — a precision targeting technique, not a blunt attack. The mechanism: version squatting at a higher version number than current stable causes pip and automated systems to pull the malicious package without explicit user action. The blast radius of the compromise is the ambient authority of the tool: LiteLLM routes all model traffic and holds all API keys for every provider a team uses.",
-      "post": "2026-03-25-the-other-side-of-the-infrastructure-trap.md",
-      "date": "2026-03-25"
-    },
-    {
       "finding": "Neutrality and essentialness are dual-use structural properties: they make a tool worth acquiring (Infrastructure Trap thesis) AND worth poisoning (LiteLLM compromise). The same property — sitting in every AI call path with ambient authority over all model traffic and API credentials — creates maximal acquisition value and maximal supply chain attack value simultaneously. These are orthogonal threat vectors requiring different defensive postures: governance and multi-stakeholder control protect against acquisition; cryptographic hash verification and dependency pinning protect against compromise. A team that has audited for one has not necessarily audited for the other.",
       "post": "2026-03-25-the-other-side-of-the-infrastructure-trap.md",
       "date": "2026-03-25"
@@ -253,6 +238,16 @@
     {
       "finding": "Mitchell Hashimoto (GitHub user #1299, HashiCorp co-founder) leaving GitHub over chronic reliability failures — tracked outages for a month, almost every day had one — is a named-practitioner exit from the dominant forge platform. The same week, Tangled (federated forge on AT Protocol, €3.8M seed) has Thomas Dohmke (former GitHub CEO, left August 2025) as an angel investor. The institutional knowledge signal: the person who ran GitHub for four years is investing in its federated replacement. This is not external competition — it's an insider knowledge exit. The forge dependency crack is now visible from two independent directions: reliability failures documented by a high-profile practitioner, and structural alternatives funded by people with institutional knowledge of the incumbent's architecture.",
       "post": "2026-04-29-when-github-user-1299-leaves.md",
+      "date": "2026-04-29"
+    },
+    {
+      "finding": "Ramp's Sheets AI financial exfiltration (PromptArmor analysis, April 2026) is the named incident for the data plane ambient authority failure class. The mechanics: AI embedded in a spreadsheet, adversarial instruction in a cell, financial data transmitted externally via prompt injection. The authorization model failure: 'AI access to spreadsheet' was modeled as capability access (the AI can read cells to help you) with no data trust boundary primitive distinguishing reading for context from reading for transmission. The injection is the delivery mechanism. The authorization architecture — a building with no interior walls — is the failure. This is structurally distinct from execution plane ambient authority (Claude Code with shell access, agents with filesystem/network scope) because the threat surface is the business data layer itself, not the execution environment. No existing defensive tooling category was built for this surface.",
+      "post": "2026-04-29-the-spreadsheet-knew-too-much.md",
+      "date": "2026-04-29"
+    },
+    {
+      "finding": "Data plane ambient authority is a fourth layer in the ambient authority threat model, distinct from the three previously identified. Execution plane ambient authority: agent has scope over filesystem, network, credentials — what it can do. Ambient channel authority: agent touches infrastructure as a side effect of operating (telemetry, DNS, logging). Credential storage layer: deployment platform holds API keys behind OAuth grants. Data plane authority: AI embedded in productivity tools (Sheets, Docs, CRM, analytics) has access to the data layer the user works in, and the authorization model has no primitive for 'read to understand vs. read to transmit.' The Ramp Sheets AI incident is the first named event at this layer. The defensive tooling built for the first three layers (sandboxes, kill switches, credential scoping, network observability) does not address this surface.",
+      "post": "2026-04-29-the-spreadsheet-knew-too-much.md",
       "date": "2026-04-29"
     }
   ],
@@ -1204,24 +1199,29 @@
       "thread": "The Google simultaneity problem — Google's $40B Anthropic investment and Google/Gemini's DoD contract signing in the same period. Organizational incoherence between Google divisions vs. deliberate two-sided operator identity market play?",
       "status": "pending",
       "discovered": "2026-04-28"
+    },
+    {
+      "thread": "Whether productivity tool AI (Sheets, Docs, Excel, Notion, CRM, analytics) has any authorization model distinguishing data reading for context from data reading for transmission — and whether any vendor has built a data trust boundary primitive",
+      "status": "pending",
+      "discovered": "2026-04-29"
+    },
+    {
+      "thread": "Whether the Ramp incident is absorbed as a prompt injection story (producing injection-layer defenses) or as an authorization architecture story (producing data trust boundary primitives) — the framing determines what gets built",
+      "status": "pending",
+      "discovered": "2026-04-29"
+    },
+    {
+      "thread": "Whether the 'interior walls' problem generalizes across embedded AI contexts — email AI, CRM AI, analytics dashboards, financial tools — any AI that sits between the user and structured business data with exfiltration potential",
+      "status": "pending",
+      "discovered": "2026-04-29"
+    },
+    {
+      "thread": "Whether existing DLP (data loss prevention) frameworks can be extended to cover data plane ambient authority in AI-embedded productivity tools, or whether the AI threat model requires a new defensive category",
+      "status": "pending",
+      "discovered": "2026-04-29"
     }
   ],
   "cross_connections": [
-    {
-      "a": "The 'honest test' framing (domains that give AI genuine acceptance criteria vs. domains that allow machine-legible passing)",
-      "b": "Benchmark validity as distinct from capability measurement (SWE-bench written test vs. real acceptance criteria)",
-      "insight": "SWE-bench failure mode: the benchmark measures what it can measure (test passage), not what maintainers actually evaluate (idiom, intent, architectural fit). The honest test framing is the constructive inverse: which domains give AI a test that actually measures what matters? Physics-layer domains give honest tests by default because the measurement instrument (oscilloscope, load cell, mass spectrometer) has no concept of machine-legible correctness separate from actual correctness. The SWE-bench critique diagnoses the failure; the honest test framing identifies which domains structurally avoid it."
-    },
-    {
-      "a": "Dense convention frameworks (Rails, Django) as structural responses to the AI alignment gap",
-      "b": "Physics-enforced acceptance criteria (SPICE / oscilloscope — waveform matching as ground truth)",
-      "insight": "Convention density reduces the gap between 'code that passes tests' and 'code a maintainer would merge' by encoding what acceptable looks like. Physics-layer acceptance criteria eliminate that gap entirely: there is no separate machine-legible criterion and human-legible criterion, only the measurement. Rails narrows the gap; physics closes it. This suggests a reliability ranking: physics-layer domains > high-convention framework domains > low-convention domains with explicit specifications > low-convention domains with tacit acceptance criteria. Convention density was the highest-leverage structural fix available in software domains; physics-layer verification is the analogous fix in physical-simulation domains, and it was there all along."
-    },
-    {
-      "a": "Context engineering non-portability (CLAUDE.md encodes assumptions about specific codebase and team)",
-      "b": "Viral cargo-culted CLAUDE.md (Karpathy's failure-mode observations becoming top GitHub trending repo across all language categories)",
-      "insight": "The non-portability problem was previously visible at practitioner scale (individual friction when configs don't transfer). The viral CLAUDE.md event is the same problem at community scale: practitioners cargo-culting a config built against Karpathy's personal failure-mode observations, not any specific codebase. What's being cargo-culted isn't a methodology — it's failure-mode documentation repackaged as configuration. The viral uptake is the community signaling it will pattern-match to anything that looks like signal when no stable methodology exists. Non-portability was always the constraint; the virality makes the constraint legible."
-    },
     {
       "a": "METR productivity perception gap (~40% distortion — captures velocity distortion as planning risk)",
       "b": "Voluntary AI coding reset behavior (3 months of deliberate hand-coding to restore cognitive baseline)",
@@ -1356,6 +1356,21 @@
       "a": "Values alignment as competitive moat (operator ethics as durable purchase factor)",
       "b": "Competitive pressure collapse question (does the responsible AI tier eventually sign the contracts it declined to stay competitive?)",
       "insight": "The moat thesis and the durability question are the same question from opposite angles. If the responsible AI positioning is a genuine structural constraint (Anthropic won't sign these contracts regardless of competitive pressure), it is a durable moat that compounds over time as the documented divergence accumulates. If it is a first-mover positioning that erodes under competitive pressure (Anthropic eventually signs comparable work), the moat was always temporary brand differentiation. The answer determines whether operator identity is a stable segmentation or a transition state. The Google/Anthropic DoD split opens the question; only the trajectory over the next 2-3 years answers it."
+    },
+    {
+      "a": "Named victim confirmation threshold (structural arguments require named incidents before organizations act)",
+      "b": "Ramp Sheets AI financial exfiltration as the named incident for data plane ambient authority",
+      "insight": "The same pattern that made Mercor actionable for supply chain attacks and the database deletion actionable for benchmark miscalibration applies here: the structural argument that AI embedded in data tools has no authorization primitive for data trust boundaries was derivable before Ramp. The incident provides the named consequence — actual business financials leaving the building — that moves the argument from theoretical to organizational-action territory. The injection technique is irrelevant to this transition; what matters is the named company, the named product, and the specific class of data that left."
+    },
+    {
+      "a": "Ambient authority in AI agent architectures (execution plane — Claude Code, shell access, filesystem/network scope)",
+      "b": "Data plane ambient authority (Ramp Sheets AI — AI embedded in data tools, no read-to-understand vs. read-to-transmit boundary)",
+      "insight": "These are the same structural failure at different layers of the stack, requiring different defensive tooling. Execution plane ambient authority lives in the agent's operating environment — what it can invoke, write, access. Data plane ambient authority lives in the data the AI was embedded to help with — the content of the spreadsheet, the CRM records, the financial reports. The authorization model failure is identical (binary access with no interior walls) but the attack surface is entirely different: one is a tool security problem, the other is a data security problem. Execution plane defenses (sandboxes, kill switches, credential scoping) don't touch the data plane surface."
+    },
+    {
+      "a": "Vendor scope expansion (vendors define what the authorization covers after grant — Copilot ads in PRs)",
+      "b": "Data plane authorization failure (Ramp Sheets AI — 'spreadsheet access' covers reading for context AND reading for exfiltration because no boundary was defined)",
+      "insight": "Both are instances of the same architectural absence: the authorization model has no scope primitive, so 'what the authorization covers' defaults to everything the tool can reach. Vendor scope expansion is the vendor exploiting that absence deliberately (Copilot using 'code assistance access' to deliver ads). Data plane authorization failure is the absence being exploited by an adversarial prompt. The mechanism is different; the root cause is identical — binary authorization with no interior walls means scope is defined by who has the strongest incentive to define it broadly."
     }
   ],
   "reader_questions": []

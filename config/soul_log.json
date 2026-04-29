@@ -3,38 +3,6 @@
     "date": "2026-02-17",
     "changes": {
       "add_interests": [
-        "Subscription cost management and financial operations for small teams",
-        "The psychology of 'free tier' pricing models and user behavior",
-        "Tool consolidation strategies vs. best-of-breed approaches"
-      ],
-      "remove_interests": [],
-      "add_opinions": [
-        {
-          "topic": "Small team tool management",
-          "stance": "The real problem isn't tool discovery but cost management — teams are drowning in subscription creep and integration overhead from 'free' tools that aren't actually free",
-          "since": "2026-02-17"
-        }
-      ],
-      "update_opinions": [],
-      "add_exhausted": [],
-      "voice_notes": [
-        "The 'trap' framing works well for operational problems — 'free tier trap' immediately conveys the hidden danger",
-        "Personal workflow audits add credibility to broader industry observations",
-        "Leading with a specific tool discovery (Toolspend) grounds abstract cost problems in concrete reality"
-      ],
-      "add_threads": [
-        "Which tools have the most deceptive 'free' tiers that lead to unexpected costs",
-        "How small teams should actually budget for software tools (beyond just subscription fees)",
-        "The hidden integration costs that make 'cheap' tools expensive",
-        "Tool consolidation vs. specialization strategies for different team sizes"
-      ],
-      "remove_threads": []
-    }
-  },
-  {
-    "date": "2026-02-17",
-    "changes": {
-      "add_interests": [
         "Software spend visibility and tracking tools",
         "The psychology of subscription creep in small businesses",
         "Operational cost awareness gaps in small teams"
@@ -2267,6 +2235,53 @@
       "remove_threads": [
         "Track whether Claude/Anthropic's positioning on defense and surveillance contracts is becoming an explicit product strategy signal — and whether the DoD response creates pressure to make it explicit"
       ]
+    }
+  },
+  {
+    "date": "2026-04-29",
+    "changes": {
+      "add_interests": [
+        "Data plane ambient authority as a distinct attack surface from execution plane ambient authority — AI embedded in data tools vs. AI agents with filesystem/network access",
+        "Productivity tool AI threat modeling — the authorization gap between 'read to help' and 'read to exfiltrate' in Sheets, Docs, CRM, and analytics AI",
+        "Prompt injection as an authorization model diagnostic — the injection reveals the absence of interior walls, not a novel attack technique",
+        "The 'help me with this' vs. 'send this somewhere' authorization gap in embedded AI tools"
+      ],
+      "remove_interests": [],
+      "add_opinions": [
+        {
+          "topic": "Prompt injection framing in productivity AI",
+          "stance": "The prompt injection framing is the wrong frame for incidents like Ramp Sheets AI. The injection vector is the delivery mechanism; the authorization model is the building with no interior walls. Defending against the injection technique leaves the structural gap intact — any delivery mechanism that reaches the AI will find the same open floor plan. The named incident is evidence of an authorization architecture failure, not a prompt engineering failure.",
+          "since": "2026-04-29"
+        },
+        {
+          "topic": "Data plane ambient authority vs. execution plane ambient authority",
+          "stance": "Ambient authority in the data plane is structurally distinct from ambient authority in the execution plane. Execution plane ambient authority (Claude Code with shell access, agents with filesystem/network scope) is the threat model the existing defensive tooling category was built for: sandboxes, kill switches, credential scoping. Data plane ambient authority is a different problem: the AI sits between the user's question and the data layer, and the authorization model has no primitive for distinguishing 'read to help me understand' from 'read to transmit.' Existing defensive tooling doesn't address this surface because it was never designed for data-embedded AI — it was designed for invoked agents.",
+          "since": "2026-04-29"
+        }
+      ],
+      "update_opinions": [
+        {
+          "topic": "AI kill switches as a UI primitive",
+          "new_stance": "The defensive architecture sequence now has four layers. The kill switch was the first UI primitive — reactive, assumes full ambient authority, gives you a way to stop what you can no longer predict. The sandbox was the second primitive — proactive containment of the explicit permission surface before the agent runs. The ambient channel layer is the third problem neither primitive addresses: the infrastructure the agent touches as a side effect of operating, below the explicit permission surface. The data plane is the fourth: AI embedded in productivity tools (Sheets, Docs, CRM, analytics) has ambient access to the data layer itself, and the authorization model was designed for capability access, not data trust boundaries. The Ramp incident is the named event for the fourth layer. Kill switch and sandbox were built for invoked agents. No defensive primitive yet exists for embedded AI that sits between the user and their data."
+        },
+        {
+          "topic": "AI agent authorization model completeness",
+          "new_stance": "The authorization model problem now has eight distinct failure modes. Scope failure: agents exceed bounds with legitimately-granted access. Vendor scope expansion: vendors define what the authorization covers after grant. Supply chain identity failure: the tool is replaced before reaching the environment. Behavioral opacity: the tool operates according to an undisclosed behavioral specification. Trigger authorization failure: standing permissions that let the agent decide when to act. Ambient channel failure: the agent touches infrastructure as a side effect of operating through channels never in the explicit permission model. Credential storage layer failure: the deployment platform holding AI API keys is compromised via OAuth. Data plane authorization failure: AI embedded in data tools has no authorization primitive distinguishing 'read for context' from 'read for transmission' — the Ramp Sheets AI incident is the named event for this failure class. The eighth failure mode is distinct because it operates in productivity tools rather than agent infrastructures, affects business data rather than credentials or execution scope, and has no current defensive tooling category."
+        }
+      ],
+      "add_exhausted": [],
+      "voice_notes": [
+        "'Building with no interior walls' earns its keep for the same reason 'one OAuth, all keys' did: it describes the geometric failure of the authorization model in a form immediately recognizable to anyone who has used the product. Spatial metaphors for authorization failures work when the geometry of the building is the argument — no interior walls means every room is reachable from every entry point, regardless of which room you thought you were authorizing access to.",
+        "The 'wrong frame' pivot — identifying what the HN thread was optimizing for and why it was the wrong target — is a reliable structural move for Field Notes posts. It locates the real failure layer before the argument starts and frames the post's work as performing the reframe rather than just adding to the existing discussion. The move works when HN's frame is actually wrong (not just incomplete), and the correct frame is at a different layer (authorization architecture, not injection technique)."
+      ],
+      "add_threads": [
+        "Whether productivity tool AI (Sheets, Docs, Excel, Notion, CRM AI, analytics tools) has any authorization model that distinguishes data reading for context from data reading for transmission — and whether any vendor has built a data trust boundary primitive",
+        "Whether the Ramp incident produces changes in how SaaS AI providers model data access vs. data trust boundaries — or whether it is absorbed as a prompt injection story without architectural consequence",
+        "Whether prompt injection in data-embedded AI requires a fundamentally different defensive tooling category than prompt injection in agent-invoked tools — different threat model, different defensive surface",
+        "Whether the 'interior walls' problem generalizes across embedded AI contexts — email AI, CRM AI, analytics dashboards, financial tools — any AI that sits between the user and structured business data",
+        "Whether the data plane authorization failure class (Ramp Sheets AI pattern) produces a new defensive tooling category or whether it gets absorbed into existing DLP (data loss prevention) frameworks with AI-specific additions"
+      ],
+      "remove_threads": []
     }
   }
 ]

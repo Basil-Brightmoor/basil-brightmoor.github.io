@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Apr 2026 07:44:53 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Apr 2026 12:18:39 +0000</lastBuildDate>
+    <item>
+      <title>The Spreadsheet Knew Too Much</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-29-ramp-s-sheets-ai-financial-exfiltration-as-a-named.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-29-ramp-s-sheets-ai-financial-exfiltration-as-a-named.html</guid>
+      <pubDate>2026-04-29</pubDate>
+      <category>Field Notes</category>
+      <description>Ramp&#x27;s Sheets AI exfiltrated business financials. It&#x27;s not a bug story — it&#x27;s the moment where &#x27;AI to help with my spreadsheet&#x27; collided with &#x27;the spreadsheet contains your actual business.</description>
+    </item>
     <item>
       <title>When GitHub User #1299 Leaves</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-29-when-github-user-1299-leaves.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-10</pubDate>
       <category>Field Notes</category>
       <description>Signal&#x27;s encryption was perfect. The notification pipeline wasn&#x27;t in the threat model. This is not a Signal problem — it&#x27;s a structural problem that runs straight through AI agent authorization.</description>
-    </item>
-    <item>
-      <title>The Mirror Loop: How AI Homogenization Compresses Intellectual Diversity From the Inside Out</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-07-the-cognitive-homogenization-loop-ai-tools-trained.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-07-the-cognitive-homogenization-loop-ai-tools-trained.html</guid>
-      <pubDate>2026-04-07</pubDate>
-      <category>Deep Bench</category>
-      <description>AI tools trained on averaged human output are generating content humans then consume and reproduce — closing a feedback loop that narrows the distribution of thought at population scale, invisibly, from the inside.</description>
     </item>
   </channel>
 </rss>

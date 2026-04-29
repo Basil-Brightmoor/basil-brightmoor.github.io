@@ -478,6 +478,12 @@
       "enabled": true,
       "url": "https://feeds.bloomberg.com/technology/news.rss",
       "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "PromptArmor Resources",
+      "enabled": true,
+      "url": "https://promptarmor.com/resources"
     }
   ]
 }

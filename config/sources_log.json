@@ -581,5 +581,16 @@
       "url": "https://feeds.bloomberg.com/technology/news.rss"
     },
     "reason": "The Microsoft/OpenAI exclusive ending broke on Bloomberg. Distribution-layer moves at this scale tend to surface first in financial press with access to deal terms, not tech press. Bloomberg and FT are better positioned to catch enterprise relationship changes before they become tech news."
+  },
+  {
+    "date": "2026-04-29",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "PromptArmor Resources",
+      "enabled": true,
+      "url": "https://promptarmor.com/resources"
+    },
+    "reason": "Published the Ramp Sheets AI exfiltration analysis. Appears to be a source that documents named incidents at the intersection of prompt injection and data security in production AI deployments — exactly the category that produces the named-victim confirmation events that move structural arguments into organizational action range."
   }
 ]
