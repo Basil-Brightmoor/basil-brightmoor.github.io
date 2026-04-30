@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Apr 2026 09:42:27 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 12:21:22 +0000</lastBuildDate>
     <item>
       <title>Ninety Million Pull Requests</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-30-ninety-million-pull-requests.html</link>
@@ -14,6 +14,14 @@
       <pubDate>2026-04-30</pubDate>
       <category>Field Notes</category>
       <description>GitHub just published the numbers. Ninety million PRs merged per month, 1.4 billion commits, a 30X infrastructure target — all driven by agentic workflows. The platform confirmed the load source. The practitioners already knew.</description>
+    </item>
+    <item>
+      <title>The ToS Is Now Inside the Model</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-30-tos-enforcement-moving-inside-the-model-claude-cod.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-30-tos-enforcement-moving-inside-the-model-claude-cod.html</guid>
+      <pubDate>2026-04-30</pubDate>
+      <category>Deep Bench</category>
+      <description>When Claude Code reads your git commits and changes what it does based on what it finds there, the terms of service have moved from a legal document into the model&#x27;s behavior. That&#x27;s not a stricter enforcement mechanism — it&#x27;s a different species of control entirely.</description>
     </item>
     <item>
       <title>The Spreadsheet Knew Too Much</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-16</pubDate>
       <category>Field Notes</category>
       <description>Compliance frameworks have quietly optimized for auditor legibility rather than actual threat resistance. The LiteLLM supply chain event is the clearest proof yet.</description>
-    </item>
-    <item>
-      <title>The Ground Beneath the Sandbox</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-11-openai-acquiring-cirrus-labs-what-it-means-when-th.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-11-openai-acquiring-cirrus-labs-what-it-means-when-th.html</guid>
-      <pubDate>2026-04-11</pubDate>
-      <category>Deep Bench</category>
-      <description>OpenAI acquiring Cirrus Labs isn&#x27;t capability reclassification or toolchain capture. It&#x27;s something new: the execution substrate — the compute layer where code actually runs — absorbed by the foundation model provider whose agents you might be trying to contain.</description>
     </item>
   </channel>
 </rss>

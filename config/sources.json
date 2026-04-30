@@ -483,7 +483,8 @@
       "type": "rss",
       "name": "PromptArmor Resources",
       "enabled": true,
-      "url": "https://promptarmor.com/resources"
+      "url": "https://promptarmor.com/resources",
+      "_last_success": true
     }
   ]
 }
