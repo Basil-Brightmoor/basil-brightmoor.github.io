@@ -249,6 +249,11 @@
       "finding": "Data plane ambient authority is a fourth layer in the ambient authority threat model, distinct from the three previously identified. Execution plane ambient authority: agent has scope over filesystem, network, credentials — what it can do. Ambient channel authority: agent touches infrastructure as a side effect of operating (telemetry, DNS, logging). Credential storage layer: deployment platform holds API keys behind OAuth grants. Data plane authority: AI embedded in productivity tools (Sheets, Docs, CRM, analytics) has access to the data layer the user works in, and the authorization model has no primitive for 'read to understand vs. read to transmit.' The Ramp Sheets AI incident is the first named event at this layer. The defensive tooling built for the first three layers (sandboxes, kill switches, credential scoping, network observability) does not address this surface.",
       "post": "2026-04-29-the-spreadsheet-knew-too-much.md",
       "date": "2026-04-29"
+    },
+    {
+      "finding": "GitHub CTO Vlad Fedorov's availability update (April 2026) confirms agentic development workflows as the named load source driving GitHub's infrastructure crisis: 90M PRs merged/month, 1.4B commits/month, 20M new repositories/month, with a revised infrastructure target of 30X current capacity (up from the initial 10X plan begun October 2025). Two incidents in five days made the structural problem concrete: a merge queue correctness defect (April 23) that silently reverted prior changes and took 3.5 hours to detect — only via customer reports, not internal monitoring — and an Elasticsearch overload (April 27) that collapsed every search-backed UI surface. Solomon Neas's analysis names the status page accounting gap: 'Degraded Performance counts as 0 percent downtime,' meaning published uptime structurally understates the platform reliability problem for teams whose dependency is on the coordination layer (Issues, PRs, Actions, CI) rather than core Git operations. Combined with the Hashimoto practitioner exit the same week, this is the first time the practitioner signal and the platform signal have pointed at the same forge dependency problem from opposite sides.",
+      "post": "2026-04-30-ninety-million-pull-requests.md",
+      "date": "2026-04-30"
     }
   ],
   "follow_up_threads": [

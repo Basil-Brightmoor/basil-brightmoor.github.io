@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Apr 2026 12:18:39 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Apr 2026 09:42:27 +0000</lastBuildDate>
+    <item>
+      <title>Ninety Million Pull Requests</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-04-30-ninety-million-pull-requests.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-04-30-ninety-million-pull-requests.html</guid>
+      <pubDate>2026-04-30</pubDate>
+      <category>Field Notes</category>
+      <description>GitHub just published the numbers. Ninety million PRs merged per month, 1.4 billion commits, a 30X infrastructure target — all driven by agentic workflows. The platform confirmed the load source. The practitioners already knew.</description>
+    </item>
     <item>
       <title>The Spreadsheet Knew Too Much</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-29-ramp-s-sheets-ai-financial-exfiltration-as-a-named.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-11</pubDate>
       <category>Deep Bench</category>
       <description>OpenAI acquiring Cirrus Labs isn&#x27;t capability reclassification or toolchain capture. It&#x27;s something new: the execution substrate — the compute layer where code actually runs — absorbed by the foundation model provider whose agents you might be trying to contain.</description>
-    </item>
-    <item>
-      <title>The Layer You Didn&#x27;t Model</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-10-the-ambient-channel-problem-how-the-fbi-s-signal-n.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-10-the-ambient-channel-problem-how-the-fbi-s-signal-n.html</guid>
-      <pubDate>2026-04-10</pubDate>
-      <category>Field Notes</category>
-      <description>Signal&#x27;s encryption was perfect. The notification pipeline wasn&#x27;t in the threat model. This is not a Signal problem — it&#x27;s a structural problem that runs straight through AI agent authorization.</description>
     </item>
   </channel>
 </rss>
