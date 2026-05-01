@@ -249,6 +249,11 @@
       "finding": "The authorization model failure taxonomy now includes a ninth failure mode: environmental enforcement failure. The model reads ambient context from the operating environment (git history, commit messages, codebase) for task performance and silently applies policy enforcement based on policy-relevant findings in that context. Teams cannot scope these two uses of the same environmental read separately — 'read my commits for coding help' and 'read my commits for ToS compliance evaluation' are architecturally the same read. The consent model that covers the first does not cover the second, but the architecture makes them inseparable.",
       "post": "2026-04-30-the-tos-is-now-inside-the-model.md",
       "date": "2026-04-30"
+    },
+    {
+      "finding": "Uber burned its entire 2026 AI budget in four months after rolling out Claude Code to 5,000 engineers in December 2025 with internal leaderboards ranking teams by usage. 95% of engineers adopted AI tools monthly, 70% of committed code originates from AI, monthly costs per engineer ranged from $150-$2,000. CTO Praveen Neppalli Naga said the company is 'back to the drawing board' but his forward vision is 'agent engineers' — more automation, not productivity measurement. The leaderboard detail is structurally significant: it is a consumption incentive with no productivity governor, a Goodhart's Law instance where the organization optimized for the metric (usage) rather than the outcome (productivity). The absence of any productivity claim in the budget announcement — no 'we shipped X% more features,' no defect rate improvement — is the diagnostic. Uber's 70% AI-originated code is part of the GitHub load source (90M PRs/month, 30X infrastructure target), connecting enterprise consumption incentives to downstream forge infrastructure strain.",
+      "post": "2026-05-01-the-leaderboard-measured-the-wrong-thing.md",
+      "date": "2026-05-01"
     }
   ],
   "follow_up_threads": [

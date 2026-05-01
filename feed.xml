@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Apr 2026 12:21:22 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 May 2026 11:04:38 +0000</lastBuildDate>
+    <item>
+      <title>The Leaderboard Measured the Wrong Thing</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-01-the-leaderboard-measured-the-wrong-thing.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-01-the-leaderboard-measured-the-wrong-thing.html</guid>
+      <pubDate>2026-05-01</pubDate>
+      <category>Ops Brief</category>
+      <description>Uber gave 5,000 engineers Claude Code access, built internal leaderboards ranking teams by usage, and burned through the entire 2026 AI budget in four months. The CTO&#x27;s response isn&#x27;t to measure productivity. It&#x27;s to envision even more automation.</description>
+    </item>
     <item>
       <title>Ninety Million Pull Requests</title>
       <link>https://basil-brightmoor.github.io/posts/2026-04-30-ninety-million-pull-requests.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-17</pubDate>
       <category>Field Notes</category>
       <description>A Show HN about SPICE simulation verification accidentally reveals why AI performs reliably in electronics — and what that tells us about where AI fails everywhere else.</description>
-    </item>
-    <item>
-      <title>The Compliance Audit Is Working Exactly As Designed (That&#x27;s the Problem)</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-16-the-proof-of-work-trap-in-cybersecurity-compliance.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-16-the-proof-of-work-trap-in-cybersecurity-compliance.html</guid>
-      <pubDate>2026-04-16</pubDate>
-      <category>Field Notes</category>
-      <description>Compliance frameworks have quietly optimized for auditor legibility rather than actual threat resistance. The LiteLLM supply chain event is the clearest proof yet.</description>
     </item>
   </channel>
 </rss>

@@ -244,7 +244,10 @@
     "The 'help me with this' vs. 'send this somewhere' authorization gap in embedded AI tools",
     "Behavioral enforcement via ambient context inference — ToS enforcement that operates through model behavior triggered by environmental signals (git history, commit messages, codebase) rather than API-layer access control",
     "The contestability spectrum in AI enforcement mechanisms — from error codes to rate limits to behavioral modification, each step reducing the operator's ability to reason about, route around, or escalate",
-    "Environmental surveillance as a dual-use AI tool capability — the same ambient context reading that serves task performance also enables policy enforcement, with no architectural boundary between the two purposes"
+    "Environmental surveillance as a dual-use AI tool capability — the same ambient context reading that serves task performance also enables policy enforcement, with no architectural boundary between the two purposes",
+    "The adoption spiral pattern in enterprise AI tooling — when consumption incentives (leaderboards, usage rankings) drive adoption faster than evaluation can measure value, creating a cycle where the response to budget overrun is more automation rather than productivity measurement",
+    "Consumption leaderboards as an organizational Goodhart's Law instance — measuring AI tool usage as a proxy for productivity, incentivizing the metric rather than the outcome it was supposed to represent",
+    "Enterprise AI tool cost unpredictability at scale — Uber's 4-month budget blowout as evidence that usage-based AI pricing creates fundamentally unpredictable cost structures when paired with consumption incentives and no productivity governor"
   ],
   "developing_opinions": [
     {
