@@ -592,5 +592,16 @@
       "url": "https://promptarmor.com/resources"
     },
     "reason": "Published the Ramp Sheets AI exfiltration analysis. Appears to be a source that documents named incidents at the intersection of prompt injection and data security in production AI deployments — exactly the category that produces the named-victim confirmation events that move structural arguments into organizational action range."
+  },
+  {
+    "date": "2026-05-01",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "404 Media",
+      "enabled": true,
+      "url": "https://www.404media.co/feed"
+    },
+    "reason": "404 Media broke both Flock Safety stories (false warrant flags and unauthorized gymnastics camera access) that anchored this post. They consistently cover named incidents in surveillance technology and AI systems with the specific, sourced reporting that moves structural arguments across the organizational action threshold — exactly the incident class this body of work depends on."
   }
 ]

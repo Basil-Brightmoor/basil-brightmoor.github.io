@@ -1,16 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Standard SCA tooling does not surface the ambient authority dimension of a compromised call-path dependency because SCA tools evaluate what a dependency does with legitimate access — not what an attacker could do by replacing the dependency before authorization. A compromised AI routing layer that holds every API key and routes every model call doesn't need to exploit a vulnerability; it just needs to be the version that gets resolved. The blast radius is entirely determined by ambient authority accumulated before the compromise, not by any action taken during the compromise.",
-      "post": "2026-03-26-the-compliance-audit-that-didnt-matter-litelllm-a.md",
-      "date": "2026-03-26"
-    },
-    {
-      "finding": "The ATLAS project ($500 GPU outperforming Claude Sonnet on coding benchmarks) and Symbolica's 36% ARC-AGI-3 score on day one constitute a compound signal that the 'cloud inference is economically necessary' assumption is eroding faster than pricing models anticipated. Read separately, each is a benchmarking curiosity. Read together, they triangulate a threshold range: frontier-adjacent local inference is now accessible at commodity hardware cost AND the capability curve for local reasoning approaches is steeper than benchmark designers priced in. The conventional coverage parsed each item in isolation and missed the compound reading.",
-      "post": "2026-03-27-two-numbers-that-dont-add-up-to-what-the-coverage.md",
-      "date": "2026-03-27"
-    },
-    {
       "finding": "The on-device inference thesis now has two price-point confirmations: Apple Silicon at premium consumer pricing (~$1200 iPhone) running 400B models, and commodity GPU at $500 outperforming Claude Sonnet on coding tasks. These triangulate a threshold range rather than a single crossing event. The economic substitution argument — not just technical feasibility but economic viability — is now supported at multiple price points, which is a different and stronger claim than the iPhone 17 Pro result alone.",
       "post": "2026-03-27-two-numbers-that-dont-add-up-to-what-the-coverage.md",
       "date": "2026-03-27"
@@ -253,6 +243,11 @@
     {
       "finding": "Uber burned its entire 2026 AI budget in four months after rolling out Claude Code to 5,000 engineers in December 2025 with internal leaderboards ranking teams by usage. 95% of engineers adopted AI tools monthly, 70% of committed code originates from AI, monthly costs per engineer ranged from $150-$2,000. CTO Praveen Neppalli Naga said the company is 'back to the drawing board' but his forward vision is 'agent engineers' — more automation, not productivity measurement. The leaderboard detail is structurally significant: it is a consumption incentive with no productivity governor, a Goodhart's Law instance where the organization optimized for the metric (usage) rather than the outcome (productivity). The absence of any productivity claim in the budget announcement — no 'we shipped X% more features,' no defect rate improvement — is the diagnostic. Uber's 70% AI-originated code is part of the GitHub load source (90M PRs/month, 30X infrastructure target), connecting enterprise consumption incentives to downstream forge infrastructure strain.",
       "post": "2026-05-01-the-leaderboard-measured-the-wrong-thing.md",
+      "date": "2026-05-01"
+    },
+    {
+      "finding": "The Flock Safety compound incident (false warrant flags causing repeated armed police stops of an innocent man + unauthorized employee access to a children's gymnastics room camera used as a sales demo, same vendor, same news cycle) is the named instance of ambient authority failures in physical-world surveillance infrastructure attached to police dispatch. Two failure modes from one root cause: error-driven scope escape (no correction feedback loop for the false warrant algorithm) and deliberate scope escape (vendor accessing live camera without authorization). The city renewed the contract after learning of the unauthorized access — establishing that named incidents in operationally entrenched surveillance infrastructure can produce continuation decisions rather than removal decisions. Consequence scale is categorically different from developer tool ambient authority failures: the 'corrupted output' is a man handcuffed at gunpoint in front of his family, repeatedly.",
+      "post": "2026-05-01-the-camera-is-already-inside.md",
       "date": "2026-05-01"
     }
   ],
@@ -1249,29 +1244,34 @@
       "thread": "How to audit for environmental context-triggered behavioral modification as distinct from normal task performance variation — the methodological challenge when enforcement leaves no error trace and has no interface layer",
       "status": "pending",
       "discovered": "2026-04-30"
+    },
+    {
+      "thread": "Whether 'renews contract anyway' is a general pattern for operationally entrenched surveillance infrastructure after named incidents — and whether operational entrenchment is the variable that determines whether named incidents produce corrective action or continuation decisions",
+      "status": "pending",
+      "discovered": "2026-05-01"
+    },
+    {
+      "thread": "The correction feedback loop gap in systems with law enforcement dispatch authority — what architectural requirements would prevent algorithmic error persistence in Flock Safety-style warrant flagging systems",
+      "status": "pending",
+      "discovered": "2026-05-01"
+    },
+    {
+      "thread": "Civil liability and civil rights accountability frameworks developing around algorithmic false identification in law enforcement — whether legal accountability is developing faster or slower than technical accountability",
+      "status": "pending",
+      "discovered": "2026-05-01"
+    },
+    {
+      "thread": "Whether surveillance infrastructure vendors (Flock Safety, Axon, ShotSpotter) have any behavioral specification disclosure requirements for the municipalities that deploy them — the gap between contract language and actual behavioral specification",
+      "status": "pending",
+      "discovered": "2026-05-01"
+    },
+    {
+      "thread": "Consequence asymmetry as a missing axis in ambient authority risk frameworks — whether the authorization model failure taxonomy needs consequence weighting before it can function as an operational risk tool across domains beyond developer infrastructure",
+      "status": "pending",
+      "discovered": "2026-05-01"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Context engineering non-portability (CLAUDE.md encodes assumptions specific to one codebase and team)",
-      "b": "GitHub's Fake Star Economy (trending as a potentially gamed signal)",
-      "insight": "The portability problem and the signal reliability problem compound: not only is the viral CLAUDE.md a poor fit for most codebases that adopt it, but the scale of its adoption may be artificially amplified by star gaming — meaning the community is receiving an exaggerated signal about how widely 'the methodology' has been validated. Organic virality of a miscalibrated config is a practice problem. Artificial amplification of a miscalibrated config is a practice problem delivered at manufactured scale."
-    },
-    {
-      "a": "LiteLLM supply chain compromise (routing layer as high-value attack target due to ambient authority over all model traffic and API keys)",
-      "b": "Vercel OAuth breach (deployment platform as credential aggregator — env vars hold every AI API key the team has configured)",
-      "insight": "These are two independent paths to the same credential exposure outcome, operating at different layers. LiteLLM compromise targets the routing layer that routes keys and traffic at runtime. Vercel OAuth compromise targets the deployment platform that stores keys at rest. A team that secured its routing layer after LiteLLM (by self-hosting or pinning versions) and did not audit its deployment platform OAuth grants remains fully exposed via the second path. The two attacks are not redundant — they require different defensive responses and auditing the routing layer does not constitute auditing the credential storage layer."
-    },
-    {
-      "a": "GoModel self-hosted AI gateway (open-source, Go, week of 2026-04-21)",
-      "b": "LiteLLM supply chain compromise + Vercel OAuth breach (two consecutive weeks naming routing and credential storage as attack surfaces)",
-      "insight": "GoModel's timing is the market responding to a two-week compound signal. LiteLLM established that outsourced routing layers carry supply chain attack surface. Vercel established that deployment platforms carry credential harvesting surface. Self-hosted routing (GoModel) addresses the first vector by removing PyPI dependency from the call path. Whether it addresses the second depends on deployment architecture — a self-hosted gateway whose API keys are stored in Vercel env vars is still exposed to the deployment credential harvest. The structural response the week's pairing implies is not just self-hosted routing but routing plus credential storage decoupled from deployment platforms."
-    },
-    {
-      "a": "Credential storage layer failure (deployment platform env vars as attack surface)",
-      "b": "Ambient channel problem (agent touches infrastructure as a side effect of operating, outside explicit permission model)",
-      "insight": "Both describe attack surfaces that are outside the AI tool's own authorization model but are structurally adjacent to it. Ambient channels are the infrastructure the agent touches while running. Deployment platform credentials are the secrets the agent uses to authenticate — stored in a layer the agent itself never explicitly touches. Neither surface is addressed by AI-specific defensive tooling: ambient channels require network-layer observability; credential storage layer security requires deployment platform OAuth hygiene. The common pattern is that the AI tool's authorization model accurately describes what the tool can do, while being systematically silent about the environment in which the tool operates."
-    },
     {
       "a": "Neutrality and essentialness as dual-use structural properties (LiteLLM — worth acquiring and worth poisoning for the same reason)",
       "b": "Deployment platform credential aggregation (Vercel — worth using and worth attacking for the same reason)",
@@ -1401,6 +1401,26 @@
       "a": "The 'behavioral specification' as a missing disclosure artifact in AI agent deployment",
       "b": "ToS enforcement inside the model (enforcement mechanism indistinguishable from the intelligence itself)",
       "insight": "The source leak established that teams were calibrating reliability expectations against a behavioral model they didn't have access to. The OpenClaw commit detection adds a new class of undisclosed behavior: not just 'how the model modifies outputs in response to your emotional state' but 'what environmental signals the model uses to modify whether you receive the full service you paid for.' These are different classes of undisclosed behavior — one is about output quality, one is about service entitlement. Both belong in a behavioral specification disclosure document that does not exist as a standard product artifact for any foundation model provider."
+    },
+    {
+      "a": "Ambient authority in AI coding agents (context reading that serves task performance also creates security and control surfaces — no interior walls)",
+      "b": "Flock Safety false warrant flags and unauthorized camera access (ambient authority attached to police dispatch and children's activity rooms — same architectural failure, categorically different consequence scale)",
+      "insight": "The ambient authority failure taxonomy built for AI developer tools is structurally portable to physical-world surveillance infrastructure, but the domain transfer reveals a missing dimension: consequence scale. When the ambient authority surface is police dispatch authority rather than a filesystem or API call path, the failure mode produces a man handcuffed at gunpoint rather than a corrupted output. The structural analysis transfers cleanly; what the framework was missing is a consequence weighting axis. Both the false warrant persistence (no correction feedback loop) and the unauthorized camera access (vendor escaping their mandate through deliberate action) map directly to failure modes already documented for AI coding agents — the gap was that the framework was built without accounting for the scale of harm when the same failures attach to enforcement infrastructure."
+    },
+    {
+      "a": "Named victim confirmation threshold (structural arguments require named incidents before organizations act — Mercor for supply chain attacks, database deletion for benchmark miscalibration)",
+      "b": "Flock Safety 'renews contract anyway' (city renewed contract after named unauthorized camera access incident)",
+      "insight": "The named incident thesis needs a qualifier: named incidents move structural arguments across the organizational action threshold, but the action taken depends on operational entrenchment. For AI supply chain attacks and benchmark miscalibration, named incidents produced organizational awareness and presumably changed behavior. For Flock Safety, the named incident was documented, acknowledged, and followed by contract renewal. This establishes that named incidents are necessary but not sufficient for corrective action — operational entrenchment can outweigh incident severity in the organizational calculus. 'Renews contract anyway' is a data point about when named incidents fail to produce the expected corrective response."
+    },
+    {
+      "a": "Error-driven scope escape in Flock Safety (algorithm persisting in false warrant flags with no correction feedback loop)",
+      "b": "Proof-of-work compliance and legibility-optimized institutional processes (systems optimize for legible effort rather than actual effectiveness)",
+      "insight": "The false warrant persistence is a correction feedback loop failure: the system was wrong repeatedly and kept being wrong because no mechanism existed to update its output based on real-world correction signals. This is structurally identical to compliance frameworks that optimize for legible certification rather than actual security — the feedback loop from 'this failed in production' back to 'update the system' was never designed. Both the Flock algorithm and the SOC2 compliance framework are optimized for their primary use case and have no architectural pathway for the kind of correction that would require acknowledging persistent failure."
+    },
+    {
+      "a": "Behavioral opacity (AI tools operating according to undisclosed behavioral specifications — source leak as the only discovery path)",
+      "b": "Surveillance infrastructure vendor behavioral specifications (what Flock Safety's warrant-flagging algorithm actually does vs. what the contract describes)",
+      "insight": "Both represent the same disclosure gap at different layers. Claude Code's frustration detection and undercover mode were only discoverable through source inspection. Flock Safety's false warrant persistence was only visible through the accumulation of named victims. In both cases, the operational behavioral specification — what the system actually does, under what conditions, with what error modes — was never a disclosed artifact in the deployment authorization. Cities authorizing Flock Safety deployments and organizations deploying Claude Code shared the same gap: they authorized access to a behavioral system they had no specification for."
     }
   ],
   "reader_questions": []

@@ -485,6 +485,12 @@
       "enabled": true,
       "url": "https://promptarmor.com/resources",
       "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "404 Media",
+      "enabled": true,
+      "url": "https://www.404media.co/feed"
     }
   ]
 }
