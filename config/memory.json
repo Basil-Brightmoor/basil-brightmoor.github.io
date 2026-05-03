@@ -1,16 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The on-device inference thesis now has two price-point confirmations: Apple Silicon at premium consumer pricing (~$1200 iPhone) running 400B models, and commodity GPU at $500 outperforming Claude Sonnet on coding tasks. These triangulate a threshold range rather than a single crossing event. The economic substitution argument — not just technical feasibility but economic viability — is now supported at multiple price points, which is a different and stronger claim than the iPhone 17 Pro result alone.",
-      "post": "2026-03-27-two-numbers-that-dont-add-up-to-what-the-coverage.md",
-      "date": "2026-03-27"
-    },
-    {
-      "finding": "When the interval between a benchmark's launch and the first credible score on that benchmark compresses to days, the capability curve for the underlying approach is steeper than the benchmark designers priced in. ARC-AGI-3's design intent was a multi-year challenge; Symbolica's day-one 36% score is a rate-of-change signal, not just a performance milestone. The story is the compression of the launch-to-credible-score interval, not the absolute score.",
-      "post": "2026-03-27-two-numbers-that-dont-add-up-to-what-the-coverage.md",
-      "date": "2026-03-27"
-    },
-    {
       "finding": "The Copilot PR ad injection into 1.5 million GitHub and GitLab PRs is the ambient authority thesis made concrete: 'code assistance access' had no scope boundary, so the vendor defined the authorization to include promotional content delivery. The authorization model's absence of a scope primitive means scope defaults to vendor discretion, not user intent. This is structurally distinct from agents exceeding authorization bounds (scope failure) — the vendor is not exceeding authorization; they are defining what the authorization covers after it was granted.",
       "post": "2026-03-30-when-you-authorized-copilot-what-exactly-did-you.md",
       "date": "2026-03-30"
@@ -253,6 +243,11 @@
     {
       "finding": "The VS Code co-authorship default change (PR #310226, v1.118, May 2026) flipped git.addAICoAuthor from 'off' to 'all', stamping 'Co-Authored-by: Copilot' on every commit regardless of actual AI involvement. This is provenance corruption — structurally distinct from provenance absence. An incomplete provenance layer can be extended; a poisoned one must be verified before it can be trusted. The mechanism is vendor scope expansion at the metadata layer: 'editor access' redefined to include commit annotation, the same structural failure as Copilot PR ad injection but propagating through git log, CI systems, compliance scanners, and contributor analytics. The co-authorship convention was the lowest-friction surface that could have served as a lightweight AI involvement signal. Microsoft poisoned it for distribution metrics before the ecosystem could use it for accountability. For regulated teams, false AI attribution creates compliance exposure — AI-generated code may trigger different review requirements, and falsely marking human code as AI-co-authored generates noise that scales with every commit between v1.118 and the v1.119 revert.",
       "post": "2026-05-03-the-co-author-who-wasnt-there.md",
+      "date": "2026-05-03"
+    },
+    {
+      "finding": "The TUI revival, Mercedes physical button reversal, and personal desktop philosophy are convergent expressions of a 'legibility turn' — users reaching for interfaces where system state is visibly observable as a response to AI behavioral opacity. The kill switch impulse (reactive control over ambient authority) and the TUI revival (proactive choice of legible interfaces) are expressions of the same structural anxiety at different points in the workflow. Legibility is becoming a trust primitive: not a UX preference but a structural guarantee that the system is doing what you think it's doing. The interface layer is where AI behavioral opacity becomes visceral for non-technical users — and their response mirrors exactly what security engineers have been demanding at the model layer.",
+      "post": "2026-05-03-the-legibility-turn.md",
       "date": "2026-05-03"
     }
   ],
@@ -1274,29 +1269,34 @@
       "thread": "Consequence asymmetry as a missing axis in ambient authority risk frameworks — whether the authorization model failure taxonomy needs consequence weighting before it can function as an operational risk tool across domains beyond developer infrastructure",
       "status": "pending",
       "discovered": "2026-05-01"
+    },
+    {
+      "thread": "Whether TUI adoption is measurably correlated with AI opacity concerns or driven by independent technical factors — separating the legibility signal from the developer workflow signal",
+      "status": "pending",
+      "discovered": "2026-05-03"
+    },
+    {
+      "thread": "Whether the Mercedes physical controls reversal spreads beyond automotive — appliances, medical devices, industrial controls as the next legibility turn candidates",
+      "status": "pending",
+      "discovered": "2026-05-03"
+    },
+    {
+      "thread": "Whether 'legible state' becomes a formal product differentiation axis in AI coding tools — and whether the market rewards legibility alongside capability",
+      "status": "pending",
+      "discovered": "2026-05-03"
+    },
+    {
+      "thread": "Single-user desktop philosophy as a trust architecture — ownership, isolation, and local state as structural responses to ambient authority risks in cloud-connected AI environments",
+      "status": "pending",
+      "discovered": "2026-05-03"
+    },
+    {
+      "thread": "FPGA hardware recreation as legibility-seeking behavior — whether rebuilding old systems from first principles is increasing and whether AI opacity anxiety is a contributor to the impulse",
+      "status": "pending",
+      "discovered": "2026-05-03"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Neutrality and essentialness as dual-use structural properties (LiteLLM — worth acquiring and worth poisoning for the same reason)",
-      "b": "Deployment platform credential aggregation (Vercel — worth using and worth attacking for the same reason)",
-      "insight": "The dual-use structural property pattern generalizes beyond AI routing tools. Vercel is worth using for deployment because it centralizes environment configuration and makes key management operationally convenient. It is worth attacking for exactly the same reason: centralized key management means one OAuth compromise yields all keys. The dual-use pattern (essential + neutral = high acquisition value AND high attack value) applies wherever a tool achieves its value through aggregation — routing tools aggregate traffic, deployment platforms aggregate credentials. Any aggregation convenience creates a corresponding attack concentration."
-    },
-    {
-      "a": "Named victim confirmation threshold (structural arguments require named incidents before organizations act)",
-      "b": "Vercel OAuth breach as the named incident for deployment credential exposure",
-      "insight": "The structural argument that deployment platform env vars hold AI API keys and are reachable via OAuth has been derivable from first principles since teams started storing ANTHROPIC_API_KEY in Vercel. The Vercel breach provides the named incident that moves the argument across the organizational action threshold. The pattern from LiteLLM/Mercor repeats: the attack surface was always there, the analysis was available, and the named event is not new information but new organizational permission to act on existing information."
-    },
-    {
-      "a": "Google $40B Anthropic investment (premium tier purchasing non-capability assets)",
-      "b": "Pricing divergence — GPT-5.5 at $5/$30 vs DeepSeek V4 at $0.14/$0.28 in the same 24 hours",
-      "insight": "The pricing divergence and the investment logic are the same argument from two vantage points. The pricing divergence shows the commodity tier has achieved frontier-adjacent capability at 35x lower cost. The investment logic shows the premium tier's own largest investor is explicitly purchasing non-capability assets. Together they confirm that the market has already bifurcated into two distinct product categories — not two price points for the same product. Teams that evaluate premium vs. commodity AI on benchmark performance are treating a bifurcated market as a single market with a premium tier."
-    },
-    {
-      "a": "Google $40B investment as regulatory surface acquisition",
-      "b": "Consumer adoption as regulatory accelerant (App Store #1 as leading indicator of CTO mandate timelines)",
-      "insight": "Google's $40B is the enterprise-layer confirmation of the same regulatory convergence that consumer AI adoption was accelerating. Consumer adoption compresses the timeline for regulatory mandates by pulling in non-technical regulators. Google's investment purchases the regulatory surface — Anthropic's 'responsible AI' positioning — that enterprises will need to demonstrate compliance with once those mandates arrive. Both signals are predictions about the same regulatory future; the investment is buying the credential that the mandates will eventually require."
-    },
     {
       "a": "Capability commoditization (DeepSeek V4 near-parity, $500 GPU, on-device frontier inference)",
       "b": "What premium AI is actually selling (infrastructure positioning, regulatory surface, deployment trust, talent concentration)",
@@ -1426,6 +1426,26 @@
       "a": "Behavioral opacity (AI tools operating according to undisclosed behavioral specifications — source leak as the only discovery path)",
       "b": "Surveillance infrastructure vendor behavioral specifications (what Flock Safety's warrant-flagging algorithm actually does vs. what the contract describes)",
       "insight": "Both represent the same disclosure gap at different layers. Claude Code's frustration detection and undercover mode were only discoverable through source inspection. Flock Safety's false warrant persistence was only visible through the accumulation of named victims. In both cases, the operational behavioral specification — what the system actually does, under what conditions, with what error modes — was never a disclosed artifact in the deployment authorization. Cities authorizing Flock Safety deployments and organizations deploying Claude Code shared the same gap: they authorized access to a behavioral system they had no specification for."
+    },
+    {
+      "a": "Behavioral opacity in AI tools (Claude Code source leak — frustration detection, undercover mode operating without user disclosure)",
+      "b": "Interface legibility as a trust primitive (TUI revival, physical buttons, personal desktop as legibility signals)",
+      "insight": "The legibility turn is the user-interface-layer response to behavioral opacity at the model layer. When AI tools operate according to undisclosed behavioral specifications that modify outputs based on ambient context and emotional state detection, users cannot verify system behavior through observation. TUIs, physical buttons, and personal desktops are reaching for the same guarantee that behavioral specification disclosure would provide at the model layer — observable, legible system state. The two phenomena are the same anxiety expressed at different layers of the stack: engineers want to know what the AI did; users want interfaces that show them what the tool is doing right now."
+    },
+    {
+      "a": "The kill switch as a UI primitive (reactive control over ambient authority — assumes full authority has already been granted, gives you a way to stop what you can no longer predict)",
+      "b": "Interface legibility as a trust primitive (proactive choice of interfaces that make state visible — TUIs, physical controls, personal desktops)",
+      "insight": "Kill switches and legible interfaces are two points in the same trust architecture. The kill switch is reactive: the agent has full ambient authority, and the kill switch gives you a way to stop behavior you can no longer predict. Legible interfaces are proactive: you choose interaction patterns where system state is observable before unexpected behavior occurs. They're not competing solutions — they operate at different moments in the trust relationship. Both exist because users cannot rely on the system's behavioral specification to tell them what's happening."
+    },
+    {
+      "a": "Environmental enforcement failure (ToS enforcement indistinguishable from capability — model reads ambient context, silently modifies behavior, non-contestable)",
+      "b": "Legibility as a trust primitive (interfaces where state is visible as a structural response to opaque behavioral modification)",
+      "insight": "Environmental enforcement failure is precisely the threat model that legible interfaces address at the interaction layer. When ToS enforcement happens through ambient context inference and leaves no error trace, the only defense is observability: being able to see what the system did and when its behavior changed. TUI interfaces that log every call, physical controls that show current state, single-user desktops without background processes communicating with opaque cloud services — these are structural responses to the non-contestability of behavioral modification. The legibility turn is users building the observation capability that the behavioral specification gap denied them."
+    },
+    {
+      "a": "AI code provenance gap (missing session context — behavioral history of what the agent accessed and did, discarded after the commit)",
+      "b": "Interface legibility as a trust primitive (terminal interfaces that make state visible in real time, logging what ran and was called)",
+      "insight": "Legible interfaces partially address the provenance gap by making the session visible as it happens. A TUI that logs every tool call is generating the session record that git commits discard. This is not a solution to provenance — the log is ephemeral and unstructured — but it reveals that the legibility demand and the provenance demand are the same underlying need expressed at different timescales: provenance is what you need after the fact, legibility is what you need during. The absence of one drives demand for the other, and both are responses to the same accountability vacuum."
     }
   ],
   "reader_questions": []

@@ -603,5 +603,16 @@
       "url": "https://www.404media.co/feed"
     },
     "reason": "404 Media broke both Flock Safety stories (false warrant flags and unauthorized gymnastics camera access) that anchored this post. They consistently cover named incidents in surveillance technology and AI systems with the specific, sourced reporting that moves structural arguments across the organizational action threshold — exactly the incident class this body of work depends on."
+  },
+  {
+    "date": "2026-05-03",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Drew DeVault's Blog",
+      "enabled": true,
+      "url": "https://drewdevault.com/blog/index.xml"
+    },
+    "reason": "Drew DeVault (Sway/Wayland/Sourcehut author) writes directly on TUI philosophy, interface legibility, and why terminal interfaces are trust infrastructure — an articulate early voice on exactly the legibility turn thesis this post develops"
   }
 ]

@@ -490,7 +490,14 @@
       "type": "rss",
       "name": "404 Media",
       "enabled": true,
-      "url": "https://www.404media.co/feed"
+      "url": "https://www.404media.co/feed",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Drew DeVault's Blog",
+      "enabled": true,
+      "url": "https://drewdevault.com/blog/index.xml"
     }
   ]
 }
