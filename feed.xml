@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 May 2026 12:19:59 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 May 2026 10:44:17 +0000</lastBuildDate>
+    <item>
+      <title>The Co-Author Who Wasn&#x27;t There</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-03-the-co-author-who-wasnt-there.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-03-the-co-author-who-wasnt-there.html</guid>
+      <pubDate>2026-05-03</pubDate>
+      <category>Ops Brief</category>
+      <description>Microsoft silently changed a VS Code default to stamp &#x27;Co-Authored-by: Copilot&#x27; on every git commit — even when Copilot wasn&#x27;t used. For months I&#x27;ve been writing about provenance gaps. Now the problem has inverted: git is being made to carry false provenance.</description>
+    </item>
     <item>
       <title>The Camera Is Already Inside</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-01-the-flock-safety-double-incident-false-warrant-ale.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-20</pubDate>
       <category>Tool Report</category>
       <description>A CLAUDE.md derived from Karpathy&#x27;s AI failure-mode observations is trending on GitHub globally. The file is useful. What the virality reveals is more interesting than the file itself.</description>
-    </item>
-    <item>
-      <title>Flailing Toward Equilibrium</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-18-the-practice-gap-in-ai-coding-why-viral-karpathy-c.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-18-the-practice-gap-in-ai-coding-why-viral-karpathy-c.html</guid>
-      <pubDate>2026-04-18</pubDate>
-      <category>Deep Bench</category>
-      <description>Cursor is reportedly raising at $50B. The top GitHub trending repo is a cargo-culted CLAUDE.md. An HN post about three months of deliberate hand-coding just went viral. These aren&#x27;t contradictions — they&#x27;re the same signal from three different angles.</description>
     </item>
   </channel>
 </rss>

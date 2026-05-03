@@ -252,7 +252,10 @@
     "The 'renews contract anyway' pattern — how organizations respond to named incidents when surveillance infrastructure is operationally entrenched",
     "Algorithmic error persistence in systems with no adversarial correction feedback loops — the mechanism by which a system can be repeatedly wrong without triggering correction",
     "Consequence asymmetry in ambient authority failures — police dispatch and children's activity rooms vs. filesystems and API keys as a dimension the existing framework was missing",
-    "Physical-world algorithmic authority attached to law enforcement dispatch as a distinct ambient authority category"
+    "Physical-world algorithmic authority attached to law enforcement dispatch as a distinct ambient authority category",
+    "Provenance corruption as a distinct failure mode from provenance absence — the VS Code co-authorship default demonstrates that the metadata surface git already has can be exploited for vendor distribution metrics before the provenance layer the ecosystem needs has been built",
+    "The attribution-provenance confusion — git Co-Authored-by trailers being repurposed from human collaboration attribution to AI product marketing, poisoning a convention-based signal that could have served lightweight AI involvement tracking",
+    "Defaults as policy in developer tooling — the population-level impact of opt-out vs. opt-in configurations, particularly when downstream compliance tooling reads metadata the user never consciously authored"
   ],
   "developing_opinions": [
     {
@@ -383,9 +386,9 @@
     },
     {
       "topic": "AI code provenance and version control",
-      "stance": "The provenance gap splits into three distinct layers: the session layer (what the model accessed and was asked — which git was never designed to capture), the representational layer (the semantic structure of what was generated — which text-diff VCS discards, and which Beagle addresses), and the behavioral layer (what the code actually does in CI over time — which SWE-CI addresses). Most provenance discussion conflates these as a single gap. They require different tools, answer different accountability questions, and have different urgency profiles: session provenance matters most in regulated contexts, structural provenance matters most for review quality, behavioral provenance has the most immediate operational leverage.",
+      "stance": "The provenance gap now has two distinct failure modes: absence and corruption. Absence: git was never designed to capture session context, semantic structure, or behavioral history of AI-generated code — the three-layer gap identified in March. Corruption: the VS Code co-authorship default (May 2026) demonstrated that the metadata surface git already has can be poisoned by vendors for distribution metrics — false Co-Authored-by trailers applied regardless of actual AI involvement. An incomplete provenance layer can be extended; a corrupted one must be verified, and verification cost scales with every commit carrying false attribution. The co-authorship convention was the lowest-friction surface available for lightweight AI involvement signaling. Microsoft exploited it for marketing before the ecosystem could use it for accountability, making the convention unreliable for any purpose.",
       "since": "2026-03-01",
-      "updated": "2026-03-08"
+      "updated": "2026-05-03"
     },
     {
       "topic": "AI session data as audit trail",
