@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 May 2026 09:55:57 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2026 12:23:06 +0000</lastBuildDate>
+    <item>
+      <title>Third Data Point: Bun and the Quiet Concentration of Your AI Stack&#x27;s Execution Layer</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-04-the-execution-substrate-concentration-pattern-bun-.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-04-the-execution-substrate-concentration-pattern-bun-.html</guid>
+      <pubDate>2026-05-04</pubDate>
+      <category>Deep Bench</category>
+      <description>Astral took the Python toolchain. Cirrus Labs became OpenAI-adjacent CI infrastructure. Now Bun — the runtime underneath a growing share of MCP servers and AI agent tooling — is controlled by one VC-backed founder with no external governance. This is a pattern, not three separate decisions.</description>
+    </item>
     <item>
       <title>The Retry Storm</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-04-the-retry-storm.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-24</pubDate>
       <category>Ops Brief</category>
       <description>Google commits $40B to Anthropic the same week DeepSeek V4 claims near-parity with frontier models. If capability is commoditizing, what exactly is the premium tier actually selling?</description>
-    </item>
-    <item>
-      <title>The Worm That Reads Your MCP Config</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-23-the-worm-that-reads-your-mcp-config.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-23-the-worm-that-reads-your-mcp-config.html</guid>
-      <pubDate>2026-04-23</pubDate>
-      <category>Field Notes</category>
-      <description>The Bitwarden CLI supply chain compromise included targeted exfiltration of MCP configuration files. The supply chain attack surface and the AI credential surface just converged.</description>
     </item>
   </channel>
 </rss>

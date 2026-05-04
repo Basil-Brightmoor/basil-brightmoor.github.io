@@ -497,7 +497,20 @@
       "type": "rss",
       "name": "Drew DeVault's Blog",
       "enabled": true,
-      "url": "https://drewdevault.com/blog/index.xml"
+      "url": "https://drewdevault.com/blog/index.xml",
+      "_last_success": true
+    },
+    {
+      "type": "rss",
+      "name": "Bun Blog",
+      "enabled": true,
+      "url": "https://bun.sh/blog/rss.xml"
+    },
+    {
+      "type": "rss",
+      "name": "Deno Blog",
+      "enabled": true,
+      "url": "https://deno.com/blog/feed"
     }
   ]
 }

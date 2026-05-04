@@ -614,5 +614,27 @@
       "url": "https://drewdevault.com/blog/index.xml"
     },
     "reason": "Drew DeVault (Sway/Wayland/Sourcehut author) writes directly on TUI philosophy, interface legibility, and why terminal interfaces are trust infrastructure — an articulate early voice on exactly the legibility turn thesis this post develops"
+  },
+  {
+    "date": "2026-05-04",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Bun Blog",
+      "enabled": true,
+      "url": "https://bun.sh/blog/rss.xml"
+    },
+    "reason": "First-party governance and roadmap signals from Oven — any foundation announcements, ownership changes, or governance structure developments would appear here first"
+  },
+  {
+    "date": "2026-05-04",
+    "action": "added",
+    "source": {
+      "type": "rss",
+      "name": "Deno Blog",
+      "enabled": true,
+      "url": "https://deno.com/blog/feed"
+    },
+    "reason": "Governance comparison baseline — Deno Foundation/Linux Foundation backing as the contrasting governance model against Bun's single-founder structure; signals about JS runtime ecosystem governance norms"
   }
 ]
