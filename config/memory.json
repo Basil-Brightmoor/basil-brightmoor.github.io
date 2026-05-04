@@ -249,6 +249,11 @@
       "finding": "The TUI revival, Mercedes physical button reversal, and personal desktop philosophy are convergent expressions of a 'legibility turn' — users reaching for interfaces where system state is visibly observable as a response to AI behavioral opacity. The kill switch impulse (reactive control over ambient authority) and the TUI revival (proactive choice of legible interfaces) are expressions of the same structural anxiety at different points in the workflow. Legibility is becoming a trust primitive: not a UX preference but a structural guarantee that the system is doing what you think it's doing. The interface layer is where AI behavioral opacity becomes visceral for non-technical users — and their response mirrors exactly what security engineers have been demanding at the model layer.",
       "post": "2026-05-03-the-legibility-turn.md",
       "date": "2026-05-03"
+    },
+    {
+      "finding": "The MSR '26 study (arXiv 2604.18334) analysing 208,843 CI/CD workflow runs triggered by 33,596 agent PRs across 2,355 repositories establishes a negative correlation between AI agent contribution frequency and CI/CD workflow success rate. This reframes GitHub's 30X load crisis from a volume problem to a feedback loop: agents generate PRs, PRs trigger CI/CD, agent PRs fail more often than human PRs, failures trigger retries (automated and agentic), retries generate more CI/CD runs, runs generate more infrastructure load, load degradation increases the background failure rate for all runs — completing the loop. The compound load was invisible in GitHub's original 10X capacity plan because retries look like organic traffic. The study also found a temporal shift in agent failure categories from functional (code doesn't work) to non-functional (code works but violates pipeline conventions), confirming the acceptance criteria gap at the CI/CD layer: agents don't retain pipeline-specific constraints between sessions and relearn them by failing each time.",
+      "post": "2026-05-04-the-retry-storm.md",
+      "date": "2026-05-04"
     }
   ],
   "follow_up_threads": [

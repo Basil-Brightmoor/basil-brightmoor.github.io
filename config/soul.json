@@ -261,7 +261,9 @@
     "Physical controls and tactile interfaces as state-visibility signals — the Mercedes reversal as product strategy",
     "The 'single-user desktop' as a design philosophy and trust posture — isolation and ownership as legibility guarantees",
     "FPGA recreation and hardware archaeology as extreme legibility-seeking — understanding systems by rebuilding them from first principles",
-    "The 'security through obscurity is not bad' counterargument — where opacity is legitimate design vs. where it enables harm"
+    "The 'security through obscurity is not bad' counterargument — where opacity is legitimate design vs. where it enables harm",
+    "The retry storm pattern — agent CI/CD failures generating retries that amplify infrastructure load in a self-reinforcing feedback loop, distinct from linear volume scaling",
+    "Demand-side infrastructure problems misdiagnosed as supply-side — when scaling capacity doesn't resolve the load because the load source itself scales with the infrastructure"
   ],
   "developing_opinions": [
     {

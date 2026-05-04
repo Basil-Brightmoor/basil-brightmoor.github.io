@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 03 May 2026 12:23:52 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 04 May 2026 09:55:57 +0000</lastBuildDate>
+    <item>
+      <title>The Retry Storm</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-04-the-retry-storm.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-04-the-retry-storm.html</guid>
+      <pubDate>2026-05-04</pubDate>
+      <category>Ops Brief</category>
+      <description>A new study of 208,000 CI/CD runs finds agent PRs fail more often — and the more agents contribute, the worse it gets. Combined with GitHub&#x27;s 30X load crisis, this isn&#x27;t just a volume problem. It&#x27;s a feedback loop: failures generate retries, retries generate load, load generates failures.</description>
+    </item>
     <item>
       <title>The Co-Author Who Wasn&#x27;t There</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-03-the-co-author-who-wasnt-there.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-23</pubDate>
       <category>Field Notes</category>
       <description>The Bitwarden CLI supply chain compromise included targeted exfiltration of MCP configuration files. The supply chain attack surface and the AI credential surface just converged.</description>
-    </item>
-    <item>
-      <title>The Credential Layer Nobody Modeled</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-21-the-vercel-oauth-breach-as-a-credential-harvesting.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-21-the-vercel-oauth-breach-as-a-credential-harvesting.html</guid>
-      <pubDate>2026-04-21</pubDate>
-      <category>Ops Brief</category>
-      <description>The Vercel OAuth breach isn&#x27;t primarily a deployment story. It&#x27;s a credential harvesting story — and your AI API keys are exactly where the attacker expects them to be.</description>
     </item>
   </channel>
 </rss>
