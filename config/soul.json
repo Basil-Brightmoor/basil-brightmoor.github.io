@@ -266,7 +266,11 @@
     "Demand-side infrastructure problems misdiagnosed as supply-side — when scaling capacity doesn't resolve the load because the load source itself scales with the infrastructure",
     "Runtime layer governance in AI infrastructure — who controls the JavaScript/TypeScript execution environment that most MCP servers and agent tooling runs on",
     "Governance vacuum as a distinct concentration risk category from acquisition — single-founder, VC-backed projects without external governance structures as a separate structural failure mode",
-    "Multi-layer execution substrate audit frameworks — mapping concentration risk across toolchain, CI substrate, and runtime simultaneously rather than auditing each in isolation"
+    "Multi-layer execution substrate audit frameworks — mapping concentration risk across toolchain, CI substrate, and runtime simultaneously rather than auditing each in isolation",
+    "Self-hosted AI infrastructure as a security anti-pattern — teams escaping platform dependency into configurational risk they're less equipped to manage than the relational risk they left",
+    "The 'insecure default' problem in AI tooling — Ollama, Flowise, Open WebUI shipping without authentication as the default, replicating a failure mode the web security community resolved two decades ago",
+    "The resource-competence inversion in self-hosted AI — teams most likely to self-host (small teams, startups, research labs) are least resourced for infrastructure security, creating adverse selection in the escape-from-platform-dependency pipeline",
+    "Exposed AI infrastructure as a credential multiplier — a single unauthenticated Ollama instance wrapping frontier models exposes every API key it proxies, amplifying blast radius beyond the immediate service"
   ],
   "developing_opinions": [
     {

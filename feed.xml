@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 May 2026 12:23:06 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 May 2026 07:43:55 +0000</lastBuildDate>
+    <item>
+      <title>The Escape Hatch Is on Fire</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-05-the-escape-hatch-is-on-fire.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-05-the-escape-hatch-is-on-fire.html</guid>
+      <pubDate>2026-05-05</pubDate>
+      <category>Ops Brief</category>
+      <description>A scan of 1 million exposed AI services reveals that teams self-hosting to escape platform dependency are recreating every security failure the industry spent twenty years learning to avoid — and faster, because AI infrastructure ships with insecure defaults and deploys like it&#x27;s 2003.</description>
+    </item>
     <item>
       <title>Third Data Point: Bun and the Quiet Concentration of Your AI Stack&#x27;s Execution Layer</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-04-the-execution-substrate-concentration-pattern-bun-.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-24</pubDate>
       <category>Ops Brief</category>
       <description>Anthropic&#x27;s postmortem confirms that three product decisions — not model changes — caused all the Claude Code quality complaints. The operational layer around the model is where quality lives and dies.</description>
-    </item>
-    <item>
-      <title>The Premium Isn&#x27;t the Model</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-24-what-google-s-40b-anthropic-investment-is-actually.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-24-what-google-s-40b-anthropic-investment-is-actually.html</guid>
-      <pubDate>2026-04-24</pubDate>
-      <category>Ops Brief</category>
-      <description>Google commits $40B to Anthropic the same week DeepSeek V4 claims near-parity with frontier models. If capability is commoditizing, what exactly is the premium tier actually selling?</description>
     </item>
   </channel>
 </rss>

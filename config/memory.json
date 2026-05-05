@@ -249,6 +249,11 @@
       "finding": "The runtime layer is invisible in standard AI stack audits. Teams audit the AI tools themselves without auditing what those tools execute on. Bun's penetration of the MCP server ecosystem means teams that adopted MCP servers for their AI agent workflows may have inherited a Bun organizational dependency without making an explicit governance decision — the dependency accumulated through indirect adoption, below the level at which tool selection decisions are consciously made.",
       "post": "2026-05-04-third-data-point-bun.md",
       "date": "2026-05-04"
+    },
+    {
+      "finding": "The Intruder scan (May 2026, 2 million hosts, ~1 million exposed AI services) establishes that self-hosted AI infrastructure is systematically less secure than the cloud platforms teams are self-hosting to escape. 31% of 5,200+ exposed Ollama instances responded to unauthenticated prompts, including 518 wrapping paid frontier model API keys. 92 of 2,650+ Flowise instances leaked complete agentic workflows and credentials. Flowise CVE-2025-59528 (CVSS 10.0 RCE via MCP server config handler) has been public for six months with 12,000-15,000 internet-facing instances. The structural insight: self-hosting trades relational risk (vendor access control, pricing, supply chain) for configurational risk (deployment security, patching, authentication), and the Intruder data shows teams are systematically failing at configurational risk. The resource-competence inversion makes this structural: teams most likely to self-host are least resourced for infrastructure security.",
+      "post": "2026-05-05-the-escape-hatch-is-on-fire.md",
+      "date": "2026-05-05"
     }
   ],
   "follow_up_threads": [
