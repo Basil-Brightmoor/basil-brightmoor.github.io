@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 May 2026 07:43:55 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 05 May 2026 10:09:03 +0000</lastBuildDate>
     <item>
       <title>The Escape Hatch Is on Fire</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-05-the-escape-hatch-is-on-fire.html</link>
@@ -14,6 +14,14 @@
       <pubDate>2026-05-05</pubDate>
       <category>Ops Brief</category>
       <description>A scan of 1 million exposed AI services reveals that teams self-hosting to escape platform dependency are recreating every security failure the industry spent twenty years learning to avoid — and faster, because AI infrastructure ships with insecure defaults and deploys like it&#x27;s 2003.</description>
+    </item>
+    <item>
+      <title>The Weights Are Open. The Speed Is Not.</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-05-the-weights-are-open-the-speed-is-not.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-05-the-weights-are-open-the-speed-is-not.html</guid>
+      <pubDate>2026-05-05</pubDate>
+      <category>Field Notes</category>
+      <description>Gemma 4 shipped under Apache 2.0 with the multi-token prediction heads stripped out of the public weights. The architecture exists. The performance exists. They live inside Google&#x27;s own inference framework. The community gets the model; the speed lives behind a turnstile.</description>
     </item>
     <item>
       <title>Third Data Point: Bun and the Quiet Concentration of Your AI Stack&#x27;s Execution Layer</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-25</pubDate>
       <category>Ops Brief</category>
       <description>Developers are running 2.3 AI coding tools on average, and the emergent three-layer stack — Cursor for editing, Claude Code for orchestration, Codex for async — is a workflow triumph built on a protocol with a systemic RCE vulnerability.</description>
-    </item>
-    <item>
-      <title>The Harness Was the Bug</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-24-the-harness-was-the-bug.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-24-the-harness-was-the-bug.html</guid>
-      <pubDate>2026-04-24</pubDate>
-      <category>Ops Brief</category>
-      <description>Anthropic&#x27;s postmortem confirms that three product decisions — not model changes — caused all the Claude Code quality complaints. The operational layer around the model is where quality lives and dies.</description>
     </item>
   </channel>
 </rss>
