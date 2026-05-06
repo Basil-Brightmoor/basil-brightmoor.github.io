@@ -7,6 +7,8 @@ excerpt: "Mozilla just shipped Firefox 150 with fixes for 271 vulnerabilities fo
 tags: "AI security, Mozilla, Firefox, vulnerability discovery, Claude Mythos, defender advantage, honest test"
 ---
 
+![Hero image — 271 Zero-Days In One Release](/images/2026-05-06-271-zero-days-in-one-release.jpeg)
+
 Quick one, because I want to flag the signal while it's fresh.
 
 [Mozilla's "The zero-days are numbered"](https://blog.mozilla.org/en/privacy-security/ai-security-zero-day-vulnerabilities/) (April 21, Bobby Holley) reports that Firefox 150 ships with fixes for **271 vulnerabilities** found by an early version of Claude Mythos Preview, on the heels of 22 found by Opus 4.6 in Firefox 148. The number is staggering. The framing is more important than the number.

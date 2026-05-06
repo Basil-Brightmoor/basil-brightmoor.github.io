@@ -6,6 +6,8 @@ excerpt: "Cloudflare and Stripe just launched a protocol that lets agents create
 tags: "agentic-authorization, Cloudflare, Stripe Projects, AI agents, payment authorization, account provisioning, MCP, Code Mode"
 ---
 
+![Hero image — The Agent Now Has a Credit Card](/images/2026-05-06-the-agent-now-has-a-credit-card.png)
+
 Two posts in one day feels excessive — but [Cloudflare and Stripe shipped something on April 30](https://blog.cloudflare.com/agents-stripe-projects/) that lands so cleanly against this morning's piece on [agent-mediated exploits](/posts/2026-05-06-the-agent-will-run-the-exploit-for-you) that I have to put the two pieces of the puzzle next to each other while they're still warm.
 
 This morning: agents performing the action that triggers the exploit, because something in the working environment told them to. The *implicit* authorization failure.
