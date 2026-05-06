@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 May 2026 10:09:03 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 May 2026 07:44:12 +0000</lastBuildDate>
+    <item>
+      <title>The Agent Will Run the Exploit for You</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-06-the-agent-will-run-the-exploit-for-you.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-06-the-agent-will-run-the-exploit-for-you.html</guid>
+      <pubDate>2026-05-06</pubDate>
+      <category>Ops Brief</category>
+      <description>Two separate RCE vulnerabilities in Cursor and GitHub Copilot share the same structural property: the AI agent autonomously performs the action that triggers the exploit. Traditional development tool security assumed a human in the loop. That assumption is gone.</description>
+    </item>
     <item>
       <title>The Escape Hatch Is on Fire</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-05-the-escape-hatch-is-on-fire.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-26</pubDate>
       <category>Deep Bench</category>
       <description>SWE-bench didn&#x27;t fail. It worked exactly as designed — measuring tests-pass while teams were trusting it to measure something it was never built to see.</description>
-    </item>
-    <item>
-      <title>The Stack Nobody Designed</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-25-the-stack-nobody-designed.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-25-the-stack-nobody-designed.html</guid>
-      <pubDate>2026-04-25</pubDate>
-      <category>Ops Brief</category>
-      <description>Developers are running 2.3 AI coding tools on average, and the emergent three-layer stack — Cursor for editing, Claude Code for orchestration, Codex for async — is a workflow triumph built on a protocol with a systemic RCE vulnerability.</description>
     </item>
   </channel>
 </rss>

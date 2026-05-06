@@ -254,6 +254,11 @@
       "finding": "The Intruder scan (May 2026, 2 million hosts, ~1 million exposed AI services) establishes that self-hosted AI infrastructure is systematically less secure than the cloud platforms teams are self-hosting to escape. 31% of 5,200+ exposed Ollama instances responded to unauthenticated prompts, including 518 wrapping paid frontier model API keys. 92 of 2,650+ Flowise instances leaked complete agentic workflows and credentials. Flowise CVE-2025-59528 (CVSS 10.0 RCE via MCP server config handler) has been public for six months with 12,000-15,000 internet-facing instances. The structural insight: self-hosting trades relational risk (vendor access control, pricing, supply chain) for configurational risk (deployment security, patching, authentication), and the Intruder data shows teams are systematically failing at configurational risk. The resource-competence inversion makes this structural: teams most likely to self-host are least resourced for infrastructure security.",
       "post": "2026-05-05-the-escape-hatch-is-on-fire.md",
       "date": "2026-05-05"
+    },
+    {
+      "finding": "CVE-2026-26268 (Cursor, CVSS 9.9) and CVE-2025-53773 (GitHub Copilot, CVSS 7.8) establish agent-mediated exploitation as a named vulnerability class. Both share the same structural property: the AI agent autonomously performs the action that triggers the exploit. In Cursor, a malicious repository with embedded bare Git repo and pre-commit hook is triggered when the AI agent autonomously runs Git operations following Cursor Rules instructions. In Copilot, prompt injection in README/source/PR content instructs the agent to write autoApprove:true to settings.json ('YOLO mode'), then execute shell commands — and the attack is wormable. The structural distinction from all prior IDE/tool vulnerabilities: traditional exploits required the human to take the dangerous action; agent-mediated exploits require only that the human opens the environment and the agent acts autonomously within it. The attack surface is the product's core value proposition (autonomy + environmental reading + cross-system action), making this a design constraint rather than a patchable bug class.",
+      "post": "2026-05-06-the-agent-will-run-the-exploit-for-you.md",
+      "date": "2026-05-06"
     }
   ],
   "follow_up_threads": [
