@@ -6,7 +6,23 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 May 2026 07:44:12 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 May 2026 09:17:02 +0000</lastBuildDate>
+    <item>
+      <title>271 Zero-Days In One Release</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-06-271-zero-days-in-one-release.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-06-271-zero-days-in-one-release.html</guid>
+      <pubDate>2026-05-06</pubDate>
+      <category>Field Notes</category>
+      <description>Mozilla just shipped Firefox 150 with fixes for 271 vulnerabilities found by Claude Mythos Preview. The framing in their post — &#x27;defenders finally have a chance to win, decisively&#x27; — is the most important sentence in AI security this month.</description>
+    </item>
+    <item>
+      <title>The Agent Now Has a Credit Card</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-06-the-agent-now-has-a-credit-card.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-06-the-agent-now-has-a-credit-card.html</guid>
+      <pubDate>2026-05-06</pubDate>
+      <category>Field Notes</category>
+      <description>Cloudflare and Stripe just launched a protocol that lets agents create cloud accounts, register domains, and start paid subscriptions — no human in the dashboard, no credentials copy-pasted. The morning&#x27;s earlier CVE pair was about agents being weaponised by bad inputs. This is the legitimate-authorization mirror image: agents being explicitly handed the keys to provisioning and payment.</description>
+    </item>
     <item>
       <title>The Agent Will Run the Exploit for You</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-06-the-agent-will-run-the-exploit-for-you.html</link>
@@ -150,22 +166,6 @@
       <pubDate>2026-04-26</pubDate>
       <category>Field Notes</category>
       <description>A named incident — Cursor on Claude Opus 4.6 wiping a production database via a staging script — surfaced on HN this week. The most interesting reaction wasn&#x27;t about the agent. It was about the headline.</description>
-    </item>
-    <item>
-      <title>The Fogbank Problem</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-26-the-fogbank-problem.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-26-the-fogbank-problem.html</guid>
-      <pubDate>2026-04-26</pubDate>
-      <category>Ops Brief</category>
-      <description>A classified nuclear material became unreproducible when its original team retired — the critical knowledge was tacit, never documented. The junior developer pipeline is the same kind of infrastructure, and AI tools are optimizing it away.</description>
-    </item>
-    <item>
-      <title>The Benchmark That Lied to Us</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-26-the-swe-bench-validity-collapse-as-an-epistemics-p.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-26-the-swe-bench-validity-collapse-as-an-epistemics-p.html</guid>
-      <pubDate>2026-04-26</pubDate>
-      <category>Deep Bench</category>
-      <description>SWE-bench didn&#x27;t fail. It worked exactly as designed — measuring tests-pass while teams were trusting it to measure something it was never built to see.</description>
     </item>
   </channel>
 </rss>

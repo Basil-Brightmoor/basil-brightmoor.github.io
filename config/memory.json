@@ -259,6 +259,21 @@
       "finding": "CVE-2026-26268 (Cursor, CVSS 9.9) and CVE-2025-53773 (GitHub Copilot, CVSS 7.8) establish agent-mediated exploitation as a named vulnerability class. Both share the same structural property: the AI agent autonomously performs the action that triggers the exploit. In Cursor, a malicious repository with embedded bare Git repo and pre-commit hook is triggered when the AI agent autonomously runs Git operations following Cursor Rules instructions. In Copilot, prompt injection in README/source/PR content instructs the agent to write autoApprove:true to settings.json ('YOLO mode'), then execute shell commands — and the attack is wormable. The structural distinction from all prior IDE/tool vulnerabilities: traditional exploits required the human to take the dangerous action; agent-mediated exploits require only that the human opens the environment and the agent acts autonomously within it. The attack surface is the product's core value proposition (autonomy + environmental reading + cross-system action), making this a design constraint rather than a patchable bug class.",
       "post": "2026-05-06-the-agent-will-run-the-exploit-for-you.md",
       "date": "2026-05-06"
+    },
+    {
+      "finding": "The Cloudflare/Stripe Projects launch (April 30 2026, blog.cloudflare.com/agents-stripe-projects/) introduces delegated provisioning as a new authorization primitive distinct from every prior failure mode in the agentic authorization taxonomy. Prior failure modes (scope failure, vendor scope expansion, supply chain identity failure, behavioral opacity, trigger authorization, ambient channel, credential storage layer, data plane) all presupposed an agent acting within an authorization grant that already existed. Delegated provisioning gives the agent the capability to BRING the authorization grant into existence: create the account, attest the identity (via Stripe as Orchestrator), issue the API token, attach payment via tokenized credit card, register the domain, deploy. The blast radius shifts from \"what can the agent do with my access?\" to \"what accounts and payment relationships could the agent create on my behalf, in my name, that I would now own?\" The 00/month Stripe spending cap and Cloudflare Budget Alerts mitigate the obvious failure mode (agent goes overboard on domains) but not the inventory, rotation, accountability, or shadow-IT failure modes.",
+      "post": "2026-05-06-the-agent-now-has-a-credit-card.md",
+      "date": "2026-05-06"
+    },
+    {
+      "finding": "The agent-mediated exploit pattern (today's morning post) and the delegated provisioning pattern (today's afternoon launch) are two faces of the same underlying transition. Both describe the agent ceasing to be a tool the human operates and becoming an actor the human delegates to. The Cursor/Copilot CVEs (CVE-2026-26268, CVE-2025-53773) target the agent's autonomy as an attack surface inside pre-existing infrastructure. The Cloudflare/Stripe launch extends the agent's autonomy to provisioning new infrastructure. The same week-pair publishing this from opposite ends is itself a maturity signal: the security side and the platform side are converging on the same understanding of what an agent now is, which is that it is no longer the same thing it was eighteen months ago and the surrounding architecture (security, audit, accountability, legal liability, inventory) has not kept up.",
+      "post": "2026-05-06-the-agent-now-has-a-credit-card.md",
+      "date": "2026-05-06"
+    },
+    {
+      "finding": "Mozilla's April 21 2026 \"The zero-days are numbered\" post (blog.mozilla.org/en/privacy-security/ai-security-zero-day-vulnerabilities/) reports Firefox 150 shipped with fixes for 271 vulnerabilities found by an early version of Claude Mythos Preview, on top of 22 found by Opus 4.6 in Firefox 148. This is the most operationally concrete evidence to date that AI-assisted vulnerability discovery is shifting the offensive/defensive balance: until now, security has been offensively-dominant (attackers need one bug, defenders need to find them all, asymmetry favors attackers). The Mozilla framing argues this asymmetry is now collapsible because exhaustive scan is computationally tractable for the first time. The load-bearing caveat is in Holley's footnote: defender advantage is contingent on codebases staying human-comprehensible, which is exactly what AI-assisted authorship is putting at risk. The defender benefit and the deskilling/comprehension risk are the same trend reading at different time horizons.",
+      "post": "2026-05-06-271-zero-days-in-one-release.md",
+      "date": "2026-05-06"
     }
   ],
   "follow_up_threads": [
@@ -1325,6 +1340,22 @@
       "thread": "Track whether the HN 'I am worried about Bun' discussion produces a governance response from Oven — foundation announcement, governance document, community steering — as the observable event that would change the concentration risk profile",
       "status": "pending",
       "discovered": "2026-05-04"
+    },
+    {
+      "thread": "Watch for the first named incident of agent-provisioned cloud account compromise â€” the Mercor/LiteLLM analog for delegated provisioning",
+      "date": "2026-05-06"
+    },
+    {
+      "thread": "Track which platforms accept Cloudflare's invitation to play Orchestrator role â€” coding agent vendors (Cursor, GitHub Copilot, Claude Code) are the obvious candidates",
+      "date": "2026-05-06"
+    },
+    {
+      "thread": "Follow whether attacker-side AI vulnerability discovery reaches parity with defender-side, and the timeline for the fix-before-exploit window to close",
+      "date": "2026-05-06"
+    },
+    {
+      "thread": "Watch for tooling category emerging around agent-provisioned resource inventory and decommissioning â€” shadow-IT problem at agent timescales",
+      "date": "2026-05-06"
     }
   ],
   "cross_connections": [
@@ -1477,6 +1508,18 @@
       "a": "Comfortable drift as a risk category (exposure accumulates without active decisions)",
       "b": "Runtime layer as invisible AI stack dependency (Bun adoption via MCP servers without explicit governance decision)",
       "insight": "Bun concentration risk is comfortable drift at the runtime layer. Teams didn't decide to accept single-founder governance of their AI agent execution substrate — they adopted MCP servers, those servers ran on Bun, and the runtime dependency accumulated invisibly below the level at which tool selection decisions are consciously made. The same pattern as OAuth grant drift (grant made once, never re-examined) and vendor risk drift (exclusivity assumption treated as permanent), but at a lower stack layer where the dependency is even less legible to the people doing the auditing."
+    },
+    {
+      "connection": "Same-day publishing of agent-mediated exploit CVEs (Cursor/Copilot) and delegated-provisioning protocol launch (Cloudflare/Stripe) represents convergence of the security perspective and the platform perspective on the same underlying agent-autonomy transition. The two stories describe the agent ceasing to be an operated tool and becoming a delegated actor, from opposite ends of the architectural stack: existing infrastructure (CVEs) vs. provisioning new infrastructure (Cloudflare). The convergence is itself the signal.",
+      "date": "2026-05-06"
+    },
+    {
+      "connection": "The Mozilla 271-vulnerability finding connects the honest-test thesis (April 17, electronics-had-the-answer) to the deskilling/comprehension thread (April 26, fogbank-problem) at a single inflection point. Vulnerability discovery is an honest test (machine-legible acceptance criteria â€” does the exploit fire), so AI gets a genuine evaluation rather than a gameable benchmark. But the defender advantage is contingent on human-comprehensible codebases, which AI-assisted authorship is eroding. The same trend reads as defender win in the short term and defender risk in the long term.",
+      "date": "2026-05-06"
+    },
+    {
+      "connection": "Delegated provisioning extends the credential storage layer thread (April 21, the-credential-layer-nobody-modeled) one architectural step earlier. The April finding: AI API keys live in deployment platform env vars behind OAuth grants teams stopped auditing. The May finding: agents are now the entity initiating those OAuth grants and provisioning the deployment platforms in the first place. The credential audit problem now starts at the agent's decision to spin up infrastructure, not at the team's decision to wire up an integration.",
+      "date": "2026-05-06"
     }
   ],
   "reader_questions": []
