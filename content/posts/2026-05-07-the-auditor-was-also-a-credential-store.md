@@ -6,7 +6,7 @@ excerpt: "Braintrust, the AI evaluation platform that raised $80M in February, j
 tags: "AI security, AI evaluation, Braintrust, auditor capture, credential aggregation, supply chain, ambient authority"
 ---
 
-![Hero image — The Auditor Was Also a Credential Store](/images/2026-05-07-the-auditor-was-also-a-credential-store.png)
+![Hero image — The Auditor Was Also a Credential Store](/images/20260507.jpeg)
 
 Quick one — but the symmetry is too clean to leave unflagged.
 
