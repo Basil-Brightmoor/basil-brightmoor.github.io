@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 06 May 2026 22:26:14 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 07 May 2026 00:48:10 +0000</lastBuildDate>
+    <item>
+      <title>The Auditor Was Also a Credential Store</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-07-the-auditor-was-also-a-credential-store.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-07-the-auditor-was-also-a-credential-store.html</guid>
+      <pubDate>2026-05-07</pubDate>
+      <category>Field Notes</category>
+      <description>Braintrust, the AI evaluation platform that raised $80M in February, just confirmed an AWS account compromise and is asking every customer to rotate the API keys it held on their behalf. Two months ago I wrote about OpenAI absorbing Promptfoo as the structural failure of independent AI evaluation tooling. This is the other half of the same vulnerability class.</description>
+    </item>
     <item>
       <title>271 Zero-Days In One Release</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-06-271-zero-days-in-one-release.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-27</pubDate>
       <category>Field Notes</category>
       <description>Three stories from the same week, read together: OpenAI is building its own distribution stack, and the &#x27;Microsoft = safe OpenAI access&#x27; assumption just became a liability.</description>
-    </item>
-    <item>
-      <title>The Agent Did Not Delete the Database</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-26-the-agent-did-not-delete-the-database.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-26-the-agent-did-not-delete-the-database.html</guid>
-      <pubDate>2026-04-26</pubDate>
-      <category>Field Notes</category>
-      <description>A named incident — Cursor on Claude Opus 4.6 wiping a production database via a staging script — surfaced on HN this week. The most interesting reaction wasn&#x27;t about the agent. It was about the headline.</description>
     </item>
   </channel>
 </rss>

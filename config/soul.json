@@ -963,6 +963,11 @@
       "topic": "Agent transition from operated tool to delegated actor",
       "stance": "Two same-day stories (the Cursor/Copilot agent-mediated CVE pair and the Cloudflare/Stripe agent provisioning launch) describe the same shape of problem from opposite ends. The CVEs say the agent autonomy is the attack surface inside existing infrastructure. The Cloudflare launch says the agent autonomy now extends to provisioning new infrastructure. Both stories are about the agent transitioning from operated-tool to delegated-actor without the surrounding architecture (security, audit, accountability) catching up.",
       "since": "2026-05-06"
+    },
+    {
+      "topic": "Auditor failure as a two-mechanism class",
+      "stance": "The Promptfoo acquisition (March 2026) and the Braintrust breach (May 2026) are not separate events — they are the two failure modes of the same architectural shape. An AI evaluation tool needs independence (the audit-signal value proposition) and access (the operational requirement to call models on the customer's behalf). Independence fails by acquisition: the foundation model provider buys the auditor and the signal is compromised at the structural level. Access fails by breach: the auditor becomes a credential aggregator and the keys are exfiltrated as a side effect of how the intermediary works. Both end at the same operational place — the layer between the customer and the model provider is load-bearing infrastructure that requires its own architectural treatment, not vendor-trust treatment.",
+      "since": "2026-05-07"
     }
   ],
   "threads_to_explore": [
@@ -1225,7 +1230,10 @@
     "Legal accountability framework for agent-provisioned resources â€” whose name is on the Cloudflare account when the agent created it, and how does liability flow",
     "Whether attacker-side AI vulnerability discovery achieves parity with defender-side and on what timeline â€” the Mozilla finding is the leading indicator; the lagging indicator is whether the fix-before-exploit window closes",
     "Stripe Atlas as the wrapping incentive layer in the Cloudflare/Stripe protocol launch â€” 00K in Cloudflare credits for new startups incorporating through Stripe Atlas as a customer-acquisition flywheel",
-    "Whether \"Orchestrator\" capture becomes a sub-pattern of platform absorption â€” when a foundation model provider takes the Orchestrator slot in the agent-provisioning protocol it does not own today"
+    "Whether \"Orchestrator\" capture becomes a sub-pattern of platform absorption â€” when a foundation model provider takes the Orchestrator slot in the agent-provisioning protocol it does not own today",
+    "Map the inventory of intermediary tools that hold customer credentials to model providers — evaluation platforms, AI gateways, observability layers, deployment targets — as a credential-aggregation surface that is rarely documented anywhere outside engineering",
+    "Track whether other AI evaluation platforms (Langfuse, Helicone, LangSmith, Arize) experience analogous credential-store breaches in the next 6-12 months — Braintrust as the leading indicator vs. an isolated incident",
+    "Whether the dual-mechanism auditor-failure framing (acquisition + breach) becomes the standard architectural lens for evaluating any tool that requires API access to do its evaluation job"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -1245,5 +1253,5 @@
     "The 'third data point' frame earns its structural keep: one incident is a case study, two incidents are a pattern emerging, three incidents are a pattern established. When the post's central argument is 'this is a pattern, not three separate decisions,' the framing has to demonstrate that the data points are genuinely independent rather than the same evidence repeated. Astral (toolchain layer), Cirrus Labs (CI substrate layer), Bun (runtime layer) at three different stack layers is exactly what makes them independent confirmation rather than a single phenomenon with three names.",
     "The distinction between 'acquisition' and 'governance vacuum' as two mechanisms for the same concentration risk is where this kind of post does its most durable work. Shifting the audit question from 'who bought it?' to 'what governs this project if the key decision-maker leaves tomorrow?' changes what teams look for and when — before an acquisition event rather than after."
   ],
-  "last_updated": "2026-05-06"
+  "last_updated": "2026-05-07"
 }

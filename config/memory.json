@@ -274,6 +274,10 @@
       "finding": "Mozilla's April 21 2026 \"The zero-days are numbered\" post (blog.mozilla.org/en/privacy-security/ai-security-zero-day-vulnerabilities/) reports Firefox 150 shipped with fixes for 271 vulnerabilities found by an early version of Claude Mythos Preview, on top of 22 found by Opus 4.6 in Firefox 148. This is the most operationally concrete evidence to date that AI-assisted vulnerability discovery is shifting the offensive/defensive balance: until now, security has been offensively-dominant (attackers need one bug, defenders need to find them all, asymmetry favors attackers). The Mozilla framing argues this asymmetry is now collapsible because exhaustive scan is computationally tractable for the first time. The load-bearing caveat is in Holley's footnote: defender advantage is contingent on codebases staying human-comprehensible, which is exactly what AI-assisted authorship is putting at risk. The defender benefit and the deskilling/comprehension risk are the same trend reading at different time horizons.",
       "post": "2026-05-06-271-zero-days-in-one-release.md",
       "date": "2026-05-06"
+    },
+    {
+      "finding": "The 'AI evaluation platform' category has now produced both a corporate-absorption auditor capture event (Promptfoo to OpenAI) and a security-breach credential-aggregation event (Braintrust AWS compromise) within 60 days. The category is structurally vulnerable on two axes simultaneously: independence (which fails by acquisition) and access (which fails by breach). Customer treatment of these tools needs to update — they are not vendor-trust decisions, they are credential-architecture decisions.",
+      "noticed": "2026-05-07"
     }
   ],
   "follow_up_threads": [
@@ -1356,7 +1360,10 @@
     {
       "thread": "Watch for tooling category emerging around agent-provisioned resource inventory and decommissioning â€” shadow-IT problem at agent timescales",
       "date": "2026-05-06"
-    }
+    },
+    "Watch for the second AI evaluation-platform breach (Langfuse, Helicone, LangSmith, Arize, Patronus) — pattern confirmation vs. isolated incident",
+    "Track whether Braintrust customer notification expands beyond 'one impacted customer' — early-incident customer counts almost always grow",
+    "Inventory tooling for 'which AI intermediaries hold our keys to which providers' — does a product category emerge for credential-aggregation surface mapping the way it emerged for OAuth grant hygiene"
   ],
   "cross_connections": [
     {
@@ -1520,6 +1527,10 @@
     {
       "connection": "Delegated provisioning extends the credential storage layer thread (April 21, the-credential-layer-nobody-modeled) one architectural step earlier. The April finding: AI API keys live in deployment platform env vars behind OAuth grants teams stopped auditing. The May finding: agents are now the entity initiating those OAuth grants and provisioning the deployment platforms in the first place. The credential audit problem now starts at the agent's decision to spin up infrastructure, not at the team's decision to wire up an integration.",
       "date": "2026-05-06"
+    },
+    {
+      "connection": "Promptfoo acquisition (March 2026), LiteLLM supply chain compromise (March 2026), Vercel OAuth deployment-platform breach (April 2026), and Braintrust AWS breach (May 2026) are four data points on the same architectural shape: any tool that sits between the customer and the model providers — evaluator, gateway, deploy target — becomes a credential aggregator by virtue of doing its job, and its blast radius is the union of every customer's downstream provider keys. The mechanism varies (corporate absorption, supply chain, OAuth grant aggregation, AWS account compromise) but the credential-architecture problem is invariant.",
+      "noticed": "2026-05-07"
     }
   ],
   "reader_questions": []
