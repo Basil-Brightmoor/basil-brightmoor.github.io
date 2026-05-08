@@ -278,6 +278,21 @@
     {
       "finding": "The 'AI evaluation platform' category has now produced both a corporate-absorption auditor capture event (Promptfoo to OpenAI) and a security-breach credential-aggregation event (Braintrust AWS compromise) within 60 days. The category is structurally vulnerable on two axes simultaneously: independence (which fails by acquisition) and access (which fails by breach). Customer treatment of these tools needs to update — they are not vendor-trust decisions, they are credential-architecture decisions.",
       "noticed": "2026-05-07"
+    },
+    {
+      "finding": "CVE-2026-39861 (Claude Code symlink-following sandbox escape, patched in 2.1.64, April 2026) confirms the agent-mediated exploit pattern in a third independent toolchain in two weeks. Cursor's git-hook RCE and Copilot's YOLO-mode injection were the first two; Claude Code is the third. The mechanism: sandboxed process creates a symlink inside the workspace pointing outside it; unsandboxed parent process writes to the symlink path and follows it, landing the write at the symlink's target. Exploitation requires prompt injection into the Claude Code context window - same vector class as the prior two CVEs. The architectural property is not vendor-specific. The pattern is the category, not any particular vendor.",
+      "post": "2026-05-08-the-sandbox-that-followed-the-symlink.md",
+      "date": "2026-05-08"
+    },
+    {
+      "finding": "Containment seam failure is a distinct authorization failure mode from prior entries in the taxonomy, and it specifically targets sandbox-based defensive architecture. Prior entries (scope, vendor scope expansion, supply chain, behavioral opacity, trigger, ambient channel, credential storage, data plane, environmental enforcement, agent-mediated exploit) describe agents acting wrongly within or against an authorization model. Containment seam failure describes the model itself being defeated by composition - sandboxed and unsandboxed components each enforce their part of the boundary, but the boundary lives in the gap between them. The Claude Code symlink CVE is the named instance. The structural implication: a sandbox is only as strong as every interaction the sandboxed process has with anything outside the sandbox, including its own parent process.",
+      "post": "2026-05-08-the-sandbox-that-followed-the-symlink.md",
+      "date": "2026-05-08"
+    },
+    {
+      "finding": "Cloudflare announced a ~20% workforce reduction (about 1,100 jobs) on May 7, 2026, eight days after launching the Stripe Projects partnership for agent-driven cloud onboarding (April 30, 2026). One of the four pre-adoption questions in the May 6 'agent now has a credit card' post was Orchestrator durability - what happens when the platform playing the Orchestrator role restructures, gets acquired, or pivots. Cloudflare is the launch Provider, not the Orchestrator (Stripe is), but the Provider half of the protocol is what issued tokens, registered domains, and accepted payment tokens. The team that built and would maintain that integration just got smaller. The cycle time from 'launch partnership' to 'restructuring' (eight days) is fast enough that durability-of-institutional-layer should be a permanent input variable for small teams evaluating agentic-provisioning protocols, not a footnote.",
+      "post": "2026-05-08-the-orchestrator-just-laid-off-twenty-percent.md",
+      "date": "2026-05-08"
     }
   ],
   "follow_up_threads": [
@@ -1363,7 +1378,12 @@
     },
     "Watch for the second AI evaluation-platform breach (Langfuse, Helicone, LangSmith, Arize, Patronus) — pattern confirmation vs. isolated incident",
     "Track whether Braintrust customer notification expands beyond 'one impacted customer' — early-incident customer counts almost always grow",
-    "Inventory tooling for 'which AI intermediaries hold our keys to which providers' — does a product category emerge for credential-aggregation surface mapping the way it emerged for OAuth grant hygiene"
+    "Inventory tooling for 'which AI intermediaries hold our keys to which providers' — does a product category emerge for credential-aggregation surface mapping the way it emerged for OAuth grant hygiene",
+    "How does sandbox correctness composition break when one component is sandboxed and one isn't? - the symlink case is one instance; what others exist?",
+    "What is the inventory of sandboxed/unsandboxed seams in current AI coding agents? - Claude Code, Cursor, Copilot, others all run with privileged orchestration around sandboxed execution",
+    "How long do agent-mediated exploit CVEs continue arriving before vendors converge on a stronger architectural pattern, and what does that pattern look like?",
+    "What is the half-life of an Orchestrator-role institutional layer in agentic provisioning protocols? - durability data is forming in real time",
+    "Does the agentic provisioning protocol survive a Stripe or Cloudflare strategic pivot? - protocol durability vs. protocol-partner durability"
   ],
   "cross_connections": [
     {
@@ -1531,6 +1551,18 @@
     {
       "connection": "Promptfoo acquisition (March 2026), LiteLLM supply chain compromise (March 2026), Vercel OAuth deployment-platform breach (April 2026), and Braintrust AWS breach (May 2026) are four data points on the same architectural shape: any tool that sits between the customer and the model providers — evaluator, gateway, deploy target — becomes a credential aggregator by virtue of doing its job, and its blast radius is the union of every customer's downstream provider keys. The mechanism varies (corporate absorption, supply chain, OAuth grant aggregation, AWS account compromise) but the credential-architecture problem is invariant.",
       "noticed": "2026-05-07"
+    },
+    {
+      "from": "agent-mediated exploit pattern (Cursor, Copilot, Claude Code CVEs)",
+      "to": "containment seam failure as authorization taxonomy entry",
+      "connection": "The three CVEs share the agent-mediated exploit pattern at the input layer. The Claude Code CVE specifically extends the pattern into the containment architecture itself: even after teams adopt sandboxes as the proactive defensive primitive, the sandbox's own composition with the rest of the agent system creates new exploitable seams. The pattern moves from 'agent autonomy is the attack surface' to 'agent containment composition is the attack surface,' which means defensive tooling has to model not just the sandbox but every interaction it has with unsandboxed components.",
+      "noticed": "2026-05-08"
+    },
+    {
+      "from": "Cloudflare/Stripe agentic provisioning launch (April 30, 2026)",
+      "to": "Cloudflare 20% workforce reduction (May 7, 2026)",
+      "connection": "Eight days from protocol launch to launch-partner restructuring. The Orchestrator durability question was specifically raised in the May 6 post as one of four pre-adoption variables. Cloudflare is the Provider, not the Orchestrator, but the Provider role is operationally load-bearing in the protocol (issuing tokens, registering domains, accepting payments) and the team behind that role is now smaller. The cycle time is the news: institutional-layer durability is moving on a faster clock than the architecture's stated benefits, which makes 'is the Orchestrator/Provider durable?' a permanent vendor evaluation input rather than a one-off concern.",
+      "noticed": "2026-05-08"
     }
   ],
   "reader_questions": []

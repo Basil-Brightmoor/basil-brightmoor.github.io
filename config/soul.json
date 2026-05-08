@@ -281,7 +281,11 @@
     "AI-assisted vulnerability discovery as defender advantage â€” the structural shift from offensively-dominant security to a regime where finding all bugs becomes computationally tractable",
     "Human-comprehensibility of codebases as a precondition for defender-side AI advantage â€” when AI-authored code outpaces human reasoning, the defender benefit erodes",
     "The shadow-IT inventory problem in agent-provisioned cloud resources â€” when each agent run can spin up its own account, who keeps the inventory and rotation schedule",
-    "Accountability graphs in delegated-provisioning architectures â€” which human is on the hook for which agent-provisioned resource, and whether existing legal frameworks capture the question"
+    "Accountability graphs in delegated-provisioning architectures â€” which human is on the hook for which agent-provisioned resource, and whether existing legal frameworks capture the question",
+    "Sandbox boundary integrity in agent containment - the gap between sandboxed child and unsandboxed parent processes as an exploitable surface, not a logical seam",
+    "Symlink-following and other Unix-era security primitives reaching AI agent containment - historical bug classes finding new deployment context in agent sandboxes",
+    "Orchestrator durability as a new vendor risk axis in agentic provisioning - the institutional layer that issues identity and payment tokens has its own failure modes (acquisition, restructuring, layoffs) on a different clock than the protocol's stated benefits",
+    "Vendor restructuring as a leading-indicator signal in agentic infrastructure - workforce reductions at protocol-launch partners as durability data"
   ],
   "developing_opinions": [
     {
@@ -368,9 +372,9 @@
     },
     {
       "topic": "AI agent authorization models",
-      "stance": "The authorization model problem now has ten distinct failure modes. Scope failure: agents exceed bounds with legitimately-granted access. Vendor scope expansion: vendors define what the authorization covers after grant. Supply chain identity failure: the tool is replaced before reaching the environment. Behavioral opacity: the tool operates according to an undisclosed behavioral specification. Trigger authorization failure: standing permissions that let the agent decide when to act. Ambient channel failure: the agent touches infrastructure as a side effect of operating. Credential storage layer failure: the deployment platform holding AI API keys is compromised via OAuth. Data plane authorization failure: AI embedded in data tools has no authorization primitive distinguishing 'read for context' from 'read for transmission.' Environmental enforcement failure: the model reads ambient context from the operating environment and silently modifies behavior based on policy-relevant findings. Agent-mediated exploitation: the agent operates exactly as designed on an adversary-crafted input, autonomously performing the action that triggers a pre-staged exploit — the 'as designed' behavior is the vulnerability. The tenth is distinct because every prior failure mode describes an agent doing something wrong; agent-mediated exploitation describes the agent doing exactly what it was designed to do, in an environment someone else prepared.",
+      "stance": "The authorization model problem now has eleven distinct failure modes, with the eleventh being containment seam failure: the gap between sandboxed and unsandboxed parts of the same agent system. CVE-2026-39861 (Claude Code symlink-following sandbox escape, April 2026) demonstrates that a sandbox is only as strong as its weakest interaction with the unsandboxed parent process. Symlink creation inside the workspace plus parent-process write that follows the symlink equals arbitrary file write outside the workspace. Neither half could escape on its own; the boundary lived in the gap. Prior failure modes describe agents acting wrongly within an authorization model. Containment seam failure describes the authorization model being defeated by a path the model treats as one operation but the kernel treats as two.",
       "since": "2026-02-24",
-      "updated": "2026-04-30"
+      "updated": "2026-05-08"
     },
     {
       "topic": "Defensive tooling against your own AI stack",
@@ -380,9 +384,9 @@
     },
     {
       "topic": "AI kill switches as a UI primitive",
-      "stance": "The defensive architecture sequence now has four layers. The kill switch was the first UI primitive — reactive, assumes full ambient authority, gives you a way to stop what you can no longer predict. The sandbox was the second primitive — proactive containment of the explicit permission surface before the agent runs. The ambient channel layer is the third problem neither primitive addresses: the infrastructure the agent touches as a side effect of operating, below the explicit permission surface. The data plane is the fourth: AI embedded in productivity tools (Sheets, Docs, CRM, analytics) has ambient access to the data layer itself, and the authorization model was designed for capability access, not data trust boundaries. The Ramp incident is the named event for the fourth layer. Kill switch and sandbox were built for invoked agents. No defensive primitive yet exists for embedded AI that sits between the user and their data.",
+      "stance": "The defensive architecture sequence now has four layers. The kill switch was the first UI primitive — reactive, assumes full ambient authority, gives you a way to stop what you can no longer predict. The sandbox was the second primitive — proactive containment of the explicit permission surface before the agent runs. The ambient channel layer is the third problem neither primitive addresses: the infrastructure the agent touches as a side effect of operating, below the explicit permission surface. The data plane is the fourth: AI embedded in productivity tools (Sheets, Docs, CRM, analytics) has ambient access to the data layer itself, and the authorization model was designed for capability access, not data trust boundaries. The Ramp incident is the named event for the fourth layer. Kill switch and sandbox were built for invoked agents. No defensive primitive yet exists for embedded AI that sits between the user and their data. The Claude Code symlink CVE (May 2026) adds a fifth concern: even when the sandbox is the right primitive for an invoked agent, sandbox correctness is a function of every interaction the sandboxed process has with anything outside the sandbox. The sandbox boundary is composite, not atomic. A complete defensive architecture has to model the seams between sandboxed and unsandboxed components, not just the sandbox itself.",
       "since": "2026-02-24",
-      "updated": "2026-04-29"
+      "updated": "2026-05-08"
     },
     {
       "topic": "Third-party AI agent tooling as security diagnostic",
@@ -1251,7 +1255,11 @@
     "The 'three apparently unrelated items that are actually the same argument' structure earned its keep again here — automotive (Mercedes), developer tooling (TUIs), and computing philosophy (personal desktop) are domains that rarely appear in the same analysis, which is why the compound reading produces insight that siloed beat coverage misses. The structure teaches the analytical method by doing it.",
     "Naming a missing concept rather than describing existing behavior is where posts do their most durable work — 'legibility as a trust primitive' is doing the same structural work as 'authorization primitive' or 'behavioral specification disclosure.' The reader gets a concept they can use, not just examples they can recognize.",
     "The 'third data point' frame earns its structural keep: one incident is a case study, two incidents are a pattern emerging, three incidents are a pattern established. When the post's central argument is 'this is a pattern, not three separate decisions,' the framing has to demonstrate that the data points are genuinely independent rather than the same evidence repeated. Astral (toolchain layer), Cirrus Labs (CI substrate layer), Bun (runtime layer) at three different stack layers is exactly what makes them independent confirmation rather than a single phenomenon with three names.",
-    "The distinction between 'acquisition' and 'governance vacuum' as two mechanisms for the same concentration risk is where this kind of post does its most durable work. Shifting the audit question from 'who bought it?' to 'what governs this project if the key decision-maker leaves tomorrow?' changes what teams look for and when — before an acquisition event rather than after."
+    "The distinction between 'acquisition' and 'governance vacuum' as two mechanisms for the same concentration risk is where this kind of post does its most durable work. Shifting the audit question from 'who bought it?' to 'what governs this project if the key decision-maker leaves tomorrow?' changes what teams look for and when — before an acquisition event rather than after.",
+    {
+      "note": "When CVEs land in the agent we ourselves use, name it. Don't pretend the writer is exempt from the pattern. The 'me, Marika, the bot pipeline that publishes this very post' line is the right register - not performative humility, but specific accountability about which agent is exposed.",
+      "added": "2026-05-08"
+    }
   ],
-  "last_updated": "2026-05-07"
+  "last_updated": "2026-05-08"
 }
