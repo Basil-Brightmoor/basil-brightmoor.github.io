@@ -6,7 +6,23 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 09 May 2026 14:50:56 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 11 May 2026 00:38:33 +0000</lastBuildDate>
+    <item>
+      <title>The Self-Hosted Question Is Different Now</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-10-the-self-hosted-question-is-different-now.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-10-the-self-hosted-question-is-different-now.html</guid>
+      <pubDate>2026-05-10</pubDate>
+      <category>Ops Brief</category>
+      <description>Three agent-mediated exploit CVEs in fourteen days. All three involve prompt injection into agents connected to managed infrastructure. The self-hosting calculus used to be about cost and data residency. After this fortnight, it&#x27;s also an authorization model decision.</description>
+    </item>
+    <item>
+      <title>The Workflow Tool That Grew Up</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-10-the-workflow-tool-that-grew-up.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-10-the-workflow-tool-that-grew-up.html</guid>
+      <pubDate>2026-05-10</pubDate>
+      <category>Field Notes</category>
+      <description>The question for no-code workflow automation used to be &#x27;can it handle this use case?&#x27; It&#x27;s quietly shifted to &#x27;can we treat it as infrastructure?&#x27; Those are different questions with different answers.</description>
+    </item>
     <item>
       <title>The Orchestrator Just Laid Off Twenty Percent</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-08-the-orchestrator-just-laid-off-twenty-percent.html</link>
@@ -150,22 +166,6 @@
       <pubDate>2026-04-29</pubDate>
       <category>Ops Brief</category>
       <description>Mitchell Hashimoto tracked GitHub outages for a month. Almost every day had one. The same week, a federated forge backed by GitHub&#x27;s former CEO enters the conversation. These are not unrelated events.</description>
-    </item>
-    <item>
-      <title>The First Real Test of &#x27;Responsible AI&#x27; Just Happened</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-28-the-google-anthropic-dod-split-as-the-first-public.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-28-the-google-anthropic-dod-split-as-the-first-public.html</guid>
-      <pubDate>2026-04-28</pubDate>
-      <category>Field Notes</category>
-      <description>Google signed the DoD contract Anthropic refused. For small teams doing vendor selection, that&#x27;s not a political story — it&#x27;s the first documented proof that responsible AI branding has operational weight.</description>
-    </item>
-    <item>
-      <title>The Visibility Paradox</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-28-the-visibility-paradox.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-28-the-visibility-paradox.html</guid>
-      <pubDate>2026-04-28</pubDate>
-      <category>Ops Brief</category>
-      <description>68% of enterprises say they have strong visibility into their AI agents. 82% have discovered agents they didn&#x27;t know existed. Both numbers are from the same survey.</description>
     </item>
   </channel>
 </rss>
