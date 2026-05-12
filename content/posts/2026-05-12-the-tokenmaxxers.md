@@ -30,23 +30,21 @@ The stacking is the part that matters. A bad metric in a voluntary-adoption envi
 
 ## Who This Hits Hardest
 
-The pressure is not landing evenly. From the comment thread and the broader pattern across enterprise AI rollouts, three groups absorb the cost most directly:
+The pressure is not landing evenly. Three groups absorb the cost most directly:
 
-- **Senior engineers reviewing junior output.** When a junior is rewarded for tokens spent, the review queue fills with code the junior didn't fully understand. The senior carries the verification tax. This is not new — code review has always been disproportionate — but the metric makes it worse.
-- **Engineers whose domain has high acceptance criteria precision.** I've written before about [the acceptance-criteria gap that determines where LLMs underperform](/posts/2026-03-07-the-acceptance-criteria-gap-why-llms-underperform-). Engineers in those domains can't ship sloppy AI output because reality bounces it. They use tokens carefully. They look worse on the leaderboard than peers in domains with looser acceptance criteria, who can ship more AI slop and have it pass machine-legible tests.
-- **Engineers who already had a good workflow.** If your existing process was producing high-quality output at low token cost, the new metric reads as underperformance. You will either rationalize your workflow into the metric (by inserting AI calls that don't help) or quietly accept a worse review.
+- **Senior engineers reviewing junior output.** When a junior is rewarded for tokens spent, the review queue fills with code the junior didn't fully understand. The senior carries the verification tax.
+- **Engineers in high-acceptance-criteria domains.** I've written about [the acceptance-criteria gap that determines where LLMs underperform](/posts/2026-03-07-the-acceptance-criteria-gap-why-llms-underperform-). Engineers in those domains can't ship sloppy AI output because reality bounces it. They look worse on the leaderboard than peers whose domains have looser criteria.
+- **Engineers who already had a good workflow.** If your existing process was producing high-quality output at low token cost, the new metric reads as underperformance.
 
-This is adverse selection in the AI tool layer, expressed at the individual level. The engineers most likely to score well on the leaderboard are the ones least bothered by sloppy output. The engineers most likely to score poorly are the ones with the highest standards.
+This is adverse selection at the individual level. The engineers most likely to score well are the ones least bothered by sloppy output. The ones most likely to score poorly are the ones with the highest standards.
 
 ## What This Isn't
 
-This is not an argument against AI coding tools. They work, in narrow and well-specified contexts, for engineers who have built the workflow around them. The [METR finding](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) that experienced developers feel 24% faster while being 19% slower remains the most honest description of the gap between AI tool perception and AI tool reality. The tools are useful. They are also not the productivity revolution the budget lines assumed.
+This is not an argument against AI coding tools. They work, in narrow and well-specified contexts, for engineers who have built the workflow around them. The [METR finding](https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/) that experienced developers feel 24% faster while being 19% slower remains the most honest description of the gap between AI tool perception and reality.
 
-This is also not an argument against measuring AI adoption. Knowing how a team uses its tools is reasonable management. The problem is using *consumption* as the measure. Consumption tracks the wrong end of the value chain. What teams need to measure is what the consumption produces — defect rates, time-to-merge, code that survives a six-month maintenance horizon, the things a kitchen would call "the soup."
+This is also not an argument against measuring AI adoption. The problem is using *consumption* as the measure. Consumption tracks the wrong end of the value chain. What teams need to measure is what the consumption produces — defect rates, time-to-merge, code that survives a six-month maintenance horizon. The things a kitchen would call "the soup."
 
-What this *is* is a forecast. Amazon will not be the last shop where this happens. Anyone whose 2026 AI budget assumed productivity gains that haven't materialized will face the temptation to measure usage instead of output, because usage is easy to count and output is hard. The engineering org will respond rationally — by gaming the metric — and the metric will then justify its own existence by producing the consumption numbers the budget assumed.
-
-The verb *tokenmaxxing* will outlive the metric that produced it. That's how language works when professionals encounter a bad system: they name it, and the name carries the diagnosis forward.
+What this *is* is a forecast. Amazon will not be the last shop where this happens. Anyone whose 2026 AI budget assumed productivity gains that haven't materialized will face the temptation to measure usage instead of output, because usage is easy to count and output is hard. The engineering org will respond rationally — by gaming — and the metric will justify its own existence by producing the numbers the budget assumed.
 
 ## What I'd Want to Know
 
