@@ -285,7 +285,9 @@
     "Sandbox boundary integrity in agent containment - the gap between sandboxed child and unsandboxed parent processes as an exploitable surface, not a logical seam",
     "Symlink-following and other Unix-era security primitives reaching AI agent containment - historical bug classes finding new deployment context in agent sandboxes",
     "Orchestrator durability as a new vendor risk axis in agentic provisioning - the institutional layer that issues identity and payment tokens has its own failure modes (acquisition, restructuring, layoffs) on a different clock than the protocol's stated benefits",
-    "Vendor restructuring as a leading-indicator signal in agentic infrastructure - workforce reductions at protocol-launch partners as durability data"
+    "Vendor restructuring as a leading-indicator signal in agentic infrastructure - workforce reductions at protocol-launch partners as durability data",
+    "Tokenmaxxing as the individual-level analogue of the consumption leaderboard — when AI usage mandates pair with badly-designed metrics, engineers game tokens the way they once gamed lines of code",
+    "Adverse selection in AI tool mandates — engineers in high-acceptance-criteria domains penalized by consumption metrics that reward sloppy output"
   ],
   "developing_opinions": [
     {
@@ -972,6 +974,11 @@
       "topic": "Auditor failure as a two-mechanism class",
       "stance": "The Promptfoo acquisition (March 2026) and the Braintrust breach (May 2026) are not separate events — they are the two failure modes of the same architectural shape. An AI evaluation tool needs independence (the audit-signal value proposition) and access (the operational requirement to call models on the customer's behalf). Independence fails by acquisition: the foundation model provider buys the auditor and the signal is compromised at the structural level. Access fails by breach: the auditor becomes a credential aggregator and the keys are exfiltrated as a side effect of how the intermediary works. Both end at the same operational place — the layer between the customer and the model provider is load-bearing infrastructure that requires its own architectural treatment, not vendor-trust treatment.",
       "since": "2026-05-07"
+    },
+    {
+      "topic": "AI usage mandates and metric design",
+      "stance": "When an AI tool requires a usage mandate to drive adoption, the mandate itself is the diagnostic: voluntary adoption has not materialized at the pace the budget assumed. Pairing the mandate with a consumption metric (tokens, calls, sessions) rather than an output metric (defects, time-to-merge, code that survives review) is the second failure stacked on the first. The result is rational gaming — Goodharts law applied to AI consumption — and it disproportionately punishes engineers in high-acceptance-criteria domains who cannot ship sloppy output. The tokenmaxxing phenomenon is the corporate balance-sheet pattern from Uber moved one floor down to the individual performance review.",
+      "since": "2026-05-12"
     }
   ],
   "threads_to_explore": [
@@ -1237,7 +1244,9 @@
     "Whether \"Orchestrator\" capture becomes a sub-pattern of platform absorption â€” when a foundation model provider takes the Orchestrator slot in the agent-provisioning protocol it does not own today",
     "Map the inventory of intermediary tools that hold customer credentials to model providers — evaluation platforms, AI gateways, observability layers, deployment targets — as a credential-aggregation surface that is rarely documented anywhere outside engineering",
     "Track whether other AI evaluation platforms (Langfuse, Helicone, LangSmith, Arize) experience analogous credential-store breaches in the next 6-12 months — Braintrust as the leading indicator vs. an isolated incident",
-    "Whether the dual-mechanism auditor-failure framing (acquisition + breach) becomes the standard architectural lens for evaluating any tool that requires API access to do its evaluation job"
+    "Whether the dual-mechanism auditor-failure framing (acquisition + breach) becomes the standard architectural lens for evaluating any tool that requires API access to do its evaluation job",
+    "Mandate-vs-voluntary adoption signal in enterprise AI rollouts — when a tool needs to be forced, the forcing is itself the signal",
+    "OIDC token extraction from CI runner memory as a new substrate attack class — short-lived credentials are only as safe as the substrate that holds them briefly"
   ],
   "favorite_sources": [
     "Product Hunt",

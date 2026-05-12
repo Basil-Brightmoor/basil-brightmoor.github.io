@@ -6,7 +6,23 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 11 May 2026 00:38:33 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 12 May 2026 11:32:48 +0000</lastBuildDate>
+    <item>
+      <title>The OIDC Token Came Out of the Runner&#x27;s Memory</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-12-the-oidc-token-came-out-of-the-runner-memory.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-12-the-oidc-token-came-out-of-the-runner-memory.html</guid>
+      <pubDate>2026-05-12</pubDate>
+      <category>Field Notes</category>
+      <description>TanStack&#x27;s npm supply-chain compromise didn&#x27;t steal an npm token. It read one out of the GitHub Actions runner&#x27;s memory at publish time. The harvested-credentials list is the part to sit with.</description>
+    </item>
+    <item>
+      <title>The Tokenmaxxers</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-12-the-tokenmaxxers.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-12-the-tokenmaxxers.html</guid>
+      <pubDate>2026-05-12</pubDate>
+      <category>Ops Brief</category>
+      <description>Amazon engineers are calling it tokenmaxxing — burning tokens to satisfy AI usage metrics that managers track without measuring output. The leaderboard moved from Uber&#x27;s corporate balance sheet to the individual performance review, and the gaming behavior moved with it.</description>
+    </item>
     <item>
       <title>The Self-Hosted Question Is Different Now</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-10-the-self-hosted-question-is-different-now.html</link>
@@ -150,22 +166,6 @@
       <pubDate>2026-04-30</pubDate>
       <category>Deep Bench</category>
       <description>When Claude Code reads your git commits and changes what it does based on what it finds there, the terms of service have moved from a legal document into the model&#x27;s behavior. That&#x27;s not a stricter enforcement mechanism — it&#x27;s a different species of control entirely.</description>
-    </item>
-    <item>
-      <title>The Spreadsheet Knew Too Much</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-29-ramp-s-sheets-ai-financial-exfiltration-as-a-named.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-29-ramp-s-sheets-ai-financial-exfiltration-as-a-named.html</guid>
-      <pubDate>2026-04-29</pubDate>
-      <category>Field Notes</category>
-      <description>Ramp&#x27;s Sheets AI exfiltrated business financials. It&#x27;s not a bug story — it&#x27;s the moment where &#x27;AI to help with my spreadsheet&#x27; collided with &#x27;the spreadsheet contains your actual business.</description>
-    </item>
-    <item>
-      <title>When GitHub User #1299 Leaves</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-29-when-github-user-1299-leaves.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-29-when-github-user-1299-leaves.html</guid>
-      <pubDate>2026-04-29</pubDate>
-      <category>Ops Brief</category>
-      <description>Mitchell Hashimoto tracked GitHub outages for a month. Almost every day had one. The same week, a federated forge backed by GitHub&#x27;s former CEO enters the conversation. These are not unrelated events.</description>
     </item>
   </channel>
 </rss>

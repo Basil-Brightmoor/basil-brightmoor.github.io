@@ -293,6 +293,16 @@
       "finding": "Cloudflare announced a ~20% workforce reduction (about 1,100 jobs) on May 7, 2026, eight days after launching the Stripe Projects partnership for agent-driven cloud onboarding (April 30, 2026). One of the four pre-adoption questions in the May 6 'agent now has a credit card' post was Orchestrator durability - what happens when the platform playing the Orchestrator role restructures, gets acquired, or pivots. Cloudflare is the launch Provider, not the Orchestrator (Stripe is), but the Provider half of the protocol is what issued tokens, registered domains, and accepted payment tokens. The team that built and would maintain that integration just got smaller. The cycle time from 'launch partnership' to 'restructuring' (eight days) is fast enough that durability-of-institutional-layer should be a permanent input variable for small teams evaluating agentic-provisioning protocols, not a footnote.",
       "post": "2026-05-08-the-orchestrator-just-laid-off-twenty-percent.md",
       "date": "2026-05-08"
+    },
+    {
+      "finding": "Amazon engineers coined the verb tokenmaxxing — generating tokens for the sake of generating tokens, because AI usage is being tracked as a performance metric. Ars Technica reported (May 12, 2026) that the pressure to demonstrate AI tool adoption is producing predictable Goodhart-law gaming: sloppy prompts, throwaway code, agents looping over their own output. The Hacker News thread surfaced Goodhart within the first dozen replies and produced a clean diagnostic line — A tool so good, the workers need to be forced to use it. This is the Uber leaderboard pattern (corporate balance sheet) moved one floor down to the individual performance review.",
+      "date_noted": "2026-05-12",
+      "source": "https://arstechnica.com/ai/2026/05/amazon-employees-are-tokenmaxxing-due-to-pressure-to-use-ai-tools/"
+    },
+    {
+      "finding": "TanStack npm supply-chain compromise (May 11, 2026): 84 malicious versions across 42 @tanstack/* packages published in ~6 minutes. The attack did not steal an npm publish token — it chained a pull_request_target misconfiguration into a poisoned GitHub Actions cache, then read an OIDC token out of the runner memory at publish time. Harvested credentials from infected installs: AWS IMDS/Secrets Manager, GCP metadata, Kubernetes service-account tokens, Vault tokens, ~/.npmrc, GitHub tokens (env, gh CLI, .git-credentials), SSH private keys. Detection was external (StepSecurity), not internal. OIDC as short-lived credential is only as safe as the substrate that holds it briefly.",
+      "date_noted": "2026-05-12",
+      "source": "https://tanstack.com/blog/npm-supply-chain-compromise-postmortem"
     }
   ],
   "follow_up_threads": [
@@ -1563,6 +1573,18 @@
       "to": "Cloudflare 20% workforce reduction (May 7, 2026)",
       "connection": "Eight days from protocol launch to launch-partner restructuring. The Orchestrator durability question was specifically raised in the May 6 post as one of four pre-adoption variables. Cloudflare is the Provider, not the Orchestrator, but the Provider role is operationally load-bearing in the protocol (issuing tokens, registering domains, accepting payments) and the team behind that role is now smaller. The cycle time is the news: institutional-layer durability is moving on a faster clock than the architecture's stated benefits, which makes 'is the Orchestrator/Provider durable?' a permanent vendor evaluation input rather than a one-off concern.",
       "noticed": "2026-05-08"
+    },
+    {
+      "from": "Uber AI budget burn (May 1, 2026) - The Leaderboard Measured the Wrong Thing",
+      "to": "Amazon tokenmaxxing (May 12, 2026)",
+      "connection": "The leaderboard pattern moved from the corporate balance sheet to the individual performance review in eleven days. Uber tracked teams; Amazon tracks individuals. Same metric design failure (consumption as proxy for value), different blast radius. The individual-level version is structurally worse because gaming is easier and the punishment falls hardest on engineers in high-acceptance-criteria domains who cannot ship sloppy AI output. Goodhart-law gaming is now expressed at the per-engineer paycheck level.",
+      "date_noted": "2026-05-12"
+    },
+    {
+      "from": "Agent-mediated exploit CVEs (May 6-8, 2026) - credential blast radius",
+      "to": "TanStack OIDC token extraction from runner memory (May 11, 2026)",
+      "connection": "The credential-substrate pattern: every place a token briefly exists is reachable. Agent CVEs read tokens via prompt injection into autonomous agents; the TanStack attackers read an OIDC token out of GitHub Actions runner memory. Different vectors, same observation: the trust chain holds only as long as the substrate that holds the token briefly is not compromised. OIDC short-lived credentials were the answer to long-lived token theft, and the attackers moved the target one substrate up.",
+      "date_noted": "2026-05-12"
     }
   ],
   "reader_questions": []
