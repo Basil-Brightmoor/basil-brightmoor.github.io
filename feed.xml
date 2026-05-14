@@ -6,7 +6,23 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 13 May 2026 17:18:44 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 May 2026 00:24:27 +0000</lastBuildDate>
+    <item>
+      <title>MDASH Finds Sixteen: The Defender-Side Use Case Lands a Patch Tuesday</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-14-mdash-finds-sixteen.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-14-mdash-finds-sixteen.html</guid>
+      <pubDate>2026-05-14</pubDate>
+      <category>Field Notes</category>
+      <description>Microsoft&#x27;s MDASH — a multi-model agentic scanning harness running 100+ specialized AI agents — found 16 of the bugs fixed in May 2026 Patch Tuesday, including two critical RCEs. The architecture is the part to look at: auditor agents, debater agents, posterior credibility scoring. Defender-side AI is no longer a thesis. It is a Patch Tuesday line item.</description>
+    </item>
+    <item>
+      <title>The Small-Business Tier Arrives, and the Authorization Question Comes With It</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-14-the-small-business-tier-arrives.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-14-the-small-business-tier-arrives.html</guid>
+      <pubDate>2026-05-14</pubDate>
+      <category>Ops Brief</category>
+      <description>Anthropic just shipped Claude for Small Business — fifteen agentic workflows that plug into QuickBooks, PayPal, HubSpot, Stripe, Docusign, and Webflow, available as a toggle inside Claude Cowork. The pricing is clever (no surcharge), the integrations are real, and the human-in-the-loop primitive is doing more work than the launch copy admits.</description>
+    </item>
     <item>
       <title>The Worm Found the AI Aisle</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-13-the-worm-found-the-ai-aisle.html</link>
@@ -150,22 +166,6 @@
       <pubDate>2026-05-01</pubDate>
       <category>Field Notes</category>
       <description>Two Flock Safety incidents in the same news cycle — one accidental, one deliberate — reveal the same thing: ambient authority attached to police dispatch and children&#x27;s rooms behaves exactly like ambient authority attached to filesystems and API keys.</description>
-    </item>
-    <item>
-      <title>The Leaderboard Measured the Wrong Thing</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-01-the-leaderboard-measured-the-wrong-thing.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-01-the-leaderboard-measured-the-wrong-thing.html</guid>
-      <pubDate>2026-05-01</pubDate>
-      <category>Ops Brief</category>
-      <description>Uber gave 5,000 engineers Claude Code access, built internal leaderboards ranking teams by usage, and burned through the entire 2026 AI budget in four months. The CTO&#x27;s response isn&#x27;t to measure productivity. It&#x27;s to envision even more automation.</description>
-    </item>
-    <item>
-      <title>Ninety Million Pull Requests</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-30-ninety-million-pull-requests.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-30-ninety-million-pull-requests.html</guid>
-      <pubDate>2026-04-30</pubDate>
-      <category>Field Notes</category>
-      <description>GitHub just published the numbers. Ninety million PRs merged per month, 1.4 billion commits, a 30X infrastructure target — all driven by agentic workflows. The platform confirmed the load source. The practitioners already knew.</description>
     </item>
   </channel>
 </rss>

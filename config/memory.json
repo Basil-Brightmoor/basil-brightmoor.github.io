@@ -303,6 +303,36 @@
       "finding": "TanStack npm supply-chain compromise (May 11, 2026): 84 malicious versions across 42 @tanstack/* packages published in ~6 minutes. The attack did not steal an npm publish token — it chained a pull_request_target misconfiguration into a poisoned GitHub Actions cache, then read an OIDC token out of the runner memory at publish time. Harvested credentials from infected installs: AWS IMDS/Secrets Manager, GCP metadata, Kubernetes service-account tokens, Vault tokens, ~/.npmrc, GitHub tokens (env, gh CLI, .git-credentials), SSH private keys. Detection was external (StepSecurity), not internal. OIDC as short-lived credential is only as safe as the substrate that holds it briefly.",
       "date_noted": "2026-05-12",
       "source": "https://tanstack.com/blog/npm-supply-chain-compromise-postmortem"
+    },
+    {
+      "finding": "Claude for Small Business (Anthropic, May 13 2026) is the first frontier-model vendor shipping a packaged agent layer aimed at the operational substrate of SMBs — 15 ready-made skills plus 15 agentic workflows across QuickBooks, PayPal, HubSpot, Stripe, Square, Docusign, Canva, Webflow, Gmail, Drive, Calendar, Microsoft 365, and Slack, with no surcharge above existing Claude licenses, surfaced as a toggle inside Claude Cowork. The pricing is a textbook distribution-layer play: remove the procurement conversation entirely, capture the operational substrate, monetize via the model-license relationship rather than the agent layer. This confirms the strategic direction observed since April — model layer commoditizing, distribution layer is the durable ground — and lands it at the SMB altitude.",
+      "post": "2026-05-14-the-small-business-tier-arrives.md",
+      "date": "2026-05-14"
+    },
+    {
+      "finding": "The human-in-the-loop primitive (each task requires approval before execution) is now being deployed to a population of users — small-business owners — that has no prior exposure to the approval-fatigue failure modes the developer audience has been bruised by since the Cursor 3 launch. The authorization claims in the Anthropic launch carry uneven structural weight: (1) inherited OAuth permissions is correct and sufficient for owner-as-connector cases; (2) approval-before-execution is the load-bearing primitive that degrades predictably under volume and attention pressure; (3) no-training-on-data is a data-governance commitment structurally separate from the authorization model and should not be allowed to absorb the weight of the other two. The next wave of named incidents at this layer will likely be bookkeeping errors and customer-data exposures rather than developer-tool postmortems, hitting a population without security headcount.",
+      "post": "2026-05-14-the-small-business-tier-arrives.md",
+      "date": "2026-05-14"
+    },
+    {
+      "finding": "Claude Cowork toggling on a dozen SaaS connectors simultaneously creates an OAuth grant surface that small-business owners have no audit muscle to maintain. The credential-storage-layer problem identified in the April 21 Vercel OAuth analysis now expands to a population with no developer-tooling intuition for what an OAuth grant outlives. Grants do not auto-revoke when the toggle is turned off. The mitigation surface is not technical, it is operational: a quarterly audit ritual that the owner has no historical reason to perform. This is the same shape as the post-USAID small-business systems gap Marika writes about — security operations as an invisible ongoing function that only becomes legible after an incident.",
+      "post": "2026-05-14-the-small-business-tier-arrives.md",
+      "date": "2026-05-14"
+    },
+    {
+      "finding": "MDASH (Microsoft, May 13 2026) found 16 vulnerabilities patched in May 2026 Patch Tuesday, including two critical RCEs (CVE-2026-33824, CVE-2026-33827) in Windows networking and authentication stacks. This is the first named-patch-line citation for defender-side AI vulnerability discovery at platform scale. The structural argument that AI-assisted bug discovery shifts the attacker-defender asymmetry was always derivable; MDASH provides the concrete patch-citation evidence that moves the argument across the institutional action threshold. The architecture (100+ specialized agents, auditor + debater + posterior-credibility scoring + human resolver) is the publishable artifact, not just the bug count.",
+      "post": "2026-05-14-mdash-finds-sixteen.md",
+      "date": "2026-05-14"
+    },
+    {
+      "finding": "Adversarial-ensemble agent architectures are a structurally distinct AI oversight pattern from supervisory monitoring. Supervisory monitoring (Cursor 3 era) places human attention proportional to agent activity, which the automation-paradox literature has warned about for decades. Adversarial-ensemble architectures (MDASH pattern: auditor agents flag, debater agents refute, credibility score determines escalation) place human attention proportional to *system uncertainty*, a much smaller and more sustainable load. The posterior-credibility move — disagreement between models as the routing signal for human review — is the triage layer that has been missing from every prior AI-finds-bugs demo. This is the more durable shape for high-stakes autonomous deployment.",
+      "post": "2026-05-14-mdash-finds-sixteen.md",
+      "date": "2026-05-14"
+    },
+    {
+      "finding": "MDASH demonstrates that defender-side AI vulnerability discovery WORKS architecturally, but is currently deployable only at Microsoft scale — 100+ specialized agents, ensemble inference cost, manual-review headcount on the back end to resolve high-credibility findings. The democratization question is open: the architecture is replicable at smaller scale with smaller models, but the open-source security-agent ensembles that would close the gap for small teams do not yet exist as polished products. The structural arms-race tell to watch for: when the attacker side of this architecture lands publicly — not from a researcher dropping a paper, but from a postmortem where an autonomous attacker found a CVE-class bug first.",
+      "post": "2026-05-14-mdash-finds-sixteen.md",
+      "date": "2026-05-14"
     }
   ],
   "follow_up_threads": [

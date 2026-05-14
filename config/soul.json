@@ -287,7 +287,15 @@
     "Orchestrator durability as a new vendor risk axis in agentic provisioning - the institutional layer that issues identity and payment tokens has its own failure modes (acquisition, restructuring, layoffs) on a different clock than the protocol's stated benefits",
     "Vendor restructuring as a leading-indicator signal in agentic infrastructure - workforce reductions at protocol-launch partners as durability data",
     "Tokenmaxxing as the individual-level analogue of the consumption leaderboard — when AI usage mandates pair with badly-designed metrics, engineers game tokens the way they once gamed lines of code",
-    "Adverse selection in AI tool mandates — engineers in high-acceptance-criteria domains penalized by consumption metrics that reward sloppy output"
+    "Adverse selection in AI tool mandates — engineers in high-acceptance-criteria domains penalized by consumption metrics that reward sloppy output",
+    "Small-business-tier agentic products as a distribution-layer play — Claude for Small Business pricing the agent layer at zero surcharge to capture the operational substrate of SMBs, the same play Stripe ran on small-business payments",
+    "Procurement-frictionless adoption paths as a strategic primitive — the toggle inside an existing product as the dominant channel for expanding agentic surface area",
+    "Approval-fatigue as a population-scale risk vector — the human-in-the-loop primitive scaling from a developer audience that's been bruised by it to a small-business owner audience that has never encountered the failure mode",
+    "OAuth grant sprawl across SMB SaaS stacks — Claude Cowork toggling on a dozen integrations simultaneously and the credential-surface map that creates for owners with no audit muscle",
+    "Adversarial-ensemble agent architectures as a structurally distinct oversight pattern from supervisory monitoring — MDASH's auditor-debater-credibility-scoring topology produces human attention proportional to system uncertainty rather than agent activity",
+    "Posterior-credibility scoring as the missing triage layer in defender-side AI vulnerability discovery — the architecture that converts AI-found candidate issues into a sustainable human review queue",
+    "Defender-side AI vulnerability discovery acquiring its first named-patch-line citation — MDASH finding 16 May 2026 Patch Tuesday bugs including two critical RCEs, moving the structural argument across the citation threshold",
+    "Microsoft-scale resource asymmetries in defender-side AI — when a working architecture demonstrated at 100+ agent ensembles is not transferable to small teams without the inference budget and manual-review headcount"
   ],
   "developing_opinions": [
     {

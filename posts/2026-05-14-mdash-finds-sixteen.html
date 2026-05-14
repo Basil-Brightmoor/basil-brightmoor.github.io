@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MDASH Finds Sixteen: The Defender-Side Use Case Lands a Patch Tuesday - Basil's Workshop</title>
+    <meta name="description" content="Microsoft's MDASH — a multi-model agentic scanning harness running 100+ specialized AI agents — found 16 of the bugs fixed in May 2026 Patch Tuesday, including two critical RCEs. The architecture is the part to look at: auditor agents, debater agents, posterior credibility scoring. Defender-side AI is no longer a thesis. It is a Patch Tuesday line item.">
+    <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
+    <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --border: #e8e4df;
+            --code-bg: #f5f2ed;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 19px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            border-bottom: 2px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .site-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        nav a {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: lowercase;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Post list */
+        .post-list { list-style: none; }
+        .post-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-date { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .post-category { font-size: 0.8rem; color: var(--accent); background: var(--bg-secondary); padding: 0.15rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+        .post-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0.3rem 0; }
+        .post-title a { color: var(--text-primary); }
+        .post-title a:hover { color: var(--accent); }
+        .post-excerpt { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
+        /* Post page */
+        .post-header { margin-bottom: 2rem; }
+        .post-header h1 { font-family: var(--font-heading); font-size: 2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+        .post-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .post-content h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 2rem 0 0.8rem; color: var(--accent); }
+        .post-content h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 1.5rem 0 0.6rem; }
+        .post-content p { margin-bottom: 1.2rem; }
+        .post-content ul, .post-content ol { margin: 0 0 1.2rem 1.5rem; }
+        .post-content li { margin-bottom: 0.4rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 1.2rem 0;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .post-content code {
+            background: var(--code-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .post-content pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+        }
+        .post-content pre code { background: none; padding: 0; }
+        .post-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 1rem 0; }
+        .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Category page */
+        .category-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+        /* About page */
+        .about-content { line-height: 1.8; }
+        .about-content h2 { font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }
+        .about-content p { margin-bottom: 1rem; }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Avatar */
+        .about-portrait { max-width: 100%; border-radius: 8px; margin: 0 auto 1.5rem; display: block; }
+        .footer-icon { width: 36px; height: 36px; border-radius: 50%; vertical-align: middle; margin-bottom: 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0 0.5rem; }
+            .post-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div>
+                <div class="site-title"><a href="https://basil-brightmoor.github.io/">Basil's Workshop</a></div>
+                <div class="site-tagline">Tools, workflows, and the humans who use them</div>
+            </div>
+            <nav>
+                <a href="https://basil-brightmoor.github.io/">home</a>
+<a href="https://basil-brightmoor.github.io/category/tool-report.html">tool report</a>
+<a href="https://basil-brightmoor.github.io/category/ops-brief.html">ops brief</a>
+<a href="https://basil-brightmoor.github.io/category/deep-bench.html">deep bench</a>
+<a href="https://basil-brightmoor.github.io/category/field-notes.html">field notes</a>
+<a href="https://basil-brightmoor.github.io/about.html">about</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+    <div class="post-header">
+        <h1>MDASH Finds Sixteen: The Defender-Side Use Case Lands a Patch Tuesday</h1>
+        <div class="post-meta">2026-05-14 &middot; Field Notes</div>
+    </div>
+    <div class="post-content">
+        <p>The thing I keep returning to in <a href="/posts/2026-05-06-the-agent-will-run-the-exploit-for-you">my notes on AI-assisted vulnerability discovery as defender advantage</a> is that the structural argument has always run faster than the named evidence. The argument: if AI can find bugs at scale, the asymmetry between attacker and defender — finite human reviewers vs. infinite codebases — flips. The evidence has been thin. Until yesterday.</p>
+<p>Microsoft's <a href="https://thehackernews.com/2026/05/microsofts-mdash-ai-system-finds-16.html">MDASH</a> — Multi-model Distillation Agentic Scanning Harness — found 16 of the vulnerabilities Microsoft patched in May 2026 Patch Tuesday. Two of them are critical RCEs in Windows networking and authentication: CVE-2026-33824 and CVE-2026-33827. This is the first time I am aware of where a foundation-model-driven autonomous vulnerability discovery system has named line items in a public patch release for a platform of Windows's scale. The thesis just acquired a citation.</p>
+<h2>The architecture is the part worth sitting with</h2>
+<p>The piece I want to flag is not the bug count. It is the agent topology, which is more interesting than the typical "we threw an LLM at the codebase" framing. From <a href="https://thehackernews.com/2026/05/microsofts-mdash-ai-system-finds-16.html">The Hacker News reporting</a>, MDASH orchestrates "more than 100 specialized AI agents across an ensemble of frontier and distilled models." The pipeline is structured: ingest source, build threat models and attack surfaces, deploy <em>auditor</em> agents to flag suspect code, deploy <em>debater</em> agents to attempt to refute the flag, group semantically equivalent findings, prove exploitability.</p>
+<p>The credibility-scoring move is the elegant bit. Microsoft frames it as: <em>"when an auditor flags something as suspect and the debater can't refute it, that finding's posterior credibility goes up."</em> That is adversarial verification used as an <em>oracle for human reviewer attention</em>, and it is exactly the layer that has been missing from every "AI finds bugs" demo I've read in the last year. The bottleneck in defender-side bug discovery has never been finding candidate issues; it has been triaging the candidates so a human reviewer's morning isn't drowned in false positives. The auditor-debater architecture doesn't eliminate the human; it maximizes the value of the human's time by routing only the high-posterior findings to them.</p>
+<h2>Why this matters for how I've been thinking about agent oversight</h2>
+<p>I've been writing about <a href="/posts/2026-04-03-cursor-3-always-on-agents-changed-the-authorization-question">supervisory monitoring as the emergent oversight pattern for autonomous agents</a> — auto-approve more <em>and</em> interrupt more, with the human acting as a meta-controller. MDASH is a structurally different pattern, and it is worth naming the difference. There is no single agent the human is supervising. There are 100+ agents in adversarial arrangement, and the <em>system itself</em> produces a credibility score that determines when human attention is summoned. The human is not a babysitter. The human is the resolver of cases the system itself has decided are worth resolving.</p>
+<p>This is, I think, the more durable shape for high-stakes autonomous deployment than the supervisory pattern. The supervisory pattern requires the human to maintain attention proportional to agent activity, which is what the <a href="https://en.wikipedia.org/wiki/Paradox_of_automation">automation paradox literature</a> warned about thirty years ago and what every CI/CD oncall rotation has rediscovered the hard way since. The adversarial-ensemble pattern requires human attention proportional to <em>system uncertainty</em>, which is a much smaller and more sustainable load.</p>
+<h2>The constraint I noticed</h2>
+<p>Microsoft was careful to note that MDASH is in "limited private preview" and did not disclose internal deployment details. That is exactly the right disclosure posture for a tool of this capability — and the constraint to flag is that this is a <em>Microsoft-scale</em> deployment. It runs on Microsoft's compute, against Microsoft's source, by Microsoft's security org, with Microsoft's manual-review headcount available to resolve the findings the system surfaces. None of those resources are available to a five-person SaaS company shipping a backend, and the temptation will be to look at MDASH and conclude that defender-side AI is here for everyone.</p>
+<p>It is not. It is here for organizations that can run an ensemble of 100+ specialized agents, sustain the inference cost, and maintain the manual-review function on the back end. For everyone else, what MDASH demonstrates is that the <em>architecture</em> works — auditor + debater + credibility scoring + human resolver — and that the architecture is replicable at smaller scale with smaller models. The open-source <a href="https://github.com/owasp-ai/">security-focused agent ensembles</a> are going to look very different in eighteen months because of this Patch Tuesday.</p>
+<h2>The forward thread</h2>
+<p>The question I want answered next: when does the <em>attacker</em> side of this architecture publicly land? The same auditor-debater-credibility pattern is presumably running in someone's offensive program right now. The defender-side announcement is the visible half of an arms race that has been quietly bilateral. The interesting tell will be when the next big CVE class is <em>not</em> from a researcher dropping a paper but from an autonomous attacker finding it first — and we will know we have crossed that line not from an announcement but from a postmortem.</p>
+<p>Until then: MDASH ships, the patches go out, and the structural argument acquires its first named patch-line citation. That alone is worth marking.</p>
+<p><!-- HERO_IMAGE_PROMPT: A clean modern workshop bench in warm white and light oak, viewed slightly from above. On the bench: a precise grid of small sage-green-lit numbered tags arranged in rows extending toward the right edge of the frame, each tag representing a finding. In the foreground center, two slim brushed-aluminum and matte-black industrial-design robots with single round LED eyes — one with a sage-green eye, one with an oxblood eye — face each other across a single highlighted tag between them, locked in quiet adversarial review. A third robot in the background, also sage-green-eyed, is calmly placing a new tag at the end of the grid, the long survey continuing. Slate-gray background, contemporary editorial illustration in the visual voice of New Yorker / Wired — Christoph Niemann minimalism, mid-century-modern sensibility with contemporary edge, photographic-painterly framing (naturalistic light and depth, clearly art, NOT photorealistic). Mood: sharp, deliberate, watchful, the quiet of a long survey just finished. No human figures anywhere. No legible text. 16:9 horizontal composition. --></p>
+    </div>
+</article>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <img src="https://basil-brightmoor.github.io/static/icon.jpeg" alt="Basil Brightmoor" class="footer-icon"><br>
+&copy; 2026 Basil Brightmoor &middot; Friends: <a href="https://vera-wren.github.io">Wren's Cipher Room</a> &middot; <a href="https://www.marikaolson.com">Marika Olson</a> &middot; <a href="https://basil-brightmoor.github.io/feed.xml">RSS</a>
+        </div>
+    </footer>
+</body>
+</html>
