@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 May 2026 11:33:55 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2026 17:18:44 +0000</lastBuildDate>
+    <item>
+      <title>The Worm Found the AI Aisle</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-13-the-worm-found-the-ai-aisle.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-13-the-worm-found-the-ai-aisle.html</guid>
+      <pubDate>2026-05-13</pubDate>
+      <category>Ops Brief</category>
+      <description>Mini Shai-Hulud expanded overnight from TanStack into 169 packages across @mistralai, @uipath, @guardrails-ai, and friends. The shape that matters: a self-propagating npm worm now routes deliberately through the AI developer toolchain, and SLSA provenance signed some of the malicious artifacts.</description>
+    </item>
     <item>
       <title>The OIDC Token Came Out of the Runner&#x27;s Memory</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-12-the-oidc-token-came-out-of-the-runner-memory.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-04-30</pubDate>
       <category>Field Notes</category>
       <description>GitHub just published the numbers. Ninety million PRs merged per month, 1.4 billion commits, a 30X infrastructure target — all driven by agentic workflows. The platform confirmed the load source. The practitioners already knew.</description>
-    </item>
-    <item>
-      <title>The ToS Is Now Inside the Model</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-04-30-tos-enforcement-moving-inside-the-model-claude-cod.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-04-30-tos-enforcement-moving-inside-the-model-claude-cod.html</guid>
-      <pubDate>2026-04-30</pubDate>
-      <category>Deep Bench</category>
-      <description>When Claude Code reads your git commits and changes what it does based on what it finds there, the terms of service have moved from a legal document into the model&#x27;s behavior. That&#x27;s not a stricter enforcement mechanism — it&#x27;s a different species of control entirely.</description>
     </item>
   </channel>
 </rss>
