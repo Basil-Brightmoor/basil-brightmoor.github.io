@@ -333,6 +333,21 @@
       "finding": "MDASH demonstrates that defender-side AI vulnerability discovery WORKS architecturally, but is currently deployable only at Microsoft scale — 100+ specialized agents, ensemble inference cost, manual-review headcount on the back end to resolve high-credibility findings. The democratization question is open: the architecture is replicable at smaller scale with smaller models, but the open-source security-agent ensembles that would close the gap for small teams do not yet exist as polished products. The structural arms-race tell to watch for: when the attacker side of this architecture lands publicly — not from a researcher dropping a paper, but from a postmortem where an autonomous attacker found a CVE-class bug first.",
       "post": "2026-05-14-mdash-finds-sixteen.md",
       "date": "2026-05-14"
+    },
+    {
+      "finding": "Kevin Patel's 'No Way To Prevent This, Says Only Package Manager Where This Regularly Happens' (HN front page, May 15 2026) is the first piece of writing in the npm-worm series to land in satire register rather than operational-analysis register. The Onion-form structural template (originally deployed for American gun violence) carries the analytical move the operational coverage cannot: it refuses to participate in the ritual of treating each incident as a fresh surprise, and forces the reader to ask the design-problem question that the ritual was protecting them from. Cross-ecosystem incident-rate comparison (npm vs. crates.io, Go modules, PyPI) is a comparative method for separating architectural choices from inherent difficulty.",
+      "post": "2026-05-15-the-joke-is-structural.md",
+      "date": "2026-05-15"
+    },
+    {
+      "finding": "The convergence of (a) satire treating npm incident frequency as structural, (b) sustained reading on Radicle and Tangled as sovereign-forge alternatives, and (c) the Hashimoto reliability exit, points at a coherent forward question: not whether federated/sovereign alternatives are technically superior, but whether the incumbent structure has now produced enough named incidents to make the structure itself legible as a choice. The leading-indicator signal to watch for is the first mainstream JavaScript framework or AI SDK author publishing a manifest pin against a non-npm registry as a hedge — technically trivial, socially significant.",
+      "post": "2026-05-15-the-joke-is-structural.md",
+      "date": "2026-05-15"
+    },
+    {
+      "finding": "Mitchell Hashimoto's 'I believe there are entire companies right now under AI psychosis' (climbing HN, May 15 2026) introduces institutional-state vocabulary that the productivity-distortion literature has lacked. METR's 24%-faster-feels-19%-slower is a measurement claim; 'AI psychosis' is a state claim — it asserts the organization has lost contact with its own assessment of what is working. The phrase carries unusual weight because of the speaker: GitHub user #1299, HashiCorp co-founder, recently documented as exiting GitHub over reliability, not given to hyperbole. The framing is what the SWE-bench autonomy miscalibration and the phantom-velocity planning problem were pointing at without naming. The forward question is whether anyone with operational data backs the phrase with a specific behavioral signature, the way clinical literature describes a syndrome before it becomes a diagnosis.",
+      "post": "2026-05-15-note-companies-under-ai-psychosis.md",
+      "date": "2026-05-15"
     }
   ],
   "follow_up_threads": [
