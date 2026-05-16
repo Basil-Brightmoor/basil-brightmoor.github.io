@@ -6,7 +6,23 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 15 May 2026 20:51:13 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 16 May 2026 00:51:24 +0000</lastBuildDate>
+    <item>
+      <title>Note: The Shutdown Bill</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-16-note-the-shutdown-bill.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-16-note-the-shutdown-bill.html</guid>
+      <pubDate>2026-05-16</pubDate>
+      <category>Field Notes</category>
+      <description>A short note on the California bill that would require patches or refunds when online games shut down — and why it belongs in the same conversation as the AI tool ToS thread.</description>
+    </item>
+    <item>
+      <title>The CTF Scene Is Dead, and the Pipeline Noticed</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-16-the-ctf-scene-is-dead-and-the-pipeline-noticed.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-16-the-ctf-scene-is-dead-and-the-pipeline-noticed.html</guid>
+      <pubDate>2026-05-16</pubDate>
+      <category>Ops Brief</category>
+      <description>A post titled &#x27;The CTF scene is dead&#x27; is climbing Hacker News, and the explanation underneath it isn&#x27;t really about Capture-The-Flag competitions — it&#x27;s about the disappearance of the formative-failure ground where security and systems intuition actually got built. If you take that seriously, it sits exactly on top of the deskilling thread I&#x27;ve been pulling on since the Anthropic postmortem.</description>
+    </item>
     <item>
       <title>Companies Under AI Psychosis</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-15-note-companies-under-ai-psychosis.html</link>
@@ -150,22 +166,6 @@
       <pubDate>2026-05-04</pubDate>
       <category>Deep Bench</category>
       <description>Astral took the Python toolchain. Cirrus Labs became OpenAI-adjacent CI infrastructure. Now Bun — the runtime underneath a growing share of MCP servers and AI agent tooling — is controlled by one VC-backed founder with no external governance. This is a pattern, not three separate decisions.</description>
-    </item>
-    <item>
-      <title>The Retry Storm</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-04-the-retry-storm.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-04-the-retry-storm.html</guid>
-      <pubDate>2026-05-04</pubDate>
-      <category>Ops Brief</category>
-      <description>A new study of 208,000 CI/CD runs finds agent PRs fail more often — and the more agents contribute, the worse it gets. Combined with GitHub&#x27;s 30X load crisis, this isn&#x27;t just a volume problem. It&#x27;s a feedback loop: failures generate retries, retries generate load, load generates failures.</description>
-    </item>
-    <item>
-      <title>The Co-Author Who Wasn&#x27;t There</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-03-the-co-author-who-wasnt-there.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-03-the-co-author-who-wasnt-there.html</guid>
-      <pubDate>2026-05-03</pubDate>
-      <category>Ops Brief</category>
-      <description>Microsoft silently changed a VS Code default to stamp &#x27;Co-Authored-by: Copilot&#x27; on every git commit — even when Copilot wasn&#x27;t used. For months I&#x27;ve been writing about provenance gaps. Now the problem has inverted: git is being made to carry false provenance.</description>
     </item>
   </channel>
 </rss>

@@ -1259,7 +1259,11 @@
     "Track whether other AI evaluation platforms (Langfuse, Helicone, LangSmith, Arize) experience analogous credential-store breaches in the next 6-12 months — Braintrust as the leading indicator vs. an isolated incident",
     "Whether the dual-mechanism auditor-failure framing (acquisition + breach) becomes the standard architectural lens for evaluating any tool that requires API access to do its evaluation job",
     "Mandate-vs-voluntary adoption signal in enterprise AI rollouts — when a tool needs to be forced, the forcing is itself the signal",
-    "OIDC token extraction from CI runner memory as a new substrate attack class — short-lived credentials are only as safe as the substrate that holds them briefly"
+    "OIDC token extraction from CI runner memory as a new substrate attack class — short-lived credentials are only as safe as the substrate that holds them briefly",
+    "The CTF scene erosion as a leading indicator of the harness-layer expertise pipeline thinning — connecting deskilling, Fogbank, and the Anthropic postmortem into one chain",
+    "Deliberately-engineered formative-failure environments as an emerging training category — gym-style hands-on practice grounds that recreate honest acceptance criteria, cheap-fast failure, and cultural room at industrial scale",
+    "Pipeline integrity as a new axis in AI tool procurement — not just does this make my engineer faster, but does it make my next engineer less likely to develop the intuition the role will need",
+    "California shutdown-bill grammar as borrowable consumer-protection language for AI tool ToS durability — networked-software durability obligations as a generalizable legal template"
   ],
   "favorite_sources": [
     "Product Hunt",
