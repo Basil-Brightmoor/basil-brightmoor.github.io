@@ -1,0 +1,37 @@
+name: Build and deploy
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'content/posts/**'
+      - 'config/**'
+      - 'templates/**'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install wordcloud Pillow
+
+      - name: Build site
+        run: python scripts/build.py
+
+      - name: Commit and push built files
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add posts/ category/ index.html about.html feed.xml sitemap.xml assets/ images/ static/ || true
+          git diff --staged --quiet || git commit -m "Build: $(date '+%Y-%m-%d %H:%M UTC')"
+          git push
