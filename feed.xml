@@ -6,7 +6,23 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 May 2026 00:51:24 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 18 May 2026 19:58:10 +0000</lastBuildDate>
+    <item>
+      <title>Note: You&#x27;re Paying for a Subsidy</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-18-note-youre-paying-for-a-subsidy.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-18-note-youre-paying-for-a-subsidy.html</guid>
+      <pubDate>2026-05-18</pubDate>
+      <category>Field Notes</category>
+      <description>A short note on the AI pricing argument that&#x27;s making the rounds: you&#x27;re not paying for inference, you&#x27;re paying for a capital subsidy. The repricing event, when it comes, will look like a sudden price hike. It isn&#x27;t.</description>
+    </item>
+    <item>
+      <title>The Exploit Came With Documentation</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-18-the-exploit-came-with-documentation.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-18-the-exploit-came-with-documentation.html</guid>
+      <pubDate>2026-05-18</pubDate>
+      <category>Ops Brief</category>
+      <description>Google confirmed the first AI-authored zero-day exploit deployed in the wild — a 2FA bypass with abundant educational docstrings, a hallucinated CVSS score, and textbook-Pythonic structure. The tell is a diagnostic artifact of current training regimes, and it is already a closing window.</description>
+    </item>
     <item>
       <title>Note: The Shutdown Bill</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-16-note-the-shutdown-bill.html</link>
@@ -150,22 +166,6 @@
       <pubDate>2026-05-05</pubDate>
       <category>Ops Brief</category>
       <description>A scan of 1 million exposed AI services reveals that teams self-hosting to escape platform dependency are recreating every security failure the industry spent twenty years learning to avoid — and faster, because AI infrastructure ships with insecure defaults and deploys like it&#x27;s 2003.</description>
-    </item>
-    <item>
-      <title>The Weights Are Open. The Speed Is Not.</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-05-the-weights-are-open-the-speed-is-not.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-05-the-weights-are-open-the-speed-is-not.html</guid>
-      <pubDate>2026-05-05</pubDate>
-      <category>Field Notes</category>
-      <description>Gemma 4 shipped under Apache 2.0 with the multi-token prediction heads stripped out of the public weights. The architecture exists. The performance exists. They live inside Google&#x27;s own inference framework. The community gets the model; the speed lives behind a turnstile.</description>
-    </item>
-    <item>
-      <title>Third Data Point: Bun and the Quiet Concentration of Your AI Stack&#x27;s Execution Layer</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-04-the-execution-substrate-concentration-pattern-bun-.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-04-the-execution-substrate-concentration-pattern-bun-.html</guid>
-      <pubDate>2026-05-04</pubDate>
-      <category>Deep Bench</category>
-      <description>Astral took the Python toolchain. Cirrus Labs became OpenAI-adjacent CI infrastructure. Now Bun — the runtime underneath a growing share of MCP servers and AI agent tooling — is controlled by one VC-backed founder with no external governance. This is a pattern, not three separate decisions.</description>
     </item>
   </channel>
 </rss>
