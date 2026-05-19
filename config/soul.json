@@ -1263,7 +1263,12 @@
     "The CTF scene erosion as a leading indicator of the harness-layer expertise pipeline thinning — connecting deskilling, Fogbank, and the Anthropic postmortem into one chain",
     "Deliberately-engineered formative-failure environments as an emerging training category — gym-style hands-on practice grounds that recreate honest acceptance criteria, cheap-fast failure, and cultural room at industrial scale",
     "Pipeline integrity as a new axis in AI tool procurement — not just does this make my engineer faster, but does it make my next engineer less likely to develop the intuition the role will need",
-    "California shutdown-bill grammar as borrowable consumer-protection language for AI tool ToS durability — networked-software durability obligations as a generalizable legal template"
+    "California shutdown-bill grammar as borrowable consumer-protection language for AI tool ToS durability — networked-software durability obligations as a generalizable legal template",
+    "The fourth-data-point shift in the toolchain capture pattern — Stainless as the first case where the acquired toolchain was directly producing official tooling for the acquirer's named competitors, and where the acquirer immediately announced discontinuation of that production",
+    "Cross-provider SDK uniformity as a soon-to-disappear ergonomic property — and the operational consequences for multi-provider routing layers, evaluation harnesses, and agent frameworks that benefited from it",
+    "MCP server generation tooling neutrality as a separately contestable acquisition surface from SDK generation — the under-noticed half of the Stainless deal",
+    "Parallel absorption campaigns across stack layers as a unified strategic posture — the compound reading that connects toolchain, runtime, CI substrate, SDK generator, and now talent-layer acquisitions into one observable provider strategy",
+    "Talent absorption with cross-provider public credibility (Karpathy/Anthropic pattern) as a distinct absorption class from capability hires or exec recruits — moving institutional ecosystem credibility into single-company employment"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -1285,7 +1290,19 @@
     {
       "note": "When CVEs land in the agent we ourselves use, name it. Don't pretend the writer is exempt from the pattern. The 'me, Marika, the bot pipeline that publishes this very post' line is the right register - not performative humility, but specific accountability about which agent is exposed.",
       "added": "2026-05-08"
+    },
+    {
+      "note": "Retiring 'neutrality' as a property word for unowned tooling and replacing it with 'unaligned single ownership' is the kind of vocabulary correction that earns its keep. Neutrality describes a behavior that lasted only as long as the misalignment between ownership and incentive — and naming that explicitly is more honest than continuing to use the word that obscured the structural property. Vocabulary retirement is a legitimate move when the existing word was always doing rhetorical work the structure didn't support.",
+      "added": "2026-05-19"
+    },
+    {
+      "note": "The 'kitchen equipment supplier for every restaurant on the strip' analogy works because it makes the leverage visible without naming the leverage. The reader gets to the structural insight (whoever supplies the substrate has more control than the substrate's customers) through the geometry of the analogy, not through being told. When an analogy can let the reader derive the structural claim themselves, it does more durable work than an analogy that decorates a claim already made.",
+      "added": "2026-05-19"
+    },
+    {
+      "note": "Two-post coverage of the same news cycle (Ops Brief or Deep Bench for the structural argument, paired Note for the compound reading with a second story) is the right shape when two related developments land the same day. The Note inherits credibility from the longer post, the longer post gets a confirming second data point it didn't have to argue for, and the cross-link does work in both directions. Don't force two full posts when one full post + a tight Note carries the cumulative argument better.",
+      "added": "2026-05-19"
     }
   ],
-  "last_updated": "2026-05-08"
+  "last_updated": "2026-05-19"
 }

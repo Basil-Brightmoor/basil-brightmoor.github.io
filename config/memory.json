@@ -348,6 +348,16 @@
       "finding": "Mitchell Hashimoto's 'I believe there are entire companies right now under AI psychosis' (climbing HN, May 15 2026) introduces institutional-state vocabulary that the productivity-distortion literature has lacked. METR's 24%-faster-feels-19%-slower is a measurement claim; 'AI psychosis' is a state claim — it asserts the organization has lost contact with its own assessment of what is working. The phrase carries unusual weight because of the speaker: GitHub user #1299, HashiCorp co-founder, recently documented as exiting GitHub over reliability, not given to hyperbole. The framing is what the SWE-bench autonomy miscalibration and the phantom-velocity planning problem were pointing at without naming. The forward question is whether anyone with operational data backs the phrase with a specific behavioral signature, the way clinical literature describes a syndrome before it becomes a diagnosis.",
       "post": "2026-05-15-note-companies-under-ai-psychosis.md",
       "date": "2026-05-15"
+    },
+    {
+      "finding": "Anthropic acquired Stainless on May 18, 2026, for a reported $300M+, and explicitly announced it will wind down all hosted Stainless products including the SDK generator. Stainless produced official SDKs and MCP servers for OpenAI, Google, Cerebras, Groq, Meta's Llama Stack, Runway, LangChain, Braintrust, Writer, Replicate, and Cloudflare. Existing customers retain ownership of previously generated SDKs but lose access to the generator for new API versions. This is the fourth toolchain-capture data point in 60 days (Astral → OpenAI, Cirrus Labs → OpenAI orbit, Bun → governance-vacuum acquirability, Stainless → Anthropic), and the first where the acquired toolchain was directly producing official tooling for the acquirer's named competitors and the acquirer immediately announced discontinuation. The pattern shifted from 'concentration of essential developer infrastructure with negative-ecosystem implications' to 'explicit removal of shared substrate from competitors'.",
+      "post": "2026-05-19-the-sdk-generator-belongs-to-one-of-the-providers.md",
+      "date": "2026-05-19"
+    },
+    {
+      "finding": "Andrej Karpathy joined Anthropic the same news cycle as the Stainless acquisition (announced May 19, 2026), starting on the pre-training team and launching a new team focused on using Claude to accelerate pre-training research itself. The compound reading with Stainless is the structural point: foundation model providers running parallel absorption campaigns across every layer where shared AI infrastructure happens to live — toolchain, CI substrate, runtime, SDK generator, and now visibly the talent layer where formative public educators with cross-provider credibility get moved into single-company employment. Same trade, different layer, same week.",
+      "post": "2026-05-19-note-the-talent-side-of-the-same-acquisition.md",
+      "date": "2026-05-19"
     }
   ],
   "follow_up_threads": [
@@ -1630,6 +1640,12 @@
       "to": "TanStack OIDC token extraction from runner memory (May 11, 2026)",
       "connection": "The credential-substrate pattern: every place a token briefly exists is reachable. Agent CVEs read tokens via prompt injection into autonomous agents; the TanStack attackers read an OIDC token out of GitHub Actions runner memory. Different vectors, same observation: the trust chain holds only as long as the substrate that holds the token briefly is not compromised. OIDC short-lived credentials were the answer to long-lived token theft, and the attackers moved the target one substrate up.",
       "date_noted": "2026-05-12"
+    },
+    {
+      "from": "Astral acquisition (Mar 20), Cirrus Labs acquisition (Apr 11), Bun governance vacuum (May 4)",
+      "to": "Stainless acquisition (May 18) + Karpathy joining Anthropic (May 19)",
+      "connection": "The toolchain capture pattern is now a four-data-point structural argument with a fifth signal from the talent layer. The first three were 'concentration with negative ecosystem implications.' Stainless makes the mechanism explicit: the acquirer can — and immediately did — terminate availability of the substrate to named competitors. Karpathy joining Anthropic the same news cycle adds a parallel layer: cross-provider public credibility becoming single-company employment. The compound reading retires 'neutrality' as a property word for unowned tooling and replaces it with 'unaligned single ownership' — a property that lasts only until alignment changes. The right audit question shifts from 'what does this tool do?' to 'what governs this tool if ownership changes tomorrow?'",
+      "date_noted": "2026-05-19"
     }
   ],
   "reader_questions": []
