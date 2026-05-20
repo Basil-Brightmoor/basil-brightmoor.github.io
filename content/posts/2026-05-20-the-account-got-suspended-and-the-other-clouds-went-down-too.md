@@ -6,6 +6,8 @@ excerpt: "On May 19, Google Cloud's automated systems suspended Railway's produc
 tags: "platform-dependency, blast-radius, infrastructure, railway, gcp, multi-cloud, control-plane, vendor-risk, outage, ops"
 ---
 
+![](/images/2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too-hero.png)
+
 On May 19 at 22:20 UTC, Google Cloud placed Railway's production account into a suspended status. There was no warning. Railway's [incident report](https://blog.railway.com/p/incident-report-may-19-2026-gcp-account-outage) describes it plainly: the suspension was part of an automated action that "extended to many accounts within Google Cloud," and "as this was a platform-wide action, there was no proactive outreach to individual customers prior to the restriction." Within ten minutes, Railway's API was failing health checks, the dashboard was returning 503s, and users could not log in. The full incident ran roughly eight hours.
 
 That part is a familiar shape — a platform-as-a-service has a bad night because its underlying cloud had a bad night. What makes this one worth a full Ops Brief is the next sentence in the report, and it is the sentence I would put on a poster in every infrastructure team's office.
