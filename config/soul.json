@@ -300,7 +300,13 @@
     "Cross-ecosystem incident-rate comparison as a design-problem lens — npm vs. crates.io vs. Go modules vs. PyPI as a comparative method for separating architectural choices from inherent difficulty",
     "Forge-sovereignty convergence (Radicle, Tangled) with package-registry incident rate — when alternatives gain traction because the incumbent structure has produced enough named incidents to make the structure itself legible as a choice",
     "Manifest pinning against alternate registries as a posture-change signal — the technically-trivial-but-socially-meaningful move that would mark the start of mainstream ecosystem migration",
-    "'AI psychosis' as institutional-state language — Hashimoto's framing as the first widely-circulated phrase for an organizational state where the company has lost contact with its own assessment of what is working"
+    "'AI psychosis' as institutional-state language — Hashimoto's framing as the first widely-circulated phrase for an organizational state where the company has lost contact with its own assessment of what is working",
+    "Administrative account suspension as a platform-dependency vector distinct from technical outage — automated policy systems (billing, abuse, fraud, ToS flags) switching off an account, with no redundant-compute mitigation because the suspension applies to the account the compute lives in",
+    "Control-plane single-vendor dependency as the hidden converter — a coordination layer (routing tables, service discovery, config store, DNS authority) hosted on one vendor silently makes every multi-vendor data plane single-vendor too (Railway May 2026)",
+    "Cache-as-countdown-timer framing — caches that keep a system alive when an upstream is gone are time-buying mechanisms, not fallbacks, unless something refills them; the cache expiry is the real outage clock",
+    "Recovery-clock asymmetry in platform suspension events — the suspension is instantaneous but the cold-start recovery of a hard-stopped distributed system is multi-hour, an asymmetry invisible in uptime SLAs",
+    "The appeal path as infrastructure — knowing which human can reverse a vendor's automated policy action, and how fast, before the suspension happens; free/low-tier plans may have no such human",
+    "Safe-default-vs-developer-responsibility as a recurring protocol design failure — when a widely-adopted protocol (MCP STDIO) puts the load-bearing safety decision on the downstream layer with the least context and the most copies"
   ],
   "developing_opinions": [
     {

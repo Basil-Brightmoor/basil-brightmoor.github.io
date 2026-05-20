@@ -22,6 +22,7 @@ sys.path.insert(0, SCRIPT_DIR)
 
 from fetch_sources import fetch_all_sources
 from build import build_site, build_about_page
+from generate_image import generate_hero_image
 
 
 # --- Claude API ---
@@ -340,6 +341,87 @@ tags: ""
     return filename, response
 
 
+def step_generate_image(repo_root, topic_data, post_content, filename, api_key):
+    """Step 4.5: Generate a hero image for the post via Gemini.
+
+    Reads config/image_aesthetic.txt for the persona's visual rules. Asks
+    Claude to translate the post topic into a concrete image prompt that
+    obeys those rules, then calls Gemini 2.5 Flash Image. Mutates
+    post_content to prepend ![cover] and append an HTML comment with the
+    prompt. Returns the (possibly-unmodified) post_content.
+    """
+    print("\n=== STEP 4.5: Generating hero image ===")
+
+    aesthetic_path = os.path.join(repo_root, "config", "image_aesthetic.txt")
+    if not os.path.exists(aesthetic_path):
+        print(f"  No image_aesthetic.txt at {aesthetic_path} — skipping")
+        return post_content
+    with open(aesthetic_path, "r", encoding="utf-8") as f:
+        aesthetic = f.read()
+
+    excerpt = post_content
+    if excerpt.startswith("---"):
+        end = excerpt.find("---", 3)
+        if end != -1:
+            excerpt = excerpt[end + 3:].strip()
+    excerpt = excerpt[:1500]
+
+    system = (
+        "You write image-generation prompts. Given a blog post topic and a "
+        "fixed visual aesthetic, produce ONE concrete prompt (3-6 sentences) "
+        "that describes a specific scene/object grounded in the topic and "
+        "rendered in the aesthetic. Output ONLY the prompt — no preamble, "
+        "no quotes, no explanation."
+    )
+    user = f"""Aesthetic rules (must obey all hard rules):
+
+{aesthetic}
+
+Post topic: {topic_data.get('topic', '')}
+Angle: {topic_data.get('angle', '')}
+Category: {topic_data.get('category', '')}
+
+Post excerpt:
+{excerpt}
+
+Write the image prompt now."""
+
+    try:
+        prompt = call_claude(system, user, api_key, max_tokens=400, temperature=0.7).strip()
+    except Exception as e:
+        print(f"  Prompt-writing failed: {e}")
+        return post_content
+    if not prompt:
+        print("  Empty prompt returned — skipping")
+        return post_content
+
+    full_prompt = f"{aesthetic}\n\n---\n\nScene to render:\n{prompt}"
+
+    basename = os.path.splitext(filename)[0]
+    rel_path = generate_hero_image(full_prompt, repo_root, basename)
+    if not rel_path:
+        return post_content
+
+    cover_md = f"![cover](/{rel_path})\n\n"
+    if post_content.startswith("---"):
+        end = post_content.find("---", 3)
+        if end != -1:
+            head = post_content[:end + 3]
+            tail = post_content[end + 3:].lstrip("\n")
+            post_content = f"{head}\n\n{cover_md}{tail}"
+        else:
+            post_content = f"{cover_md}{post_content}"
+    else:
+        post_content = f"{cover_md}{post_content}"
+
+    comment = f"\n\n<!-- image-prompt:\n{prompt}\n-->\n"
+    if not post_content.endswith("\n"):
+        post_content += "\n"
+    post_content += comment
+
+    return post_content
+
+
 def step_reflect(config, topic_data, fetched_items, post_content, api_key, repo_root):
     """Step 5: Reflect and update soul.json and memory.json."""
     print("\n=== STEP 5: Reflecting ===")
@@ -622,6 +704,12 @@ def run_cycle(repo_root, api_key, dry_run=False, fetch_only=False, category=None
 
     # Step 4: Write post
     filename, post_content = step_write_post(config, topic_data, fetched_items, api_key)
+
+    # Step 4.5: Generate hero image (soft-fails — never blocks the post)
+    try:
+        post_content = step_generate_image(repo_root, topic_data, post_content, filename, api_key)
+    except Exception as e:
+        print(f"  [image] Skipped due to error: {e}")
 
     # Save post
     posts_dir = os.path.join(repo_root, "content", "posts")

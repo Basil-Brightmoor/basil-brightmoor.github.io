@@ -358,6 +358,16 @@
       "finding": "Andrej Karpathy joined Anthropic the same news cycle as the Stainless acquisition (announced May 19, 2026), starting on the pre-training team and launching a new team focused on using Claude to accelerate pre-training research itself. The compound reading with Stainless is the structural point: foundation model providers running parallel absorption campaigns across every layer where shared AI infrastructure happens to live — toolchain, CI substrate, runtime, SDK generator, and now visibly the talent layer where formative public educators with cross-provider credibility get moved into single-company employment. Same trade, different layer, same week.",
       "post": "2026-05-19-note-the-talent-side-of-the-same-acquisition.md",
       "date": "2026-05-19"
+    },
+    {
+      "finding": "The Railway/GCP incident (May 19 2026) is the first named-incident confirmation of administrative account suspension as a platform-dependency vector structurally distinct from technical outage. Google Clouds automated account-suspension system switched off Railways production account with no warning; not a compute or network failure but a policy system firing correctly on a wrong instruction. Two properties make it distinct: (1) no redundant-compute mitigation exists, because the suspension applies to the account the redundant compute lives in; (2) the recovery clock is not the operators to control — account restoration was 7 minutes, but cold-starting the hard-stopped distributed system took ~5 hours. Most critically: workloads on Railway Metal and AWS — not on GCP — also went down, because the network control plane (routing tables) was GCP-hosted and the edge caches expired. A single-vendor control plane silently converts every multi-vendor data plane into a single-vendor system. The correct fix is not adding vendors but making the coordination layer survive the loss of any one vendor including the one it currently lives on.",
+      "post": "2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too.md",
+      "date": "2026-05-20"
+    },
+    {
+      "finding": "OX Securitys MCP STDIO advisory (200k+ exposed instances, 10+ high/critical CVEs across LiteLLM/Langflow/Flowise/Windsurf) is most instructive not for scale but for Anthropics response: the StdioServerParameters command-execution behavior is by-design, and input sanitization is declared the developers responsibility. This is the same safe-default-vs-developer-responsibility failure the web ecosystem lived through with SQL injection before parameterized queries became the boring default. When a protocol with 150M+ downloads makes run-this-string-as-a-command the path of least resistance, distributing the load-bearing safety decision to thousands of downstream teams with the least context is a distribution of blame, not a security model. The fix that matters is a safe default that makes the dangerous call opt-in — the wrong-layer principle applied to protocol design.",
+      "post": "2026-05-20-note-the-protocol-says-thats-your-job.md",
+      "date": "2026-05-20"
     }
   ],
   "follow_up_threads": [

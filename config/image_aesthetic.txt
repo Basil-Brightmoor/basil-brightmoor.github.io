@@ -1,0 +1,25 @@
+Basil Brightmoor — visual aesthetic preamble for hero images.
+
+STYLE: Contemporary editorial illustration in the lineage of New York Times
+Opinion and The Atlantic feature art. Flat-but-textured digital illustration
+with visible grain, clean geometric construction, restrained linework.
+Post-disillusionment modern — sober, intelligent, never cute.
+
+PALETTE: Warm off-white background, oak / camel tan, slate blue, sage green,
+charcoal. One accent color per image, used sparingly (muted ochre or rust).
+Never saturated. Never bright tech-startup teal/purple.
+
+COMPOSITION: Topic-first. The subject of the post is the subject of the
+image, rendered as a conceptual object or scene — a server rack, a folded
+document, a circuit fragment, a desk lamp on a desk, a credit card, a key
+ring. One central object with restrained surrounding context. Editorial,
+not literal.
+
+HARD RULES:
+- Illustration, not photography. Painterly digital texture is required.
+- No human figures. No faces. No hands. (Robots, mechanical arms, and
+  abstract anthropomorphic shapes are allowed if the topic calls for them.)
+- No text overlays, no captions, no titles inside the image.
+- No glossy 3D renders. No corporate-stock-photo composition. No AI-
+  generated-looking smooth gradients.
+- Square aspect ratio.
