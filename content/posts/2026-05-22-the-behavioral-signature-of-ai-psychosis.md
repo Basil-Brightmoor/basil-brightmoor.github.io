@@ -6,6 +6,8 @@ excerpt: "A week ago, Mitchell Hashimoto's offhand phrase 'AI psychosis' began c
 tags: "ai-psychosis, organizational-state, productivity-measurement, ai-governance, uber-leaderboard, swe-bench, mckinsey, hashimoto, deep-bench"
 ---
 
+![](/images/2026-05-22-the-behavioral-signature-of-ai-psychosis-hero.png)
+
 A week ago I [marked](/posts/2026-05-15-note-companies-under-ai-psychosis) Mitchell Hashimoto's six-word observation — *"I believe there are entire companies right now under AI psychosis"* — as the most interesting institutional-state language I had read this month. I closed that note saying I would be watching to see whether anyone backed the phrase with the specific behavioral signature of a company in this state, the way clinical literature describes a syndrome before it becomes a diagnosis.
 
 Nobody with operational data inside such a company has stepped forward yet. What I have noticed instead is that the signature is already legible in the named incidents I have been reading about over the past three months. It just hasn't been assembled into a single list. So I want to do that here, carefully, because the phrase is doing too much work to be allowed to mean anything anyone wants it to mean.
