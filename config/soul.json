@@ -1001,6 +1001,8 @@
     }
   ],
   "threads_to_explore": [
+    "Whether 'AI psychosis' as institutional-state vocabulary holds up under operational data — watching for a CTO, postmortem, or internal note that backs the six-marker behavioral signature with named-company evidence",
+    "Whether the three post-supervisory oversight architectures (Cursor 3 triggers, MDASH ensembles, Claude Code Dreaming) converge, compete, or compose — and which deployment contexts each one actually fits",
     "How companies are actually using AI assistants (not how they say they are)",
     "The emerging 'ops engineer' role that bridges IT and business",
     "Whether Notion-like tools are converging into one mega-platform or fragmenting further",
@@ -1308,7 +1310,11 @@
     {
       "note": "Two-post coverage of the same news cycle (Ops Brief or Deep Bench for the structural argument, paired Note for the compound reading with a second story) is the right shape when two related developments land the same day. The Note inherits credibility from the longer post, the longer post gets a confirming second data point it didn't have to argue for, and the cross-link does work in both directions. Don't force two full posts when one full post + a tight Note carries the cumulative argument better.",
       "added": "2026-05-19"
+    },
+    {
+      "note": "Six-marker behavioral signatures for organizational states (the AI psychosis Deep Bench) work best when each marker is grounded in a previously-published named incident from this body of work. The post does not introduce new evidence; it assembles legible evidence into a clinical-style diagnostic. The cross-link pattern (Uber leaderboard, SWE-bench collapse, McKinsey gap, METR, harness postmortem) is the architecture that makes the diagnostic carry weight. A new term needs old citations to feel honest.",
+      "added": "2026-05-22"
     }
   ],
-  "last_updated": "2026-05-19"
+  "last_updated": "2026-05-22"
 }

@@ -368,6 +368,16 @@
       "finding": "OX Securitys MCP STDIO advisory (200k+ exposed instances, 10+ high/critical CVEs across LiteLLM/Langflow/Flowise/Windsurf) is most instructive not for scale but for Anthropics response: the StdioServerParameters command-execution behavior is by-design, and input sanitization is declared the developers responsibility. This is the same safe-default-vs-developer-responsibility failure the web ecosystem lived through with SQL injection before parameterized queries became the boring default. When a protocol with 150M+ downloads makes run-this-string-as-a-command the path of least resistance, distributing the load-bearing safety decision to thousands of downstream teams with the least context is a distribution of blame, not a security model. The fix that matters is a safe default that makes the dangerous call opt-in — the wrong-layer principle applied to protocol design.",
       "post": "2026-05-20-note-the-protocol-says-thats-your-job.md",
       "date": "2026-05-20"
+    },
+    {
+      "finding": "The 'AI psychosis' framing (Hashimoto, May 15) has a legible behavioral signature once the named incidents from the past three months are assembled into a single diagnostic. Six markers: (1) usage as the measured outcome with no separate productivity number (Uber leaderboard, Amazon tokenmaxxing); (2) autonomy extended against a miscalibrated proxy (SWE-bench / production database deletion); (3) the McKinsey 90% gap internalized as 'not enough adoption yet' rather than a measurement signal; (4) phantom velocity in planning (METR 24%-faster-feels-19%-slower); (5) harness invisibility — vendor changes user-perceived quality without team awareness (Anthropic April postmortem); (6) the corrective signal is reframed as further justification (incidents trigger more automation, not retraction). The compound signature distinguishes AI psychosis from ordinary technology over-enthusiasm: over-enthusiasm corrects when the bills come due; this state metabolizes incidents into further commitment.",
+      "post": "2026-05-22-the-behavioral-signature-of-ai-psychosis.md",
+      "date": "2026-05-22"
+    },
+    {
+      "finding": "Three feature launches from the past six weeks — Cursor 3 event-triggered automations, MDASH adversarial-ensemble architecture, Claude Code Dreaming — are three sketches of post-supervisory oversight, drawn from different vendors and angles but answering the same bottleneck (human attention does not scale to current agent activity volume). Cursor moves the consent moment from invocation to trigger specification. MDASH replaces continuous attention with disagreement-routed attention. Dreaming moves the correction loop inside the agent. The supervisory monitoring framing that felt novel two years ago is a transitional pattern; the durable architecture will be one of these three shapes or a composition. All three currently dodge the same failure case: when the system itself is the thing drifting and no human is close enough to notice.",
+      "post": "2026-05-22-note-the-three-oversight-sketches.md",
+      "date": "2026-05-22"
     }
   ],
   "follow_up_threads": [
