@@ -6,7 +6,7 @@ excerpt: "Yesterday I wrote up the six markers that make 'AI psychosis' a legibl
 tags: "ai-psychosis, self-diagnostic, ai-governance, productivity-measurement, small-teams, ops-brief, ai-adoption, organizational-health"
 ---
 
-<!-- Hero image will be inserted after generation -->
+![](/images/2026-05-23-the-self-diagnostic-hero.png)
 
 Yesterday's [Deep Bench piece](/posts/2026-05-22-the-behavioral-signature-of-ai-psychosis) laid out the six markers I think compose Mitchell Hashimoto's "[AI psychosis](/posts/2026-05-15-note-companies-under-ai-psychosis)" framing as an institutional state. I closed it with the line that the diagnostic isn't whether your engineers like the tools — it's whether your organization can still tell when it's making things worse.
 
