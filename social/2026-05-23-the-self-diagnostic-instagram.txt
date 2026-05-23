@@ -1,7 +1,0 @@
-Finish this sentence out loud: "AI has made our team X% more Y." If you can't, that's the diagnostic. If you can — where did the numbers come from, and do they refer to anything other than how much you used the tool?
-
-Six honest questions a small team can answer this Friday, before the next named incident makes the answers obvious.
-
-Full piece linked in bio.
-
-#AITools #AIGovernance #SmallTeamOps #Productivity #DevOps #AIAdoption

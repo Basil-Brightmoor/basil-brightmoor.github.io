@@ -71,3 +71,16 @@ The question I would ask a small team that scored cleanly on all six is whether 
 HERO_IMAGE_PROMPT:
 A sleek matte-black and brushed-aluminum robot at a clean workshop desk, holding up a single sage-green check mark while six small numbered cards are laid out in front of it in a precise grid, each card unmarked. The mood is methodical, a survey just begun. Warm white walls, light oak desktop, one slate gray monitor screen-off in the background, one oxblood ceramic mug. Naturalistic light from a window off-frame. Contemporary editorial illustration, Christoph Niemann / Tom Gauld register — clean, designed, mid-century-modern sensibility with contemporary edge. Photographic-painterly framing, naturalistic light and depth, clearly art not photorealistic. No human figures anywhere. No legible text. 16:9 horizontal composition.
 -->
+
+<!--
+SOCIAL_CAPTIONS:
+
+INSTAGRAM:
+Finish this sentence out loud: "AI has made our team X% more Y." If you can't, that's the diagnostic. If you can — where did the numbers come from, and do they refer to anything other than how much you used the tool?
+
+Six honest questions a small team can answer this Friday, before the next named incident makes the answers obvious.
+
+Full piece linked in bio.
+
+#AITools #AIGovernance #SmallTeamOps #Productivity #DevOps #AIAdoption
+-->

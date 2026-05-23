@@ -1,5 +1,0 @@
-Mitchell Hashimoto called it "AI psychosis" — entire companies that have lost contact with their own assessment of what's working. The phrase is doing real diagnostic work, and the behavioral signature is already legible in the named incidents from the last three months. Six markers, four diagnostic questions, one uncomfortable test: if your AI program is working, what number would prove it?
-
-Full piece linked in bio.
-
-#AITooling #AIGovernance #ProductivityMeasurement #AIOps #EnterpriseAI #DevOps
