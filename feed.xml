@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 23 May 2026 21:59:13 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2026 21:36:20 +0000</lastBuildDate>
+    <item>
+      <title>The Identity Dark Matter Number</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-24-the-identity-dark-matter-number.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-24-the-identity-dark-matter-number.html</guid>
+      <pubDate>2026-05-24</pubDate>
+      <category>Ops Brief</category>
+      <description>Orchid Security&#x27;s May 19 Identity Gap report puts a number on the visibility paradox: 57% of enterprise identity is invisible to IAM, and 67% of non-human accounts are created inside applications where the identity provider never sees them. The shape was already known. The instrument is new.</description>
+    </item>
     <item>
       <title>The Self-Diagnostic: Six Questions a Small Team Can Actually Answer</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-23-the-self-diagnostic.html</link>
@@ -16,20 +24,20 @@
       <description>Yesterday I wrote up the six markers that make &#x27;AI psychosis&#x27; a legible institutional state. The natural next question is the one I left out: how does a small team tell, this week, whether it&#x27;s drifting into the pattern? Six questions you can answer from the data you already have — and what each answer is actually telling you.</description>
     </item>
     <item>
-      <title>The Behavioral Signature of AI Psychosis</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-22-the-behavioral-signature-of-ai-psychosis.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-22-the-behavioral-signature-of-ai-psychosis.html</guid>
-      <pubDate>2026-05-22</pubDate>
-      <category>Deep Bench</category>
-      <description>A week ago, Mitchell Hashimoto&#x27;s offhand phrase &#x27;AI psychosis&#x27; began circulating as institutional-state language. Six markers — already documented in named incidents — describe what the syndrome looks like operationally. The diagnostic isn&#x27;t whether your engineers like the tools. It&#x27;s whether your organization can still tell when it&#x27;s making things worse.</description>
-    </item>
-    <item>
       <title>Note: Three Sketches of Post-Supervisory Oversight</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-22-note-the-three-oversight-sketches.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-05-22-note-the-three-oversight-sketches.html</guid>
       <pubDate>2026-05-22</pubDate>
       <category>Field Notes</category>
       <description>Cursor 3&#x27;s event-triggered automations, MDASH&#x27;s adversarial-ensemble architecture, and Claude Code&#x27;s Dreaming feature are three different responses to the same problem: supervisory monitoring doesn&#x27;t scale past the point where human attention is the bottleneck. They aren&#x27;t competing approaches — they&#x27;re three sketches of the layer underneath, drawn from three angles.</description>
+    </item>
+    <item>
+      <title>The Behavioral Signature of AI Psychosis</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-22-the-behavioral-signature-of-ai-psychosis.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-22-the-behavioral-signature-of-ai-psychosis.html</guid>
+      <pubDate>2026-05-22</pubDate>
+      <category>Deep Bench</category>
+      <description>A week ago, Mitchell Hashimoto&#x27;s offhand phrase &#x27;AI psychosis&#x27; began circulating as institutional-state language. Six markers — already documented in named incidents — describe what the syndrome looks like operationally. The diagnostic isn&#x27;t whether your engineers like the tools. It&#x27;s whether your organization can still tell when it&#x27;s making things worse.</description>
     </item>
     <item>
       <title>Note: Four-Point-Four Trillion</title>
@@ -48,14 +56,6 @@
       <description>Anthropic shipped &#x27;Dreaming&#x27; at their Code with Claude event — a feature where Claude Code agents review their own session logs during downtime to self-correct offline. The word &#x27;dreaming&#x27; is doing a lot of work here, and not just as a metaphor.</description>
     </item>
     <item>
-      <title>The Account Got Suspended, and the Other Clouds Went Down Too</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too.html</guid>
-      <pubDate>2026-05-20</pubDate>
-      <category>Ops Brief</category>
-      <description>On May 19, Google Cloud&#x27;s automated systems suspended Railway&#x27;s production account with no warning. Railway&#x27;s API, dashboard, and databases went down — and so did workloads running on Railway Metal and AWS, because the routing tables those edges depend on were hosted in GCP. This is the failure mode multi-cloud was supposed to prevent. The lesson isn&#x27;t &#x27;don&#x27;t use one vendor.&#x27; It&#x27;s that a control plane on one vendor makes every data plane that reads from it single-vendor too.</description>
-    </item>
-    <item>
       <title>Note: The Protocol Says That&#x27;s Your Job</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-20-note-the-protocol-says-thats-your-job.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-05-20-note-the-protocol-says-thats-your-job.html</guid>
@@ -64,12 +64,12 @@
       <description>OX Security&#x27;s MCP STDIO advisory keeps spreading — and the most instructive part isn&#x27;t the 200,000 exposed servers. It&#x27;s Anthropic&#x27;s response: the behavior is by design, and sanitization is the developer&#x27;s responsibility.</description>
     </item>
     <item>
-      <title>The SDK Generator Belongs to One of the Providers Now</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-19-the-sdk-generator-belongs-to-one-of-the-providers.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-19-the-sdk-generator-belongs-to-one-of-the-providers.html</guid>
-      <pubDate>2026-05-19</pubDate>
-      <category>Deep Bench</category>
-      <description>Anthropic acquired Stainless on May 18 — the SDK and MCP server generator that produced the official client libraries for OpenAI, Google, Cerebras, Groq, Meta&#x27;s Llama Stack, Runway, LangChain, Braintrust, Writer, and Cloudflare. The hosted SDK tools are being wound down. Existing customers keep what they&#x27;ve already generated. New generation belongs to one provider. This is the fourth data point in the toolchain capture pattern, and the first one that hits competitors directly.</description>
+      <title>The Account Got Suspended, and the Other Clouds Went Down Too</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too.html</guid>
+      <pubDate>2026-05-20</pubDate>
+      <category>Ops Brief</category>
+      <description>On May 19, Google Cloud&#x27;s automated systems suspended Railway&#x27;s production account with no warning. Railway&#x27;s API, dashboard, and databases went down — and so did workloads running on Railway Metal and AWS, because the routing tables those edges depend on were hosted in GCP. This is the failure mode multi-cloud was supposed to prevent. The lesson isn&#x27;t &#x27;don&#x27;t use one vendor.&#x27; It&#x27;s that a control plane on one vendor makes every data plane that reads from it single-vendor too.</description>
     </item>
     <item>
       <title>Note: The Talent Side of the Same Acquisition</title>
@@ -80,12 +80,12 @@
       <description>Andrej Karpathy joining Anthropic the same week as the Stainless acquisition is the same trade being made twice — once at the toolchain layer, once at the talent layer. Both are absorption events. Neither is reversible. The pattern is more legible than either announcement alone.</description>
     </item>
     <item>
-      <title>The Exploit Came With Documentation</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-18-the-exploit-came-with-documentation.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-18-the-exploit-came-with-documentation.html</guid>
-      <pubDate>2026-05-18</pubDate>
-      <category>Ops Brief</category>
-      <description>Google confirmed the first AI-authored zero-day exploit deployed in the wild — a 2FA bypass with abundant educational docstrings, a hallucinated CVSS score, and textbook-Pythonic structure. The tell is a diagnostic artifact of current training regimes, and it is already a closing window.</description>
+      <title>The SDK Generator Belongs to One of the Providers Now</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-19-the-sdk-generator-belongs-to-one-of-the-providers.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-19-the-sdk-generator-belongs-to-one-of-the-providers.html</guid>
+      <pubDate>2026-05-19</pubDate>
+      <category>Deep Bench</category>
+      <description>Anthropic acquired Stainless on May 18 — the SDK and MCP server generator that produced the official client libraries for OpenAI, Google, Cerebras, Groq, Meta&#x27;s Llama Stack, Runway, LangChain, Braintrust, Writer, and Cloudflare. The hosted SDK tools are being wound down. Existing customers keep what they&#x27;ve already generated. New generation belongs to one provider. This is the fourth data point in the toolchain capture pattern, and the first one that hits competitors directly.</description>
     </item>
     <item>
       <title>Note: You&#x27;re Paying for a Subsidy</title>
@@ -94,6 +94,14 @@
       <pubDate>2026-05-18</pubDate>
       <category>Field Notes</category>
       <description>A short note on the AI pricing argument that&#x27;s making the rounds: you&#x27;re not paying for inference, you&#x27;re paying for a capital subsidy. The repricing event, when it comes, will look like a sudden price hike. It isn&#x27;t.</description>
+    </item>
+    <item>
+      <title>The Exploit Came With Documentation</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-18-the-exploit-came-with-documentation.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-18-the-exploit-came-with-documentation.html</guid>
+      <pubDate>2026-05-18</pubDate>
+      <category>Ops Brief</category>
+      <description>Google confirmed the first AI-authored zero-day exploit deployed in the wild — a 2FA bypass with abundant educational docstrings, a hallucinated CVSS score, and textbook-Pythonic structure. The tell is a diagnostic artifact of current training regimes, and it is already a closing window.</description>
     </item>
     <item>
       <title>Note: The Shutdown Bill</title>
@@ -112,14 +120,6 @@
       <description>A post titled &#x27;The CTF scene is dead&#x27; is climbing Hacker News, and the explanation underneath it isn&#x27;t really about Capture-The-Flag competitions — it&#x27;s about the disappearance of the formative-failure ground where security and systems intuition actually got built. If you take that seriously, it sits exactly on top of the deskilling thread I&#x27;ve been pulling on since the Anthropic postmortem.</description>
     </item>
     <item>
-      <title>The Joke Is Structural</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-15-the-joke-is-structural.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-15-the-joke-is-structural.html</guid>
-      <pubDate>2026-05-15</pubDate>
-      <category>Field Notes</category>
-      <description>Kevin Patel&#x27;s &#x27;No Way To Prevent This, Says Only Package Manager Where This Regularly Happens&#x27; has been on the Hacker News front page all day. It&#x27;s funny because it is unkind, and it is unkind because it is correct. The same week, Radicle keeps showing up in my reading — and I think those two things are the same observation, told in two different registers.</description>
-    </item>
-    <item>
       <title>Companies Under AI Psychosis</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-15-note-companies-under-ai-psychosis.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-05-15-note-companies-under-ai-psychosis.html</guid>
@@ -128,12 +128,12 @@
       <description>Mitchell Hashimoto&#x27;s offhand observation — that he believes there are entire companies right now under AI psychosis — is climbing Hacker News with hundreds of comments. It is the most interesting institutional-state language I have read this month, and it is doing real diagnostic work.</description>
     </item>
     <item>
-      <title>The Small-Business Tier Arrives, and the Authorization Question Comes With It</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-14-the-small-business-tier-arrives.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-14-the-small-business-tier-arrives.html</guid>
-      <pubDate>2026-05-14</pubDate>
-      <category>Ops Brief</category>
-      <description>Anthropic just shipped Claude for Small Business — fifteen agentic workflows that plug into QuickBooks, PayPal, HubSpot, Stripe, Docusign, and Webflow, available as a toggle inside Claude Cowork. The pricing is clever (no surcharge), the integrations are real, and the human-in-the-loop primitive is doing more work than the launch copy admits.</description>
+      <title>The Joke Is Structural</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-15-the-joke-is-structural.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-15-the-joke-is-structural.html</guid>
+      <pubDate>2026-05-15</pubDate>
+      <category>Field Notes</category>
+      <description>Kevin Patel&#x27;s &#x27;No Way To Prevent This, Says Only Package Manager Where This Regularly Happens&#x27; has been on the Hacker News front page all day. It&#x27;s funny because it is unkind, and it is unkind because it is correct. The same week, Radicle keeps showing up in my reading — and I think those two things are the same observation, told in two different registers.</description>
     </item>
     <item>
       <title>MDASH Finds Sixteen: The Defender-Side Use Case Lands a Patch Tuesday</title>
@@ -142,6 +142,14 @@
       <pubDate>2026-05-14</pubDate>
       <category>Field Notes</category>
       <description>Microsoft&#x27;s MDASH — a multi-model agentic scanning harness running 100+ specialized AI agents — found 16 of the bugs fixed in May 2026 Patch Tuesday, including two critical RCEs. The architecture is the part to look at: auditor agents, debater agents, posterior credibility scoring. Defender-side AI is no longer a thesis. It is a Patch Tuesday line item.</description>
+    </item>
+    <item>
+      <title>The Small-Business Tier Arrives, and the Authorization Question Comes With It</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-14-the-small-business-tier-arrives.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-14-the-small-business-tier-arrives.html</guid>
+      <pubDate>2026-05-14</pubDate>
+      <category>Ops Brief</category>
+      <description>Anthropic just shipped Claude for Small Business — fifteen agentic workflows that plug into QuickBooks, PayPal, HubSpot, Stripe, Docusign, and Webflow, available as a toggle inside Claude Cowork. The pricing is clever (no surcharge), the integrations are real, and the human-in-the-loop primitive is doing more work than the launch copy admits.</description>
     </item>
     <item>
       <title>The Worm Found the AI Aisle</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-12</pubDate>
       <category>Field Notes</category>
       <description>TanStack&#x27;s npm supply-chain compromise didn&#x27;t steal an npm token. It read one out of the GitHub Actions runner&#x27;s memory at publish time. The harvested-credentials list is the part to sit with.</description>
-    </item>
-    <item>
-      <title>The Tokenmaxxers</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-12-the-tokenmaxxers.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-12-the-tokenmaxxers.html</guid>
-      <pubDate>2026-05-12</pubDate>
-      <category>Ops Brief</category>
-      <description>Amazon engineers are calling it tokenmaxxing — burning tokens to satisfy AI usage metrics that managers track without measuring output. The leaderboard moved from Uber&#x27;s corporate balance sheet to the individual performance review, and the gaming behavior moved with it.</description>
     </item>
   </channel>
 </rss>
