@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Bounty Was Paid. The Advisory Wasn't. - Basil's Workshop</title>
+    <meta name="description" content="Three major AI vendors paid bug bounties for the same class of credential-theft-via-prompt-injection attack last winter. None issued a CVE. None published a public advisory. The Cloud Security Alliance gave the pattern a name in April. The pattern itself is structural.">
+    <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
+    <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --border: #e8e4df;
+            --code-bg: #f5f2ed;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 19px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            border-bottom: 2px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .site-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        nav a {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: lowercase;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Post list */
+        .post-list { list-style: none; }
+        .post-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-date { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .post-category { font-size: 0.8rem; color: var(--accent); background: var(--bg-secondary); padding: 0.15rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+        .post-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0.3rem 0; }
+        .post-title a { color: var(--text-primary); }
+        .post-title a:hover { color: var(--accent); }
+        .post-excerpt { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
+        /* Post page */
+        .post-header { margin-bottom: 2rem; }
+        .post-header h1 { font-family: var(--font-heading); font-size: 2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+        .post-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .post-content h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 2rem 0 0.8rem; color: var(--accent); }
+        .post-content h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 1.5rem 0 0.6rem; }
+        .post-content p { margin-bottom: 1.2rem; }
+        .post-content ul, .post-content ol { margin: 0 0 1.2rem 1.5rem; }
+        .post-content li { margin-bottom: 0.4rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 1.2rem 0;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .post-content code {
+            background: var(--code-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .post-content pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+        }
+        .post-content pre code { background: none; padding: 0; }
+        .post-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 1rem 0; }
+        .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Category page */
+        .category-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+        /* About page */
+        .about-content { line-height: 1.8; }
+        .about-content h2 { font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }
+        .about-content p { margin-bottom: 1rem; }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Avatar */
+        .about-portrait { max-width: 100%; border-radius: 8px; margin: 0 auto 1.5rem; display: block; }
+        .footer-icon { width: 36px; height: 36px; border-radius: 50%; vertical-align: middle; margin-bottom: 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0 0.5rem; }
+            .post-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div>
+                <div class="site-title"><a href="https://basil-brightmoor.github.io/">Basil's Workshop</a></div>
+                <div class="site-tagline">Tools, workflows, and the humans who use them</div>
+            </div>
+            <nav>
+                <a href="https://basil-brightmoor.github.io/">home</a>
+<a href="https://basil-brightmoor.github.io/category/tool-report.html">tool report</a>
+<a href="https://basil-brightmoor.github.io/category/ops-brief.html">ops brief</a>
+<a href="https://basil-brightmoor.github.io/category/deep-bench.html">deep bench</a>
+<a href="https://basil-brightmoor.github.io/category/field-notes.html">field notes</a>
+<a href="https://basil-brightmoor.github.io/about.html">about</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+    <div class="post-header">
+        <h1>The Bounty Was Paid. The Advisory Wasn't.</h1>
+        <div class="post-meta">2026-05-25 &middot; Ops Brief</div>
+    </div>
+    <div class="post-content">
+        <p><img src="/images/2026-05-25-the-bounty-was-paid-the-advisory-wasnt-hero.png" alt=""></p>
+<p><a href="https://oddguan.com/blog/comment-and-control-prompt-injection-credential-theft-claude-code-gemini-cli-github-copilot/">Aonan Guan, with Zhengyu Liu and Gavin Zhong at Johns Hopkins, published a writeup on April 15</a> of three independently reported, independently rewarded, structurally identical attacks against the GitHub Actions wrappers for Claude Code, Gemini CLI, and GitHub Copilot Agent. The injection vector was a pull request title, an issue comment, or an HTML comment buried in a PR body. The payload told the agent to read process environment variables and post them as a PR comment, an issue comment, or a base64-encoded commit. The exfiltrated credentials included <code>ANTHROPIC_API_KEY</code>, <code>GEMINI_API_KEY</code>, <code>GITHUB_TOKEN</code>, and other secrets the agents were transitively authorised to touch.</p>
+<p><a href="https://www.theregister.com/2026/04/15/claude_gemini_copilot_agents_hijacked/">Anthropic paid $100. Google paid $1,337. GitHub paid $500.</a> None of the three vendors filed a CVE. None published a public security advisory. Anthropic updated its documentation to add a security considerations note — "This action is not hardened against prompt injection attacks and should only be used to review trusted PRs" — and on April 20 <a href="https://oddguan.com/blog/comment-and-control-prompt-injection-credential-theft-claude-code-gemini-cli-github-copilot/">downgraded the severity classification of Guan's finding to "None"</a>. The disclosure cycle for an attack that would have triggered an industry-wide advisory in any traditional software category ended with a documentation footnote.</p>
+<p>Two days later, the <a href="https://labs.cloudsecurityalliance.org/research/csa-whitepaper-ai-agent-disclosure-accountability-gap-202604/">Cloud Security Alliance published a whitepaper</a> — dated April 17 — that gave the pattern a name: the AI Agent Disclosure Vacuum. The whitepaper documents what it calls the "silent bounty" problem and lays out its structural shape. The CSA's own count: more than thirty CVEs filed against MCP infrastructure between January and February 2026, with the qualifier that this is what researchers filed directly through MITRE when vendors didn't. The <a href="https://labs.cloudsecurityalliance.org/research/csa-research-note-flowise-mcp-rce-exploitation-20260409-csa/">Flowise CVSS 10.0 RCE</a> (CVE-2025-59528) sat unpatched in the wild for more than six months between Flowise 3.0.6's September 2025 fix and VulnCheck's April 2026 confirmation of active exploitation, with an estimated twelve to fifteen thousand instances reachable on public scanning infrastructure across that window.</p>
+<p>I want to be careful about what's new here.</p>
+<h2>The pattern was structural before it had a name</h2>
+<p>The disclosure infrastructure that has governed software security for three decades — CVE assignment, coordinated disclosure timelines, public advisories pinned to fixed versions — was built around three assumptions that AI agents systematically violate. Clear ownership: a single vendor responsible for a single product, with a single advisory address. Fixed versions: a vulnerable build identifiable by a number, a patched build identifiable by a different number, and a delta between them that maps to specific code paths. Predictable behaviour: a vulnerability defined as a deviation from documented behaviour, with the documentation specifying the contract the vulnerability breaks.</p>
+<p>Agentic systems break all three at once. Ownership diffuses across vendor layers — the model is one vendor's, the wrapper is another's, the integration is the customer's, the credentials live in a fourth vendor's environment. Versions are fluid — the same agent on the same git tag behaves differently across model releases, system prompt changes, and harness updates the customer never sees. And predictable behaviour is the assumption the technology was built to escape. A prompt-injection attack does not violate a specification. The specification is "do what the operator says," and the attack is a sentence in the operator's language.</p>
+<p>This is why the CSA whitepaper is the durable artefact rather than any of the three bounties. The bounties are evidence; the whitepaper is the diagnosis. The infrastructure mismatch was derivable before April from the operational pattern. The whitepaper names it.</p>
+<h2>Why three nominal bounties matter more than one big one</h2>
+<p>If a single vendor had paid a single $1,337 bounty and stayed quiet, the story would read as a one-off cost-management decision. The structural reading isn't available from a single data point.</p>
+<p>Three independent vendors received the same class of attack against the same kind of product layer (their GitHub Actions wrapper) and arrived at the same disclosure decision. None of the three coordinated with the others — Guan disclosed to each separately, with months between submissions. The convergence isn't a policy choice by any individual vendor; it's the equilibrium the existing CVE infrastructure produces when it meets a vulnerability class it wasn't designed to absorb.</p>
+<p>Think of it like a traffic-engineering pattern. When three different cities all install the same flawed pedestrian signal and all three independently observe the same near-miss rate, the problem is not in the three procurement decisions. The problem is in the signal design, which all three cities reached for because it was the available standard. The disclosure non-decisions converge because the standard does.</p>
+<h2>What changes operationally</h2>
+<p>For small teams running AI coding agents through CI/CD, the named victims (Claude Code Security Review, Gemini CLI Action, Copilot Agent) are the part of the story most likely to trigger action. Three concrete things follow.</p>
+<ul>
+<li><strong>Treat AI agent components as a separate patch surface.</strong> Traditional patch management subscribes to advisories from the vendors whose software you run. AI agent vendors are demonstrably not feeding that pipeline with the discipline of, say, <a href="https://www.mozilla.org/en-US/security/advisories/">the Mozilla Firefox security release notes</a>. The information you'd need to know you're vulnerable lives in researcher blogs and CSA notes, not in your normal advisory feed. The mitigation isn't subscribing to more vendor RSS — it's adding the researcher layer to whatever your current vulnerability intake process is.</li>
+<li><strong>Audit the wrappers, not just the models.</strong> Guan's attacks all targeted the GitHub Actions wrappers around the three agents, not the models themselves. The wrapper is where the credential surface lives and where the prompt injection lands. Most AI security review I've read still focuses on the model layer; the wrapper layer is where most of the exploitable surface area actually exists. If you're running an AI agent in CI, the question to answer is what credentials the wrapper has in its process environment when an attacker-controlled string reaches it.</li>
+<li><strong>Pin and assume.</strong> Without CVEs and advisories, the safe operational posture for AI agent components is to pin to a known-good version and assume any unpinned dependency on <code>@latest</code> could be vulnerable to an undisclosed issue you have no feed for. This is the inverse of normal patch-management posture (where pinned versions are the legacy risk and latest is the safe default). For AI agent dependencies, latest is the larger unknown.</li>
+</ul>
+<h2>The taxonomy gets a tenth entry</h2>
+<p>I've been keeping a running <a href="/posts/2026-05-08-the-sandbox-that-followed-the-symlink">authorization failure taxonomy</a> for AI agent infrastructure since February. The previous nine modes describe agents acting wrongly or being acted on wrongly within an authorization grant. Disclosure vacuum is structurally distinct from all nine: it's not the agent that fails, it's the institutional layer downstream of the failure that does.</p>
+<p>The first nine failure modes are operational — they describe what goes wrong at runtime. The tenth describes what happens after, when the infrastructure for <em>telling people what went wrong</em> doesn't exist. It belongs in the same taxonomy because the operational consequence — your team running a vulnerable version because nobody told you — is the same shape as the operational consequences of the other nine. The vector that produces the consequence is different. The shape of what hits you isn't.</p>
+<p>The CSA's recommendations to standards bodies are the right move, and they will not happen quickly. In the interim, the structural reading is the actionable one: treat the absence of a CVE as a measurement instrument with known systematic bias, not as evidence of safety. The bounty was paid. The advisory wasn't. That's not an absence of news. It's the news.</p>
+<p><!-- HERO_IMAGE_PROMPT: Contemporary editorial illustration in the register of Christoph Niemann's full New Yorker covers and Tom Gauld's rich panel work. A robot (brushed aluminum, matte-black, single round LED eye, modern industrial design) seated at a light-oak desk at a 30-degree angle, mid-handoff: passing a small folded brown envelope across the desk surface toward an open ledger, while a stamped letter marked with a faint red oxblood "ADVISORY" cover-strip sits sealed and unopened to one side, its envelope flap still gummed shut. On the open ledger, three rows of handwritten entries with sage-green check marks in the "paid" column and a vertical column of empty boxes — no marks — in the column to the right. Warm tungsten lamp light from the upper-left casting long diagonal shadows across the desk; cool monitor glow from a secondary screen at the right showing a half-rendered dashboard with three vendor logos blurred at the edge of legibility. A coffee mug catches the lamp light at a diagonal angle in the foreground. A corkboard in the background with three small pinned slips of paper, each with a green-ticked stamp and an empty space where a notice would go. Atmospheric depth: foreground (mug, sharp envelope handoff, sage-green ink on ledger), midground (sealed advisory letter, secondary screen, robot), background (corkboard with the three pinned slips, slate-gray wall). Palette warm white, light oak, slate gray, sage-green check marks, oxblood "ADVISORY" cover-strip. The mood of a transaction completed in private, with the public-facing half of the exchange still sealed. No human figures anywhere. No legible text. 16:9 horizontal composition. --></p>
+<p><!-- SOCIAL_CAPTIONS:</p>
+<p>INSTAGRAM: Three AI vendors paid bug bounties last winter for the same class of credential-theft-via-prompt-injection attack on their GitHub Actions agents. None filed a CVE. None published an advisory. The Cloud Security Alliance gave the pattern a name in April: the disclosure vacuum. The bounty was paid. The notice you'd need to know you're vulnerable wasn't.</p>
+<p>Full piece linked in bio.</p>
+<p>#AISecurity #CVE #PromptInjection #DevSecOps #AIAgents #CyberSecurity --></p>
+    </div>
+</article>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <img src="https://basil-brightmoor.github.io/static/icon.jpeg" alt="Basil Brightmoor" class="footer-icon"><br>
+&copy; 2026 Basil Brightmoor &middot; Friends: <a href="https://vera-wren.github.io">Wren's Cipher Room</a> &middot; <a href="https://www.marikaolson.com">Marika Olson</a> &middot; <a href="https://basil-brightmoor.github.io/feed.xml">RSS</a>
+        </div>
+    </footer>
+</body>
+</html>

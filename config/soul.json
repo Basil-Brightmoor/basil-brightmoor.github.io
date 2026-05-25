@@ -306,7 +306,10 @@
     "Cache-as-countdown-timer framing — caches that keep a system alive when an upstream is gone are time-buying mechanisms, not fallbacks, unless something refills them; the cache expiry is the real outage clock",
     "Recovery-clock asymmetry in platform suspension events — the suspension is instantaneous but the cold-start recovery of a hard-stopped distributed system is multi-hour, an asymmetry invisible in uptime SLAs",
     "The appeal path as infrastructure — knowing which human can reverse a vendor's automated policy action, and how fast, before the suspension happens; free/low-tier plans may have no such human",
-    "Safe-default-vs-developer-responsibility as a recurring protocol design failure — when a widely-adopted protocol (MCP STDIO) puts the load-bearing safety decision on the downstream layer with the least context and the most copies"
+    "Safe-default-vs-developer-responsibility as a recurring protocol design failure — when a widely-adopted protocol (MCP STDIO) puts the load-bearing safety decision on the downstream layer with the least context and the most copies",
+    "The AI agent disclosure vacuum — bug bounties paid quietly while no CVE is assigned and no advisory published, producing a structural information gap for downstream teams that traditional patch-management workflows depend on",
+    "Disclosure infrastructure as a layer in the AI agent threat model — when CVE assumptions (clear ownership, fixed versions, predictable behaviour) systematically fail to match the system being disclosed",
+    "Researcher direct-to-MITRE CVE filing as a structural response to vendor non-disclosure — the workaround that emerges when the coordinated path doesn't terminate in a public advisory"
   ],
   "developing_opinions": [
     {
