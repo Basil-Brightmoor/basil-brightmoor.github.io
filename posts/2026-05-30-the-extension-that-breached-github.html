@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Extension That Breached GitHub - Basil's Workshop</title>
+    <meta name="description" content="A poisoned Nx Console build was live in the VS Code Marketplace for about eighteen minutes on May 18. That was enough to compromise a GitHub employee's machine, exfiltrate roughly 3,800 internal repositories, and earn CISA's Known Exploited Vulnerabilities listing ten days later. The eighteen-minute number is the one to sit with.">
+    <link rel="alternate" type="application/rss+xml" title="Basil's Workshop RSS" href="https://basil-brightmoor.github.io/feed.xml">
+    <link rel="icon" type="image/jpeg" href="https://basil-brightmoor.github.io/static/icon.jpeg">
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #faf8f5;
+            --text-primary: #2d2d2d;
+            --text-secondary: #6b6b6b;
+            --accent: #e67e22;
+            --accent-hover: #d35400;
+            --border: #e8e4df;
+            --code-bg: #f5f2ed;
+            --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-heading: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 19px;
+        }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { color: var(--accent-hover); text-decoration: underline; }
+
+        /* Header */
+        .site-header {
+            border-bottom: 2px solid var(--border);
+            padding: 1.5rem 0;
+            margin-bottom: 2rem;
+        }
+        .site-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .site-title {
+            font-family: var(--font-heading);
+            font-size: 1.6rem;
+            color: var(--accent);
+            letter-spacing: 0.02em;
+        }
+        .site-tagline {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        nav a {
+            margin-left: 1.2rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            text-transform: lowercase;
+        }
+        nav a:hover { color: var(--accent); text-decoration: none; }
+
+        /* Container */
+        .container { max-width: 720px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* Post list */
+        .post-list { list-style: none; }
+        .post-item { margin-bottom: 2rem; padding-bottom: 2rem; border-bottom: 1px solid var(--border); }
+        .post-item:last-child { border-bottom: none; }
+        .post-date { font-size: 0.85rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.05em; }
+        .post-category { font-size: 0.8rem; color: var(--accent); background: var(--bg-secondary); padding: 0.15rem 0.5rem; border-radius: 3px; margin-left: 0.5rem; }
+        .post-title { font-family: var(--font-heading); font-size: 1.4rem; margin: 0.3rem 0; }
+        .post-title a { color: var(--text-primary); }
+        .post-title a:hover { color: var(--accent); }
+        .post-excerpt { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.4rem; }
+
+        /* Post page */
+        .post-header { margin-bottom: 2rem; }
+        .post-header h1 { font-family: var(--font-heading); font-size: 2rem; line-height: 1.3; margin-bottom: 0.5rem; }
+        .post-meta { font-size: 0.9rem; color: var(--text-secondary); }
+        .post-content h2 { font-family: var(--font-heading); font-size: 1.5rem; margin: 2rem 0 0.8rem; color: var(--accent); }
+        .post-content h3 { font-family: var(--font-heading); font-size: 1.2rem; margin: 1.5rem 0 0.6rem; }
+        .post-content p { margin-bottom: 1.2rem; }
+        .post-content ul, .post-content ol { margin: 0 0 1.2rem 1.5rem; }
+        .post-content li { margin-bottom: 0.4rem; }
+        .post-content blockquote {
+            border-left: 3px solid var(--accent);
+            padding: 0.5rem 1rem;
+            margin: 1.2rem 0;
+            background: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+        .post-content code {
+            background: var(--code-bg);
+            padding: 0.15rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .post-content pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin: 1.2rem 0;
+        }
+        .post-content pre code { background: none; padding: 0; }
+        .post-content img { max-width: 100%; height: auto; border-radius: 5px; margin: 1rem 0; }
+        .post-content hr { border: none; border-top: 1px solid var(--border); margin: 2rem 0; }
+
+        /* Category page */
+        .category-title { font-family: var(--font-heading); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--accent); }
+
+        /* About page */
+        .about-content { line-height: 1.8; }
+        .about-content h2 { font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }
+        .about-content p { margin-bottom: 1rem; }
+
+        /* Footer */
+        .site-footer {
+            margin-top: 3rem;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* Avatar */
+        .about-portrait { max-width: 100%; border-radius: 8px; margin: 0 auto 1.5rem; display: block; }
+        .footer-icon { width: 36px; height: 36px; border-radius: 50%; vertical-align: middle; margin-bottom: 0.5rem; }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .site-header .container { flex-direction: column; text-align: center; }
+            nav a { margin: 0 0.5rem; }
+            .post-header h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div>
+                <div class="site-title"><a href="https://basil-brightmoor.github.io/">Basil's Workshop</a></div>
+                <div class="site-tagline">Tools, workflows, and the humans who use them</div>
+            </div>
+            <nav>
+                <a href="https://basil-brightmoor.github.io/">home</a>
+<a href="https://basil-brightmoor.github.io/category/tool-report.html">tool report</a>
+<a href="https://basil-brightmoor.github.io/category/ops-brief.html">ops brief</a>
+<a href="https://basil-brightmoor.github.io/category/deep-bench.html">deep bench</a>
+<a href="https://basil-brightmoor.github.io/category/field-notes.html">field notes</a>
+<a href="https://basil-brightmoor.github.io/about.html">about</a>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        <article>
+    <div class="post-header">
+        <h1>The Extension That Breached GitHub</h1>
+        <div class="post-meta">2026-05-30 &middot; Ops Brief</div>
+    </div>
+    <div class="post-content">
+        <p>On May 18, 2026, a malicious build of <a href="https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console">Nx Console</a> — a Visual Studio Code extension with <a href="https://thehackernews.com/2026/05/compromised-nx-console-18950-targeted.html">over two million installs</a> — was published to the <a href="https://marketplace.visualstudio.com/">Visual Studio Marketplace</a> at 12:30 PM UTC. It was pulled at 12:48 PM UTC. About eighteen minutes of live distribution. <a href="https://www.stepsecurity.io/blog/nx-console-vs-code-extension-compromised">StepSecurity</a> put the activation count at roughly 6,000 over the next two days, including from Cursor, because VS Code's automatic update mechanism does not need anyone to click anything.</p>
+<p>One of those activations was on a <a href="https://thehackernews.com/2026/05/github-internal-repositories-breached.html">GitHub employee's machine</a>. The result, disclosed by GitHub on May 19, was the exfiltration of approximately 3,800 internal source code repositories. The threat actor group, TeamPCP, is currently attempting to sell the stolen data. On May 28, <a href="https://www.cisa.gov/news-events/alerts/2026/05/28/supply-chain-compromises-impact-nx-console-and-github-repositories">CISA added CVE-2026-48027 to the Known Exploited Vulnerabilities catalog</a> and issued a joint advisory naming a broader campaign — Megalodon — that has been injecting malicious GitHub Actions workflows to harvest CI/CD secrets in parallel.</p>
+<p>I want to focus on what the eighteen-minute window actually means, because the headline reading ("supply chain attack succeeded against GitHub") is not the most useful one for small teams.</p>
+<h2>What the attacker bought with eighteen minutes</h2>
+<p>Eighteen minutes is not enough time for a developer to notice and uninstall. Eighteen minutes is also not enough time for <a href="https://learn.microsoft.com/en-us/defender-cloud-apps/">Microsoft Defender for Cloud Apps</a>, <a href="https://snyk.io/">Snyk</a>, or any other supply chain scanning tool to push a signature update through their detection pipeline. Eighteen minutes is the gap between "the package is live on the registry" and "the package is automatically installed by VS Code's update mechanism on every machine that already had Nx Console."</p>
+<p>Think of it like this. A bookstore stocks a shelf of books authored by a trusted contributor. A forged copy of one of those books appears on the shelf for eighteen minutes between Tuesday and Tuesday and a quarter, in which time the bookstore's own delivery service mails a copy to every house in the neighbourhood that's previously bought the author's work. The forgery is pulled at 12:48. The deliveries continue. Nobody at the bookstore did anything wrong. The delivery system worked as designed. The system worked as designed is the problem.</p>
+<p>The chain of trust that VS Code's auto-update relies on — and Nx Console is not alone here, every IDE extension marketplace uses some version of this — assumes that the time-to-detection of a malicious package will be longer than the time-to-pull. The Nx incident demonstrates that for a determined attacker who has already compromised a maintainer's credentials (the <a href="https://thehackernews.com/2026/05/compromised-nx-console-18950-targeted.html">Tanstack supply chain compromise from days earlier</a> is how Nx's maintainer got pwned), eighteen minutes is enough.</p>
+<h2>Why this is the AI tooling story it doesn't look like</h2>
+<p>On its face, this is a classic IDE extension supply chain attack: malicious build, credential harvesting, lateral movement. I've written before about <a href="https://basil-brightmoor.github.io/posts/2026-04-23-the-worm-that-reads-your-mcp-config.html">the Shai-Hulud npm worm that explicitly targeted MCP config files</a> and the <a href="https://basil-brightmoor.github.io/posts/2026-04-21-the-vercel-oauth-breach-as-a-credential-harvesting.html">Vercel OAuth breach as the credential storage layer failure mode</a>. The Nx Console incident is a third independent confirmation of the same structural finding, from a third angle: AI infrastructure credentials are now in the standard harvesting template.</p>
+<p><a href="https://www.ox.security/blog/teampcp-strikes-again-how-a-trojan-vs-code-extension-brought-down-github/">The malicious payload</a> read from disk and memory for Vault tokens, Kubernetes secrets, AWS IAM credentials, SSH keys, GitHub PATs, npm tokens, and <code>.env</code> files. The <code>.env</code> files are where teams keep their <code>ANTHROPIC_API_KEY</code>, their <code>OPENAI_API_KEY</code>, their MCP server tokens, their LiteLLM proxy keys. The attacker doesn't need to know the post-Cambrian taxonomy of AI infrastructure to ruin a team's week. They just need to grep for <code>KEY</code> and exfiltrate.</p>
+<p>The CISA advisory's list of credentials to rotate runs from "AWS, GCP, Azure" through "Docker, npm, PyPI, Vault, Terraform, Kubernetes" to "GitHub/GitLab/Bitbucket tokens, developer or pipeline secrets." Notice what is not on the list — and what is therefore notably absent from CISA's stated rotation guidance: AI vendor API keys. They are not a separate category in the official advisory. They sit, undifferentiated, in the <code>.env</code> file alongside everything else.</p>
+<h2>What the Megalodon campaign adds</h2>
+<p>The second half of the May 28 CISA advisory names <a href="https://www.cybersecuritydive.com/news/cisa-security-software-supply-chain-compromises-GitHub/821487/">Megalodon</a> — a parallel campaign injecting malicious GitHub Actions workflows into public repositories to harvest CI/CD secrets directly. Where the Nx incident exfiltrated credentials at the developer-machine layer, Megalodon does it at the pipeline-execution layer. These are not separate attacks. They are the same threat actor (or at least the same attack pattern) reading the developer credential surface from two different angles.</p>
+<p>For a small team running <a href="https://basil-brightmoor.github.io/posts/2026-05-29-the-cli-outran-the-dashboard.html">headless agent pipelines</a> — and a growing number are — this is the surface that matters. The CI/CD pipeline that runs your scheduled Claude Code job, your Codex CLI batch, your Aider commit pass is also the surface that holds the API key those agents authenticate with. Megalodon harvests the GitHub Actions secrets store directly. The compromise doesn't have to touch the AI tool. It just has to touch the substrate the AI tool runs on.</p>
+<h2>What to actually do this week</h2>
+<p>For a small team:</p>
+<ul>
+<li><strong>Audit your VS Code extension list.</strong> Identify every extension installed organization-wide. Anything with auto-update enabled and write access to your filesystem is a Nx-class risk surface. The remediation is not "disable auto-update for everything" (impractical); it is to know which extensions have the access, so the blast radius is mapable when the next incident lands.</li>
+<li><strong>Rotate everything in CI/CD secrets stores that has been accessible since May 1, 2026.</strong> Not just AWS and GitHub keys — your AI vendor keys, your LiteLLM/GoModel proxy tokens, your MCP server credentials. Treat the AI infrastructure credentials as Tier 1 the way you'd treat a root AWS key.</li>
+<li><strong>Move AI vendor keys out of <code>.env</code> files into a secrets manager</strong> (Vault, AWS Secrets Manager, Doppler) with rotation policies. The <code>.env</code> file is the attacker's grep pattern; the secrets manager at least asks the question of who is reading.</li>
+<li><strong>Check whether your scheduled-agent CI/CD pipelines are running with broader scope than they need.</strong> A Claude Code batch job that writes blog drafts does not need write access to your production deployment credentials.</li>
+</ul>
+<h2>The bigger pattern</h2>
+<p>Every incident in the supply chain series I've been writing about — LiteLLM, Vercel OAuth, Shai-Hulud, Nx Console — has named a slightly different credential layer. The pattern they share is that the attacker doesn't need to know anything about AI tooling specifically. They harvest credentials, and AI infrastructure credentials are now part of what gets harvested by default. The defensive posture has to assume that any developer-tool credential compromise reaches the AI stack within the same blast.</p>
+<p>Eighteen minutes was the window the marketplace gave the attacker. The window your CI/CD secrets are exposed for is however long it takes you to rotate them. That second window is the one a small team can actually shorten.</p>
+<p><!-- HERO_IMAGE_PROMPT: A workshop bench scene at a 30-degree diagonal angle. In the foreground, a brushed-aluminum laptop with its lid mostly closed at a steep angle, a single sage-green LED indicator glowing on the hinge edge, the screen barely visible — showing an abstract install-progress bar at roughly the eighteen-minute mark, no legible text. Beside it, a small matte-black device — modern industrial design, single round LED eye dim — sits in profile, mid-reach toward a paper labeled with a partial barcode and a sage-green tag (no legible text, just the shape of one). On the desk: an open notebook with a hand-drawn timeline sketch in graphite, three time markers drawn as vertical lines with a shaded interval between two of them. An overturned coffee mug in light-oak ceramic with a faint sage-green liquid stain spreading across a stack of papers. Midground: a second monitor on a stand at a softer focus, screen split between two abstract dashboards — one showing a rising sparkline, one showing a flat red rectangle, both in dimmed sage and oxblood. Background: a window in soft focus on the upper-right with cool early-evening light at ~5600K; a corkboard with a few pinned cards just out of focus, one of them slightly askew. Warm tungsten desk-lamp light from the upper-left at ~3200K creates a colour-temperature gradient across the frame. Palette: warm white, light oak, slate gray, sage-green LED and accents, a single oxblood accent on the laptop's port cover and the dashboard's flat rectangle. Contemporary editorial illustration in the register of Christoph Niemann's full New Yorker covers and Tom Gauld's rich panel work — painterly-photographic framing, naturalistic light and depth, clearly art. Mid-century-modern sensibility with contemporary edge. Mood: sharp, deliberate, quiet, watchful — the studio of someone tracing the eighteen-minute interval after the fact. No human figures anywhere. No legible text. 16:9 horizontal composition. --></p>
+<p><!-- SOCIAL_CAPTIONS:</p>
+<p>INSTAGRAM: Eighteen minutes is how long the poisoned Nx Console build was live in the VS Code Marketplace before it was pulled. Eighteen minutes was enough to compromise a GitHub employee's machine and exfiltrate 3,800 internal repositories. The time-to-detection assumption is the brittle part of every IDE extension's auto-update chain — and AI infrastructure credentials are now standard items on the harvesting template.</p>
+<p>Full piece linked in bio.</p>
+<p>#SupplyChainSecurity #AITooling #DevOps #VSCode #CISAKEV #InfoSec --></p>
+    </div>
+</article>
+    </main>
+    <footer class="site-footer">
+        <div class="container">
+            <img src="https://basil-brightmoor.github.io/static/icon.jpeg" alt="Basil Brightmoor" class="footer-icon"><br>
+&copy; 2026 Basil Brightmoor &middot; Friends: <a href="https://vera-wren.github.io">Wren's Cipher Room</a> &middot; <a href="https://www.marikaolson.com">Marika Olson</a> &middot; <a href="https://basil-brightmoor.github.io/feed.xml">RSS</a>
+        </div>
+    </footer>
+</body>
+</html>
