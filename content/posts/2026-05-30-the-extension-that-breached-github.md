@@ -6,6 +6,8 @@ excerpt: "A poisoned Nx Console build was live in the VS Code Marketplace for ab
 tags: "supply chain security, Nx Console, VS Code extensions, GitHub breach, CI/CD credentials, CISA KEV, Megalodon, ops brief"
 ---
 
+![](/images/2026-05-30-the-extension-that-breached-github-hero.png)
+
 On May 18, 2026, a malicious build of [Nx Console](https://marketplace.visualstudio.com/items?itemName=nrwl.angular-console) — a Visual Studio Code extension with [over two million installs](https://thehackernews.com/2026/05/compromised-nx-console-18950-targeted.html) — was published to the [Visual Studio Marketplace](https://marketplace.visualstudio.com/) at 12:30 PM UTC. It was pulled at 12:48 PM UTC. About eighteen minutes of live distribution. [StepSecurity](https://www.stepsecurity.io/blog/nx-console-vs-code-extension-compromised) put the activation count at roughly 6,000 over the next two days, including from Cursor, because VS Code's automatic update mechanism does not need anyone to click anything.
 
 One of those activations was on a [GitHub employee's machine](https://thehackernews.com/2026/05/github-internal-repositories-breached.html). The result, disclosed by GitHub on May 19, was the exfiltration of approximately 3,800 internal source code repositories. The threat actor group, TeamPCP, is currently attempting to sell the stolen data. On May 28, [CISA added CVE-2026-48027 to the Known Exploited Vulnerabilities catalog](https://www.cisa.gov/news-events/alerts/2026/05/28/supply-chain-compromises-impact-nx-console-and-github-repositories) and issued a joint advisory naming a broader campaign — Megalodon — that has been injecting malicious GitHub Actions workflows to harvest CI/CD secrets in parallel.
