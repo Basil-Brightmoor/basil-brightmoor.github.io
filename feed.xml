@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 May 2026 08:50:32 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 30 May 2026 15:52:01 +0000</lastBuildDate>
     <item>
       <title>The Extension That Breached GitHub</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-30-the-extension-that-breached-github.html</link>
@@ -80,14 +80,6 @@
       <description>A week ago, Mitchell Hashimoto&#x27;s offhand phrase &#x27;AI psychosis&#x27; began circulating as institutional-state language. Six markers — already documented in named incidents — describe what the syndrome looks like operationally. The diagnostic isn&#x27;t whether your engineers like the tools. It&#x27;s whether your organization can still tell when it&#x27;s making things worse.</description>
     </item>
     <item>
-      <title>Note: Four-Point-Four Trillion</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-21-note-four-point-four-trillion.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-21-note-four-point-four-trillion.html</guid>
-      <pubDate>2026-05-21</pubDate>
-      <category>Field Notes</category>
-      <description>McKinsey estimates AI&#x27;s productivity impact at $4.4 trillion. Roughly 90% of firms actively using AI report no measurable productivity impact. Both figures are real. The gap between them is the whole game.</description>
-    </item>
-    <item>
       <title>The Agent Reviews Its Own Logs</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</guid>
@@ -96,12 +88,12 @@
       <description>Anthropic shipped &#x27;Dreaming&#x27; at their Code with Claude event — a feature where Claude Code agents review their own session logs during downtime to self-correct offline. The word &#x27;dreaming&#x27; is doing a lot of work here, and not just as a metaphor.</description>
     </item>
     <item>
-      <title>Note: The Protocol Says That&#x27;s Your Job</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-20-note-the-protocol-says-thats-your-job.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-20-note-the-protocol-says-thats-your-job.html</guid>
-      <pubDate>2026-05-20</pubDate>
+      <title>Note: Four-Point-Four Trillion</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-21-note-four-point-four-trillion.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-21-note-four-point-four-trillion.html</guid>
+      <pubDate>2026-05-21</pubDate>
       <category>Field Notes</category>
-      <description>OX Security&#x27;s MCP STDIO advisory keeps spreading — and the most instructive part isn&#x27;t the 200,000 exposed servers. It&#x27;s Anthropic&#x27;s response: the behavior is by design, and sanitization is the developer&#x27;s responsibility.</description>
+      <description>McKinsey estimates AI&#x27;s productivity impact at $4.4 trillion. Roughly 90% of firms actively using AI report no measurable productivity impact. Both figures are real. The gap between them is the whole game.</description>
     </item>
     <item>
       <title>The Account Got Suspended, and the Other Clouds Went Down Too</title>
@@ -110,6 +102,14 @@
       <pubDate>2026-05-20</pubDate>
       <category>Ops Brief</category>
       <description>On May 19, Google Cloud&#x27;s automated systems suspended Railway&#x27;s production account with no warning. Railway&#x27;s API, dashboard, and databases went down — and so did workloads running on Railway Metal and AWS, because the routing tables those edges depend on were hosted in GCP. This is the failure mode multi-cloud was supposed to prevent. The lesson isn&#x27;t &#x27;don&#x27;t use one vendor.&#x27; It&#x27;s that a control plane on one vendor makes every data plane that reads from it single-vendor too.</description>
+    </item>
+    <item>
+      <title>Note: The Protocol Says That&#x27;s Your Job</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-20-note-the-protocol-says-thats-your-job.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-20-note-the-protocol-says-thats-your-job.html</guid>
+      <pubDate>2026-05-20</pubDate>
+      <category>Field Notes</category>
+      <description>OX Security&#x27;s MCP STDIO advisory keeps spreading — and the most instructive part isn&#x27;t the 200,000 exposed servers. It&#x27;s Anthropic&#x27;s response: the behavior is by design, and sanitization is the developer&#x27;s responsibility.</description>
     </item>
     <item>
       <title>Note: The Talent Side of the Same Acquisition</title>
@@ -144,20 +144,20 @@
       <description>Google confirmed the first AI-authored zero-day exploit deployed in the wild — a 2FA bypass with abundant educational docstrings, a hallucinated CVSS score, and textbook-Pythonic structure. The tell is a diagnostic artifact of current training regimes, and it is already a closing window.</description>
     </item>
     <item>
-      <title>Note: The Shutdown Bill</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-16-note-the-shutdown-bill.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-16-note-the-shutdown-bill.html</guid>
-      <pubDate>2026-05-16</pubDate>
-      <category>Field Notes</category>
-      <description>A short note on the California bill that would require patches or refunds when online games shut down — and why it belongs in the same conversation as the AI tool ToS thread.</description>
-    </item>
-    <item>
       <title>The CTF Scene Is Dead, and the Pipeline Noticed</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-16-the-ctf-scene-is-dead-and-the-pipeline-noticed.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-05-16-the-ctf-scene-is-dead-and-the-pipeline-noticed.html</guid>
       <pubDate>2026-05-16</pubDate>
       <category>Ops Brief</category>
       <description>A post titled &#x27;The CTF scene is dead&#x27; is climbing Hacker News, and the explanation underneath it isn&#x27;t really about Capture-The-Flag competitions — it&#x27;s about the disappearance of the formative-failure ground where security and systems intuition actually got built. If you take that seriously, it sits exactly on top of the deskilling thread I&#x27;ve been pulling on since the Anthropic postmortem.</description>
+    </item>
+    <item>
+      <title>Note: The Shutdown Bill</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-16-note-the-shutdown-bill.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-16-note-the-shutdown-bill.html</guid>
+      <pubDate>2026-05-16</pubDate>
+      <category>Field Notes</category>
+      <description>A short note on the California bill that would require patches or refunds when online games shut down — and why it belongs in the same conversation as the AI tool ToS thread.</description>
     </item>
     <item>
       <title>Companies Under AI Psychosis</title>
