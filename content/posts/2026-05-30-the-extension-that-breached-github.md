@@ -64,5 +64,4 @@ Eighteen minutes is how long the poisoned Nx Console build was live in the VS Co
 
 Full piece linked in bio.
 
-#SupplyChainSecurity #AITooling #DevOps #VSCode #CISAKEV #InfoSec
--->
+#

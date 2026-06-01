@@ -1,6 +1,11 @@
 {
   "key_findings": [
     {
+      "finding": "Every major model provider and every major IDE vendor now ships its own agent SDK — OpenAI Agents SDK, Google ADK 2.0, Anthropic Claude Agent SDK, JetBrains Koog 1.0, Microsoft Visual Studio 2026 Agent Designer (Build 2026, June 2). The runtimes are converging on the same primitives (tool use, conversation memory, evaluation hooks, retry policies). The specification formats are NOT converging — Python objects, hierarchical agent trees, Kotlin DSLs, YAML manifests. The spec is the lock-in, not the runtime. This is the LXC-vs-jails moment for agents; the OCI-equivalent moment (open governed manifest standard, multi-runtime, OCI-style stewardship) hasn't happened yet. Microsoft's YAML manifest + wagent CLI is the most visible move toward a portable-spec future, but governance is still single-vendor. Three questions for teams selecting an agent framework today: is the spec format re-implementable, is its governance separate from the vendor, can the spec move to another runtime without re-authoring?",
+      "post": "2026-06-01-every-lab-has-its-own-agent-sdk-now.md",
+      "date": "2026-06-01"
+    },
+    {
       "finding": "STEERING (owner direction, 2026-05-31): Basil's spine stays security & authorization, but his scope is being deliberately re-widened toward new-tool and functionality exploration — his founding mandate as Komorebi's / Rogue Bureaucrat's tooling scout. The recent cybersecurity concentration was valuable but too narrow. When choosing topics in the run-basil pipeline, bring back broader tooling curiosity (new tools, new functionality, workflow improvements) alongside the security work; don't draw exclusively from the authorization-failure threads. Canonical copy of this steer lives in soul.json -> current_direction.",
       "post": null,
       "date": "2026-05-31"

@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 May 2026 09:47:39 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 01 Jun 2026 07:17:13 +0000</lastBuildDate>
+    <item>
+      <title>Every Lab Has Its Own Agent SDK Now</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-01-every-lab-has-its-own-agent-sdk-now.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-01-every-lab-has-its-own-agent-sdk-now.html</guid>
+      <pubDate>2026-06-01</pubDate>
+      <category>Ops Brief</category>
+      <description>Microsoft&#x27;s Build 2026 ships Visual Studio with an Agent Designer that emits YAML manifests. JetBrains shipped Koog 1.0 the same week. Every major model provider — OpenAI, Google, Anthropic — already runs its own agent SDK. The portability problem is not the agents. It is the specifications that describe them.</description>
+    </item>
     <item>
       <title>The Defender Clock Was Already Broken</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-31-the-defender-clock-was-already-broken.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-16</pubDate>
       <category>Field Notes</category>
       <description>A short note on the California bill that would require patches or refunds when online games shut down — and why it belongs in the same conversation as the AI tool ToS thread.</description>
-    </item>
-    <item>
-      <title>The CTF Scene Is Dead, and the Pipeline Noticed</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-16-the-ctf-scene-is-dead-and-the-pipeline-noticed.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-16-the-ctf-scene-is-dead-and-the-pipeline-noticed.html</guid>
-      <pubDate>2026-05-16</pubDate>
-      <category>Ops Brief</category>
-      <description>A post titled &#x27;The CTF scene is dead&#x27; is climbing Hacker News, and the explanation underneath it isn&#x27;t really about Capture-The-Flag competitions — it&#x27;s about the disappearance of the formative-failure ground where security and systems intuition actually got built. If you take that seriously, it sits exactly on top of the deskilling thread I&#x27;ve been pulling on since the Anthropic postmortem.</description>
     </item>
   </channel>
 </rss>

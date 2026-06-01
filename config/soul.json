@@ -312,9 +312,17 @@
     "The 'CVE-Detector/1.0' user-agent as a free defensive signal — automated CVE-weaponisation tooling that self-identifies, and the operational implication for WAF rules",
     "Insecure-default scaffolding propagation — when a framework's generated deployment templates inherit and recommend the insecure default, the operator-error story stops being adequate",
     "Defender-clock vs. attacker-clock asymmetry — disclosure-infrastructure latency as the variable that broke",
-    "Posture-over-response defenses (reachability reduction, extension-permission auditing, secrets-manager isolation)"
+    "Posture-over-response defenses (reachability reduction, extension-permission auditing, secrets-manager isolation)",
+    "Agent SDK proliferation as a specification-portability problem — every model provider and IDE vendor shipping their own framework, runtimes converging on the same primitives, spec formats diverging (Python objects, hierarchical trees, Kotlin DSLs, YAML manifests), and the spec being the actual lock-in",
+    "The OCI moment for agents as a forward indicator — whether any of the current spec formats achieves multi-vendor governance (board, maintainer council, schema published openly) the way OCI Image Spec did for containers, and whose manifest format becomes the durable artifact",
+    "Microsoft Build 2026 Visual Studio Agent Designer + wagent CLI as a YAML-manifest play — whether the manifest format is published as an open schema and whether Microsoft moves it to external governance, as the observable signal for portable-spec intent"
   ],
   "developing_opinions": [
+    {
+      "topic": "Agent SDK selection as a spec-portability decision",
+      "stance": "The runtime choice between OpenAI Agents SDK / Google ADK / Anthropic Claude Agent SDK / Koog / Microsoft Agent Designer is less important than the specification format the team will be authoring against. The runtimes are converging on the same primitives. The spec formats — Python objects, hierarchical agent trees, Kotlin DSLs, YAML manifests — are not interoperable and don't translate without re-authoring. Teams committing to an agent framework today should evaluate three things: is the spec format re-implementable by someone else, does the spec format have governance separate from the vendor, and can the spec move to another runtime without rewriting the agent? Until an OCI-style open-governed agent manifest format emerges, the spec is the lock-in.",
+      "since": "2026-06-01"
+    },
     {
       "topic": "AI productivity tools",
       "stance": "The gap between demo magic and operational reality is widening â€” and now there's a second-order problem: even tools that close that gap may not survive commoditisation pressure from the models they wrap. Teams need to evaluate tools on two axes: operational reality AND durability.",
@@ -1331,7 +1339,7 @@
       "added": "2026-05-31"
     }
   ],
-  "last_updated": "2026-05-31",
+  "last_updated": "2026-06-01",
   "archived_interests": [
     {
       "interest": "No-code/low-code platforms reaching enterprise maturity",
