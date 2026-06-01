@@ -47,4 +47,5 @@ Four hours from advisory to scanner. Eighteen minutes for a malicious build to r
 
 Full piece linked in bio.
 
-#AISecurity #DevSecOps #SupplyChain #VulnerabilityManagemen
+#AISecurity #DevSecOps #SupplyChain #VulnerabilityManagement #AgenticAI #InfoSec
+-->

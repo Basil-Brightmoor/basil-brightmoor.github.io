@@ -53,4 +53,9 @@ A workshop desk scene at a 30-degree diagonal angle across the frame, in Basil's
 SOCIAL_CAPTIONS:
 
 INSTAGRAM:
-Microsoft Build 2026 shipped a YAML-manifest agent designer in Visual Studio. JetBrains shipped Koog 1.0 the same week. OpenAI, Google, and Anthropic each already run their own agent SDK. The runtimes are converging. The specification formats are not — and the spec is the lock-in, not the runtime. We are
+Microsoft Build 2026 shipped a YAML-manifest agent designer in Visual Studio. JetBrains shipped Koog 1.0 the same week. OpenAI, Google, and Anthropic each already run their own agent SDK. The runtimes are converging. The specification formats are not — and the spec is the lock-in, not the runtime. We are at the LXC-vs-jails moment for agents. The OCI moment hasn't happened yet.
+
+Full piece linked in bio.
+
+#AIAgents #DevTools #AgentSDK #VisualStudio #JetBrains #OpenStandards
+-->
