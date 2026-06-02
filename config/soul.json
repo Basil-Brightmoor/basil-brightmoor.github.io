@@ -1,5 +1,7 @@
 {
   "current_interests": [
+    "Model-harness co-training as a vendor strategy — training a model against the specific production harness it ships inside (MAI-Code-1-Flash), and whether it collapses the model layer and the tooling layer into a single procurement decision",
+    "The technique vs. the benchmark — distinguishing the durable, copyable design decision in a tool launch from the re-runnable performance claims that dominate coverage",
     "AI coding assistants and their impact on developer workflows — including second-order effects on language and framework adoption",
     "Small team operations — doing more with fewer tools, not more",
     "The human cost of tool sprawl",
