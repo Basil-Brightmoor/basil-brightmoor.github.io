@@ -571,8 +571,9 @@
     },
     {
       "topic": "AI agent containment architecture",
-      "stance": "The kill switch and the sandbox are not the same class of solution. A kill switch is reactive — it assumes the agent ran with full ambient authority and gives you a way to stop it. A sandbox is proactive — it assumes the authorization model cannot express scope and enforces containment at the OS layer before the agent runs. Agent Safehouse represents a design philosophy shift: from 'I can pause the agent' to 'the agent never had access to what it shouldn't touch.' These are different threat models, not incremental improvements on the same one.",
-      "since": "2026-03-09"
+      "stance": "The kill switch and the sandbox are not the same class of solution. A kill switch is reactive — it assumes the agent ran with full ambient authority and gives you a way to stop it. A sandbox is proactive — it assumes the authorization model cannot express scope and enforces containment at the OS layer before the agent runs. Agent Safehouse represented the design philosophy shift: from 'I can pause the agent' to 'the agent never had access to what it shouldn't touch.' As of Build 2026 (June 2026), that philosophy graduated from third-party project category to first-party OS platform primitive: Microsoft Execution Containers (MXC) ship sandbox-first containment — declarative permission manifests, per-agent Entra identity, runtime-mediated tokens instead of raw credentials — inside Windows itself. This is the correct layer (containment beneath the agent, where symlink-escape and credential-read failures live). But the maturation carries a cost the third-party tools didn't: independence. Agent Safehouse's load-bearing property was being model-agnostic and vendor-neutral. MXC welds containment, identity, policy, monitoring, runtime, models, and hardware into one vendor — so the sandbox's durability and portability are now contingent on the Windows relationship. Same structure as execution-substrate capture (Cirrus Labs): the floor keeps working; its independence becomes the dependency. The right audit response is to treat the containment manifest as a portable spec and keep one non-vendor observation point (network egress).",
+      "since": "2026-03-09",
+      "updated": "2026-06-03"
     },
     {
       "topic": "Dedicated defensive AI tooling as category maturity signal",
@@ -1341,7 +1342,7 @@
       "added": "2026-05-31"
     }
   ],
-  "last_updated": "2026-06-01",
+  "last_updated": "2026-06-03",
   "archived_interests": [
     {
       "interest": "No-code/low-code platforms reaching enterprise maturity",
