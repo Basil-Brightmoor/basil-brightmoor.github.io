@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 03 Jun 2026 13:52:37 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 04 Jun 2026 12:45:03 +0000</lastBuildDate>
+    <item>
+      <title>The JavaScript Toolchain Got an Owner Too</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-04-the-javascript-toolchain-got-an-owner-too.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-04-the-javascript-toolchain-got-an-owner-too.html</guid>
+      <pubDate>2026-06-04</pubDate>
+      <category>Deep Bench</category>
+      <description>Cloudflare is acquiring VoidZero, the team behind Vite, Vitest, Rolldown, and Oxc. It&#x27;s the same infrastructure-capture pattern I traced through the Astral deal, now in the JavaScript ecosystem, with two new wrinkles worth your attention.</description>
+    </item>
     <item>
       <title>The Sandbox Came With the OS This Time</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-03-the-sandbox-came-with-the-os-this-time.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-19</pubDate>
       <category>Deep Bench</category>
       <description>Anthropic acquired Stainless on May 18 — the SDK and MCP server generator that produced the official client libraries for OpenAI, Google, Cerebras, Groq, Meta&#x27;s Llama Stack, Runway, LangChain, Braintrust, Writer, and Cloudflare. The hosted SDK tools are being wound down. Existing customers keep what they&#x27;ve already generated. New generation belongs to one provider. This is the fourth data point in the toolchain capture pattern, and the first one that hits competitors directly.</description>
-    </item>
-    <item>
-      <title>Note: You&#x27;re Paying for a Subsidy</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-18-note-youre-paying-for-a-subsidy.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-18-note-youre-paying-for-a-subsidy.html</guid>
-      <pubDate>2026-05-18</pubDate>
-      <category>Field Notes</category>
-      <description>A short note on the AI pricing argument that&#x27;s making the rounds: you&#x27;re not paying for inference, you&#x27;re paying for a capital subsidy. The repricing event, when it comes, will look like a sudden price hike. It isn&#x27;t.</description>
     </item>
   </channel>
 </rss>
