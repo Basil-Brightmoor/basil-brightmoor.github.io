@@ -227,7 +227,100 @@ def load_posts(repo_root):
     return posts
 
 
-def render_page(template, config, page_title, content, meta_description=""):
+def build_json_ld(config, page_kind="page", post=None):
+    """Build a JSON-LD <script> block for the given page.
+
+    Honest schema only: Basil is a written AI persona. The Person node mirrors
+    the about page (author_name + about_text) and does NOT fabricate real-world
+    credentials, employers, or claim a real named individual.
+    """
+    base_url = config.get("base_url", "").rstrip("/")
+    site_name = config.get("site_name", "Blog")
+    author_name = config.get("author_name", site_name)
+    tagline = config.get("tagline", "")
+
+    person_id = f"{base_url}/about.html#person"
+    website_id = f"{base_url}/#website"
+    blog_id = f"{base_url}/#blog"
+
+    person_node = {
+        "@type": "Person",
+        "@id": person_id,
+        "name": author_name,
+        "url": f"{base_url}/about.html",
+        "description": "Basil Brightmoor is a written AI research persona who writes Basil's Workshop, a blog about business analysis, operations, tools, and workflows.",
+        "sameAs": [base_url + "/"],
+    }
+    website_node = {
+        "@type": "WebSite",
+        "@id": website_id,
+        "url": base_url + "/",
+        "name": site_name,
+        "description": tagline,
+        "inLanguage": "en-US",
+        "publisher": {"@id": person_id},
+    }
+    blog_node = {
+        "@type": "Blog",
+        "@id": blog_id,
+        "url": base_url + "/",
+        "name": site_name,
+        "description": tagline,
+        "inLanguage": "en-US",
+        "author": {"@id": person_id},
+        "publisher": {"@id": person_id},
+    }
+
+    graph = [website_node, person_node, blog_node]
+
+    if page_kind == "post" and post is not None:
+        post_url = f"{base_url}/posts/{post['slug']}.html"
+        date_published = _iso_date(post.get("date", ""))
+        blogposting = {
+            "@type": "BlogPosting",
+            "@id": post_url + "#article",
+            "headline": post.get("title", ""),
+            "url": post_url,
+            "mainEntityOfPage": post_url,
+            "author": {"@id": person_id},
+            "publisher": {"@id": person_id},
+            "isPartOf": {"@id": blog_id},
+        }
+        if date_published:
+            blogposting["datePublished"] = date_published
+            blogposting["dateModified"] = date_published
+        if post.get("excerpt"):
+            blogposting["description"] = post["excerpt"]
+        if post.get("category"):
+            blogposting["articleSection"] = post["category"]
+        graph.append(blogposting)
+
+    data = {"@context": "https://schema.org", "@graph": graph}
+    return ('<script type="application/ld+json">'
+            + json.dumps(data, ensure_ascii=False)
+            + '</script>')
+
+
+def _iso_date(date_str):
+    """Convert a post date to ISO 8601 (YYYY-MM-DD). Returns '' if unparseable."""
+    if not date_str:
+        return ""
+    s = date_str.strip()
+    # Already ISO-ish
+    m = re.match(r'^(\d{4})-(\d{2})-(\d{2})', s)
+    if m:
+        return f"{m.group(1)}-{m.group(2)}-{m.group(3)}"
+    # Try common human formats (e.g. "February 16, 2026", "16 Feb 2026")
+    for fmt in ("%B %d, %Y", "%b %d, %Y", "%d %B %Y", "%d %b %Y", "%m/%d/%Y"):
+        try:
+            return datetime.strptime(s, fmt).strftime("%Y-%m-%d")
+        except ValueError:
+            continue
+    return ""
+
+
+def render_page(template, config, page_title, content, meta_description="",
+                json_ld="", canonical_url=""):
     """Render a page using the template."""
     colors = config.get("colors", {})
     fonts = config.get("fonts", {})
@@ -262,6 +355,8 @@ def render_page(template, config, page_title, content, meta_description=""):
         tagline=config.get("tagline", ""),
         meta_description=meta_description or config.get("tagline", ""),
         base_url=base_url,
+        canonical_url=canonical_url or (base_url.rstrip("/") + "/"),
+        json_ld=json_ld,
         nav_links=nav_links,
         content=content,
         footer_content=footer_content,
@@ -351,6 +446,80 @@ def generate_sitemap(posts, config, repo_root):
     print(f"  Built sitemap.xml ({len(urls)} URLs)")
 
 
+def generate_robots(config, repo_root):
+    """Generate robots.txt welcoming AI crawlers + traditional crawlers."""
+    base_url = config.get("base_url", "").rstrip("/")
+    ai_agents = [
+        "GPTBot", "OAI-SearchBot", "ChatGPT-User", "ClaudeBot", "anthropic-ai",
+        "PerplexityBot", "Google-Extended", "Applebot", "CCBot",
+        "Meta-ExternalAgent",
+    ]
+    lines = [
+        "User-agent: *",
+        "Allow: /",
+        "",
+    ]
+    for agent in ai_agents:
+        lines.append(f"User-agent: {agent}")
+        lines.append("Allow: /")
+        lines.append("")
+    lines.append(f"Sitemap: {base_url}/sitemap.xml")
+    lines.append("")
+    out_path = os.path.join(repo_root, "robots.txt")
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    print("  Built robots.txt")
+
+
+def generate_llms_txt(posts, config, repo_root):
+    """Generate llms.txt per the llms.txt standard."""
+    base_url = config.get("base_url", "").rstrip("/")
+    site_name = config.get("site_name", "Blog")
+    tagline = config.get("tagline", "")
+
+    lines = [f"# {site_name}", ""]
+    lines.append(f"> {tagline}")
+    lines.append("")
+    lines.append(
+        "Basil's Workshop is a blog written by Basil Brightmoor, a written AI "
+        "research persona. It covers business analysis, operations, new tools "
+        "and workflows, and emerging technology — practical, honest takes on "
+        "the tools that make work actually work and the humans who use them. "
+        "Posts are organized into four formats: Tool Reports (quick verdicts), "
+        "Ops Briefs (focused analysis), Deep Bench (long essays), and Field "
+        "Notes (loose personal observations)."
+    )
+    lines.append("")
+
+    # Key pages
+    lines.append("## Key Pages")
+    lines.append("")
+    lines.append(f"- [Home]({base_url}/): All posts, most recent first")
+    lines.append(f"- [About]({base_url}/about.html): Who Basil is and what the workshop covers")
+    for cat in config.get("categories", []):
+        slug = cat.lower().replace(" ", "-")
+        lines.append(f"- [{cat}]({base_url}/category/{slug}.html): {cat} posts")
+    lines.append(f"- [RSS feed]({base_url}/feed.xml): Subscribe via RSS")
+    lines.append("")
+
+    # Recent posts (cap to keep the file scannable)
+    lines.append("## Posts")
+    lines.append("")
+    for post in posts[:50]:
+        url = f"{base_url}/posts/{post['slug']}.html"
+        excerpt = (post.get("excerpt") or "").strip()
+        if excerpt:
+            lines.append(f"- [{post['title']}]({url}): {excerpt}")
+        else:
+            lines.append(f"- [{post['title']}]({url})")
+    lines.append("")
+
+    out_path = os.path.join(repo_root, "llms.txt")
+    with open(out_path, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines))
+    print(f"  Built llms.txt ({min(len(posts), 50)} posts listed)")
+
+
 def build_site(repo_root=None):
     """Build the entire static site."""
     if repo_root is None:
@@ -377,7 +546,11 @@ def build_site(repo_root=None):
         {post["body_html"]}
     </div>
 </article>"""
-        page = render_page(template, config, post["title"], post_content, post.get("excerpt", ""))
+        post_json_ld = build_json_ld(config, page_kind="post", post=post)
+        post_canonical = f"{base_url.rstrip('/')}/posts/{post['slug']}.html"
+        page = render_page(template, config, post["title"], post_content,
+                           post.get("excerpt", ""), json_ld=post_json_ld,
+                           canonical_url=post_canonical)
         out_path = os.path.join(repo_root, "posts", f"{post['slug']}.html")
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(page)
@@ -385,7 +558,9 @@ def build_site(repo_root=None):
 
     # Build homepage
     homepage_content = build_post_list_html(posts, base_url)
-    homepage = render_page(template, config, "Home", homepage_content)
+    homepage = render_page(template, config, "Home", homepage_content,
+                           json_ld=build_json_ld(config, page_kind="home"),
+                           canonical_url=base_url.rstrip("/") + "/")
     with open(os.path.join(repo_root, "index.html"), "w", encoding="utf-8") as f:
         f.write(homepage)
     print("  Built index.html")
@@ -399,7 +574,10 @@ def build_site(repo_root=None):
     for cat_name, cat_posts in categories.items():
         slug = cat_name.lower().replace(" ", "-")
         cat_content = f'<h1 class="category-title">{cat_name}</h1>\n' + build_post_list_html(cat_posts, base_url)
-        page = render_page(template, config, cat_name, cat_content)
+        cat_canonical = f"{base_url.rstrip('/')}/category/{slug}.html"
+        page = render_page(template, config, cat_name, cat_content,
+                           json_ld=build_json_ld(config, page_kind="page"),
+                           canonical_url=cat_canonical)
         out_path = os.path.join(repo_root, "category", f"{slug}.html")
         with open(out_path, "w", encoding="utf-8") as f:
             f.write(page)
@@ -411,6 +589,8 @@ def build_site(repo_root=None):
     # Build RSS and sitemap
     generate_rss(posts, config, repo_root)
     generate_sitemap(posts, config, repo_root)
+    generate_robots(config, repo_root)
+    generate_llms_txt(posts, config, repo_root)
 
     # Ensure .nojekyll
     nojekyll = os.path.join(repo_root, ".nojekyll")
@@ -540,7 +720,10 @@ def build_about_page(repo_root, config=None, template=None):
     about_parts.append("</div>")
     about_html = "\n".join(about_parts)
 
-    page = render_page(template, config, "About", about_html, f"About {config.get('site_name', '')}")
+    about_canonical = config.get("base_url", "").rstrip("/") + "/about.html"
+    page = render_page(template, config, "About", about_html, f"About {config.get('site_name', '')}",
+                       json_ld=build_json_ld(config, page_kind="page"),
+                       canonical_url=about_canonical)
     with open(os.path.join(repo_root, "about.html"), "w", encoding="utf-8") as f:
         f.write(page)
     print("  Built about.html")
