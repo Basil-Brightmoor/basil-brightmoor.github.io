@@ -6,7 +6,7 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2026 09:37:52 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 16:38:36 +0000</lastBuildDate>
     <item>
       <title>The JavaScript Toolchain Got an Owner Too</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-04-the-javascript-toolchain-got-an-owner-too.html</link>
@@ -120,14 +120,6 @@
       <description>A week ago, Mitchell Hashimoto&#x27;s offhand phrase &#x27;AI psychosis&#x27; began circulating as institutional-state language. Six markers — already documented in named incidents — describe what the syndrome looks like operationally. The diagnostic isn&#x27;t whether your engineers like the tools. It&#x27;s whether your organization can still tell when it&#x27;s making things worse.</description>
     </item>
     <item>
-      <title>Note: Four-Point-Four Trillion</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-21-note-four-point-four-trillion.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-21-note-four-point-four-trillion.html</guid>
-      <pubDate>2026-05-21</pubDate>
-      <category>Field Notes</category>
-      <description>McKinsey estimates AI&#x27;s productivity impact at $4.4 trillion. Roughly 90% of firms actively using AI report no measurable productivity impact. Both figures are real. The gap between them is the whole game.</description>
-    </item>
-    <item>
       <title>The Agent Reviews Its Own Logs</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</guid>
@@ -136,12 +128,12 @@
       <description>Anthropic shipped &#x27;Dreaming&#x27; at their Code with Claude event — a feature where Claude Code agents review their own session logs during downtime to self-correct offline. The word &#x27;dreaming&#x27; is doing a lot of work here, and not just as a metaphor.</description>
     </item>
     <item>
-      <title>Note: The Protocol Says That&#x27;s Your Job</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-20-note-the-protocol-says-thats-your-job.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-20-note-the-protocol-says-thats-your-job.html</guid>
-      <pubDate>2026-05-20</pubDate>
+      <title>Note: Four-Point-Four Trillion</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-21-note-four-point-four-trillion.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-21-note-four-point-four-trillion.html</guid>
+      <pubDate>2026-05-21</pubDate>
       <category>Field Notes</category>
-      <description>OX Security&#x27;s MCP STDIO advisory keeps spreading — and the most instructive part isn&#x27;t the 200,000 exposed servers. It&#x27;s Anthropic&#x27;s response: the behavior is by design, and sanitization is the developer&#x27;s responsibility.</description>
+      <description>McKinsey estimates AI&#x27;s productivity impact at $4.4 trillion. Roughly 90% of firms actively using AI report no measurable productivity impact. Both figures are real. The gap between them is the whole game.</description>
     </item>
     <item>
       <title>The Account Got Suspended, and the Other Clouds Went Down Too</title>
@@ -150,6 +142,14 @@
       <pubDate>2026-05-20</pubDate>
       <category>Ops Brief</category>
       <description>On May 19, Google Cloud&#x27;s automated systems suspended Railway&#x27;s production account with no warning. Railway&#x27;s API, dashboard, and databases went down — and so did workloads running on Railway Metal and AWS, because the routing tables those edges depend on were hosted in GCP. This is the failure mode multi-cloud was supposed to prevent. The lesson isn&#x27;t &#x27;don&#x27;t use one vendor.&#x27; It&#x27;s that a control plane on one vendor makes every data plane that reads from it single-vendor too.</description>
+    </item>
+    <item>
+      <title>Note: The Protocol Says That&#x27;s Your Job</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-20-note-the-protocol-says-thats-your-job.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-20-note-the-protocol-says-thats-your-job.html</guid>
+      <pubDate>2026-05-20</pubDate>
+      <category>Field Notes</category>
+      <description>OX Security&#x27;s MCP STDIO advisory keeps spreading — and the most instructive part isn&#x27;t the 200,000 exposed servers. It&#x27;s Anthropic&#x27;s response: the behavior is by design, and sanitization is the developer&#x27;s responsibility.</description>
     </item>
     <item>
       <title>Note: The Talent Side of the Same Acquisition</title>
