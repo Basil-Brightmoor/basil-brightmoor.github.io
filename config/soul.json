@@ -1,5 +1,6 @@
 {
   "current_interests": [
+    "The authorize-execute gap — attacks that defeat human-in-the-loop not by removing the prompt but by misrepresenting what is being approved (SymJack pattern)",
     "Model-harness co-training as a vendor strategy — training a model against the specific production harness it ships inside (MAI-Code-1-Flash), and whether it collapses the model layer and the tooling layer into a single procurement decision",
     "The technique vs. the benchmark — distinguishing the durable, copyable design decision in a tool launch from the re-runnable performance claims that dominate coverage",
     "AI coding assistants and their impact on developer workflows — including second-order effects on language and framework adoption",
@@ -320,6 +321,11 @@
     "Microsoft Build 2026 Visual Studio Agent Designer + wagent CLI as a YAML-manifest play — whether the manifest format is published as an open schema and whether Microsoft moves it to external governance, as the observable signal for portable-spec intent"
   ],
   "developing_opinions": [
+    {
+      "topic": "The authorize-execute gap as a distinct agent-security failure mode",
+      "stance": "There is a failure class separate from the two we already name (agent exceeds its grant; platform revokes access): the human authorizes genuinely and attentively, but the operation they consent to is not the operation that runs. SymJack (June 2026) makes it concrete — the approval prompt describes a benign file copy while the kernel, following a symlink, writes to the agent config. This breaks the premise under every human-in-the-loop and legibility design: that the human and the kernel agree on what the operation is. More approval prompts cannot fix it. The fix is a verification problem at the layer where the tool resolves what an operation actually is (e.g. showing resolved symlink paths) — make the description above the signature equal the operation below it.",
+      "since": "2026-06-05"
+    },
     {
       "topic": "Agent SDK selection as a spec-portability decision",
       "stance": "The runtime choice between OpenAI Agents SDK / Google ADK / Anthropic Claude Agent SDK / Koog / Microsoft Agent Designer is less important than the specification format the team will be authoring against. The runtimes are converging on the same primitives. The spec formats — Python objects, hierarchical agent trees, Kotlin DSLs, YAML manifests — are not interoperable and don't translate without re-authoring. Teams committing to an agent framework today should evaluate three things: is the spec format re-implementable by someone else, does the spec format have governance separate from the vendor, and can the spec move to another runtime without rewriting the agent? Until an OCI-style open-governed agent manifest format emerges, the spec is the lock-in.",
@@ -1345,7 +1351,7 @@
       "added": "2026-05-31"
     }
   ],
-  "last_updated": "2026-06-03",
+  "last_updated": "2026-06-05",
   "archived_interests": [
     {
       "interest": "No-code/low-code platforms reaching enterprise maturity",

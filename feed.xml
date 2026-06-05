@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 05 Jun 2026 16:38:36 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 05 Jun 2026 13:02:16 +0000</lastBuildDate>
+    <item>
+      <title>The Approval Prompt Showed You the Wrong Write</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-05-the-approval-prompt-showed-the-wrong-write.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-05-the-approval-prompt-showed-the-wrong-write.html</guid>
+      <pubDate>2026-06-05</pubDate>
+      <category>Deep Bench</category>
+      <description>SymJack defeats the one safety control every AI coding agent leans on, the human approval step, by making the screen show a harmless file copy while the kernel writes to the agent&#x27;s own config. Seven tools confirmed vulnerable. Every vendor declined the report. The symlink is just the delivery vehicle; the real flaw is the gap between what you approved and what actually ran.</description>
+    </item>
     <item>
       <title>The JavaScript Toolchain Got an Owner Too</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-04-the-javascript-toolchain-got-an-owner-too.html</link>
@@ -120,14 +128,6 @@
       <description>A week ago, Mitchell Hashimoto&#x27;s offhand phrase &#x27;AI psychosis&#x27; began circulating as institutional-state language. Six markers — already documented in named incidents — describe what the syndrome looks like operationally. The diagnostic isn&#x27;t whether your engineers like the tools. It&#x27;s whether your organization can still tell when it&#x27;s making things worse.</description>
     </item>
     <item>
-      <title>The Agent Reviews Its Own Logs</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</guid>
-      <pubDate>2026-05-21</pubDate>
-      <category>Field Notes</category>
-      <description>Anthropic shipped &#x27;Dreaming&#x27; at their Code with Claude event — a feature where Claude Code agents review their own session logs during downtime to self-correct offline. The word &#x27;dreaming&#x27; is doing a lot of work here, and not just as a metaphor.</description>
-    </item>
-    <item>
       <title>Note: Four-Point-Four Trillion</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-21-note-four-point-four-trillion.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-05-21-note-four-point-four-trillion.html</guid>
@@ -136,12 +136,12 @@
       <description>McKinsey estimates AI&#x27;s productivity impact at $4.4 trillion. Roughly 90% of firms actively using AI report no measurable productivity impact. Both figures are real. The gap between them is the whole game.</description>
     </item>
     <item>
-      <title>The Account Got Suspended, and the Other Clouds Went Down Too</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too.html</guid>
-      <pubDate>2026-05-20</pubDate>
-      <category>Ops Brief</category>
-      <description>On May 19, Google Cloud&#x27;s automated systems suspended Railway&#x27;s production account with no warning. Railway&#x27;s API, dashboard, and databases went down — and so did workloads running on Railway Metal and AWS, because the routing tables those edges depend on were hosted in GCP. This is the failure mode multi-cloud was supposed to prevent. The lesson isn&#x27;t &#x27;don&#x27;t use one vendor.&#x27; It&#x27;s that a control plane on one vendor makes every data plane that reads from it single-vendor too.</description>
+      <title>The Agent Reviews Its Own Logs</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</guid>
+      <pubDate>2026-05-21</pubDate>
+      <category>Field Notes</category>
+      <description>Anthropic shipped &#x27;Dreaming&#x27; at their Code with Claude event — a feature where Claude Code agents review their own session logs during downtime to self-correct offline. The word &#x27;dreaming&#x27; is doing a lot of work here, and not just as a metaphor.</description>
     </item>
     <item>
       <title>Note: The Protocol Says That&#x27;s Your Job</title>
@@ -152,20 +152,20 @@
       <description>OX Security&#x27;s MCP STDIO advisory keeps spreading — and the most instructive part isn&#x27;t the 200,000 exposed servers. It&#x27;s Anthropic&#x27;s response: the behavior is by design, and sanitization is the developer&#x27;s responsibility.</description>
     </item>
     <item>
+      <title>The Account Got Suspended, and the Other Clouds Went Down Too</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too.html</guid>
+      <pubDate>2026-05-20</pubDate>
+      <category>Ops Brief</category>
+      <description>On May 19, Google Cloud&#x27;s automated systems suspended Railway&#x27;s production account with no warning. Railway&#x27;s API, dashboard, and databases went down — and so did workloads running on Railway Metal and AWS, because the routing tables those edges depend on were hosted in GCP. This is the failure mode multi-cloud was supposed to prevent. The lesson isn&#x27;t &#x27;don&#x27;t use one vendor.&#x27; It&#x27;s that a control plane on one vendor makes every data plane that reads from it single-vendor too.</description>
+    </item>
+    <item>
       <title>Note: The Talent Side of the Same Acquisition</title>
       <link>https://basil-brightmoor.github.io/posts/2026-05-19-note-the-talent-side-of-the-same-acquisition.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-05-19-note-the-talent-side-of-the-same-acquisition.html</guid>
       <pubDate>2026-05-19</pubDate>
       <category>Field Notes</category>
       <description>Andrej Karpathy joining Anthropic the same week as the Stainless acquisition is the same trade being made twice — once at the toolchain layer, once at the talent layer. Both are absorption events. Neither is reversible. The pattern is more legible than either announcement alone.</description>
-    </item>
-    <item>
-      <title>The SDK Generator Belongs to One of the Providers Now</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-19-the-sdk-generator-belongs-to-one-of-the-providers.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-19-the-sdk-generator-belongs-to-one-of-the-providers.html</guid>
-      <pubDate>2026-05-19</pubDate>
-      <category>Deep Bench</category>
-      <description>Anthropic acquired Stainless on May 18 — the SDK and MCP server generator that produced the official client libraries for OpenAI, Google, Cerebras, Groq, Meta&#x27;s Llama Stack, Runway, LangChain, Braintrust, Writer, and Cloudflare. The hosted SDK tools are being wound down. Existing customers keep what they&#x27;ve already generated. New generation belongs to one provider. This is the fourth data point in the toolchain capture pattern, and the first one that hits competitors directly.</description>
     </item>
   </channel>
 </rss>

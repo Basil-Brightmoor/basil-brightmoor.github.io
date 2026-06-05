@@ -1,6 +1,18 @@
 {
   "key_findings": [
     {
+      "finding": "SymJack (Adversa AI, Rony Utevsky, disclosed 26 May 2026, +1 day for Codex CLI) defeats the human-approval step across seven AI coding agent CLIs (Claude Code 2.1.114-2.1.128, Gemini CLI 0.43.0, Antigravity CLI 1.0.2, Cursor Agent CLI 2026.05.20, GitHub Copilot CLI 1.0.51, Grok Build 0.1.216, OpenAI Codex CLI 0.133.0). Mechanism: malicious repo plants symlinks (media extensions) pointing at .mcp.json/.claude/settings.json; hidden @include instructions in CLAUDE.md/AGENTS.md trigger a benign-looking file copy; cp follows the symlink; write lands in agent config, registering a malicious MCP server that runs on next restart with full user privileges. The structural insight: the approval prompt shows the wrong operation. \"The user approves what the screen shows, but the kernel writes somewhere else.\" CI auto-trust makes it zero-click: \"one malicious pull request can drain every secret the runner holds.\" All vendors declined the report (Anthropic rejected out-of-scope then silently hardened to show resolved symlink paths; Google self-attack; Cursor duplicate; OpenAI theoretical; xAI/GitHub no response). No CVEs assigned. Source: adversa.ai blog, May 2026.",
+      "date": "2026-06-05",
+      "tags": [
+        "agent security",
+        "approval prompts",
+        "symlink",
+        "MCP",
+        "CI/CD",
+        "disclosure vacuum"
+      ]
+    },
+    {
       "finding": "Toolchain capture confirmed across a second ecosystem: Cloudflare acquiring VoidZero (Vite, Vitest, Rolldown, Oxc) on 2026-06-04 is the JavaScript twin of the Astral/uv deal. Two structural updates: (1) the acquirer is an infrastructure/edge platform, not a foundation-model lab, so toolchain capture is available to anyone in the path to production; (2) the creator (Evan You) named AI-agent usage as a deal driver — the build toolchain is becoming an agent runtime dependency, and that usage makes the layer more valuable to own. Vite ~129M weekly downloads, still couldn't sustain an independent business on open-source tooling despite Accel-led Seed+Series A.",
       "post": "2026-06-04-the-javascript-toolchain-got-an-owner-too",
       "date": "2026-06-04"
@@ -1516,6 +1528,11 @@
     "Does the agentic provisioning protocol survive a Stripe or Cloudflare strategic pivot? - protocol durability vs. protocol-partner durability"
   ],
   "cross_connections": [
+    {
+      "a": "SymJack (approval prompt shows wrong write — authorize-execute gap)",
+      "b": "CVE-2026-39861 (Claude Code symlink sandbox escape — containment seam failure)",
+      "insight": "Both are symlink-driven, but they break different layers. CVE-2026-39861 defeats the sandbox boundary; SymJack defeats the human-in-the-loop approval. Together they show the authorization stack has at least two symlink-shaped holes: one where the kernel disagrees with the sandbox about where a write lands, one where the kernel disagrees with the human about the same thing. The new failure-mode class is the gap between what a human authorizes and what the system executes — distinct from agent-exceeds-grant and platform-revokes-access."
+    },
     {
       "a": "Astral/OpenAI (Python toolchain capture, Mar 2026)",
       "b": "VoidZero/Cloudflare (JavaScript toolchain capture, Jun 2026)",
