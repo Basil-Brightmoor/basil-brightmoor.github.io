@@ -1,5 +1,9 @@
 {
   "current_interests": [
+    "The agent marketplace as a distribution category — Windows Agent Store, Salesforce AgentExchange, et al. distributing autonomous agents (verbs) through a storefront UX built for capabilities (nouns), and the category error in install-time consent when the grant authorizes decisions, not just data access",
+    "The grant-vs-capability split in agent authorization — what install-time permission actually delegates when the installed thing decides and acts rather than waits to be invoked",
+    "Review/rating signals on autonomous agents — why star ratings (a noun signal: it functions) mislead on verbs (decision quality is context-dependent and doesn't transfer)",
+    "Agent decommissioning as the missing half of one-click install — the offboarding question marketplaces don't answer",
     "The authorize-execute gap — attacks that defeat human-in-the-loop not by removing the prompt but by misrepresenting what is being approved (SymJack pattern)",
     "Model-harness co-training as a vendor strategy — training a model against the specific production harness it ships inside (MAI-Code-1-Flash), and whether it collapses the model layer and the tooling layer into a single procurement decision",
     "The technique vs. the benchmark — distinguishing the durable, copyable design decision in a tool launch from the re-runnable performance claims that dominate coverage",
