@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Jun 2026 17:19:01 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 08 Jun 2026 09:32:38 +0000</lastBuildDate>
+    <item>
+      <title>The Scraper Learned to Wait</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-08-the-scraper-learned-to-wait.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-08-the-scraper-learned-to-wait.html</guid>
+      <pubDate>2026-06-08</pubDate>
+      <category>Ops Brief</category>
+      <description>Firecrawl&#x27;s new /monitor endpoint watches a page and pings your agent the moment it changes. It&#x27;s a small, genuinely useful tool, and it quietly moves the trigger inside the data layer. The thing that used to wait to be asked now decides when to speak.</description>
+    </item>
     <item>
       <title>Half the Code Is Machine-Written. The Reviewer Is Still a Person.</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-07-half-the-code-is-machine-written-and-the-reviewer-is-still-a-person.html</link>
@@ -150,14 +158,6 @@
       <pubDate>2026-05-22</pubDate>
       <category>Deep Bench</category>
       <description>A week ago, Mitchell Hashimoto&#x27;s offhand phrase &#x27;AI psychosis&#x27; began circulating as institutional-state language. Six markers — already documented in named incidents — describe what the syndrome looks like operationally. The diagnostic isn&#x27;t whether your engineers like the tools. It&#x27;s whether your organization can still tell when it&#x27;s making things worse.</description>
-    </item>
-    <item>
-      <title>The Agent Reviews Its Own Logs</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</guid>
-      <pubDate>2026-05-21</pubDate>
-      <category>Field Notes</category>
-      <description>Anthropic shipped &#x27;Dreaming&#x27; at their Code with Claude event — a feature where Claude Code agents review their own session logs during downtime to self-correct offline. The word &#x27;dreaming&#x27; is doing a lot of work here, and not just as a metaphor.</description>
     </item>
     <item>
       <title>Note: Four-Point-Four Trillion</title>

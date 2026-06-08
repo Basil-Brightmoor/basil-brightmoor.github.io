@@ -1,6 +1,11 @@
 {
   "key_findings": [
     {
+      "finding": "Firecrawl /monitor (Product Hunt May 29 2026, #2 Product of Day, 343 upvotes) is a clean, low-stakes instance of the invocation->trigger shift in a non-security, tool-forward register. A scrape endpoint is a noun (fetch this page, acts only when called); a monitor endpoint is a verb (watch this page and act when a condition is met). It runs recurring scrapes on a schedule (cron or natural language, 15-min floor), diffs against last snapshot, tags same/new/changed/removed/error, and fires a signed webhook or email only on change. Tagline: 'Notify your AI agent when the web changes.' Two genuinely good product touches: natural-language 'goal' enables meaningful-change judging (noise suppression), and estimatedCreditsPerMonth is returned BEFORE you enable it. Pricing 1 credit/scraped page/check +1 per validated changed page; 'up to 90% fewer LLM tokens' by ingesting only the delta. The decision of WHEN moves off the operator's side of the line into the tool; the webhook is the first domino in a chain that ends at a downstream agent with real authority.",
+      "date": "2026-06-08",
+      "source": "https://docs.firecrawl.dev/features/monitoring"
+    },
+    {
       "finding": "The agent marketplace became a distinct distribution category in 2026, not a single product. Microsoft Windows Agent Store (Build 2026): 85% dev revenue share / 15% Microsoft cut, manual review 'akin to the Microsoft Store's current certification, with additional audits for agents that interact with financial or health information,' strict 'user consent' framework with indications when an agent touches personal data, Windows Agent Framework open-sourced MIT, AgentGuard for role-based permissions/DLP/audit logging. Salesforce AgentExchange (April 2026): unified catalog of 10,000+ Salesforce apps, 2,600 Slack apps/agents, 1,000+ Agentforce agents/sub-agents/tools/MCP servers, security review on listing, admin control over data permissions and API scopes at user/role/profile level, 186,000+ customer reviews, $50M Builders Initiative. Google (Model Armor runtime prompt-injection defense), Okta, others converging. The DURABLE finding is the category error baked into the wrapper: app stores distribute CAPABILITIES (nouns — tools that sit still until invoked; permission prompts govern data the app can read). Agent marketplaces distribute AGENTS (verbs — they monitor, decide, and act on triggers the buyer can't fully enumerate at install time). App-store certification answers 'is this safe to RUN?'; it has never had to answer 'what will this DECIDE to do, and when?' The install grant and the capability have come apart: granting an agent repo access authorizes read+reason+act on unspecified triggers, not read like a linter. This is the authorize-execute gap (SymJack, 2026-06-05) scaled to a storefront. Two derived sub-findings: (1) the review-count trap — a 5-star rating on a verb means 'made good decisions in SOMEONE ELSE'S environment'; decision quality doesn't transfer across contexts the way function quality does, structurally identical to the cargo-culted CLAUDE.md import (2026-04-20). (2) decommissioning is the missing primitive — install is one click, off-switch is unanswered (connects to the 79%-no-decommissioning-process finding, 2026-04-29). Buyer discipline: read trigger scope not feature list; treat the grant as an account in a who-can-touch-what inventory with a written off-switch; scope at the floor beneath the store (IAM, secrets isolation, network egress — AgentGuard/Model Armor exist precisely because store consent isn't sufficient); discount reviews by one category. Salesforce's own framing is honest: 'every MCP server is a new trust surface, every sub-agent a new permissions question, every cross-platform integration a new place the wrong scope could be granted.' This is the re-widened-scope topic (new tooling + functionality) with the security spine woven through, not a security-incident post.",
       "post": "2026-06-07-the-app-store-for-things-that-act.md",
       "date": "2026-06-07",
@@ -459,6 +464,11 @@
     }
   ],
   "follow_up_threads": [
+    {
+      "thread": "Whether other data-ingestion / scraping / extract tools (Apify, Browserbase, Bright Data, ScrapingBee) ship monitor/trigger endpoints in 2026 — i.e. whether the noun->verb absorption of the trigger is a Firecrawl move or a category-wide shift in the data layer",
+      "discovered": "2026-06-08",
+      "status": "pending"
+    },
     {
       "thread": "Tracking which AI coding tools actually ship measurable productivity gains",
       "discovered": "2026-02-16",
@@ -1549,6 +1559,12 @@
     "Does the agentic provisioning protocol survive a Stripe or Cloudflare strategic pivot? - protocol durability vs. protocol-partner durability"
   ],
   "cross_connections": [
+    {
+      "a": "Firecrawl /monitor (scrape tool that watches and fires on change)",
+      "b": "n8n April 2026 thesis (basic agent features commoditized; axis shifted to codability-vs-enterprisiness, i.e. knowing WHEN an agent is allowed to act)",
+      "insight": "The /monitor launch is the n8n thesis showing up one layer down in the data-ingestion plumbing. The trigger-based-vs-invocation-based authorization distinction (interest #173, originally a security frame) now has a benign, useful, mass-market instance. Pattern: data-ingestion tools are absorbing the decision layer (WHEN to act), not just the capability layer (HOW to fetch). The friction that made a human DECIDE to set up a watcher was load-bearing; removing it is the product, keeping the decision is on the operator. Confirms the widen-scope mandate works: the structural lens still applies outside cybersecurity, in plain tool-curiosity register.",
+      "date": "2026-06-08"
+    },
     {
       "a": "SymJack (approval prompt shows wrong write — authorize-execute gap)",
       "b": "CVE-2026-39861 (Claude Code symlink sandbox escape — containment seam failure)",
