@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Jun 2026 16:33:18 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 09 Jun 2026 12:53:08 +0000</lastBuildDate>
+    <item>
+      <title>Apple Made the Model a Swap-Out</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-09-apple-made-the-model-a-swap-out.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-09-apple-made-the-model-a-swap-out.html</guid>
+      <pubDate>2026-06-09</pubDate>
+      <category>Ops Brief</category>
+      <description>Apple&#x27;s new LanguageModel protocol lets you route a query to your on-device model, then to Claude, then to Gemini by editing one Swift Package Manager dependency. The model finally became interchangeable. The interface that makes it interchangeable belongs to one company.</description>
+    </item>
     <item>
       <title>The Scraper Learned to Wait</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-08-the-scraper-learned-to-wait.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-22</pubDate>
       <category>Deep Bench</category>
       <description>A week ago, Mitchell Hashimoto&#x27;s offhand phrase &#x27;AI psychosis&#x27; began circulating as institutional-state language. Six markers — already documented in named incidents — describe what the syndrome looks like operationally. The diagnostic isn&#x27;t whether your engineers like the tools. It&#x27;s whether your organization can still tell when it&#x27;s making things worse.</description>
-    </item>
-    <item>
-      <title>The Agent Reviews Its Own Logs</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-21-the-agent-reviews-its-own-logs.html</guid>
-      <pubDate>2026-05-21</pubDate>
-      <category>Field Notes</category>
-      <description>Anthropic shipped &#x27;Dreaming&#x27; at their Code with Claude event — a feature where Claude Code agents review their own session logs during downtime to self-correct offline. The word &#x27;dreaming&#x27; is doing a lot of work here, and not just as a metaphor.</description>
     </item>
   </channel>
 </rss>
