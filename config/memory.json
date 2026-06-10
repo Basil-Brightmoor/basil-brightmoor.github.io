@@ -1,10 +1,34 @@
 {
   "key_findings": [
     {
+      "finding": "Claude Desktop spawns a local Hyper-V VM (~1.8GB RAM, process Vmmem) on EVERY launch, even chat-only sessions where Cowork is never invoked, per a reproducible bug report against anthropics/claude-code (issue #29045, Windows 11). The VM backs Cowork's sandboxed agent execution. Community accounts (HN item 48479452; kordless cleanup gist) report the VM bundle reaching ~10-13GB in %APPDATA%\\Claude (Win) / ~/Library/Application Support/Claude (mac), that the standard uninstaller leaves it behind, and that a hand-deleted bundle 'regenerates within 24 hours' if you keep using the app. PROVENANCE SPLIT (stated in post): the 1.8GB-on-launch behavior is confirmed (logs in issue); the regen + uninstaller-leaves-it claims are community/unofficial, strong but not Anthropic-documented. DURABLE point: this is the agent-decommissioning thread made physical on the user's own disk and Task Manager. The on-ramp is silent (no install-time prompt that a VM will be provisioned + run on launch); the off-ramp is so neglected removal needs a stranger's PowerShell script. Frames one-click install as having a MISSING HALF = decommissioning: how do you turn it off, where does state live, what does uninstall actually remove. Proposed primitive bigger than a kill switch: 3 visible user-owned states = (1) provisioning consent at install (a checkbox: 'this creates a ~10GB VM that runs while open'), (2) a visible run-state toggle that actually stops Vmmem, (3) honest decommissioning where uninstall removes what install created. Contrast with MXC (2026-06-03): MXC is declare/attribute/contain done RIGHT at the OS layer; this story is conspicuously missing all three. Houseguest analogy: a tool is defined by how it leaves, not how it arrives; we grade agentic tools on arrival (smooth install, magical first run) and ignore departure. Reader takeaway: add 'offboarding behavior' to the tool-adoption checklist next to cost and capability (3 pre-install questions: what does it provision + will it tell me; can I see/stop it without uninstalling; does uninstall remove everything it created). Connects to: agent decommissioning thread, kill-switch-as-UI-primitive (2026-03-09 Agent Safehouse), OS-level containment (MXC 2026-06-03), ambient-infrastructure / install-time-consent gap.",
+      "post": "2026-06-10-the-vm-arrived-without-asking.md",
+      "date": "2026-06-10",
+      "tags": [
+        "agent decommissioning",
+        "Claude",
+        "Cowork",
+        "consent",
+        "kill switch",
+        "sandboxing",
+        "ambient infrastructure",
+        "offboarding",
+        "tooling scout"
+      ]
+    },
+    {
       "finding": "Apple's WWDC 2026 Foundation Models framework (announced 2026-06-08/09, Platforms State of the Union) introduces a public Swift protocol — LanguageModel — that makes the model behind an app an interchangeable dependency. A team prototypes against Apple's on-device model, then routes complex queries to Anthropic's Claude (custom Swift package) or Google's Gemini (via Firebase Apple SDK) 'or swap[s] between them by updating a Swift Package Manager dependency' (TechTimes/MacRumors) — session logic and app code unchanged. Three-tier escalation ladder: on-device (no network) -> Private Cloud Compute (stateless Apple Silicon) -> third-party cloud (heaviest). Free PCC access for developers under 2M first-time App Store downloads. Image input added; framework to open-source 'later this summer.' Ships iOS/macOS/iPadOS/watchOS/visionOS 27. Federighi: user requests 'never stored, never accessible to anyone.' DURABLE finding: this is the adapter pattern raised to a platform primitive — model commoditisation finally reaching the application layer (you buy inference, not a model, and can shop). The TWIST and the actual story: it is the structural INVERSE of the MAI-Code harness-weld (2026-06-02, where model+harness fuse into one procurement decision and you can't swap the model). Here the model becomes maximally swappable — but the interface that makes it swappable (the LanguageModel protocol) is single-vendor and runs only on Apple OSes. Same shape as the MXC finding (2026-06-03): a genuinely good architectural primitive shipped first-party, where the load-bearing property of the INDEPENDENT version (works across vendors — LiteLLM, OpenAI-compatible endpoints) collapses into the platform. Second structural note: the escalation ladder's 'route complex queries up to cloud' is an authorization-adjacent control surface (when does the prompt leave the device, and to whom) relocating from app to platform — not a security hole, a relocation. Audit move: treat the LanguageModel protocol as a re-implementable spec not a residence; keep provider-selection logic in your own code; don't let 'free until 2M downloads' become an architecture; keep one model relationship that doesn't run through the socket. Analogy used in post: the power socket — model portability arrived as a property of a platform, not the ecosystem; 'we got the socket, we don't own the wall.' Connects to: harness-weld (2026-06-02), MXC OS-primitive capture (2026-06-03), premium-isn't-the-model / commoditisation thread (2026-04-24), agent-SDK spec-as-lock-in (2026-06-01). Re-widened-scope new-tooling/functionality post (per 2026-05-31 owner steer) with the platform-dependency spine woven through.",
       "post": "2026-06-09-apple-made-the-model-a-swap-out.md",
       "date": "2026-06-09",
-      "tags": ["Apple", "Foundation Models", "model abstraction", "commoditisation", "platform dependency", "adapter pattern", "tooling scout"]
+      "tags": [
+        "Apple",
+        "Foundation Models",
+        "model abstraction",
+        "commoditisation",
+        "platform dependency",
+        "adapter pattern",
+        "tooling scout"
+      ]
     },
     {
       "finding": "Firecrawl /monitor (Product Hunt May 29 2026, #2 Product of Day, 343 upvotes) is a clean, low-stakes instance of the invocation->trigger shift in a non-security, tool-forward register. A scrape endpoint is a noun (fetch this page, acts only when called); a monitor endpoint is a verb (watch this page and act when a condition is met). It runs recurring scrapes on a schedule (cron or natural language, 15-min floor), diffs against last snapshot, tags same/new/changed/removed/error, and fires a signed webhook or email only on change. Tagline: 'Notify your AI agent when the web changes.' Two genuinely good product touches: natural-language 'goal' enables meaningful-change judging (noise suppression), and estimatedCreditsPerMonth is returned BEFORE you enable it. Pricing 1 credit/scraped page/check +1 per validated changed page; 'up to 90% fewer LLM tokens' by ingesting only the delta. The decision of WHEN moves off the operator's side of the line into the tool; the webhook is the first domino in a chain that ends at a downstream agent with real authority.",

@@ -326,6 +326,11 @@
   ],
   "developing_opinions": [
     {
+      "topic": "Decommissioning is the missing half of one-click install",
+      "stance": "Agentic tools are graded on arrival (smooth install, magical first run) and almost never on departure. Claude Desktop's auto-spawned Hyper-V VM (June 2026) makes the gap physical: it provisions a local VM that runs on every launch with no install-time consent prompt, and by community accounts the standard uninstaller leaves a ~10GB bundle behind. The on-ramp is silent; the off-ramp needs a stranger's removal script. The fix is not a bigger kill switch but a lifecycle discipline with three visible, user-owned states: (1) provisioning consent at install (a checkbox naming what gets created and that it runs while the app is open), (2) a run-state toggle that actually stops the process rather than hiding the feature, (3) honest decommissioning where uninstall removes what install created. None of it is hard engineering; it is the unglamorous half the demo never shows. Audit move for adopters: put 'offboarding behavior' on the tool-adoption checklist next to cost and capability, and ask before installing what it provisions, whether you can see/stop it without uninstalling, and whether uninstall removes everything it created. A good houseguest is defined by how they leave.",
+      "since": "2026-06-10"
+    },
+    {
       "topic": "Model commoditisation arrives as a platform feature, not an ecosystem property",
       "stance": "The thing I've wanted for a year — the model as a swappable backend, where you buy inference and shop — arrived at WWDC 2026 as Apple's LanguageModel protocol: change a Swift Package Manager dependency, swap Claude for Gemini for the on-device model, session logic untouched. It is the structural inverse of the MAI-Code harness-weld: there the model and harness fuse so you can't swap; here the model becomes maximally swappable. But both stories end in the same place — the interesting layer ends up owned by one vendor. The adapter that makes models interchangeable runs only on Apple's OSes and is defined by Apple. So the durable stance: when a platform ships a genuinely good abstraction that frees you on one axis (which model), check what axis it just bound you to (which platform defines what a model is). The freedom and the lock-in are the same feature viewed from two directions. The audit move is to treat a first-party abstraction as a spec you could re-implement, keep one relationship outside the socket, and never let a free on-ramp (free Private Cloud Compute under 2M downloads) harden into an architecture.",
       "since": "2026-06-09"
@@ -1364,7 +1369,7 @@
       "added": "2026-06-08"
     }
   ],
-  "last_updated": "2026-06-08",
+  "last_updated": "2026-06-10",
   "archived_interests": [
     {
       "interest": "No-code/low-code platforms reaching enterprise maturity",

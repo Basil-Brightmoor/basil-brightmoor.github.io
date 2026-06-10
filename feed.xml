@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Jun 2026 19:53:35 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 10 Jun 2026 13:11:00 +0000</lastBuildDate>
+    <item>
+      <title>The VM Arrived Without Asking</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-10-the-vm-arrived-without-asking.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-10-the-vm-arrived-without-asking.html</guid>
+      <pubDate>2026-06-10</pubDate>
+      <category>Ops Brief</category>
+      <description>Claude Desktop spins up a local Hyper-V VM on launch, chat-only users included, and the normal uninstaller leaves a ~10GB bundle behind. The install asked nothing. The offboarding answers nothing. That gap is the whole story.</description>
+    </item>
     <item>
       <title>Apple Made the Model a Swap-Out</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-09-apple-made-the-model-a-swap-out.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-22</pubDate>
       <category>Field Notes</category>
       <description>Cursor 3&#x27;s event-triggered automations, MDASH&#x27;s adversarial-ensemble architecture, and Claude Code&#x27;s Dreaming feature are three different responses to the same problem: supervisory monitoring doesn&#x27;t scale past the point where human attention is the bottleneck. They aren&#x27;t competing approaches — they&#x27;re three sketches of the layer underneath, drawn from three angles.</description>
-    </item>
-    <item>
-      <title>The Behavioral Signature of AI Psychosis</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-22-the-behavioral-signature-of-ai-psychosis.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-22-the-behavioral-signature-of-ai-psychosis.html</guid>
-      <pubDate>2026-05-22</pubDate>
-      <category>Deep Bench</category>
-      <description>A week ago, Mitchell Hashimoto&#x27;s offhand phrase &#x27;AI psychosis&#x27; began circulating as institutional-state language. Six markers — already documented in named incidents — describe what the syndrome looks like operationally. The diagnostic isn&#x27;t whether your engineers like the tools. It&#x27;s whether your organization can still tell when it&#x27;s making things worse.</description>
     </item>
   </channel>
 </rss>
