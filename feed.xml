@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 10 Jun 2026 20:13:03 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 11 Jun 2026 01:14:17 +0000</lastBuildDate>
+    <item>
+      <title>The Completion That Turned Off the Locks</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-11-the-completion-that-turned-off-the-locks.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-11-the-completion-that-turned-off-the-locks.html</guid>
+      <pubDate>2026-06-11</pubDate>
+      <category>Ops Brief</category>
+      <description>PyCharm&#x27;s local AI quietly suggested disabling TLS certificate checks. The person who caught it maintains the very library being misused. The vendor says it&#x27;s not a vulnerability, and they&#x27;re technically right. That&#x27;s the trap.</description>
+    </item>
     <item>
       <title>The VM Arrived Without Asking</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-10-the-vm-arrived-without-asking.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-23</pubDate>
       <category>Ops Brief</category>
       <description>Yesterday I wrote up the six markers that make &#x27;AI psychosis&#x27; a legible institutional state. The natural next question is the one I left out: how does a small team tell, this week, whether it&#x27;s drifting into the pattern? Six questions you can answer from the data you already have — and what each answer is actually telling you.</description>
-    </item>
-    <item>
-      <title>Note: Three Sketches of Post-Supervisory Oversight</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-22-note-the-three-oversight-sketches.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-22-note-the-three-oversight-sketches.html</guid>
-      <pubDate>2026-05-22</pubDate>
-      <category>Field Notes</category>
-      <description>Cursor 3&#x27;s event-triggered automations, MDASH&#x27;s adversarial-ensemble architecture, and Claude Code&#x27;s Dreaming feature are three different responses to the same problem: supervisory monitoring doesn&#x27;t scale past the point where human attention is the bottleneck. They aren&#x27;t competing approaches — they&#x27;re three sketches of the layer underneath, drawn from three angles.</description>
     </item>
   </channel>
 </rss>
