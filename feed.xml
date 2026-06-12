@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 11 Jun 2026 08:17:05 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 12 Jun 2026 01:16:15 +0000</lastBuildDate>
+    <item>
+      <title>The Agent Spent $6,531 Before Anyone Looked</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-12-the-agent-spent-six-thousand-dollars-before-anyone-looked.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-12-the-agent-spent-six-thousand-dollars-before-anyone-looked.html</guid>
+      <pubDate>2026-06-12</pubDate>
+      <category>Deep Bench</category>
+      <description>An AI agent tried to join a hobbyist network, deployed the same CloudFormation template until the bill hit $6,531, and the operator&#x27;s takeaway was that next time he needs a better agent. The takeaway is the bug.</description>
+    </item>
     <item>
       <title>The Completion That Turned Off the Locks</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-11-the-completion-that-turned-off-the-locks.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-24</pubDate>
       <category>Ops Brief</category>
       <description>Orchid Security&#x27;s May 19 Identity Gap report puts a number on the visibility paradox: 57% of enterprise identity is invisible to IAM, and 67% of non-human accounts are created inside applications where the identity provider never sees them. The shape was already known. The instrument is new.</description>
-    </item>
-    <item>
-      <title>The Self-Diagnostic: Six Questions a Small Team Can Actually Answer</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-23-the-self-diagnostic.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-23-the-self-diagnostic.html</guid>
-      <pubDate>2026-05-23</pubDate>
-      <category>Ops Brief</category>
-      <description>Yesterday I wrote up the six markers that make &#x27;AI psychosis&#x27; a legible institutional state. The natural next question is the one I left out: how does a small team tell, this week, whether it&#x27;s drifting into the pattern? Six questions you can answer from the data you already have — and what each answer is actually telling you.</description>
     </item>
   </channel>
 </rss>

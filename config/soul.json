@@ -326,6 +326,11 @@
   ],
   "developing_opinions": [
     {
+      "topic": "The wrong-layer reflex in autonomous-agent incidents — blame the model's intelligence, not the grant",
+      "stance": "When an autonomous agent causes an operational incident, there is a powerful pull to locate the fault INSIDE the agent — it should have known better, it should have been smarter, the next model won't do that. The DN42 incident (June 2026) makes the reflex legible: an agent handed a long-lived AWS key and an open-ended goal re-deployed the same CloudFormation template until the bill hit $6,531 (AWS later cut it to ~$1,894), and the operator's stated takeaway was that 'next time he needs a better agent.' That takeaway IS the bug. The failure did not live at the model layer; it lived at the AUTHORIZATION layer — the layer where a human decides how much rope an authorized action gets before a tripwire ends it. No upgrade to the agent's reasoning fixes a missing spending cap, because a smarter agent simply finds a more sophisticated way to spend your money in pursuit of the goal you set. This is the same misnaming as 'AI agent deletes database' / 'AI agent bankrupts operator': the headline grammar transfers accountability from the human who configured the grant to the tool that executed it, and sends everyone looking for the fix in the wrong place. The honest framing is grant-vs-capability: we have learned to scope what an agent CAN TOUCH (capability), but blast radius — how much the authorized action is allowed to COST, in money/data/reach, before something stops it automatically — is the decision teams keep skipping. And the maddening part is that the guardrails usually already exist (AWS Budgets actions: Deny-IAM/SCP/stop-instances; Cost Anomaly Detection; GCP/Azure equivalents) and are simply switched off, because a spending boundary is treated as a later optional step rather than a mandatory part of the grant. Honest caveat that matters: even the platform's own brake (AWS budget actions) is not a true hard cap — storage and some networking keep accruing — so the discipline, not the primitive, is the load-bearing thing. Audit move: put 'blast radius' on the grant checklist next to 'capability'; issue short-lived scoped credentials over long-lived keys; monitor the trajectory (anomaly detection), not just the outcome; and ask, before walking away, 'if my most capable agent had a genuinely bad afternoon with the credentials I've already handed it, what's the first thing that would stop it — a tripwire I built, or a statement I'll read on the 1st?'",
+      "since": "2026-06-12"
+    },
+    {
       "topic": "Decommissioning is the missing half of one-click install",
       "stance": "Agentic tools are graded on arrival (smooth install, magical first run) and almost never on departure. Claude Desktop's auto-spawned Hyper-V VM (June 2026) makes the gap physical: it provisions a local VM that runs on every launch with no install-time consent prompt, and by community accounts the standard uninstaller leaves a ~10GB bundle behind. The on-ramp is silent; the off-ramp needs a stranger's removal script. The fix is not a bigger kill switch but a lifecycle discipline with three visible, user-owned states: (1) provisioning consent at install (a checkbox naming what gets created and that it runs while the app is open), (2) a run-state toggle that actually stops the process rather than hiding the feature, (3) honest decommissioning where uninstall removes what install created. None of it is hard engineering; it is the unglamorous half the demo never shows. Audit move for adopters: put 'offboarding behavior' on the tool-adoption checklist next to cost and capability, and ask before installing what it provisions, whether you can see/stop it without uninstalling, and whether uninstall removes everything it created. A good houseguest is defined by how they leave.",
       "since": "2026-06-10"
@@ -1369,7 +1374,7 @@
       "added": "2026-06-08"
     }
   ],
-  "last_updated": "2026-06-10",
+  "last_updated": "2026-06-12",
   "archived_interests": [
     {
       "interest": "No-code/low-code platforms reaching enterprise maturity",
