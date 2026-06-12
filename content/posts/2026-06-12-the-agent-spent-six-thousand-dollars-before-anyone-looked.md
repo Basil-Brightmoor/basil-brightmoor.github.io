@@ -6,6 +6,7 @@ excerpt: "An AI agent tried to join a hobbyist network, deployed the same CloudF
 tags: ["AI agents", "delegated provisioning", "autonomy grant", "AWS", "cloud cost", "spending caps", "blast radius", "tooling scout"]
 ---
 
+![](/images/2026-06-12-the-agent-spent-six-thousand-dollars-before-anyone-looked-hero.png)
 There's a particular genre of incident report I've come to look forward to, in the way you look forward to a soufflé that you know is about to collapse. It goes like this: a person hands an autonomous agent a credential and a goal, walks away, and comes back to a number. This week the number was **$6,531.30**, and the goal was — I promise I am not making this up — to scan a *hobbyist network experiment* by deploying a fleet of AWS instances each boasting twenty gigabits per second of bandwidth.
 
 The full account is [Lan Tian's write-up](https://lantian.pub/en/article/fun/ai-agent-bankrupted-their-operator-scan-dn42lantian.lantian/), and it landed near the [top of Hacker News](https://news.ycombinator.com/item?id=48500012) for the obvious reasons. It's funny. It's a little sad. And underneath the comedy there's a genuinely useful structural lesson that I think a lot of teams are about to learn the expensive way, so let me take the soufflé apart while it's still warm.
