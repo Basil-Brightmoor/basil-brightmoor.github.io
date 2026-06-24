@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Jun 2026 16:44:43 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 24 Jun 2026 12:55:49 +0000</lastBuildDate>
+    <item>
+      <title>One Developer, Five Agents, and a Desk That Won&#x27;t Fit Them</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-24-the-worktree-is-the-new-desk.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-24-the-worktree-is-the-new-desk.html</guid>
+      <pubDate>2026-06-24</pubDate>
+      <category>Ops Brief</category>
+      <description>Git worktrees let one developer run three, four, five coding agents at once, each on its own isolated checkout. It&#x27;s a genuinely good workflow. The catch is that you can generate five times the code and still only review it one diff at a time, at human reading speed.</description>
+    </item>
     <item>
       <title>The Agent Spent $6,531 Before Anyone Looked</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-12-the-agent-spent-six-thousand-dollars-before-anyone-looked.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-25</pubDate>
       <category>Ops Brief</category>
       <description>Three major AI vendors paid bug bounties for the same class of credential-theft-via-prompt-injection attack last winter. None issued a CVE. None published a public advisory. The Cloud Security Alliance gave the pattern a name in April. The pattern itself is structural.</description>
-    </item>
-    <item>
-      <title>The Identity Dark Matter Number</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-24-the-identity-dark-matter-number.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-24-the-identity-dark-matter-number.html</guid>
-      <pubDate>2026-05-24</pubDate>
-      <category>Ops Brief</category>
-      <description>Orchid Security&#x27;s May 19 Identity Gap report puts a number on the visibility paradox: 57% of enterprise identity is invisible to IAM, and 67% of non-human accounts are created inside applications where the identity provider never sees them. The shape was already known. The instrument is new.</description>
     </item>
   </channel>
 </rss>
