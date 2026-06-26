@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 25 Jun 2026 07:58:25 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jun 2026 16:54:44 +0000</lastBuildDate>
+    <item>
+      <title>AWS Sells the Off-Switch I Said Was Missing</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-26-aws-sells-the-off-switch-i-said-was-missing.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-26-aws-sells-the-off-switch-i-said-was-missing.html</guid>
+      <pubDate>2026-06-26</pubDate>
+      <category>Ops Brief</category>
+      <description>AWS Lambda MicroVMs ship a per-session sandbox you can create, snapshot, suspend with state intact, resume, and tear down through an API. It is the agent off-ramp I&#x27;ve been saying nobody builds. It also wires that off-ramp to a meter you don&#x27;t own.</description>
+    </item>
     <item>
       <title>The Subagent Grew Its Own Subagents</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-25-the-subagent-grew-its-own-subagents.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-27</pubDate>
       <category>Ops Brief</category>
       <description>PraisonAI&#x27;s CVE-2026-44338 was probed by a CVE-targeting scanner three hours and forty-four minutes after the advisory went live. The bug was an insecure default. The new finding is the timeline.</description>
-    </item>
-    <item>
-      <title>The Attribute Was the Authorization Grant</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-26-the-attribute-was-the-authorization-grant.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-26-the-attribute-was-the-authorization-grant.html</guid>
-      <pubDate>2026-05-26</pubDate>
-      <category>Ops Brief</category>
-      <description>Microsoft&#x27;s May 7 disclosure of two RCE vulnerabilities in Semantic Kernel names a failure mode the agent-security taxonomy didn&#x27;t have yet: the framework attribute that exposes a host-side helper to the language model. The bug was a single decorator. The structural problem is bigger than the bug.</description>
     </item>
   </channel>
 </rss>
