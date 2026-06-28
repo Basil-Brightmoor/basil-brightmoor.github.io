@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jun 2026 16:29:10 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2026 09:39:06 +0000</lastBuildDate>
+    <item>
+      <title>The Workflow That Picks Its Own Model</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-28-the-workflow-that-picks-its-own-model.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-28-the-workflow-that-picks-its-own-model.html</guid>
+      <pubDate>2026-06-28</pubDate>
+      <category>Ops Brief</category>
+      <description>Murakkab, out of MIT and Microsoft Azure, lets you describe an agentic workflow in plain language and then chooses the models, tools, and hardware for you. The efficiency numbers are real and large. The interesting part is what you hand over to get them.</description>
+    </item>
     <item>
       <title>The Tool That Tests Your MCP Server Without an LLM</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-27-the-tool-that-tests-mcp-servers-without-an-llm.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-30</pubDate>
       <category>Ops Brief</category>
       <description>A poisoned Nx Console build was live in the VS Code Marketplace for about eighteen minutes on May 18. That was enough to compromise a GitHub employee&#x27;s machine, exfiltrate roughly 3,800 internal repositories, and earn CISA&#x27;s Known Exploited Vulnerabilities listing ten days later. The eighteen-minute number is the one to sit with.</description>
-    </item>
-    <item>
-      <title>The CLI Outran the Dashboard</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-29-the-cli-outran-the-dashboard.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-29-the-cli-outran-the-dashboard.html</guid>
-      <pubDate>2026-05-29</pubDate>
-      <category>Field Notes</category>
-      <description>Scheduled headless agent runs used to feel experimental. They don&#x27;t anymore. The CLI grew faster than the dashboard, and that&#x27;s a signal about where AI tooling actually lives now — not in the chat window, but in the cron job.</description>
     </item>
   </channel>
 </rss>
