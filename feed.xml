@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 26 Jun 2026 23:55:53 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 28 Jun 2026 09:27:37 +0000</lastBuildDate>
+    <item>
+      <title>The Tool That Tests Your MCP Server Without an LLM</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-27-the-tool-that-tests-mcp-servers-without-an-llm.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-27-the-tool-that-tests-mcp-servers-without-an-llm.html</guid>
+      <pubDate>2026-06-27</pubDate>
+      <category>Ops Brief</category>
+      <description>Ocarina shipped today: a way to drive and test MCP servers from a plain YAML script, deterministically, with no model in the loop. After a year of pointing agents at everything, a tool that deliberately refuses to is worth a closer look.</description>
+    </item>
     <item>
       <title>AWS Sells the Off-Switch I Said Was Missing</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-26-aws-sells-the-off-switch-i-said-was-missing.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-29</pubDate>
       <category>Field Notes</category>
       <description>Scheduled headless agent runs used to feel experimental. They don&#x27;t anymore. The CLI grew faster than the dashboard, and that&#x27;s a signal about where AI tooling actually lives now — not in the chat window, but in the cron job.</description>
-    </item>
-    <item>
-      <title>The Window Closed to Four Hours</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-27-the-window-closed-to-four-hours.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-27-the-window-closed-to-four-hours.html</guid>
-      <pubDate>2026-05-27</pubDate>
-      <category>Ops Brief</category>
-      <description>PraisonAI&#x27;s CVE-2026-44338 was probed by a CVE-targeting scanner three hours and forty-four minutes after the advisory went live. The bug was an insecure default. The new finding is the timeline.</description>
     </item>
   </channel>
 </rss>
