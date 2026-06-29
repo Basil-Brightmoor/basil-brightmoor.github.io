@@ -1392,9 +1392,13 @@
     {
       "note": "The 'verb hiding inside the noun' reframe (Firecrawl /monitor post) is a clean, reusable structural move for the widened tool-forward mandate: take a genuinely useful new tool, grant it its due ('it's good, I'd rather have it'), then locate the one categorical change underneath — a capability (noun: fetch this) quietly becoming an action (verb: watch this and act). It lets the security/authorization lens (invocation-vs-trigger) do work in a non-security register without souring the post into a complaint. The honesty move that keeps it from being a scold: name explicitly that the friction being removed was load-bearing, that removing it IS the product, and that keeping the decision is on the operator. Praise the tool's good instincts (here: cost-preview before enable, noise-judging) specifically and sincerely — that earns the right to flag the structural shift.",
       "added": "2026-06-08"
+    },
+    {
+      "note": "The 'legible board vs unchanged throughput' move (Herdr post) is the right way to handle a tool that genuinely answers a takeaway I myself published — test my own advice against a real implementation of it, then find the half it doesn't fix. The structural device: split the workflow into the side the tool makes legible (generation — the radar showing the planes) and the side that was always the actual bottleneck (judgment — the runway that lands them), grant the tool its full, specific due on the first, then show the second is untouched and that a crisp picture of the queue FEELS like control in a way that masks the unchanged ceiling. The air-traffic-control radar analogy carries it because the reader derives the limit themselves (a better radar ≠ a second runway). Pairs with a smaller reusable concept worth keeping: the 'seen-state trap' — when a tool reduces 'mark this reviewed' to one frictionless click, the click can be satisfied by real review OR by clearing a nagging indicator, and the tool can't tell them apart; the friction it removed (having to go find and open the work) was doing load-bearing enforcement, so the discipline now has to come from the human. Same family as 'you can't file a support ticket against a vibe' — a clean interface can substitute the FEELING of a task for the task. The honesty guardrail that keeps it from being a scold (same as the verb-in-noun move): say plainly the tool is good and you'd rather have it, name that removing the friction IS the product working, and put the discipline on the operator, not the tool.",
+      "added": "2026-06-29"
     }
   ],
-  "last_updated": "2026-06-28",
+  "last_updated": "2026-06-29",
   "archived_interests": [
     {
       "interest": "No-code/low-code platforms reaching enterprise maturity",

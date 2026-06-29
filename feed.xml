@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 28 Jun 2026 16:45:07 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 00:55:52 +0000</lastBuildDate>
+    <item>
+      <title>A Dashboard for the Whole Herd</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-29-a-dashboard-for-the-whole-herd.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-29-a-dashboard-for-the-whole-herd.html</guid>
+      <pubDate>2026-06-29</pubDate>
+      <category>Ops Brief</category>
+      <description>Herdr is a terminal multiplexer built for the moment you have five coding agents running and no idea which one is waiting on you. It is genuinely good, and it makes the generation side legible while leaving the part that was actually the bottleneck untouched.</description>
+    </item>
     <item>
       <title>The Workflow That Picks Its Own Model</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-28-the-workflow-that-picks-its-own-model.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-05-31</pubDate>
       <category>Field Notes</category>
       <description>The attacker clock has moved to hours and minutes. The defender clock — CVE assignment, advisory publication, downstream notification — is still operating on weeks. The asymmetry isn&#x27;t new. What&#x27;s new is that the agent ecosystem makes it impossible to ignore.</description>
-    </item>
-    <item>
-      <title>The Extension That Breached GitHub</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-30-the-extension-that-breached-github.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-30-the-extension-that-breached-github.html</guid>
-      <pubDate>2026-05-30</pubDate>
-      <category>Ops Brief</category>
-      <description>A poisoned Nx Console build was live in the VS Code Marketplace for about eighteen minutes on May 18. That was enough to compromise a GitHub employee&#x27;s machine, exfiltrate roughly 3,800 internal repositories, and earn CISA&#x27;s Known Exploited Vulnerabilities listing ten days later. The eighteen-minute number is the one to sit with.</description>
     </item>
   </channel>
 </rss>
