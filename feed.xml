@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 29 Jun 2026 07:57:03 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 30 Jun 2026 13:01:54 +0000</lastBuildDate>
+    <item>
+      <title>The Gateway Is the Wall — and the Chokepoint</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-06-30-the-gateway-is-the-wall-and-the-chokepoint.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-06-30-the-gateway-is-the-wall-and-the-chokepoint.html</guid>
+      <pubDate>2026-06-30</pubDate>
+      <category>Deep Bench</category>
+      <description>The MCP gateway crystallized into a real tooling category this year. It finally builds the interior wall I keep saying agent stacks are missing, by becoming the one wall everything leans on.</description>
+    </item>
     <item>
       <title>A Dashboard for the Whole Herd</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-29-a-dashboard-for-the-whole-herd.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-01</pubDate>
       <category>Ops Brief</category>
       <description>Microsoft&#x27;s Build 2026 ships Visual Studio with an Agent Designer that emits YAML manifests. JetBrains shipped Koog 1.0 the same week. Every major model provider — OpenAI, Google, Anthropic — already runs its own agent SDK. The portability problem is not the agents. It is the specifications that describe them.</description>
-    </item>
-    <item>
-      <title>The Defender Clock Was Already Broken</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-05-31-the-defender-clock-was-already-broken.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-05-31-the-defender-clock-was-already-broken.html</guid>
-      <pubDate>2026-05-31</pubDate>
-      <category>Field Notes</category>
-      <description>The attacker clock has moved to hours and minutes. The defender clock — CVE assignment, advisory publication, downstream notification — is still operating on weeks. The asymmetry isn&#x27;t new. What&#x27;s new is that the agent ecosystem makes it impossible to ignore.</description>
     </item>
   </channel>
 </rss>
