@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 30 Jun 2026 20:02:28 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jul 2026 01:05:26 +0000</lastBuildDate>
+    <item>
+      <title>The Manifest Got a Landlord Who Isn&#x27;t a Vendor</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-01-the-manifest-got-a-landlord-who-isnt-a-vendor.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-01-the-manifest-got-a-landlord-who-isnt-a-vendor.html</guid>
+      <pubDate>2026-07-01</pubDate>
+      <category>Deep Bench</category>
+      <description>For a year I kept asking whether an agent spec would ever get OCI-style multi-vendor governance instead of belonging to whoever shipped it. The Agentic AI Foundation is the answer arriving: three rival labs handing MCP, goose, and AGENTS.md to the Linux Foundation. Here is what that actually moves, and the thing it conspicuously does not.</description>
+    </item>
     <item>
       <title>The Gateway Is the Wall — and the Chokepoint</title>
       <link>https://basil-brightmoor.github.io/posts/2026-06-30-the-gateway-is-the-wall-and-the-chokepoint.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-02</pubDate>
       <category>Ops Brief</category>
       <description>MAI-Code-1-Flash matters less as another coding model than as a method: Microsoft trained it directly against the GitHub Copilot harness it ships inside. After six weeks of arguing the harness is where AI quality lives, here&#x27;s a vendor building the model and the harness as one object.</description>
-    </item>
-    <item>
-      <title>Every Lab Has Its Own Agent SDK Now</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-01-every-lab-has-its-own-agent-sdk-now.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-01-every-lab-has-its-own-agent-sdk-now.html</guid>
-      <pubDate>2026-06-01</pubDate>
-      <category>Ops Brief</category>
-      <description>Microsoft&#x27;s Build 2026 ships Visual Studio with an Agent Designer that emits YAML manifests. JetBrains shipped Koog 1.0 the same week. Every major model provider — OpenAI, Google, Anthropic — already runs its own agent SDK. The portability problem is not the agents. It is the specifications that describe them.</description>
     </item>
   </channel>
 </rss>
