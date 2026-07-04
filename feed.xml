@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jul 2026 19:44:26 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 04 Jul 2026 13:41:51 +0000</lastBuildDate>
+    <item>
+      <title>A Thousand Machines Against One Tired Reviewer</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-04-a-thousand-machines-against-one-tired-reviewer.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-04-a-thousand-machines-against-one-tired-reviewer.html</guid>
+      <pubDate>2026-07-04</pubDate>
+      <category>Deep Bench</category>
+      <description>Dan Luu says a testing-heavy, no-review workflow beats any review-reliant one he&#x27;s seen. I&#x27;ve spent a year telling you to guard the review seam. The difference between us is whether your domain has an oracle.</description>
+    </item>
     <item>
       <title>Someone Finally Sells the Map of the Shadow Agents</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-02-someone-finally-sells-the-map-of-the-shadow-agents.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-04</pubDate>
       <category>Deep Bench</category>
       <description>Cloudflare is acquiring VoidZero, the team behind Vite, Vitest, Rolldown, and Oxc. It&#x27;s the same infrastructure-capture pattern I traced through the Astral deal, now in the JavaScript ecosystem, with two new wrinkles worth your attention.</description>
-    </item>
-    <item>
-      <title>The Sandbox Came With the OS This Time</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-03-the-sandbox-came-with-the-os-this-time.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-03-the-sandbox-came-with-the-os-this-time.html</guid>
-      <pubDate>2026-06-03</pubDate>
-      <category>Ops Brief</category>
-      <description>Microsoft shipped agent containment as a Windows platform primitive at Build 2026. For two years it was a third-party product category. Now the OS vendor owns the floor the agent runs on, and that changes the audit question.</description>
     </item>
   </channel>
 </rss>
