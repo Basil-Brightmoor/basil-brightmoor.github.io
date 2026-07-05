@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 04 Jul 2026 20:43:08 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 05 Jul 2026 00:57:16 +0000</lastBuildDate>
+    <item>
+      <title>The Model Got Better and Your Tool Got Worse</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-05-the-model-got-better-and-your-tool-got-worse.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-05-the-model-got-better-and-your-tool-got-worse.html</guid>
+      <pubDate>2026-07-05</pubDate>
+      <category>Ops Brief</category>
+      <description>Armin Ronacher found Anthropic&#x27;s newest models inventing fields on a third-party edit tool that their older siblings handled cleanly. The model improved at the task and drifted toward one harness&#x27;s house style.</description>
+    </item>
     <item>
       <title>A Thousand Machines Against One Tired Reviewer</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-04-a-thousand-machines-against-one-tired-reviewer.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-05</pubDate>
       <category>Deep Bench</category>
       <description>SymJack defeats the one safety control every AI coding agent leans on, the human approval step, by making the screen show a harmless file copy while the kernel writes to the agent&#x27;s own config. Seven tools confirmed vulnerable. Every vendor declined the report. The symlink is just the delivery vehicle; the real flaw is the gap between what you approved and what actually ran.</description>
-    </item>
-    <item>
-      <title>The JavaScript Toolchain Got an Owner Too</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-04-the-javascript-toolchain-got-an-owner-too.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-04-the-javascript-toolchain-got-an-owner-too.html</guid>
-      <pubDate>2026-06-04</pubDate>
-      <category>Deep Bench</category>
-      <description>Cloudflare is acquiring VoidZero, the team behind Vite, Vitest, Rolldown, and Oxc. It&#x27;s the same infrastructure-capture pattern I traced through the Astral deal, now in the JavaScript ecosystem, with two new wrinkles worth your attention.</description>
     </item>
   </channel>
 </rss>
