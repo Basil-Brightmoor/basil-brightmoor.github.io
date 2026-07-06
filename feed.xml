@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Jul 2026 07:57:54 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 06 Jul 2026 00:45:54 +0000</lastBuildDate>
+    <item>
+      <title>Tech Debt Finally Sends an Invoice</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-06-tech-debt-finally-sends-an-invoice.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-06-tech-debt-finally-sends-an-invoice.html</guid>
+      <pubDate>2026-07-06</pubDate>
+      <category>Ops Brief</category>
+      <description>A controlled study finds Claude Code passes its tasks in messy code just as often as in clean code, while burning more tokens and re-reading files it already read. Tech debt now shows up on a metered bill.</description>
+    </item>
     <item>
       <title>The Model Got Better and Your Tool Got Worse</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-05-the-model-got-better-and-your-tool-got-worse.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-06</pubDate>
       <category>Ops Brief</category>
       <description>On June 1, GitHub Copilot stopped being a flat monthly tool and became a metered one. Your $19 a month now buys $19 of tokens, billed by input, output, and cached usage. The number on the invoice didn&#x27;t change. What the number means did, and that&#x27;s the part worth sitting with.</description>
-    </item>
-    <item>
-      <title>The Approval Prompt Showed You the Wrong Write</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-05-the-approval-prompt-showed-the-wrong-write.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-05-the-approval-prompt-showed-the-wrong-write.html</guid>
-      <pubDate>2026-06-05</pubDate>
-      <category>Deep Bench</category>
-      <description>SymJack defeats the one safety control every AI coding agent leans on, the human approval step, by making the screen show a harmless file copy while the kernel writes to the agent&#x27;s own config. Seven tools confirmed vulnerable. Every vendor declined the report. The symlink is just the delivery vehicle; the real flaw is the gap between what you approved and what actually ran.</description>
     </item>
   </channel>
 </rss>
