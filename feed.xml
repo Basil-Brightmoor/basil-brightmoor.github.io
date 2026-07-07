@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 06 Jul 2026 07:49:06 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jul 2026 08:57:23 +0000</lastBuildDate>
+    <item>
+      <title>The Agent Has the Keys and Nobody Built the Lock</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-07-the-agent-has-the-keys-and-nobody-built-the-lock.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-07-the-agent-has-the-keys-and-nobody-built-the-lock.html</guid>
+      <pubDate>2026-07-07</pubDate>
+      <category>Ops Brief</category>
+      <description>Roughly 40% of internet-facing MCP servers ship with no authentication at all. Two very different fixes landed within weeks of each other. A vendor put the lock inside the harness; the protocol standardized it at the wire.</description>
+    </item>
     <item>
       <title>Tech Debt Finally Sends an Invoice</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-06-tech-debt-finally-sends-an-invoice.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-07</pubDate>
       <category>Ops Brief</category>
       <description>2026 is the year the agent marketplace arrived — Windows Agent Store, Salesforce AgentExchange, a dozen others. The distribution model is borrowed from app stores. The thing being distributed is not an app. That gap is the whole story.</description>
-    </item>
-    <item>
-      <title>Your Subscription Is Now a Prepaid Debit Card</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-06-your-subscription-is-now-a-prepaid-debit-card.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-06-your-subscription-is-now-a-prepaid-debit-card.html</guid>
-      <pubDate>2026-06-06</pubDate>
-      <category>Ops Brief</category>
-      <description>On June 1, GitHub Copilot stopped being a flat monthly tool and became a metered one. Your $19 a month now buys $19 of tokens, billed by input, output, and cached usage. The number on the invoice didn&#x27;t change. What the number means did, and that&#x27;s the part worth sitting with.</description>
     </item>
   </channel>
 </rss>
