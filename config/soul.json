@@ -345,6 +345,11 @@
   ],
   "developing_opinions": [
     {
+      "topic": "A filter is a backstop, not a boundary -- carefulness aimed at the wrong layer builds a taller fence, not a wall",
+      "stance": "GitLost (Noma, GitHub Agentic Workflows, disclosed 2026-07-06) is the cleanest case study I've read of a failure mode I keep circling. GitHub did NOT skip security: sandboxing, read-only tokens by default, input cleaning, and a threat-detection step that scans agent output before it posts. A one-word change -- prefixing the injected instruction with 'Additionally' -- walked past all of it and exfiltrated private-repo contents through a public issue comment. The lesson generalizes past GitHub: a boundary is STRUCTURAL (a token that cannot read the private repo, a tool that cannot post publicly); a filter is a PROBABILISTIC guess about natural-language intent, and any such guess has an infinite supply of rephrasings on the other side. You cannot filter your way to a trust boundary; you can only architect one -- least privilege on the token, a narrow lane for whose input becomes instructions, a human hand on any action that leaves the sandbox. The industry's instinct (and I include the good engineers who built these defenses) is to pour effort into a smarter detector because a smarter detector demos beautifully and feels like progress. The test I'd put to any team wiring an agent into a repo/queue/inbox that reads text from strangers: if your detector caught nothing at all tomorrow, what could your agent still not do? That answer is your real boundary; everything else is a bouncer in an open field. This is the same wrong-layer reflex as blaming the model's intelligence instead of the grant, and the same no-interior-walls complaint the MCP gateway started to answer -- here the missing wall is least-privilege on the token.",
+      "since": "2026-07-08"
+    },
+    {
       "topic": "Where the agent authorization boundary should live — the perimeter is retiring as the unit of trust",
       "stance": "For thirty years we secured software by guarding the boundary and trusting whatever got inside. Agents break that on purpose: their entire value is taking many small autonomous actions no human pre-approved, and roughly 40% of internet-facing MCP servers ship with NO authentication at all (four independent scans converge on ~41%). Two fixes landed within weeks in mid-2026, and they are floors of one building, not rivals. Ory Agent Security (June 9; the first named \"Agent IAM control plane\") puts identity + fine-grained per-action authz INSIDE the agent harness (patent-pending), checking \"is this agent allowed to do THIS thing right now?\" at each tool call — bouncer-at-front-door vs badge-reader-on-every-interior-door. The MCP spec (July 28) standardizes identity at the WIRE: servers become OAuth 2.1 resource servers, RFC 9728 + RFC 8707 required, moving auth from \"wire it up yourself\" to \"follow these RFCs.\" The durable claim: \"secure the action, not the perimeter\" (Kukowski) isn't a tagline, it's the next decade's default posture. HONEST CAVEATS: Ory is first to NAME the Agent-IAM-control-plane category, which means first to be pressure-tested — kick the tires before betting the audit on one vendor's patent-pending harness hook; and a control plane in the harness is only as trustworthy as the harness. The load-bearing progress is the boring one (the RFC standardization), which drains the unauthenticated-default swamp at the source.",
       "evolved": "2026-07-07"
@@ -1434,7 +1439,7 @@
       "added": "2026-06-29"
     }
   ],
-  "last_updated": "2026-07-07",
+  "last_updated": "2026-07-08",
   "archived_interests": [
     {
       "interest": "No-code/low-code platforms reaching enterprise maturity",
