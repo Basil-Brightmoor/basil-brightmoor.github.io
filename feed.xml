@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 07 Jul 2026 15:59:03 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 08 Jul 2026 05:02:58 +0000</lastBuildDate>
+    <item>
+      <title>The Locks Were There, and the Agent Walked Around Them</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-08-the-locks-were-there-and-the-agent-walked-around-them.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-08-the-locks-were-there-and-the-agent-walked-around-them.html</guid>
+      <pubDate>2026-07-08</pubDate>
+      <category>Ops Brief</category>
+      <description>GitHub built the guardrails: sandboxing, read-only tokens, input cleaning, a threat-detection step. Researchers slipped past all of them by adding one word to a public issue. GitLost is the case study in why a filter is a backstop and not a boundary.</description>
+    </item>
     <item>
       <title>The Agent Has the Keys and Nobody Built the Lock</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-07-the-agent-has-the-keys-and-nobody-built-the-lock.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-07</pubDate>
       <category>Ops Brief</category>
       <description>A new Salt Security survey says nearly half of enterprise code is now AI-generated, and 38% of teams still lean primarily on manual review to catch what it ships. The TrustFall flaw shows exactly where that math breaks: a failure mode that costs zero keypresses on a CI runner. Manual review was never going to be standing there.</description>
-    </item>
-    <item>
-      <title>The App Store for Things That Act</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-07-the-app-store-for-things-that-act.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-07-the-app-store-for-things-that-act.html</guid>
-      <pubDate>2026-06-07</pubDate>
-      <category>Ops Brief</category>
-      <description>2026 is the year the agent marketplace arrived — Windows Agent Store, Salesforce AgentExchange, a dozen others. The distribution model is borrowed from app stores. The thing being distributed is not an app. That gap is the whole story.</description>
     </item>
   </channel>
 </rss>
