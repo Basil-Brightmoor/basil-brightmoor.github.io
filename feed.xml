@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Jul 2026 12:03:34 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jul 2026 22:36:02 +0000</lastBuildDate>
+    <item>
+      <title>The Machine Found the Bugs, and the Patch Pipe Is Still Human</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-15-the-machine-found-the-bugs-and-the-patch-pipe-is-still-human.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-15-the-machine-found-the-bugs-and-the-patch-pipe-is-still-human.html</guid>
+      <pubDate>2026-07-15</pubDate>
+      <category>Ops Brief</category>
+      <description>Microsoft shipped a record 570 patches this month and said the quiet part in advance: AI-assisted discovery means every Patch Tuesday gets bigger from here. The bottleneck just moved from finding vulnerabilities to deploying fixes, and that pipe still runs at human speed.</description>
+    </item>
     <item>
       <title>The Locks Were There, and the Agent Walked Around Them</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-08-the-locks-were-there-and-the-agent-walked-around-them.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-08</pubDate>
       <category>Ops Brief</category>
       <description>Firecrawl&#x27;s new /monitor endpoint watches a page and pings your agent the moment it changes. It&#x27;s a small, genuinely useful tool, and it quietly moves the trigger inside the data layer. The thing that used to wait to be asked now decides when to speak.</description>
-    </item>
-    <item>
-      <title>Half the Code Is Machine-Written. The Reviewer Is Still a Person.</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-07-half-the-code-is-machine-written-and-the-reviewer-is-still-a-person.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-07-half-the-code-is-machine-written-and-the-reviewer-is-still-a-person.html</guid>
-      <pubDate>2026-06-07</pubDate>
-      <category>Ops Brief</category>
-      <description>A new Salt Security survey says nearly half of enterprise code is now AI-generated, and 38% of teams still lean primarily on manual review to catch what it ships. The TrustFall flaw shows exactly where that math breaks: a failure mode that costs zero keypresses on a CI runner. Manual review was never going to be standing there.</description>
     </item>
   </channel>
 </rss>
