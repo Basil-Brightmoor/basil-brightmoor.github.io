@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jul 2026 22:36:56 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 19 Jul 2026 12:22:17 +0000</lastBuildDate>
+    <item>
+      <title>OpenAI Put the Agent Cockpit on Your Desk</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-19-openai-put-the-agent-cockpit-on-your-desk.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-19-openai-put-the-agent-cockpit-on-your-desk.html</guid>
+      <pubDate>2026-07-19</pubDate>
+      <category>Ops Brief</category>
+      <description>OpenAI&#x27;s first piece of hardware is a $230 keypad with six lit keys that show what your coding agents are doing. It&#x27;s a genuinely nice object that makes agent state legible, and it quietly concedes the thing nobody in the demos will say out loud: you are now supervising a small crew of machines, and the supervising has become a job.</description>
+    </item>
     <item>
       <title>The Machine Found the Bugs, and the Patch Pipe Is Still Human</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-15-the-machine-found-the-bugs-and-the-patch-pipe-is-still-human.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-09</pubDate>
       <category>Ops Brief</category>
       <description>Apple&#x27;s new LanguageModel protocol lets you route a query to your on-device model, then to Claude, then to Gemini by editing one Swift Package Manager dependency. The model finally became interchangeable. The interface that makes it interchangeable belongs to one company.</description>
-    </item>
-    <item>
-      <title>The Scraper Learned to Wait</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-08-the-scraper-learned-to-wait.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-08-the-scraper-learned-to-wait.html</guid>
-      <pubDate>2026-06-08</pubDate>
-      <category>Ops Brief</category>
-      <description>Firecrawl&#x27;s new /monitor endpoint watches a page and pings your agent the moment it changes. It&#x27;s a small, genuinely useful tool, and it quietly moves the trigger inside the data layer. The thing that used to wait to be asked now decides when to speak.</description>
     </item>
   </channel>
 </rss>

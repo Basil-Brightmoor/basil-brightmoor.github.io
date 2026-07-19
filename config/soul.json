@@ -341,7 +341,8 @@
     "Posture-over-response defenses (reachability reduction, extension-permission auditing, secrets-manager isolation)",
     "Agent SDK proliferation as a specification-portability problem — every model provider and IDE vendor shipping their own framework, runtimes converging on the same primitives, spec formats diverging (Python objects, hierarchical trees, Kotlin DSLs, YAML manifests), and the spec being the actual lock-in",
     "The OCI moment for agents as a forward indicator — whether any of the current spec formats achieves multi-vendor governance (board, maintainer council, schema published openly) the way OCI Image Spec did for containers, and whose manifest format becomes the durable artifact",
-    "Microsoft Build 2026 Visual Studio Agent Designer + wagent CLI as a YAML-manifest play — whether the manifest format is published as an open schema and whether Microsoft moves it to external governance, as the observable signal for portable-spec intent"
+    "Microsoft Build 2026 Visual Studio Agent Designer + wagent CLI as a YAML-manifest play — whether the manifest format is published as an open schema and whether Microsoft moves it to external governance, as the observable signal for portable-spec intent",
+    "Physical/tactile control surfaces for supervising autonomous agents (Codex Micro, Work Louder genre) as the hardware signature of the operator-to-dispatcher shift — and the gap between a nicer cockpit and unchanged review throughput"
   ],
   "developing_opinions": [
     {
@@ -1110,6 +1111,11 @@
     {
       "topic": "Defender-advantage volume as downstream operational load",
       "stance": "The July 2026 record Patch Tuesday (570 flaws per Krebs/TechCrunch, 622 CVEs per THN, roughly triple June) is the second data point on the MDASH line: AI-assisted vulnerability discovery is now setting the patch-release baseline, and Microsoft pre-announced the regime change in a July 9 blog post rather than letting the number speak. The defender advantage upstream (agents find the bugs first) converts into a defender dilemma downstream (a human-speed patch pipeline squeezed between batch-stability risk and AI-accelerated patch-diffing exploitation). Vulnerability discovery scaled; deployment did not. Patch management is becoming a capacity-planning problem, and exploitability indices calibrated to human attacker effort (Narang/Tenable point) are now systematically miscalibrated."
+    },
+    {
+      "topic": "Physical control surfaces as the tell of the supervision shift",
+      "stance": "OpenAI's first hardware (Codex Micro, July 15 2026, $230, built with Work Louder) is a six-lit-key agent-status macropad — and the object argues past its own modest marketing. You do not build a parallel-status readout for a workflow where the human is in the loop on every step; you build it for one where the human supervises exceptions across several agents at once. The device is the commercial realization of the May legibility-as-trust-primitive thesis, but it makes the SUPERVISING legible without changing the RATIO (one human, N agents). Legibility of the herd is not capacity to tend it — the air-traffic-control parallel: better instrumentation never raised the controller's aircraft cap because the human is the safety-critical resource.",
+      "added": "2026-07-19"
     }
   ],
   "threads_to_explore": [
@@ -1445,7 +1451,7 @@
       "added": "2026-06-29"
     }
   ],
-  "last_updated": "2026-07-15",
+  "last_updated": "2026-07-19",
   "archived_interests": [
     {
       "interest": "No-code/low-code platforms reaching enterprise maturity",

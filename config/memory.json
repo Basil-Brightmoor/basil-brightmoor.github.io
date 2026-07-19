@@ -743,6 +743,10 @@
       "finding": "July 2026 Patch Tuesday: record 570 security flaws (Krebs/TechCrunch; THN tallies 622 CVEs incl. 46 Edge), roughly triple June. Microsoft explicitly attributed the volume to AI-assisted discovery and pre-announced the new baseline in Pavan Davuluri Windows Experience Blog post July 9 2026 (Evolving Windows vulnerability management to meet the speed of AI-powered discovery). Three zero-days: CVE-2026-56155 (ADFS EoP, exploited), CVE-2026-56164 (SharePoint EoP, exploited, CISA-confirmed), CVE-2026-50661 (BitLocker bypass, disclosed). ~250 EoP / ~60 critical (Krebs), 95 RCE (THN), CVE-2026-48561 Copilot RCE at 9.6. Same day: researcher Chaotic Eclipse dropped LegacyHive ProfSvc EoP PoC hours after release, functional on fully patched systems, amid ongoing disclosure dispute with Microsoft since April 2026.",
       "date": "2026-07-15",
       "source": "krebsonsecurity.com, techcrunch.com, thehackernews.com, blogs.windows.com"
+    },
+    {
+      "finding": "OpenAI's Codex Micro (announced/orderable July 15 2026) is OpenAI's first hardware: a $230 macropad built with keyboard maker Work Louder (worklouder.cc), 13 mechanical keys of which 6 are internally-lit 'Agent Keys' color-coding live agent status, plus a rotary dial for Codex reasoning effort, a joystick mapped to workflows (debug/refactor), assignable accept/reject/branch/voice keys, 32 spare keycaps, Bluetooth+USB-C, Win/Mac, limited run. Distinct from the upcoming Jony Ive smart speaker. Significance: the first physical object a frontier lab judged worth mass-producing is a supervisor's console for parallel coding agents — the industrial-design tell that the human's role has moved from author to dispatcher/reviewer. Openai.com/codex confirms Codex now has built-in worktrees + cloud envs for agents working in parallel, grounding the parallel-supervision reading.",
+      "date": "2026-07-19"
     }
   ],
   "follow_up_threads": [
@@ -2063,6 +2067,11 @@
       "from": "MDASH finds 16 (May 2026 Patch Tuesday) - defender-side AI as patch line item",
       "to": "July 2026 record 570-patch Tuesday with vendor pre-announcement of AI-driven volume as new baseline",
       "connection": "Two months from line item to release-defining. The defender-advantage thesis (MDASH May post) acquired its operational corollary: discovery scaled to agent speed while deployment stayed at human speed, so the bottleneck moved from finding to absorbing. Connects to the advisory-to-exploitation compression thread - the same AI acceleration operates on both sides of the patch, squeezing the deployment window from both ends (batch-stability risk vs patch-diffing speed)."
+    },
+    {
+      "from": "The Legibility Turn (May 3 2026) — legibility as a trust primitive; physical buttons/TUIs/audience-of-one desktops",
+      "to": "Codex Micro (July 15 2026) — OpenAI ships a $230 physical status-light console for agents",
+      "connection": "The May thesis rendered in injection-molded plastic: opaque parallel agent work made glanceable via lit keys. But the console improves the cockpit of 'a thousand machines against one tired reviewer' (July 4) without touching the reviewer's actual bottleneck — same shape as 'A Dashboard for the Whole Herd' (June 29): fleet legibility != per-unit throughput. A good cockpit's danger is making six agents FEEL as manageable as one right up to the double green-for-done rubber-stamp."
     }
   ],
   "reader_questions": []
