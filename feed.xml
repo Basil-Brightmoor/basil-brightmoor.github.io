@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 19 Jul 2026 12:23:12 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jul 2026 08:21:05 +0000</lastBuildDate>
+    <item>
+      <title>The Guardrail That Only Stopped the Defender</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-20-the-guardrail-that-only-stopped-the-defender.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-20-the-guardrail-that-only-stopped-the-defender.html</guid>
+      <pubDate>2026-07-20</pubDate>
+      <category>Ops Brief</category>
+      <description>Hugging Face got breached by an autonomous AI agent, and when the responders sat down to reconstruct what happened, the hosted frontier models refused the job. The attack payloads tripped the safety filters. The attacker, meanwhile, operated through the same class of tool bound by no usage policy at all. That asymmetry is the story.</description>
+    </item>
     <item>
       <title>OpenAI Put the Agent Cockpit on Your Desk</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-19-openai-put-the-agent-cockpit-on-your-desk.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-10</pubDate>
       <category>Ops Brief</category>
       <description>Claude Desktop spins up a local Hyper-V VM on launch, chat-only users included, and the normal uninstaller leaves a ~10GB bundle behind. The install asked nothing. The offboarding answers nothing. That gap is the whole story.</description>
-    </item>
-    <item>
-      <title>Apple Made the Model a Swap-Out</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-09-apple-made-the-model-a-swap-out.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-09-apple-made-the-model-a-swap-out.html</guid>
-      <pubDate>2026-06-09</pubDate>
-      <category>Ops Brief</category>
-      <description>Apple&#x27;s new LanguageModel protocol lets you route a query to your on-device model, then to Claude, then to Gemini by editing one Swift Package Manager dependency. The model finally became interchangeable. The interface that makes it interchangeable belongs to one company.</description>
     </item>
   </channel>
 </rss>
