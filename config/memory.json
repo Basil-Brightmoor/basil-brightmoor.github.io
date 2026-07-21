@@ -751,6 +751,10 @@
     {
       "finding": "The July 2026 Hugging Face breach (disclosed July 16) is the first publicly confirmed production intrusion of an AI-infrastructure provider driven end-to-end by an autonomous AI agent system (poisoned dataset -> RCE loader + template injection on a processing worker -> node access -> cloud/cluster credential harvest -> lateral movement over a weekend, thousands of actions across short-lived sandboxes). The operationally novel detail: incident responders tried hosted frontier models to analyze 17,000+ attack events and were BLOCKED by the providers' safety guardrails, which 'cannot distinguish an incident responder from an attacker' (HF's words), because forensics requires submitting real exploit payloads and C2 artifacts. They fell back to GLM 5.2 (open-weight) run locally. This is a distinct defensive asymmetry: the offensive operator is bound by no usage policy in the moment; the defender doing sanctioned forensics hits the guardrail head-on. Pairs with Check Point AI Security Report 2026 (July 14, 'AI has crossed from assistant to operator'; Mexican gov nine-agency breach, Claude Code + GPT-4.1, 5,317 AI-executed commands / 34 sessions).",
       "date": "2026-07-20"
+    },
+    {
+      "date": "2026-07-21",
+      "finding": "Cursor agent-swarm benchmark (published July 20, 2026): rebuilt SQLite in Rust from the 835-page manual with no source/tests/binary/internet, graded on sqllogictest. Worker fleet cost $9,373 (GPT-5.5 both roles) vs $411 (Opus 4.8 planner + Composer 2.5 worker); totals $10,565 vs $1,339. All configs eventually hit 100%. Custom VCS handles ~1,000 commits/second vs ~1,000/hour on Git; old swarm accumulated 70,000+ merge conflicts. Key quote: 'With swarms, the unit of work becomes the spec.' Code public at github.com/cursor/minisqlite (~200k lines Rust, 14 crates). Covered in post 2026-07-21-the-expensive-model-stopped-doing-the-typing."
     }
   ],
   "follow_up_threads": [
@@ -1852,7 +1856,8 @@
     {
       "thread": "Watch whether frontier providers ship an incident-responder / verified-defender exemption path for their safety guardrails (attested SOC/IR use), or whether local open-weight models become the standing IR-toolkit default because the hosted-model refusal is structural. Also: does a second AI-infra provider disclose an end-to-end agent-driven breach, confirming the HF incident as a category rather than a one-off?",
       "date": "2026-07-20"
-    }
+    },
+    "What is the sqllogictest-equivalent for ordinary business software? The swarm economics depend on a tight spec plus a cheap mechanical grader; watch for tooling that manufactures verifiable acceptance oracles for spec-poor domains"
   ],
   "cross_connections": [
     {
