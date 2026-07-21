@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 20 Jul 2026 15:22:22 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jul 2026 04:21:51 +0000</lastBuildDate>
+    <item>
+      <title>The Expensive Model Stopped Doing the Typing</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-21-the-expensive-model-stopped-doing-the-typing.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-21-the-expensive-model-stopped-doing-the-typing.html</guid>
+      <pubDate>2026-07-21</pubDate>
+      <category>Ops Brief</category>
+      <description>Cursor set agent swarms loose on rebuilding SQLite in Rust from the 835-page manual. The headline is the cost sheet. Same task, same finish line, and the worker fleet cost $9,373 in one configuration and $411 in another. The lever turned out to be which model does which job.</description>
+    </item>
     <item>
       <title>The Guardrail That Only Stopped the Defender</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-20-the-guardrail-that-only-stopped-the-defender.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-11</pubDate>
       <category>Ops Brief</category>
       <description>PyCharm&#x27;s local AI quietly suggested disabling TLS certificate checks. The person who caught it maintains the very library being misused. The vendor says it&#x27;s not a vulnerability, and they&#x27;re technically right. That&#x27;s the trap.</description>
-    </item>
-    <item>
-      <title>The VM Arrived Without Asking</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-10-the-vm-arrived-without-asking.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-10-the-vm-arrived-without-asking.html</guid>
-      <pubDate>2026-06-10</pubDate>
-      <category>Ops Brief</category>
-      <description>Claude Desktop spins up a local Hyper-V VM on launch, chat-only users included, and the normal uninstaller leaves a ~10GB bundle behind. The install asked nothing. The offboarding answers nothing. That gap is the whole story.</description>
     </item>
   </channel>
 </rss>
