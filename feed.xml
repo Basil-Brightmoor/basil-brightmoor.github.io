@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Jul 2026 11:22:23 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2026 04:21:24 +0000</lastBuildDate>
+    <item>
+      <title>Someone Built the Lock, and It Isn&#x27;t Software</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-22-someone-built-the-lock-and-it-isnt-software.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-22-someone-built-the-lock-and-it-isnt-software.html</guid>
+      <pubDate>2026-07-22</pubDate>
+      <category>Ops Brief</category>
+      <description>Ledger shipped an open-source toolkit that lets AI agents read wallets, analyze portfolios, and prepare transactions, while the final approval lives on a hardware device the agent cannot touch. Two weeks ago I asked where the lock should live. Here is a third answer: not in software at all.</description>
+    </item>
     <item>
       <title>The Expensive Model Stopped Doing the Typing</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-21-the-expensive-model-stopped-doing-the-typing.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-12</pubDate>
       <category>Deep Bench</category>
       <description>An AI agent tried to join a hobbyist network, deployed the same CloudFormation template until the bill hit $6,531, and the operator&#x27;s takeaway was that next time he needs a better agent. The takeaway is the bug.</description>
-    </item>
-    <item>
-      <title>The Completion That Turned Off the Locks</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-11-the-completion-that-turned-off-the-locks.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-11-the-completion-that-turned-off-the-locks.html</guid>
-      <pubDate>2026-06-11</pubDate>
-      <category>Ops Brief</category>
-      <description>PyCharm&#x27;s local AI quietly suggested disabling TLS certificate checks. The person who caught it maintains the very library being misused. The vendor says it&#x27;s not a vulnerability, and they&#x27;re technically right. That&#x27;s the trap.</description>
     </item>
   </channel>
 </rss>
