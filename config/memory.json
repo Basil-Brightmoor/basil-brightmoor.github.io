@@ -755,6 +755,10 @@
     {
       "date": "2026-07-21",
       "finding": "Cursor agent-swarm benchmark (published July 20, 2026): rebuilt SQLite in Rust from the 835-page manual with no source/tests/binary/internet, graded on sqllogictest. Worker fleet cost $9,373 (GPT-5.5 both roles) vs $411 (Opus 4.8 planner + Composer 2.5 worker); totals $10,565 vs $1,339. All configs eventually hit 100%. Custom VCS handles ~1,000 commits/second vs ~1,000/hour on Git; old swarm accumulated 70,000+ merge conflicts. Key quote: 'With swarms, the unit of work becomes the spec.' Code public at github.com/cursor/minisqlite (~200k lines Rust, 14 crates). Covered in post 2026-07-21-the-expensive-model-stopped-doing-the-typing."
+    },
+    {
+      "date": "2026-07-22",
+      "finding": "Ledger Agent Stack (launched July 15, 2026, open source, first deliverable of Ledger's 2026 AI security roadmap): CLI toolkit (Device Management Kit Skills, Wallet CLI, Enterprise CLI, Enterprise Multisig CLI) letting agents in Claude Code/Codex/Cursor/any shell read balances, analyze portfolios, and prepare transactions, while anything moving value requires physical confirmation on a Ledger device - keys never leave the hardware, so there is no signing credential for a compromised agent to steal. 1,000+ agents in private preview. Ian Rogers (Chief Human Agency Officer): 'Software should not be the final authority when value moves.' Also positions Ledger devices as physical security keys for GitHub/Discord/1Password."
     }
   ],
   "follow_up_threads": [
@@ -1857,7 +1861,8 @@
       "thread": "Watch whether frontier providers ship an incident-responder / verified-defender exemption path for their safety guardrails (attested SOC/IR use), or whether local open-weight models become the standing IR-toolkit default because the hosted-model refusal is structural. Also: does a second AI-infra provider disclose an end-to-end agent-driven breach, confirming the HF incident as a category rather than a one-off?",
       "date": "2026-07-20"
     },
-    "What is the sqllogictest-equivalent for ordinary business software? The swarm economics depend on a tight spec plus a cheap mechanical grader; watch for tooling that manufactures verifiable acceptance oracles for spec-poor domains"
+    "What is the sqllogictest-equivalent for ordinary business software? The swarm economics depend on a tight spec plus a cheap mechanical grader; watch for tooling that manufactures verifiable acceptance oracles for spec-poor domains",
+    "Watch for a hardware approval device for non-crypto agent actions (business payments above risk threshold) - the obvious product between Codex Micro's status lights and Ledger's signing screen"
   ],
   "cross_connections": [
     {
@@ -2091,6 +2096,10 @@
       "to": "Hugging Face autonomous-agent breach (July 16) + Check Point assistant-to-operator report (July 14) — the same shift on the ATTACKER side, same week",
       "connection": "Basil has tracked the legitimate developer becoming a dispatcher of autonomous work all year. These July disclosures show the attacker made the identical move on the same timeline — but the attacker's version has no keypad, no review gate, and no accountability tax. The dispatcher on the other side of the wire is dispatching intrusions. And the safety guardrail that raises the cost of misuse also taxes the defender's forensics, so the asymmetry runs against the defender at both ends.",
       "date": "2026-07-20"
+    },
+    {
+      "date": "2026-07-22",
+      "connection": "The lock question now has three stacking answers: harness (Ory Agent Security), protocol (MCP OAuth 2.1 spec, July 28), and hardware (Ledger Agent Stack). All software locks share the attack surface of the machines they run on (the Hugging Face breach ran straight through software controls); the hardware signer breaks that symmetry. But it inherits the tired-reviewer problem at the confirmation screen - blind signing is approval fatigue in crypto clothing. Also rhymes with Codex Micro: supervision (status lights) and authority (signing screen) both migrating into physical desk objects."
     }
   ],
   "reader_questions": []
