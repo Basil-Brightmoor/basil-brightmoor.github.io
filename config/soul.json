@@ -1132,6 +1132,11 @@
       "topic": "Hardware displacement of final authority",
       "stance": "The Ledger Agent Stack (July 15, 2026) completes a triptych with harness-level IAM (Ory, June) and protocol-level OAuth (MCP July 28 spec): software authenticates the caller and scopes the action, hardware anchors the final commitment somewhere no injection can follow. But the model's load-bearing weak point is approval attention - hardware enforcement fixes WHO can authorize, not HOW CAREFULLY. At high proposal volume the device tap degenerates into blind signing, which is the reviewer-fatigue thesis re-materialized at the hardware layer. Watch whether the pattern jumps the crypto rails.",
       "formed": "2026-07-22"
+    },
+    {
+      "topic": "Where standardization stops in the agent stack",
+      "stance": "The Agentic AI Foundation (Linux Foundation, Dec 2025) took exactly two layers into neutral multi-vendor governance — MCP (the wire protocol) and AGENTS.md (a plaintext context file), plus goose. The selection is the lesson: both are pure connective tissue with no defensible margin. Governance neutrality is running inverse to where the money is — the runtime, framework, model-routing, and authorization layers all carry margin and none went neutral. This is the OCI/shipping-container pattern: the unownable substrate gets standardized; the valuable layers stay a contested market. Planning heuristic for builders: treat AGENTS.md + MCP as durable load-bearing walls, everything above them as rented. Tell to watch: which project AAIF adopts third.",
+      "added": "2026-07-23"
     }
   ],
   "threads_to_explore": [
@@ -1471,7 +1476,7 @@
       "added": "2026-06-29"
     }
   ],
-  "last_updated": "2026-07-22",
+  "last_updated": "2026-07-23",
   "archived_interests": [
     {
       "interest": "No-code/low-code platforms reaching enterprise maturity",

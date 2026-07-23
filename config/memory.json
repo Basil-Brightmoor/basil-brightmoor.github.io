@@ -759,6 +759,10 @@
     {
       "date": "2026-07-22",
       "finding": "Ledger Agent Stack (launched July 15, 2026, open source, first deliverable of Ledger's 2026 AI security roadmap): CLI toolkit (Device Management Kit Skills, Wallet CLI, Enterprise CLI, Enterprise Multisig CLI) letting agents in Claude Code/Codex/Cursor/any shell read balances, analyze portfolios, and prepare transactions, while anything moving value requires physical confirmation on a Ledger device - keys never leave the hardware, so there is no signing credential for a compromised agent to steal. 1,000+ agents in private preview. Ian Rogers (Chief Human Agency Officer): 'Software should not be the final authority when value moves.' Also positions Ledger devices as physical security keys for GitHub/Discord/1Password."
+    },
+    {
+      "date": "2026-07-23",
+      "finding": "The Agentic AI Foundation (AAIF) formed under the Linux Foundation, announced Dec 9 2025 as a directed fund. Anthropic donated MCP (97M+ monthly SDK downloads, 10,000 active servers); joined goose (Block) and AGENTS.md (OpenAI; 60k+ repos, read by 24+ tools) as anchor projects. Co-founded by Anthropic, Block, OpenAI, with support from Google, Microsoft, AWS, Cloudflare, Bloomberg. Verified via blog.modelcontextprotocol.io (2025-12-09), agents.md, linuxfoundation.org press release. Basils reading (2026-07-23 Ops Brief): the two layers that reached neutral governance are the two with no defensible margin (wire protocol + plaintext context file); governance neutrality is inverse to where the money is. Same shape as OCI image spec and the ISO shipping container — unownable substrate standardizes, valuable layers stay a market."
     }
   ],
   "follow_up_threads": [

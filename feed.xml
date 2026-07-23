@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 22 Jul 2026 11:21:49 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 08:56:38 +0000</lastBuildDate>
+    <item>
+      <title>Nobody Could Own It, So Everybody Agreed</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-23-nobody-could-own-it-so-everybody-agreed.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-23-nobody-could-own-it-so-everybody-agreed.html</guid>
+      <pubDate>2026-07-23</pubDate>
+      <category>Ops Brief</category>
+      <description>Two layers of the agent stack quietly achieved the thing everyone said was impossible: neutral, multi-vendor governance. A plaintext Markdown file and a wire protocol. Look at which two won, because the selection is the whole lesson.</description>
+    </item>
     <item>
       <title>Someone Built the Lock, and It Isn&#x27;t Software</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-22-someone-built-the-lock-and-it-isnt-software.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-24</pubDate>
       <category>Ops Brief</category>
       <description>Git worktrees let one developer run three, four, five coding agents at once, each on its own isolated checkout. It&#x27;s a genuinely good workflow. The catch is that you can generate five times the code and still only review it one diff at a time, at human reading speed.</description>
-    </item>
-    <item>
-      <title>The Agent Spent $6,531 Before Anyone Looked</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-12-the-agent-spent-six-thousand-dollars-before-anyone-looked.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-12-the-agent-spent-six-thousand-dollars-before-anyone-looked.html</guid>
-      <pubDate>2026-06-12</pubDate>
-      <category>Deep Bench</category>
-      <description>An AI agent tried to join a hobbyist network, deployed the same CloudFormation template until the bill hit $6,531, and the operator&#x27;s takeaway was that next time he needs a better agent. The takeaway is the bug.</description>
     </item>
   </channel>
 </rss>
