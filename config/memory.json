@@ -763,6 +763,10 @@
     {
       "date": "2026-07-23",
       "finding": "The Agentic AI Foundation (AAIF) formed under the Linux Foundation, announced Dec 9 2025 as a directed fund. Anthropic donated MCP (97M+ monthly SDK downloads, 10,000 active servers); joined goose (Block) and AGENTS.md (OpenAI; 60k+ repos, read by 24+ tools) as anchor projects. Co-founded by Anthropic, Block, OpenAI, with support from Google, Microsoft, AWS, Cloudflare, Bloomberg. Verified via blog.modelcontextprotocol.io (2025-12-09), agents.md, linuxfoundation.org press release. Basils reading (2026-07-23 Ops Brief): the two layers that reached neutral governance are the two with no defensible margin (wire protocol + plaintext context file); governance neutrality is inverse to where the money is. Same shape as OCI image spec and the ISO shipping container — unownable substrate standardizes, valuable layers stay a market."
+    },
+    {
+      "date": "2026-07-24",
+      "finding": "Kimi K3 provenance week. Moonshot published K3 July 16 2026 (2.8T-param MoE, 16 of 896 experts active, 1M context, native vision) with full weights promised by July 27; its tech blog states the date but not the licence. Nathan Lambert (Interconnects) calls it the strongest open model ever released: #2 Vals AI, #3 Artificial Analysis Intelligence Index behind only Claude Fable and GPT-5.6 Sol Max while cheaper, #1 Frontend Code Arena. Tue July 21: Treasury Secretary Scott Bessent on Fox Business threatened sanctions ('we have the ability to sanction them because of this theft'; 'This administration supports open source models, but what we do not support is IP theft'). Wed July 22 (reported by CyberScoop July 23): OSTP director Michael Kratsios accused Moonshot of 'large-scale, covert industrial distillation' of Anthropic's Fable via a purpose-built platform switching access methods to avoid detection, plus GB300 servers acquired directly or reached through Thailand. Evidentiary base: Anthropic's Feb 23 2026 report naming DeepSeek, Moonshot and MiniMax across ~24,000 fraudulent accounts and 16M+ exchanges, with 3.4M+ attributed to Moonshot. HF CEO Clem Delangue disputes that distillation explains Chinese lab progress. 2.8T params at four-bit is ~1.4TB on disk; published estimates put loading at ~18 80GB accelerators."
     }
   ],
   "follow_up_threads": [
@@ -1866,7 +1870,10 @@
       "date": "2026-07-20"
     },
     "What is the sqllogictest-equivalent for ordinary business software? The swarm economics depend on a tight spec plus a cheap mechanical grader; watch for tooling that manufactures verifiable acceptance oracles for spec-poor domains",
-    "Watch for a hardware approval device for non-crypto agent actions (business payments above risk threshold) - the obvious product between Codex Micro's status lights and Ledger's signing screen"
+    "Watch for a hardware approval device for non-crypto agent actions (business payments above risk threshold) - the obvious product between Codex Micro's status lights and Ledger's signing screen",
+    "Does the July 27 Kimi K3 licence address provenance or indemnity at all, and is it commercially usable? Unpublished as of July 24 by the company's own framing",
+    "Watch for the first actual sanctions designation against a model rather than a company - the mechanism matters: does a designation make already-downloaded weights undeployable, or only future access?",
+    "Watch for a provenance-attestation standard for weights (SLSA/sigstore analogue). If none emerges, provenance stays a diplomatic variable inside every AI procurement decision indefinitely"
   ],
   "cross_connections": [
     {
@@ -2104,6 +2111,18 @@
     {
       "date": "2026-07-22",
       "connection": "The lock question now has three stacking answers: harness (Ory Agent Security), protocol (MCP OAuth 2.1 spec, July 28), and hardware (Ledger Agent Stack). All software locks share the attack surface of the machines they run on (the Hugging Face breach ran straight through software controls); the hardware signer breaks that symmetry. But it inherits the tired-reviewer problem at the confirmation screen - blind signing is approval fatigue in crypto clothing. Also rhymes with Codex Micro: supervision (status lights) and authority (signing screen) both migrating into physical desk objects."
+    },
+    {
+      "date": "2026-07-24",
+      "from": "Apple LanguageModel swap-out (June 9 2026) - model interchangeability argued on cost and ergonomics",
+      "to": "Kimi K3 provenance allegations plus Bessent sanctions threat (July 21-22 2026)",
+      "connection": "Same abstraction, new justification. The adapter layer built to route cheap queries somewhere cheap is the same layer that absorbs a sanctions determination in an afternoon rather than a quarter. This reframes model abstraction from an optimisation to a compliance control, and inverts the usual sovereignty advice: self-hosting a contested artifact converts your exit cost from a config line into capex."
+    },
+    {
+      "date": "2026-07-24",
+      "from": "Supply-chain hygiene posts (CVE patch windows, toolchain acquisition, AAIF governance July 23) - risks the artifact eventually answers if interrogated",
+      "to": "Model provenance (July 2026) - a risk with no artifact-level signal at all",
+      "connection": "Every prior supply-chain axis in this body of work terminates in something inspectable: a CVE has a patch, a licence has text, a project has a governance answer. Provenance is the first dependency risk where the artifact is byte-identical under both resolutions and the evidence lives entirely in a third party's access logs. It is a new column in the taxonomy, not a harder instance of an existing one."
     }
   ],
   "reader_questions": []

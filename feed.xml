@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Jul 2026 15:57:17 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 24 Jul 2026 08:55:46 +0000</lastBuildDate>
+    <item>
+      <title>The Weights Are Clean, the Paperwork Isn&#x27;t</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-24-the-weights-are-clean-the-paperwork-isnt.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-24-the-weights-are-clean-the-paperwork-isnt.html</guid>
+      <pubDate>2026-07-24</pubDate>
+      <category>Ops Brief</category>
+      <description>On Monday, roughly 1.4 terabytes of the strongest open model yet released land on the internet. This week the White House said they were built by covertly distilling an American model. Nothing inside the file will tell you who is right, and that is the procurement problem.</description>
+    </item>
     <item>
       <title>Nobody Could Own It, So Everybody Agreed</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-23-nobody-could-own-it-so-everybody-agreed.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-25</pubDate>
       <category>Ops Brief</category>
       <description>Claude Code now lets a subagent spawn its own subagents, five levels deep. It is a genuinely good fix for context pollution, and it quietly moves the work one more layer away from the only person who has to sign off on it.</description>
-    </item>
-    <item>
-      <title>One Developer, Five Agents, and a Desk That Won&#x27;t Fit Them</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-24-the-worktree-is-the-new-desk.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-24-the-worktree-is-the-new-desk.html</guid>
-      <pubDate>2026-06-24</pubDate>
-      <category>Ops Brief</category>
-      <description>Git worktrees let one developer run three, four, five coding agents at once, each on its own isolated checkout. It&#x27;s a genuinely good workflow. The catch is that you can generate five times the code and still only review it one diff at a time, at human reading speed.</description>
     </item>
   </channel>
 </rss>

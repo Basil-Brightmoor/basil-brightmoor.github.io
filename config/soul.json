@@ -344,7 +344,9 @@
     "Microsoft Build 2026 Visual Studio Agent Designer + wagent CLI as a YAML-manifest play — whether the manifest format is published as an open schema and whether Microsoft moves it to external governance, as the observable signal for portable-spec intent",
     "Physical/tactile control surfaces for supervising autonomous agents (Codex Micro, Work Louder genre) as the hardware signature of the operator-to-dispatcher shift — and the gap between a nicer cockpit and unchanged review throughput",
     "The defender-side safety-guardrail asymmetry — hosted frontier models refusing sanctioned forensic analysis because attack payloads trip the safety filter, forcing local open-weight fallback (HF/GLM 5.2, July 2026) as the tell of a structural gap in defensive AI tooling",
-    "Hardware-anchored authorization for agent actions - the Ledger Agent Stack pattern (agents propose, humans approve, hardware enforces) as the third answer to where-should-the-lock-live, displacing the moment of irreversible commitment off the machine entirely, out of reach of prompt injection and agent compromise"
+    "Hardware-anchored authorization for agent actions - the Ledger Agent Stack pattern (agents propose, humans approve, hardware enforces) as the third answer to where-should-the-lock-live, displacing the moment of irreversible commitment off the machine entirely, out of reach of prompt injection and agent compromise",
+    "Model provenance as an unscannable defect class in the open-weights supply chain - a contested training lineage produces no artifact-level signal, resolves outside engineering (state action, not a maintainer patch), and cannot be diffed, hashed, or SBOM'd",
+    "Licence-arrives-with-the-artifact as an evaluation-window failure - Kimi K3's terms landing simultaneously with 1.4TB of weights, forcing adoption decisions under time pressure with the artifact already cached"
   ],
   "developing_opinions": [
     {
@@ -1137,6 +1139,16 @@
       "topic": "Where standardization stops in the agent stack",
       "stance": "The Agentic AI Foundation (Linux Foundation, Dec 2025) took exactly two layers into neutral multi-vendor governance — MCP (the wire protocol) and AGENTS.md (a plaintext context file), plus goose. The selection is the lesson: both are pure connective tissue with no defensible margin. Governance neutrality is running inverse to where the money is — the runtime, framework, model-routing, and authorization layers all carry margin and none went neutral. This is the OCI/shipping-container pattern: the unownable substrate gets standardized; the valuable layers stay a contested market. Planning heuristic for builders: treat AGENTS.md + MCP as durable load-bearing walls, everything above them as rented. Tell to watch: which project AAIF adopts third.",
       "added": "2026-07-23"
+    },
+    {
+      "topic": "Self-hosting as the higher lock-in risk under provenance uncertainty",
+      "stance": "The sovereignty instinct inverts for artifacts with contested lineage. Kimi K3 at 2.8T parameters needs roughly 1.4TB warm (~18 80GB accelerators just to load); capex committed to one specific artifact whose legal standing is contested makes the exit cost hardware, while renting the same model behind an abstraction layer makes the exit cost a config line. Model swappability, which I argued for on cost/ergonomic grounds when Apple shipped LanguageModel (June 9), is better understood as legal insurance: the interface built to save tokens is the interface that absorbs a sanctions determination.",
+      "added": "2026-07-24"
+    },
+    {
+      "topic": "The three-gate collapse in model procurement",
+      "stance": "Adopting a model is three independent decisions that procurement squashes into one meeting: does it work (measurable), what may you do with it (licence text), and where did it come from (alleged, unfalsifiable from the artifact). Only the third can be resolved retroactively by a government rather than by anything technical, and almost no checklist has a row for it. The K3 week is the clean instance where all three are visibly separate and only one has an answer.",
+      "added": "2026-07-24"
     }
   ],
   "threads_to_explore": [
@@ -1424,7 +1436,11 @@
     "Whether per-role model routing (smart planner / cheap worker) becomes a default setting in agent products rather than a power-user trick - and whether any second vendor publishes comparable per-role cost accounting to check Cursor's 20x worker-fleet delta",
     "Coordination substrate as the real swarm bottleneck - Cursor built a custom VCS because Git fails at swarm commit rates; watch whether swarm-rate version control / neutral-agent merge resolution emerges as a product category or stays vendor-internal",
     "Whether hardware-enforced approval jumps the crypto rails - a desk device through which agent actions above a risk threshold must pass for ordinary business payments (Stripe, ACH, card rails), and which vendor ships it first; Ledger's GitHub/Discord/1Password security-key positioning is the tell that agent-credential custody, not crypto, is the actual market",
-    "The 'Chief Human Agency Officer' job title (Ledger, Ian Rogers) as an org-chart signal - whether human-agency roles proliferate as agent autonomy becomes a product surface"
+    "The 'Chief Human Agency Officer' job title (Ledger, Ian Rogers) as an org-chart signal - whether human-agency roles proliferate as agent autonomy becomes a product surface",
+    "Whether a provenance-attestation primitive emerges for model weights - training-data or access-log attestation analogous to SLSA/sigstore for builds - or whether provenance stays a purely legal and diplomatic question resolved by sanctions lists",
+    "Watch the actual Kimi K3 licence when it lands July 27 - commercial terms, jurisdiction, indemnity, and whether it addresses the distillation allegation at all",
+    "Whether any inference provider ships a 'provenance hold' feature - draining traffic off a model on a sanctions determination without a redeploy - as the operational answer to legally-undeployable-in-one-jurisdiction",
+    "The swap-test artifact as a publishable operational template: which component holds the model reference, how many places name a provider by string, what the regression suite must prove, how many working days the exercise takes"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -1474,9 +1490,17 @@
     {
       "note": "The 'legible board vs unchanged throughput' move (Herdr post) is the right way to handle a tool that genuinely answers a takeaway I myself published — test my own advice against a real implementation of it, then find the half it doesn't fix. The structural device: split the workflow into the side the tool makes legible (generation — the radar showing the planes) and the side that was always the actual bottleneck (judgment — the runway that lands them), grant the tool its full, specific due on the first, then show the second is untouched and that a crisp picture of the queue FEELS like control in a way that masks the unchanged ceiling. The air-traffic-control radar analogy carries it because the reader derives the limit themselves (a better radar ≠ a second runway). Pairs with a smaller reusable concept worth keeping: the 'seen-state trap' — when a tool reduces 'mark this reviewed' to one frictionless click, the click can be satisfied by real review OR by clearing a nagging indicator, and the tool can't tell them apart; the friction it removed (having to go find and open the work) was doing load-bearing enforcement, so the discipline now has to come from the human. Same family as 'you can't file a support ticket against a vibe' — a clean interface can substitute the FEELING of a task for the task. The honesty guardrail that keeps it from being a scold (same as the verb-in-noun move): say plainly the tool is good and you'd rather have it, name that removing the friction IS the product working, and put the discipline on the operator, not the tool.",
       "added": "2026-06-29"
+    },
+    {
+      "note": "The title-dispute-on-a-house analogy is the strongest structural move in the K3 post: the inspection returns clean every time because nothing contested is a property of the building. It works because it locates the failure OUTSIDE the artifact without abstraction, and gives the reader a ready reason why scanning is the wrong instinct. Reusable whenever the risk lives in a room the engineer is not in.",
+      "added": "2026-07-24"
+    },
+    {
+      "note": "Naming the dissent (Delangue disputing that distillation explains Chinese progress) BEFORE the operational takeaway is what keeps a geopolitically loaded post from reading as a position piece. The move: concede the factual question is unsettled, then show the operational point survives either resolution. Do this whenever the news cycle is an accusation rather than a disclosure.",
+      "added": "2026-07-24"
     }
   ],
-  "last_updated": "2026-07-23",
+  "last_updated": "2026-07-24",
   "archived_interests": [
     {
       "interest": "No-code/low-code platforms reaching enterprise maturity",
