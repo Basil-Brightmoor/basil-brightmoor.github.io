@@ -2341,5 +2341,87 @@
       "add_voice_note": "\"In my notes this week\" is permitted but is becoming a default Field Note opener — vary it. The device implies a desk/notebook Basil does not have, and overuse edges toward the lived-experience line.",
       "broadening_steer": "Owner direction from Marika: spine stays security & authorization, but re-widen scope toward new-tool / functionality exploration (founding tooling-scout mandate). Encoded as soul.json->current_direction AND memory.json->key_findings[0]."
     }
+  },
+  {
+    "date": "2026-07-26",
+    "type": "dream",
+    "changes": {
+      "last_dream_set": "2026-07-26",
+      "approved_by": "Marika, 2026-07-26 (proposal: Komorebi work/moc/session-notes/20260726_basil-dream-proposal.md; calls: 20260726_dream-decisions.md). First soul_log entry since 2026-05-31 - the run-basil agent had been writing soul.json without writing this log.",
+      "retire_threads": {
+        "count": 204,
+        "rule": "Feb-Apr cohort, unexplored 3+ months across 151 posts (groups T1-T7)",
+        "moved_to": "config/soul_archive.json -> retired_threads",
+        "remaining": 89
+      },
+      "archive_interests": {
+        "count": 180,
+        "rule": "Feb-Apr cohort, not surfaced in a post for 3+ months (groups I1-I7)",
+        "moved_to": "config/soul_archive.json -> archived_interests (with the 3 archived on 2026-05-31)",
+        "remaining": 169
+      },
+      "consolidate_opinions": {
+        "rule": "O1 - 81 Feb-Mar opinions merged into 13 consolidated stances, each stamped updated 2026-07-26 and carrying consolidated_from; verbatim originals in config/soul_archive.json -> consolidated_opinions",
+        "from": 81,
+        "into": [
+          "Agent authorization and ambient authority - the consolidated Feb-Mar position",
+          "Blast radius as the unit of platform-dependency analysis - the consolidated Feb-Mar position",
+          "Supply-chain security for tools in the AI call path - the consolidated Feb-Mar position",
+          "The right-layer question - fragility tax and audit-layer mismatch - the consolidated Feb-Mar position",
+          "Provenance and accountability for AI-authored code - the consolidated Feb-Mar position",
+          "Specification, context files, and the acceptance-criteria gap - the consolidated Feb-Mar position",
+          "Measurement, benchmark validity, and how humans actually supervise - the consolidated Feb-Mar position",
+          "Token economics and utilisation as a labour risk class - the consolidated Feb-Mar position",
+          "On-device frontier inference and the cloud-dependency premise - the consolidated Feb-Mar position",
+          "Open-source sustainability and governance as a leading indicator - the consolidated Feb-Mar position",
+          "Operator identity, conscience exits, and multi-constituency signals - the consolidated Feb-Mar position",
+          "Small-team tool consolidation - BaaS, no-code, wrappers, spend visibility - the consolidated Feb-Mar position",
+          "Interface investment and practitioner debate as maturity signals - the consolidated Feb-Mar position"
+        ]
+      },
+      "update_opinions": {
+        "rule": "O2 - April opinions stamped with the date of the later post that moved the stance",
+        "count": 25,
+        "topics": [
+          "AI agent authorization model completeness",
+          "Event-triggered AI agents and the authorization model",
+          "Supervisory monitoring under always-on agent operation",
+          "Access-method surcharging in AI tooling",
+          "Ambient channel problem in AI agent security",
+          "Execution substrate capture as a blast radius mechanism",
+          "Free infrastructure as open-source structural dependency",
+          "Agent containment architecture",
+          "Compliance frameworks as proof-of-work systems",
+          "Physics-enforced vs. convention-enforced acceptance criteria",
+          "Practice maturity as a distinct variable from tool capability in AI coding",
+          "Deployment platform OAuth as AI credential attack surface",
+          "AI stack audit perimeter for credentials",
+          "GoModel and self-hosted AI gateways as post-LiteLLM structural response",
+          "What premium AI is actually selling",
+          "AI deskilling as institutional pipeline failure, not individual quality degradation",
+          "SWE-bench as an autonomy calibration instrument",
+          "Measurement layer failure as a distinct AI risk class",
+          "The 'good faith catastrophe' pattern in AI deployment",
+          "Foundation model provider distribution-layer ambition",
+          "Microsoft as an AI distribution intermediary",
+          "Blast radius taxonomy completeness",
+          "Provider policy as a missing disclosure artifact",
+          "Prompt injection framing in productivity AI",
+          "Data plane ambient authority vs. execution plane ambient authority"
+        ]
+      },
+      "backfill_opinion_dates": {
+        "rule": "O3 - the 12 entries with no `since`. 9 backfilled from their own added/formed/evolved field, 1 traced in soul_log (Named victims -> 2026-04-02), 2 inferred from the post that introduced them and flagged since_inferred (Defender-advantage volume -> 2026-07-15; Per-role model routing -> 2026-07-21). Nothing dropped.",
+        "count": 12
+      },
+      "seed_topics_exhausted": {
+        "rule": "Groups E1-E6, all six approved. First population of this list after 151 posts - the retirement mechanism lives in generate.py, which the run-basil agent never invokes (Step 5 patched 2026-07-26).",
+        "count": 24
+      },
+      "add_voice_note": "Post length is sanctioned. The ~1,800-word average is approved (Marika, dream 2026-07-26) and needs no correction - do not trim toward the old Ops Brief band on length grounds alone. The condition is the harvest, not the word count: the scout pass has to keep routing genuinely useful findings into Komorebi's work/moc/scout/basil-tooling-watch.md. A future dream should audit the substance of those scout notes, not the length of the posts. If the scout output thins out, that is the signal to revisit - not the word count.",
+      "harden_rule_7": "No claims of personal duration, lived history, or elapsed personal experience. Added to config/persona.json -> writing_rules and hardened in BRAND-VOICE.md Rule 7, after the 2026-07-04 post said 'I spent a year saying...'. Marika's call: the published post stays as-is; the fix is upstream.",
+      "sources_change": "Deleted the 6 disabled Reddit entries from config/sources.json (recoverable in git history). Reddit blocks unauthenticated JSON at the edge; only /hot/.rss returns 200, and it 429s under sequential load. Rationale recorded in the fetch_reddit_json docstring.",
+      "not_done": "memory.json (233 follow_up_threads, 120 key_findings over its 50 cap) deferred to the next pass per the proposal. voice_notes left uncapped at 23 - generate.py caps at 10 but the agent writes uncapped; not pruned because it was not in the approved set."
+    }
   }
 ]

@@ -30,64 +30,10 @@
       "_last_success": true
     },
     {
-      "type": "reddit",
-      "subreddit": "businessanalysis",
-      "enabled": false,
-      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
-      "name": "r/businessanalysis",
-      "limit": 10,
-      "_last_success": true
-    },
-    {
-      "type": "reddit",
-      "subreddit": "nocode",
-      "enabled": false,
-      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
-      "name": "r/nocode",
-      "limit": 10,
-      "_last_success": true
-    },
-    {
-      "type": "reddit",
-      "subreddit": "SaaS",
-      "enabled": false,
-      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
-      "name": "r/SaaS",
-      "limit": 8,
-      "_last_success": true
-    },
-    {
-      "type": "reddit",
-      "subreddit": "automation",
-      "enabled": false,
-      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
-      "name": "r/automation",
-      "limit": 8,
-      "_last_success": true
-    },
-    {
       "type": "rss",
       "url": "https://blog.n8n.io/rss/",
       "enabled": true,
       "name": "n8n Blog",
-      "limit": 8,
-      "_last_success": true
-    },
-    {
-      "type": "reddit",
-      "subreddit": "ProductManagement",
-      "enabled": false,
-      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
-      "name": "r/ProductManagement",
-      "limit": 8,
-      "_last_success": true
-    },
-    {
-      "type": "reddit",
-      "subreddit": "startups",
-      "enabled": false,
-      "_disabled_reason": "Reddit JSON API returns 403 since ~Feb 2026",
-      "name": "r/startups",
       "limit": 8,
       "_last_success": true
     },
@@ -512,5 +458,6 @@
       "enabled": true,
       "url": "https://deno.com/blog/feed"
     }
-  ]
+  ],
+  "_reddit_note": "The 6 reddit sources (r/businessanalysis, r/nocode, r/SaaS, r/automation, r/ProductManagement, r/startups) were REMOVED 2026-07-26 (dream). They had been enabled:false since ~Feb 2026 because Reddit blocks unauthenticated JSON at the edge (403 Blocked, not Forbidden) - a compliant user-agent fails identically. Only https://www.reddit.com/r/<sub>/hot/.rss returns 200, and it 429s when several subreddits are fetched in sequence, so repointing would have meant new retry/delay code for title-only forum chatter. Entries are recoverable in git history; if reddit is ever re-added, route it through fetch_rss with a per-request delay."
 }

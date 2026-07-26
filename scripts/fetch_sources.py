@@ -83,7 +83,19 @@ def _extract_text(html_str, max_len=2000):
 # Source fetchers
 
 def fetch_reddit_json(subreddit, limit=10):
-    """Fetch top posts from a subreddit using Reddit's public JSON API."""
+    """Fetch top posts from a subreddit using Reddit's public JSON API.
+
+    DEAD PATH as of 2026-07-26 — kept so a future reddit source still dispatches.
+    Reddit blocks unauthenticated JSON at the edge: every endpoint (www/old/api,
+    hot.json and hot) returns 403 with reason phrase "Blocked", and a
+    Reddit-compliant user-agent ("python:app:v1 (by /u/...)") fails identically,
+    so the "BlogBot/1.0" header is NOT the cause. Only
+    https://www.reddit.com/r/<sub>/hot/.rss returns 200 — and it 429s when
+    several subreddits are fetched in sequence from one IP. Basil's six reddit
+    entries were removed from config/sources.json in the 2026-07-26 dream rather
+    than repointed; if reddit is ever re-added, route it through fetch_rss()
+    against the /hot/.rss URL with a per-request delay.
+    """
     url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit={limit}"
     data = _make_json_request(url)
     if not data or "data" not in data:
@@ -260,7 +272,6 @@ def fetch_all_sources(sources_config):
 
     sources_config format:
     [
-        {"type": "reddit", "subreddit": "puzzles", "enabled": true, "name": "r/puzzles"},
         {"type": "hackernews", "enabled": true, "name": "Hacker News"},
         {"type": "rss", "url": "...", "enabled": true, "name": "Some Feed"},
         {"type": "webpage", "url": "...", "enabled": true, "name": "Some Page"},
