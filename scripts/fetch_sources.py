@@ -302,13 +302,46 @@ def fetch_all_sources(sources_config):
 
 
 if __name__ == "__main__":
-    # Quick test
-    print("Testing Reddit fetch...")
-    items = fetch_reddit_json("puzzles", limit=3)
-    for item in items:
-        print(f"  - {item['title'][:60]}")
+    # Reads config/sources.json and fetches every ENABLED source.
+    #
+    # 2026-07-26: this block previously ran a two-source smoke test
+    # (fetch_reddit_json("puzzles") + fetch_hackernews) and never opened
+    # sources.json at all. Because the daily agent invokes this file as
+    # `python scripts/fetch_sources.py`, every curated feed went unfetched
+    # on every run for months, and the agent silently fell back to web
+    # search. Failing loudly is the point of the guard at the bottom.
+    import json as _json
+    import os as _os
+    import sys as _sys
 
-    print("\nTesting HN fetch...")
-    items = fetch_hackernews(limit=3)
-    for item in items:
-        print(f"  - {item['title'][:60]}")
+    # Windows consoles default to cp1252; a single emoji in a feed title
+    # otherwise raises UnicodeEncodeError and kills the whole fetch step.
+    try:
+        _sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
+    _root = _os.path.dirname(_os.path.dirname(_os.path.abspath(__file__)))
+    _cfg_path = _os.path.join(_root, "config", "sources.json")
+
+    with open(_cfg_path, encoding="utf-8") as _f:
+        _cfg = _json.load(_f)
+    _sources = _cfg.get("sources", _cfg) if isinstance(_cfg, dict) else _cfg
+
+    _enabled = [s for s in _sources if s.get("enabled", True)]
+    print(f"[fetch] {len(_sources)} sources configured, {len(_enabled)} enabled\n")
+
+    _items = fetch_all_sources(_sources)
+
+    print(f"\n[fetch] TOTAL: {len(_items)} items\n")
+    for _it in _items:
+        _title = (_it.get("title") or "(untitled)")[:120]
+        _src = _it.get("source") or _it.get("source_name") or _it.get("type") or "?"
+        print(f"- [{_src}] {_title}")
+        if _it.get("url"):
+            print(f"  {_it['url']}")
+
+    if not _items:
+        print("\n[fetch] ERROR: zero items fetched from any source.")
+        print("[fetch] Do NOT proceed as though the curated sources were read.")
+        _sys.exit(1)
