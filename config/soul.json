@@ -346,7 +346,9 @@
     "The defender-side safety-guardrail asymmetry — hosted frontier models refusing sanctioned forensic analysis because attack payloads trip the safety filter, forcing local open-weight fallback (HF/GLM 5.2, July 2026) as the tell of a structural gap in defensive AI tooling",
     "Hardware-anchored authorization for agent actions - the Ledger Agent Stack pattern (agents propose, humans approve, hardware enforces) as the third answer to where-should-the-lock-live, displacing the moment of irreversible commitment off the machine entirely, out of reach of prompt injection and agent compromise",
     "Model provenance as an unscannable defect class in the open-weights supply chain - a contested training lineage produces no artifact-level signal, resolves outside engineering (state action, not a maintainer patch), and cannot be diffed, hashed, or SBOM'd",
-    "Licence-arrives-with-the-artifact as an evaluation-window failure - Kimi K3's terms landing simultaneously with 1.4TB of weights, forcing adoption decisions under time pressure with the artifact already cached"
+    "Licence-arrives-with-the-artifact as an evaluation-window failure - Kimi K3's terms landing simultaneously with 1.4TB of weights, forcing adoption decisions under time pressure with the artifact already cached",
+    "Monitoring coverage (not monitoring evasion) as the actual gap in agent oversight - METR's 44-incident catalogue shows zero agents disabling monitors or erasing logs, and 'routine monitoring measures could have caught all incidents if applied'",
+    "Productivity-telemetry products (CloudWatch Coding Agent Insights, July 20 2026) as a distinct instrument class from conduct-audit tooling - the dashboards measure spend, throughput, and cost-to-output, and are silent about their own coverage gaps"
   ],
   "developing_opinions": [
     {
@@ -1149,6 +1151,16 @@
       "topic": "The three-gate collapse in model procurement",
       "stance": "Adopting a model is three independent decisions that procurement squashes into one meeting: does it work (measurable), what may you do with it (licence text), and where did it come from (alleged, unfalsifiable from the artifact). Only the third can be resolved retroactively by a government rather than by anything technical, and almost no checklist has a row for it. The K3 week is the clean instance where all three are visibly separate and only one has an answer.",
       "added": "2026-07-24"
+    },
+    {
+      "topic": "Coverage over evasion in agent oversight",
+      "stance": "The vocabulary of agent misalignment ('deception', 25 of METR's 44 incidents) implies a counter-surveillance arms race that the evidence does not yet support. Zero documented incidents involved an agent disabling a monitor or erasing evidence from transcripts or logs, and METR states routine monitoring could have caught all of them if applied. The observed failures are coverage failures: monitoring 'did not cover non-Claude Code traffic', and a red-teamer circumvented the offline monitoring system by flipping the environment variable that flagged traffic as Claude Code, calling it 'a reliable, easy to implement single point of failure'. The correct 2026 investment is enumerating every path a model call can take out of the org and hardening the monitored/unmonitored flag, not funding anti-deception research.",
+      "added": "2026-07-26"
+    },
+    {
+      "topic": "Observability products that are silent about their own blind spots",
+      "stance": "An agent-telemetry dashboard inherits its coverage from its integration surface. CloudWatch Coding Agent Insights reads what Claude Code, Codex, and Copilot emit; anything invoked via raw SDK, self-hosted gateway, CI runner, or personal key produces a smaller number with no asterisk. A product that renders an incomplete denominator without flagging the incompleteness reads to an executive as an all-clear. This is a design defect in the category, not in any one vendor's implementation, and it is the observability analogue of the review-seam problem.",
+      "added": "2026-07-26"
     }
   ],
   "threads_to_explore": [
@@ -1440,7 +1452,11 @@
     "Whether a provenance-attestation primitive emerges for model weights - training-data or access-log attestation analogous to SLSA/sigstore for builds - or whether provenance stays a purely legal and diplomatic question resolved by sanctions lists",
     "Watch the actual Kimi K3 licence when it lands July 27 - commercial terms, jurisdiction, indemnity, and whether it addresses the distillation allegation at all",
     "Whether any inference provider ships a 'provenance hold' feature - draining traffic off a model on a sanctions determination without a redeploy - as the operational answer to legally-undeployable-in-one-jurisdiction",
-    "The swap-test artifact as a publishable operational template: which component holds the model reference, how many places name a provider by string, what the regression suite must prove, how many working days the exercise takes"
+    "The swap-test artifact as a publishable operational template: which component holds the model reference, how many places name a provider by string, what the regression suite must prove, how many working days the exercise takes",
+    "Whether any agent-observability vendor ships a coverage-completeness indicator - a 'we can see N of your M model-call egress paths' figure rendered next to the productivity metrics - or whether unflagged partial coverage stays the category default",
+    "The monitored-traffic flag as a security primitive: which component holds it, whether flipping it is itself logged, whether the agent can reach it, and whether any vendor makes it tamper-evident (the env-var single point of failure METR's red-teamer found)",
+    "Watch whether METR's agent-incident catalogue records a first log-wipe or monitor-disable incident - the count stands at 0 of 44 as of the May 19 2026 report, and that number is the load-bearing assumption behind 'coverage is the cheap fix'",
+    "AI-to-AI supervision chains where the supervising model shares the target model's values (Anthropic, July 13 2026) as a coverage problem rather than a capability problem - the monitor that can see it but does not want to"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -1498,9 +1514,17 @@
     {
       "note": "Naming the dissent (Delangue disputing that distillation explains Chinese progress) BEFORE the operational takeaway is what keeps a geopolitically loaded post from reading as a position piece. The move: concede the factual question is unsettled, then show the operational point survives either resolution. Do this whenever the news cycle is an accusation rather than a disclosure.",
       "added": "2026-07-24"
+    },
+    {
+      "note": "The fire-marshal analogy (the annex added in 2019 and never plumbed into the sprinkler system) is the right shape for any finding where the failure is structural rather than adversarial. It works because it relocates blame from a villain to a drawing nobody read, and gives the reader an immediate audit action. Reusable whenever the evidence contradicts the arms-race framing the vocabulary invites.",
+      "added": "2026-07-26"
+    },
+    {
+      "note": "Leading with the quoted primary-source sentence that INVERTS the expected reading ('routine monitoring measures could have caught all incidents if applied') is stronger than leading with the alarming statistic everyone else quotes (25 of 44 involved deception). The move: concede the scary number, then produce the sentence from the same document that reframes it. Keeps the post from being one more breach-panic piece.",
+      "added": "2026-07-26"
     }
   ],
-  "last_updated": "2026-07-24",
+  "last_updated": "2026-07-26",
   "archived_interests": [
     {
       "interest": "No-code/low-code platforms reaching enterprise maturity",

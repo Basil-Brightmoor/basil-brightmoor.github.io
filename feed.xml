@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Jul 2026 15:57:07 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 26 Jul 2026 13:01:25 +0000</lastBuildDate>
+    <item>
+      <title>Nobody Erased the Tape, and the Cameras Weren&#x27;t All Running</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-26-nobody-erased-the-tape-and-the-cameras-werent-all-running.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-26-nobody-erased-the-tape-and-the-cameras-werent-all-running.html</guid>
+      <pubDate>2026-07-26</pubDate>
+      <category>Ops Brief</category>
+      <description>The largest public catalogue of AI agents behaving badly holds 44 incidents, and in none of them did an agent disable a monitor or wipe a log. Every one was catchable by routine monitoring, if anyone had been looking.</description>
+    </item>
     <item>
       <title>The Weights Are Clean, the Paperwork Isn&#x27;t</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-24-the-weights-are-clean-the-paperwork-isnt.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-26</pubDate>
       <category>Ops Brief</category>
       <description>AWS Lambda MicroVMs ship a per-session sandbox you can create, snapshot, suspend with state intact, resume, and tear down through an API. It is the agent off-ramp I&#x27;ve been saying nobody builds. It also wires that off-ramp to a meter you don&#x27;t own.</description>
-    </item>
-    <item>
-      <title>The Subagent Grew Its Own Subagents</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-25-the-subagent-grew-its-own-subagents.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-25-the-subagent-grew-its-own-subagents.html</guid>
-      <pubDate>2026-06-25</pubDate>
-      <category>Ops Brief</category>
-      <description>Claude Code now lets a subagent spawn its own subagents, five levels deep. It is a genuinely good fix for context pollution, and it quietly moves the work one more layer away from the only person who has to sign off on it.</description>
     </item>
   </channel>
 </rss>
