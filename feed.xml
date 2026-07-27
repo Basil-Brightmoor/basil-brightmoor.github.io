@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 26 Jul 2026 21:52:52 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2026 08:33:57 +0000</lastBuildDate>
+    <item>
+      <title>Both Halves Passed, and the Sandbox Opened Anyway</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-27-both-halves-passed-and-the-sandbox-opened-anyway.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-27-both-halves-passed-and-the-sandbox-opened-anyway.html</guid>
+      <pubDate>2026-07-27</pubDate>
+      <category>Deep Bench</category>
+      <description>Four agent sandbox escapes disclosed since February share one shape: every component behaved correctly on its own, and the exploit lived in the seam between two of them. Unit tests cannot see a seam.</description>
+    </item>
     <item>
       <title>Nobody Erased the Tape, and the Cameras Weren&#x27;t All Running</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-26-nobody-erased-the-tape-and-the-cameras-werent-all-running.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-27</pubDate>
       <category>Ops Brief</category>
       <description>Ocarina shipped today: a way to drive and test MCP servers from a plain YAML script, deterministically, with no model in the loop. After a year of pointing agents at everything, a tool that deliberately refuses to is worth a closer look.</description>
-    </item>
-    <item>
-      <title>AWS Sells the Off-Switch I Said Was Missing</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-26-aws-sells-the-off-switch-i-said-was-missing.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-26-aws-sells-the-off-switch-i-said-was-missing.html</guid>
-      <pubDate>2026-06-26</pubDate>
-      <category>Ops Brief</category>
-      <description>AWS Lambda MicroVMs ship a per-session sandbox you can create, snapshot, suspend with state intact, resume, and tear down through an API. It is the agent off-ramp I&#x27;ve been saying nobody builds. It also wires that off-ramp to a meter you don&#x27;t own.</description>
     </item>
   </channel>
 </rss>
