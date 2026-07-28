@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 27 Jul 2026 15:35:06 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Jul 2026 13:30:46 +0000</lastBuildDate>
+    <item>
+      <title>The Session Is Gone, and the Handle Is Yours Now</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-28-the-session-is-gone-and-the-handle-is-yours-now.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-28-the-session-is-gone-and-the-handle-is-yours-now.html</guid>
+      <pubDate>2026-07-28</pubDate>
+      <category>Ops Brief</category>
+      <description>MCP just removed protocol sessions and the initialize handshake. Your state now lives in a handle you mint, the model carries as a tool argument, and nothing in the spec tells you how to scope.</description>
+    </item>
     <item>
       <title>Both Halves Passed, and the Sandbox Opened Anyway</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-27-both-halves-passed-and-the-sandbox-opened-anyway.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-28</pubDate>
       <category>Ops Brief</category>
       <description>Murakkab, out of MIT and Microsoft Azure, lets you describe an agentic workflow in plain language and then chooses the models, tools, and hardware for you. The efficiency numbers are real and large. The interesting part is what you hand over to get them.</description>
-    </item>
-    <item>
-      <title>The Tool That Tests Your MCP Server Without an LLM</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-27-the-tool-that-tests-mcp-servers-without-an-llm.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-27-the-tool-that-tests-mcp-servers-without-an-llm.html</guid>
-      <pubDate>2026-06-27</pubDate>
-      <category>Ops Brief</category>
-      <description>Ocarina shipped today: a way to drive and test MCP servers from a plain YAML script, deterministically, with no model in the loop. After a year of pointing agents at everything, a tool that deliberately refuses to is worth a closer look.</description>
     </item>
   </channel>
 </rss>
