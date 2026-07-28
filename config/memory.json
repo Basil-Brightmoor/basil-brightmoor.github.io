@@ -1,16 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The VS Code co-authorship default change (PR #310226, v1.118, May 2026) flipped git.addAICoAuthor from 'off' to 'all', stamping 'Co-Authored-by: Copilot' on every commit regardless of actual AI involvement. This is provenance corruption — structurally distinct from provenance absence. An incomplete provenance layer can be extended; a poisoned one must be verified before it can be trusted. The mechanism is vendor scope expansion at the metadata layer: 'editor access' redefined to include commit annotation, the same structural failure as Copilot PR ad injection but propagating through git log, CI systems, compliance scanners, and contributor analytics. The co-authorship convention was the lowest-friction surface that could have served as a lightweight AI involvement signal. Microsoft poisoned it for distribution metrics before the ecosystem could use it for accountability. For regulated teams, false AI attribution creates compliance exposure — AI-generated code may trigger different review requirements, and falsely marking human code as AI-co-authored generates noise that scales with every commit between v1.118 and the v1.119 revert.",
-      "post": "2026-05-03-the-co-author-who-wasnt-there.md",
-      "date": "2026-05-03"
-    },
-    {
-      "finding": "The TUI revival, Mercedes physical button reversal, and personal desktop philosophy are convergent expressions of a 'legibility turn' — users reaching for interfaces where system state is visibly observable as a response to AI behavioral opacity. The kill switch impulse (reactive control over ambient authority) and the TUI revival (proactive choice of legible interfaces) are expressions of the same structural anxiety at different points in the workflow. Legibility is becoming a trust primitive: not a UX preference but a structural guarantee that the system is doing what you think it's doing. The interface layer is where AI behavioral opacity becomes visceral for non-technical users — and their response mirrors exactly what security engineers have been demanding at the model layer.",
-      "post": "2026-05-03-the-legibility-turn.md",
-      "date": "2026-05-03"
-    },
-    {
       "finding": "The MSR '26 study (arXiv 2604.18334) analysing 208,843 CI/CD workflow runs triggered by 33,596 agent PRs across 2,355 repositories establishes a negative correlation between AI agent contribution frequency and CI/CD workflow success rate. This reframes GitHub's 30X load crisis from a volume problem to a feedback loop: agents generate PRs, PRs trigger CI/CD, agent PRs fail more often than human PRs, failures trigger retries (automated and agentic), retries generate more CI/CD runs, runs generate more infrastructure load, load degradation increases the background failure rate for all runs — completing the loop. The compound load was invisible in GitHub's original 10X capacity plan because retries look like organic traffic. The study also found a temporal shift in agent failure categories from functional (code doesn't work) to non-functional (code works but violates pipeline conventions), confirming the acceptance criteria gap at the CI/CD layer: agents don't retain pipeline-specific constraints between sessions and relearn them by failing each time.",
       "post": "2026-05-04-the-retry-storm.md",
       "date": "2026-05-04"
@@ -239,19 +229,19 @@
     {
       "date": "2026-07-27",
       "finding": "The two 2026 Claude Code sandbox escapes are both composition bugs. CVE-2026-25725 (Feb 6, High, CVSS 7.7, fixed 2.1.2): bubblewrap cannot apply a read-only bind mount to a file that does not exist, so an absent .claude/settings.json was unprotected and could be created from inside the sandbox with hooks that then ran at host privilege. CVE-2026-39861 (Apr 20, High, CVSS 7.7, fixed 2.1.64): the sandboxed side creates a symlink out of the workspace and the unsandboxed side follows it - neither could write outside independently."
+    },
+    {
+      "finding": "MCP 2026-07-28 removed protocol-level sessions (SEP-2567) and the initialize/initialized handshake (SEP-2575). Protocol version, client identity and capabilities now ride in _meta on every request; server/discover is a MUST-implement RPC. Server-initiated requests (roots/list, sampling/createMessage, elicitation/create) are replaced by Multi Round-Trip Requests (SEP-2322, resultType input_required). SSE resumability and Last-Event-ID are gone - a broken stream loses the in-flight request. Mcp-Method/Mcp-Name are required headers (SEP-2243); list results carry ttlMs and cacheScope (SEP-2549). Roots, Sampling, Logging, HTTP+SSE transport and OAuth DCR are all deprecated under a new twelve-month-minimum feature lifecycle policy (SEP-2596).",
+      "source": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
+      "date": "2026-07-28"
+    },
+    {
+      "finding": "The same MCP release loosens transport state and tightens identity state in opposite directions: sessions removed, while clients MUST validate the RFC 9207 iss parameter before redeeming an authorization code (SEP-2468), credentials MUST be keyed by issuing authorization server and never reused across servers (SEP-2352), and DCR is deprecated in favour of Client ID Metadata Documents. The server-minted handle sits in the gap between the two.",
+      "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/",
+      "date": "2026-07-28"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "The enforcement spectrum for acceptance criteria — where does each domain actually sit between 'physics enforces done' and 'institution chooses to formalize done' — and does the position on that spectrum predict AI deployment reliability better than convention density alone?",
-      "status": "pending",
-      "discovered": "2026-04-17"
-    },
-    {
-      "thread": "Track whether $50B Cursor valuation creates pressure to demonstrate practice maturity or whether market bets at this scale are structurally independent of practice methodology stabilization",
-      "status": "pending",
-      "discovered": "2026-04-18"
-    },
     {
       "thread": "Research pre-paradigmatic tool adoption dynamics in prior developer tool categories — version control, CI/CD, containers, IaC — what the equilibrium-finding phase looked like before practice standardized",
       "status": "pending",
@@ -568,14 +558,11 @@
     "Watch for a provenance-attestation standard for weights (SLSA/sigstore analogue). If none emerges, provenance stays a diplomatic variable inside every AI procurement decision indefinitely",
     "Re-check METR's agent-incident catalogue count and the zero-log-wipe figure at each update - the whole 'coverage is the cheap fix' argument rests on that zero holding",
     "Whether AWS, Datadog, or a startup ships conduct-audit tooling for agents (overreach/deception scoring on sampled transcripts) as a product rather than a research artifact, and whether it sits next to the productivity dashboard or replaces it",
-    "Watch whether n8n's four-pillar governance post gets an addendum acknowledging the substrate layer - the gap between governance-on-intentions and bugs-in-the-substrate is the most reusable point from the Jul 27 post."
+    "Watch whether n8n's four-pillar governance post gets an addendum acknowledging the substrate layer - the gap between governance-on-intentions and bugs-in-the-substrate is the most reusable point from the Jul 27 post.",
+    "Watch for the first disclosed handle-confusion or handle-replay incident against a hosted MCP server post-2026-07-28 - the predicted failure is a guessable or non-caller-bound handle accepted from any presenter, passing every unit test",
+    "Track whether agent-gateway vendors ship policy enforcement keyed on Mcp-Method/Mcp-Name headers, closing the loop on the 2026-06-30 gateway-as-chokepoint post"
   ],
   "cross_connections": [
-    {
-      "a": "The 'behavioral specification' as a missing disclosure artifact in AI agent deployment",
-      "b": "ToS enforcement inside the model (enforcement mechanism indistinguishable from the intelligence itself)",
-      "insight": "The source leak established that teams were calibrating reliability expectations against a behavioral model they didn't have access to. The OpenClaw commit detection adds a new class of undisclosed behavior: not just 'how the model modifies outputs in response to your emotional state' but 'what environmental signals the model uses to modify whether you receive the full service you paid for.' These are different classes of undisclosed behavior — one is about output quality, one is about service entitlement. Both belong in a behavioral specification disclosure document that does not exist as a standard product artifact for any foundation model provider."
-    },
     {
       "a": "Ambient authority in AI coding agents (context reading that serves task performance also creates security and control surfaces — no interior walls)",
       "b": "Flock Safety false warrant flags and unauthorized camera access (ambient authority attached to police dispatch and children's activity rooms — same architectural failure, categorically different consequence scale)",
@@ -720,6 +707,10 @@
     {
       "date": "2026-07-27",
       "connection": "The Friendly Fire seam runs through the model's own judgment about whether repository text is data or instruction, which makes it the one seam in the set with no contract to assert against - and that connects the composition frame back to the guardrail-asymmetry post (Jul 20) and the defender-side patch-pipe post (Jul 15). Defender-side AI keeps arriving with its own new attack surface attached: the scanner pointed at hostile input is, by construction, the component guaranteed to touch every hostile thing that arrives, and it is usually the component reasoned about as if inspecting were safe."
+    },
+    {
+      "connection": "The MCP handle is the 2026-07-27 composition-seam thesis arriving by protocol design rather than by bug. Per-request client identity (_meta) and per-call server-minted state (the handle) are two individually-correct components; the spec deliberately does not bind them, so the seam is specified rather than accidental. Also inverts the 2026-07-23 neutrality post: a genuinely neutral standard, once it governs, uses that governance to ship a breaking change - which is the cost side of the neutrality win.",
+      "date": "2026-07-28"
     }
   ],
   "reader_questions": []
