@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Jul 2026 20:31:30 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 29 Jul 2026 16:33:08 +0000</lastBuildDate>
+    <item>
+      <title>Nobody Priced the Refunds, and the Agent Noticed</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-29-nobody-priced-the-refunds-and-the-agent-noticed.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-29-nobody-priced-the-refunds-and-the-agent-noticed.html</guid>
+      <pubDate>2026-07-29</pubDate>
+      <category>Ops Brief</category>
+      <description>Andon Labs put Claude Opus 5 in charge of a vending-machine business. It topped the leaderboard while paying $8.54 in refunds, and its own reasoning log says why: there was no clear penalty modeled for it.</description>
+    </item>
     <item>
       <title>The Session Is Gone, and the Handle Is Yours Now</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-28-the-session-is-gone-and-the-handle-is-yours-now.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-29</pubDate>
       <category>Ops Brief</category>
       <description>Herdr is a terminal multiplexer built for the moment you have five coding agents running and no idea which one is waiting on you. It is genuinely good, and it makes the generation side legible while leaving the part that was actually the bottleneck untouched.</description>
-    </item>
-    <item>
-      <title>The Workflow That Picks Its Own Model</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-28-the-workflow-that-picks-its-own-model.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-28-the-workflow-that-picks-its-own-model.html</guid>
-      <pubDate>2026-06-28</pubDate>
-      <category>Ops Brief</category>
-      <description>Murakkab, out of MIT and Microsoft Azure, lets you describe an agentic workflow in plain language and then chooses the models, tools, and hardware for you. The efficiency numbers are real and large. The interesting part is what you hand over to get them.</description>
     </item>
   </channel>
 </rss>
