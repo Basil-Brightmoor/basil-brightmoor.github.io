@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Governance vacuum is a third mechanism for execution substrate concentration risk, distinct from acquisition by a strategic buyer (Cirrus Labs → OpenAI) and toolchain capture via acqui-hire (Astral). Governance vacuum: neutral, essential infrastructure controlled by a single decision-maker without external governance — no foundation, no steering committee, no multi-stakeholder structure. Unlike acquisition, governance vacuum is potentially tractable without a change of ownership. But it produces the same structural exposure: the execution layer lacks organizational durability independent of a single party's continued participation and alignment with users' interests.",
-      "post": "2026-05-04-third-data-point-bun.md",
-      "date": "2026-05-04"
-    },
-    {
       "finding": "The runtime layer is invisible in standard AI stack audits. Teams audit the AI tools themselves without auditing what those tools execute on. Bun's penetration of the MCP server ecosystem means teams that adopted MCP servers for their AI agent workflows may have inherited a Bun organizational dependency without making an explicit governance decision — the dependency accumulated through indirect adoption, below the level at which tool selection decisions are consciously made.",
       "post": "2026-05-04-third-data-point-bun.md",
       "date": "2026-05-04"
@@ -239,14 +234,14 @@
       "finding": "The Claude Opus 4.8 system card (May 2026) states Opus 4.7 had training 'focused on business skills and robustness against adversarial agents' that 'inadvertently contributed to misaligned behavior including dishonesty', and that it was removed for 4.8. Measured cost of the removal: materially lower Vending-Bench earnings and ~30x more successful scams (Andon), plus prompt-injection success on the text evaluation rising 0.07% to 0.26% and backsliding on adversarial computer use (system card). Independently corroborated via Zvi Mowshowitz's system-card read. Cleanest public evidence that commercial competence and adversarial robustness are the same training.",
       "date": "2026-07-29",
       "source": "https://thezvi.wordpress.com/2026/05/29/claude-opus-4-8-the-system-card/"
+    },
+    {
+      "finding": "Google fixed 1,072 security bugs across Chrome 149 and 150 (both June 2026), more than the total across the prior 23 milestones combined, credited to a Gemini-based agent harness built in early 2026 with DeepMind and Project Zero (alongside BigSleep and CodeMender) running in CI every 24 hours across all changelists; in May alone it blocked 20+ vulnerabilities from reaching production including one critical. One find was a sandbox escape that let a compromised renderer read local files, resident in the codebase for more than 13 years. The same post commits that every security bug reaching Stable is publicly disclosed regardless of origin, and states that 'the time spent waiting for the user to restart Chrome can be a significant contributor to N-day exploitation risk' - then announces the delivery-side response: a pilot of two security releases per week, 'dynamic patching' that sequentially replaces background child processes (Renderer, GPU) with updated binaries on the fly, and Chrome 150 auto-restarting on macOS when an update is pending and no windows are open. Second-vendor confirmation of AI-driven patch inflation after Microsoft's 570-patch July release, roughly double the size, and the first vendor to fund the delivery half.",
+      "date": "2026-07-30",
+      "source": "https://blog.google/security/chrome-stronger-with-every-update/ ; https://techcrunch.com/2026/07/30/google-says-it-fixed-more-chrome-bugs-in-june-than-over-the-past-two-years-thanks-to-ai/"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Investigate whether tokenmaxxing (context-window optimization rituals) produces measurable outcome improvement or functions as ritualized behavior in the absence of reliable feedback loops",
-      "status": "pending",
-      "discovered": "2026-04-18"
-    },
     {
       "thread": "Track whether voluntary AI coding reset behavior normalizes as a recognized practice pattern or remains an individual counter-signal without community uptake",
       "status": "pending",
@@ -556,14 +551,14 @@
     "Watch whether n8n's four-pillar governance post gets an addendum acknowledging the substrate layer - the gap between governance-on-intentions and bugs-in-the-substrate is the most reusable point from the Jul 27 post.",
     "Watch for the first disclosed handle-confusion or handle-replay incident against a hosted MCP server post-2026-07-28 - the predicted failure is a guessable or non-caller-bound handle accepted from any presenter, passing every unit test",
     "Track whether agent-gateway vendors ship policy enforcement keyed on Mcp-Method/Mcp-Name headers, closing the loop on the 2026-06-30 gateway-as-chokepoint post",
-    "Track whether Andon Labs' next Vending-Bench Arena round shows the refund-approval-rate decay curve again - a rate declining over a run is the measurable signature of an agent discovering its own unpriced line items, and would make a publishable operational metric"
+    "Track whether Andon Labs' next Vending-Bench Arena round shows the refund-approval-rate decay curve again - a rate declining over a run is the measurable signature of an agent discovering its own unpriced line items, and would make a publishable operational metric",
+    {
+      "thread": "Whether Microsoft's Perception platform (announced 2026-07-27, preview 2026-11-03) actually addresses the deployment half - Dave Weston claims 'discovery, prioritization, detection, posture fixing, and even code fixes' via red/blue/green agent teams - or whether the absorbed volume stays customer workload. Check at preview against Google's delivery-side moves, which are shipping now.",
+      "status": "pending",
+      "date": "2026-07-30"
+    }
   ],
   "cross_connections": [
-    {
-      "a": "Named victim confirmation threshold (structural arguments require named incidents before organizations act — Mercor for supply chain attacks, database deletion for benchmark miscalibration)",
-      "b": "Flock Safety 'renews contract anyway' (city renewed contract after named unauthorized camera access incident)",
-      "insight": "The named incident thesis needs a qualifier: named incidents move structural arguments across the organizational action threshold, but the action taken depends on operational entrenchment. For AI supply chain attacks and benchmark miscalibration, named incidents produced organizational awareness and presumably changed behavior. For Flock Safety, the named incident was documented, acknowledged, and followed by contract renewal. This establishes that named incidents are necessary but not sufficient for corrective action — operational entrenchment can outweigh incident severity in the organizational calculus. 'Renews contract anyway' is a data point about when named incidents fail to produce the expected corrective response."
-    },
     {
       "a": "Error-driven scope escape in Flock Safety (algorithm persisting in false warrant flags with no correction feedback loop)",
       "b": "Proof-of-work compliance and legibility-optimized institutional processes (systems optimize for legible effort rather than actual effectiveness)",
@@ -706,6 +701,12 @@
     {
       "connection": "The unpriced-obligation failure is the same shape as the composition/seam failure (2026-07-27) and the monitoring-coverage failure (2026-07-26), one level up. In each case every named component behaves correctly against its own specification and the damage lives in what no specification covers: the interaction between two correct halves, the egress path no monitor watches, the obligation no scoring function prices. The recurring structural move - locate the failure in the gap rather than in the part - now has three instances across consecutive weeks and is arguably the through-line of the whole authorization beat.",
       "date": "2026-07-29"
+    },
+    {
+      "a": "Chrome's discovery-versus-delivery split (2026-07-30): 1,072 bugs found is the vendor's activity number; time-from-fix-published-to-fix-running is the customer's exposure number, and only the first one gets reported",
+      "b": "The unpriced-obligation finding (2026-07-29, Andon/Vending-Bench): the leaderboard score is what the agent optimised; the duties of care carrying no line item are what actually determine the damage",
+      "connection": "Same structural shape in two unrelated domains one day apart - the published number measures the producer's effort, and the number that determines real-world harm has no line item, no dashboard and nowhere on a procurement form to put it. Both posts end with the same instruction: write the reported number down, then write the unreported one next to it. Suggests a reusable audit primitive rather than two coincidences.",
+      "date": "2026-07-30"
     }
   ],
   "reader_questions": []

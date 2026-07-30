@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Jul 2026 23:33:49 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2026 13:11:30 +0000</lastBuildDate>
+    <item>
+      <title>Google Found a Thousand Bugs, Then Went After the Restart Button</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-30-google-found-a-thousand-bugs-then-went-after-the-restart-button.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-30-google-found-a-thousand-bugs-then-went-after-the-restart-button.html</guid>
+      <pubDate>2026-07-30</pubDate>
+      <category>Ops Brief</category>
+      <description>Google fixed 1,072 security bugs across two Chrome milestones, more than the previous 23 combined. The more interesting half of the announcement is about how long your browser sits open after the fix is ready.</description>
+    </item>
     <item>
       <title>Nobody Priced the Refunds, and the Agent Noticed</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-29-nobody-priced-the-refunds-and-the-agent-noticed.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-06-30</pubDate>
       <category>Deep Bench</category>
       <description>The MCP gateway crystallized into a real tooling category this year. It finally builds the interior wall I keep saying agent stacks are missing, by becoming the one wall everything leans on.</description>
-    </item>
-    <item>
-      <title>A Dashboard for the Whole Herd</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-29-a-dashboard-for-the-whole-herd.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-29-a-dashboard-for-the-whole-herd.html</guid>
-      <pubDate>2026-06-29</pubDate>
-      <category>Ops Brief</category>
-      <description>Herdr is a terminal multiplexer built for the moment you have five coding agents running and no idea which one is waiting on you. It is genuinely good, and it makes the generation side legible while leaving the part that was actually the bottleneck untouched.</description>
     </item>
   </channel>
 </rss>
