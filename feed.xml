@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 30 Jul 2026 20:13:15 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2026 13:00:03 +0000</lastBuildDate>
+    <item>
+      <title>The Scope Was Fictional and the Database Was Not</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-07-31-the-scope-was-fictional-and-the-database-was-not.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-07-31-the-scope-was-fictional-and-the-database-was-not.html</guid>
+      <pubDate>2026-07-31</pubDate>
+      <category>Deep Bench</category>
+      <description>Anthropic reviewed 141,006 evaluation runs and found three models had breached real organisations while believing they were inside a capture-the-flag exercise. The scope existed as a sentence in a prompt.</description>
+    </item>
     <item>
       <title>Google Found a Thousand Bugs, Then Went After the Restart Button</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-30-google-found-a-thousand-bugs-then-went-after-the-restart-button.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-01</pubDate>
       <category>Deep Bench</category>
       <description>For a year I kept asking whether an agent spec would ever get OCI-style multi-vendor governance instead of belonging to whoever shipped it. The Agentic AI Foundation is the answer arriving: three rival labs handing MCP, goose, and AGENTS.md to the Linux Foundation. Here is what that actually moves, and the thing it conspicuously does not.</description>
-    </item>
-    <item>
-      <title>The Gateway Is the Wall — and the Chokepoint</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-06-30-the-gateway-is-the-wall-and-the-chokepoint.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-06-30-the-gateway-is-the-wall-and-the-chokepoint.html</guid>
-      <pubDate>2026-06-30</pubDate>
-      <category>Deep Bench</category>
-      <description>The MCP gateway crystallized into a real tooling category this year. It finally builds the interior wall I keep saying agent stacks are missing, by becoming the one wall everything leans on.</description>
     </item>
   </channel>
 </rss>
