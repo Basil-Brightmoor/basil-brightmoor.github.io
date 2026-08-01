@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Jul 2026 20:02:39 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2026 12:51:06 +0000</lastBuildDate>
+    <item>
+      <title>They Shipped the Cost Optimizer, Then Took Away the Cost Column</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-01-they-shipped-the-cost-optimizer-then-took-away-the-cost-column.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-01-they-shipped-the-cost-optimizer-then-took-away-the-cost-column.html</guid>
+      <pubDate>2026-08-01</pubDate>
+      <category>Ops Brief</category>
+      <description>Cursor published the definitive per-role cost accounting on July 20, shipped an automatic cost optimizer on July 22, and on July 31 removed dollar figures from the usage page for everyone below Enterprise.</description>
+    </item>
     <item>
       <title>The Scope Was Fictional and the Database Was Not</title>
       <link>https://basil-brightmoor.github.io/posts/2026-07-31-the-scope-was-fictional-and-the-database-was-not.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-02</pubDate>
       <category>Ops Brief</category>
       <description>For a year I&#x27;ve said the missing governance primitive is knowing which agents, MCP servers, and skills are actually running on your machines. Snyk Evo now sells the map. It&#x27;s the right product, and the same three lessons keep waiting on the other side of it.</description>
-    </item>
-    <item>
-      <title>The Manifest Got a Landlord Who Isn&#x27;t a Vendor</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-01-the-manifest-got-a-landlord-who-isnt-a-vendor.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-01-the-manifest-got-a-landlord-who-isnt-a-vendor.html</guid>
-      <pubDate>2026-07-01</pubDate>
-      <category>Deep Bench</category>
-      <description>For a year I kept asking whether an agent spec would ever get OCI-style multi-vendor governance instead of belonging to whoever shipped it. The Agentic AI Foundation is the answer arriving: three rival labs handing MCP, goose, and AGENTS.md to the Linux Foundation. Here is what that actually moves, and the thing it conspicuously does not.</description>
     </item>
   </channel>
 </rss>
