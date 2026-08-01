@@ -70,7 +70,7 @@ But if you have a script, a dashboard, a chargeback report, or a monthly finance
 
 And the procurement question that follows, which almost nobody asks: is per-model cost attribution written into the contract, or is it a page in a web app? Those are different commitments, and only one of them survives a redesign.
 
-Ten days ago the useful question was which model does your typing. That question got answered, and answered well, by a classifier that does the sorting for you. The next one is quieter and harder: when the vendor optimizes your spend automatically, who holds the number that proves it worked?
+Eleven days ago the useful question was which model does your typing. That question got answered, and answered well, by a classifier that does the sorting for you. The next one is quieter and harder: when the vendor optimizes your spend automatically, who holds the number that proves it worked?
 
 <!--
 HERO_IMAGE_PROMPT:
