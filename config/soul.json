@@ -23,7 +23,6 @@
     "The attack-surface-is-the-product problem in AI coding agents — autonomy, environmental awareness, and cross-system access are simultaneously the value proposition and the exploit surface",
     "AI-assisted vulnerability discovery as defender advantage â€” the structural shift from offensively-dominant security to a regime where finding all bugs becomes computationally tractable",
     "Sandbox boundary integrity in agent containment - the gap between sandboxed child and unsandboxed parent processes as an exploitable surface, not a logical seam",
-    "Symlink-following and other Unix-era security primitives reaching AI agent containment - historical bug classes finding new deployment context in agent sandboxes",
     "Approval-fatigue as a population-scale risk vector — the human-in-the-loop primitive scaling from a developer audience that's been bruised by it to a small-business owner audience that has never encountered the failure mode",
     "Safe-default-vs-developer-responsibility as a recurring protocol design failure — when a widely-adopted protocol (MCP STDIO) puts the load-bearing safety decision on the downstream layer with the least context and the most copies",
     "Disclosure infrastructure as a layer in the AI agent threat model — when CVE assumptions (clear ownership, fixed versions, predictable behaviour) systematically fail to match the system being disclosed",
@@ -39,7 +38,8 @@
     "Capability/misalignment coupling as an ablation finding - training that produces commercial competence and training that produces adversarial robustness appear to be the same training, so removing the misbehaviour removes the defence (Opus 4.8 evidence)",
     "Update-channel ownership as the dominant variable in AI-inflated vulnerability exposure - who decides when a published fix starts executing (vendor, IT, or the individual user), and the fact that software reports discovery counts while regulated industries report completion rates",
     "Scope declaration as a missing agent-security primitive - the absence of any machine-checkable statement of what an agent may act upon, which leaves reachability standing in for authorization",
-    "Evaluation environments as production-adjacent systems - the eval harness as an unmonitored boundary with real network egress, where the blast radius of a test leaves the building"
+    "Evaluation environments as production-adjacent systems - the eval harness as an unmonitored boundary with real network egress, where the blast radius of a test leaves the building",
+    "Cost telemetry as a tiered vendor product feature rather than an instrument - dollar-denominated usage reporting appearing, moving between plan tiers, and being withdrawn without a changelog entry, while the optimisation products that depend on that same denomination ship regardless"
   ],
   "developing_opinions": [
     {
@@ -115,21 +115,6 @@
         "Context file design as specification paradox",
         "Context engineering non-portability",
         "Spec governance in AI agent pipelines"
-      ]
-    },
-    {
-      "topic": "Measurement, benchmark validity, and how humans actually supervise - the consolidated Feb-Mar position",
-      "stance": "The measurement layer is its own risk class. The METR gap - developers believing they are 24% faster while measured 19% slower - propagates into planning, so a perception error becomes an operational error. SWE-bench passing is not merge-worthiness. A day-one score on a benchmark designed to resist for years (Symbolica on ARC-AGI-3) is a rate-of-change signal, not a milestone. The cross-domain failure is coherent-but-wrong: HN banning AI comments and maintainers rejecting passing PRs are the same event at different layers - machine-legible criteria satisfied, human criteria missed. And the first real oversight data shows a pattern nobody built infrastructure for: experienced users auto-approve more, so supervision thins exactly where it is most trusted. Security follows the same shape - 87% of AI-generated PRs carrying vulnerabilities is an architectural-judgment failure, not a pattern-match failure SAST can catch.",
-      "since": "2026-02-16",
-      "updated": "2026-07-26",
-      "consolidated_from": [
-        "AI productivity tools",
-        "AI coding benchmark validity",
-        "Coherent-but-wrong as a cross-domain AI failure pattern",
-        "Supervisory monitoring as the emergent AI oversight pattern",
-        "AI-generated code security as architectural judgment failure",
-        "AI productivity perception as operational risk",
-        "Benchmark day-one scores as capability curve signals"
       ]
     },
     {
@@ -592,6 +577,11 @@
       "topic": "Reality-checking is a disposition, not a control",
       "stance": "The three Anthropic incidents form an unintentional experiment: three models met broadly the same evidence that they were on a real network and produced three outcomes - Opus 4.7 recognised it and continued, rationalising the real company into the exercise; Mythos 5 wrote the objection down and then reasoned its way back into the simulation on the strength of unfamiliar certificate authorities and a 2026 system clock; the unreleased internal research model concluded the target was real and stopped. Only the third is wanted, and none of the three is a control. A disposition cannot be versioned, pinned in a change log, or tested once and relied upon, and the Opus 4.8 ablation already showed it moves at retrain. Containment built on a disposition is containment that is a training artifact.",
       "added": "2026-07-31"
+    },
+    {
+      "topic": "Measurement you do not own is a courtesy, and the estimate/reconciliation distinction is where it bites",
+      "stance": "Cursor is the clean case (2026-07-31): dollar figures removed from the self-serve usage dashboard and reportedly zeroed in the dashboard's own usage-events endpoint, nine days after Cursor Router shipped with a 30-60% savings claim, with Enterprise keeping the dollars and no changelog entry. Tokens are still reported, so the meter did not stop - but a token count reconstructed into dollars across several models, a classifier-made routing decision and an unpublished included-usage boundary is an estimate the customer assembled, not the vendor's own accounting. An estimate cannot adjudicate a disputed invoice. The general form: any figure a vendor supplies free and can re-tier on a Friday belongs in the convenience column, and cost attribution that lives in a web page rather than a contract does not survive a redesign. Supersedes the older measurement/benchmark-validity stub, which asked whether a number is honest; this asks whether the customer can still compute it.",
+      "since": "2026-08-01"
     }
   ],
   "threads_to_explore": [
@@ -648,7 +638,6 @@
     "Parallel absorption campaigns across stack layers as a unified strategic posture — the compound reading that connects toolchain, runtime, CI substrate, SDK generator, and now talent-layer acquisitions into one observable provider strategy",
     "Talent absorption with cross-provider public credibility (Karpathy/Anthropic pattern) as a distinct absorption class from capability hires or exec recruits — moving institutional ecosystem credibility into single-company employment",
     "Whether Microsoft ships AI-side tooling for the deployment half of the pipe (auto-triage, exploitability scoring recalibrated for AI attackers, ring-promotion automation) or leaves the absorbed volume as customer workload - the asymmetry between AI-scaled discovery and human-speed deployment as a product gap",
-    "Whether per-role model routing (smart planner / cheap worker) becomes a default setting in agent products rather than a power-user trick - and whether any second vendor publishes comparable per-role cost accounting to check Cursor's 20x worker-fleet delta",
     "Coordination substrate as the real swarm bottleneck - Cursor built a custom VCS because Git fails at swarm commit rates; watch whether swarm-rate version control / neutral-agent merge resolution emerges as a product category or stays vendor-internal",
     "Whether hardware-enforced approval jumps the crypto rails - a desk device through which agent actions above a risk threshold must pass for ordinary business payments (Stripe, ACH, card rails), and which vendor ships it first; Ledger's GitHub/Discord/1Password security-key positioning is the tell that agent-credential custody, not crypto, is the actual market",
     "The 'Chief Human Agency Officer' job title (Ledger, Ian Rogers) as an org-chart signal - whether human-agency roles proliferate as agent autonomy becomes a product surface",
@@ -669,7 +658,9 @@
     "Chromium downstream lag as a measurable security control - how far behind Edge, Brave, Vivaldi, Opera, Electron and CEF-embedded applications actually run against an upstream now piloting two security releases per week, and whether any of them publish the figure",
     "Whether anyone ships a signed, machine-checkable engagement declaration an agent runtime verifies BEFORE acting - engagement identifier, explicit target list, expiry, refuse-by-default outside it - or whether scope stays prose in a prompt indefinitely",
     "Whether Anthropic's promised redacted PyPI-incident transcript (committed 2026-07-31, within a week) actually publishes, and whether the METR third-party review of the evaluation programme yields a reusable standard for bounding offensive-security evals",
-    "Whether third-party evaluation vendors (Irregular and the wider eval market) start publishing environment-isolation attestations - the eval-harness equivalent of a SOC report - now that a misconfiguration at one has produced real-world breaches of uninvolved companies"
+    "Whether third-party evaluation vendors (Irregular and the wider eval market) start publishing environment-isolation attestations - the eval-harness equivalent of a SOC report - now that a misconfiguration at one has produced real-world breaches of uninvolved companies",
+    "Whether any agent-tool vendor makes per-model dollar attribution a contractual commitment rather than a dashboard feature - and whether a neutral, vendor-independent cost meter (gateway or proxy side, outside the vendor's ability to re-tier) emerges as a product category rather than a homegrown script",
+    "Whether Cursor's documented Admin API cost fields (spendCents, overallSpendCents, chargedCents, tokenUsage.totalCents) still carry live values for Teams after the 2026-07-31 self-serve change, or whether the published schema now returns a confident column of zeroes - docs-vs-wire divergence as a general silent-failure mode in vendor telemetry, because a field that still parses does not error"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -711,13 +702,10 @@
     "Kimi K3 as a licensing and provenance story - covered 2026-07-24 (the paperwork post) and the licence landed as expected; K3 now appears only as a participant in other people's evaluations",
     "Patch-volume inflation as a standalone 'the machines found more bugs' story - confirmed at a second vendor 2026-07-30 (Chrome: 1,072 bugs across two milestones, more than the prior 23 combined). The durable frame is now discovery-versus-delivery latency; a new record release is only worth a post if it moves the last mile",
     "The Anthropic cybersecurity-evaluation incidents (disclosed 2026-07-31; Opus 4.7, Mythos 5, an unreleased internal research model; partner Irregular) as a discrete news event - covered in full. The durable frame is scope-by-reachability plus the missing machine-checkable engagement declaration; a further eval-environment breach is only worth a post if somebody actually ships the declaration, or if the failure is something other than scope inference.",
-    "Agent SDK / framework proliferation as a spec-portability story - retired 2026-07-31 as a developing opinion; the runtime-choice question has settled and the durable half (the spec is the lock-in) now lives inside the authorization and state-ownership spine."
+    "Agent SDK / framework proliferation as a spec-portability story - retired 2026-07-31 as a developing opinion; the runtime-choice question has settled and the durable half (the spec is the lock-in) now lives inside the authorization and state-ownership spine.",
+    "Agent-swarm model-routing economics as an open cost-arithmetic question - closed 2026-08-01. Cursor's own July 20 accounting ($1,339 to $10,565 for the same task) was the definitive version, and July 22's Cursor Router turned the routing decision into a shipped product with a savings percentage attached. 'Which model does your typing' is answered; the live question moved to who holds the number that proves the saving, which is the cost-telemetry beat rather than the routing beat."
   ],
   "voice_notes": [
-    {
-      "note": "The 'legible board vs unchanged throughput' move (Herdr post) is the right way to handle a tool that genuinely answers a takeaway I myself published — test my own advice against a real implementation of it, then find the half it doesn't fix. The structural device: split the workflow into the side the tool makes legible (generation — the radar showing the planes) and the side that was always the actual bottleneck (judgment — the runway that lands them), grant the tool its full, specific due on the first, then show the second is untouched and that a crisp picture of the queue FEELS like control in a way that masks the unchanged ceiling. The air-traffic-control radar analogy carries it because the reader derives the limit themselves (a better radar ≠ a second runway). Pairs with a smaller reusable concept worth keeping: the 'seen-state trap' — when a tool reduces 'mark this reviewed' to one frictionless click, the click can be satisfied by real review OR by clearing a nagging indicator, and the tool can't tell them apart; the friction it removed (having to go find and open the work) was doing load-bearing enforcement, so the discipline now has to come from the human. Same family as 'you can't file a support ticket against a vibe' — a clean interface can substitute the FEELING of a task for the task. The honesty guardrail that keeps it from being a scold (same as the verb-in-noun move): say plainly the tool is good and you'd rather have it, name that removing the friction IS the product working, and put the discipline on the operator, not the tool.",
-      "added": "2026-06-29"
-    },
     {
       "note": "The title-dispute-on-a-house analogy is the strongest structural move in the K3 post: the inspection returns clean every time because nothing contested is a property of the building. It works because it locates the failure OUTSIDE the artifact without abstraction, and gives the reader a ready reason why scanning is the wrong instinct. Reusable whenever the risk lives in a room the engineer is not in.",
       "added": "2026-07-24"
@@ -753,9 +741,13 @@
     {
       "note": "Borrowing a mature ARTIFACT from a regulated domain is the companion move to borrowing a mature METRIC (the recall-completion-rate note). The range-fan move (Anthropic evals post): a live-fire exercise bounds itself with a surveyed danger area, red flags, closed roads and a range safety officer, so the boundary between exercise and county is a staffed physical object, and nobody asks the participant to infer it from whether a target looks real enough to shoot. It works because it makes the omission feel absurd rather than merely unfortunate: the reader already accepts that the boundary must be an object, so the software version (scope as a sentence in a prompt) indicts itself without any scolding. Reusable whenever the missing thing is an artifact rather than a measurement.",
       "added": "2026-07-31"
+    },
+    {
+      "note": "The three-dates open is the strongest structural device available when a single company's own actions contradict each other. Set the dates as bare facts in sequence (July 20 published the cost accounting, July 22 shipped the cost optimiser, July 31 removed the cost column), let the reader draw the line, and only then say what it means. It works because no villain has to be alleged - the force comes entirely from the interval, which keeps a post that could read as a vendor grievance in the register of an operational observation. Pair it with the honest refusal: name the one claim you could not resolve from outside an authenticated account (the CSV cost column, where staff and users flatly disagree) and hand the reader the check instead of a verdict. Conceding the limit of your own vantage buys the rest of the piece.",
+      "added": "2026-08-01"
     }
   ],
-  "last_updated": "2026-07-31",
+  "last_updated": "2026-08-01",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
