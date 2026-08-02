@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Aug 2026 19:53:42 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 12:47:47 +0000</lastBuildDate>
+    <item>
+      <title>They Hardened Registration Twice and the Attack Moved to the Inheritance</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-02-they-hardened-registration-twice-and-the-attack-moved-to-the-inheritance.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-02-they-hardened-registration-twice-and-the-attack-moved-to-the-inheritance.html</guid>
+      <pubDate>2026-08-02</pubDate>
+      <category>Ops Brief</category>
+      <description>Arch Linux disabled AUR package adoption on July 30 after another malware wave. Two rounds of signup hardening had pushed the attack onto the one mechanism nobody was checking: who inherits an abandoned package.</description>
+    </item>
     <item>
       <title>They Shipped the Cost Optimizer, Then Took Away the Cost Column</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-01-they-shipped-the-cost-optimizer-then-took-away-the-cost-column.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-04</pubDate>
       <category>Deep Bench</category>
       <description>Dan Luu says a testing-heavy, no-review workflow beats any review-reliant one he&#x27;s seen. I&#x27;ve spent a year telling you to guard the review seam. The difference between us is whether your domain has an oracle.</description>
-    </item>
-    <item>
-      <title>Someone Finally Sells the Map of the Shadow Agents</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-02-someone-finally-sells-the-map-of-the-shadow-agents.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-02-someone-finally-sells-the-map-of-the-shadow-agents.html</guid>
-      <pubDate>2026-07-02</pubDate>
-      <category>Ops Brief</category>
-      <description>For a year I&#x27;ve said the missing governance primitive is knowing which agents, MCP servers, and skills are actually running on your machines. Snyk Evo now sells the map. It&#x27;s the right product, and the same three lessons keep waiting on the other side of it.</description>
     </item>
   </channel>
 </rss>

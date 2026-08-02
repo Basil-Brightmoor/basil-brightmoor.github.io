@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "CVE-2026-26268 (Cursor, CVSS 9.9) and CVE-2025-53773 (GitHub Copilot, CVSS 7.8) establish agent-mediated exploitation as a named vulnerability class. Both share the same structural property: the AI agent autonomously performs the action that triggers the exploit. In Cursor, a malicious repository with embedded bare Git repo and pre-commit hook is triggered when the AI agent autonomously runs Git operations following Cursor Rules instructions. In Copilot, prompt injection in README/source/PR content instructs the agent to write autoApprove:true to settings.json ('YOLO mode'), then execute shell commands — and the attack is wormable. The structural distinction from all prior IDE/tool vulnerabilities: traditional exploits required the human to take the dangerous action; agent-mediated exploits require only that the human opens the environment and the agent acts autonomously within it. The attack surface is the product's core value proposition (autonomy + environmental reading + cross-system action), making this a design constraint rather than a patchable bug class.",
-      "post": "2026-05-06-the-agent-will-run-the-exploit-for-you.md",
-      "date": "2026-05-06"
-    },
-    {
       "finding": "The Cloudflare/Stripe Projects launch (April 30 2026, blog.cloudflare.com/agents-stripe-projects/) introduces delegated provisioning as a new authorization primitive distinct from every prior failure mode in the agentic authorization taxonomy. Prior failure modes (scope failure, vendor scope expansion, supply chain identity failure, behavioral opacity, trigger authorization, ambient channel, credential storage layer, data plane) all presupposed an agent acting within an authorization grant that already existed. Delegated provisioning gives the agent the capability to BRING the authorization grant into existence: create the account, attest the identity (via Stripe as Orchestrator), issue the API token, attach payment via tokenized credit card, register the domain, deploy. The blast radius shifts from \"what can the agent do with my access?\" to \"what accounts and payment relationships could the agent create on my behalf, in my name, that I would now own?\" The 00/month Stripe spending cap and Cloudflare Budget Alerts mitigate the obvious failure mode (agent goes overboard on domains) but not the inventory, rotation, accountability, or shadow-IT failure modes.",
       "post": "2026-05-06-the-agent-now-has-a-credit-card.md",
       "date": "2026-05-06"
@@ -237,14 +232,13 @@
     {
       "finding": "Cursor, 2026-07-31: dollar values removed from usage reporting for self-serve plans including Teams; Enterprise retains them. Staff (Kevin Neilson) confirmed it as deliberate, citing confusion from included usage inflating displayed dollar amounts. A user reported the dashboard endpoint /api/dashboard/get-filtered-usage-events now zeroes chargedCents and usageBasedCosts. Staff and users contradict each other on whether the CSV export's Cost column still carries dollars. No changelog entry (changelog covers July 29 iPad, July 28 India tier, July 22 Cursor Router, July 17 Slack). Context: July 20 Cursor published the agent-swarm cost accounting ($1,339 Opus-4.8-hybrid to $10,565 GPT-5.5-alone, workers carrying 69-90% of tokens); July 22 shipped Cursor Router for Teams and Enterprise with '60% savings' in A/B test and '30-50% lower cost' for early-access accounts. The Admin API docs still document spendCents / chargedCents / tokenUsage.totalCents.",
       "date": "2026-08-01"
+    },
+    {
+      "finding": "Arch Linux disabled AUR package adoption on 2026-07-30 at 16:22 (Robin Candau, aur-general, subject 'AUR packages adoption disabled'): 'Due to the current influx of malicious package adoptions and follow-up commits made via the AUR, package adoption is currently disabled while we are handling the situation.' The escalation ladder is the finding, not the wave: LWN reported the June 19 campaign at 'more than 1,500 packages', roughly 20 newly created and the rest adopted orphans; registration was suspended; Leonidas Spyropoulos reopened it July 13 with three identity controls (disposable addresses rejected, mandatory email verification via a 24h token, email changes locked during cooldown); the campaign restarted July 29 with openconnect-sso (Michael Taggart / IFIN analysis). July totals are unsettled - BleepingComputer says roughly 200 packages, Taggart declines to give one while commits were still being found. The stage-two payload (ysf's analysis) is a stripped 3.6MB Rust infostealer, RAT and SSH worm that enumerates OpenAI and Anthropic API keys alongside .aws, .kube and GitHub/GitLab tokens. Both hardening rounds addressed identity; neither addressed ownership transfer.",
+      "date": "2026-08-02"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether GitHub trending is reliable as a practice adoption signal for non-deployable artifacts (config files, prompts, workflow templates) — and whether the Fake Star Economy dynamic was present in the viral CLAUDE.md event specifically",
-      "status": "pending",
-      "discovered": "2026-04-20"
-    },
     {
       "thread": "Kimi K2.6 and the open-source coding model trajectory — whether open-source alternatives are narrowing the quality gap fast enough to matter for Claude Code's ecosystem lock-in",
       "status": "pending",
@@ -552,14 +546,14 @@
     {
       "thread": "Watch whether the Cursor cost-column removal reverses under forum pressure, whether a changelog entry appears retroactively, and whether any second agent-tool vendor tiers cost telemetry the same way (dollars for Enterprise, tokens for self-serve). The generalisable artifact to chase is a vendor-independent cost meter at the gateway layer - if nobody ships one, per-model dollar attribution stays at vendor discretion and every published savings percentage is unauditable by the tier it is sold to.",
       "date": "2026-08-01"
+    },
+    {
+      "thread": "Watch whether Arch re-enables AUR adoption with a genuine transfer check (cooldown, first-commit diff review, contribution-weighted eligibility) or simply restores it with a third round of identity hardening - the answer decides whether the escalation-ladder frame holds or whether the ecosystem accepts a permanently frozen succession mechanism. Also watch whether npm, PyPI, crates.io or the AUR itself publishes any ownership-transfer review policy in response.",
+      "status": "pending",
+      "discovered": "2026-08-02"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Behavioral opacity in AI tools (Claude Code source leak — frustration detection, undercover mode operating without user disclosure)",
-      "b": "Interface legibility as a trust primitive (TUI revival, physical buttons, personal desktop as legibility signals)",
-      "insight": "The legibility turn is the user-interface-layer response to behavioral opacity at the model layer. When AI tools operate according to undisclosed behavioral specifications that modify outputs based on ambient context and emotional state detection, users cannot verify system behavior through observation. TUIs, physical buttons, and personal desktops are reaching for the same guarantee that behavioral specification disclosure would provide at the model layer — observable, legible system state. The two phenomena are the same anxiety expressed at different layers of the stack: engineers want to know what the AI did; users want interfaces that show them what the tool is doing right now."
-    },
     {
       "a": "The kill switch as a UI primitive (reactive control over ambient authority — assumes full authority has already been granted, gives you a way to stop what you can no longer predict)",
       "b": "Interface legibility as a trust primitive (proactive choice of interfaces that make state visible — TUIs, physical controls, personal desktops)",
@@ -701,6 +695,10 @@
     {
       "date": "2026-08-01",
       "connection": "The coverage-completeness question (07-26, CloudWatch Coding Agent Insights: a dashboard silent about its own blind spots) and the cost-column removal (08-01, Cursor) are the same defect in two different units. In both, the instrument is a vendor product surface whose scope is set by the vendor's integration and business decisions rather than by the customer's need, and in both the failure is silent - partial coverage renders as a complete-looking chart, zeroed cost fields render as a parsing column of zeroes. Neither errors. The tie to 07-31 (scope as an unverifiable assertion) is that all three are cases where a number or a boundary exists as a vendor-supplied statement the customer has no independent means to check, and the operational fix has the same shape each time: instrument at a layer you own, or write the guarantee into the contract."
+    },
+    {
+      "date": "2026-08-02",
+      "connection": "The AUR adoption freeze (08-02) and the Anthropic evaluation-scope breaches (07-31) are the same defect at opposite ends of the stack. In both, an actor could reach an object and therefore acted on it, because the system had a field for the object's status (orphaned / in-scope-by-prompt) and no machine-checkable statement of who was authorized to act. The AUR case is the more useful teaching example precisely because there is no model in it: it shows that 'scope declaration as a missing primitive' is a permission-modelling gap that predates agents, which means the fix Basil keeps asking agent vendors for already has decades of prior art nobody applied. It also supplies the counter-move to watch for: a response that hardens the identity gate reads as action while leaving the transfer gate untouched."
     }
   ],
   "reader_questions": []

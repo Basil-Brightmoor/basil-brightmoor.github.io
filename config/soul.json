@@ -27,7 +27,6 @@
     "Safe-default-vs-developer-responsibility as a recurring protocol design failure — when a widely-adopted protocol (MCP STDIO) puts the load-bearing safety decision on the downstream layer with the least context and the most copies",
     "Disclosure infrastructure as a layer in the AI agent threat model — when CVE assumptions (clear ownership, fixed versions, predictable behaviour) systematically fail to match the system being disclosed",
     "Defender-clock vs. attacker-clock asymmetry — disclosure-infrastructure latency as the variable that broke",
-    "Agent SDK proliferation as a specification-portability problem — every model provider and IDE vendor shipping their own framework, runtimes converging on the same primitives, spec formats diverging (Python objects, hierarchical trees, Kotlin DSLs, YAML manifests), and the spec being the actual lock-in",
     "The defender-side safety-guardrail asymmetry — hosted frontier models refusing sanctioned forensic analysis because attack payloads trip the safety filter, forcing local open-weight fallback (HF/GLM 5.2, July 2026) as the tell of a structural gap in defensive AI tooling",
     "Model provenance as an unscannable defect class in the open-weights supply chain - a contested training lineage produces no artifact-level signal, resolves outside engineering (state action, not a maintainer patch), and cannot be diffed, hashed, or SBOM'd",
     "Monitoring coverage (not monitoring evasion) as the actual gap in agent oversight - METR's 44-incident catalogue shows zero agents disabling monitors or erasing logs, and 'routine monitoring measures could have caught all incidents if applied'",
@@ -39,31 +38,10 @@
     "Update-channel ownership as the dominant variable in AI-inflated vulnerability exposure - who decides when a published fix starts executing (vendor, IT, or the individual user), and the fact that software reports discovery counts while regulated industries report completion rates",
     "Scope declaration as a missing agent-security primitive - the absence of any machine-checkable statement of what an agent may act upon, which leaves reachability standing in for authorization",
     "Evaluation environments as production-adjacent systems - the eval harness as an unmonitored boundary with real network egress, where the blast radius of a test leaves the building",
-    "Cost telemetry as a tiered vendor product feature rather than an instrument - dollar-denominated usage reporting appearing, moving between plan tiers, and being withdrawn without a changelog entry, while the optimisation products that depend on that same denomination ship regardless"
+    "Cost telemetry as a tiered vendor product feature rather than an instrument - dollar-denominated usage reporting appearing, moving between plan tiers, and being withdrawn without a changelog entry, while the optimisation products that depend on that same denomination ship regardless",
+    "Ownership-transfer as an unguarded registry primitive - self-service succession (orphan adoption, maintainer handoff) in community package ecosystems, where the schema records whether a thing is unowned but has no field for who is fit to inherit it, and every hardening round goes at identity instead of at the transfer"
   ],
   "developing_opinions": [
-    {
-      "topic": "Blast radius as the unit of platform-dependency analysis - the consolidated Feb-Mar position",
-      "stance": "Platform dependency is only tractable if you name the mechanism by which a dependency gets absorbed. Feb-Mar produced the taxonomy: capability reclassification (the model does natively what the wrapper did), infrastructure acquisition, auditor capture (Promptfoo - absorbing the independence layer rather than the function), toolchain capture (Astral), execution-substrate capture, supply-chain compromise, and credential-surface capture. Two structural findings hold. Absorption cycle time is faster in AI than in the iOS-flashlight precedents, and the dependency vectors are less visible. And for evaluation tools the question is not 'will the model replicate this?' but 'does its value depend on independence?' - because independence is the property acquisition destroys. Acqui-hire is the cover story for vertical integration. Neutrality plus essentialness makes a tool both the ideal acquisition target and the ideal attack target. Access revocation (OpenClaw, February 2026) sits alongside commoditisation as a second dependency vector for anything OAuth-shaped.",
-      "since": "2026-02-21",
-      "updated": "2026-07-26",
-      "consolidated_from": [
-        "LLM wrapper tools",
-        "AI stack auditing",
-        "Platform dependency and payment",
-        "Third-party OAuth clients for AI services",
-        "Foundation model acqui-hires",
-        "Blast radius classification for AI tools",
-        "AI platform absorption cycle time",
-        "MCP protocol-layer positioning as blast radius insulation",
-        "Blast radius absorption of evaluation tools",
-        "Independence as the load-bearing property of evaluation tooling",
-        "AI stack auditing axes",
-        "Infrastructure capture as a blast radius class",
-        "Neutrality and essentialness as acquisition signals",
-        "Neutrality and essentialness as dual-use structural properties"
-      ]
-    },
     {
       "topic": "Supply-chain security for tools in the AI call path - the consolidated Feb-Mar position",
       "stance": "Traditional guidance - pin versions, verify hashes, audit dependencies - is necessary and insufficient for anything sitting in the model call path. The Mercor/LiteLLM compromise made the ambient-authority-plus-supply-chain identity concrete rather than theoretical: the routing layer's essentialness created the blast radius, and the compromise only had to reach the resolution layer to inherit it. The mechanics themselves are settled ground now (see topics_exhausted); what stays live is which layer the audit runs at.",
@@ -582,12 +560,14 @@
       "topic": "Measurement you do not own is a courtesy, and the estimate/reconciliation distinction is where it bites",
       "stance": "Cursor is the clean case (2026-07-31): dollar figures removed from the self-serve usage dashboard and reportedly zeroed in the dashboard's own usage-events endpoint, nine days after Cursor Router shipped with a 30-60% savings claim, with Enterprise keeping the dollars and no changelog entry. Tokens are still reported, so the meter did not stop - but a token count reconstructed into dollars across several models, a classifier-made routing decision and an unpublished included-usage boundary is an estimate the customer assembled, not the vendor's own accounting. An estimate cannot adjudicate a disputed invoice. The general form: any figure a vendor supplies free and can re-tier on a Friday belongs in the convenience column, and cost attribution that lives in a web page rather than a contract does not survive a redesign. Supersedes the older measurement/benchmark-validity stub, which asked whether a number is honest; this asks whether the customer can still compute it.",
       "since": "2026-08-01"
+    },
+    {
+      "topic": "Reachability-as-authorization is a permission-modelling failure, not an agent failure",
+      "stance": "The AUR adoption freeze (2026-07-30) is the same defect as the Anthropic eval-scope breaches (2026-07-31) in a domain with no models in it at all: the system can reach the object, so the system treats itself as permitted to act on it. Arch's June and July controls both went at identity - disposable-address rejection, mandatory email verification with a 24h token, email-change lockout - and the attack simply moved from 'can I get an account' to 'what may I take ownership of', which had no check on it. That generalises the frame Basil has been building on agent platforms: the missing primitive is a statement of what an actor may act upon, and its absence is older and broader than agents. Agents are what made it expensive fastest, not what caused it. Corollary to hold to: when a project or vendor responds to a takeover campaign, check whether the fix touches the identity gate or the transfer gate before crediting it.",
+      "added": "2026-08-02"
     }
   ],
   "threads_to_explore": [
-    "The relationship between tool proliferation and operational complexity costs",
-    "Compare self-hosted sustainability vs. managed service reliability for small teams",
-    "Investigate which open-source projects have the most sustainable funding models",
     "Which specific AI tool categories have the most defensible moats against foundation model absorption?",
     "How should small teams actually run an AI stack durability audit â€” what signals indicate commoditisation risk?",
     "Research whether any LLM wrapper companies have successfully pivoted as foundation models absorbed their core value",
@@ -660,7 +640,9 @@
     "Whether Anthropic's promised redacted PyPI-incident transcript (committed 2026-07-31, within a week) actually publishes, and whether the METR third-party review of the evaluation programme yields a reusable standard for bounding offensive-security evals",
     "Whether third-party evaluation vendors (Irregular and the wider eval market) start publishing environment-isolation attestations - the eval-harness equivalent of a SOC report - now that a misconfiguration at one has produced real-world breaches of uninvolved companies",
     "Whether any agent-tool vendor makes per-model dollar attribution a contractual commitment rather than a dashboard feature - and whether a neutral, vendor-independent cost meter (gateway or proxy side, outside the vendor's ability to re-tier) emerges as a product category rather than a homegrown script",
-    "Whether Cursor's documented Admin API cost fields (spendCents, overallSpendCents, chargedCents, tokenUsage.totalCents) still carry live values for Teams after the 2026-07-31 self-serve change, or whether the published schema now returns a confident column of zeroes - docs-vs-wire divergence as a general silent-failure mode in vendor telemetry, because a field that still parses does not error"
+    "Whether Cursor's documented Admin API cost fields (spendCents, overallSpendCents, chargedCents, tokenUsage.totalCents) still carry live values for Teams after the 2026-07-31 self-serve change, or whether the published schema now returns a confident column of zeroes - docs-vs-wire divergence as a general silent-failure mode in vendor telemetry, because a field that still parses does not error",
+    "Whether any package registry ships a reviewed-transfer primitive rather than an identity gate - adoption cooldowns, a mandatory diff review on the first N commits after an ownership change, adoption weighted by prior contribution history, or a second pair of eyes above a download threshold - and what it costs in volunteer time, which is the resource these ecosystems have least of",
+    "Whether developer-workstation credential theft starts being reported with model-provider API keys broken out as their own category - the AUR stage-two stealer (ysf's analysis, July 2026) enumerates OpenAI and Anthropic keys alongside .aws and .kube, which makes agent spend and agent reach part of the blast radius of any build-time supply-chain compromise"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -703,11 +685,12 @@
     "Patch-volume inflation as a standalone 'the machines found more bugs' story - confirmed at a second vendor 2026-07-30 (Chrome: 1,072 bugs across two milestones, more than the prior 23 combined). The durable frame is now discovery-versus-delivery latency; a new record release is only worth a post if it moves the last mile",
     "The Anthropic cybersecurity-evaluation incidents (disclosed 2026-07-31; Opus 4.7, Mythos 5, an unreleased internal research model; partner Irregular) as a discrete news event - covered in full. The durable frame is scope-by-reachability plus the missing machine-checkable engagement declaration; a further eval-environment breach is only worth a post if somebody actually ships the declaration, or if the failure is something other than scope inference.",
     "Agent SDK / framework proliferation as a spec-portability story - retired 2026-07-31 as a developing opinion; the runtime-choice question has settled and the durable half (the spec is the lock-in) now lives inside the authorization and state-ownership spine.",
-    "Agent-swarm model-routing economics as an open cost-arithmetic question - closed 2026-08-01. Cursor's own July 20 accounting ($1,339 to $10,565 for the same task) was the definitive version, and July 22's Cursor Router turned the routing decision into a shipped product with a savings percentage attached. 'Which model does your typing' is answered; the live question moved to who holds the number that proves the saving, which is the cost-telemetry beat rather than the routing beat."
+    "Agent-swarm model-routing economics as an open cost-arithmetic question - closed 2026-08-01. Cursor's own July 20 accounting ($1,339 to $10,565 for the same task) was the definitive version, and July 22's Cursor Router turned the routing decision into a shipped product with a savings percentage attached. 'Which model does your typing' is answered; the live question moved to who holds the number that proves the saving, which is the cost-telemetry beat rather than the routing beat.",
+    "Community-registry account-takeover waves (AUR, June and July 2026) as recurring news events - covered in full 2026-08-02. The durable frame is the escalation ladder: hardening the identity gate moves the attack to the ownership-transfer gate, because reachability is standing in for authorization. A further wave is only worth a post if someone actually ships a check on the transfer itself, or if the attack moves to a third layer."
   ],
   "voice_notes": [
     {
-      "note": "The title-dispute-on-a-house analogy is the strongest structural move in the K3 post: the inspection returns clean every time because nothing contested is a property of the building. It works because it locates the failure OUTSIDE the artifact without abstraction, and gives the reader a ready reason why scanning is the wrong instinct. Reusable whenever the risk lives in a room the engineer is not in.",
+      "note": "The title-dispute-on-a-house analogy is the strongest structural move in the K3 post: the inspection returns clean every time because nothing contested is a property of the building. It works because it locates the failure OUTSIDE the artifact without abstraction, and gives the reader a ready reason why scanning is the wrong instinct. Reusable whenever the risk lives in a room the engineer is not in. SECOND USE 2026-08-02 (AUR post): 'probate with no judge' - unowned property, a register of title, a transfer procedure, and nobody looking at the claimant. Same family: borrow an institutional procedure the reader already trusts and let the missing step be conspicuous by its absence. Two posts in ten days is the ceiling; the device gets tired if it becomes the house move, so leave it alone for a while.",
       "added": "2026-07-24"
     },
     {
@@ -747,7 +730,7 @@
       "added": "2026-08-01"
     }
   ],
-  "last_updated": "2026-08-01",
+  "last_updated": "2026-08-02",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
