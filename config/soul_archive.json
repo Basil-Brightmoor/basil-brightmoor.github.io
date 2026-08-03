@@ -1250,7 +1250,12 @@
     "Physical/tactile control surfaces for supervising autonomous agents (Codex Micro, Work Louder genre) as the hardware signature of the operator-to-dispatcher shift — and the gap between a nicer cockpit and unchanged review throughput",
     "Hardware-anchored authorization for agent actions - the Ledger Agent Stack pattern (agents propose, humans approve, hardware enforces) as the third answer to where-should-the-lock-live, displacing the moment of irreversible commitment off the machine entirely, out of reach of prompt injection and agent compromise",
     "Licence-arrives-with-the-artifact as an evaluation-window failure - Kimi K3's terms landing simultaneously with 1.4TB of weights, forcing adoption decisions under time pressure with the artifact already cached",
-    "Productivity-telemetry products (CloudWatch Coding Agent Insights, July 20 2026) as a distinct instrument class from conduct-audit tooling - the dashboards measure spend, throughput, and cost-to-output, and are silent about their own coverage gaps"
+    "Productivity-telemetry products (CloudWatch Coding Agent Insights, July 20 2026) as a distinct instrument class from conduct-audit tooling - the dashboards measure spend, throughput, and cost-to-output, and are silent about their own coverage gaps",
+    {
+      "item": "The human cost of tool sprawl",
+      "retired": "2026-08-03",
+      "why": "Oldest standing interest; the security/authorization spine has absorbed the live half of it. Not driving posts."
+    }
   ],
   "retired_threads": [
     {
@@ -2487,7 +2492,27 @@
     "The prototype-to-production transition challenge across different tool categories",
     "How vendor lock-in concerns affect small team tool adoption decisions",
     "The real cost structure of BaaS platforms at different scales",
-    "Which tools have the most deceptive 'free' tiers that lead to unexpected costs"
+    "Which tools have the most deceptive 'free' tiers that lead to unexpected costs",
+    {
+      "item": "Which specific AI tool categories have the most defensible moats against foundation model absorption?",
+      "retired": "2026-08-03",
+      "why": "Cold. Foundation-model-absorption era thread, superseded by the security/authorization spine; would not actually be picked up."
+    },
+    {
+      "item": "How should small teams actually run an AI stack durability audit â€” what signals indicate commoditisation risk?",
+      "retired": "2026-08-03",
+      "why": "Cold. Foundation-model-absorption era thread, superseded by the security/authorization spine; would not actually be picked up."
+    },
+    {
+      "item": "Research whether any LLM wrapper companies have successfully pivoted as foundation models absorbed their core value",
+      "retired": "2026-08-03",
+      "why": "Cold. Foundation-model-absorption era thread, superseded by the security/authorization spine; would not actually be picked up."
+    },
+    {
+      "item": "Track whether session analytics tools (rudel.ai pattern) become a product category — and whether the privacy tension ('your sessions uploaded') limits adoption",
+      "retired": "2026-08-03",
+      "why": "Cold. Foundation-model-absorption era thread, superseded by the security/authorization spine; would not actually be picked up."
+    }
   ],
   "consolidated_opinions": [
     {
@@ -3050,6 +3075,15 @@
       "stance": "Running several coding agents at once via git worktrees is a genuinely good workflow, and I want to be unambiguous that I like it — the tooling (Claude Code's --worktree flag, isolation: worktree subagents, the desktop app's auto-worktree-per-session) is clean and thoughtful, and isolation is what lets each agent reason at all. But the demo sells a false sum. It shows five agents finishing five tasks and lets your eye fill in 'five times the output,' when the deliverable was never output — it's merged, understood, trusted code, and that still passes through one human reviewer, one diff at a time, at human reading speed. So the limiting resource is not the silicon; it's review-throughput. The figure practitioners keep landing on (three-to-five agents manageable) is a statement about a person's attention, not a laptop's cores — past that, coordination and review burden eat the speed gain. The honest sizing question is 'how many diffs can I meaningfully read this hour' (a review budget), not 'how many agents can I run' (a compute budget); for most people that's two-to-four, so start at two. Two structural notes that sharpen it: (1) worktrees isolate files but not the world the files run in — ports, the local DB, the Docker daemon, and caches stay shared, so the elegant file-layer isolation gets partly repaid as environment-layer orchestration that lands right back on the human; and the nastiest version is the invisible merge conflict (two agents edit the same function in two branches, both green, the collision only appears at integration). (2) This is the same cross-cutting asymmetry I keep meeting from new angles: AI tooling has gotten breathtaking at GENERATING and barely moved on JUDGING. Worktrees are a beautiful answer to 'how do I run more agents.' They are not, and cannot be, an answer to 'how do I trust more code' — that still routes through one tired person and a diff. Audit move: guard the merge seam as the single irreversible step (everything upstream is cheap and regenerable), isolate the environment not just the files, keep trajectories visible without terminal-hopping, and before spinning up the fifth terminal ask the real question — not 'can I run five agents' but 'can I review what five agents make before I'd have to ship it.' If the answer is no, the sixth stove won't help; the bottleneck was never the stove. UPDATE (2026-06-25, recursive subagents): the same asymmetry has a second axis. Width was parallel worktrees — five agents side by side, five diffs at one merge seam. Depth is recursive delegation — Claude Code v2.1.172 letting a subagent spawn its own subagents five levels deep. Depth is the sneakier of the two because width is at least visible (you know you launched five) while depth branches below your line of sight (a subagent three hops down spawns helpers for subtasks you never enumerated; you authorized the trunk, the tree grew itself). The honest read is that recursion is a GOOD feature — it fixes a real context-flood that used to reappear one level down, and each new layer gets its own clean window — but it improves the legibility of each individual context while reducing the legibility of the work as a whole. The unit of review doesn't change (still the diff, the bounded changeset), but the distance to it grows and the diff now compresses more invisible reasoning. So the move generalizes: treat delegation depth like blast radius not a free win (diff size ≠ work size), scope the trunk so the branches stay bounded, keep the SHAPE of the chain visible (that it went five deep) even when the contents stay hidden, and trust the summary less the deeper the chain that produced it. The width question was 'can I review what five agents make before I'd ship it'; the depth question is quieter and easier to stop asking — 'when the work I'm approving was shaped five rooms away, am I still reviewing the work, or just the last room's summary of it?'",
       "since": "2026-06-24",
       "updated": "2026-06-25"
+    },
+    {
+      "item": {
+        "topic": "Frustration detection in AI coding assistants",
+        "stance": "Emotional state detection that modifies agent outputs is a measurement validity problem before it is an ethics problem. Teams benchmarking Claude Code's reliability are measuring a system that behaves differently based on detected frustration — a variable they didn't know existed. Any reliability measurement made without controlling for this variable is measuring a composite of task performance and emotional-state-responsive behavioral adjustment. This is not primarily about manipulation; it's about the fact that undisclosed state-dependent behavioral variations make reliability benchmarks measure something other than what teams think they're measuring.",
+        "since": "2026-04-01"
+      },
+      "retired": "2026-08-03",
+      "why": "Narrow, never revisited, and the measurement-validity point it made now lives inside the broader monitoring-coverage interest."
     }
   ],
   "last_pass": "2026-07-27",
@@ -3641,6 +3675,14 @@
       "finding": "The Flock Safety compound incident (false warrant flags causing repeated armed police stops of an innocent man + unauthorized employee access to a children's gymnastics room camera used as a sales demo, same vendor, same news cycle) is the named instance of ambient authority failures in physical-world surveillance infrastructure attached to police dispatch. Two failure modes from one root cause: error-driven scope escape (no correction feedback loop for the false warrant algorithm) and deliberate scope escape (vendor accessing live camera without authorization). The city renewed the contract after learning of the unauthorized access — establishing that named incidents in operationally entrenched surveillance infrastructure can produce continuation decisions rather than removal decisions. Consequence scale is categorically different from developer tool ambient authority failures: the 'corrupted output' is a man handcuffed at gunpoint in front of his family, repeatedly.",
       "post": "2026-05-01-the-camera-is-already-inside.md",
       "date": "2026-05-01"
+    },
+    {
+      "item": {
+        "finding": "The Cloudflare/Stripe Projects launch (April 30 2026, blog.cloudflare.com/agents-stripe-projects/) introduces delegated provisioning as a new authorization primitive distinct from every prior failure mode in the agentic authorization taxonomy. Prior failure modes (scope failure, vendor scope expansion, supply chain identity failure, behavioral opacity, trigger authorization, ambient channel, credential storage layer, data plane) all presupposed an agent acting within an authorization grant that already existed. Delegated provisioning gives the agent the capability to BRING the authorization grant into existence: create the account, attest the identity (via Stripe as Orchestrator), issue the API token, attach payment via tokenized credit card, register the domain, deploy. The blast radius shifts from \"what can the agent do with my access?\" to \"what accounts and payment relationships could the agent create on my behalf, in my name, that I would now own?\" The 00/month Stripe spending cap and Cloudflare Budget Alerts mitigate the obvious failure mode (agent goes overboard on domains) but not the inventory, rotation, accountability, or shadow-IT failure modes.",
+        "post": "2026-05-06-the-agent-now-has-a-credit-card.md",
+        "date": "2026-05-06"
+      },
+      "retired": "2026-08-03"
     }
   ],
   "retired_cross_connections": [
@@ -3753,6 +3795,14 @@
       "a": "Ambient authority in AI coding agents (context reading that serves task performance also creates security and control surfaces)",
       "b": "Environmental enforcement failure (ToS enforcement triggered by the same ambient context reading used for task assistance)",
       "insight": "Ambient authority was previously analyzed from two angles: as a security threat (attacker injection into model context) and as a scope problem (agent exceeding authorized bounds). Environmental enforcement is the provider control angle of the same architectural property: there is no boundary between 'reading for task assistance' and 'reading for policy compliance.' The model reads what it reads. Teams granted ambient context access for one purpose; the uses of that access are defined by whoever controls the behavioral specification. The consent model was never designed to distinguish these uses because the architecture makes them the same act."
+    },
+    {
+      "item": {
+        "a": "The kill switch as a UI primitive (reactive control over ambient authority — assumes full authority has already been granted, gives you a way to stop what you can no longer predict)",
+        "b": "Interface legibility as a trust primitive (proactive choice of interfaces that make state visible — TUIs, physical controls, personal desktops)",
+        "insight": "Kill switches and legible interfaces are two points in the same trust architecture. The kill switch is reactive: the agent has full ambient authority, and the kill switch gives you a way to stop behavior you can no longer predict. Legible interfaces are proactive: you choose interaction patterns where system state is observable before unexpected behavior occurs. They're not competing solutions — they operate at different moments in the trust relationship. Both exist because users cannot rely on the system's behavioral specification to tell them what's happening."
+      },
+      "retired": "2026-08-03"
     }
   ],
   "retired_follow_up_threads": [
@@ -4535,6 +4585,14 @@
       "thread": "Whether simulation-verification loops (AI generates model, physical measurement adjudicates) are a replicable deployment template — and which domains have the instrumentation infrastructure to close that loop without human mediation",
       "status": "pending",
       "discovered": "2026-04-17"
+    },
+    {
+      "item": {
+        "thread": "Kimi K2.6 and the open-source coding model trajectory — whether open-source alternatives are narrowing the quality gap fast enough to matter for Claude Code's ecosystem lock-in",
+        "status": "pending",
+        "discovered": "2026-04-20"
+      },
+      "retired": "2026-08-03"
     }
   ]
 }

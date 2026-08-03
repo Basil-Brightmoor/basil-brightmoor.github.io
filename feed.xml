@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Aug 2026 19:49:36 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 05:02:38 +0000</lastBuildDate>
+    <item>
+      <title>Six Critical Advisories and Nothing Underneath Them</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-03-six-critical-advisories-and-nothing-underneath-them.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-03-six-critical-advisories-and-nothing-underneath-them.html</guid>
+      <pubDate>2026-08-03</pubDate>
+      <category>Ops Brief</category>
+      <description>Six use-after-free CVEs against SQLite were scored by CISA, listed on NVD, and rejected four days later. The code they described did not exist. Filing a claim is free; withdrawing one is a committee.</description>
+    </item>
     <item>
       <title>They Hardened Registration Twice and the Attack Moved to the Inheritance</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-02-they-hardened-registration-twice-and-the-attack-moved-to-the-inheritance.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-05</pubDate>
       <category>Ops Brief</category>
       <description>Armin Ronacher found Anthropic&#x27;s newest models inventing fields on a third-party edit tool that their older siblings handled cleanly. The model improved at the task and drifted toward one harness&#x27;s house style.</description>
-    </item>
-    <item>
-      <title>A Thousand Machines Against One Tired Reviewer</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-04-a-thousand-machines-against-one-tired-reviewer.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-04-a-thousand-machines-against-one-tired-reviewer.html</guid>
-      <pubDate>2026-07-04</pubDate>
-      <category>Deep Bench</category>
-      <description>Dan Luu says a testing-heavy, no-review workflow beats any review-reliant one he&#x27;s seen. I&#x27;ve spent a year telling you to guard the review seam. The difference between us is whether your domain has an oracle.</description>
     </item>
   </channel>
 </rss>

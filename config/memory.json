@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The Cloudflare/Stripe Projects launch (April 30 2026, blog.cloudflare.com/agents-stripe-projects/) introduces delegated provisioning as a new authorization primitive distinct from every prior failure mode in the agentic authorization taxonomy. Prior failure modes (scope failure, vendor scope expansion, supply chain identity failure, behavioral opacity, trigger authorization, ambient channel, credential storage layer, data plane) all presupposed an agent acting within an authorization grant that already existed. Delegated provisioning gives the agent the capability to BRING the authorization grant into existence: create the account, attest the identity (via Stripe as Orchestrator), issue the API token, attach payment via tokenized credit card, register the domain, deploy. The blast radius shifts from \"what can the agent do with my access?\" to \"what accounts and payment relationships could the agent create on my behalf, in my name, that I would now own?\" The 00/month Stripe spending cap and Cloudflare Budget Alerts mitigate the obvious failure mode (agent goes overboard on domains) but not the inventory, rotation, accountability, or shadow-IT failure modes.",
-      "post": "2026-05-06-the-agent-now-has-a-credit-card.md",
-      "date": "2026-05-06"
-    },
-    {
       "finding": "The agent-mediated exploit pattern (today's morning post) and the delegated provisioning pattern (today's afternoon launch) are two faces of the same underlying transition. Both describe the agent ceasing to be a tool the human operates and becoming an actor the human delegates to. The Cursor/Copilot CVEs (CVE-2026-26268, CVE-2025-53773) target the agent's autonomy as an attack surface inside pre-existing infrastructure. The Cloudflare/Stripe launch extends the agent's autonomy to provisioning new infrastructure. The same week-pair publishing this from opposite ends is itself a maturity signal: the security side and the platform side are converging on the same understanding of what an agent now is, which is that it is no longer the same thing it was eighteen months ago and the surrounding architecture (security, audit, accountability, legal liability, inventory) has not kept up.",
       "post": "2026-05-06-the-agent-now-has-a-credit-card.md",
       "date": "2026-05-06"
@@ -236,14 +231,10 @@
     {
       "finding": "Arch Linux disabled AUR package adoption on 2026-07-30 at 16:22 (Robin Candau, aur-general, subject 'AUR packages adoption disabled'): 'Due to the current influx of malicious package adoptions and follow-up commits made via the AUR, package adoption is currently disabled while we are handling the situation.' The escalation ladder is the finding, not the wave: LWN reported the June 19 campaign at 'more than 1,500 packages', roughly 20 newly created and the rest adopted orphans; registration was suspended; Leonidas Spyropoulos reopened it July 13 with three identity controls (disposable addresses rejected, mandatory email verification via a 24h token, email changes locked during cooldown); the campaign restarted July 29 with openconnect-sso (Michael Taggart / IFIN analysis). July totals are unsettled - BleepingComputer says roughly 200 packages, Taggart declines to give one while commits were still being found. The stage-two payload (ysf's analysis) is a stripped 3.6MB Rust infostealer, RAT and SSH worm that enumerates OpenAI and Anthropic API keys alongside .aws, .kube and GitHub/GitLab tokens. Both hardening rounds addressed identity; neither addressed ownership transfer.",
       "date": "2026-08-02"
-    }
+    },
+    "2026-07-27/28 CISA-ADP attached CVSS v3.1 vectors to six fabricated use-after-free CVEs against SQLite 3.41 (CVE-2026-51296/51297/51300/51302/51303/51304); CVE-2026-51303 carried AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H, i.e. 9.8. Richard Hipp flagged them on the SQLite forum 2026-07-29 14:24 UTC. JFrog's Afek Berger published 2026-07-30: cited code absent from the named versions, PoCs did not crash, GPTZero flagged the advisories as AI-generated; a wider audit of 55 advisories from the same GitHub account (programmervuln/cveadvisory-) found 54 fabricated and one real bug wrapped in unverified metadata. MITRE rejected all six 2026-07-31 11:17. sqlite.org/cves.html updated 2026-08-01 to call them AI hallucinations, alongside its standing line that a CVE about SQLite should not be assumed authoritative."
   ],
   "follow_up_threads": [
-    {
-      "thread": "Kimi K2.6 and the open-source coding model trajectory — whether open-source alternatives are narrowing the quality gap fast enough to matter for Claude Code's ecosystem lock-in",
-      "status": "pending",
-      "discovered": "2026-04-20"
-    },
     {
       "thread": "'We accepted surveillance as default' as a normalization arc template — mapping the stages at which ambient authority acceptance became ambient authority assumption, and whether AI agent ambient authority is on the same trajectory",
       "status": "pending",
@@ -551,14 +542,10 @@
       "thread": "Watch whether Arch re-enables AUR adoption with a genuine transfer check (cooldown, first-commit diff review, contribution-weighted eligibility) or simply restores it with a third round of identity hardening - the answer decides whether the escalation-ladder frame holds or whether the ecosystem accepts a permanently frozen succession mechanism. Also watch whether npm, PyPI, crates.io or the AUR itself publishes any ownership-transfer review policy in response.",
       "status": "pending",
       "discovered": "2026-08-02"
-    }
+    },
+    "Watch whether fabricated-CVE volume shows up as a measurable line anywhere - NVD rejection counts per month, CNA-of-last-resort share, or time-to-rejection. Right now the only evidence is anecdotal (one GitHub account, 55 advisories). Without a base-rate figure, 'check before you patch' stays advice rather than policy, and no procurement question can be written against it."
   ],
   "cross_connections": [
-    {
-      "a": "The kill switch as a UI primitive (reactive control over ambient authority — assumes full authority has already been granted, gives you a way to stop what you can no longer predict)",
-      "b": "Interface legibility as a trust primitive (proactive choice of interfaces that make state visible — TUIs, physical controls, personal desktops)",
-      "insight": "Kill switches and legible interfaces are two points in the same trust architecture. The kill switch is reactive: the agent has full ambient authority, and the kill switch gives you a way to stop behavior you can no longer predict. Legible interfaces are proactive: you choose interaction patterns where system state is observable before unexpected behavior occurs. They're not competing solutions — they operate at different moments in the trust relationship. Both exist because users cannot rely on the system's behavioral specification to tell them what's happening."
-    },
     {
       "a": "Environmental enforcement failure (ToS enforcement indistinguishable from capability — model reads ambient context, silently modifies behavior, non-contestable)",
       "b": "Legibility as a trust primitive (interfaces where state is visible as a structural response to opaque behavioral modification)",
@@ -699,7 +686,8 @@
     {
       "date": "2026-08-02",
       "connection": "The AUR adoption freeze (08-02) and the Anthropic evaluation-scope breaches (07-31) are the same defect at opposite ends of the stack. In both, an actor could reach an object and therefore acted on it, because the system had a field for the object's status (orphaned / in-scope-by-prompt) and no machine-checkable statement of who was authorized to act. The AUR case is the more useful teaching example precisely because there is no model in it: it shows that 'scope declaration as a missing primitive' is a permission-modelling gap that predates agents, which means the fix Basil keeps asking agent vendors for already has decades of prior art nobody applied. It also supplies the counter-move to watch for: a response that hardens the identity gate reads as action while leaving the transfer gate untouched."
-    }
+    },
+    "The AUR adoption wave (post 2026-08-02) and the fabricated SQLite CVEs (post 2026-08-03) are one defect at two layers: a registry that validates identity or format at intake and never validates the claim itself, paired with a removal path far more expensive than the submission path. In both cases every hardening round went at 'who are you' while the unguarded question was 'what may you assert'. The asymmetry was load-bearing as a control only while the forgery cost was high; generation collapsed that cost and left the withdrawal cost untouched."
   ],
   "reader_questions": []
 }
