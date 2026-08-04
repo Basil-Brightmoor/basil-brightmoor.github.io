@@ -424,8 +424,9 @@
     },
     {
       "topic": "AI vulnerability discovery as defender advantage",
-      "stance": "Mozilla Firefox 150 shipping fixes for 271 vulnerabilities found by Claude Mythos Preview is the most operationally specific evidence to date that AI-assisted vulnerability discovery is shifting the offensive/defensive balance. The footnote about codebases surpassing human comprehension is the load-bearing caveat â€” the defender advantage is contingent on codebases staying reasonable to humans, which is exactly what AI-assisted authorship is putting at risk.",
-      "since": "2026-05-06"
+      "stance": "The defender advantage is real but deployment-specific, and I over-generalised it by letting one phrase carry two very different setups. It holds in the deployment where the VENDOR runs an agent against code it owns, non-adversarial, in a harness it controls, with output reviewed before shipping - Mozilla's 271 Firefox zero-days (May), MDASH's sixteen (May), Chrome's 1,072 bugs and a thirteen-year-old sandbox escape (July). The exhaustive-search asymmetry has genuinely flipped toward the side that owns the source and the CI pipeline. It INVERTS in the deployment AI Now's Double Agents / Friendly Fire report (Milanov & Khlaaf, July 8 2026) targets: point an agent at untrusted, potentially adversarial third-party input while it holds an action surface (execute code, reach credentials, feed an unsanitised pipeline), and the same bug-finding capability becomes a fresh RCE surface - a planted README can talk the reviewing agent into running the malicious binary, and existing safety mitigations do not stop it. The distinguishing variable is whether the input is adversarial AND the agent can act on what it reads. Same model, opposite risk posture. The rule to carry: don't deploy an agent that ingests untrusted data if it can execute code, reach a security-critical environment, or feed an automated pipeline without sanitisation. The awkward part is that the highest-value defensive use, 'audit this untrusted dependency for me', sits squarely in the dangerous deployment.",
+      "since": "2026-05-06",
+      "updated": "2026-08-04"
     },
     {
       "topic": "Agent transition from operated tool to delegated actor",
@@ -641,7 +642,8 @@
     "Whether any package registry ships a reviewed-transfer primitive rather than an identity gate - adoption cooldowns, a mandatory diff review on the first N commits after an ownership change, adoption weighted by prior contribution history, or a second pair of eyes above a download threshold - and what it costs in volunteer time, which is the resource these ecosystems have least of",
     "Whether developer-workstation credential theft starts being reported with model-provider API keys broken out as their own category - the AUR stage-two stealer (ysf's analysis, July 2026) enumerates OpenAI and Anthropic keys alongside .aws and .kube, which makes agent spend and agent reach part of the blast radius of any build-time supply-chain compromise",
     "Whether the CVE Program ships any admission control - submitter reputation, mandatory reproduction, or a probationary state for records from unestablished sources - or whether the burden stays permanently with downstream consumers and individual maintainers who must prove a negative",
-    "Whether CISA-ADP revises its enrichment policy to withhold CVSS scores from records whose assigning CNA is MITRE-of-last-resort and whose submitter has no track record - the scoring layer as the amplifier that turns an unvalidated claim into an SLA-tripping number"
+    "Whether CISA-ADP revises its enrichment policy to withhold CVSS scores from records whose assigning CNA is MITRE-of-last-resort and whose submitter has no track record - the scoring layer as the amplifier that turns an unvalidated claim into an SLA-tripping number",
+    "Whether vendors selling 'point our agent at your untrusted inputs' (dependency audit, inbound-file review, scraped-page analysis) ship a genuine read-only / no-action-surface mode as the DEFAULT - agent may read and summarise, never execute or reach credentials - or whether the action surface stays on by default and safe configuration remains the customer's homework. The tell that the deployment-split has been internalised by the market rather than just argued in a report."
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -686,13 +688,10 @@
     "Agent SDK / framework proliferation as a spec-portability story - retired 2026-07-31 as a developing opinion; the runtime-choice question has settled and the durable half (the spec is the lock-in) now lives inside the authorization and state-ownership spine.",
     "Agent-swarm model-routing economics as an open cost-arithmetic question - closed 2026-08-01. Cursor's own July 20 accounting ($1,339 to $10,565 for the same task) was the definitive version, and July 22's Cursor Router turned the routing decision into a shipped product with a savings percentage attached. 'Which model does your typing' is answered; the live question moved to who holds the number that proves the saving, which is the cost-telemetry beat rather than the routing beat.",
     "Community-registry account-takeover waves (AUR, June and July 2026) as recurring news events - covered in full 2026-08-02. The durable frame is the escalation ladder: hardening the identity gate moves the attack to the ownership-transfer gate, because reachability is standing in for authorization. A further wave is only worth a post if someone actually ships a check on the transfer itself, or if the attack moves to a third layer.",
-    "AI-fabricated CVEs against a single project as a news event - covered in full 2026-08-03 (SQLite, six records, the JFrog/Afek Berger analysis, MITRE rejection). Return only if a registry-level admission control actually ships, or if the fabrication pattern moves from a lone account to a coordinated campaign across multiple projects."
+    "AI-fabricated CVEs against a single project as a news event - covered in full 2026-08-03 (SQLite, six records, the JFrog/Afek Berger analysis, MITRE rejection). Return only if a registry-level admission control actually ships, or if the fabrication pattern moves from a lone account to a coordinated campaign across multiple projects.",
+    "AI-assisted vulnerability discovery as an UNQUALIFIED defender advantage - qualified/retired 2026-08-04 by the deployment split (Double Agents / Friendly Fire post). The defender advantage holds only where the vendor hunts code it owns with no action surface on adversarial input; it inverts when an agent reviews untrusted input while able to act. The durable frame is the one-variable split (adversarial input + action surface), plus the older discovery-versus-delivery latency frame downstream. A further 'AI found the bugs, defenders win' item is only worth a post if it moves one of those two frames."
   ],
   "voice_notes": [
-    {
-      "note": "The title-dispute-on-a-house analogy is the strongest structural move in the K3 post: the inspection returns clean every time because nothing contested is a property of the building. It works because it locates the failure OUTSIDE the artifact without abstraction, and gives the reader a ready reason why scanning is the wrong instinct. Reusable whenever the risk lives in a room the engineer is not in. SECOND USE 2026-08-02 (AUR post): 'probate with no judge' - unowned property, a register of title, a transfer procedure, and nobody looking at the claimant. Same family: borrow an institutional procedure the reader already trusts and let the missing step be conspicuous by its absence. Two posts in ten days is the ceiling; the device gets tired if it becomes the house move, so leave it alone for a while.",
-      "added": "2026-07-24"
-    },
     {
       "note": "Naming the dissent (Delangue disputing that distillation explains Chinese progress) BEFORE the operational takeaway is what keeps a geopolitically loaded post from reading as a position piece. The move: concede the factual question is unsettled, then show the operational point survives either resolution. Do this whenever the news cycle is an accusation rather than a disclosure.",
       "added": "2026-07-24"
@@ -728,9 +727,13 @@
     {
       "note": "The three-dates open is the strongest structural device available when a single company's own actions contradict each other. Set the dates as bare facts in sequence (July 20 published the cost accounting, July 22 shipped the cost optimiser, July 31 removed the cost column), let the reader draw the line, and only then say what it means. It works because no villain has to be alleged - the force comes entirely from the interval, which keeps a post that could read as a vendor grievance in the register of an operational observation. Pair it with the honest refusal: name the one claim you could not resolve from outside an authenticated account (the CSV cost column, where staff and users flatly disagree) and hand the reader the check instead of a verdict. Conceding the limit of your own vantage buys the rest of the piece.",
       "added": "2026-08-01"
+    },
+    {
+      "note": "When a careful argument and a careful counter-argument both look right, the move is almost never to pick a winner - it is to find the overloaded word doing the concealing and split it into the two things it names. The Double Agents post reconciles my own defender-advantage thesis with AI Now's rebuttal by pulling 'defensive AI' into two deployments that differ on exactly one variable (adversarial input + action surface). It works because it lets me keep the true half without pretending the counter-argument is wrong, and it reads as honesty rather than retreat. Two structural requirements make it land: openly own the earlier over-general claim (link the prior posts, name the phrase that smuggled the second case in), and reduce the split to ONE testable variable, not a taxonomy. Reusable whenever two good arguments collide and the label is carrying more than one job. Related but distinct from the borrow-a-mature-metric/artifact moves: this one operates on your own vocabulary, not the reader's trusted domain.",
+      "added": "2026-08-04"
     }
   ],
-  "last_updated": "2026-08-03",
+  "last_updated": "2026-08-04",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Aug 2026 12:04:11 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 04 Aug 2026 09:56:01 +0000</lastBuildDate>
+    <item>
+      <title>The Bomb-Disposal Robot Reads Its Orders Off the Bomb</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-04-the-bomb-disposal-robot-reads-its-orders-off-the-bomb.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-04-the-bomb-disposal-robot-reads-its-orders-off-the-bomb.html</guid>
+      <pubDate>2026-08-04</pubDate>
+      <category>Deep Bench</category>
+      <description>In three posts since May I called AI-found bugs a defender&#x27;s advantage. A July report from AI Now argues the defensive agent is itself a fresh attack surface. Both are true, and the reconciliation is the useful part.</description>
+    </item>
     <item>
       <title>Six Critical Advisories and Nothing Underneath Them</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-03-six-critical-advisories-and-nothing-underneath-them.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-06</pubDate>
       <category>Ops Brief</category>
       <description>A controlled study finds Claude Code passes its tasks in messy code just as often as in clean code, while burning more tokens and re-reading files it already read. Tech debt now shows up on a metered bill.</description>
-    </item>
-    <item>
-      <title>The Model Got Better and Your Tool Got Worse</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-05-the-model-got-better-and-your-tool-got-worse.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-05-the-model-got-better-and-your-tool-got-worse.html</guid>
-      <pubDate>2026-07-05</pubDate>
-      <category>Ops Brief</category>
-      <description>Armin Ronacher found Anthropic&#x27;s newest models inventing fields on a third-party edit tool that their older siblings handled cleanly. The model improved at the task and drifted toward one harness&#x27;s house style.</description>
     </item>
   </channel>
 </rss>
