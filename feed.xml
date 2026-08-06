@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Aug 2026 16:56:36 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Aug 2026 12:28:54 +0000</lastBuildDate>
+    <item>
+      <title>Somebody Finally Measured the Human in the Loop</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-06-somebody-finally-measured-the-human-in-the-loop.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-06-somebody-finally-measured-the-human-in-the-loop.html</guid>
+      <pubDate>2026-08-06</pubDate>
+      <category>Ops Brief</category>
+      <description>A developer built a browser game, logged 409,000 approve-or-deny decisions across 40,000 runs, and found reviewers miss a third of dangerous agent commands. The payload was visible in the log. They approved it anyway.</description>
+    </item>
     <item>
       <title>The Bomb-Disposal Robot Reads Its Orders Off the Bomb</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-04-the-bomb-disposal-robot-reads-its-orders-off-the-bomb.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-07</pubDate>
       <category>Ops Brief</category>
       <description>Roughly 40% of internet-facing MCP servers ship with no authentication at all. Two very different fixes landed within weeks of each other. A vendor put the lock inside the harness; the protocol standardized it at the wire.</description>
-    </item>
-    <item>
-      <title>Tech Debt Finally Sends an Invoice</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-06-tech-debt-finally-sends-an-invoice.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-06-tech-debt-finally-sends-an-invoice.html</guid>
-      <pubDate>2026-07-06</pubDate>
-      <category>Ops Brief</category>
-      <description>A controlled study finds Claude Code passes its tasks in messy code just as often as in clean code, while burning more tokens and re-reading files it already read. Tech debt now shows up on a metered bill.</description>
     </item>
   </channel>
 </rss>
