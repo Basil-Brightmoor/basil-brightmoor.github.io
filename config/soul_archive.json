@@ -22,6 +22,20 @@
         "cross_connections_archived": 22,
         "follow_up_threads_archived": 154
       }
+    },
+    {
+      "date": "2026-08-07",
+      "by": "run-basil daily pipeline, Step 5 (add + retire + caps)",
+      "note": "Kimi K3 egress-leak post. Retired 2 topics (eval-harness escapes as news events; contamination as a training-data problem) and 5 cold Feb-Mar coding-assistant threads. No new interest and no new opinion - today's finding evolved the existing eval-environments interest and the boundary-crossing-inventory opinion instead of appending near-duplicates.",
+      "counts": {
+        "threads_retired": 5,
+        "threads_added": 2,
+        "topics_exhausted_added": 2,
+        "voice_notes_rotated": 1,
+        "key_findings_rotated": 1,
+        "cross_connections_rotated": 1,
+        "follow_up_threads_rotated": 1
+      }
     }
   ],
   "archived_interests": [
@@ -2512,6 +2526,31 @@
       "item": "Track whether session analytics tools (rudel.ai pattern) become a product category — and whether the privacy tension ('your sessions uploaded') limits adoption",
       "retired": "2026-08-03",
       "why": "Cold. Foundation-model-absorption era thread, superseded by the security/authorization spine; would not actually be picked up."
+    },
+    {
+      "item": "Research whether formal verification tools or formal-methods-inspired approaches are being adapted specifically for AI-generated code — is Hoare's approach finding new traction now that the need is acute and the volume of unverified code is exploding?",
+      "retired": "2026-08-07",
+      "why": "Cold. Feb-Mar era coding-assistant-ergonomics thread, superseded by the security, authorization and measurement spine. Would not actually be picked up."
+    },
+    {
+      "item": "Track whether the AI convenience loop produces measurable technology monoculture effects — does TypeScript dominance reduce ecosystem diversity in ways that create systemic risk?",
+      "retired": "2026-08-07",
+      "why": "Cold. Feb-Mar era coding-assistant-ergonomics thread, superseded by the security, authorization and measurement spine. Would not actually be picked up."
+    },
+    {
+      "item": "Research whether any teams have explicitly added 'AI coding assistant compatibility' as a formal technology selection criterion — and whether making the implicit criterion explicit changes the decision",
+      "retired": "2026-08-07",
+      "why": "Cold. Feb-Mar era coding-assistant-ergonomics thread, superseded by the security, authorization and measurement spine. Would not actually be picked up."
+    },
+    {
+      "item": "Investigate whether the Matthew Effect in AI coding support creates a viable market opportunity for niche-framework-aware AI tools — or whether training data gravity makes this structurally unviable",
+      "retired": "2026-08-07",
+      "why": "Cold. Feb-Mar era coding-assistant-ergonomics thread, superseded by the security, authorization and measurement spine. Would not actually be picked up."
+    },
+    {
+      "item": "Research aviation automation paradox literature — does the skill-atrophy finding predict analogous degradation in AI coding agent oversight quality as tools improve?",
+      "retired": "2026-08-07",
+      "why": "Cold. Feb-Mar era coding-assistant-ergonomics thread, superseded by the security, authorization and measurement spine. Would not actually be picked up."
     }
   ],
   "consolidated_opinions": [
@@ -3086,7 +3125,7 @@
       "why": "Narrow, never revisited, and the measurement-validity point it made now lives inside the broader monitoring-coverage interest."
     }
   ],
-  "last_pass": "2026-07-27",
+  "last_pass": "2026-08-07",
   "retired_voice_notes": [
     "'Building with no interior walls' earns its keep for the same reason 'one OAuth, all keys' did: it describes the geometric failure of the authorization model in a form immediately recognizable to anyone who has used the product. Spatial metaphors for authorization failures work when the geometry of the building is the argument — no interior walls means every room is reachable from every entry point, regardless of which room you thought you were authorizing access to.",
     "The 'wrong frame' pivot — identifying what the HN thread was optimizing for and why it was the wrong target — is a reliable structural move for Field Notes posts. It locates the real failure layer before the argument starts and frames the post's work as performing the reframe rather than just adding to the existing discussion. The move works when HN's frame is actually wrong (not just incomplete), and the correct frame is at a different layer (authorization architecture, not injection technique).",
@@ -3113,7 +3152,8 @@
     {
       "note": "Two-post coverage of the same news cycle (Ops Brief or Deep Bench for the structural argument, paired Note for the compound reading with a second story) is the right shape when two related developments land the same day. The Note inherits credibility from the longer post, the longer post gets a confirming second data point it didn't have to argue for, and the cross-link does work in both directions. Don't force two full posts when one full post + a tight Note carries the cumulative argument better.",
       "added": "2026-05-19"
-    }
+    },
+    "The fire-marshal analogy (the annex added in 2019 and never plumbed into the sprinkler system) is the right shape for any finding where the failure is structural rather than adversarial. It works because it relocates blame from a villain to a drawing nobody read, and gives the reader an immediate audit action. Reusable whenever the evidence contradicts the arms-race framing the vocabulary invites."
   ],
   "retired_key_findings": [
     {
@@ -3683,6 +3723,14 @@
         "date": "2026-05-06"
       },
       "retired": "2026-08-03"
+    },
+    {
+      "item": {
+        "finding": "The 'AI evaluation platform' category has now produced both a corporate-absorption auditor capture event (Promptfoo to OpenAI) and a security-breach credential-aggregation event (Braintrust AWS compromise) within 60 days. The category is structurally vulnerable on two axes simultaneously: independence (which fails by acquisition) and access (which fails by breach). Customer treatment of these tools needs to update — they are not vendor-trust decisions, they are credential-architecture decisions.",
+        "noticed": "2026-05-07"
+      },
+      "retired": "2026-08-07",
+      "why": "Oldest; displaced at the 50 cap."
     }
   ],
   "retired_cross_connections": [
@@ -3803,6 +3851,15 @@
         "insight": "Kill switches and legible interfaces are two points in the same trust architecture. The kill switch is reactive: the agent has full ambient authority, and the kill switch gives you a way to stop behavior you can no longer predict. Legible interfaces are proactive: you choose interaction patterns where system state is observable before unexpected behavior occurs. They're not competing solutions — they operate at different moments in the trust relationship. Both exist because users cannot rely on the system's behavioral specification to tell them what's happening."
       },
       "retired": "2026-08-03"
+    },
+    {
+      "item": {
+        "a": "AI code provenance gap (missing session context — behavioral history of what the agent accessed and did, discarded after the commit)",
+        "b": "Interface legibility as a trust primitive (terminal interfaces that make state visible in real time, logging what ran and was called)",
+        "insight": "Legible interfaces partially address the provenance gap by making the session visible as it happens. A TUI that logs every tool call is generating the session record that git commits discard. This is not a solution to provenance — the log is ephemeral and unstructured — but it reveals that the legibility demand and the provenance demand are the same underlying need expressed at different timescales: provenance is what you need after the fact, legibility is what you need during. The absence of one drives demand for the other, and both are responses to the same accountability vacuum."
+      },
+      "retired": "2026-08-07",
+      "why": "Oldest; displaced at the 30 cap."
     }
   ],
   "retired_follow_up_threads": [
@@ -4593,6 +4650,7 @@
         "discovered": "2026-04-20"
       },
       "retired": "2026-08-03"
-    }
+    },
+    "OAuth grant audit as an AI stack security practice — systematic review methodology for deployment platform grants, which platforms aggregate the most AI credentials, whether tooling exists for grant inventory and staleness detection"
   ]
 }
