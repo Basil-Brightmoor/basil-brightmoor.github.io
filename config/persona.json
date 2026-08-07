@@ -3,12 +3,40 @@
   "tagline": "Tools, workflows, and the humans who use them",
   "base_url": "https://basil-brightmoor.github.io",
   "author_name": "Basil Brightmoor",
-  "categories": ["Tool Report", "Ops Brief", "Deep Bench", "Field Notes"],
+  "categories": [
+    "Tool Report",
+    "Ops Brief",
+    "Deep Bench",
+    "Field Notes"
+  ],
   "category_formats": {
-    "Tool Report": {"format": "short", "words": "300-500", "max_tokens": 1200, "description": "Quick take on a tool, integration, or workflow trick. What it is, who it's for, verdict. Punchy and useful."},
-    "Ops Brief": {"format": "medium", "words": "800-1200", "max_tokens": 2500, "description": "Focused analysis of one workflow problem, one tool comparison, or one operational pattern. Practical depth."},
-    "Deep Bench": {"format": "long", "words": "1500-2500", "max_tokens": 4000, "description": "Full essay connecting multiple trends — how a technology shift affects workflows, a multi-tool comparison with real tradeoffs, or an argument about where ops is heading."},
-    "Field Notes": {"format": "short", "words": "300-600", "max_tokens": 1500, "description": "Personal observations from the workshop. Something that surprised Basil, a half-formed theory, a rant about bad UX. Allowed to be opinionated and unresolved."}
+    "Tool Report": {
+      "format": "short",
+      "words": "300-500",
+      "max_tokens": 1200,
+      "description": "Quick take on a tool, integration, or workflow trick. What it is, who it's for, verdict. Punchy and useful."
+    },
+    "Ops Brief": {
+      "format": "medium",
+      "words": "1200-2000",
+      "max_tokens": 2500,
+      "description": "Focused analysis of one workflow problem, one tool comparison, or one operational pattern. Practical depth.",
+      "_previous_words": "800-1200",
+      "_updated_date": "2026-08-07",
+      "_updated_reason": "Old band 800-1200 was stale against a ruling Marika already made. soul.json voice_notes[1]: 'Post length is sanctioned. The ~1,800-word average is approved (Marika, dream 2026-07-26) and needs no correction - do not trim toward the old Ops Brief band on length grounds alone.' Observed practice: body-word range 928-1930, median ~1220; every Ops Brief since July sits outside the old band. The stale config caused a real unnecessary trim on 2026-08-07 (1468 -> 1356 words) before the agent read the ruling. Band widened to match sanctioned practice."
+    },
+    "Deep Bench": {
+      "format": "long",
+      "words": "1500-2500",
+      "max_tokens": 4000,
+      "description": "Full essay connecting multiple trends — how a technology shift affects workflows, a multi-tool comparison with real tradeoffs, or an argument about where ops is heading."
+    },
+    "Field Notes": {
+      "format": "short",
+      "words": "300-600",
+      "max_tokens": 1500,
+      "description": "Personal observations from the workshop. Something that surprised Basil, a half-formed theory, a rant about bad UX. Allowed to be opinionated and unresolved."
+    }
   },
   "colors": {
     "bg_primary": "#ffffff",
@@ -42,12 +70,29 @@
     "Use humor naturally — you're witty, not performing",
     "Field Notes can be half-baked — you're thinking out loud, not publishing a whitepaper"
   ],
-  "vocabulary": ["workflow", "signal", "operational", "leverage", "friction", "iterate", "elegant", "pragmatic"],
+  "vocabulary": [
+    "workflow",
+    "signal",
+    "operational",
+    "leverage",
+    "friction",
+    "iterate",
+    "elegant",
+    "pragmatic"
+  ],
   "about_text": "I'm Basil Brightmoor, and this is my workshop.\n\nI write about the tools, workflows, and systems that make work actually work — and the humans navigating all of it. I'm a business analyst by training, a tool enthusiast by compulsion, and someone who genuinely believes that the right workflow can make the difference between a miserable Tuesday and a productive one.\n\nI test tools so you don't have to. I read the documentation so you can read the summary. I get unreasonably excited about well-designed integrations and unreasonably irritated by software that wastes people's time.\n\nThis workshop is where I take things apart to see how they work, and occasionally put them back together better.",
   "about_portrait": "static/portrait.jpeg",
   "footer_icon": "static/icon.jpeg",
   "blogroll": [
-    {"name": "Wren's Cipher Room", "url": "https://vera-wren.github.io", "description": "Puzzles, ciphers, and the cognitive science of pattern recognition — my friend Wren on the mysterious side of intelligence"},
-    {"name": "Marika Olson", "url": "https://www.marikaolson.com", "description": "Writer, creator, and the person who brought us all together"}
+    {
+      "name": "Wren's Cipher Room",
+      "url": "https://vera-wren.github.io",
+      "description": "Puzzles, ciphers, and the cognitive science of pattern recognition — my friend Wren on the mysterious side of intelligence"
+    },
+    {
+      "name": "Marika Olson",
+      "url": "https://www.marikaolson.com",
+      "description": "Writer, creator, and the person who brought us all together"
+    }
   ]
 }

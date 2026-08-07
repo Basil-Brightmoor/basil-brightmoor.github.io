@@ -151,11 +151,28 @@ def fetch_rss(feed_url, source_name=None, limit=10):
         print(f"  [fetch] RSS parse error for {feed_url}: {e}")
         return []
 
-    # Handle RSS 2.0
-    for item in root.iter("item"):
-        title_el = item.find("title")
-        link_el = item.find("link")
-        desc_el = item.find("description")
+    # Handle RSS 2.0 AND RSS 1.0/RDF.
+    # RSS 1.0 (Nature, many journals) declares a DEFAULT namespace
+    # xmlns="http://purl.org/rss/1.0/", so every tag is really
+    # {http://purl.org/rss/1.0/}item. ElementTree's iter("item") matches only
+    # UNnamespaced tags, so those feeds silently yielded zero items despite
+    # returning HTTP 200 with real content. Match on local name instead.
+    # Diagnosed 2026-08-07 (Nature srep/npjscilearn/ncb/neuro).
+    def _lname(el):
+        return el.tag.rsplit("}", 1)[-1] if isinstance(el.tag, str) else ""
+
+    def _find_local(parent, name):
+        for child in parent:
+            if _lname(child) == name:
+                return child
+        return None
+
+    for item in root.iter():
+        if _lname(item) != "item":
+            continue
+        title_el = _find_local(item, "title")
+        link_el = _find_local(item, "link")
+        desc_el = _find_local(item, "description")
         title = title_el.text if title_el is not None and title_el.text else ""
         link = link_el.text if link_el is not None and link_el.text else ""
         desc = desc_el.text if desc_el is not None and desc_el.text else ""

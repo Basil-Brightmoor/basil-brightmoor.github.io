@@ -98,9 +98,11 @@
     {
       "type": "rss",
       "name": "LangChain Blog",
-      "enabled": true,
+      "enabled": false,
       "url": "https://blog.langchain.dev/rss/",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "blog.langchain.dev 404; blog.langchain.com + changelog return 200 with zero parseable entries",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -112,9 +114,11 @@
     {
       "type": "rss",
       "name": "Security Boulevard",
-      "enabled": true,
+      "enabled": false,
       "url": "https://securityboulevard.com/feed/",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "403 with BOTH BlogBot AND a full browser UA - NOT a User-Agent block (tested 2026-08-07)",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -155,16 +159,20 @@
     {
       "type": "rss",
       "name": "NIST Cybersecurity Blog",
-      "enabled": true,
+      "enabled": false,
       "url": "https://feeds.feedburner.com/TheDailySwing",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "MISLABELED - URL is PortSwigger's defunct Daily Swig, never was NIST. 404",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
       "name": "MCP Official Blog",
-      "enabled": true,
+      "enabled": false,
       "url": "https://modelcontextprotocol.io/blog/rss.xml",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "modelcontextprotocol.io blog/rss.xml, /rss.xml, blog. subdomain all 404",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -183,9 +191,11 @@
     {
       "type": "rss",
       "name": "TechCrunch",
-      "enabled": true,
+      "enabled": false,
       "url": "https://techcrunch.com/feed/",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "exact duplicate URL of an earlier enabled row (dedup 2026-08-07)",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -211,23 +221,30 @@
     {
       "type": "rss",
       "name": "Hacker News (already tracked via Product Hunt feed)",
-      "enabled": true,
+      "enabled": false,
       "url": "https://news.ycombinator.com/rss",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "exact duplicate URL of an earlier enabled row (dedup 2026-08-07)",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
       "name": "arXiv SWE/agent evaluation papers",
       "enabled": true,
-      "url": "https://arxiv.org/search/?searchtype=all&query=SWE+CI+agent+evaluation&start=0",
-      "_last_success": true
+      "url": "http://export.arxiv.org/api/query?search_query=cat:cs.SE&sortBy=submittedDate&sortOrder=descending&max_results=15",
+      "_last_success": true,
+      "_previous_url": "https://arxiv.org/search/?searchtype=all&query=SWE+CI+agent+evaluation&start=0",
+      "_fixed_reason": "HTML search page typed as rss; arXiv Atom API verified 200, 15 entries",
+      "_fixed_date": "2026-08-07"
     },
     {
       "type": "rss",
       "name": "Objective-See (Patrick Wardle)",
-      "enabled": true,
+      "enabled": false,
       "url": "https://objective-see.org/blog.rss",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "exact duplicate URL of an earlier enabled row (dedup 2026-08-07)",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -246,9 +263,11 @@
     {
       "type": "rss",
       "name": "Debian Devel Announce",
-      "enabled": true,
+      "enabled": false,
       "url": "https://lists.debian.org/debian-devel-announce/",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "HTML mailing-list index typed as rss; never parseable",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -260,9 +279,11 @@
     {
       "type": "rss",
       "name": "METR Research Notes",
-      "enabled": true,
+      "enabled": false,
       "url": "https://metr.org/notes/",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "metr.org/notes HTML page typed as rss; /rss.xml 404",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -274,9 +295,11 @@
     {
       "type": "rss",
       "name": "Astral Blog",
-      "enabled": true,
+      "enabled": false,
       "url": "https://astral.sh/blog/rss",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "astral.sh blog/rss, blog/feed.xml, /rss.xml all 404",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -288,9 +311,11 @@
     {
       "type": "rss",
       "name": "Levels.fyi Blog",
-      "enabled": true,
+      "enabled": false,
       "url": "https://www.levels.fyi/blog/rss.xml",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "403 with BOTH BlogBot AND a full browser UA - NOT a User-Agent block (tested 2026-08-07)",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -302,9 +327,11 @@
     {
       "type": "rss",
       "name": "ANEMLL (Apple Neural Engine ML)",
-      "enabled": true,
+      "enabled": false,
       "url": "https://anemll.com/feed",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "anemll.com/feed 404 - site likely dead",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -316,37 +343,47 @@
     {
       "type": "rss",
       "name": "OSV Vulnerability Feed",
-      "enabled": true,
+      "enabled": false,
       "url": "https://osv.dev/feed.xml",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "osv.dev has no feed; API-only",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
       "name": "PyPI Blog",
-      "enabled": true,
+      "enabled": false,
       "url": "https://blog.pypi.org/feed.atom",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "blog.pypi.org feed.atom, index.xml, feed.xml all 404",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
       "name": "CISA Alerts",
-      "enabled": true,
+      "enabled": false,
       "url": "https://www.cisa.gov/uscert/ncas/alerts.xml",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "403 on alerts.xml, cybersecurity-advisories/all.xml, news.xml, current-activity.xml - CISA appears to block programmatic access outright",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
       "name": "ARC Prize Blog",
-      "enabled": true,
+      "enabled": false,
       "url": "https://arcprize.org/blog",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "arcprize.org/blog HTML typed as rss; /rss.xml 404",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
       "name": "Symbolica Blog",
-      "enabled": true,
+      "enabled": false,
       "url": "https://www.symbolica.ai/blog",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "symbolica.ai/blog HTML typed as rss; /rss.xml 404",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -358,9 +395,11 @@
     {
       "type": "rss",
       "name": "Alex Kim's Blog",
-      "enabled": true,
+      "enabled": false,
       "url": "https://alex000kim.com/feed",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "alex000kim.com/feed 404 - site likely dead",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -407,16 +446,20 @@
     {
       "type": "rss",
       "name": "GitHub Trending (weekly)",
-      "enabled": true,
+      "enabled": false,
       "url": "https://github.com/trending",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "HTML page typed as rss - this is the language-selector garbage. The github_trending-TYPE entry (row 2) is the working one",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
       "name": "Trend Micro Research",
-      "enabled": true,
+      "enabled": false,
       "url": "https://www.trendmicro.com/en_us/research.rss",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "trendmicro.com research.rss 404; feeds.trendmicro.com unreachable; newsroom rss returns 0",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -428,9 +471,11 @@
     {
       "type": "rss",
       "name": "PromptArmor Resources",
-      "enabled": true,
+      "enabled": false,
       "url": "https://promptarmor.com/resources",
-      "_last_success": true
+      "_last_success": true,
+      "_disabled_reason": "promptarmor.com/resources HTML page typed as rss",
+      "_disabled_date": "2026-08-07"
     },
     {
       "type": "rss",
@@ -450,13 +495,19 @@
       "type": "rss",
       "name": "Bun Blog",
       "enabled": true,
-      "url": "https://bun.sh/blog/rss.xml"
+      "url": "https://bun.sh/rss.xml",
+      "_previous_url": "https://bun.sh/blog/rss.xml",
+      "_fixed_reason": "blog/rss.xml 404; site feed verified 200, 176 items",
+      "_fixed_date": "2026-08-07"
     },
     {
       "type": "rss",
       "name": "Deno Blog",
       "enabled": true,
-      "url": "https://deno.com/blog/feed"
+      "url": "https://deno.com/feed",
+      "_previous_url": "https://deno.com/blog/feed",
+      "_fixed_reason": "blog/feed parse error; deno.com/feed verified 200, 249 items",
+      "_fixed_date": "2026-08-07"
     }
   ],
   "_reddit_note": "The 6 reddit sources (r/businessanalysis, r/nocode, r/SaaS, r/automation, r/ProductManagement, r/startups) were REMOVED 2026-07-26 (dream). They had been enabled:false since ~Feb 2026 because Reddit blocks unauthenticated JSON at the edge (403 Blocked, not Forbidden) - a compliant user-agent fails identically. Only https://www.reddit.com/r/<sub>/hot/.rss returns 200, and it 429s when several subreddits are fetched in sequence, so repointing would have meant new retry/delay code for title-only forum chatter. Entries are recoverable in git history; if reddit is ever re-added, route it through fetch_rss with a per-request delay."
