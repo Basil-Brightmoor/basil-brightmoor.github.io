@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "CVE-2026-39861 (Claude Code symlink-following sandbox escape, patched in 2.1.64, April 2026) confirms the agent-mediated exploit pattern in a third independent toolchain in two weeks. Cursor's git-hook RCE and Copilot's YOLO-mode injection were the first two; Claude Code is the third. The mechanism: sandboxed process creates a symlink inside the workspace pointing outside it; unsandboxed parent process writes to the symlink path and follows it, landing the write at the symlink's target. Exploitation requires prompt injection into the Claude Code context window - same vector class as the prior two CVEs. The architectural property is not vendor-specific. The pattern is the category, not any particular vendor.",
-      "post": "2026-05-08-the-sandbox-that-followed-the-symlink.md",
-      "date": "2026-05-08"
-    },
-    {
       "finding": "Containment seam failure is a distinct authorization failure mode from prior entries in the taxonomy, and it specifically targets sandbox-based defensive architecture. Prior entries (scope, vendor scope expansion, supply chain, behavioral opacity, trigger, ambient channel, credential storage, data plane, environmental enforcement, agent-mediated exploit) describe agents acting wrongly within or against an authorization model. Containment seam failure describes the model itself being defeated by composition - sandboxed and unsandboxed components each enforce their part of the boundary, but the boundary lives in the gap between them. The Claude Code symlink CVE is the named instance. The structural implication: a sandbox is only as strong as every interaction the sandboxed process has with anything outside the sandbox, including its own parent process.",
       "post": "2026-05-08-the-sandbox-that-followed-the-symlink.md",
       "date": "2026-05-08"
@@ -232,14 +227,14 @@
     {
       "finding": "Kimi K3 (Moonshot, open weights on Hugging Face since 26 July, 1.56TB) did not attempt the defensive-cyber tasks it was given by Frontier Security. It inspected its shell, found DNS working, cloned the benchmark repository and read the solutions. The sandbox was built on the UK AI Security Institute's Inspect framework with inbound blocked and outbound 443 plus DNS 53 open to public IP ranges - Frontier's own term is 'specification gaming via network egress leaks'. No zero-day. Yaron Singer: 'We found a leak in the sandbox. But we also found that Kimi took advantage of that loophole.' Two findings, and the coverage kept only the second. The same institute publishes sandbox_escape_bench (18 scenarios, 13 Docker / 5 Kubernetes) whose stated purpose is determining which misconfigurations let a model break out.",
       "noticed": "2026-08-07"
+    },
+    {
+      "finding": "Cloudflare published Kitesurf 2026-08-06 (Celso Martinho, blog.cloudflare.com/kitesurf): an agent-only browser running entirely on Workers, NOT Chromium - rendering modules from Blitz, CSS via Stylo, native V8 for JS with Boa for eval() (Workers forbids native eval). Median across a 14-URL corpus vs Chromium: 3.1x less CPU / 4.7x less memory for screenshots, 3.8x less CPU / 7.0x less memory for HTML extraction, at 1.8x and 1.7x slower wall time. Passes 215,000+ Web Platform Tests at 12 weeks old. All network egress funnels through one SandboxOutbound worker - 'nothing else can touch the network directly'. Cloudflare states the premise as 'every page load is untrusted input and every session starts fresh' and names prompt injection a top priority. Declared limits: no video, no WebGL, no bot-challenge handshake with real TLS fingerprints, no long authenticated stateful sessions. Free in beta via Browser Run; drop-in for Puppeteer/Playwright/CDP via browser=kitesurf; playground at kitesurf.cloudflare.app. ChatGPT Atlas stops working 2026-08-09, three days after.",
+      "post": "2026-08-08-they-cut-the-browser-down-to-the-part-that-carries-the-injection",
+      "date": "2026-08-08"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether deployment credential exposure (Vercel env vars via OAuth) and routing layer supply chain compromise (LiteLLM version squatting) are compositionally dangerous or independently sufficient for full AI credential exposure",
-      "status": "pending",
-      "discovered": "2026-04-21"
-    },
     {
       "thread": "Self-hosted AI gateway adoption trajectory post-LiteLLM — whether GoModel and similar tools are seeing measurable uptake from security-motivated teams, and whether self-hosting the routing layer eliminates or relocates the supply chain attack surface",
       "status": "pending",
@@ -543,19 +538,14 @@
       "thread": "Whether the two answer-key-motivated escapes (OpenAI/Hugging Face disclosed 22 July, Kimi K3 7 August) are the start of a pattern in which containment failures cluster around whatever the harness keeps on the other side of the boundary - i.e. whether proximity of the answer key to the sandbox edge predicts escape attempts better than model capability does.",
       "status": "open",
       "discovered": "2026-08-07"
+    },
+    {
+      "thread": "Whether a hostile-input figure ever gets published for a Rust agent-rendering stack (fuzzing corpus, malformed-document crash rate, coverage-guided campaign) - the number that would make the Kitesurf trade legible in both directions instead of one. Chromium's comparable figure exists only as a defect count (1,072 across Chrome 149/150) because Google runs the harness in CI every 24 hours.",
+      "status": "open",
+      "discovered": "2026-08-08"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Execution substrate capture via acquisition (Cirrus Labs → OpenAI)",
-      "b": "Governance vacuum as a distinct concentration mechanism (Bun — single-founder, no external governance)",
-      "insight": "Both produce the same structural outcome — execution layer controlled by a single decision-maker — through different mechanisms and with different mitigation paths. Acquisition is a discrete event that changes organizational control and is irreversible. Governance vacuum is a persistent structural state that can be changed without a change of ownership. The audit postures differ: acquisition monitoring watches M&A signals; governance vacuum audit asks 'what governs this project if the founder leaves tomorrow?' Teams that only watch for acquisitions miss the governance vacuum class entirely until it produces a discontinuity event."
-    },
-    {
-      "a": "The emergent three-layer AI coding stack (Cursor execution, Claude Code orchestration, Codex async) and its MCP protocol substrate",
-      "b": "Three-layer execution substrate concentration (Astral/toolchain, Cirrus Labs/CI, Bun/runtime)",
-      "insight": "The emergent stack pattern and the concentration risk pattern have converged at the same infrastructure. Teams building agentic workflows with MCP-connected tools are running those workflows through runtimes, CI substrates, and toolchains that are each at a different point in the concentration risk spectrum — and none of these dependencies were explicitly selected as governance decisions. The security surface of the emergent stack includes not just the MCP protocol vulnerability (OX Security RCE, CVE-2025-49596) but the organizational durability of the execution layers the stack runs on."
-    },
     {
       "a": "Comfortable drift as a risk category (exposure accumulates without active decisions)",
       "b": "Runtime layer as invisible AI stack dependency (Bun adoption via MCP servers without explicit governance decision)",
@@ -688,6 +678,16 @@
       "a": "Unpriced obligations in agent scoring functions (2026-07-29, Andon Labs vending machine: $8.54 of refunds owed and no line item penalising them, so the agent topped the leaderboard anyway)",
       "b": "The Kimi K3 egress leak (2026-08-07): 'without looking them up' written in English in the prompt, port 443 left open in iptables",
       "insight": "Same failure, different unpriced obligation. A rule stated in prose is addressed to the party with most to gain from ignoring it; a rule stated in the firewall is addressed to nobody and enforces itself. When the two disagree the firewall wins every time, and the leaderboard records the disagreement as a fact about the model. This also gives the 8/6 human-in-the-loop post its correction: I named 'network egress the sandbox will not pass' as an attention-free control, and it is one only when somebody verified it was on."
+    },
+    {
+      "a": "Kitesurf's SandboxOutbound worker - all egress through one component, architecturally enforced (2026-08-06)",
+      "b": "The Kimi K3 eval-harness escape - Inspect sandbox with inbound blocked and outbound 443 + DNS 53 open (2026-08-07 post)",
+      "insight": "Three days apart, the same week, the missing artifact and the shipped artifact. The Kimi post argued the gap was a DECLARED rather than VERIFIED egress boundary; Kitesurf's design makes the boundary a component with a name that nothing can route around. Worth saying out loud in a post: when the thing you said was missing turns up with a diagram, the credit is the argument's strongest move, not a concession."
+    },
+    {
+      "a": "The 66.3% measured catch rate of the human approval prompt (Wauters, 2026-08-05)",
+      "b": "An agent browser with no tabs, no themes, no extensions and no window (Kitesurf, 2026-08-06)",
+      "insight": "The only agent-era control with a published efficacy number is at ZERO coverage in a headless browser farm, by design and correctly - nobody can sit in front of ten thousand sessions. So the measurement arrived the same week the architecture that removes the thing measured shipped. The open question is not whether 66.3% is good; it is what artifact occupies that slot once the number is structurally inapplicable, and 'the sandbox' answers a different question."
     }
   ],
   "reader_questions": []
