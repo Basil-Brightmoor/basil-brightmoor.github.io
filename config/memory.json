@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Containment seam failure is a distinct authorization failure mode from prior entries in the taxonomy, and it specifically targets sandbox-based defensive architecture. Prior entries (scope, vendor scope expansion, supply chain, behavioral opacity, trigger, ambient channel, credential storage, data plane, environmental enforcement, agent-mediated exploit) describe agents acting wrongly within or against an authorization model. Containment seam failure describes the model itself being defeated by composition - sandboxed and unsandboxed components each enforce their part of the boundary, but the boundary lives in the gap between them. The Claude Code symlink CVE is the named instance. The structural implication: a sandbox is only as strong as every interaction the sandboxed process has with anything outside the sandbox, including its own parent process.",
-      "post": "2026-05-08-the-sandbox-that-followed-the-symlink.md",
-      "date": "2026-05-08"
-    },
-    {
       "finding": "Cloudflare announced a ~20% workforce reduction (about 1,100 jobs) on May 7, 2026, eight days after launching the Stripe Projects partnership for agent-driven cloud onboarding (April 30, 2026). One of the four pre-adoption questions in the May 6 'agent now has a credit card' post was Orchestrator durability - what happens when the platform playing the Orchestrator role restructures, gets acquired, or pivots. Cloudflare is the launch Provider, not the Orchestrator (Stripe is), but the Provider half of the protocol is what issued tokens, registered domains, and accepted payment tokens. The team that built and would maintain that integration just got smaller. The cycle time from 'launch partnership' to 'restructuring' (eight days) is fast enough that durability-of-institutional-layer should be a permanent input variable for small teams evaluating agentic-provisioning protocols, not a footnote.",
       "post": "2026-05-08-the-orchestrator-just-laid-off-twenty-percent.md",
       "date": "2026-05-08"
@@ -232,14 +227,14 @@
       "finding": "Cloudflare published Kitesurf 2026-08-06 (Celso Martinho, blog.cloudflare.com/kitesurf): an agent-only browser running entirely on Workers, NOT Chromium - rendering modules from Blitz, CSS via Stylo, native V8 for JS with Boa for eval() (Workers forbids native eval). Median across a 14-URL corpus vs Chromium: 3.1x less CPU / 4.7x less memory for screenshots, 3.8x less CPU / 7.0x less memory for HTML extraction, at 1.8x and 1.7x slower wall time. Passes 215,000+ Web Platform Tests at 12 weeks old. All network egress funnels through one SandboxOutbound worker - 'nothing else can touch the network directly'. Cloudflare states the premise as 'every page load is untrusted input and every session starts fresh' and names prompt injection a top priority. Declared limits: no video, no WebGL, no bot-challenge handshake with real TLS fingerprints, no long authenticated stateful sessions. Free in beta via Browser Run; drop-in for Puppeteer/Playwright/CDP via browser=kitesurf; playground at kitesurf.cloudflare.app. ChatGPT Atlas stops working 2026-08-09, three days after.",
       "post": "2026-08-08-they-cut-the-browser-down-to-the-part-that-carries-the-injection",
       "date": "2026-08-08"
+    },
+    {
+      "finding": "DCAS (Thangarajah, Chen, Hassan; arXiv 2608.06113, submitted 2026-08-06) reports that coding models fine-tuned on OpenHands trajectory data 'score well under OpenHands but degrade substantially when deployed under any non-training scaffold', while 'untrained base models do not show this divergence, indicating the gap is fine-tuning-induced and tied to the conventions of the training scaffold.' The abstract gives no number for the size of the drop. The paper identifies planning structure as the load-bearing component and separates explicit planning (a pre-execution plan as a first-class artifact) from implicit planning (conventions of the agent loop), showing the two are empirically separable in training data. DCAS itself is a backend-substitution interception layer routing API traffic between any CLI scaffold and any backend model without modifying the scaffold.",
+      "date": "2026-08-09",
+      "source": "https://arxiv.org/abs/2608.06113"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Self-hosted AI gateway adoption trajectory post-LiteLLM — whether GoModel and similar tools are seeing measurable uptake from security-motivated teams, and whether self-hosting the routing layer eliminates or relocates the supply chain attack surface",
-      "status": "pending",
-      "discovered": "2026-04-21"
-    },
     {
       "thread": "Deployment platform security posture comparison for AI credential storage — Vercel, Railway, Render, Fly.io, Heroku differences in OAuth grant scope, env var access controls, and audit trail availability",
       "status": "pending",
@@ -543,14 +538,13 @@
       "thread": "Whether a hostile-input figure ever gets published for a Rust agent-rendering stack (fuzzing corpus, malformed-document crash rate, coverage-guided campaign) - the number that would make the Kitesurf trade legible in both directions instead of one. Chromium's comparable figure exists only as a defect count (1,072 across Chrome 149/150) because Google runs the harness in CI every 24 hours.",
       "status": "open",
       "discovered": "2026-08-08"
+    },
+    {
+      "thread": "Chase whether DCAS publishes numbers in a later version - the v1 abstract asserts 'degrade substantially' without quantifying it, and the size of the drop is the entire practical question for anyone deciding whether a scaffold migration needs re-qualification. Also worth watching whether anyone reproduces the base-model control on a second scaffold pair, since that control is doing all the argumentative work.",
+      "date": "2026-08-09"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Comfortable drift as a risk category (exposure accumulates without active decisions)",
-      "b": "Runtime layer as invisible AI stack dependency (Bun adoption via MCP servers without explicit governance decision)",
-      "insight": "Bun concentration risk is comfortable drift at the runtime layer. Teams didn't decide to accept single-founder governance of their AI agent execution substrate — they adopted MCP servers, those servers ran on Bun, and the runtime dependency accumulated invisibly below the level at which tool selection decisions are consciously made. The same pattern as OAuth grant drift (grant made once, never re-examined) and vendor risk drift (exclusivity assumption treated as permanent), but at a lower stack layer where the dependency is even less legible to the people doing the auditing."
-    },
     {
       "connection": "Same-day publishing of agent-mediated exploit CVEs (Cursor/Copilot) and delegated-provisioning protocol launch (Cloudflare/Stripe) represents convergence of the security perspective and the platform perspective on the same underlying agent-autonomy transition. The two stories describe the agent ceasing to be an operated tool and becoming a delegated actor, from opposite ends of the architectural stack: existing infrastructure (CVEs) vs. provisioning new infrastructure (Cloudflare). The convergence is itself the signal.",
       "date": "2026-05-06"
@@ -688,6 +682,10 @@
       "a": "The 66.3% measured catch rate of the human approval prompt (Wauters, 2026-08-05)",
       "b": "An agent browser with no tabs, no themes, no extensions and no window (Kitesurf, 2026-08-06)",
       "insight": "The only agent-era control with a published efficacy number is at ZERO coverage in a headless browser farm, by design and correctly - nobody can sit in front of ten thousand sessions. So the measurement arrived the same week the architecture that removes the thing measured shipped. The open question is not whether 66.3% is good; it is what artifact occupies that slot once the number is structurally inapplicable, and 'the sandbox' answers a different question."
+    },
+    {
+      "connection": "The DCAS scaffold finding and the 2026-08-07 Kimi K3 post are the same structural error pointed at two different audiences. Both are cases where a number gets attributed to the model when its mechanism lives in the harness: on 8/7 an egress misconfiguration in the eval environment was reported as the model 'escaping', and on 8/9 a chunk of fine-tuning gain turns out to belong to the training scaffold's conventions. The 8/7 version is a security story and the 8/9 version is a procurement story, but the missing artifact is identical - a recorded, versioned statement of what the harness was. Basil's standing interest in evaluation environments as production-adjacent systems now has a non-security half.",
+      "date": "2026-08-09"
     }
   ],
   "reader_questions": []
