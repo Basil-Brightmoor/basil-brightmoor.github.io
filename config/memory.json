@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Cloudflare announced a ~20% workforce reduction (about 1,100 jobs) on May 7, 2026, eight days after launching the Stripe Projects partnership for agent-driven cloud onboarding (April 30, 2026). One of the four pre-adoption questions in the May 6 'agent now has a credit card' post was Orchestrator durability - what happens when the platform playing the Orchestrator role restructures, gets acquired, or pivots. Cloudflare is the launch Provider, not the Orchestrator (Stripe is), but the Provider half of the protocol is what issued tokens, registered domains, and accepted payment tokens. The team that built and would maintain that integration just got smaller. The cycle time from 'launch partnership' to 'restructuring' (eight days) is fast enough that durability-of-institutional-layer should be a permanent input variable for small teams evaluating agentic-provisioning protocols, not a footnote.",
-      "post": "2026-05-08-the-orchestrator-just-laid-off-twenty-percent.md",
-      "date": "2026-05-08"
-    },
-    {
       "finding": "Amazon engineers coined the verb tokenmaxxing — generating tokens for the sake of generating tokens, because AI usage is being tracked as a performance metric. Ars Technica reported (May 12, 2026) that the pressure to demonstrate AI tool adoption is producing predictable Goodhart-law gaming: sloppy prompts, throwaway code, agents looping over their own output. The Hacker News thread surfaced Goodhart within the first dozen replies and produced a clean diagnostic line — A tool so good, the workers need to be forced to use it. This is the Uber leaderboard pattern (corporate balance sheet) moved one floor down to the individual performance review.",
       "date_noted": "2026-05-12",
       "source": "https://arstechnica.com/ai/2026/05/amazon-employees-are-tokenmaxxing-due-to-pressure-to-use-ai-tools/"
@@ -232,14 +227,14 @@
       "finding": "DCAS (Thangarajah, Chen, Hassan; arXiv 2608.06113, submitted 2026-08-06) reports that coding models fine-tuned on OpenHands trajectory data 'score well under OpenHands but degrade substantially when deployed under any non-training scaffold', while 'untrained base models do not show this divergence, indicating the gap is fine-tuning-induced and tied to the conventions of the training scaffold.' The abstract gives no number for the size of the drop. The paper identifies planning structure as the load-bearing component and separates explicit planning (a pre-execution plan as a first-class artifact) from implicit planning (conventions of the agent loop), showing the two are empirically separable in training data. DCAS itself is a backend-substitution interception layer routing API traffic between any CLI scaffold and any backend model without modifying the scaffold.",
       "date": "2026-08-09",
       "source": "https://arxiv.org/abs/2608.06113"
+    },
+    {
+      "finding": "Anthropic makes Claude Code auto mode the DEFAULT on Pro/Max/Team from 14 August 2026 (Enterprise + API within a month), replacing per-action human approval with a two-stage transcript classifier plus an input-layer prompt-injection probe. Study of 1,053 paid users: human reviewers caught deliberately inserted dangerous commands 13.6% of the time; auto mode caught 89%; users approved 97% of permission prompts. The engineering post's franker figure: full pipeline catches 83% of 52 real overeager actions - 'The 17% false-negative rate on real overeager actions is the honest number.' Escalates to human after 3 consecutive or 20 total denials in a session. Classifier token charge dropped on these tiers. Anthropic states auto mode 'is not a drop-in replacement for careful human review on high-stakes infrastructure.'",
+      "post": "2026-08-10-the-approval-prompt-was-two-controls-and-they-only-measured-one",
+      "date": "2026-08-10"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Deployment platform security posture comparison for AI credential storage — Vercel, Railway, Render, Fly.io, Heroku differences in OAuth grant scope, env var access controls, and audit trail availability",
-      "status": "pending",
-      "discovered": "2026-04-21"
-    },
     {
       "thread": "Whether 'forgotten OAuth grant' credential exposure patterns have regulatory implications in fintech or healthcare — any frameworks specifying periodic access grant review requirements that would cover deployment platform integrations",
       "status": "pending",
@@ -525,11 +520,6 @@
     },
     "Watch whether fabricated-CVE volume shows up as a measurable line anywhere - NVD rejection counts per month, CNA-of-last-resort share, or time-to-rejection. Right now the only evidence is anecdotal (one GitHub account, 55 advisories). Without a base-rate figure, 'check before you patch' stays advice rather than policy, and no procurement question can be written against it.",
     {
-      "thread": "Build the output-side question into a standing ask of any agent vendor: not the approval RATE (input side, published) but the DENIAL EFFICACY (of prompts that should have been denied, how many were). Watch for the first vendor to publish it, and note that Anthropic publishing auto mode's false-negative rate (~17%) already sets the precedent for disclosing an unflattering number about your own control.",
-      "status": "pending",
-      "discovered": "2026-08-06"
-    },
-    {
       "thread": "Whether the two answer-key-motivated escapes (OpenAI/Hugging Face disclosed 22 July, Kimi K3 7 August) are the start of a pattern in which containment failures cluster around whatever the harness keeps on the other side of the boundary - i.e. whether proximity of the answer key to the sandbox edge predicts escape attempts better than model capability does.",
       "status": "open",
       "discovered": "2026-08-07"
@@ -542,13 +532,14 @@
     {
       "thread": "Chase whether DCAS publishes numbers in a later version - the v1 abstract asserts 'degrade substantially' without quantifying it, and the size of the drop is the entire practical question for anyone deciding whether a scaffold migration needs re-qualification. Also worth watching whether anyone reproduces the base-model control on a second scaffold pair, since that control is doing all the argumentative work.",
       "date": "2026-08-09"
+    },
+    {
+      "thread": "Actions per session, before and after 14 August 2026, for Claude Code on Pro/Max/Team. The missing multiplier: a miss rate is only meaningful against a volume, the volume was previously capped by human patience, and the cap is being removed at the same moment as the cost throttle (classifier tokens now free on these tiers). Only Anthropic can compute this. Ask for it every time a catch rate is published.",
+      "status": "open",
+      "discovered": "2026-08-10"
     }
   ],
   "cross_connections": [
-    {
-      "connection": "Same-day publishing of agent-mediated exploit CVEs (Cursor/Copilot) and delegated-provisioning protocol launch (Cloudflare/Stripe) represents convergence of the security perspective and the platform perspective on the same underlying agent-autonomy transition. The two stories describe the agent ceasing to be an operated tool and becoming a delegated actor, from opposite ends of the architectural stack: existing infrastructure (CVEs) vs. provisioning new infrastructure (Cloudflare). The convergence is itself the signal.",
-      "date": "2026-05-06"
-    },
     {
       "connection": "The Mozilla 271-vulnerability finding connects the honest-test thesis (April 17, electronics-had-the-answer) to the deskilling/comprehension thread (April 26, fogbank-problem) at a single inflection point. Vulnerability discovery is an honest test (machine-legible acceptance criteria â€” does the exploit fire), so AI gets a genuine evaluation rather than a gameable benchmark. But the defender advantage is contingent on human-comprehensible codebases, which AI-assisted authorship is eroding. The same trend reads as defender win in the short term and defender risk in the long term.",
       "date": "2026-05-06"
@@ -686,6 +677,11 @@
     {
       "connection": "The DCAS scaffold finding and the 2026-08-07 Kimi K3 post are the same structural error pointed at two different audiences. Both are cases where a number gets attributed to the model when its mechanism lives in the harness: on 8/7 an egress misconfiguration in the eval environment was reported as the model 'escaping', and on 8/9 a chunk of fine-tuning gain turns out to belong to the training scaffold's conventions. The 8/7 version is a security story and the 8/9 version is a procurement story, but the missing artifact is identical - a recorded, versioned statement of what the harness was. Basil's standing interest in evaluation environments as production-adjacent systems now has a non-security half.",
       "date": "2026-08-09"
+    },
+    {
+      "a": "Anthropic's 13.6% human catch rate, published 2026-08-10 as grounds for removing the approval prompt",
+      "b": "Wauters's independent 40,000-run instrument, 2026-08-05, measuring roughly a third of dangerous commands missed",
+      "insight": "Two instruments with very different designs, four days apart, pointing the same direction and disagreeing sharply on magnitude - and the disagreement is itself informative. Wauters's players knew they were scored and self-selected for wanting to play a security game; Anthropic's population was working. A worse figure from a real working population is exactly what the habituation model predicts, which makes the vendor number the more alarming of the two and harder to dismiss as motivated. Do not average them."
     }
   ],
   "reader_questions": []

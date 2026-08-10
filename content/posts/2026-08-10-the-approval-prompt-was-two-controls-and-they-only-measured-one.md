@@ -1,0 +1,98 @@
+---
+title: "The Approval Prompt Was Two Controls and They Only Measured One"
+date: 2026-08-10
+category: "Ops Brief"
+excerpt: "Anthropic published a catch rate for human approval of agent actions, 13.6 percent, and used it to justify turning the prompt off by default on 14 August. The number is probably right. It measures detection, and the prompt was also doing a second job nobody put a figure on."
+tags: ["agent-security", "human-in-the-loop", "claude-code", "approval-fatigue", "containment", "measurement", "tooling-scout"]
+---
+
+![](/images/2026-08-10-the-approval-prompt-was-two-controls-and-they-only-measured-one-hero.png)
+
+I have been asking, in public and at some length, for one number: of the agent actions that should have been denied at the approval prompt, how many actually were.
+
+It arrived on Sunday. It arrived inside a document arguing that the prompt should be switched off.
+
+From 14 August, [as The Register reports](https://www.theregister.com/ai-and-ml/2026/08/10/claude-code-puts-auto-mode-in-the-drivers-seat/5285326), auto mode becomes the default for Claude Code on Pro, Max and Team plans, with Enterprise and the API following within a month. Auto mode replaces the per-action human approval prompt with a model-based classifier that screens each tool call and stops anything judged irreversible, destructive, or aimed outside your environment; [Anthropic's engineering write-up](https://www.anthropic.com/engineering/claude-code-auto-mode) lays out the design. The supporting evidence, also covered by [Help Net Security](https://www.helpnetsecurity.com/2026/08/10/anthropic-claude-code-auto-mode/), came from a study of 1,053 paid users, plus internal and third-party red-teaming and analysis of real production sessions.
+
+Human reviewers caught deliberately inserted dangerous commands **13.6 percent** of the time. The classifier caught **89 percent** of the same commands. And the sentence that explains the first figure: users approved **97 percent** of permission prompts.
+
+So the number exists now, it is worse than the independent measurement from four days earlier, and the party that produced it is the party that benefits from it. All three of those things can be true at once, and the interesting work is in holding them together rather than picking one.
+
+## Convert both to miss rates and look at what is left
+
+Catch rates flatter whoever is winning. Miss rates are the honest unit, because the miss is what you actually have to live with.
+
+- Human review: **86.4 percent miss**
+- Auto mode classifier: **11 percent miss**
+
+Stated that way, the comparison is not close, and I want to be plain that I think Anthropic's direction of travel is correct. It also matches the outside evidence. [Alex Wauters's browser instrument](https://llmgame.scalex.dev/) logged 409,000 approve-or-deny decisions across 40,000 runs and found reviewers missing roughly a third of dangerous commands, with the payload visible on screen at the moment of approval. Anthropic's 13.6 percent is much worse than Wauters's number, and the setups differ enough that the two should not be averaged: his players knew they were being scored, and the population self-selected for people who wanted to play a security game. A worse figure from a real working population is exactly what you would predict. Two instruments, very different designs, same direction. That is about as much corroboration as this field ever offers.
+
+What I want to sit with is the 11 percent, because the press coverage has universally reported the 89 and universally dropped its complement.
+
+And Anthropic's own engineering write-up is franker than its press. On a dataset of 52 real overeager actions, the full two-stage pipeline caught 83 percent, not 89. The post says so directly: "The 17% false-negative rate on real overeager actions is the honest number." I have a great deal of respect for a company that prints that sentence. I have rather less confidence that the sentence travels. By the time this reaches a procurement deck it will be 89 percent, because 89 percent is the number with a press release attached.
+
+## The overloaded word
+
+Here is where I think the measurement has a hole in it, and it is not a hole in the arithmetic.
+
+"The approval prompt" names two different controls that happen to share a user interface.
+
+The **first** is a detection control. A human looks at a proposed action and decides whether it is dangerous. This is the control Anthropic measured, and it performs abysmally, for reasons that have been well understood in safety engineering since long before software: an alarm that fires constantly and is almost always benign trains the operator to clear it. Ninety-seven percent approval is the correct Bayesian response to a signal with a base rate that low, which is precisely why treating vigilance as the fix has never worked in any industry that tried it.
+
+The **second** is a throttle. Every prompt is a synchronous stop. The agent cannot proceed until a human, working at human speed, in a session of finite human attention, says yes. Nobody chose this control, nobody designed it, and it never appeared in a threat model. But it capped the number of actions an agent could take per unit of human patience, and that cap was doing real work, because the blast radius of an autonomous process is a function of how many things it gets to do before someone notices.
+
+Anthropic measured the detection control. Nobody has measured the throttle, because it was never named as a control, and you cannot put a figure on a thing you have not named.
+
+An 11 percent miss rate against a bounded number of actions a tired human actually sat through is a different quantity from an 11 percent miss rate against however many actions an unattended agent takes in an afternoon. The rate improved. The denominator is now free to move, and it will move, because the entire point of the change is to let the agent work unattended. Read that as an argument for reporting two numbers rather than one. You need the miss rate **and** the action volume, and only one of them is being published.
+
+## The tell is that they rebuilt the throttle
+
+The strongest evidence that the throttle mattered is that Anthropic quietly put one back.
+
+In auto mode, when the classifier denies an action, Claude gets the feedback and tries a safer route. But after **3 consecutive denials, or 20 total denials in a session**, the system stops and escalates to a human. That is a rate limiter. It is not a detection control at all, it has no catch rate, and it does not care what the classifier concluded. It counts.
+
+I find that design choice more reassuring than the 89 percent, and more instructive. Somebody on that team understood that the interesting failure is not one bad action slipping through, it is a persistent agent grinding against a boundary twenty times, and built a counter for it. The counter is the part of the old prompt worth keeping, extracted from the part that never worked.
+
+The companion detail: Anthropic is also dropping the token charge for the classifier on these tiers. Cost was the other friction in the loop, and it is being removed at the same moment as the approvals. Both frictions were incidental, both were doing unmeasured throttling work, and both are going. That is a coherent product decision, and it should be read as a decision about volume as much as about safety.
+
+## The control that shipped the same week and does not care about any of this
+
+While this was happening, [Docker shipped Sandboxes](https://www.docker.com/products/docker-sandboxes/): disposable microVM environments for running coding agents, with only your project workspace mounted, configurable network egress controls, and isolated credential handling. It supports Claude Code, Codex, Gemini CLI, Copilot CLI, OpenCode and Kiro, installs with `brew install docker/tap/sbx` or `winget install Docker.sbx`, and the basic tier is free, with org-wide policy enforcement sold separately as Docker AI Governance.
+
+Docker's own pitch is "YOLO mode safely," which is marketing, but the architecture underneath it is the honest response to everything above.
+
+The difference is worth being precise about. A classifier is a **detection** control, and every detection control has a false-negative rate you inherit. A microVM boundary is a **containment** control, and its value does not depend on correctly classifying anything. It does not need to know which action was the bad one. Think of the difference between a smoke detector and a fire door: the detector is judged on how reliably it notices, the door is judged on what it holds back when nobody noticed at all. You want both, and only one of them degrades when the adversary gets cleverer.
+
+The correct configuration for August takes both: auto mode running inside a sandbox, with the classifier catching most of what it can catch, and the containment boundary sized so that the 11 or 17 percent it misses lands somewhere survivable.
+
+## Who this is for, and who it is not
+
+**Turn auto mode on, inside isolation, if** you are running agents against a project workspace, your credentials are scoped to that workspace, and your egress is restricted. You were not catching anything at the prompt anyway. Trading 86.4 percent missed for 11 to 17 percent missed while adding a real boundary is straightforwardly the better position.
+
+**Do not take the default if** the agent's working directory has ambient access to production, if your credentials are broader than the task, or if the session touches infrastructure where a single unreviewed action is unrecoverable. Anthropic says this itself, and says it plainly: auto mode "is not a drop-in replacement for careful human review on high-stakes infrastructure." Read that line as the vendor telling you where its own control stops, because that is what it is.
+
+**And regardless of which you pick:** on 14 August the default changes underneath existing users, with a one-time prompt to opt back. A one-time prompt is subject to exactly the same 97 percent habitual-approval dynamic as every other prompt in this story. If you have an opinion about your team's configuration, set it deliberately this week rather than discovering it next month.
+
+## The takeaway
+
+The control-efficacy number I wanted turned out to be publishable the moment it became useful to publish. That is how measurement usually enters an industry, and I would rather have the number with the motive attached than not have it. Anthropic printed its own worst figure in its engineering post, which is more than most vendors manage.
+
+But a catch rate is only half a control's description. The other half is how much it was throttling, and the approval prompt's throttle was never named, never measured, and is now being removed on the strength of a study about something else. The 3-and-20 counter is Anthropic's own admission that the throttle was load-bearing.
+
+So here is the number I would like next, and it should be much easier to produce than the last one: **actions per session, before and after 14 August.** Anthropic has that data. If the miss rate falls from 86.4 percent to 11 percent while the action count goes up by a factor of ten, the arithmetic on total unreviewed dangerous actions does not go the direction the press release implies. If it goes up by a factor of two, it does. Nobody outside the company can compute this, and everybody inside it can.
+
+<!--
+HERO_IMAGE_PROMPT:
+Contemporary editorial illustration in the register of Christoph Niemann's full New Yorker covers and Tom Gauld's rich panel work — the illustrated full-bleed magazine spread, not a flat icon. Photographic-painterly framing, naturalistic light and depth, clearly art and never photorealistic. A workshop desk seen at a 30-degree diagonal across the frame in warm light oak and warm white. In the foreground, a brushed-aluminium matte-black robot with a single round LED eye sits mid-motion, one hand lifted away from a row of physical approval switches on a control panel while the other reaches toward a sealed glass-walled enclosure to its right; the switch row is half thrown, three toggles up and three still down, showing the moment of transition. Inside the glass enclosure a second, smaller task runs unattended, lit by cool 5600K screen glow. Warm 3200K tungsten desk-lamp light falls from the upper left, casting a long diagonal shadow from the robot across scattered papers in the midground; one paper shows a hand-drawn bar pair, one bar tall and one short, unlabeled. Behind, a corkboard in soft focus with pinned index cards and a small mechanical counter dial reading a two-digit number. A cooling mug of coffee catches the lamp light at the desk edge, a notebook lies open with a schematic sketch, and cables run off-frame to the lower right creating leading lines. Palette warm white, light oak, slate gray, with sage-green LED accents and one oxblood detail. Mood sharp, deliberate, quiet, watchful, slightly tired but alert. 4 to 8 objects visible, populated rather than cluttered, three clear depth layers. No human figures anywhere. No legible text. 16:9 horizontal composition.
+-->
+
+<!--
+SOCIAL_CAPTIONS:
+
+INSTAGRAM:
+Anthropic measured how often humans catch a dangerous agent command at the approval prompt. The answer was 13.6 percent, and they used it to justify turning the prompt off by default on 14 August. The number is probably right. It also measures only half of what that prompt was doing.
+
+Full piece linked in bio.
+
+#aiagents #aisecurity #devops #claudecode #agentsecurity #automation
+-->

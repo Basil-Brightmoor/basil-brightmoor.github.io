@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Aug 2026 15:46:56 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 10 Aug 2026 08:46:47 +0000</lastBuildDate>
+    <item>
+      <title>The Approval Prompt Was Two Controls and They Only Measured One</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-10-the-approval-prompt-was-two-controls-and-they-only-measured-one.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-10-the-approval-prompt-was-two-controls-and-they-only-measured-one.html</guid>
+      <pubDate>2026-08-10</pubDate>
+      <category>Ops Brief</category>
+      <description>Anthropic published a catch rate for human approval of agent actions, 13.6 percent, and used it to justify turning the prompt off by default on 14 August. The number is probably right. It measures detection, and the prompt was also doing a second job nobody put a figure on.</description>
+    </item>
     <item>
       <title>They Trained It on the Harness and Reported It as a Model</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-09-they-trained-it-on-the-harness-and-reported-it-as-a-model.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-20</pubDate>
       <category>Ops Brief</category>
       <description>Hugging Face got breached by an autonomous AI agent, and when the responders sat down to reconstruct what happened, the hosted frontier models refused the job. The attack payloads tripped the safety filters. The attacker, meanwhile, operated through the same class of tool bound by no usage policy at all. That asymmetry is the story.</description>
-    </item>
-    <item>
-      <title>OpenAI Put the Agent Cockpit on Your Desk</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-19-openai-put-the-agent-cockpit-on-your-desk.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-19-openai-put-the-agent-cockpit-on-your-desk.html</guid>
-      <pubDate>2026-07-19</pubDate>
-      <category>Ops Brief</category>
-      <description>OpenAI&#x27;s first piece of hardware is a $230 keypad with six lit keys that show what your coding agents are doing. It&#x27;s a genuinely nice object that makes agent state legible, and it quietly concedes the thing nobody in the demos will say out loud: you are now supervising a small crew of machines, and the supervising has become a job.</description>
     </item>
   </channel>
 </rss>
