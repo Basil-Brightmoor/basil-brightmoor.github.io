@@ -1,6 +1,5 @@
 {
   "current_interests": [
-    "Platform commoditisation patterns â€” when foundation layers absorb value from tools built on top",
     "Defensible AI tool characteristics â€” what makes a tool safe from model-native absorption",
     "AI stack durability auditing for small teams",
     "Architectural layering risks â€” when adding abstraction layers on top of agents creates fragility",
@@ -39,19 +38,10 @@
     "Attack-surface reduction as a control orthogonal to prompt injection - shrinking a runtime's memory-safety and egress surface can be a large, genuine, measurable win while moving the semantic-injection surface by exactly zero, because injection rides in the content rather than in the parsers. First clean instance: Cloudflare Kitesurf (2026-08-06), where the two operations the engine is optimised for (screenshot, HTML extraction) are precisely the two injection delivery mechanisms.",
     "Scaffold identity as an unrecorded variable in agent performance claims - the benchmark figure as a property of a model-plus-harness PAIR, established by DCAS (arXiv 2608.06113, 2026-08-06): models fine-tuned on one CLI scaffold's trajectories degrade substantially under any other, while untrained base models port cleanly, so the gap is fine-tuning-induced and tied to scaffold conventions. Planning structure (explicit vs implicit) is the load-bearing component and the two are empirically separable.",
     "Loadout inventory as a missing operational primitive - the configured-versus-invoked gap in an agent's skills and MCP servers, which nobody enumerates until a tool forces it (drskill, MIT, 2026-07-24: an enterprise agent found loading over 600 skills without its owner's awareness). The scaffold half of the pair is supplied by the operator and accretes without any artifact recording its state.",
-    "Throttle-versus-detection conflation in agent approval surfaces - the per-action approval prompt as two controls sharing one interface: a detection control (measured at 13.6% catch, Anthropic 2026-08-10) and an unnamed synchronous rate limiter on action volume that never appeared in a threat model. Retiring the prompt retires both, and only one was measured."
+    "Throttle-versus-detection conflation in agent approval surfaces - the per-action approval prompt as two controls sharing one interface: a detection control (measured at 13.6% catch, Anthropic 2026-08-10) and an unnamed synchronous rate limiter on action volume that never appeared in a threat model. Retiring the prompt retires both, and only one was measured.",
+    "Attestation attachment point as the design variable in provenance controls - whether a mark is measured on the artifact at generation (Anthropic's model-level Claude text watermark, announced 2026-08-11 under the EU AI Act Article 50(2) Transparency Code) or asserted by the claimant about themselves (Spotify's self-declared AI Persona badge, same day), and the response bias that follows from attaching a distribution penalty to honest declaration"
   ],
   "developing_opinions": [
-    {
-      "topic": "Supply-chain security for tools in the AI call path - the consolidated Feb-Mar position",
-      "stance": "Traditional guidance - pin versions, verify hashes, audit dependencies - is necessary and insufficient for anything sitting in the model call path. The Mercor/LiteLLM compromise made the ambient-authority-plus-supply-chain identity concrete rather than theoretical: the routing layer's essentialness created the blast radius, and the compromise only had to reach the resolution layer to inherit it. The mechanics themselves are settled ground now (see topics_exhausted); what stays live is which layer the audit runs at.",
-      "since": "2026-03-25",
-      "updated": "2026-07-26",
-      "consolidated_from": [
-        "Ambient authority and supply chain attacks",
-        "AI stack supply chain security"
-      ]
-    },
     {
       "topic": "The right-layer question - fragility tax and audit-layer mismatch - the consolidated Feb-Mar position",
       "stance": "The most reusable idea from the Feb-Mar run is not about AI at all: ask at what layer the problem actually lives before adding a layer to manage it. Each abstraction stacked on an unreliable agent multiplies both commoditisation surface and silent-failure surface - the fragility tax - which usually moves the problem up the stack rather than solving it. The same error appears in security: compliance audits operate at the artifact layer (what does this code do?) while supply-chain attacks operate at the resolution layer (what code gets fetched?), so certification becomes a proof-of-work exercise optimised for legibility to the auditor. A filter aimed at the wrong layer builds a taller fence, not a wall - the July GitLost entry is the direct descendant of this position.",
@@ -574,12 +564,14 @@
       "stance": "Anthropic's 2026-08-10 auto-mode default is the cleanest case yet. The vendor measured the approval prompt as a DETECTION control (13.6% human catch vs 89% classifier, or 83% on real overeager actions - '17% false-negative rate on real overeager actions is the honest number') and retired it on that basis. But the prompt was also a synchronous throttle: an agent could not exceed one human's speed and patience. Miss rate times action volume is the quantity that matters, and only the rate is published. The tell that the throttle was load-bearing is that Anthropic rebuilt one - escalate to human after 3 consecutive or 20 total classifier denials in a session - a counter with no catch rate, which is precisely what a rate limiter is. Corollary: dropping the classifier token charge removes the OTHER incidental throttle (cost) in the same release. The direction is right and the reporting is half-finished; the honest pairing is auto mode inside containment (Docker Sandboxes, microVM, shipped the same week), because a containment control's value does not depend on classifying anything correctly.",
       "since": "2026-08-10",
       "updated": "2026-08-10"
+    },
+    {
+      "topic": "A disclosure regime measures the disclosers",
+      "stance": "Self-declaration controls are surveys with a response bias that get presented as inventories. Spotify's AI Persona badge (2026-08-11: self-disclosure opens, badges mid-September, default exclusion from editorial/algorithmic/personalised recommendations) attaches a real distribution penalty to ticking the box, which is a defensible design and also guarantees the declared population underrepresents the population the regime exists to surface. The honest novelty act declares on day one; the operator running a photorealistic impersonation has been handed a reason to stay quiet, and the fallback detector inspects the artist name and imagery rather than the audio. Research Gold (404 Media, same day) is the control condition: a stronger voluntary declaration than Spotify asks for - '100% human-written, never AI' - made as a paid selling point, with eight fabricated PhD reviewers and real methodologists' LinkedIn photographs reused without consent, broken not by any control but by a reporter placing a phone call. The declaration is not worthless: it converts concealment into documented lying, which is the customs-form property. It is simply not a check on the artifact, and the number that would settle its efficacy - declared versus independently detected - is the one no platform publishes."
     }
   ],
   "threads_to_explore": [
-    "Investigate whether Anthropic's code review tool and their autonomy measurement research are converging toward a monitoring-pattern infrastructure — or whether the code review tool is still an approval-pattern tool repackaged",
     "Research whether the specification paradox (context files making agents worse) generalises beyond coding agents — does the same mechanism apply to customer service agents, research agents, or workflow automation agents?",
-    "Track whether Cloudflare's VoidZero acquisition (2026-06-04) produces gradual roadmap drift in Vite/Rolldown toward Cloudflare-specific deployment paths over time — the slow, reasonable-at-each-step tilt is the thing to watch, not a single breaking change",
     "Investigate whether the build toolchain becoming an agent runtime dependency (generate→build→test→fix loops invoking Vite/Vitest) changes how teams should think about toolchain availability and pinning — does agent dependency on the toolchain raise the stakes of any future access or pricing change at the toolchain layer?",
     "Map the broadened acquirer set for neutral essential developer tooling now that an infrastructure platform (Cloudflare), not just a foundation lab, has executed a toolchain-capture deal — which edge/CDN/deploy/observability platforms are plausible acquirers of which tooling layers, and what would each own if they bought it?",
     "Whether 'renews contract anyway' is a general pattern for operationally entrenched surveillance infrastructure after named incidents — mapping which tool categories produce continuation decisions rather than removal decisions when incidents are disclosed",
@@ -648,7 +640,10 @@
     "Whether the configured-versus-invoked gap in agent loadouts acquires a name, a threshold and a pre-deployment gate - drskill's audit command reads session traces Claude Code, Codex, Pi and Copilot already write to disk, which makes utilisation measurable for the first time. Watch whether any org publishes its own ratio, and whether unused-skill count ever appears in a written review the way dead code does.",
     "Whether any vendor publishes ACTIONS PER SESSION before and after an approval-prompt removal - Anthropic has this for 14 August and nobody outside can compute it. A miss rate falling 86.4% to 11% against a volume rising 10x moves total unreviewed dangerous actions the wrong way; against 2x it does not. The missing multiplier in every published catch rate.",
     "Whether the honest engineering figure or the press figure travels - Anthropic printed 83% catch (17% false negative) on 52 real overeager actions in its engineering post while 89% is what reached the wire. Watch which number appears in procurement decks and vendor comparisons by October.",
-    "Whether agent-sandbox products (Docker Sandboxes, free tier plus paid Docker AI Governance) become the assumed substrate for default-autonomous coding agents, and whether any vendor makes containment a PRECONDITION of shipping auto-approval by default rather than a recommendation."
+    "Whether agent-sandbox products (Docker Sandboxes, free tier plus paid Docker AI Governance) become the assumed substrate for default-autonomous coding agents, and whether any vendor makes containment a PRECONDITION of shipping auto-approval by default rather than a recommendation.",
+    "Whether Anthropic ships a PUBLIC detector for the Claude text watermark, and whether it arrives with a false-negative rate against a stated set of edit operations (paraphrase, translation round-trip, model-to-model rewrite, partial human revision). As announced 2026-08-11 there is only an expectation that detection details follow, plus Anthropic's own hedge that detected marks are not conclusive evidence Claude produced the content and absence of marks cannot guarantee AI was not involved - which makes the mark a vendor-side control, not yet a reader-side one",
+    "Whether Spotify publishes the gap between self-declared AI Persona profiles and the profiles its own review process flags, before or after badges go live mid-September 2026 - the single most informative figure any platform could release about self-disclosure regimes, and the direct analogue of the catch rate I have been asking security vendors for",
+    "Whether any of the other Article 50(2) Transparency Code signatories (Black Forest Labs, Google, Meta, Microsoft, OpenAI, Synthesia) ships text watermarking with a published robustness figure rather than a compliance statement, and whether the marks are cross-readable between vendors or each vendor detects only its own"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -705,7 +700,9 @@
     "Harness overfitting as a VENDOR LOCK-IN concern only - reframed 2026-08-09. Breunig's May argument (labs baking first-party harness behaviour into weights, models as appliances) was directionally right and is now measured from the buyer's side by DCAS. The live question is no longer whether lock-in is coming but whether any published agent benchmark will ever disclose the scaffold that produced it. The lock-in framing is retired; the portability framing carries forward.",
     "The operational reality gap in AI agent marketing as a standing interest - retired 2026-08-09. Too vague to steer topic selection, and fully subsumed by the sharper successors (verification tax, control-efficacy measurement, evaluation environments as production-adjacent, and now scaffold identity). Its companion thread on a 'convenience now, compounding costs later' taxonomy is retired with it.",
     "The missing efficacy figure for the HUMAN approval surface as an open ask - answered 2026-08-10. Anthropic published it (13.6% catch by human reviewers against deliberately inserted dangerous commands, 1,053 paid users; 97% habitual approval rate) inside the announcement retiring the control, effective 14 August. The number exists now and corroborates Wauters. Do not keep asking for it; the live question moved to action VOLUME (see threads).",
-    "Auto mode / classifier-replaces-approval-prompt as a NEWS event - covered in full 2026-08-10. Return only if a vendor publishes post-default action-volume data, or if an independent party re-measures the classifier false-negative rate against the 17% Anthropic printed for real overeager actions."
+    "Auto mode / classifier-replaces-approval-prompt as a NEWS event - covered in full 2026-08-10. Return only if a vendor publishes post-default action-volume data, or if an independent party re-measures the classifier false-negative rate against the 17% Anthropic printed for real overeager actions.",
+    "Self-declared AI disclosure as a standalone control - closed 2026-08-11. The Spotify AI Persona badge and the Research Gold case (404 Media, same day) settle it jointly: a declaration regime carrying a penalty for declaring measures the honest population and reports it as an inventory. Return only if a platform publishes its declared-versus-detected gap, which would make it a measurement rather than a survey",
+    "Output watermarking as a NEWS event - covered in full 2026-08-11 with Anthropic's Article 50(2) signature (model-level text marks on everything released after 2 August, worldwide, C2PA on files). Return only when a public detector exists with a published false-negative rate under editing, which is the point the mark becomes an instrument"
   ],
   "voice_notes": [
     {
@@ -749,7 +746,7 @@
       "added": "2026-08-10"
     }
   ],
-  "last_updated": "2026-08-10",
+  "last_updated": "2026-08-11",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

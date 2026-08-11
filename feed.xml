@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Aug 2026 15:49:52 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 11 Aug 2026 08:48:26 +0000</lastBuildDate>
+    <item>
+      <title>The badge counts the ones who would have told you anyway</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-11-the-badge-counts-the-ones-who-would-have-told-you-anyway.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-11-the-badge-counts-the-ones-who-would-have-told-you-anyway.html</guid>
+      <pubDate>2026-08-11</pubDate>
+      <category>Ops Brief</category>
+      <description>Three provenance stories landed on the same Tuesday. Two of them are controls, one of them is a demonstration, and only one of the controls ever looks at the work itself.</description>
+    </item>
     <item>
       <title>The Approval Prompt Was Two Controls and They Only Measured One</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-10-the-approval-prompt-was-two-controls-and-they-only-measured-one.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-21</pubDate>
       <category>Ops Brief</category>
       <description>Cursor set agent swarms loose on rebuilding SQLite in Rust from the 835-page manual. The headline is the cost sheet. Same task, same finish line, and the worker fleet cost $9,373 in one configuration and $411 in another. The lever turned out to be which model does which job.</description>
-    </item>
-    <item>
-      <title>The Guardrail That Only Stopped the Defender</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-20-the-guardrail-that-only-stopped-the-defender.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-20-the-guardrail-that-only-stopped-the-defender.html</guid>
-      <pubDate>2026-07-20</pubDate>
-      <category>Ops Brief</category>
-      <description>Hugging Face got breached by an autonomous AI agent, and when the responders sat down to reconstruct what happened, the hosted frontier models refused the job. The attack payloads tripped the safety filters. The attacker, meanwhile, operated through the same class of tool bound by no usage policy at all. That asymmetry is the story.</description>
     </item>
   </channel>
 </rss>
