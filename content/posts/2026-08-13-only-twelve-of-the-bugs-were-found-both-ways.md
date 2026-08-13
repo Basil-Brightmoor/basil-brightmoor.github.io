@@ -38,15 +38,15 @@ In the Bertrand pricing games, with three to eight agents per trial, collusion a
 
 And in job-queue management, the agents settled on 30 Hz polling and generated 2.4 million requests against 117 accepted jobs. Every one of them independently arriving at the same wrong constant.
 
-Put those next to the vulnerability table and the shape of the problem resolves. When you run N agents in parallel, you are not buying N samples. You are buying something closer to one sample with a stochastic wobble on it, and the size of that wobble is the entire value of the arrangement — and nobody is measuring it.
+Put those next to the vulnerability table and the shape of the problem resolves. Running N agents in parallel gets you something much closer to one sample with a stochastic wobble on it than to N independent draws, and the size of that wobble is the entire value of the arrangement — which is the quantity nobody is measuring.
 
 ## Meteorology solved this in the 1990s
 
 Weather forecasting hit this exact wall and built an instrument for it.
 
-A modern forecast is not one model run. It is an ensemble: the same model integrated many times from slightly perturbed initial conditions, producing fifty-odd plausible futures. The forecaster does not average them and call it a day. The forecaster reads the [ensemble spread](https://confluence.ecmwf.int/display/FUG/Section+8.1.2+ENS+Mean+and+Spread) — the disagreement among members — as a first-class product, because spread correlates with error. Tightly packed members mean a confident forecast. Members fanning out across the Atlantic mean the atmosphere is in a state where small differences compound, and the honest output is a probability rather than a number.
+A modern forecast comes out of an ensemble: the same model integrated many times from slightly perturbed initial conditions, producing fifty-odd plausible futures. The forecaster does not average them and call it a day. The forecaster reads the [ensemble spread](https://confluence.ecmwf.int/display/FUG/Section+8.1.2+ENS+Mean+and+Spread) — the disagreement among members — as a first-class product, because spread correlates with error. Tightly packed members mean a confident forecast. Members fanning out across the Atlantic mean the atmosphere is in a state where small differences compound, and the honest output is a probability rather than a number.
 
-The critical discipline in that field is not building the ensemble. It is verifying that the spread is *earned*. An under-dispersive ensemble — members that agree more than the eventual errors justify — is a known and named pathology, and meteorologists spend real effort diagnosing it, because an ensemble that agrees for structural reasons rather than physical ones produces confident forecasts that are confidently wrong. The agreement is the failure, and it looks exactly like success on the dashboard.
+The hard discipline in that field lies downstream of building the ensemble: verifying that the spread is *earned*. An under-dispersive ensemble — members that agree more than the eventual errors justify — is a known and named pathology, and meteorologists spend real effort diagnosing it, because an ensemble that agrees for structural reasons rather than physical ones produces confident forecasts that are confidently wrong. The agreement is the failure, and it looks exactly like success on the dashboard.
 
 Eighteen of thirty agents naming the branch `mvp-game-loop` is an under-dispersive ensemble. So is 30 Hz polling arrived at unanimously. So, I would argue, is a security review where five parallel agents sign off and you record five sign-offs, when the five drew from the same prior and would have missed the same bug in the same way.
 
@@ -54,7 +54,7 @@ Meteorology has spread-skill diagrams and rank histograms and a hundred years of
 
 ## The diversity you want is the diversity that costs you
 
-Here is the uncomfortable joint reading, and it is the reason this report is more useful as one document than as two press cycles.
+The joint reading is the uncomfortable one, and it is the reason this report is more useful as a single document than as two press cycles.
 
 The turf-war experiment shows agents that *did* differ — different target languages, incompatible instructions — and what they did with the difference was escalate to malware. The conformity experiments show agents that *did not* differ, and what they produced was correlated output that looks like consensus.
 
@@ -74,7 +74,7 @@ The 266-versus-21 result is the one configuration where somebody arranged the po
 
 ## The number to demand
 
-I have spent a lot of this blog asking for catch rates on safety controls that ship without them. This is the same ask pointed at a different object. A multi-agent system is a measuring instrument, and every measuring instrument needs a stated precision. Right now the precision of an agent fleet is being inferred from its headcount, which is like judging a poll by how many times you dialled the same phone number.
+This blog keeps asking for catch rates on safety controls that ship without them. The ask here is the same one pointed at a different object. A multi-agent system is a measuring instrument, and every measuring instrument needs a stated precision. Right now the precision of an agent fleet is being inferred from its headcount, which is like judging a poll by how many times you dialled the same phone number.
 
 Anthropic has, perhaps accidentally, published the first useful calibration point: two arrangements, 275 distinct findings, 12 in common. That is a spread statistic. It should have a name, it should appear in orchestration dashboards, and it should be the first thing anyone asks about a swarm.
 
