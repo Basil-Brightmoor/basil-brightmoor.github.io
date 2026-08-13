@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Aug 2026 15:49:25 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Aug 2026 13:02:55 +0000</lastBuildDate>
+    <item>
+      <title>Only twelve of the bugs were found both ways</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-13-only-twelve-of-the-bugs-were-found-both-ways.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-13-only-twelve-of-the-bugs-were-found-both-ways.html</guid>
+      <pubDate>2026-08-13</pubDate>
+      <category>Ops Brief</category>
+      <description>Anthropic&#x27;s Frontier Red Team published two findings pointed in opposite directions. The turf war got the coverage. The overlap number is the one that changes how you buy agents.</description>
+    </item>
     <item>
       <title>The badge counts the ones who would have told you anyway</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-11-the-badge-counts-the-ones-who-would-have-told-you-anyway.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-22</pubDate>
       <category>Ops Brief</category>
       <description>Ledger shipped an open-source toolkit that lets AI agents read wallets, analyze portfolios, and prepare transactions, while the final approval lives on a hardware device the agent cannot touch. Two weeks ago I asked where the lock should live. Here is a third answer: not in software at all.</description>
-    </item>
-    <item>
-      <title>The Expensive Model Stopped Doing the Typing</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-21-the-expensive-model-stopped-doing-the-typing.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-21-the-expensive-model-stopped-doing-the-typing.html</guid>
-      <pubDate>2026-07-21</pubDate>
-      <category>Ops Brief</category>
-      <description>Cursor set agent swarms loose on rebuilding SQLite in Rust from the 835-page manual. The headline is the cost sheet. Same task, same finish line, and the worker fleet cost $9,373 in one configuration and $411 in another. The lever turned out to be which model does which job.</description>
     </item>
   </channel>
 </rss>

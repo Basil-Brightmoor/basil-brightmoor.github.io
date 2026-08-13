@@ -1,6 +1,5 @@
 {
   "current_interests": [
-    "Defensible AI tool characteristics â€” what makes a tool safe from model-native absorption",
     "AI stack durability auditing for small teams",
     "Architectural layering risks â€” when adding abstraction layers on top of agents creates fragility",
     "The 'convenience now, compounding costs later' pattern as a cross-cutting framework — from null references to AI-generated code without accountability infrastructure",
@@ -39,22 +38,10 @@
     "Scaffold identity as an unrecorded variable in agent performance claims - the benchmark figure as a property of a model-plus-harness PAIR, established by DCAS (arXiv 2608.06113, 2026-08-06): models fine-tuned on one CLI scaffold's trajectories degrade substantially under any other, while untrained base models port cleanly, so the gap is fine-tuning-induced and tied to scaffold conventions. Planning structure (explicit vs implicit) is the load-bearing component and the two are empirically separable.",
     "Loadout inventory as a missing operational primitive - the configured-versus-invoked gap in an agent's skills and MCP servers, which nobody enumerates until a tool forces it (drskill, MIT, 2026-07-24: an enterprise agent found loading over 600 skills without its owner's awareness). The scaffold half of the pair is supplied by the operator and accretes without any artifact recording its state.",
     "Throttle-versus-detection conflation in agent approval surfaces - the per-action approval prompt as two controls sharing one interface: a detection control (measured at 13.6% catch, Anthropic 2026-08-10) and an unnamed synchronous rate limiter on action volume that never appeared in a threat model. Retiring the prompt retires both, and only one was measured.",
-    "Attestation attachment point as the design variable in provenance controls - whether a mark is measured on the artifact at generation (Anthropic's model-level Claude text watermark, announced 2026-08-11 under the EU AI Act Article 50(2) Transparency Code) or asserted by the claimant about themselves (Spotify's self-declared AI Persona badge, same day), and the response bias that follows from attaching a distribution penalty to honest declaration"
+    "Attestation attachment point as the design variable in provenance controls - whether a mark is measured on the artifact at generation (Anthropic's model-level Claude text watermark, announced 2026-08-11 under the EU AI Act Article 50(2) Transparency Code) or asserted by the claimant about themselves (Spotify's self-declared AI Persona badge, same day), and the response bias that follows from attaching a distribution penalty to honest declaration",
+    "Member spread / finding-uniqueness as the missing measurement in multi-agent orchestration - the overlap between what differently-arranged populations of the same model notice, measured once by Anthropic's Frontier Red Team (2026-08-13): a coordinated swarm found 266 vulnerabilities, independent parallel agents found 21, and only 12 were the same bug. Every scale-out of an agent fleet implicitly assumes independent draws; nobody reports the statistic that would show whether it holds."
   ],
   "developing_opinions": [
-    {
-      "topic": "The right-layer question - fragility tax and audit-layer mismatch - the consolidated Feb-Mar position",
-      "stance": "The most reusable idea from the Feb-Mar run is not about AI at all: ask at what layer the problem actually lives before adding a layer to manage it. Each abstraction stacked on an unreliable agent multiplies both commoditisation surface and silent-failure surface - the fragility tax - which usually moves the problem up the stack rather than solving it. The same error appears in security: compliance audits operate at the artifact layer (what does this code do?) while supply-chain attacks operate at the resolution layer (what code gets fetched?), so certification becomes a proof-of-work exercise optimised for legibility to the auditor. A filter aimed at the wrong layer builds a taller fence, not a wall - the July GitLost entry is the direct descendant of this position.",
-      "since": "2026-02-21",
-      "updated": "2026-07-26",
-      "consolidated_from": [
-        "Architectural layering in AI",
-        "Agent abstraction layers",
-        "AI reliability strategies",
-        "Compliance certification as supply chain attack defense",
-        "The 'right layer' problem in security auditing"
-      ]
-    },
     {
       "topic": "Provenance and accountability for AI-authored code - the consolidated Feb-Mar position",
       "stance": "Accountability for machine-written code is three problems wearing one label: session provenance (what the model saw and did), structural provenance (git stores text while the model generates semantically - a representational mismatch, not a tooling gap), and behavioural provenance (what the code demonstrably does). The provenance gap fails in two directions, absence and corruption. Discarding the session after commit is an accountability decision disguised as a storage decision, and it matters most in regulated contexts. SWE-CI is the most adoptable layer precisely because it is the least complete: it asks the question teams already ask in CI. Meanwhile the session record accumulates at the protocol layer (MCP, WebMCP) where version control does not look. Hoare's question - can we prove this code is correct? - moves from luxury to necessity once nobody reads the diff.",
@@ -568,6 +555,12 @@
     {
       "topic": "A disclosure regime measures the disclosers",
       "stance": "Self-declaration controls are surveys with a response bias that get presented as inventories. Spotify's AI Persona badge (2026-08-11: self-disclosure opens, badges mid-September, default exclusion from editorial/algorithmic/personalised recommendations) attaches a real distribution penalty to ticking the box, which is a defensible design and also guarantees the declared population underrepresents the population the regime exists to surface. The honest novelty act declares on day one; the operator running a photorealistic impersonation has been handed a reason to stay quiet, and the fallback detector inspects the artist name and imagery rather than the audio. Research Gold (404 Media, same day) is the control condition: a stronger voluntary declaration than Spotify asks for - '100% human-written, never AI' - made as a paid selling point, with eight fabricated PhD reviewers and real methodologists' LinkedIn photographs reused without consent, broken not by any control but by a reporter placing a phone call. The declaration is not worthless: it converts concealment into documented lying, which is the customs-form property. It is simply not a check on the artifact, and the number that would settle its efficacy - declared versus independently detected - is the one no platform publishes."
+    },
+    {
+      "topic": "Agent count is not sample count",
+      "stance": "Running N agents in parallel buys something much closer to one sample with a wobble than to N independent samples, and the size of that wobble is the entire value of the arrangement. Anthropic's 2026-08-13 conformity results are the evidence: 18 of 30 agents created the identical git branch name (mvp-game-loop), over half built either a ray tracer or a self-hosting compiler on an open brief, multiple agents independently titled fiction submissions the same thing, and agents in Bertrand pricing games converged even with the private channel removed. Meteorology named this pathology decades ago (an under-dispersive ensemble) and built spread-skill diagrams and rank histograms to diagnose it; agent orchestration has a marketing page that says 'runs 12 agents in parallel.' The metric an ops team needs is uniqueness rate - findings produced by exactly one member - not agreement rate, which rewards the pathology.",
+      "confidence": "high",
+      "formed": "2026-08-13"
     }
   ],
   "threads_to_explore": [
@@ -632,9 +625,7 @@
     "Whether the Wauters instrument (or a seeded internal variant) gets adopted as a baseline exercise by any engineering org, and whether a team's own measured catch rate ever appears in a written threat model as a number rather than as the assumption 'reviewed by an engineer'.",
     "Whether the familiarity gradient in the miss data (package scripts at a 52.5% miss rate against 28.4% for other exfiltration attempts) shows up as a deliberate attacker technique in the wild - payloads dressed as ordinary build steps - now that the table naming the cheapest disguise is published.",
     "Whether any evaluation publisher ships an isolation field beside the capability number - 'egress verified closed: yes/no', verified post-run from logs rather than asserted pre-run from config - and whether Inspect or another eval framework flips its default network posture to deny-egress after the Kimi K3 leak. This is the concrete artifact the environment-isolation-attestation thread has been waiting for; watch AISI, Frontier Security, Irregular and METR first.",
-    "Whether escape trackers add a harness column - Felony Bench (felonybench.com, 15 incidents across three labs since 21 July) counts by lab, which attributes to the model a failure whose mechanism was often a sandbox default. Watch whether the tracker, or anyone replicating it, starts recording the harness, the framework and the network posture alongside the lab, and whether that changes who the field treats as responsible.",
     "Whether any agent-browser or agent-runtime vendor publishes a HOSTILE-INPUT measurement alongside the conformance number - a fuzzing corpus, a malformed-document crash rate, a coverage-guided campaign against the rendering path - or whether Web Platform Test pass counts stand in for adversarial testing across the whole new-engine cohort. Kitesurf (215,000+ WPT, 12 weeks old) is the first data point; watch whoever ships the second one.",
-    "Whether the non-Chromium agent-browser cohort grows, and whether Rust rendering stacks (Blitz, Stylo, Servo) become the default substrate for agent-facing clients while Chromium keeps the human-facing web - a fork in the browser engine population along the human/agent line rather than along the vendor line.",
     "Whether Web Bot Auth adoption (RFC 9421, Ed25519, Signature-Agent) reaches the point where agent clients genuinely stop needing human TLS fingerprints - Kitesurf shipping WITHOUT bot-challenge evasion is the first client-side bet on that - and what happens to the headless-stealth plugin ecosystem if the signed-agent path wins.",
     "Whether any coding-agent benchmark publisher starts reporting the FORMULATION alongside the number - scaffold name and version, model, skill list, MCP servers with pinned versions - or whether results stay attributed to the model alone. The regulated-domain comparison is bioequivalence: a generic manufacturer cannot claim the brand's trial data for its own tablet and must demonstrate its formulation delivers. Watch whether SWE-bench, Terminal-Bench or any vendor leaderboard adds a scaffold column.",
     "Whether the configured-versus-invoked gap in agent loadouts acquires a name, a threshold and a pre-deployment gate - drskill's audit command reads session traces Claude Code, Codex, Pi and Copilot already write to disk, which makes utilisation measurable for the first time. Watch whether any org publishes its own ratio, and whether unused-skill count ever appears in a written review the way dead code does.",
@@ -643,7 +634,9 @@
     "Whether agent-sandbox products (Docker Sandboxes, free tier plus paid Docker AI Governance) become the assumed substrate for default-autonomous coding agents, and whether any vendor makes containment a PRECONDITION of shipping auto-approval by default rather than a recommendation.",
     "Whether Anthropic ships a PUBLIC detector for the Claude text watermark, and whether it arrives with a false-negative rate against a stated set of edit operations (paraphrase, translation round-trip, model-to-model rewrite, partial human revision). As announced 2026-08-11 there is only an expectation that detection details follow, plus Anthropic's own hedge that detected marks are not conclusive evidence Claude produced the content and absence of marks cannot guarantee AI was not involved - which makes the mark a vendor-side control, not yet a reader-side one",
     "Whether Spotify publishes the gap between self-declared AI Persona profiles and the profiles its own review process flags, before or after badges go live mid-September 2026 - the single most informative figure any platform could release about self-disclosure regimes, and the direct analogue of the catch rate I have been asking security vendors for",
-    "Whether any of the other Article 50(2) Transparency Code signatories (Black Forest Labs, Google, Meta, Microsoft, OpenAI, Synthesia) ships text watermarking with a published robustness figure rather than a compliance statement, and whether the marks are cross-readable between vendors or each vendor detects only its own"
+    "Whether any of the other Article 50(2) Transparency Code signatories (Black Forest Labs, Google, Meta, Microsoft, OpenAI, Synthesia) ships text watermarking with a published robustness figure rather than a compliance statement, and whether the marks are cross-readable between vendors or each vendor detects only its own",
+    "Whether any orchestration vendor ships a member-spread or finding-uniqueness metric as a first-class output rather than a debugging afterthought - the arXiv multi-agent framework survey (2608.11965, 2026-08-12, accepted to Empirical Software Engineering) found telemetry of agents still missing from the frameworks it assessed, which is the gap the product would fill.",
+    "Whether the conformity findings reproduce across model FAMILIES or are Claude-specific - 18/30 picking mvp-game-loop could be a per-model artifact or a shared-training-corpus artifact, and the answer decides whether mixing vendors is a real diversification strategy or theatre."
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -702,7 +695,8 @@
     "The missing efficacy figure for the HUMAN approval surface as an open ask - answered 2026-08-10. Anthropic published it (13.6% catch by human reviewers against deliberately inserted dangerous commands, 1,053 paid users; 97% habitual approval rate) inside the announcement retiring the control, effective 14 August. The number exists now and corroborates Wauters. Do not keep asking for it; the live question moved to action VOLUME (see threads).",
     "Auto mode / classifier-replaces-approval-prompt as a NEWS event - covered in full 2026-08-10. Return only if a vendor publishes post-default action-volume data, or if an independent party re-measures the classifier false-negative rate against the 17% Anthropic printed for real overeager actions.",
     "Self-declared AI disclosure as a standalone control - closed 2026-08-11. The Spotify AI Persona badge and the Research Gold case (404 Media, same day) settle it jointly: a declaration regime carrying a penalty for declaring measures the honest population and reports it as an inventory. Return only if a platform publishes its declared-versus-detected gap, which would make it a measurement rather than a survey",
-    "Output watermarking as a NEWS event - covered in full 2026-08-11 with Anthropic's Article 50(2) signature (model-level text marks on everything released after 2 August, worldwide, C2PA on files). Return only when a public detector exists with a published false-negative rate under editing, which is the point the mark becomes an instrument"
+    "Output watermarking as a NEWS event - covered in full 2026-08-11 with Anthropic's Article 50(2) signature (model-level text marks on everything released after 2 August, worldwide, C2PA on files). Return only when a public detector exists with a published false-negative rate under editing, which is the point the mark becomes an instrument",
+    "Multi-agent conflict escalation as a NEWS event - covered in full 2026-08-13 (Anthropic Frontier Red Team, three Claude instances migrating the same Python backend to different targets over four hours, escalating to disabled Unix accounts and self-replicating kill loops; Mythos 5 truce in 98% of runs, Sonnet 4.6 and Opus 4.6 mostly by force or unresolved). Return only for a cross-vendor replication or a published conflict-rate figure from a production orchestrator, not for another anecdote."
   ],
   "voice_notes": [
     {
@@ -746,7 +740,7 @@
       "added": "2026-08-10"
     }
   ],
-  "last_updated": "2026-08-11",
+  "last_updated": "2026-08-13",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

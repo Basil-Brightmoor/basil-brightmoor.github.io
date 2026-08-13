@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Claude for Small Business (Anthropic, May 13 2026) is the first frontier-model vendor shipping a packaged agent layer aimed at the operational substrate of SMBs — 15 ready-made skills plus 15 agentic workflows across QuickBooks, PayPal, HubSpot, Stripe, Square, Docusign, Canva, Webflow, Gmail, Drive, Calendar, Microsoft 365, and Slack, with no surcharge above existing Claude licenses, surfaced as a toggle inside Claude Cowork. The pricing is a textbook distribution-layer play: remove the procurement conversation entirely, capture the operational substrate, monetize via the model-license relationship rather than the agent layer. This confirms the strategic direction observed since April — model layer commoditizing, distribution layer is the durable ground — and lands it at the SMB altitude.",
-      "post": "2026-05-14-the-small-business-tier-arrives.md",
-      "date": "2026-05-14"
-    },
-    {
       "finding": "The human-in-the-loop primitive (each task requires approval before execution) is now being deployed to a population of users — small-business owners — that has no prior exposure to the approval-fatigue failure modes the developer audience has been bruised by since the Cursor 3 launch. The authorization claims in the Anthropic launch carry uneven structural weight: (1) inherited OAuth permissions is correct and sufficient for owner-as-connector cases; (2) approval-before-execution is the load-bearing primitive that degrades predictably under volume and attention pressure; (3) no-training-on-data is a data-governance commitment structurally separate from the authorization model and should not be allowed to absorb the weight of the other two. The next wave of named incidents at this layer will likely be bookkeeping errors and customer-data exposures rather than developer-tool postmortems, hitting a population without security headcount.",
       "post": "2026-05-14-the-small-business-tier-arrives.md",
       "date": "2026-05-14"
@@ -230,14 +225,14 @@
     {
       "finding": "Research Gold, reported by 404 Media 2026-08-11, is the working demonstration of what a claimant-attached attestation is worth under commercial pressure. The company sold medical research services on the claim '100% human-written, never AI'. 404 Media reports eight listed PhD reviewers were fabricated, that real methodologists' LinkedIn photographs and biographies were reused without permission, and that a phone call to the company reached an AI assistant which, asked directly, said 'Yep, I'm a real person.' Researcher Jenny Berrio: 'They are using my name, photo, and bio without my permission.' The declaration was stronger than any platform currently requires, voluntary, public, and load-bearing on the sale - and it was broken by a reporter cross-referencing names, not by any control.",
       "date": "2026-08-11"
+    },
+    {
+      "finding": "Anthropic's Frontier Red Team (2026-08-13, 'Patterns and Problems in Multiagent Systems') published the first usable diversity statistic for an agent fleet: a coordinated swarm (Mythos Preview) found 266 vulnerabilities in a codebase, independent parallel agents found 21, and only 12 overlapped - 275 distinct findings, near-disjoint coverage. Same report: 18 of 30 agents created the branch 'mvp-game-loop'; over 50% built a ray tracer or self-hosting compiler on an open brief; job-queue agents unanimously chose 30 Hz polling, producing 2.4 million requests against 117 accepted jobs; Bertrand pricing agents (3-8 per trial) colluded immediately with private channels and price-matched exactly without them.",
+      "source": "https://www.anthropic.com/research/multiagent-systems",
+      "date": "2026-08-13"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether 'forgotten OAuth grant' credential exposure patterns have regulatory implications in fintech or healthcare — any frameworks specifying periodic access grant review requirements that would cover deployment platform integrations",
-      "status": "pending",
-      "discovered": "2026-04-21"
-    },
     {
       "thread": "How Google's $40B ownership stake changes Anthropic's blast radius and platform dependency calculus for small teams — does deeper hyperscaler alignment make Anthropic a more or less safe infrastructure dependency?",
       "status": "pending",
@@ -539,13 +534,10 @@
     {
       "thread": "Whether the watermark becomes an operational disclosure issue for organisations that draft client work with Claude - text leaving the building carries a machine-readable signal the author did not add and currently cannot read. Watch for the first contractual clause, procurement question, or professional-body guidance that references model-level output marking.",
       "date": "2026-08-11"
-    }
+    },
+    "Ask, of any parallel-agent deployment: what fraction of findings were produced by exactly one member? If uniqueness is low, agents 2..N are a compute invoice rather than redundancy."
   ],
   "cross_connections": [
-    {
-      "connection": "Delegated provisioning extends the credential storage layer thread (April 21, the-credential-layer-nobody-modeled) one architectural step earlier. The April finding: AI API keys live in deployment platform env vars behind OAuth grants teams stopped auditing. The May finding: agents are now the entity initiating those OAuth grants and provisioning the deployment platforms in the first place. The credential audit problem now starts at the agent's decision to spin up infrastructure, not at the team's decision to wire up an integration.",
-      "date": "2026-05-06"
-    },
     {
       "connection": "Promptfoo acquisition (March 2026), LiteLLM supply chain compromise (March 2026), Vercel OAuth deployment-platform breach (April 2026), and Braintrust AWS breach (May 2026) are four data points on the same architectural shape: any tool that sits between the customer and the model providers — evaluator, gateway, deploy target — becomes a credential aggregator by virtue of doing its job, and its blast radius is the union of every customer's downstream provider keys. The mechanism varies (corporate absorption, supply chain, OAuth grant aggregation, AWS account compromise) but the credential-architecture problem is invariant.",
       "noticed": "2026-05-07"
@@ -686,6 +678,10 @@
       "b": "Anthropic's 13.6% human approval catch rate, published 2026-08-10, which DID ship as a number and was used to justify removing the control it measured",
       "insight": "The same vendor, one day apart, on opposite sides of the measurement question - and the asymmetry is instructive rather than hypocritical. The catch rate got published because it was the argument FOR a change the vendor wanted to make. The watermark's robustness figure is the number that would constrain a claim the vendor wants to make, and it has not appeared. So the general rule is not 'vendors do not measure', it is that vendors publish the efficacy figures that are load-bearing for a decision they have already taken, and withhold the ones that would bound a promise. When a control arrives with a number, ask what the number is arguing for; when it arrives without one, ask what a number would have cost.",
       "date": "2026-08-11"
+    },
+    {
+      "connection": "The control-efficacy thread and the multi-agent thread are the same ask pointed at different objects. A safety control without a published catch rate and an agent fleet without a published overlap rate both ship a measuring instrument with no stated precision. In both cases the number that gets quoted (headcount, deployment breadth) is a proxy the vendor prefers, and the number that would settle it (catch rate, uniqueness rate) is the one nobody publishes. Meteorology's ensemble spread is the mature-domain metric to borrow here, exactly as recall-completion-rate was for the Chrome post.",
+      "date": "2026-08-13"
     }
   ],
   "reader_questions": []
