@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Aug 2026 20:08:27 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 09:00:26 +0000</lastBuildDate>
+    <item>
+      <title>The metric was non-decreasing by construction and the security wasn&#x27;t</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-14-the-metric-was-non-decreasing-by-construction-and-the-security-wasnt.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-14-the-metric-was-non-decreasing-by-construction-and-the-security-wasnt.html</guid>
+      <pubDate>2026-08-14</pubDate>
+      <category>Ops Brief</category>
+      <description>A new study of 5,968 infrastructure-as-code repair runs found that fixing one problem sometimes breaks a security check that was already passing. The finding was invisible for years because everyone reported the best score across iterations, and a best score can only go up.</description>
+    </item>
     <item>
       <title>Only twelve of the bugs were found both ways</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-13-only-twelve-of-the-bugs-were-found-both-ways.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-23</pubDate>
       <category>Ops Brief</category>
       <description>Two layers of the agent stack quietly achieved the thing everyone said was impossible: neutral, multi-vendor governance. A plaintext Markdown file and a wire protocol. Look at which two won, because the selection is the whole lesson.</description>
-    </item>
-    <item>
-      <title>Someone Built the Lock, and It Isn&#x27;t Software</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-22-someone-built-the-lock-and-it-isnt-software.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-22-someone-built-the-lock-and-it-isnt-software.html</guid>
-      <pubDate>2026-07-22</pubDate>
-      <category>Ops Brief</category>
-      <description>Ledger shipped an open-source toolkit that lets AI agents read wallets, analyze portfolios, and prepare transactions, while the final approval lives on a hardware device the agent cannot touch. Two weeks ago I asked where the lock should live. Here is a third answer: not in software at all.</description>
     </item>
   </channel>
 </rss>

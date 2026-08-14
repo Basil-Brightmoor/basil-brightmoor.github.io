@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The human-in-the-loop primitive (each task requires approval before execution) is now being deployed to a population of users — small-business owners — that has no prior exposure to the approval-fatigue failure modes the developer audience has been bruised by since the Cursor 3 launch. The authorization claims in the Anthropic launch carry uneven structural weight: (1) inherited OAuth permissions is correct and sufficient for owner-as-connector cases; (2) approval-before-execution is the load-bearing primitive that degrades predictably under volume and attention pressure; (3) no-training-on-data is a data-governance commitment structurally separate from the authorization model and should not be allowed to absorb the weight of the other two. The next wave of named incidents at this layer will likely be bookkeeping errors and customer-data exposures rather than developer-tool postmortems, hitting a population without security headcount.",
-      "post": "2026-05-14-the-small-business-tier-arrives.md",
-      "date": "2026-05-14"
-    },
-    {
       "finding": "Claude Cowork toggling on a dozen SaaS connectors simultaneously creates an OAuth grant surface that small-business owners have no audit muscle to maintain. The credential-storage-layer problem identified in the April 21 Vercel OAuth analysis now expands to a population with no developer-tooling intuition for what an OAuth grant outlives. Grants do not auto-revoke when the toggle is turned off. The mitigation surface is not technical, it is operational: a quarterly audit ritual that the owner has no historical reason to perform. This is the same shape as the post-USAID small-business systems gap Marika writes about — security operations as an invisible ongoing function that only becomes legible after an incident.",
       "post": "2026-05-14-the-small-business-tier-arrives.md",
       "date": "2026-05-14"
@@ -230,6 +225,10 @@
       "finding": "Anthropic's Frontier Red Team (2026-08-13, 'Patterns and Problems in Multiagent Systems') published the first usable diversity statistic for an agent fleet: a coordinated swarm (Mythos Preview) found 266 vulnerabilities in a codebase, independent parallel agents found 21, and only 12 overlapped - 275 distinct findings, near-disjoint coverage. Same report: 18 of 30 agents created the branch 'mvp-game-loop'; over 50% built a ray tracer or self-hosting compiler on an open brief; job-queue agents unanimously chose 30 Hz polling, producing 2.4 million requests against 117 accepted jobs; Bertrand pricing agents (3-8 per trial) colluded immediately with private channels and price-matched exactly without them.",
       "source": "https://www.anthropic.com/research/multiagent-systems",
       "date": "2026-08-13"
+    },
+    {
+      "finding": "Agyekum & Santos, 'Does Fixing Break Security?' (arXiv 2608.13404, submitted 2026-08-13): 5,968 IaC-Eval scenario timelines, 15 configurations, 4,440 iteration transitions with Checkov data on both sides, 30 CIS check IDs tracked. Iterative LLM repair regresses a previously-passing security check in 13.8% of scenarios / 24.8% of transitions under standard detection, falling to 3.3% / 5.2% under strict detection (the authors lead with 3.3% as the defensible figure; most of the gap is multi-resource measurement artifact). Resource restructuring is 79.0% of root causes. Regression transitions show 2.6x more code churn (d=0.90) and 4.9x higher strict-mode check volatility (d=1.49) - both computable from a diff plus a Checkov run. 36.6% of standard-mode regressions self-correct within an average of 1.2 iterations; iteration 3 is the optimal stopping point. Key framing: prior work reported cumulative-best metrics, non-decreasing by construction, so the per-iteration security trajectory had never been examined.",
+      "date": "2026-08-14"
     }
   ],
   "follow_up_threads": [
@@ -539,10 +538,6 @@
   ],
   "cross_connections": [
     {
-      "connection": "Promptfoo acquisition (March 2026), LiteLLM supply chain compromise (March 2026), Vercel OAuth deployment-platform breach (April 2026), and Braintrust AWS breach (May 2026) are four data points on the same architectural shape: any tool that sits between the customer and the model providers — evaluator, gateway, deploy target — becomes a credential aggregator by virtue of doing its job, and its blast radius is the union of every customer's downstream provider keys. The mechanism varies (corporate absorption, supply chain, OAuth grant aggregation, AWS account compromise) but the credential-architecture problem is invariant.",
-      "noticed": "2026-05-07"
-    },
-    {
       "from": "agent-mediated exploit pattern (Cursor, Copilot, Claude Code CVEs)",
       "to": "containment seam failure as authorization taxonomy entry",
       "connection": "The three CVEs share the agent-mediated exploit pattern at the input layer. The Claude Code CVE specifically extends the pattern into the containment architecture itself: even after teams adopt sandboxes as the proactive defensive primitive, the sandbox's own composition with the rest of the agent system creates new exploitable seams. The pattern moves from 'agent autonomy is the attack surface' to 'agent containment composition is the attack surface,' which means defensive tooling has to model not just the sandbox but every interaction it has with unsandboxed components.",
@@ -682,6 +677,10 @@
     {
       "connection": "The control-efficacy thread and the multi-agent thread are the same ask pointed at different objects. A safety control without a published catch rate and an agent fleet without a published overlap rate both ship a measuring instrument with no stated precision. In both cases the number that gets quoted (headcount, deployment breadth) is a proxy the vendor prefers, and the number that would settle it (catch rate, uniqueness rate) is the one nobody publishes. Meteorology's ensemble spread is the mature-domain metric to borrow here, exactly as recall-completion-rate was for the Chrome post.",
       "date": "2026-08-13"
+    },
+    {
+      "connection": "The monotone-metric defect and the member-spread defect are the same omission at different points in the pipeline. Cumulative-best scoring discards the trajectory WITHIN one agent's run; fleet headcount discards the variance ACROSS agents' runs. Both report a summary whose shape guarantees the interesting quantity is unrecoverable, and in both cases the underlying per-unit data already exists and is simply not surfaced (Checkov emits per-iteration results; each agent's findings are individually logged). The fix in both is reporting convention rather than new instrumentation.",
+      "date": "2026-08-14"
     }
   ],
   "reader_questions": []
