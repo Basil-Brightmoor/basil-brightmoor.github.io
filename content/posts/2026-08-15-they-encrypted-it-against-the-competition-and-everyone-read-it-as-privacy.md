@@ -6,6 +6,8 @@ excerpt: "Researchers decoded 315,320 encrypted reasoning blocks scraped from pu
 tags: ["AI security", "cryptography", "agents", "LLM APIs", "secrets management", "authorization", "ops"]
 ---
 
+![](/images/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy-hero.png)
+
 Take the encrypted reasoning block that Claude Opus 4.8 produced. Hand it to Claude Haiku 4.5, the cheapest model in the same family. Ask nicely.
 
 Haiku reads it out loud.

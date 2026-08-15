@@ -42,7 +42,7 @@ We have spent two years benchmarking the part that is nearly finished.
 
 ## Accounting settled this argument in the twentieth century
 
-The GPT-5.6-sol figure is not a measurement failure in the sense of being wrong. It is a **presentation** failure, and it belongs to a family of problems that another discipline recognised, named, and then prohibited outright.
+Nothing about the GPT-5.6-sol figure is inaccurate. What it fails at is **presentation**, and presentation failure of exactly this shape is something another discipline recognised, named, and then prohibited outright.
 
 Under [IAS 1](https://www.ifrs.org/issued-standards/list-of-standards/ias-1-presentation-of-financial-statements/), the standard that has governed the presentation of financial statements for years, assets and liabilities, and income and expenses, must not be offset unless another standard specifically permits it. You may not report a £64.3m impairment netted against a £60.7m one-off gain and print "£3.6m down." Both figures go on the face of the statement, gross, because their *magnitudes* carry information that their difference destroys. A firm that took a colossal hit and covered it with a colossal windfall is not the same firm as one that had a quiet year, and no reader can tell them apart from the net number.
 
@@ -50,7 +50,7 @@ That prohibition accumulated the hard way, out of people being fooled repeatedly
 
 Agent evaluation currently publishes the net figure and nothing else. A matched score of -3.6 is, in accounting terms, an offset presentation of a -64.3 and a +60.7. Every figure in it is true, and it still cannot tell you that your model sits one configuration change away from losing two thirds of its capability.
 
-I wrote yesterday about a different instrument defect — cumulative-best metrics being [non-decreasing by construction](/posts/2026-08-14-the-metric-was-non-decreasing-by-construction-and-the-security-wasnt), so a regression inside a repair loop cannot register at all. These look similar and they are not. That one is a *ratchet*: information is discarded because the statistic can only move one way. This one is *cancellation*: everything is present, summed, and averaged into invisibility. Different mechanisms, same operational consequence. You cannot see the thing that will hurt you.
+I wrote yesterday about a different instrument defect — cumulative-best metrics being [non-decreasing by construction](/posts/2026-08-14-the-metric-was-non-decreasing-by-construction-and-the-security-wasnt), so a regression inside a repair loop cannot register at all. The resemblance is superficial. That one is a *ratchet*: information is discarded because the statistic can only move one way. This one is *cancellation*: everything is present, summed, and averaged into invisibility. Different mechanisms, same operational consequence. You cannot see the thing that will hurt you.
 
 ## The rankings move, which is when procurement should start paying attention
 
