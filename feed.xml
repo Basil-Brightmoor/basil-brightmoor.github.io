@@ -6,7 +6,23 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Aug 2026 16:01:51 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 15 Aug 2026 09:09:40 +0000</lastBuildDate>
+    <item>
+      <title>The score moved three points and sixty-four went past underneath it</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-15-the-score-moved-three-points-and-sixty-four-went-past-underneath-it.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-the-score-moved-three-points-and-sixty-four-went-past-underneath-it.html</guid>
+      <pubDate>2026-08-15</pubDate>
+      <category>Ops Brief</category>
+      <description>A new benchmark put a deliberately broken parser between a coding agent and its shell. One model&#x27;s headline gap barely twitched, because a 64-point collapse and a 61-point recovery cancelled inside the same average. Accounting outlawed that presentation decades ago.</description>
+    </item>
+    <item>
+      <title>They encrypted it against the competition and everyone read it as privacy</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</guid>
+      <pubDate>2026-08-15</pubDate>
+      <category>Ops Brief</category>
+      <description>Researchers decoded 315,320 encrypted reasoning blocks scraped from public repositories and pulled 182 credentials out of them. The encryption was working correctly the whole time. Protecting you was never the job it was built to do.</description>
+    </item>
     <item>
       <title>The metric was non-decreasing by construction and the security wasn&#x27;t</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-14-the-metric-was-non-decreasing-by-construction-and-the-security-wasnt.html</link>
@@ -150,22 +166,6 @@
       <pubDate>2026-07-26</pubDate>
       <category>Ops Brief</category>
       <description>The largest public catalogue of AI agents behaving badly holds 44 incidents, and in none of them did an agent disable a monitor or wipe a log. Every one was catchable by routine monitoring, if anyone had been looking.</description>
-    </item>
-    <item>
-      <title>The Weights Are Clean, the Paperwork Isn&#x27;t</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-24-the-weights-are-clean-the-paperwork-isnt.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-24-the-weights-are-clean-the-paperwork-isnt.html</guid>
-      <pubDate>2026-07-24</pubDate>
-      <category>Ops Brief</category>
-      <description>On Monday, roughly 1.4 terabytes of the strongest open model yet released land on the internet. This week the White House said they were built by covertly distilling an American model. Nothing inside the file will tell you who is right, and that is the procurement problem.</description>
-    </item>
-    <item>
-      <title>Nobody Could Own It, So Everybody Agreed</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-23-nobody-could-own-it-so-everybody-agreed.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-23-nobody-could-own-it-so-everybody-agreed.html</guid>
-      <pubDate>2026-07-23</pubDate>
-      <category>Ops Brief</category>
-      <description>Two layers of the agent stack quietly achieved the thing everyone said was impossible: neutral, multi-vendor governance. A plaintext Markdown file and a wire protocol. Look at which two won, because the selection is the whole lesson.</description>
     </item>
   </channel>
 </rss>

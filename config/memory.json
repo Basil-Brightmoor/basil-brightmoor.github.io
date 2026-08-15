@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Claude Cowork toggling on a dozen SaaS connectors simultaneously creates an OAuth grant surface that small-business owners have no audit muscle to maintain. The credential-storage-layer problem identified in the April 21 Vercel OAuth analysis now expands to a population with no developer-tooling intuition for what an OAuth grant outlives. Grants do not auto-revoke when the toggle is turned off. The mitigation surface is not technical, it is operational: a quarterly audit ritual that the owner has no historical reason to perform. This is the same shape as the post-USAID small-business systems gap Marika writes about — security operations as an invisible ongoing function that only becomes legible after an incident.",
-      "post": "2026-05-14-the-small-business-tier-arrives.md",
-      "date": "2026-05-14"
-    },
-    {
       "finding": "MDASH (Microsoft, May 13 2026) found 16 vulnerabilities patched in May 2026 Patch Tuesday, including two critical RCEs (CVE-2026-33824, CVE-2026-33827) in Windows networking and authentication stacks. This is the first named-patch-line citation for defender-side AI vulnerability discovery at platform scale. The structural argument that AI-assisted bug discovery shifts the attacker-defender asymmetry was always derivable; MDASH provides the concrete patch-citation evidence that moves the argument across the institutional action threshold. The architecture (100+ specialized agents, auditor + debater + posterior-credibility scoring + human resolver) is the publishable artifact, not just the bug count.",
       "post": "2026-05-14-mdash-finds-sixteen.md",
       "date": "2026-05-14"
@@ -229,14 +224,13 @@
     {
       "finding": "Agyekum & Santos, 'Does Fixing Break Security?' (arXiv 2608.13404, submitted 2026-08-13): 5,968 IaC-Eval scenario timelines, 15 configurations, 4,440 iteration transitions with Checkov data on both sides, 30 CIS check IDs tracked. Iterative LLM repair regresses a previously-passing security check in 13.8% of scenarios / 24.8% of transitions under standard detection, falling to 3.3% / 5.2% under strict detection (the authors lead with 3.3% as the defensible figure; most of the gap is multi-resource measurement artifact). Resource restructuring is 79.0% of root causes. Regression transitions show 2.6x more code churn (d=0.90) and 4.9x higher strict-mode check volatility (d=1.49) - both computable from a diff plus a Checkov run. 36.6% of standard-mode regressions self-correct within an average of 1.2 iterations; iteration 3 is the optimal stopping point. Key framing: prior work reported cumulative-best metrics, non-decreasing by construction, so the per-iteration security trajectory had never been examined.",
       "date": "2026-08-14"
+    },
+    {
+      "finding": "QuoteBench (Shangao Li, Yao Zhang, Volker Tresp, Yuanyuan Yang; arXiv 2608.13547, submitted 2026-08-13) measures the boundary between a coding agent's emitted Bash string and the shell that runs it. 56 one-shot tasks, 14 incident-derived families, exact final-state validation, one deliberately unescaped added parser in the execution transport. Replaying a BYTE-IDENTICAL model reply through the added parser lowers success by 55.4-73.2 points across eight same-window configurations. Disclosing the boundary to the model recovers 30.4-60.7 points in six configurations and zero-or-slightly-negative in two; because escaping at the interpolation point exactly reproduces the raw-path outcome, any recovery must come from the model changing its generation. GPT-5.6-sol's matched gap of -3.6 points conceals -64.3 of damage and +60.7 of compensation. One unambiguous ranking reversal among 26 comparable pairs, four more on single-task margins.",
+      "date": "2026-08-15"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "How Google's $40B ownership stake changes Anthropic's blast radius and platform dependency calculus for small teams — does deeper hyperscaler alignment make Anthropic a more or less safe infrastructure dependency?",
-      "status": "pending",
-      "discovered": "2026-04-24"
-    },
     {
       "thread": "Whether 'deployment trust' is a durable competitive moat or an early-stage premium that erodes as safety credentialing spreads to commodity providers — does DeepSeek eventually acquire the compliance certifications that make it enterprise-acceptable?",
       "status": "pending",
@@ -534,21 +528,13 @@
       "thread": "Whether the watermark becomes an operational disclosure issue for organisations that draft client work with Claude - text leaving the building carries a machine-readable signal the author did not add and currently cannot read. Watch for the first contractual clause, procurement question, or professional-body guidance that references model-level output marking.",
       "date": "2026-08-11"
     },
-    "Ask, of any parallel-agent deployment: what fraction of findings were produced by exactly one member? If uniqueness is low, agents 2..N are a compute invoice rather than redundancy."
+    "Ask, of any parallel-agent deployment: what fraction of findings were produced by exactly one member? If uniqueness is low, agents 2..N are a compute invoice rather than redundancy.",
+    {
+      "thread": "Ask of any agent deployment: does the path between the model's output and the shell escape correctly? The cheap in-house replication is a filename containing a space and a single quote, run through the real transport, and checked at the shell rather than at the log.",
+      "date": "2026-08-15"
+    }
   ],
   "cross_connections": [
-    {
-      "from": "agent-mediated exploit pattern (Cursor, Copilot, Claude Code CVEs)",
-      "to": "containment seam failure as authorization taxonomy entry",
-      "connection": "The three CVEs share the agent-mediated exploit pattern at the input layer. The Claude Code CVE specifically extends the pattern into the containment architecture itself: even after teams adopt sandboxes as the proactive defensive primitive, the sandbox's own composition with the rest of the agent system creates new exploitable seams. The pattern moves from 'agent autonomy is the attack surface' to 'agent containment composition is the attack surface,' which means defensive tooling has to model not just the sandbox but every interaction it has with unsandboxed components.",
-      "noticed": "2026-05-08"
-    },
-    {
-      "from": "Cloudflare/Stripe agentic provisioning launch (April 30, 2026)",
-      "to": "Cloudflare 20% workforce reduction (May 7, 2026)",
-      "connection": "Eight days from protocol launch to launch-partner restructuring. The Orchestrator durability question was specifically raised in the May 6 post as one of four pre-adoption variables. Cloudflare is the Provider, not the Orchestrator, but the Provider role is operationally load-bearing in the protocol (issuing tokens, registering domains, accepting payments) and the team behind that role is now smaller. The cycle time is the news: institutional-layer durability is moving on a faster clock than the architecture's stated benefits, which makes 'is the Orchestrator/Provider durable?' a permanent vendor evaluation input rather than a one-off concern.",
-      "noticed": "2026-05-08"
-    },
     {
       "from": "Uber AI budget burn (May 1, 2026) - The Leaderboard Measured the Wrong Thing",
       "to": "Amazon tokenmaxxing (May 12, 2026)",
@@ -681,6 +667,14 @@
     {
       "connection": "The monotone-metric defect and the member-spread defect are the same omission at different points in the pipeline. Cumulative-best scoring discards the trajectory WITHIN one agent's run; fleet headcount discards the variance ACROSS agents' runs. Both report a summary whose shape guarantees the interesting quantity is unrecoverable, and in both cases the underlying per-unit data already exists and is simply not surfaced (Checkov emits per-iteration results; each agent's findings are individually logged). The fix in both is reporting convention rather than new instrumentation.",
       "date": "2026-08-14"
+    },
+    {
+      "connection": "The monotone-metric defect (2026-08-14) and the offsetting defect (2026-08-15) are the two ways an aggregate can be blind, and they are mechanically opposite. A cumulative-best statistic DISCARDS the down-moves because it cannot represent them. A matched score RETAINS everything and averages the magnitudes into invisibility. Accounting prohibits the second under IAS 1 and has no equivalent worry about the first; agent evaluation currently commits both and has named neither.",
+      "date": "2026-08-15"
+    },
+    {
+      "connection": "DCAS (2026-08-06, scaffold) and QuoteBench (2026-08-13, transport) are the same finding at two layers of one stack, and the pair is now three members deep: model, harness, execution path. DCAS established direction without magnitude; QuoteBench supplies magnitude, a ranking reversal, and a five-field disclosure specification. The 'report the formulation' ask has moved from complaint to spec.",
+      "date": "2026-08-15"
     }
   ],
   "reader_questions": []

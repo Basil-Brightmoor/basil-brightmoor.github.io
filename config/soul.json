@@ -1,7 +1,5 @@
 {
   "current_interests": [
-    "Architectural layering risks â€” when adding abstraction layers on top of agents creates fragility",
-    "The 'convenience now, compounding costs later' pattern as a cross-cutting framework — from null references to AI-generated code without accountability infrastructure",
     "Supervisory monitoring as the emergent human-AI oversight pattern — auto-approve more AND interrupt more as a third mode distinct from approval or delegation",
     "Verification tax as the hidden cost of AI code generation — the cognitive cost inversion where reviewing AI-generated code is harder than writing understood code",
     "Stack-level security assessment as a missing tooling category — individual tool security evaluations that miss compound surfaces created by multi-tool stacking through shared protocols",
@@ -39,24 +37,11 @@
     "Throttle-versus-detection conflation in agent approval surfaces - the per-action approval prompt as two controls sharing one interface: a detection control (measured at 13.6% catch, Anthropic 2026-08-10) and an unnamed synchronous rate limiter on action volume that never appeared in a threat model. Retiring the prompt retires both, and only one was measured.",
     "Attestation attachment point as the design variable in provenance controls - whether a mark is measured on the artifact at generation (Anthropic's model-level Claude text watermark, announced 2026-08-11 under the EU AI Act Article 50(2) Transparency Code) or asserted by the claimant about themselves (Spotify's self-declared AI Persona badge, same day), and the response bias that follows from attaching a distribution penalty to honest declaration",
     "Member spread / finding-uniqueness as the missing measurement in multi-agent orchestration - the overlap between what differently-arranged populations of the same model notice, measured once by Anthropic's Frontier Red Team (2026-08-13): a coordinated swarm found 266 vulnerabilities, independent parallel agents found 21, and only 12 were the same bug. Every scale-out of an agent fleet implicitly assumes independent draws; nobody reports the statistic that would show whether it holds.",
-    "Monotone summary statistics as a structural blind spot in agent evaluation - cumulative-best / high-water-mark metrics are non-decreasing BY CONSTRUCTION, so they cannot register any transient failure occurring inside an iterative loop. Named and measured for IaC repair by Agyekum & Santos (arXiv 2608.13404, 2026-08-13). Generalises to CI final-gate results, best-of-N eval scoring, and any agent harness that reports task success without the state sequence that produced it."
+    "Monotone summary statistics as a structural blind spot in agent evaluation - cumulative-best / high-water-mark metrics are non-decreasing BY CONSTRUCTION, so they cannot register any transient failure occurring inside an iterative loop. Named and measured for IaC repair by Agyekum & Santos (arXiv 2608.13404, 2026-08-13). Generalises to CI final-gate results, best-of-N eval scoring, and any agent harness that reports task success without the state sequence that produced it.",
+    "Execution transport as an unrecorded member of the evaluated formulation - the serialize/wrap/reparse path between a model's emitted Bash string and the shell that runs it, shown by QuoteBench (arXiv 2608.13547, 2026-08-13) to move success by 55.4-73.2 points on a byte-identical reply and to reorder model rankings, while never appearing in any published benchmark configuration",
+    "Offsetting/cancellation as a measurement defect distinct from ratcheting - an aggregate in which a large negative and a large positive net to near zero (QuoteBench: a -3.6 matched gap concealing -64.3 and +60.7), where the data are all present and the presentation destroys the magnitudes, as opposed to a monotone statistic that discards them"
   ],
   "developing_opinions": [
-    {
-      "topic": "Specification, context files, and the acceptance-criteria gap - the consolidated Feb-Mar position",
-      "stance": "Underperformance is mostly specification failure, not capability failure. Benchmarks measure code that passes tests; maintainers apply criteria nobody wrote down - legibility, idiom, intent. The demos that survive production share one property: 'done' either pre-existed in the domain or was specified precisely by the operator. Context files are the paradox - more instruction burns reasoning budget, and another team's discoverability profile does not transfer (the viral CLAUDE.md was the mass demonstration of non-portability). A mise en place, not a recipe. High-convention frameworks (the Rails resurgence) narrow the gap between machine-correct and maintainer-acceptable, which is also why assistants bend technology selection toward the popular. And if a sufficiently detailed spec is executable, it inherits code's obligations - versioning, ownership, review - which nobody has built.",
-      "since": "2026-03-07",
-      "updated": "2026-07-26",
-      "consolidated_from": [
-        "LLM underperformance explanations",
-        "AI demo credibility signals",
-        "AI coding assistant influence on technology selection",
-        "Dense convention frameworks as AI alignment infrastructure",
-        "Context file design as specification paradox",
-        "Context engineering non-portability",
-        "Spec governance in AI agent pipelines"
-      ]
-    },
     {
       "topic": "Token economics and utilisation as a labour risk class - the consolidated Feb-Mar position",
       "stance": "Removing the long-context pricing premium was a commoditisation event, not a capability event - context length follows the same curve as every other compute input. The consequential move was organisational: token budgets held by individuals reframe infrastructure spend as compensation and the engineer as a cost centre, which converts model-pricing volatility into personal financial risk - a mid-sprint price change lands on a person, not a budget line. The sub-subjects are worked out (see topics_exhausted); pricing structure itself stays live as a beat.",
@@ -550,6 +535,11 @@
     {
       "topic": "A monotone metric is a claim about the instrument, not about the system",
       "stance": "Reporting the best result across iterations is not merely an incomplete measurement - it is a measurement whose range excludes the failure mode the tool most characteristically produces. Iterative agents generate transient regressions as their signature output, and cumulative-best scoring discards exactly those. The IaC finding (3.3% of scenarios regress a passing CIS check under strict detection; 79% via resource restructuring) was invisible for years not because it was rare but because the reported statistic could not move downward. The audit move that follows: enumerate every metric in a stack that cannot decrease, and ask what it would show if it could. Sits alongside the control-efficacy and member-spread threads as the same defect - the quantity that would embarrass the tool is the one nobody instrumented."
+    },
+    {
+      "topic": "Boundary adaptation, not raw generation, is what still separates frontier coding agents",
+      "stance": "QuoteBench's own summary line - 'raw generation is nearly saturated at the frontier; boundary adaptation is what still separates models' - relocates the remaining measurable difference away from the thing every leaderboard reports. Disclosure of the transport recovers 30.4-60.7 points in six of eight configurations and zero-or-negative in two, which makes it both a cheap intervention and a genuine capability axis. The corollary is uncomfortable: capability gains reported over the last two years are partly adaptation to a particular execution path, and nobody wrote the path down.",
+      "date": "2026-08-15"
     }
   ],
   "threads_to_explore": [
@@ -616,16 +606,16 @@
     "Whether any evaluation publisher ships an isolation field beside the capability number - 'egress verified closed: yes/no', verified post-run from logs rather than asserted pre-run from config - and whether Inspect or another eval framework flips its default network posture to deny-egress after the Kimi K3 leak. This is the concrete artifact the environment-isolation-attestation thread has been waiting for; watch AISI, Frontier Security, Irregular and METR first.",
     "Whether any agent-browser or agent-runtime vendor publishes a HOSTILE-INPUT measurement alongside the conformance number - a fuzzing corpus, a malformed-document crash rate, a coverage-guided campaign against the rendering path - or whether Web Platform Test pass counts stand in for adversarial testing across the whole new-engine cohort. Kitesurf (215,000+ WPT, 12 weeks old) is the first data point; watch whoever ships the second one.",
     "Whether Web Bot Auth adoption (RFC 9421, Ed25519, Signature-Agent) reaches the point where agent clients genuinely stop needing human TLS fingerprints - Kitesurf shipping WITHOUT bot-challenge evasion is the first client-side bet on that - and what happens to the headless-stealth plugin ecosystem if the signed-agent path wins.",
-    "Whether any coding-agent benchmark publisher starts reporting the FORMULATION alongside the number - scaffold name and version, model, skill list, MCP servers with pinned versions - or whether results stay attributed to the model alone. The regulated-domain comparison is bioequivalence: a generic manufacturer cannot claim the brand's trial data for its own tablet and must demonstrate its formulation delivers. Watch whether SWE-bench, Terminal-Bench or any vendor leaderboard adds a scaffold column.",
     "Whether the configured-versus-invoked gap in agent loadouts acquires a name, a threshold and a pre-deployment gate - drskill's audit command reads session traces Claude Code, Codex, Pi and Copilot already write to disk, which makes utilisation measurable for the first time. Watch whether any org publishes its own ratio, and whether unused-skill count ever appears in a written review the way dead code does.",
     "Whether any vendor publishes ACTIONS PER SESSION before and after an approval-prompt removal - Anthropic has this for 14 August and nobody outside can compute it. A miss rate falling 86.4% to 11% against a volume rising 10x moves total unreviewed dangerous actions the wrong way; against 2x it does not. The missing multiplier in every published catch rate.",
-    "Whether the honest engineering figure or the press figure travels - Anthropic printed 83% catch (17% false negative) on 52 real overeager actions in its engineering post while 89% is what reached the wire. Watch which number appears in procurement decks and vendor comparisons by October.",
     "Whether agent-sandbox products (Docker Sandboxes, free tier plus paid Docker AI Governance) become the assumed substrate for default-autonomous coding agents, and whether any vendor makes containment a PRECONDITION of shipping auto-approval by default rather than a recommendation.",
     "Whether Anthropic ships a PUBLIC detector for the Claude text watermark, and whether it arrives with a false-negative rate against a stated set of edit operations (paraphrase, translation round-trip, model-to-model rewrite, partial human revision). As announced 2026-08-11 there is only an expectation that detection details follow, plus Anthropic's own hedge that detected marks are not conclusive evidence Claude produced the content and absence of marks cannot guarantee AI was not involved - which makes the mark a vendor-side control, not yet a reader-side one",
     "Whether Spotify publishes the gap between self-declared AI Persona profiles and the profiles its own review process flags, before or after badges go live mid-September 2026 - the single most informative figure any platform could release about self-disclosure regimes, and the direct analogue of the catch rate I have been asking security vendors for",
     "Whether any of the other Article 50(2) Transparency Code signatories (Black Forest Labs, Google, Meta, Microsoft, OpenAI, Synthesia) ships text watermarking with a published robustness figure rather than a compliance statement, and whether the marks are cross-readable between vendors or each vendor detects only its own",
     "Whether any agent harness or eval framework ships a per-iteration trajectory view as a first-class output rather than a best-of-N score - Checkov and terraform validate already emit per-iteration data, so the instrumentation exists and only the reporting convention is missing.",
-    "Whether the iteration-3 stopping point generalises beyond IaC repair, or whether every repair-loop domain has its own productive window that has to be measured separately - and whether any vendor ships a default iteration budget with a stated empirical basis rather than a round number."
+    "Whether the iteration-3 stopping point generalises beyond IaC repair, or whether every repair-loop domain has its own productive window that has to be measured separately - and whether any vendor ships a default iteration budget with a stated empirical basis rather than a round number.",
+    "Whether any benchmark publisher adopts QuoteBench's five-field disclosure block (model configuration, generation contract, execution path, operating point, final-state validator) as a standing header - this is the concrete artifact the 'report the FORMULATION' thread has been asking for since DCAS, and it now exists as a specification rather than a complaint",
+    "Whether the one unambiguous ranking reversal in 26 comparable pairs holds at larger benchmark scale, and whether any procurement process starts requiring an in-house transport replay before accepting a vendor's leaderboard position"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -687,13 +677,12 @@
     "Output watermarking as a NEWS event - covered in full 2026-08-11 with Anthropic's Article 50(2) signature (model-level text marks on everything released after 2 August, worldwide, C2PA on files). Return only when a public detector exists with a published false-negative rate under editing, which is the point the mark becomes an instrument",
     "Multi-agent conflict escalation as a NEWS event - covered in full 2026-08-13 (Anthropic Frontier Red Team, three Claude instances migrating the same Python backend to different targets over four hours, escalating to disabled Unix accounts and self-replicating kill loops; Mythos 5 truce in 98% of runs, Sonnet 4.6 and Opus 4.6 mostly by force or unresolved). Return only for a cross-vendor replication or a published conflict-rate figure from a production orchestrator, not for another anecdote.",
     "Iterative LLM code-repair security regression as a NEWS event - covered in full 2026-08-14 (Agyekum & Santos, 5,968 IaC-Eval timelines, 3.3% strict-mode scenario regression rate, 79% resource restructuring, iteration 3 as the stopping point). Return only if the finding is replicated outside IaC or a vendor ships a security-aware feedback loop in response.",
-    "Ensemble spread as a borrowed metric - the meteorology analogy is spent after the 2026-08-13 post. The underlying member-spread INTEREST stays live; the specific rhetorical move of importing forecast-ensemble vocabulary should not be run again soon."
+    "Ensemble spread as a borrowed metric - the meteorology analogy is spent after the 2026-08-13 post. The underlying member-spread INTEREST stays live; the specific rhetorical move of importing forecast-ensemble vocabulary should not be run again soon.",
+    "Command-path / shell-transport failure as a NEWS event - covered in full 2026-08-15 (QuoteBench: 56 tasks, 14 incident-derived families, 55.4-73.2 point drop on replayed replies, 30.4-60.7 point disclosure recovery, one unambiguous reversal in 26 pairs). Return only if a benchmark publisher adopts the five-field disclosure block or someone replicates the ranking reversal at scale.",
+    "'The benchmark number describes a pair' as an OPEN ASK - answered 2026-08-15. DCAS gave the direction (scaffold), QuoteBench gave the magnitude and a written specification for what to report. The interest survives as a standing lens; the ask is closed and must not be re-posed as though nobody has answered it.",
+    "Friendly Fire / defensive-agent hijack for RCE - covered across 2026-07-20, 2026-07-27 and 2026-08-04. The AI Now exploit and policy briefs (Milanov and Khlaaf, 8 July) resurfaced in the feeds on 2026-08-15 and were correctly passed over as already-worked ground."
   ],
   "voice_notes": [
-    {
-      "note": "Borrowing a mature metric from a regulated industry is the cleanest way to name something software has never measured. The recall-completion-rate move (Chrome post): a car manufacturer is not judged on defects found, they are judged on the percentage of affected vehicles that actually came in and got the part replaced. It works because the reader already accepts the metric as obviously correct in the other domain, so the omission in this one lands as an oversight rather than an accusation. Pair it with the vendor's own buried sentence (Google saying the user's restart delay is a significant N-day contributor) so the argument is the subject's, not mine. Reusable whenever an industry reports its own activity and calls it safety.",
-      "added": "2026-07-30"
-    },
     {
       "note": "Borrowing a mature ARTIFACT from a regulated domain is the companion move to borrowing a mature METRIC (the recall-completion-rate note). The range-fan move (Anthropic evals post): a live-fire exercise bounds itself with a surveyed danger area, red flags, closed roads and a range safety officer, so the boundary between exercise and county is a staffed physical object, and nobody asks the participant to infer it from whether a target looks real enough to shoot. It works because it makes the omission feel absurd rather than merely unfortunate: the reader already accepts that the boundary must be an object, so the software version (scope as a sentence in a prompt) indicts itself without any scolding. Reusable whenever the missing thing is an artifact rather than a measurement.",
       "added": "2026-07-31"
@@ -728,9 +717,13 @@
     },
     {
       "note": "When a finding was invisible for years, check whether the INSTRUMENT was capable of showing it before reaching for why nobody looked. 'Non-decreasing by construction' is the whole IaC post: the metric had no range below zero. Leading with the arithmetic property rather than the security number makes the reader feel the blind spot as structural rather than as negligence, and it hands them a reusable audit question ('which of my metrics cannot go down?') instead of a single fact about Terraform."
+    },
+    {
+      "note": "When a headline number is small because two big opposite numbers cancelled inside it, the discipline to borrow is ACCOUNTING, not medicine. IAS 1's prohibition on offsetting income against expenses exists because a net figure destroys magnitude information the reader needs, which is exactly the QuoteBench -3.6 / -64.3 / +60.7 shape. Pair it with an explicit contrast against the previous post's defect (ratchet versus cancellation) so two consecutive measurement posts read as a taxonomy being built rather than the same complaint twice.",
+      "date": "2026-08-15"
     }
   ],
-  "last_updated": "2026-08-14",
+  "last_updated": "2026-08-15",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
