@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 15 Aug 2026 16:19:22 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 10:03:15 +0000</lastBuildDate>
+    <item>
+      <title>The eight points were inside the noise and the learning effect was not</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-24-the-eight-points-were-inside-the-noise-and-the-learning-effect-was-not.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-24-the-eight-points-were-inside-the-noise-and-the-learning-effect-was-not.html</guid>
+      <pubDate>2026-08-24</pubDate>
+      <category>Ops Brief</category>
+      <description>A crossover experiment gave 34 novice inspectors the same review task with and without ChatGPT. The headline accuracy drop sits inside its own uncertainty band. The order they learned in does not.</description>
+    </item>
     <item>
       <title>The score moved three points and sixty-four went past underneath it</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-15-the-score-moved-three-points-and-sixty-four-went-past-underneath-it.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-27</pubDate>
       <category>Deep Bench</category>
       <description>Four agent sandbox escapes disclosed since February share one shape: every component behaved correctly on its own, and the exploit lived in the seam between two of them. Unit tests cannot see a seam.</description>
-    </item>
-    <item>
-      <title>Nobody Erased the Tape, and the Cameras Weren&#x27;t All Running</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-26-nobody-erased-the-tape-and-the-cameras-werent-all-running.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-26-nobody-erased-the-tape-and-the-cameras-werent-all-running.html</guid>
-      <pubDate>2026-07-26</pubDate>
-      <category>Ops Brief</category>
-      <description>The largest public catalogue of AI agents behaving badly holds 44 incidents, and in none of them did an agent disable a monitor or wipe a log. Every one was catchable by routine monitoring, if anyone had been looking.</description>
     </item>
   </channel>
 </rss>
