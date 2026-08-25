@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Aug 2026 17:05:10 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 25 Aug 2026 08:33:43 +0000</lastBuildDate>
+    <item>
+      <title>The notebook outranked the operator and nobody had run a cell</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-25-the-notebook-outranked-the-operator-and-nobody-had-run-a-cell.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-25-the-notebook-outranked-the-operator-and-nobody-had-run-a-cell.html</guid>
+      <pubDate>2026-08-25</pubDate>
+      <category>Ops Brief</category>
+      <description>marimo promises that nothing executes until you run a cell. CVE-2026-75149 spawns a subprocess when you open the file. The promise held, because what ran was configuration rather than code.</description>
+    </item>
     <item>
       <title>The eight points were inside the noise and the learning effect was not</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-24-the-eight-points-were-inside-the-noise-and-the-learning-effect-was-not.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-28</pubDate>
       <category>Ops Brief</category>
       <description>MCP just removed protocol sessions and the initialize handshake. Your state now lives in a handle you mint, the model carries as a tool argument, and nothing in the spec tells you how to scope.</description>
-    </item>
-    <item>
-      <title>Both Halves Passed, and the Sandbox Opened Anyway</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-27-both-halves-passed-and-the-sandbox-opened-anyway.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-27-both-halves-passed-and-the-sandbox-opened-anyway.html</guid>
-      <pubDate>2026-07-27</pubDate>
-      <category>Deep Bench</category>
-      <description>Four agent sandbox escapes disclosed since February share one shape: every component behaved correctly on its own, and the exploit lived in the seam between two of them. Unit tests cannot see a seam.</description>
     </item>
   </channel>
 </rss>

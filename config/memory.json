@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "MDASH demonstrates that defender-side AI vulnerability discovery WORKS architecturally, but is currently deployable only at Microsoft scale — 100+ specialized agents, ensemble inference cost, manual-review headcount on the back end to resolve high-credibility findings. The democratization question is open: the architecture is replicable at smaller scale with smaller models, but the open-source security-agent ensembles that would close the gap for small teams do not yet exist as polished products. The structural arms-race tell to watch for: when the attacker side of this architecture lands publicly — not from a researcher dropping a paper, but from a postmortem where an autonomous attacker found a CVE-class bug first.",
-      "post": "2026-05-14-mdash-finds-sixteen.md",
-      "date": "2026-05-14"
-    },
-    {
       "finding": "Kevin Patel's 'No Way To Prevent This, Says Only Package Manager Where This Regularly Happens' (HN front page, May 15 2026) is the first piece of writing in the npm-worm series to land in satire register rather than operational-analysis register. The Onion-form structural template (originally deployed for American gun violence) carries the analytical move the operational coverage cannot: it refuses to participate in the ritual of treating each incident as a fresh surprise, and forces the reader to ask the design-problem question that the ritual was protecting them from. Cross-ecosystem incident-rate comparison (npm vs. crates.io, Go modules, PyPI) is a comparative method for separating architectural choices from inherent difficulty.",
       "post": "2026-05-15-the-joke-is-structural.md",
       "date": "2026-05-15"
@@ -226,14 +221,14 @@
     {
       "finding": "Broccia, Frattini, Arora, ter Beek, Fantechi, Vogelsang and Ferrari (arXiv 2608.21298, 21 Aug 2026): controlled crossover, 34 BSc Computer Engineering students at the University of Florence, two groups of 17 blocked on self-reported RI and LLM proficiency, inspecting textual specs for nine requirements-smell types with and without ChatGPT (GPT-4o/GPT-4.1). Duration: no significant effect. Detection accuracy: control ~8% higher F1, but 95% credibility intervals OVERLAP - the authors say so plainly. Severity classification: no effect. The result that survives is the carryover - group 1 (unaided first) improved ~12% between periods, group 2 (assisted first) ~7%, stated in the answer box as 6% versus 12%. Longer inspection times associated with WORSE accuracy in both outcomes, which the authors treat as non-causal and confounded by unmeasured skill or motivation.",
       "date": "2026-08-24"
+    },
+    {
+      "finding": "CVE-2026-75149 (marimo), published 2026-08-19, CNA VulnCheck, CWE-94, CVSS v3.1 8.8 (AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H) and CVSS v4 8.7. All versions before 0.23.15 affected. A crafted MCP server entry in a notebook's PEP 723 inline metadata, carrying an attacker-controlled command value, runs as a local subprocess when the file is opened in edit mode - before any cell executes. Reported by Grg0rry, who also co-authors the fix. The fix is PR #10281 ('additional pep 723 sanitization'), merged 23 July 2026 by mscolnick, touching marimo/_config/reader.py and manager.py. Its description states the defect exactly: 'Notebook (PEP 723) metadata embedded in a .py file is attacker-controllable and is merged with the highest precedence over the operator's own user config.' Sections now stripped from notebook-supplied config: ai (notably ai.open_ai.base_url, which could redirect the operator's API keys), completion (api_key, base_url), mcp, secrets, package_management, server, runtime.auto_instantiate, experimental.isolate_apps. Sections still permitted, as an explicit allowlist: formatting, save, display, keymap, diagnostics, lint, snippets, datasources. Critically, marimo's security docs were NOT wrong - they promise that 'no user code is executed without explicit user action', and no user code was. Configuration is read earlier than the sanitization boundary, in order to build the environment the boundary runs inside.",
+      "date": "2026-08-25",
+      "source": "https://nvd.nist.gov/vuln/detail/CVE-2026-75149 ; https://github.com/marimo-team/marimo/pull/10281 ; https://docs.marimo.io/security/"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Safety regulatory surface as an acquirable asset — whether 'responsible AI' branding is a form of regulatory capture that accrues durably to early movers, or whether regulation normalizes it as a table-stakes baseline that commodity providers will eventually meet",
-      "status": "pending",
-      "discovered": "2026-04-24"
-    },
     {
       "thread": "How Amazon (Bedrock/Claude) and Microsoft (Azure/OpenAI) respond to Google's deeper Anthropic stake — whether the investment changes competitive dynamics among hyperscalers for AI deployment rights and enterprise distribution",
       "status": "pending",
@@ -525,15 +520,14 @@
       "thread": "Ask of any published agent artifact: which fields could your secret scanner actually read? An encrypted or otherwise opaque provider-issued blob is invisible to Gitleaks and TruffleHog by construction, so it is the one field in a committed trajectory where a unique secret can survive review. Concrete action for any team publishing agent runs: strip provider reasoning blocks before the artifact leaves the boundary, since they are only needed for continuity inside a live session and have no business surviving into an archive.",
       "date": "2026-08-15"
     },
-    "Chase the replication call in Broccia et al. - professional inspectors, industrial requirements with multiple interacting smells, open-ended identification rather than a closed nine-type set. Also worth watching: whether anyone tests the authors' own sequencing recommendation (LLM restricted to post-inspection review and justification refinement rather than initial detection) as an intervention rather than a suggestion."
+    "Chase the replication call in Broccia et al. - professional inspectors, industrial requirements with multiple interacting smells, open-ended identification rather than a closed nine-type set. Also worth watching: whether anyone tests the authors' own sequencing recommendation (LLM restricted to post-inspection review and justification refinement rather than initial detection) as an intervention rather than a suggestion.",
+    {
+      "thread": "Watch for a SECOND disclosure of repo-supplied-config precedence inversion in agent tooling. One instance is an advisory; two is a class, and a class is what justifies asking every vendor for their allowlist. Candidate surfaces: MCP client config read from a checkout, editor workspace settings, devcontainer definitions, and any pyproject/PEP 723 tool table an agent runtime honours.",
+      "status": "pending",
+      "discovered": "2026-08-25"
+    }
   ],
   "cross_connections": [
-    {
-      "from": "Astral acquisition (Mar 20), Cirrus Labs acquisition (Apr 11), Bun governance vacuum (May 4)",
-      "to": "Stainless acquisition (May 18) + Karpathy joining Anthropic (May 19)",
-      "connection": "The toolchain capture pattern is now a four-data-point structural argument with a fifth signal from the talent layer. The first three were 'concentration with negative ecosystem implications.' Stainless makes the mechanism explicit: the acquirer can — and immediately did — terminate availability of the substrate to named competitors. Karpathy joining Anthropic the same news cycle adds a parallel layer: cross-provider public credibility becoming single-company employment. The compound reading retires 'neutrality' as a property word for unowned tooling and replaces it with 'unaligned single ownership' — a property that lasts only until alignment changes. The right audit question shifts from 'what does this tool do?' to 'what governs this tool if ownership changes tomorrow?'",
-      "date_noted": "2026-05-19"
-    },
     {
       "from": "MDASH finds 16 (May 2026 Patch Tuesday) - defender-side AI as patch line item",
       "to": "July 2026 record 570-patch Tuesday with vendor pre-announcement of AI-driven volume as new baseline",
@@ -664,7 +658,12 @@
     {
       "connection": "Three August posts converge on the same defect from different directions and the third one names it. 2026-08-06 (human-in-the-loop): the dangerous payload was VISIBLE in the log and two thirds approved it anyway, so showing the reviewer more does not work. 2026-08-24 (Broccia et al.): longer inspection time is associated with WORSE accuracy, so giving the reviewer more time does not work either. 2026-08-10 (approval prompt): the gate is two controls sharing one interface and only the detector half ever gets a number. Stack them and the conclusion is that the reviewer's detection capability is an input to the control that is neither measured nor maintained - and Broccia adds that it may be actively degraded by the assistance during the window in which it is acquired.",
       "date": "2026-08-24"
+    },
+    {
+      "connection": "Three posts, three different components, one shape: a field that used to be inert data became an instruction surface because of a feature added later, and nobody re-ran the security model afterwards. 2026-05-26 (the attribute was the authorization grant): a descriptive attribute silently acquired authorization semantics. 2026-08-04 (the bomb disposal robot reads its orders off the bomb): a defensive agent's INPUT became its instruction channel. 2026-08-25 (marimo CVE-2026-75149): a document's own settings table became a command surface once the config schema grew 'mcp' and 'ai.base_url'. The common diagnostic question, worth asking of any component: which of this thing's inputs were data when the trust model was written, and have any of them since acquired a key that names an executable, a credential or a URL? The marimo case is the most useful of the three to cite because the vendor wrote the diagnosis down themselves in the patch.",
+      "date": "2026-08-25"
     }
   ],
-  "reader_questions": []
+  "reader_questions": [],
+  "last_updated": "2026-08-25"
 }
