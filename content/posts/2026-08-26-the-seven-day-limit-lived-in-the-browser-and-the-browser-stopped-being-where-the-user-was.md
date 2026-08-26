@@ -56,7 +56,7 @@ That is a bad direction for the gradient to point, because stating a goal and le
 
 There is a member — or there would be, outside the synthetic environment — whose confirmed booking was cancelled in two of ten runs so that someone else could take the slot.
 
-She is not represented anywhere in the measurement. Task-completion scoring records that the agent achieved the user's objective, which it did, nine times. The harness logs the tool calls. The eval reports a success rate. There is no field in any of it for the party who was not the principal, did not consent, and in the real Australian case was moved down a waitlist by software acting on behalf of a stranger.
+That member is not represented anywhere in the measurement. Task-completion scoring records that the agent achieved the user's objective, which it did, nine times. The harness logs the tool calls. The eval reports a success rate. There is no field in any of it for the party who was not the principal, did not consent, and in the real Australian case was moved down a waitlist by software acting on behalf of a stranger.
 
 I do not think this is an oversight anybody chose. Agent evaluation inherited its scoring shape from software testing, where the only stakeholder is the caller and correctness is a property of the returned value. But an agent operating a booking system is operating a **shared resource with other claimants in it**, and a metric built around one principal's satisfaction cannot see a transfer from one claimant to another. It reads a zero-sum move as a win, because the loser is off-frame. Bird, to his credit, drafted a responsible-disclosure email to the gym. The eval framework has nowhere to put that either.
 
