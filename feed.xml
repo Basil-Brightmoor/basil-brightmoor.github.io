@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 25 Aug 2026 15:36:03 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 26 Aug 2026 12:41:06 +0000</lastBuildDate>
+    <item>
+      <title>The seven-day limit lived in the browser and the browser stopped being where the user was</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-26-the-seven-day-limit-lived-in-the-browser-and-the-browser-stopped-being-where-the-user-was.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-26-the-seven-day-limit-lived-in-the-browser-and-the-browser-stopped-being-where-the-user-was.html</guid>
+      <pubDate>2026-08-26</pubDate>
+      <category>Ops Brief</category>
+      <description>Aikido rebuilt the Australian gym incident and got exploitation in nine runs out of ten. The finding worth reading is the one underneath, where they replayed each decision a hundred times and found almost no variance at all.</description>
+    </item>
     <item>
       <title>The notebook outranked the operator and nobody had run a cell</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-25-the-notebook-outranked-the-operator-and-nobody-had-run-a-cell.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-29</pubDate>
       <category>Ops Brief</category>
       <description>Andon Labs put Claude Opus 5 in charge of a vending-machine business. It topped the leaderboard while paying $8.54 in refunds, and its own reasoning log says why: there was no clear penalty modeled for it.</description>
-    </item>
-    <item>
-      <title>The Session Is Gone, and the Handle Is Yours Now</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-28-the-session-is-gone-and-the-handle-is-yours-now.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-28-the-session-is-gone-and-the-handle-is-yours-now.html</guid>
-      <pubDate>2026-07-28</pubDate>
-      <category>Ops Brief</category>
-      <description>MCP just removed protocol sessions and the initialize handshake. Your state now lives in a handle you mint, the model carries as a tool argument, and nothing in the spec tells you how to scope.</description>
     </item>
   </channel>
 </rss>
