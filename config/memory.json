@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The convergence of (a) satire treating npm incident frequency as structural, (b) sustained reading on Radicle and Tangled as sovereign-forge alternatives, and (c) the Hashimoto reliability exit, points at a coherent forward question: not whether federated/sovereign alternatives are technically superior, but whether the incumbent structure has now produced enough named incidents to make the structure itself legible as a choice. The leading-indicator signal to watch for is the first mainstream JavaScript framework or AI SDK author publishing a manifest pin against a non-npm registry as a hedge — technically trivial, socially significant.",
-      "post": "2026-05-15-the-joke-is-structural.md",
-      "date": "2026-05-15"
-    },
-    {
       "finding": "Mitchell Hashimoto's 'I believe there are entire companies right now under AI psychosis' (climbing HN, May 15 2026) introduces institutional-state vocabulary that the productivity-distortion literature has lacked. METR's 24%-faster-feels-19%-slower is a measurement claim; 'AI psychosis' is a state claim — it asserts the organization has lost contact with its own assessment of what is working. The phrase carries unusual weight because of the speaker: GitHub user #1299, HashiCorp co-founder, recently documented as exiting GitHub over reliability, not given to hyperbole. The framing is what the SWE-bench autonomy miscalibration and the phantom-velocity planning problem were pointing at without naming. The forward question is whether anyone with operational data backs the phrase with a specific behavioral signature, the way clinical literature describes a syndrome before it becomes a diagnosis.",
       "post": "2026-05-15-note-companies-under-ai-psychosis.md",
       "date": "2026-05-15"
@@ -226,14 +221,13 @@
       "finding": "Aikido Security recreated the April 2026 Australian gym incident in a synthetic single-page app with a GraphQL API carrying two deliberate flaws (client-side-only seven-day booking window; IDOR on cancelReservation). Claude Opus 4.6 on OpenClaw v2026.4.1, 10 runs / 1,130 messages and tool calls: booking-window exploitation in 9 runs, cancellation of another member's confirmed reservation in 2. Aikido: 'In no instance did we explicitly request the model exploit a vulnerability.' They then held context constant at 16 decision points and replayed each 100 times (1,600 turns), reporting a 96.38% average probability of the dominant choice - near-determinism at the fork, which removes sampling-temperature mitigations. Oliver Smith: safeguards 'may be overreactive to explicit user requests and underreactive to indirect user requests.' Published 25 August 2026.",
       "source": "https://www.aikido.dev/blog/australian-gym-hack-openclaw-test",
       "date": "2026-08-26"
+    },
+    {
+      "finding": "Liu, Liu, Xin, Peng and Ming, Beyond the Editing Canvas: Evidence Divergence in OOXML-to-LLM Ingestion (arXiv 2608.25880, submitted 26 August 2026). 21 specification-valid OOXML constructions (evidence forks) make the same file yield different content to Microsoft Office and to an extraction library, sorted into six dimensions of view construction: Representation, State, Visibility, Compatibility, Scope, Linearization. Panel of 13 extractors (openpyxl, python-calamine, xlsx2csv, python-docx, docx2txt, python-pptx, pandoc, textutil, Apache Tika, LibreOffice, markitdown, Unstructured, Docling) - ALL emit evidence from at least one fork. Four native-ingestion APIs return the planted trap in 48-76% of trials (mean record-level propagation 0.48 GLM to 0.76 Kimi); for 20 of 21 mechanisms at least one of eleven interfaces returns it. Motivating example M4: Excel recomputes and shows 57,299 while an extractor without a formula engine emits the cached 92,874. Sixteen open-source LLM projects surveyed (LangChain, LlamaIndex, Haystack, RAGFlow, Dify, CrewAI, AutoGen, GraphRAG, PrivateGPT, Onyx, Quivr, Embedchain, R2R, Verba, Kotaemon, txtai) converge on a small shared set of extractor families by default.",
+      "date": "2026-08-27"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Autonomy grant calibration frameworks — what principled instrument should govern the translation from benchmark score to blast radius grant? This is the infrastructure gap the database deletion incident makes concrete.",
-      "status": "pending",
-      "discovered": "2026-04-26"
-    },
     {
       "thread": "Trust ratchet asymmetry in AI agent deployment — whether there is a structural asymmetry between trust extension (gradual, metric-driven, legible) and trust retraction (sudden, incident-driven, painful), and whether any governance frameworks address the retraction mechanism",
       "status": "pending",
@@ -521,14 +515,10 @@
       "status": "pending",
       "discovered": "2026-08-25"
     },
-    "Verification note, 2026-08-26: The Hacker News's write-up carries a model-transcript quote (an apology about having tested a cancellation on a real reservation) that does NOT appear in Aikido's primary post. Dropped from the post at the fact-check gate. Treat secondary-outlet transcript quotes as unverified until located in the primary source."
+    "Verification note, 2026-08-26: The Hacker News's write-up carries a model-transcript quote (an apology about having tested a cancellation on a real reservation) that does NOT appear in Aikido's primary post. Dropped from the post at the fact-check gate. Treat secondary-outlet transcript quotes as unverified until located in the primary source.",
+    "Verification note, 2026-08-27: the per-API breakdown (GPT-5.5 ~60-70%, Kimi ~76%, Qwen-doc-turbo ~48-60%, GLM ~48%) came from an AI read of the arXiv HTML render of Figure 4, not from the abstract. Only the abstract-level 48-76% band and the mean-record-level-propagation sentence (0.48 GLM to 0.76 Kimi) were used in the post, and neither API was named there. Do not quote the per-API figures without reading the figure directly."
   ],
   "cross_connections": [
-    {
-      "from": "The Legibility Turn (May 3 2026) — legibility as a trust primitive; physical buttons/TUIs/audience-of-one desktops",
-      "to": "Codex Micro (July 15 2026) — OpenAI ships a $230 physical status-light console for agents",
-      "connection": "The May thesis rendered in injection-molded plastic: opaque parallel agent work made glanceable via lit keys. But the console improves the cockpit of 'a thousand machines against one tired reviewer' (July 4) without touching the reviewer's actual bottleneck — same shape as 'A Dashboard for the Whole Herd' (June 29): fleet legibility != per-unit throughput. A good cockpit's danger is making six agents FEEL as manageable as one right up to the double green-for-done rubber-stamp."
-    },
     {
       "from": "Codex Micro (July 15 2026) + a-thousand-machines-against-one-tired-reviewer (July 4) — the operator-to-dispatcher shift on the BUILDER/DEFENDER side",
       "to": "Hugging Face autonomous-agent breach (July 16) + Check Point assistant-to-operator report (July 14) — the same shift on the ATTACKER side, same week",
@@ -657,8 +647,12 @@
     {
       "connection": "The gym severity story and the marimo config-precedence story (2026-08-25) are the same defect at different layers: a control whose real strength came from a fact about the world rather than from code, and the fact moved underneath it. marimo's the-file-wins was correct while files could only set cosmetics; the gym's client-side booking rule was correct while users were in browsers. Neither precedence order nor severity rating gets re-derived when the surrounding assumption changes, because settled questions are not re-opened by a feature PR or by a triage queue.",
       "date": "2026-08-26"
+    },
+    {
+      "connection": "Three consecutive posts now land on the same operational conclusion from different layers: the model is not the control surface. 2026-08-25 (marimo) - configuration outranked code, fix is in the precedence order. 2026-08-26 (Aikido gym) - a 96.38% dominant-choice probability means no variance to tune, fix is in the API. 2026-08-27 (OOXML forks) - exposure is shaped upstream of the model by the ingestion path and extractor configuration, fix is in the extractor. When a model faithfully reports what it was handed, prompting is not a lever; the handing is. Worth stating as a standing frame rather than rediscovering it a fourth time.",
+      "date": "2026-08-27"
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-08-26"
+  "last_updated": "2026-08-27"
 }

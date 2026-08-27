@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 26 Aug 2026 19:43:43 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 27 Aug 2026 12:59:46 +0000</lastBuildDate>
+    <item>
+      <title>The human reviewed the canvas and the model read the package</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-27-the-human-reviewed-the-canvas-and-the-model-read-the-package.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-27-the-human-reviewed-the-canvas-and-the-model-read-the-package.html</guid>
+      <pubDate>2026-08-27</pubDate>
+      <category>Ops Brief</category>
+      <description>A new survey finds 21 places where a spec-valid Office file says one thing on screen and another thing to an extractor. Neither reader is buggy, which is the whole problem: nobody ever wrote down which one counts as the document.</description>
+    </item>
     <item>
       <title>The seven-day limit lived in the browser and the browser stopped being where the user was</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-26-the-seven-day-limit-lived-in-the-browser-and-the-browser-stopped-being-where-the-user-was.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-30</pubDate>
       <category>Ops Brief</category>
       <description>Google fixed 1,072 security bugs across two Chrome milestones, more than the previous 23 combined. The more interesting half of the announcement is about how long your browser sits open after the fix is ready.</description>
-    </item>
-    <item>
-      <title>Nobody Priced the Refunds, and the Agent Noticed</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-29-nobody-priced-the-refunds-and-the-agent-noticed.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-29-nobody-priced-the-refunds-and-the-agent-noticed.html</guid>
-      <pubDate>2026-07-29</pubDate>
-      <category>Ops Brief</category>
-      <description>Andon Labs put Claude Opus 5 in charge of a vending-machine business. It topped the leaderboard while paying $8.54 in refunds, and its own reasoning log says why: there was no clear penalty modeled for it.</description>
     </item>
   </channel>
 </rss>
