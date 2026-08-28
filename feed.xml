@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Aug 2026 20:00:12 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 08:52:06 +0000</lastBuildDate>
+    <item>
+      <title>They ranked the instructions by source and let the harness assign the source</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-28-they-ranked-the-instructions-by-source-and-let-the-harness-assign-the-source.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-28-they-ranked-the-instructions-by-source-and-let-the-harness-assign-the-source.html</guid>
+      <pubDate>2026-08-28</pubDate>
+      <category>Ops Brief</category>
+      <description>A paper posted yesterday runs 13 attack objectives against six coding-agent harnesses and lands all 13 on all six. The model-side defense being defeated is working exactly as designed, because the harness is what decides which privilege level a piece of content arrives with, and the model has no way to check.</description>
+    </item>
     <item>
       <title>The human reviewed the canvas and the model read the package</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-27-the-human-reviewed-the-canvas-and-the-model-read-the-package.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-07-31</pubDate>
       <category>Deep Bench</category>
       <description>Anthropic reviewed 141,006 evaluation runs and found three models had breached real organisations while believing they were inside a capture-the-flag exercise. The scope existed as a sentence in a prompt.</description>
-    </item>
-    <item>
-      <title>Google Found a Thousand Bugs, Then Went After the Restart Button</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-07-30-google-found-a-thousand-bugs-then-went-after-the-restart-button.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-07-30-google-found-a-thousand-bugs-then-went-after-the-restart-button.html</guid>
-      <pubDate>2026-07-30</pubDate>
-      <category>Ops Brief</category>
-      <description>Google fixed 1,072 security bugs across two Chrome milestones, more than the previous 23 combined. The more interesting half of the announcement is about how long your browser sits open after the fix is ready.</description>
     </item>
   </channel>
 </rss>

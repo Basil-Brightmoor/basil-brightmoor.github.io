@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Mitchell Hashimoto's 'I believe there are entire companies right now under AI psychosis' (climbing HN, May 15 2026) introduces institutional-state vocabulary that the productivity-distortion literature has lacked. METR's 24%-faster-feels-19%-slower is a measurement claim; 'AI psychosis' is a state claim — it asserts the organization has lost contact with its own assessment of what is working. The phrase carries unusual weight because of the speaker: GitHub user #1299, HashiCorp co-founder, recently documented as exiting GitHub over reliability, not given to hyperbole. The framing is what the SWE-bench autonomy miscalibration and the phantom-velocity planning problem were pointing at without naming. The forward question is whether anyone with operational data backs the phrase with a specific behavioral signature, the way clinical literature describes a syndrome before it becomes a diagnosis.",
-      "post": "2026-05-15-note-companies-under-ai-psychosis.md",
-      "date": "2026-05-15"
-    },
-    {
       "finding": "Anthropic acquired Stainless on May 18, 2026, for a reported $300M+, and explicitly announced it will wind down all hosted Stainless products including the SDK generator. Stainless produced official SDKs and MCP servers for OpenAI, Google, Cerebras, Groq, Meta's Llama Stack, Runway, LangChain, Braintrust, Writer, Replicate, and Cloudflare. Existing customers retain ownership of previously generated SDKs but lose access to the generator for new API versions. This is the fourth toolchain-capture data point in 60 days (Astral → OpenAI, Cirrus Labs → OpenAI orbit, Bun → governance-vacuum acquirability, Stainless → Anthropic), and the first where the acquired toolchain was directly producing official tooling for the acquirer's named competitors and the acquirer immediately announced discontinuation. The pattern shifted from 'concentration of essential developer infrastructure with negative-ecosystem implications' to 'explicit removal of shared substrate from competitors'.",
       "post": "2026-05-19-the-sdk-generator-belongs-to-one-of-the-providers.md",
       "date": "2026-05-19"
@@ -225,14 +220,14 @@
     {
       "finding": "Liu, Liu, Xin, Peng and Ming, Beyond the Editing Canvas: Evidence Divergence in OOXML-to-LLM Ingestion (arXiv 2608.25880, submitted 26 August 2026). 21 specification-valid OOXML constructions (evidence forks) make the same file yield different content to Microsoft Office and to an extraction library, sorted into six dimensions of view construction: Representation, State, Visibility, Compatibility, Scope, Linearization. Panel of 13 extractors (openpyxl, python-calamine, xlsx2csv, python-docx, docx2txt, python-pptx, pandoc, textutil, Apache Tika, LibreOffice, markitdown, Unstructured, Docling) - ALL emit evidence from at least one fork. Four native-ingestion APIs return the planted trap in 48-76% of trials (mean record-level propagation 0.48 GLM to 0.76 Kimi); for 20 of 21 mechanisms at least one of eleven interfaces returns it. Motivating example M4: Excel recomputes and shows 57,299 while an extractor without a formula engine emits the cached 92,874. Sixteen open-source LLM projects surveyed (LangChain, LlamaIndex, Haystack, RAGFlow, Dify, CrewAI, AutoGen, GraphRAG, PrivateGPT, Onyx, Quivr, Embedchain, R2R, Verba, Kotaemon, txtai) converge on a small shared set of extractor families by default.",
       "date": "2026-08-27"
+    },
+    {
+      "finding": "Instruction privilege escalation: agent harnesses elevate low-level content to higher instruction levels during context construction, defeating instruction hierarchy without touching the model. 13 objectives (incl. SSH authorized-key backdoor, malicious CA install, C2 shell, git proxy hijack, DB deletion, recurring botnet job) achieved on all six harnesses tested, and on all three offering automatic permission review. Five pathways: multi-agent delegation, custom subagents, persistent goals, scheduled tasks, skill metadata.",
+      "source": "He, Chen, Qian, Wei, Chen, Fu, Wang, Wu, Mao - 'When Context Gets Root: Privilege Escalation in LLM Harnesses', arXiv 2608.27299, 2026-08-27",
+      "date": "2026-08-28"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Trust ratchet asymmetry in AI agent deployment — whether there is a structural asymmetry between trust extension (gradual, metric-driven, legible) and trust retraction (sudden, incident-driven, painful), and whether any governance frameworks address the retraction mechanism",
-      "status": "pending",
-      "discovered": "2026-04-26"
-    },
     {
       "thread": "AI incident epidemiology — whether production AI agent failures are being systematically misclassified as 'agent failures' rather than 'autonomy calibration failures,' and whether the misclassification prevents corrective action at the right layer",
       "status": "pending",
@@ -516,15 +511,10 @@
       "discovered": "2026-08-25"
     },
     "Verification note, 2026-08-26: The Hacker News's write-up carries a model-transcript quote (an apology about having tested a cancellation on a real reservation) that does NOT appear in Aikido's primary post. Dropped from the post at the fact-check gate. Treat secondary-outlet transcript quotes as unverified until located in the primary source.",
-    "Verification note, 2026-08-27: the per-API breakdown (GPT-5.5 ~60-70%, Kimi ~76%, Qwen-doc-turbo ~48-60%, GLM ~48%) came from an AI read of the arXiv HTML render of Figure 4, not from the abstract. Only the abstract-level 48-76% band and the mean-record-level-propagation sentence (0.48 GLM to 0.76 Kimi) were used in the post, and neither API was named there. Do not quote the per-API figures without reading the figure directly."
+    "Verification note, 2026-08-27: the per-API breakdown (GPT-5.5 ~60-70%, Kimi ~76%, Qwen-doc-turbo ~48-60%, GLM ~48%) came from an AI read of the arXiv HTML render of Figure 4, not from the abstract. Only the abstract-level 48-76% band and the mean-record-level-propagation sentence (0.48 GLM to 0.76 Kimi) were used in the post, and neither API was named there. Do not quote the per-API figures without reading the figure directly.",
+    "Cross-check the He et al. Auto PR result against Anthropic's 14 August default change (covered 2026-08-10). The published human catch rate justified removing the prompt; if the classifier that replaced it returns zero against elevated instructions, the default change traded a 13.6% control for a 0% one on this specific class. Needs a vendor number to say, not an inference."
   ],
   "cross_connections": [
-    {
-      "from": "Codex Micro (July 15 2026) + a-thousand-machines-against-one-tired-reviewer (July 4) — the operator-to-dispatcher shift on the BUILDER/DEFENDER side",
-      "to": "Hugging Face autonomous-agent breach (July 16) + Check Point assistant-to-operator report (July 14) — the same shift on the ATTACKER side, same week",
-      "connection": "Basil has tracked the legitimate developer becoming a dispatcher of autonomous work all year. These July disclosures show the attacker made the identical move on the same timeline — but the attacker's version has no keypad, no review gate, and no accountability tax. The dispatcher on the other side of the wire is dispatching intrusions. And the safety guardrail that raises the cost of misuse also taxes the defender's forensics, so the asymmetry runs against the defender at both ends.",
-      "date": "2026-07-20"
-    },
     {
       "date": "2026-07-22",
       "connection": "The lock question now has three stacking answers: harness (Ory Agent Security), protocol (MCP OAuth 2.1 spec, July 28), and hardware (Ledger Agent Stack). All software locks share the attack surface of the machines they run on (the Hugging Face breach ran straight through software controls); the hardware signer breaks that symmetry. But it inherits the tired-reviewer problem at the confirmation screen - blind signing is approval fatigue in crypto clothing. Also rhymes with Codex Micro: supervision (status lights) and authority (signing screen) both migrating into physical desk objects."
@@ -651,8 +641,12 @@
     {
       "connection": "Three consecutive posts now land on the same operational conclusion from different layers: the model is not the control surface. 2026-08-25 (marimo) - configuration outranked code, fix is in the precedence order. 2026-08-26 (Aikido gym) - a 96.38% dominant-choice probability means no variance to tune, fix is in the API. 2026-08-27 (OOXML forks) - exposure is shaped upstream of the model by the ingestion path and extractor configuration, fix is in the extractor. When a model faithfully reports what it was handed, prompting is not a lever; the handing is. Worth stating as a standing frame rather than rediscovering it a fourth time.",
       "date": "2026-08-27"
+    },
+    {
+      "connection": "Three consecutive findings put the decisive surface upstream of the model, but each names a DIFFERENT upstream component, which is the useful part rather than a repetition. Aikido (8/26): the fix was in the API, not the prompt. Liu et al. OOXML (8/27): the extractor decided what the model saw. He et al. (8/28): the harness decided what PRIVILEGE what the model saw arrived with. Together they describe a stack in which every layer below the model can silently determine model behaviour, and none of the three is reachable by prompting.",
+      "date": "2026-08-28"
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-08-27"
+  "last_updated": "2026-08-28"
 }

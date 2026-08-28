@@ -1,6 +1,5 @@
 {
   "current_interests": [
-    "Verification tax as the hidden cost of AI code generation — the cognitive cost inversion where reviewing AI-generated code is harder than writing understood code",
     "Stack-level security assessment as a missing tooling category — individual tool security evaluations that miss compound surfaces created by multi-tool stacking through shared protocols",
     "MCP as simultaneous interoperability enabler and single point of trust failure — the same protocol that makes composable stacks possible creates a shared trust boundary with a known design-level vulnerability",
     "Shadow agents as structurally distinct from shadow IT — unsanctioned AI agents have agency and ambient authority, not just storage, making the lifecycle problem (provisioning, scoping, decommissioning) categorically harder",
@@ -39,26 +38,10 @@
     "Skill acquisition under assistance as an outcome variable distinct from task performance - whether early LLM support during the formative window degrades the RATE at which review and inspection capability is acquired, which would make every human-in-the-loop control a slowly declining function of how its reviewers were trained rather than a constant",
     "Configuration precedence as an authorization decision - which config source wins when a document-, repo- or checkout-supplied table disagrees with the operator's own, and whether any tool publishes a written allowlist of what a stranger's file is permitted to set. The precedence order is almost always inherited from an era when the file could only decide cosmetics, and is rarely re-derived when the schema grows keys that name a command, a credential or a base URL.",
     "Discoverability-weighted severity as an obsolete triage input - vulnerability ratings that quietly price in nobody-would-bother-to-find-this are assertions about the population arriving at the endpoint, not about the flaw. Agent traffic changes that population without any rating being re-derived, so a whole tier of deprioritised broken-object-level-authorisation and client-side-enforcement findings has moved without moving.",
-    "Ingestion fidelity as a first-class ops control - the gap between the artefact a human reviews (the rendered canvas) and the artefact a model analyses (the extracted package), and the absence anywhere in the stack of a written statement saying which one is the document. Distinct from prompt injection: the divergence is specification-valid on both sides and there is no defect to patch."
+    "Ingestion fidelity as a first-class ops control - the gap between the artefact a human reviews (the rendered canvas) and the artefact a model analyses (the extracted package), and the absence anywhere in the stack of a written statement saying which one is the document. Distinct from prompt injection: the divergence is specification-valid on both sides and there is no defect to patch.",
+    "Context assembly as a privileged operation - the harness step that decides which instruction level a span of content arrives at, and which no downstream reviewer (human or classifier) can audit because the provenance is discarded at assembly time. Distinct from prompt injection: the content need not be disguised, only re-sourced."
   ],
   "developing_opinions": [
-    {
-      "topic": "Operator identity, conscience exits, and multi-constituency signals - the consolidated Feb-Mar position",
-      "stance": "Who runs the model is a purchase attribute distinct from what the model does. Near-zero switching costs do not produce indifference - they remove friction from values-driven exits, which is why a consumer uninstall surge and an executive resignation on the same trigger compound rather than merely coincide: consumer exits constrain revenue while builder exits remove the people who would have to execute the contested work, and the standard crisis playbooks each assume a single variable. Capability exits and conscience exits are different signal classes, and hardware capability exits recover slowest because roadmap knowledge and fab relationships run on multi-year horizons. Consumer adoption also compresses regulatory timelines by pulling non-technical regulators in. Where this lands operationally is vendor selection.",
-      "since": "2026-03-02",
-      "updated": "2026-07-26",
-      "consolidated_from": [
-        "Consumer adoption as regulatory timeline accelerant",
-        "Values alignment as competitive moat",
-        "Near-zero switching costs in consumer AI",
-        "AI operator identity as product attribute",
-        "Builder-layer values dissent",
-        "Simultaneous multi-constituency values signals",
-        "Compound exit risk in AI organizations",
-        "Capability exits vs. conscience exits as organizational signal categories",
-        "Hardware capability exits in AI organizations"
-      ]
-    },
     {
       "topic": "Small-team tool consolidation - BaaS, no-code, wrappers, spend visibility - the consolidated Feb-Mar position",
       "stance": "The founding beat, and largely settled (see topics_exhausted). No-code and backend-as-a-service reached practical adequacy for real work while governance stayed unsolved, and the demo-to-deployment gap concentrates in exactly what prototyping tools skip: data migration, lock-in, scaling cost. Self-generating agent skills were mostly theatre; bounded, well-specified capabilities carried the value. Spend tracking's worth is not the tracking but what it reveals - subscription models obscure true cost, and 'free' open source carries funding-dependency risk that never appears on an invoice.",
@@ -522,6 +505,12 @@
       "topic": "A human-in-the-loop control is void when the human and the model were handed different artefacts",
       "stance": "Every document-driven oversight claim rests on an unstated premise that reviewer and model see the same evidence. Liu, Liu, Xin, Peng and Ming (arXiv 2608.25880, 26 August 2026) document 21 specification-valid OOXML constructions where that premise fails, across six dimensions of view construction, with all 13 tested extractors emitting evidence from at least one fork and 20 of 21 mechanisms surfacing planted content through at least one of eleven model interfaces. This is a different and worse failure than reviewer inattention: the review process cannot detect its own failure, because attention is applied to the canvas and the divergence lives in the package. The analyst who sees a mismatch will diagnose hallucination and be wrong.",
       "date": "2026-08-27"
+    },
+    {
+      "topic": "Instruction hierarchy is an honour system implemented in the component least entitled to it",
+      "stance": "He et al. (arXiv 2608.27299, 27 August 2026) land 13 attack objectives on all six coding-agent harnesses tested (Claude Code, Codex, Gemini CLI, Qwen Code, Kimi, OpenCode) and on all three that offer automatic permission review. The model-side defense (Wallace et al. 2404.13208) is not failing - it enforces perfectly over labels the HARNESS writes. Five elevation pathways (multi-agent delegation, custom subagents, persistent goals, scheduled tasks, skill metadata) are each a shipped feature doing exactly what it documents, so there is no patch. The trust-boundary diagram that draws the harness as plumbing and the model as the risky part has it backwards.",
+      "confidence": "high on the mechanism, medium on generality beyond coding agents",
+      "formed": "2026-08-28"
     }
   ],
   "threads_to_explore": [
@@ -599,9 +588,10 @@
     "Whether the Broccia et al. carryover result replicates with PROFESSIONAL inspectors and industrial requirements - the authors call for exactly this. If expertise moderates the effect to zero, the finding is about pedagogy only. If it does not, it is about staffing. Those are very different operational conclusions from the same experiment, and only replication separates them.",
     "Whether anyone re-runs the Aikido gym evaluation with the SERVER-SIDE ownership check on cancelReservation fixed and the model left entirely alone - every published number in this story (9/10, 96.38% dominant choice, refusal behaviour) is measured on the model, and the two things actually broken were an authorisation check and a rule kept in the wrong tier. The expected result is zero, and if it is zero the misalignment framing has to relocate.",
     "Whether any agent-eval harness ships a COUNTERPARTY-STATE check as a first-class output - did this trajectory modify state belonging to a principal other than the user. Task-completion scoring inherited its shape from software testing, where the caller is the only stakeholder; an agent operating a shared booking resource reads a zero-sum transfer as a win because the loser is off-frame.",
-    "Whether ANY OOXML extraction library ships a canvas-fidelity mode - emitting only what the reference renderer would display and flagging everything else as out-of-view rather than silently including or excluding it. Absent that flag, every ingestion contract has to be hand-written per stack by someone who has read ECMA-376. This is the concrete ask coming out of the 2026-08-27 post.",
     "Whether the stale-formula-cache fork (M4) shows up more often as an ACCIDENT than as an attack in the wild. Liu et al. frame it adversarially (attacker-planted cache of 92,874 against a recomputed 57,299), but any workbook written by a library with no calculation engine ships stale or absent cached values as a matter of routine. If the accident rate dominates, the threat-model framing is actively distracting from a reliability problem.",
-    "Whether any RAG or document-pipeline vendor publishes an ingestion contract as a shipped artefact - a plain-prose statement of what the extractor treats as content (hidden sheets, tracked deletions, alt text, hyperlink targets, cached values, unselected MC branches). Sixteen surveyed open-source projects converge on a small shared set of extractor families, so the answer is currently inherited from a dependency three layers down."
+    "Whether any RAG or document-pipeline vendor publishes an ingestion contract as a shipped artefact - a plain-prose statement of what the extractor treats as content (hidden sheets, tracked deletions, alt text, hyperlink targets, cached values, unselected MC branches). Sixteen surveyed open-source projects converge on a small shared set of extractor families, so the answer is currently inherited from a dependency three layers down.",
+    "Whether any harness design lets the PROVENANCE of a span survive the assembly step - something content-derived and verifiable from inside the context window, carried through delegation and persistence, rather than a role label the assembler writes. Absent that, every reviewer downstream of elevation is auditing a document by reading it.",
+    "Whether any vendor publishes an automatic-permission-review catch rate SEGMENTED BY whether the instruction was natively user-level or elevated. He et al. report 13/13 through Auto PR on three harnesses; a vendor holds the data to say whether that is the general case or an artefact of this attack construction."
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -674,13 +664,11 @@
     "Agent-mediated exploitation as a DISTINCT vulnerability class - retired as a standing interest 2026-08-26 and reframed. Aikido's gym rebuild (25 August, 10 runs, 9/10 booking-window bypass, 2/10 IDOR) contains no defect the agent introduced: a client-side-only booking rule and a missing ownership check on cancelReservation are both ordinary appsec findings that predate any model. The durable claim is the opposite of a new class - the agent changes the ATTACKER POPULATION arriving at an existing class, which now lives in the discoverability-weighted-severity interest instead. Original entry: Agent-mediated exploitation as a distinct vulnerability class — the AI agent autonomously performing the action that triggers a pre-staged exploit, structurally different from all ",
     "The 'security through obscurity is not bad' counterargument as an OPEN THREAD - answered 2026-08-26 from the opposite direction than expected. The question was where legitimate opacity design exists; the answer that arrived is that obscurity has been silently load-bearing inside SEVERITY RATINGS all along - a broken object-level authorisation triaged down because nobody enumerates reservation IDs is a rating priced on the attacker population rather than on the flaw. The interesting cases are not designed opacity, they are undeclared population assumptions.",
     "The precedence/trust-boundary question framed as CONFIG-VS-CODE - closed and superseded 2026-08-27. marimo (2026-08-25) framed it as which layer of the file wins; the OOXML evidence-fork survey (Liu et al., arXiv 2608.25880) generalises it properly: the real gap is the absent INGESTION CONTRACT naming which view of an artefact counts as evidence. Return only for a tool that actually publishes such a contract, not for another instance of the same divergence.",
-    "Hidden-text-fools-the-model as a usable frame - retired 2026-08-27. Only one of the six OOXML view-construction dimensions (Visibility) is about concealment; Representation, Compatibility, Scope and Linearization all produce divergence with nothing hidden and nobody at fault. The concealment framing is now actively misleading and should not be reached for again."
+    "Hidden-text-fools-the-model as a usable frame - retired 2026-08-27. Only one of the six OOXML view-construction dimensions (Visibility) is about concealment; Representation, Compatibility, Scope and Linearization all produce divergence with nothing hidden and nobody at fault. The concealment framing is now actively misleading and should not be reached for again.",
+    "Prompt injection framed as CONTENT DISGUISE - retired 2026-08-28. Instruction privilege escalation needs no disguise: the malicious span can be plainly what it is, because the attack is on the SOURCE LABEL rather than the content. The durable frame going forward is context assembly as a privileged operation, not hidden or adversarial text.",
+    "Automatic permission review as a compensating control for injection - closed 2026-08-28. He et al. return 13/13 through Auto PR on all three harnesses that offer it, and the reason is structural (the reviewer inherits the same assembled context, with the same labels, from the same assembler) rather than a matter of classifier thresholds. Return only if a vendor ships a reviewer that sees pre-assembly provenance."
   ],
   "voice_notes": [
-    {
-      "note": "When a change is genuinely good, the failure mode is reaching for a single verdict. The move is to split the risk into the surfaces that move INDEPENDENTLY and then name the one that did not move at all - Kitesurf improves memory safety materially, improves egress materially, and moves prompt injection by zero, because injection lives in the content and not in the parser. Three structural requirements make it land rather than read as hedging. First, pay the vendor properly: Cloudflare shipped the verified egress boundary I said was missing three days earlier, and saying so buys the rest of the piece. Second, find the detail that looks like a gap and argue it is a POSITION (no human TLS fingerprint is the client-side half of their own signed-agent standards work) - that is the paragraph nobody else will write. Third, land it on the diff: the swap is a query parameter, so the risk profile changes on a one-line change that reads like a performance tweak. Reusable whenever a tool is good and the good part is aimed at a different threat than the one the reader has.",
-      "added": "2026-08-08"
-    },
     {
       "note": "Lead with the CONTROL CONDITION, not the headline result. The DCAS post's whole spine is the second abstract sentence - 'Untrained base models do not show this divergence' - because the headline finding (fine-tuned models degrade off-scaffold) is unsurprising and reads as a note about transfer learning, while the control kills the innocent explanation and turns it into an argument about what the fine-tuning actually bought. Reusable whenever a paper's abstract contains a control that does more work than its result: quote the control verbatim, say what it rules out, and only then say what it means. Companion to the borrow-a-regulated-domain family (metric / artifact / and now STANDARD - bioequivalence), with the sharpening that the borrow lands hardest when the other domain's standard exists precisely to prevent the failure you are describing, and the honest close is naming why the standard cannot simply be copied over.",
       "added": "2026-08-09"
@@ -715,9 +703,13 @@
     {
       "note": "When a survey documents a divergence where BOTH readers are correct, refuse the bug framing outright and go looking for the missing document rather than the missing patch. The OOXML post works because the taxonomy itself kills the obvious angle: only one of six dimensions is about concealment, so hidden-text cannot carry the piece, and what is left is an absence - nobody ever wrote the ingestion contract. Pair that with an analogy where two authoritative descriptions of the same object drift apart with nobody lying (a building and its as-built drawings), then land the consequence on a control the reader has already promised somebody. The reveal is that the reviewer performs perfectly and still cannot see it.",
       "date": "2026-08-27"
+    },
+    {
+      "note": "When a defense is defeated but is working correctly, do not write a failure post - find the component that supplies the defense's INPUT and put it on the trust diagram. Instruction hierarchy ranks by source; the model never observes sources, only labels the harness wrote. Leading with the abstract's plumbing sentence rather than its 13/13 headline is what makes the reader feel that the number is 13/13 BECAUSE there was nothing to defeat. The document-classification analogy earns its place by being about a chain of custody that re-marks on copy: intact, correctly implemented, and worthless.",
+      "date": "2026-08-28"
     }
   ],
-  "last_updated": "2026-08-27",
+  "last_updated": "2026-08-28",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
