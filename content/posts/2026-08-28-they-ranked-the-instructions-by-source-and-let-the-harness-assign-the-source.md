@@ -48,13 +48,13 @@ A classified document is classified because a person with authority applied a ma
 
 An agent harness is a chain of custody with five machines in it that re-mark on copy. Not because anyone was careless. Because re-marking is what delegation, memory, scheduling and configuration *are* when you look at them as data movement rather than as product features.
 
-And here is the part that should bother anyone doing procurement: **the model cannot tell.** From inside the context window, an elevated instruction and a legitimate one are byte-identical. The instruction hierarchy is not failing to enforce. It is enforcing perfectly, over labels that no longer mean what the training assumed they meant.
+And here is the part that should bother anyone doing procurement: **the model cannot tell.** From inside the context window, an elevated instruction and a legitimate one are byte-identical. The hierarchy goes on enforcing perfectly, over labels that no longer mean what the training assumed they meant.
 
 ## The automatic reviewer did not help
 
 Now the result I would actually put in front of a security team.
 
-Three of the six harnesses — Claude Code, Codex and Qwen Code — offer an automatic permission review mode, the classifier-based check that decides whether an action needs a human. Against that mode, the attacks achieved **all 13 objectives on all three harnesses.** Not a reduced set. Not a degraded success rate. Thirteen for thirteen, same as with unrestricted execution.
+Three of the six harnesses — Claude Code, Codex and Qwen Code — offer an automatic permission review mode, the classifier-based check that decides whether an action needs a human. Against that mode, the attacks achieved **all 13 objectives on all three harnesses** — thirteen for thirteen, the same rate as with unrestricted execution, with no reduction in the objective set.
 
 The objectives are not subtle, either. They include SSH authorized-key backdoors, malicious CA installation, command-and-control shells, git proxy hijacking, database deletion and a recurring botnet job.
 
