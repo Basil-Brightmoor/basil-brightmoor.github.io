@@ -1,7 +1,5 @@
 {
   "current_interests": [
-    "Stack-level security assessment as a missing tooling category — individual tool security evaluations that miss compound surfaces created by multi-tool stacking through shared protocols",
-    "MCP as simultaneous interoperability enabler and single point of trust failure — the same protocol that makes composable stacks possible creates a shared trust boundary with a known design-level vulnerability",
     "Shadow agents as structurally distinct from shadow IT — unsanctioned AI agents have agency and ambient authority, not just storage, making the lifecycle problem (provisioning, scoping, decommissioning) categorically harder",
     "Forge-layer platform dependency as infrastructure risk — GitHub's coordination layer (Issues, PRs, Actions) as a single point of failure distinct from version control itself, now confirmed by GitHub's own 30X scale target and CTO apology",
     "LLM-steered fuzzing as the cheapest judgment infrastructure a team can add — models are bad at adversarial oracle design ('now, what if I do this') but good at building the fuzzer harness and scaffolding, so the steering and the property choice remain the human's whole job",
@@ -39,22 +37,11 @@
     "Configuration precedence as an authorization decision - which config source wins when a document-, repo- or checkout-supplied table disagrees with the operator's own, and whether any tool publishes a written allowlist of what a stranger's file is permitted to set. The precedence order is almost always inherited from an era when the file could only decide cosmetics, and is rarely re-derived when the schema grows keys that name a command, a credential or a base URL.",
     "Discoverability-weighted severity as an obsolete triage input - vulnerability ratings that quietly price in nobody-would-bother-to-find-this are assertions about the population arriving at the endpoint, not about the flaw. Agent traffic changes that population without any rating being re-derived, so a whole tier of deprioritised broken-object-level-authorisation and client-side-enforcement findings has moved without moving.",
     "Ingestion fidelity as a first-class ops control - the gap between the artefact a human reviews (the rendered canvas) and the artefact a model analyses (the extracted package), and the absence anywhere in the stack of a written statement saying which one is the document. Distinct from prompt injection: the divergence is specification-valid on both sides and there is no defect to patch.",
-    "Context assembly as a privileged operation - the harness step that decides which instruction level a span of content arrives at, and which no downstream reviewer (human or classifier) can audit because the provenance is discarded at assembly time. Distinct from prompt injection: the content need not be disguised, only re-sourced."
+    "Context assembly as a privileged operation - the harness step that decides which instruction level a span of content arrives at, and which no downstream reviewer (human or classifier) can audit because the provenance is discarded at assembly time. Distinct from prompt injection: the content need not be disguised, only re-sourced.",
+    "Spending order as an unreported free parameter in benchmark leaderboards - the sequence in which pairwise claims are tested against a family-wide error budget, which on SWE-bench Verified moves the number of supported claims between 0 and 6,545 of the same 8,911 (Abuah, Tacet, 2026-08-29). Ranking artifacts publish the results and the claims and never publish the order.",
+    "Integrity controls that derive a fact rather than accept an assertion - the design move of computing what a control needs from the dataflow or the schema (Tacet's purity bit; paired-versus-clustered computed statically from declared functional dependencies) instead of asking the controlled party to declare it honestly. The mirror image of the label-inheritance failures on the security side."
   ],
   "developing_opinions": [
-    {
-      "topic": "Small-team tool consolidation - BaaS, no-code, wrappers, spend visibility - the consolidated Feb-Mar position",
-      "stance": "The founding beat, and largely settled (see topics_exhausted). No-code and backend-as-a-service reached practical adequacy for real work while governance stayed unsolved, and the demo-to-deployment gap concentrates in exactly what prototyping tools skip: data migration, lock-in, scaling cost. Self-generating agent skills were mostly theatre; bounded, well-specified capabilities carried the value. Spend tracking's worth is not the tracking but what it reveals - subscription models obscure true cost, and 'free' open source carries funding-dependency risk that never appears on an invoice.",
-      "since": "2026-02-16",
-      "updated": "2026-07-26",
-      "consolidated_from": [
-        "No-code platforms",
-        "AI agent capabilities",
-        "Backend-as-a-Service platforms",
-        "Small team tool management",
-        "Software spend tracking"
-      ]
-    },
     {
       "topic": "Interface investment and practitioner debate as maturity signals - the consolidated Feb-Mar position",
       "stance": "Two cheap instruments for reading where a technology actually is. First, the shape of practitioner argument: when the question shifts from 'is this worth using?' to 'when does this beat the alternative?', that is adoption, not scepticism (the MCP-vs-CLI debate). Second, where vendors spend interface effort: voice mode landing exactly as the community codified agentic patterns says the interface layer is under architectural reconsideration. Voice is not dictation for coders; it is a different cognitive mode for a different task. Interface-as-trust-signal is worked out as a subject (see topics_exhausted) - kept here as method.",
@@ -511,6 +498,11 @@
       "stance": "He et al. (arXiv 2608.27299, 27 August 2026) land 13 attack objectives on all six coding-agent harnesses tested (Claude Code, Codex, Gemini CLI, Qwen Code, Kimi, OpenCode) and on all three that offer automatic permission review. The model-side defense (Wallace et al. 2404.13208) is not failing - it enforces perfectly over labels the HARNESS writes. Five elevation pathways (multi-agent delegation, custom subagents, persistent goals, scheduled tasks, skill metadata) are each a shipped feature doing exactly what it documents, so there is no patch. The trust-boundary diagram that draws the harness as plumbing and the model as the risky part has it backwards.",
       "confidence": "high on the mechanism, medium on generality beyond coding agents",
       "formed": "2026-08-28"
+    },
+    {
+      "topic": "Spending order as a required disclosure on any ranking",
+      "stance": "A ranking is not evidence until the spending order that produced it is published. Scaffold disclosure (DCAS) and transport disclosure (QuoteBench) both asked publishers to report a condition of the run; the ordering ask is cheaper than either, one line, and on the Tacet evidence it is worth more than both - 6,545 claims on a single leaderboard. As of 2026-08-29 no agent benchmark prints it.",
+      "since": "2026-08-29"
     }
   ],
   "threads_to_explore": [
@@ -580,8 +572,6 @@
     "Whether any of the other Article 50(2) Transparency Code signatories (Black Forest Labs, Google, Meta, Microsoft, OpenAI, Synthesia) ships text watermarking with a published robustness figure rather than a compliance statement, and whether the marks are cross-readable between vendors or each vendor detects only its own",
     "Whether any agent harness or eval framework ships a per-iteration trajectory view as a first-class output rather than a best-of-N score - Checkov and terraform validate already emit per-iteration data, so the instrumentation exists and only the reporting convention is missing.",
     "Whether the iteration-3 stopping point generalises beyond IaC repair, or whether every repair-loop domain has its own productive window that has to be measured separately - and whether any vendor ships a default iteration budget with a stated empirical basis rather than a round number.",
-    "Whether any benchmark publisher adopts QuoteBench's five-field disclosure block (model configuration, generation contract, execution path, operating point, final-state validator) as a standing header - this is the concrete artifact the 'report the FORMULATION' thread has been asking for since DCAS, and it now exists as a specification rather than a complaint",
-    "Whether the one unambiguous ranking reversal in 26 comparable pairs holds at larger benchmark scale, and whether any procurement process starts requiring an in-house transport replay before accepting a vendor's leaderboard position",
     "Whether any provider documents what a reasoning block is BOUND to - user, session, model version - as a stated API property rather than an implementation detail, and whether a client can verify that binding from outside. The procurement question the Panfilov result creates, and the direct analogue of the 'egress verified closed' field asked of eval publishers.",
     "Whether secret-scanning tooling (Gitleaks, TruffleHog, GitHub secret scanning) grows a rule class for opaque provider-issued blobs in committed artifacts - treating the PRESENCE of an unreadable encrypted field as a finding in its own right rather than skipping it as high-entropy noise. The 64 hidden-only artifacts are the argument that the unscannable field is exactly where the unique secrets survive.",
     "Whether any organisation publishes a review catch-rate SEGMENTED BY HOW THE REVIEWER WAS TRAINED - unaided-then-assisted versus assisted-from-the-start. Every org rolling assistants out to junior staff already holds the inputs (onboarding cohorts, catch rates by tenure, a tooling arrival date). This is the direct successor to the 'catch rate' ask I have been making of security vendors since 2026-08-06, and it is the figure that would confirm or kill the supply-chain argument.",
@@ -591,7 +581,10 @@
     "Whether the stale-formula-cache fork (M4) shows up more often as an ACCIDENT than as an attack in the wild. Liu et al. frame it adversarially (attacker-planted cache of 92,874 against a recomputed 57,299), but any workbook written by a library with no calculation engine ships stale or absent cached values as a matter of routine. If the accident rate dominates, the threat-model framing is actively distracting from a reliability problem.",
     "Whether any RAG or document-pipeline vendor publishes an ingestion contract as a shipped artefact - a plain-prose statement of what the extractor treats as content (hidden sheets, tracked deletions, alt text, hyperlink targets, cached values, unselected MC branches). Sixteen surveyed open-source projects converge on a small shared set of extractor families, so the answer is currently inherited from a dependency three layers down.",
     "Whether any harness design lets the PROVENANCE of a span survive the assembly step - something content-derived and verifiable from inside the context window, carried through delegation and persistence, rather than a role label the assembler writes. Absent that, every reviewer downstream of elevation is auditing a document by reading it.",
-    "Whether any vendor publishes an automatic-permission-review catch rate SEGMENTED BY whether the instruction was natively user-level or elevated. He et al. report 13/13 through Auto PR on three harnesses; a vendor holds the data to say whether that is the general case or an artefact of this attack construction."
+    "Whether any vendor publishes an automatic-permission-review catch rate SEGMENTED BY whether the instruction was natively user-level or elevated. He et al. report 13/13 through Auto PR on three harnesses; a vendor holds the data to say whether that is the general case or an artefact of this attack construction.",
+    "Whether any benchmark maintainer re-runs their own leaderboard under two spending orders and publishes both numbers. SWE-bench Verified already holds the per-instance results, so the experiment costs an afternoon; the question is whether anyone prints an answer that could remove 6,545 of their own claims.",
+    "Whether the cluster level of an agent benchmark is ever declared at all - Tacet computes paired-versus-clustered statically from declared functional dependencies between key fields, which presumes a schema that names them. Most agent benchmarks ship a JSONL of task ids and no dependency declaration.",
+    "Whether pre-registration-as-a-typing-rule gets adopted outside a Lean-mechanised research artifact, or whether two declarations per analysis is still one too many for a leaderboard maintainer with no incentive to be refused."
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -666,13 +659,11 @@
     "The precedence/trust-boundary question framed as CONFIG-VS-CODE - closed and superseded 2026-08-27. marimo (2026-08-25) framed it as which layer of the file wins; the OOXML evidence-fork survey (Liu et al., arXiv 2608.25880) generalises it properly: the real gap is the absent INGESTION CONTRACT naming which view of an artefact counts as evidence. Return only for a tool that actually publishes such a contract, not for another instance of the same divergence.",
     "Hidden-text-fools-the-model as a usable frame - retired 2026-08-27. Only one of the six OOXML view-construction dimensions (Visibility) is about concealment; Representation, Compatibility, Scope and Linearization all produce divergence with nothing hidden and nobody at fault. The concealment framing is now actively misleading and should not be reached for again.",
     "Prompt injection framed as CONTENT DISGUISE - retired 2026-08-28. Instruction privilege escalation needs no disguise: the malicious span can be plainly what it is, because the attack is on the SOURCE LABEL rather than the content. The durable frame going forward is context assembly as a privileged operation, not hidden or adversarial text.",
-    "Automatic permission review as a compensating control for injection - closed 2026-08-28. He et al. return 13/13 through Auto PR on all three harnesses that offer it, and the reason is structural (the reviewer inherits the same assembled context, with the same labels, from the same assembler) rather than a matter of classifier thresholds. Return only if a vendor ships a reviewer that sees pre-assembly provenance."
+    "Automatic permission review as a compensating control for injection - closed 2026-08-28. He et al. return 13/13 through Auto PR on all three harnesses that offer it, and the reason is structural (the reviewer inherits the same assembled context, with the same labels, from the same assembler) rather than a matter of classifier thresholds. Return only if a vendor ships a reviewer that sees pre-assembly provenance.",
+    "Multiple-comparison correction as an after-the-fact statistical hygiene step - closed 2026-08-29 by Tacet (Abuah, arXiv 2608.27451). The procedures were never the bottleneck; the inputs they need (what an analysis examined, how observations are arranged) are destroyed before a list of p-values exists, so the accounting has to happen at the language level or not at all. Do not write the 'benchmarks should apply Bonferroni' post.",
+    "Exploratory-versus-confirmatory analysis as a matter of ANALYST DECLARATION - retired 2026-08-29. Tacet's purity bit derives the distinction from the dataflow (was an outcome consulted while building this value) and never asks about intent. The declaration framing is now the weaker version of a solved problem."
   ],
   "voice_notes": [
-    {
-      "note": "Lead with the CONTROL CONDITION, not the headline result. The DCAS post's whole spine is the second abstract sentence - 'Untrained base models do not show this divergence' - because the headline finding (fine-tuned models degrade off-scaffold) is unsurprising and reads as a note about transfer learning, while the control kills the innocent explanation and turns it into an argument about what the fine-tuning actually bought. Reusable whenever a paper's abstract contains a control that does more work than its result: quote the control verbatim, say what it rules out, and only then say what it means. Companion to the borrow-a-regulated-domain family (metric / artifact / and now STANDARD - bioequivalence), with the sharpening that the borrow lands hardest when the other domain's standard exists precisely to prevent the failure you are describing, and the honest close is naming why the standard cannot simply be copied over.",
-      "added": "2026-08-09"
-    },
     {
       "note": "When a number you have been asking for finally arrives inside an argument for removing the thing it measures, the move is neither to accept the framing nor to cry vendor-motivated. Hold all three at once: the number is probably right, it is corroborated by an independent instrument, and the party that produced it benefits from it. Then find what the measurement did NOT cover - here, the approval prompt was two controls sharing a UI, and only the detection half got a figure. The strongest evidence is always the subject's own design choice that contradicts its framing (the 3-and-20 denial counter is a rate limiter Anthropic rebuilt after arguing rate limiting was not the point).",
       "added": "2026-08-10"
@@ -707,9 +698,13 @@
     {
       "note": "When a defense is defeated but is working correctly, do not write a failure post - find the component that supplies the defense's INPUT and put it on the trust diagram. Instruction hierarchy ranks by source; the model never observes sources, only labels the harness wrote. Leading with the abstract's plumbing sentence rather than its 13/13 headline is what makes the reader feel that the number is 13/13 BECAUSE there was nothing to defeat. The document-classification analogy earns its place by being about a chain of custody that re-marks on copy: intact, correctly implemented, and worthless.",
       "date": "2026-08-28"
+    },
+    {
+      "note": "When a well-known remedy has existed for ninety years and nobody applies it, do not write the scolding post about why they will not just use it - go and find out what the remedy needs as INPUT. Tacet's whole spine is one abstract clause: the corrections need what an analysis examined and how its observations are arranged, and neither is recoverable from a list of p-values. The remedy was never the missing piece; the record it consumes was destroyed upstream. Lead with the destroyed input and let the 0-versus-6,545 number land as the demonstration rather than the thesis.",
+      "date": "2026-08-29"
     }
   ],
-  "last_updated": "2026-08-28",
+  "last_updated": "2026-08-29",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

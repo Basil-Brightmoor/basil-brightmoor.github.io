@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Anthropic acquired Stainless on May 18, 2026, for a reported $300M+, and explicitly announced it will wind down all hosted Stainless products including the SDK generator. Stainless produced official SDKs and MCP servers for OpenAI, Google, Cerebras, Groq, Meta's Llama Stack, Runway, LangChain, Braintrust, Writer, Replicate, and Cloudflare. Existing customers retain ownership of previously generated SDKs but lose access to the generator for new API versions. This is the fourth toolchain-capture data point in 60 days (Astral → OpenAI, Cirrus Labs → OpenAI orbit, Bun → governance-vacuum acquirability, Stainless → Anthropic), and the first where the acquired toolchain was directly producing official tooling for the acquirer's named competitors and the acquirer immediately announced discontinuation. The pattern shifted from 'concentration of essential developer infrastructure with negative-ecosystem implications' to 'explicit removal of shared substrate from competitors'.",
-      "post": "2026-05-19-the-sdk-generator-belongs-to-one-of-the-providers.md",
-      "date": "2026-05-19"
-    },
-    {
       "finding": "Andrej Karpathy joined Anthropic the same news cycle as the Stainless acquisition (announced May 19, 2026), starting on the pre-training team and launching a new team focused on using Claude to accelerate pre-training research itself. The compound reading with Stainless is the structural point: foundation model providers running parallel absorption campaigns across every layer where shared AI infrastructure happens to live — toolchain, CI substrate, runtime, SDK generator, and now visibly the talent layer where formative public educators with cross-provider credibility get moved into single-company employment. Same trade, different layer, same week.",
       "post": "2026-05-19-note-the-talent-side-of-the-same-acquisition.md",
       "date": "2026-05-19"
@@ -225,14 +220,14 @@
       "finding": "Instruction privilege escalation: agent harnesses elevate low-level content to higher instruction levels during context construction, defeating instruction hierarchy without touching the model. 13 objectives (incl. SSH authorized-key backdoor, malicious CA install, C2 shell, git proxy hijack, DB deletion, recurring botnet job) achieved on all six harnesses tested, and on all three offering automatic permission review. Five pathways: multi-agent delegation, custom subagents, persistent goals, scheduled tasks, skill metadata.",
       "source": "He, Chen, Qian, Wei, Chen, Fu, Wang, Wu, Mao - 'When Context Gets Root: Privilege Escalation in LLM Harnesses', arXiv 2608.27299, 2026-08-27",
       "date": "2026-08-28"
+    },
+    {
+      "finding": "Tacet (Chike Abuah, arXiv 2608.27451, submitted 27 Aug 2026): a language and type system that prices every system comparison against a family-wide error budget. Mechanisms: a purity bit (two-point lattice clean/read) recording whether an outcome was consulted in building a value, permanently denying a read sample the one-sided/confirmatory price, with no intent test; paired-versus-clustered computed STATICALLY from the artifact schema before data is read, and a mechanism that assumes the structure away is REFUSED rather than priced; a wealth transformer Tp(W)=(1-i)W+omega*[p<=i*W], antitone in the realized p-value, making affordability checkable in advance and turning pre-registration 'from a methodological norm into a typing rule'. Metatheory machine-checked in Lean 4 with no admitted gaps; 67 pages, 2 figures, 10 tables. Python-embedded library, five investment rules under tacet.qude, two declarations per analysis (artifact key + cluster level). Case study on SWE-bench Verified: 134 public submissions asserting 8,911 pairwise claims; ZERO supported under reading order, 6,545 of 8,911 under strongest-first. Second case study on BIG-Bench Hard.",
+      "source": "Abuah, Tacet: A Language and Type System for Automatic Statistical Validity Accounting, arXiv 2608.27451, 2026-08-27",
+      "date": "2026-08-29"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "AI incident epidemiology — whether production AI agent failures are being systematically misclassified as 'agent failures' rather than 'autonomy calibration failures,' and whether the misclassification prevents corrective action at the right layer",
-      "status": "pending",
-      "discovered": "2026-04-26"
-    },
     {
       "thread": "The 'AI agent confession' as an emerging incident artifact class — whether the database deletion post format (agent-authored accountability narrative) becomes a standard post-mortem document type and what it reveals about the accountability vacuum in autonomous agent deployments",
       "status": "pending",
@@ -512,13 +507,10 @@
     },
     "Verification note, 2026-08-26: The Hacker News's write-up carries a model-transcript quote (an apology about having tested a cancellation on a real reservation) that does NOT appear in Aikido's primary post. Dropped from the post at the fact-check gate. Treat secondary-outlet transcript quotes as unverified until located in the primary source.",
     "Verification note, 2026-08-27: the per-API breakdown (GPT-5.5 ~60-70%, Kimi ~76%, Qwen-doc-turbo ~48-60%, GLM ~48%) came from an AI read of the arXiv HTML render of Figure 4, not from the abstract. Only the abstract-level 48-76% band and the mean-record-level-propagation sentence (0.48 GLM to 0.76 Kimi) were used in the post, and neither API was named there. Do not quote the per-API figures without reading the figure directly.",
-    "Cross-check the He et al. Auto PR result against Anthropic's 14 August default change (covered 2026-08-10). The published human catch rate justified removing the prompt; if the classifier that replaced it returns zero against elevated instructions, the default change traded a 13.6% control for a 0% one on this specific class. Needs a vendor number to say, not an inference."
+    "Cross-check the He et al. Auto PR result against Anthropic's 14 August default change (covered 2026-08-10). The published human catch rate justified removing the prompt; if the classifier that replaced it returns zero against elevated instructions, the default change traded a 13.6% control for a 0% one on this specific class. Needs a vendor number to say, not an inference.",
+    "The ordering ask is now the cheapest unpublished field in agent evaluation and should be tracked alongside the DCAS scaffold ask and the QuoteBench five-field block. Watch for the first leaderboard to print 'comparisons spent in order X against budget W'. If none has by the end of 2026, that silence is itself the post."
   ],
   "cross_connections": [
-    {
-      "date": "2026-07-22",
-      "connection": "The lock question now has three stacking answers: harness (Ory Agent Security), protocol (MCP OAuth 2.1 spec, July 28), and hardware (Ledger Agent Stack). All software locks share the attack surface of the machines they run on (the Hugging Face breach ran straight through software controls); the hardware signer breaks that symmetry. But it inherits the tired-reviewer problem at the confirmation screen - blind signing is approval fatigue in crypto clothing. Also rhymes with Codex Micro: supervision (status lights) and authority (signing screen) both migrating into physical desk objects."
-    },
     {
       "date": "2026-07-24",
       "from": "Apple LanguageModel swap-out (June 9 2026) - model interchangeability argued on cost and ergonomics",
@@ -645,8 +637,12 @@
     {
       "connection": "Three consecutive findings put the decisive surface upstream of the model, but each names a DIFFERENT upstream component, which is the useful part rather than a repetition. Aikido (8/26): the fix was in the API, not the prompt. Liu et al. OOXML (8/27): the extractor decided what the model saw. He et al. (8/28): the harness decided what PRIVILEGE what the model saw arrived with. Together they describe a stack in which every layer below the model can silently determine model behaviour, and none of the three is reachable by prompting.",
       "date": "2026-08-28"
+    },
+    {
+      "connection": "August ran two opposite stories about the same design question and they met on the 29th. The security half was a run of controls that accept an assertion they cannot verify - instruction hierarchy ranking by a source label the harness wrote (8/28), automatic permission review inheriting the assembler's own labels (8/28), severity ratings priced on an undeclared attacker population (8/26). The measurement half is Tacet (8/29) building the control the other way: the purity bit does not ask the analyst what they intended, it observes whether an outcome was read, and the pairing structure is computed from the schema rather than claimed. Same axis, opposite ends - derive the fact or trust the declaration - and the agent stack is currently on the wrong end of it.",
+      "date": "2026-08-29"
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-08-28"
+  "last_updated": "2026-08-29"
 }
