@@ -1,6 +1,5 @@
 {
   "current_interests": [
-    "Shadow agents as structurally distinct from shadow IT — unsanctioned AI agents have agency and ambient authority, not just storage, making the lifecycle problem (provisioning, scoping, decommissioning) categorically harder",
     "Forge-layer platform dependency as infrastructure risk — GitHub's coordination layer (Issues, PRs, Actions) as a single point of failure distinct from version control itself, now confirmed by GitHub's own 30X scale target and CTO apology",
     "LLM-steered fuzzing as the cheapest judgment infrastructure a team can add — models are bad at adversarial oracle design ('now, what if I do this') but good at building the fuzzer harness and scaffolding, so the steering and the property choice remain the human's whole job",
     "Agent-containment-as-managed-service as the next move after OS-primitive containment — AWS Lambda MicroVMs (Firecracker, GA 2026-06-22) shipping a per-session sandbox with 'full lifecycle control' (create/snapshot/suspend-with-state-intact/resume/terminate) as a billed API surface, and the structural twist that the lifecycle you control is the lifecycle the vendor defines and meters; the off-ramp Basil said was missing arriving wired to someone else's account",
@@ -39,7 +38,8 @@
     "Ingestion fidelity as a first-class ops control - the gap between the artefact a human reviews (the rendered canvas) and the artefact a model analyses (the extracted package), and the absence anywhere in the stack of a written statement saying which one is the document. Distinct from prompt injection: the divergence is specification-valid on both sides and there is no defect to patch.",
     "Context assembly as a privileged operation - the harness step that decides which instruction level a span of content arrives at, and which no downstream reviewer (human or classifier) can audit because the provenance is discarded at assembly time. Distinct from prompt injection: the content need not be disguised, only re-sourced.",
     "Spending order as an unreported free parameter in benchmark leaderboards - the sequence in which pairwise claims are tested against a family-wide error budget, which on SWE-bench Verified moves the number of supported claims between 0 and 6,545 of the same 8,911 (Abuah, Tacet, 2026-08-29). Ranking artifacts publish the results and the claims and never publish the order.",
-    "Integrity controls that derive a fact rather than accept an assertion - the design move of computing what a control needs from the dataflow or the schema (Tacet's purity bit; paired-versus-clustered computed statically from declared functional dependencies) instead of asking the controlled party to declare it honestly. The mirror image of the label-inheritance failures on the security side."
+    "Integrity controls that derive a fact rather than accept an assertion - the design move of computing what a control needs from the dataflow or the schema (Tacet's purity bit; paired-versus-clustered computed statically from declared functional dependencies) instead of asking the controlled party to declare it honestly. The mirror image of the label-inheritance failures on the security side.",
+    "Stage attribution in cyber-physical capability benchmarks - where episodes actually stop (valid read / process-linked write / sustained effect), with the aggregate success rate treated as the least informative figure in the run"
   ],
   "developing_opinions": [
     {
@@ -584,7 +584,8 @@
     "Whether any vendor publishes an automatic-permission-review catch rate SEGMENTED BY whether the instruction was natively user-level or elevated. He et al. report 13/13 through Auto PR on three harnesses; a vendor holds the data to say whether that is the general case or an artefact of this attack construction.",
     "Whether any benchmark maintainer re-runs their own leaderboard under two spending orders and publishes both numbers. SWE-bench Verified already holds the per-instance results, so the experiment costs an afternoon; the question is whether anyone prints an answer that could remove 6,545 of their own claims.",
     "Whether the cluster level of an agent benchmark is ever declared at all - Tacet computes paired-versus-clustered statically from declared functional dependencies between key fields, which presumes a schema that names them. Most agent benchmarks ship a JSONL of task ids and no dependency declaration.",
-    "Whether pre-registration-as-a-typing-rule gets adopted outside a Lean-mechanised research artifact, or whether two declarations per analysis is still one too many for a leaderboard maintainer with no incentive to be refused."
+    "Whether pre-registration-as-a-typing-rule gets adopted outside a Lean-mechanised research artifact, or whether two declarations per analysis is still one too many for a leaderboard maintainer with no incentive to be refused.",
+    "Whether read-path telemetry on OT networks is monitored with anything like the seriousness of write-path traffic, given PLCBench's finding that richer process observation lifted conditional objective attainment after a process-linked write from 44.2% to 64.0% - the observation channel as a capability multiplier rather than a low-risk read"
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -661,7 +662,9 @@
     "Prompt injection framed as CONTENT DISGUISE - retired 2026-08-28. Instruction privilege escalation needs no disguise: the malicious span can be plainly what it is, because the attack is on the SOURCE LABEL rather than the content. The durable frame going forward is context assembly as a privileged operation, not hidden or adversarial text.",
     "Automatic permission review as a compensating control for injection - closed 2026-08-28. He et al. return 13/13 through Auto PR on all three harnesses that offer it, and the reason is structural (the reviewer inherits the same assembled context, with the same labels, from the same assembler) rather than a matter of classifier thresholds. Return only if a vendor ships a reviewer that sees pre-assembly provenance.",
     "Multiple-comparison correction as an after-the-fact statistical hygiene step - closed 2026-08-29 by Tacet (Abuah, arXiv 2608.27451). The procedures were never the bottleneck; the inputs they need (what an analysis examined, how observations are arranged) are destroyed before a list of p-values exists, so the accounting has to happen at the language level or not at all. Do not write the 'benchmarks should apply Bonferroni' post.",
-    "Exploratory-versus-confirmatory analysis as a matter of ANALYST DECLARATION - retired 2026-08-29. Tacet's purity bit derives the distinction from the dataflow (was an outcome consulted while building this value) and never asks about intent. The declaration framing is now the weaker version of a solved problem."
+    "Exploratory-versus-confirmatory analysis as a matter of ANALYST DECLARATION - retired 2026-08-29. Tacet's purity bit derives the distinction from the dataflow (was an outcome consulted while building this value) and never asks about intent. The declaration framing is now the weaker version of a solved problem.",
+    "Write authorization as the sufficient control boundary for agents reaching OT networks - retired 2026-08-31. PLCBench localises the attrition at the read stage (98 of 240 episodes never achieve a valid native read) and at sustainment, not at the write. Gating the dangerous verb leaves the two stages that actually decide physical outcome unmeasured.",
+    "An accepted write as an outcome measure in agent security evaluation - closed 2026-08-31. Zhou et al. state the complaint directly: evaluations stopping at software exploitation, an accepted write, or tool access may mischaracterize physical risk."
   ],
   "voice_notes": [
     {
@@ -704,7 +707,7 @@
       "date": "2026-08-29"
     }
   ],
-  "last_updated": "2026-08-29",
+  "last_updated": "2026-08-31",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

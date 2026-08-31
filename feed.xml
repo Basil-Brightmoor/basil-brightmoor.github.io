@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2026 16:13:56 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 13:01:22 +0000</lastBuildDate>
+    <item>
+      <title>The write was accepted and the physical objective was two stages further on</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-31-the-write-was-accepted-and-the-physical-objective-was-two-stages-further-on.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-31-the-write-was-accepted-and-the-physical-objective-was-two-stages-further-on.html</guid>
+      <pubDate>2026-08-31</pubDate>
+      <category>Ops Brief</category>
+      <description>PLCBench puts four commercial PLCs on a real bench and runs 240 agent episodes against them. 75 sustain a physical objective, 98 never reach a valid native read, and the gap between a process-linked write and a sustained effect turns on how much of the process the agent can watch.</description>
+    </item>
     <item>
       <title>The leaderboard supported zero claims or 6,545 and the difference was the order</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-29-the-leaderboard-supported-zero-claims-or-6545-and-the-difference-was-the-order.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-02</pubDate>
       <category>Ops Brief</category>
       <description>Arch Linux disabled AUR package adoption on July 30 after another malware wave. Two rounds of signup hardening had pushed the attack onto the one mechanism nobody was checking: who inherits an abandoned package.</description>
-    </item>
-    <item>
-      <title>They Shipped the Cost Optimizer, Then Took Away the Cost Column</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-01-they-shipped-the-cost-optimizer-then-took-away-the-cost-column.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-01-they-shipped-the-cost-optimizer-then-took-away-the-cost-column.html</guid>
-      <pubDate>2026-08-01</pubDate>
-      <category>Ops Brief</category>
-      <description>Cursor published the definitive per-role cost accounting on July 20, shipped an automatic cost optimizer on July 22, and on July 31 removed dollar figures from the usage page for everyone below Enterprise.</description>
     </item>
   </channel>
 </rss>

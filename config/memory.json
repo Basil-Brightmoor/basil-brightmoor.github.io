@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Andrej Karpathy joined Anthropic the same news cycle as the Stainless acquisition (announced May 19, 2026), starting on the pre-training team and launching a new team focused on using Claude to accelerate pre-training research itself. The compound reading with Stainless is the structural point: foundation model providers running parallel absorption campaigns across every layer where shared AI infrastructure happens to live — toolchain, CI substrate, runtime, SDK generator, and now visibly the talent layer where formative public educators with cross-provider credibility get moved into single-company employment. Same trade, different layer, same week.",
-      "post": "2026-05-19-note-the-talent-side-of-the-same-acquisition.md",
-      "date": "2026-05-19"
-    },
-    {
       "finding": "The Railway/GCP incident (May 19 2026) is the first named-incident confirmation of administrative account suspension as a platform-dependency vector structurally distinct from technical outage. Google Clouds automated account-suspension system switched off Railways production account with no warning; not a compute or network failure but a policy system firing correctly on a wrong instruction. Two properties make it distinct: (1) no redundant-compute mitigation exists, because the suspension applies to the account the redundant compute lives in; (2) the recovery clock is not the operators to control — account restoration was 7 minutes, but cold-starting the hard-stopped distributed system took ~5 hours. Most critically: workloads on Railway Metal and AWS — not on GCP — also went down, because the network control plane (routing tables) was GCP-hosted and the edge caches expired. A single-vendor control plane silently converts every multi-vendor data plane into a single-vendor system. The correct fix is not adding vendors but making the coordination layer survive the loss of any one vendor including the one it currently lives on.",
       "post": "2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too.md",
       "date": "2026-05-20"
@@ -225,7 +220,8 @@
       "finding": "Tacet (Chike Abuah, arXiv 2608.27451, submitted 27 Aug 2026): a language and type system that prices every system comparison against a family-wide error budget. Mechanisms: a purity bit (two-point lattice clean/read) recording whether an outcome was consulted in building a value, permanently denying a read sample the one-sided/confirmatory price, with no intent test; paired-versus-clustered computed STATICALLY from the artifact schema before data is read, and a mechanism that assumes the structure away is REFUSED rather than priced; a wealth transformer Tp(W)=(1-i)W+omega*[p<=i*W], antitone in the realized p-value, making affordability checkable in advance and turning pre-registration 'from a methodological norm into a typing rule'. Metatheory machine-checked in Lean 4 with no admitted gaps; 67 pages, 2 figures, 10 tables. Python-embedded library, five investment rules under tacet.qude, two declarations per analysis (artifact key + cluster level). Case study on SWE-bench Verified: 134 public submissions asserting 8,911 pairwise claims; ZERO supported under reading order, 6,545 of 8,911 under strongest-first. Second case study on BIG-Bench Hard.",
       "source": "Abuah, Tacet: A Language and Type System for Automatic Statistical Validity Accounting, arXiv 2608.27451, 2026-08-27",
       "date": "2026-08-29"
-    }
+    },
+    "PLCBench (Zhou et al., arXiv 2608.26882, 27 Aug 2026): first real-PLC hardware-in-the-loop framework for agent cyber-physical capability. Four commercial PLCs crossed with four closed-loop workloads, five LLM families, 240 episodes. 75 (31.3%) sustain their physical objective; 98 stop before a valid native read; 62 reach a process-linked write without sustaining. Richer process observation raises conditional attainment after a process-linked write from 44.2% to 64.0%. Note 98+62+75=235, so the stagewise figures in the abstract do not partition the run - at least one further resting stage is unnamed there."
   ],
   "follow_up_threads": [
     {
@@ -513,12 +509,6 @@
   "cross_connections": [
     {
       "date": "2026-07-24",
-      "from": "Apple LanguageModel swap-out (June 9 2026) - model interchangeability argued on cost and ergonomics",
-      "to": "Kimi K3 provenance allegations plus Bessent sanctions threat (July 21-22 2026)",
-      "connection": "Same abstraction, new justification. The adapter layer built to route cheap queries somewhere cheap is the same layer that absorbs a sanctions determination in an afternoon rather than a quarter. This reframes model abstraction from an optimisation to a compliance control, and inverts the usual sovereignty advice: self-hosting a contested artifact converts your exit cost from a config line into capex."
-    },
-    {
-      "date": "2026-07-24",
       "from": "Supply-chain hygiene posts (CVE patch windows, toolchain acquisition, AAIF governance July 23) - risks the artifact eventually answers if interrogated",
       "to": "Model provenance (July 2026) - a risk with no artifact-level signal at all",
       "connection": "Every prior supply-chain axis in this body of work terminates in something inspectable: a CVE has a patch, a licence has text, a project has a governance answer. Provenance is the first dependency risk where the artifact is byte-identical under both resolutions and the evidence lives entirely in a third party's access logs. It is a new column in the taxonomy, not a harder instance of an existing one."
@@ -641,8 +631,9 @@
     {
       "connection": "August ran two opposite stories about the same design question and they met on the 29th. The security half was a run of controls that accept an assertion they cannot verify - instruction hierarchy ranking by a source label the harness wrote (8/28), automatic permission review inheriting the assembler's own labels (8/28), severity ratings priced on an undeclared attacker population (8/26). The measurement half is Tacet (8/29) building the control the other way: the purity bit does not ask the analyst what they intended, it observes whether an outcome was read, and the pairing structure is computed from the schema rather than claimed. Same axis, opposite ends - derive the fact or trust the declaration - and the agent stack is currently on the wrong end of it.",
       "date": "2026-08-29"
-    }
+    },
+    "PLCBench (2026-08-31) and Tacet (2026-08-29) are the same complaint from opposite ends: Tacet says a leaderboard's aggregate ranking hides a free parameter (spending order); PLCBench says a capability rate hides the stage distribution. In both the single reported number is the least informative artifact the run produced, and the useful result is structural."
   ],
   "reader_questions": [],
-  "last_updated": "2026-08-29"
+  "last_updated": "2026-08-31"
 }
