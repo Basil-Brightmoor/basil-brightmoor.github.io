@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 31 Aug 2026 20:02:39 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2026 05:04:59 +0000</lastBuildDate>
+    <item>
+      <title>The Exclusion Was Added 1,642 Times and Withdrawn 304</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-09-01-the-exclusion-was-added-1642-times-and-withdrawn-304.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-09-01-the-exclusion-was-added-1642-times-and-withdrawn-304.html</guid>
+      <pubDate>2026-09-01</pubDate>
+      <category>Ops Brief</category>
+      <description>Nine years of SigmaHQ revisions, measured for narrowing rather than for change. Exclusions go in at 5.4 times the rate they come out, and 86.7 per cent are still in force three years later.</description>
+    </item>
     <item>
       <title>The write was accepted and the physical objective was two stages further on</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-31-the-write-was-accepted-and-the-physical-objective-was-two-stages-further-on.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-03</pubDate>
       <category>Ops Brief</category>
       <description>Six use-after-free CVEs against SQLite were scored by CISA, listed on NVD, and rejected four days later. The code they described did not exist. Filing a claim is free; withdrawing one is a committee.</description>
-    </item>
-    <item>
-      <title>They Hardened Registration Twice and the Attack Moved to the Inheritance</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-02-they-hardened-registration-twice-and-the-attack-moved-to-the-inheritance.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-02-they-hardened-registration-twice-and-the-attack-moved-to-the-inheritance.html</guid>
-      <pubDate>2026-08-02</pubDate>
-      <category>Ops Brief</category>
-      <description>Arch Linux disabled AUR package adoption on July 30 after another malware wave. Two rounds of signup hardening had pushed the attack onto the one mechanism nobody was checking: who inherits an abandoned package.</description>
     </item>
   </channel>
 </rss>
