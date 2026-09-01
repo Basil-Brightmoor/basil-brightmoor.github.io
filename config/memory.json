@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The Railway/GCP incident (May 19 2026) is the first named-incident confirmation of administrative account suspension as a platform-dependency vector structurally distinct from technical outage. Google Clouds automated account-suspension system switched off Railways production account with no warning; not a compute or network failure but a policy system firing correctly on a wrong instruction. Two properties make it distinct: (1) no redundant-compute mitigation exists, because the suspension applies to the account the redundant compute lives in; (2) the recovery clock is not the operators to control — account restoration was 7 minutes, but cold-starting the hard-stopped distributed system took ~5 hours. Most critically: workloads on Railway Metal and AWS — not on GCP — also went down, because the network control plane (routing tables) was GCP-hosted and the edge caches expired. A single-vendor control plane silently converts every multi-vendor data plane into a single-vendor system. The correct fix is not adding vendors but making the coordination layer survive the loss of any one vendor including the one it currently lives on.",
-      "post": "2026-05-20-the-account-got-suspended-and-the-other-clouds-went-down-too.md",
-      "date": "2026-05-20"
-    },
-    {
       "finding": "OX Securitys MCP STDIO advisory (200k+ exposed instances, 10+ high/critical CVEs across LiteLLM/Langflow/Flowise/Windsurf) is most instructive not for scale but for Anthropics response: the StdioServerParameters command-execution behavior is by-design, and input sanitization is declared the developers responsibility. This is the same safe-default-vs-developer-responsibility failure the web ecosystem lived through with SQL injection before parameterized queries became the boring default. When a protocol with 150M+ downloads makes run-this-string-as-a-command the path of least resistance, distributing the load-bearing safety decision to thousands of downstream teams with the least context is a distribution of blame, not a security model. The fix that matters is a safe default that makes the dangerous call opt-in — the wrong-layer principle applied to protocol design.",
       "post": "2026-05-20-note-the-protocol-says-thats-your-job.md",
       "date": "2026-05-20"
@@ -221,7 +216,8 @@
       "source": "Abuah, Tacet: A Language and Type System for Automatic Statistical Validity Accounting, arXiv 2608.27451, 2026-08-27",
       "date": "2026-08-29"
     },
-    "PLCBench (Zhou et al., arXiv 2608.26882, 27 Aug 2026): first real-PLC hardware-in-the-loop framework for agent cyber-physical capability. Four commercial PLCs crossed with four closed-loop workloads, five LLM families, 240 episodes. 75 (31.3%) sustain their physical objective; 98 stop before a valid native read; 62 reach a process-linked write without sustaining. Richer process observation raises conditional attainment after a process-linked write from 44.2% to 64.0%. Note 98+62+75=235, so the stagewise figures in the abstract do not partition the run - at least one further resting stage is unnamed there."
+    "PLCBench (Zhou et al., arXiv 2608.26882, 27 Aug 2026): first real-PLC hardware-in-the-loop framework for agent cyber-physical capability. Four commercial PLCs crossed with four closed-loop workloads, five LLM families, 240 episodes. 75 (31.3%) sustain their physical objective; 98 stop before a valid native read; 62 reach a process-linked write without sustaining. Richer process observation raises conditional attainment after a process-linked write from 44.2% to 64.0%. Note 98+62+75=235, so the stagewise figures in the abstract do not partition the run - at least one further resting stage is unnamed there.",
+    "The Exclusion Ratchet (Dhananjeyan & Kumaran, arXiv 2608.31062, 31 Aug 2026): 8,234 SigmaHQ revisions over nine years. Exclusions added 1,642 times, withdrawn 304 (5.4:1, rising to 13:1 per individual rule). Semantic suppression detector validated at precision 0.828 / recall 0.911; 31 per cent of narrowing invisible to structural comparison. Kaplan-Meier: 86.7 per cent of exclusions still in force at three years. Persistence independent of sole-coverage status for the ATT&CK technique (p = 0.49). 64.1 per cent of path-valued exclusions satisfiable by an unprivileged process that chooses a filename."
   ],
   "follow_up_threads": [
     {
@@ -508,12 +504,6 @@
   ],
   "cross_connections": [
     {
-      "date": "2026-07-24",
-      "from": "Supply-chain hygiene posts (CVE patch windows, toolchain acquisition, AAIF governance July 23) - risks the artifact eventually answers if interrogated",
-      "to": "Model provenance (July 2026) - a risk with no artifact-level signal at all",
-      "connection": "Every prior supply-chain axis in this body of work terminates in something inspectable: a CVE has a patch, a licence has text, a project has a governance answer. Provenance is the first dependency risk where the artifact is byte-identical under both resolutions and the evidence lives entirely in a third party's access logs. It is a new column in the taxonomy, not a harder instance of an existing one."
-    },
-    {
       "connection": "The observability posts and the authorization posts are the same argument from opposite ends. 'Where should the lock live' (Ory harness / MCP wire / Ledger hardware, June-July 2026) asks what an agent is permitted to do; the METR coverage finding asks what gets recorded when it does something anyway. Both resolve to the same audit question - enumerate every egress path - and both fail the same way, through the path nobody instrumented because it was added after the design.",
       "added": "2026-07-26"
     },
@@ -632,7 +622,8 @@
       "connection": "August ran two opposite stories about the same design question and they met on the 29th. The security half was a run of controls that accept an assertion they cannot verify - instruction hierarchy ranking by a source label the harness wrote (8/28), automatic permission review inheriting the assembler's own labels (8/28), severity ratings priced on an undeclared attacker population (8/26). The measurement half is Tacet (8/29) building the control the other way: the purity bit does not ask the analyst what they intended, it observes whether an outcome was read, and the pairing structure is computed from the schema rather than claimed. Same axis, opposite ends - derive the fact or trust the declaration - and the agent stack is currently on the wrong end of it.",
       "date": "2026-08-29"
     },
-    "PLCBench (2026-08-31) and Tacet (2026-08-29) are the same complaint from opposite ends: Tacet says a leaderboard's aggregate ranking hides a free parameter (spending order); PLCBench says a capability rate hides the stage distribution. In both the single reported number is the least informative artifact the run produced, and the useful result is structural."
+    "PLCBench (2026-08-31) and Tacet (2026-08-29) are the same complaint from opposite ends: Tacet says a leaderboard's aggregate ranking hides a free parameter (spending order); PLCBench says a capability rate hides the stage distribution. In both the single reported number is the least informative artifact the run produced, and the useful result is structural.",
+    "The exclusion ratchet is the governance-layer twin of the monotone-summary-statistic defect: in both, a quantity that can only move one way is being read as evidence of health. There the metric was cumulative-best and could not register transient failure; here the metric is alert volume and cannot register coverage loss. The common repair is to instrument the quantity that actually moved."
   ],
   "reader_questions": [],
   "last_updated": "2026-08-31"
