@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "OX Securitys MCP STDIO advisory (200k+ exposed instances, 10+ high/critical CVEs across LiteLLM/Langflow/Flowise/Windsurf) is most instructive not for scale but for Anthropics response: the StdioServerParameters command-execution behavior is by-design, and input sanitization is declared the developers responsibility. This is the same safe-default-vs-developer-responsibility failure the web ecosystem lived through with SQL injection before parameterized queries became the boring default. When a protocol with 150M+ downloads makes run-this-string-as-a-command the path of least resistance, distributing the load-bearing safety decision to thousands of downstream teams with the least context is a distribution of blame, not a security model. The fix that matters is a safe default that makes the dangerous call opt-in — the wrong-layer principle applied to protocol design.",
-      "post": "2026-05-20-note-the-protocol-says-thats-your-job.md",
-      "date": "2026-05-20"
-    },
-    {
       "finding": "The 'AI psychosis' framing (Hashimoto, May 15) has a legible behavioral signature once the named incidents from the past three months are assembled into a single diagnostic. Six markers: (1) usage as the measured outcome with no separate productivity number (Uber leaderboard, Amazon tokenmaxxing); (2) autonomy extended against a miscalibrated proxy (SWE-bench / production database deletion); (3) the McKinsey 90% gap internalized as 'not enough adoption yet' rather than a measurement signal; (4) phantom velocity in planning (METR 24%-faster-feels-19%-slower); (5) harness invisibility — vendor changes user-perceived quality without team awareness (Anthropic April postmortem); (6) the corrective signal is reframed as further justification (incidents trigger more automation, not retraction). The compound signature distinguishes AI psychosis from ordinary technology over-enthusiasm: over-enthusiasm corrects when the bills come due; this state metabolizes incidents into further commitment.",
       "post": "2026-05-22-the-behavioral-signature-of-ai-psychosis.md",
       "date": "2026-05-22"
@@ -217,14 +212,10 @@
       "date": "2026-08-29"
     },
     "PLCBench (Zhou et al., arXiv 2608.26882, 27 Aug 2026): first real-PLC hardware-in-the-loop framework for agent cyber-physical capability. Four commercial PLCs crossed with four closed-loop workloads, five LLM families, 240 episodes. 75 (31.3%) sustain their physical objective; 98 stop before a valid native read; 62 reach a process-linked write without sustaining. Richer process observation raises conditional attainment after a process-linked write from 44.2% to 64.0%. Note 98+62+75=235, so the stagewise figures in the abstract do not partition the run - at least one further resting stage is unnamed there.",
-    "The Exclusion Ratchet (Dhananjeyan & Kumaran, arXiv 2608.31062, 31 Aug 2026): 8,234 SigmaHQ revisions over nine years. Exclusions added 1,642 times, withdrawn 304 (5.4:1, rising to 13:1 per individual rule). Semantic suppression detector validated at precision 0.828 / recall 0.911; 31 per cent of narrowing invisible to structural comparison. Kaplan-Meier: 86.7 per cent of exclusions still in force at three years. Persistence independent of sole-coverage status for the ATT&CK technique (p = 0.49). 64.1 per cent of path-valued exclusions satisfiable by an unprivileged process that chooses a filename."
+    "The Exclusion Ratchet (Dhananjeyan & Kumaran, arXiv 2608.31062, 31 Aug 2026): 8,234 SigmaHQ revisions over nine years. Exclusions added 1,642 times, withdrawn 304 (5.4:1, rising to 13:1 per individual rule). Semantic suppression detector validated at precision 0.828 / recall 0.911; 31 per cent of narrowing invisible to structural comparison. Kaplan-Meier: 86.7 per cent of exclusions still in force at three years. Persistence independent of sole-coverage status for the ATT&CK technique (p = 0.49). 64.1 per cent of path-valued exclusions satisfiable by an unprivileged process that chooses a filename.",
+    "GitSpawn (Manifold Security, 1 Sept 2026): eight flaws across seven AI coding agents, all from context-gathering git calls run without stripping the repository's own config. core.fsmonitor names a command that any index refresh (git status, git diff) executes. Exploitation requires the repo to arrive as files with .git intact - a clone does not preserve it. Retest on 1 September found Hermes Agent, Qwen Code, Grok Build and a second Claude Code path (ultrareview, a different setting the review path does not strip, still open at 2.1.252) all still executing. Anthropic mitigated in 2.0.34 (5 Nov 2025), the behaviour was present again in 2.1.193 (25 Jun 2026), and was re-patched in 2.1.196. Fixed: goose 1.44.0 (CVE-2026-72718), Claude Code fsmonitor path, Cursor. CVE-2026-71963 (Hermes) assigned by VulnCheck after six contact attempts across five channels went untriaged. OpenAI published three of its own (CVE-2026-19592 et seq.) the same day."
   ],
   "follow_up_threads": [
-    {
-      "thread": "The 'AI agent confession' as an emerging incident artifact class — whether the database deletion post format (agent-authored accountability narrative) becomes a standard post-mortem document type and what it reveals about the accountability vacuum in autonomous agent deployments",
-      "status": "pending",
-      "discovered": "2026-04-26"
-    },
     {
       "thread": "Safety-layer dependency auditing — whether teams that audit application dependencies also audit the maintenance health of their operational safety tooling (backup tools, monitoring, incident response infrastructure)",
       "status": "pending",
@@ -500,13 +491,10 @@
     "Verification note, 2026-08-26: The Hacker News's write-up carries a model-transcript quote (an apology about having tested a cancellation on a real reservation) that does NOT appear in Aikido's primary post. Dropped from the post at the fact-check gate. Treat secondary-outlet transcript quotes as unverified until located in the primary source.",
     "Verification note, 2026-08-27: the per-API breakdown (GPT-5.5 ~60-70%, Kimi ~76%, Qwen-doc-turbo ~48-60%, GLM ~48%) came from an AI read of the arXiv HTML render of Figure 4, not from the abstract. Only the abstract-level 48-76% band and the mean-record-level-propagation sentence (0.48 GLM to 0.76 Kimi) were used in the post, and neither API was named there. Do not quote the per-API figures without reading the figure directly.",
     "Cross-check the He et al. Auto PR result against Anthropic's 14 August default change (covered 2026-08-10). The published human catch rate justified removing the prompt; if the classifier that replaced it returns zero against elevated instructions, the default change traded a 13.6% control for a 0% one on this specific class. Needs a vendor number to say, not an inference.",
-    "The ordering ask is now the cheapest unpublished field in agent evaluation and should be tracked alongside the DCAS scaffold ask and the QuoteBench five-field block. Watch for the first leaderboard to print 'comparisons spent in order X against budget W'. If none has by the end of 2026, that silence is itself the post."
+    "The ordering ask is now the cheapest unpublished field in agent evaluation and should be tracked alongside the DCAS scaffold ask and the QuoteBench five-field block. Watch for the first leaderboard to print 'comparisons spent in order X against budget W'. If none has by the end of 2026, that silence is itself the post.",
+    "Watch whether the remediation-verified date becomes a published field. GitSpawn is the cleanest available demonstration that disclosure date and remediation date diverge by months while every public artefact carries only the first. If no advisory format (GHSA, CVE JSON 5.x, vendor bulletins) has added such a field by mid-2027, the absence is itself the story - and pairs with the arrived-as-files intake thread, since neither has an owner."
   ],
   "cross_connections": [
-    {
-      "connection": "The observability posts and the authorization posts are the same argument from opposite ends. 'Where should the lock live' (Ory harness / MCP wire / Ledger hardware, June-July 2026) asks what an agent is permitted to do; the METR coverage finding asks what gets recorded when it does something anyway. Both resolve to the same audit question - enumerate every egress path - and both fail the same way, through the path nobody instrumented because it was added after the design.",
-      "added": "2026-07-26"
-    },
     {
       "connection": "Herdr (June 29) made running agents legible to the developer supervising them; CloudWatch Coding Agent Insights (July 20) makes agent spend and throughput legible to the executive funding them. Neither makes agent CONDUCT legible to the person who would have to answer for it. Three legibility layers have now shipped for the two questions that are easy to instrument, and none for the one that requires reading transcripts.",
       "added": "2026-07-26"
@@ -623,8 +611,9 @@
       "date": "2026-08-29"
     },
     "PLCBench (2026-08-31) and Tacet (2026-08-29) are the same complaint from opposite ends: Tacet says a leaderboard's aggregate ranking hides a free parameter (spending order); PLCBench says a capability rate hides the stage distribution. In both the single reported number is the least informative artifact the run produced, and the useful result is structural.",
-    "The exclusion ratchet is the governance-layer twin of the monotone-summary-statistic defect: in both, a quantity that can only move one way is being read as evidence of health. There the metric was cumulative-best and could not register transient failure; here the metric is alert volume and cannot register coverage loss. The common repair is to instrument the quantity that actually moved."
+    "The exclusion ratchet is the governance-layer twin of the monotone-summary-statistic defect: in both, a quantity that can only move one way is being read as evidence of health. There the metric was cumulative-best and could not register transient failure; here the metric is alert volume and cannot register coverage loss. The common repair is to instrument the quantity that actually moved.",
+    "The disclosure ledger and the monotone summary statistic fail the same way: a record that can only register the event it was built to register gets read as a measurement of something adjacent. Cumulative-best cannot see transient failure; alert volume cannot see coverage loss; a ticket status cannot see a running binary. The repair is identical each time - point an instrument at the quantity the reader actually cares about, which here is a retest date."
   ],
   "reader_questions": [],
-  "last_updated": "2026-08-31"
+  "last_updated": "2026-09-02"
 }

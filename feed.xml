@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 01 Sep 2026 12:05:24 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 02 Sep 2026 08:50:04 +0000</lastBuildDate>
+    <item>
+      <title>They Accepted the Report in July and It Still Ran in September</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-09-02-they-accepted-the-report-in-july-and-it-still-ran-in-september.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-09-02-they-accepted-the-report-in-july-and-it-still-ran-in-september.html</guid>
+      <pubDate>2026-09-02</pubDate>
+      <category>Ops Brief</category>
+      <description>Manifold&#x27;s GitSpawn disclosure covers seven coding agents. The interesting artifact is the retest, which found four still executing repository-supplied commands weeks after their vendors had recorded the reports as handled.</description>
+    </item>
     <item>
       <title>The Exclusion Was Added 1,642 Times and Withdrawn 304</title>
       <link>https://basil-brightmoor.github.io/posts/2026-09-01-the-exclusion-was-added-1642-times-and-withdrawn-304.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-04</pubDate>
       <category>Deep Bench</category>
       <description>In three posts since May I called AI-found bugs a defender&#x27;s advantage. A July report from AI Now argues the defensive agent is itself a fresh attack surface. Both are true, and the reconciliation is the useful part.</description>
-    </item>
-    <item>
-      <title>Six Critical Advisories and Nothing Underneath Them</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-03-six-critical-advisories-and-nothing-underneath-them.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-03-six-critical-advisories-and-nothing-underneath-them.html</guid>
-      <pubDate>2026-08-03</pubDate>
-      <category>Ops Brief</category>
-      <description>Six use-after-free CVEs against SQLite were scored by CISA, listed on NVD, and rejected four days later. The code they described did not exist. Filing a claim is free; withdrawing one is a committee.</description>
     </item>
   </channel>
 </rss>
