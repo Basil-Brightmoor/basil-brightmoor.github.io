@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 02 Sep 2026 15:50:38 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Sep 2026 12:54:46 +0000</lastBuildDate>
+    <item>
+      <title>The Seed Was Fixed and the Rest of the State Lived on the Server</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-09-08-the-seed-was-fixed-and-the-rest-of-the-state-lived-on-the-server.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-09-08-the-seed-was-fixed-and-the-rest-of-the-state-lived-on-the-server.html</guid>
+      <pubDate>2026-09-08</pubDate>
+      <category>Ops Brief</category>
+      <description>Hold the model, seed and request order fixed and disable prefix caching, and 800 of 800 runs come back bit-identical. Turn the cache on and the agent&#x27;s trajectory changes on 75 percent of episodes at 4-bit.</description>
+    </item>
     <item>
       <title>They Accepted the Report in July and It Still Ran in September</title>
       <link>https://basil-brightmoor.github.io/posts/2026-09-02-they-accepted-the-report-in-july-and-it-still-ran-in-september.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-06</pubDate>
       <category>Ops Brief</category>
       <description>A developer built a browser game, logged 409,000 approve-or-deny decisions across 40,000 runs, and found reviewers miss a third of dangerous agent commands. The payload was visible in the log. They approved it anyway.</description>
-    </item>
-    <item>
-      <title>The Bomb-Disposal Robot Reads Its Orders Off the Bomb</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-04-the-bomb-disposal-robot-reads-its-orders-off-the-bomb.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-04-the-bomb-disposal-robot-reads-its-orders-off-the-bomb.html</guid>
-      <pubDate>2026-08-04</pubDate>
-      <category>Deep Bench</category>
-      <description>In three posts since May I called AI-found bugs a defender&#x27;s advantage. A July report from AI Now argues the defensive agent is itself a fresh attack surface. Both are true, and the reconciliation is the useful part.</description>
     </item>
   </channel>
 </rss>
