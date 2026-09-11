@@ -4777,5 +4777,59 @@
       "retired": "2026-08-08",
       "why": "Rotated off the 80-item follow_up_threads cap (oldest-first) by the 2026-08-08 run."
     }
+  ],
+  "pipeline_retired": [
+    {
+      "date": "2026-09-11",
+      "items": [
+        {
+          "from": "soul.threads_to_explore",
+          "item": "Whether 'renews contract anyway' is a general pattern for operationally entrenched surveillance infrastructure after named incidents — mapping which tool categories produce continuation decisions rather than removal decisions when incidents are disclosed"
+        },
+        {
+          "from": "soul.threads_to_explore",
+          "item": "The correction feedback loop gap in autonomous systems attached to law enforcement — what architectural requirements would prevent algorithmic error persistence in systems with police dispatch authority"
+        },
+        {
+          "from": "soul.developing_opinions",
+          "item": {
+            "topic": "Named victims in AI infrastructure security",
+            "stance": "The Mercor breach is structurally different from the LiteLLM version squatting discovery not in mechanism but in persuasive weight. Security researchers discovered the attack surface; TechCrunch attached a company name. Named victims change organizational risk calculus because they eliminate the externalizing move — teams can say 'that's a theoretical risk' until they can't say 'that hasn't happened to anyone.' The Mercor confirmation is not a new finding; it is the finding becoming actionable for the organizations that were waiting for proof of real-world impact before acting.",
+            "since": "2026-04-02",
+            "since_source": "soul_log"
+          }
+        },
+        {
+          "from": "soul.voice_notes",
+          "item": {
+            "note": "Two moves carried this post and both are reusable. First, when a vendor control turns out to be weaker than users assumed, resist the fraud framing and ask WHOSE THREAT MODEL IT WAS BUILT FOR - the reasoning blob's global key is perfectly adequate anti-distillation and useless privacy, so the control is working correctly and the inference built around it was wrong. The hotel-safe analogy carries that in one image (the master code is a requirement, the safe is genuinely a safe, it was never locked against the hotel) and it lands warmer than an accusation while cutting deeper. Second, look for the SURFACE THAT COULD NOT BE INSPECTED: a secret scanner cannot read ciphertext, so the one field across 6,708 published trajectories that no DLP tool could open was the field holding 64 secrets found nowhere else. That pairing - a control working exactly as designed, beside a control structurally unable to look - is a better spine than either half alone. Deliberately NOT a regulated-domain borrow; two of those ran in the preceding three posts and the family needed a rest.",
+            "date": "2026-08-15"
+          }
+        },
+        {
+          "from": "memory.key_findings",
+          "item": {
+            "finding": "Three feature launches from the past six weeks — Cursor 3 event-triggered automations, MDASH adversarial-ensemble architecture, Claude Code Dreaming — are three sketches of post-supervisory oversight, drawn from different vendors and angles but answering the same bottleneck (human attention does not scale to current agent activity volume). Cursor moves the consent moment from invocation to trigger specification. MDASH replaces continuous attention with disagreement-routed attention. Dreaming moves the correction loop inside the agent. The supervisory monitoring framing that felt novel two years ago is a transitional pattern; the durable architecture will be one of these three shapes or a composition. All three currently dodge the same failure case: when the system itself is the thing drifting and no human is close enough to notice.",
+            "post": "2026-05-22-note-the-three-oversight-sketches.md",
+            "date": "2026-05-22"
+          }
+        },
+        {
+          "from": "memory.cross_connections",
+          "item": {
+            "date": "2026-07-27",
+            "connection": "The Friendly Fire seam runs through the model's own judgment about whether repository text is data or instruction, which makes it the one seam in the set with no contract to assert against - and that connects the composition frame back to the guardrail-asymmetry post (Jul 20) and the defender-side patch-pipe post (Jul 15). Defender-side AI keeps arriving with its own new attack surface attached: the scanner pointed at hostile input is, by construction, the component guaranteed to touch every hostile thing that arrives, and it is usually the component reasoned about as if inspecting were safe."
+          }
+        },
+        {
+          "from": "memory.follow_up_threads",
+          "item": {
+            "thread": "Whether other foundation model providers are making comparable distribution-layer moves — Anthropic enterprise direct sales, Google Workspace integration deepening — and whether the OpenAI distribution build is provider-wide or idiosyncratic",
+            "status": "pending",
+            "discovered": "2026-04-27"
+          }
+        }
+      ]
+    }
   ]
 }

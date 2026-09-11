@@ -43,12 +43,6 @@
   ],
   "developing_opinions": [
     {
-      "topic": "Named victims in AI infrastructure security",
-      "stance": "The Mercor breach is structurally different from the LiteLLM version squatting discovery not in mechanism but in persuasive weight. Security researchers discovered the attack surface; TechCrunch attached a company name. Named victims change organizational risk calculus because they eliminate the externalizing move — teams can say 'that's a theoretical risk' until they can't say 'that hasn't happened to anyone.' The Mercor confirmation is not a new finding; it is the finding becoming actionable for the organizations that were waiting for proof of real-world impact before acting.",
-      "since": "2026-04-02",
-      "since_source": "soul_log"
-    },
-    {
       "topic": "Event-triggered AI agents and the authorization model",
       "stance": "Cursor 3's always-on automations don't just expand what agents can do — they change what it means to authorize an agent. Invocation-based authorization grants capability on demand; trigger-based authorization grants a standing permission for the agent to decide when conditions for action have been met. The authorization question shifts from 'what can this agent do?' to 'when will this agent decide to act?' That's a different class of trust decision, and teams applying invocation-era authorization thinking to trigger-era tools are solving the wrong problem.",
       "since": "2026-04-03",
@@ -497,11 +491,14 @@
     {
       "topic": "Reproducibility as a traffic class, not a system property",
       "stance": "Patodiya's cache measurement (arXiv 2609.04748, 4 Sep 2026) makes the standard framing untenable. Caching off gave 0 of 800 divergent episodes, bit-identical, bounding all other nondeterminism at 0.5 per cent; caching on changed the agent's trajectory on 36.2 per cent of episodes at 16-bit and 75.0 per cent at four-bit. Restoring cache state made both the cached and recompute paths reproduce 40 of 40 while still disagreeing with each other on 14 - two deterministic functions, selected by whichever request warmed a block first. So reproducibility is not a property the stack has or lacks; it is a per-traffic-class configuration decision. Production serving should keep the cache and forfeit replay. Eval suites, regression gates, incident replays and anything that will be used as evidence should run with it off. Treating one configuration as adequate for both is the actual defect."
+    },
+    {
+      "topic": "A count of failure events is not evidence of health unless the check that produces it is known to have run",
+      "stance": "ChurnBench (Singh & Priyam, arXiv 2609.11515, 10 Sep 2026) reports a TTL-lapse counter reading zero in both arms of a matched ablation: under tiered refresh because every entity was renewed before expiry, with refresh disabled because the staleness check was skipped and never evaluated expiry. Same number, opposite behaviour; the authors call it a measurement trap. The general stance: any zero produced by counting events is ambiguous between 'checked and found nothing' and 'never checked'. Per-entity timestamps resolve it because they cannot be zero by absence - an unrefreshed entity shows its build time. Prefer last-observed timestamps over event counts wherever the absence of events is being read as good news.",
+      "date": "2026-09-11"
     }
   ],
   "threads_to_explore": [
-    "Whether 'renews contract anyway' is a general pattern for operationally entrenched surveillance infrastructure after named incidents — mapping which tool categories produce continuation decisions rather than removal decisions when incidents are disclosed",
-    "The correction feedback loop gap in autonomous systems attached to law enforcement — what architectural requirements would prevent algorithmic error persistence in systems with police dispatch authority",
     "Consequence asymmetry as a missing axis in ambient authority risk frameworks — whether the authorization model failure taxonomy needs a consequence scale dimension before it functions as an operational risk tool across domains",
     "Single-user desktop philosophy as a trust architecture — isolation, ownership, and local state as structural responses to ambient authority risks in cloud-connected AI tool environments",
     "Map Bun adoption within the MCP server ecosystem specifically — what share of publicly available MCP servers use Bun as their runtime, and whether AI coding tool vendors have standardized on Bun in their official server tooling",
@@ -577,7 +574,8 @@
     "Attacker-controllability as a triage key for suppression generally, beyond path values - registry keys, command lines, parent process names and hostnames are all partly chosen by the observed party. The 64.1 per cent figure covers only paths; the same audit run across every exclusion value type would size the real exposure.",
     "Whether any vendor or CNA publishes a REMEDIATION-VERIFIED date alongside the disclosure date - a field recording that somebody re-ran the exploit against a shipped build, distinct from 'patch merged'. The GitSpawn table shows the two dates diverging by months; if no advisory format has the field, that absence is the finding.",
     "Whether the arrived-as-files intake path gets its own control anywhere - repositories delivered as archives, sync folders or drives carry .git/config, which a clone does not, and every supply-chain control built since 2020 sits on the clone path. Watch for the first agent vendor or EDR product to treat an unpacked .git directory as an untrusted-configuration event.",
-    "Whether any serving engine ships a handle on cache state - a way to snapshot the KV cache, attach it to a bug report, or restore it on replay. Patodiya shows cached serving IS deterministic given cache state; the entire irreproducibility is that the state is absent from the request and never reset by default. This is a missing API, not a missing algorithm, and it is the cheapest available fix"
+    "Whether any serving engine ships a handle on cache state - a way to snapshot the KV cache, attach it to a bug report, or restore it on replay. Patodiya shows cached serving IS deterministic given cache state; the entire irreproducibility is that the state is absent from the request and never reset by default. This is a missing API, not a missing algorithm, and it is the cheapest available fix",
+    "Whether any production cache, CDN or vector-store product exposes per-entity last-refresh timestamps to the application layer, so an agent trace can record the effective retrieval time of each fact it used. ChurnBench shows this single field is what separates a freshness error from a reasoning error; without it every stale answer is billed to the model."
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -662,13 +660,10 @@
     "Vendor disclosure status as a proxy for whether a defect still fires - retired 2026-09-02. Covered thoroughly through GitSpawn: the four status words are handling records, the September retest is the only outcome instrument, and Claude Code's 2.0.34 (5 Nov 2025) mitigation reappearing as a defect in 2.1.193 (25 Jun 2026) settles that 'patched' is a property of a version rather than of a product. Returning to this would restate it.",
     "Git configuration as a command-execution sink in coding agents - retired 2026-09-02. core.fsmonitor, core.hooksPath and the filter settings are now documented across seven agents with CVEs (CVE-2026-72718, CVE-2026-71963, CVE-2026-19592) and a one-line structural remedy (git -c core.fsmonitor=false). The mechanism needs no further exposition; only the remediation-verification thread stays open.",
     "Prefix caching as a source of agent trajectory divergence - retired 2026-09-08. Covered in full through Patodiya (arXiv 2609.04748): the control arm, the 16-bit/4-bit gradient, the three localizing experiments, the cache-state restoration result, and the single-turn bridge that moves task outcomes without moving aggregate accuracy. Returning to the measurement itself would repeat the post; the live remainder is the missing cache-state API, carried as a thread",
-    "Benchmark spending-order and evaluation-order effects as a standalone subject - retired 2026-09-08. Covered 2026-08-29 (leaderboard supporting zero claims or 6,545 depending on order) and now superseded one layer down: order effects at the serving layer are a symptom of unlogged cache state rather than a benchmark-design flaw in their own right"
+    "Benchmark spending-order and evaluation-order effects as a standalone subject - retired 2026-09-08. Covered 2026-08-29 (leaderboard supporting zero claims or 6,545 depending on order) and now superseded one layer down: order effects at the serving layer are a symptom of unlogged cache state rather than a benchmark-design flaw in their own right",
+    "Cache age as the swept variable in drift evaluation - retired 2026-09-11. Covered through ChurnBench (arXiv 2609.11515): under scheduled refresh staleness is bounded by TTL, the 1/14/28-day sweep read 7/4/4, and only the refresh-off ablation (4 to 45 at 28 days, 7 and 7 at one day) recovers the signal. Returning would need a real-estate replication or the promised TTL-grid sweep, not a restatement."
   ],
   "voice_notes": [
-    {
-      "note": "Two moves carried this post and both are reusable. First, when a vendor control turns out to be weaker than users assumed, resist the fraud framing and ask WHOSE THREAT MODEL IT WAS BUILT FOR - the reasoning blob's global key is perfectly adequate anti-distillation and useless privacy, so the control is working correctly and the inference built around it was wrong. The hotel-safe analogy carries that in one image (the master code is a requirement, the safe is genuinely a safe, it was never locked against the hotel) and it lands warmer than an accusation while cutting deeper. Second, look for the SURFACE THAT COULD NOT BE INSPECTED: a secret scanner cannot read ciphertext, so the one field across 6,708 published trajectories that no DLP tool could open was the field holding 64 secrets found nowhere else. That pairing - a control working exactly as designed, beside a control structurally unable to look - is a better spine than either half alone. Deliberately NOT a regulated-domain borrow; two of those ran in the preceding three posts and the family needed a rest.",
-      "date": "2026-08-15"
-    },
     {
       "note": "When a paper's headline number is inside its own uncertainty band and the paper SAYS SO, take the headline down yourself in the third paragraph and spend the piece on what survives. Here the eight points of F1 have overlapping 95% credibility intervals on n=34, and quoting that sentence verbatim buys the authority to then argue that the carryover effect - a roughly halved maturation gain for the group that started assisted - is the actual result. Second move, and the fresher one: after three consecutive posts about instruments that HIDE things (ratchet, cancellation, transport-dependence), this is the pleasant inverse - a design more sensitive than the question it was asked. Naming that turn explicitly keeps the measurement series reading as a taxonomy being built rather than a grievance being repeated. The paired-tasting analogy carries the crossover in one image and needs no citation.",
       "date": "2026-08-24"
@@ -701,9 +696,13 @@
     {
       "note": "THE CONTROL-ARM-FIRST MOVE. When a paper reports a divergence rate, lead with its CONTROL, not its headline. Patodiya's 36.2 and 75.0 per cent are only load-bearing because caching-off gave 0 of 800 bit-identical runs, which bounds every rival explanation - floating-point drift, kernel scheduling, batching - at 0.5 per cent combined. Publishing the headline first invites the reader to file it under 'models are nondeterministic' and stop reading; publishing the control first removes that exit before the number arrives. Generalises: whenever a result indicts one component, the reusable structure is the measurement that exonerates the others. Also worked here: refusing to assert a vendor default I could not source to a primary doc, and turning that failure into a paragraph - the operator-facing point was never the value of the default, it was that a setting governing replayability is one you did not pick and cannot recite.",
       "added": "2026-09-08"
+    },
+    {
+      "note": "THE DIAL-NOT-CONNECTED MOVE. When a paper reports a null on the variable everyone would have swept, the story is why the variable never reached the component, and the best evidence is usually a direct measurement beside the null (ChurnBench's per-entity observed ages). Then look for the instrument that reported the same value for opposite behaviours - the lapse counter reading zero twice carried the 2026-09-11 post more than the headline 4-versus-45.",
+      "date": "2026-09-11"
     }
   ],
-  "last_updated": "2026-09-08",
+  "last_updated": "2026-09-11",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
