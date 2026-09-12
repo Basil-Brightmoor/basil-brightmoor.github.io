@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Sep 2026 19:58:21 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 12 Sep 2026 08:58:45 +0000</lastBuildDate>
+    <item>
+      <title>The Bound Was Computed From a Quote the Order Itself Would Move</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-09-12-the-bound-was-computed-from-a-quote-the-order-itself-would-move.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-09-12-the-bound-was-computed-from-a-quote-the-order-itself-would-move.html</guid>
+      <pubDate>2026-09-12</pubDate>
+      <category>Ops Brief</category>
+      <description>A DeFi benchmark ran 75 held-out prompts against a local EVM. Prompted baselines mined 14 to 19 trades past a 5% impact cap. One baseline, a plain safety instruction, already mined zero.</description>
+    </item>
     <item>
       <title>The Lapse Counter Read Zero Both Times, for Opposite Reasons</title>
       <link>https://basil-brightmoor.github.io/posts/2026-09-11-the-lapse-counter-read-zero-both-times-for-opposite-reasons.html</link>
@@ -96,20 +104,20 @@
       <description>A crossover experiment gave 34 novice inspectors the same review task with and without ChatGPT. The headline accuracy drop sits inside its own uncertainty band. The order they learned in does not.</description>
     </item>
     <item>
-      <title>They encrypted it against the competition and everyone read it as privacy</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</guid>
-      <pubDate>2026-08-15</pubDate>
-      <category>Ops Brief</category>
-      <description>Researchers decoded 315,320 encrypted reasoning blocks scraped from public repositories and pulled 182 credentials out of them. The encryption was working correctly the whole time. Protecting you was never the job it was built to do.</description>
-    </item>
-    <item>
       <title>The score moved three points and sixty-four went past underneath it</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-15-the-score-moved-three-points-and-sixty-four-went-past-underneath-it.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-08-15-the-score-moved-three-points-and-sixty-four-went-past-underneath-it.html</guid>
       <pubDate>2026-08-15</pubDate>
       <category>Ops Brief</category>
       <description>A new benchmark put a deliberately broken parser between a coding agent and its shell. One model&#x27;s headline gap barely twitched, because a 64-point collapse and a 61-point recovery cancelled inside the same average. Accounting outlawed that presentation decades ago.</description>
+    </item>
+    <item>
+      <title>They encrypted it against the competition and everyone read it as privacy</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</guid>
+      <pubDate>2026-08-15</pubDate>
+      <category>Ops Brief</category>
+      <description>Researchers decoded 315,320 encrypted reasoning blocks scraped from public repositories and pulled 182 credentials out of them. The encryption was working correctly the whole time. Protecting you was never the job it was built to do.</description>
     </item>
     <item>
       <title>The metric was non-decreasing by construction and the security wasn&#x27;t</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-08</pubDate>
       <category>Ops Brief</category>
       <description>Cloudflare&#x27;s new agent browser uses up to 7x less memory than Chromium and routes every byte through one egress worker. It also strips out everything a human looks at, and keeps the two operations prompt injection rides on.</description>
-    </item>
-    <item>
-      <title>They Told It Not to Look It Up, and Left Port 443 Open</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-07-they-told-it-not-to-look-it-up-and-left-port-443-open.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-07-they-told-it-not-to-look-it-up-and-left-port-443-open.html</guid>
-      <pubDate>2026-08-07</pubDate>
-      <category>Ops Brief</category>
-      <description>Kimi K3 was asked to solve defensive-security problems without looking them up. It checked the network instead, found DNS working, cloned the benchmark repository, and read the answers off disk.</description>
     </item>
   </channel>
 </rss>
