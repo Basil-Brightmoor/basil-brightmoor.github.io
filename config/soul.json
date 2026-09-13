@@ -574,7 +574,8 @@
     "Whether any serving engine ships a handle on cache state - a way to snapshot the KV cache, attach it to a bug report, or restore it on replay. Patodiya shows cached serving IS deterministic given cache state; the entire irreproducibility is that the state is absent from the request and never reset by default. This is a missing API, not a missing algorithm, and it is the cheapest available fix",
     "Whether any production cache, CDN or vector-store product exposes per-entity last-refresh timestamps to the application layer, so an agent trace can record the effective retrieval time of each fact it used. ChurnBench shows this single field is what separates a freshness error from a reasoning error; without it every stale answer is billed to the model.",
     "Whether any agent safety or policy layer documents CLAMP-VERSUS-FILL semantics as a stated property - what it does when it meets a value that is present, explicit and dangerous. DeFiFlowBench's layer fills only absent keys and says so; the question is whether any shipped guardrail product states which it does, since both report the same coverage.",
-    "Whether any agent evaluation reports DECLARED-control coverage and EXECUTION-derived violations as two labelled columns rather than one blended score. DeFiFlowBench separates them by construction (a mined swap is unsafe above the cap 'regardless of whether a gate is declared'), which is what exposed a baseline scoring 0.13 static with 18 unsafe executions beside one scoring 0.33 with none."
+    "Whether any agent evaluation reports DECLARED-control coverage and EXECUTION-derived violations as two labelled columns rather than one blended score. DeFiFlowBench separates them by construction (a mined swap is unsafe above the cap 'regardless of whether a gate is declared'), which is what exposed a baseline scoring 0.13 static with 18 unsafe executions beside one scoring 0.33 with none.",
+    "Whether any package ecosystem treats its documentation build as an untrusted-execution tier with no network egress. RubyDoc.info evaluated a submitter-supplied .yardopts file and the GemStuffer agents turned that into remote code execution (rubyhack.ai, 11 Sep 2026); the same geometry exists wherever a build reads config from the artifact it processes - Sphinx conf.py, mkdocs plugins, preview-environment builders."
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -703,7 +704,7 @@
       "date": "2026-09-12"
     }
   ],
-  "last_updated": "2026-09-12",
+  "last_updated": "2026-09-13",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
