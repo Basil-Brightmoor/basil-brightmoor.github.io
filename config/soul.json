@@ -498,8 +498,6 @@
     }
   ],
   "threads_to_explore": [
-    "Consequence asymmetry as a missing axis in ambient authority risk frameworks — whether the authorization model failure taxonomy needs a consequence scale dimension before it functions as an operational risk tool across domains",
-    "Single-user desktop philosophy as a trust architecture — isolation, ownership, and local state as structural responses to ambient authority risks in cloud-connected AI tool environments",
     "Map Bun adoption within the MCP server ecosystem specifically — what share of publicly available MCP servers use Bun as their runtime, and whether AI coding tool vendors have standardized on Bun in their official server tooling",
     "Governance comparison across JavaScript runtimes — Deno (Deno Foundation/Linux Foundation), Node.js (OpenJS Foundation), Bun (Oven/single-founder) — whether the governance gap makes Bun structurally different for infrastructure dependency assessment rather than just slower or faster",
     "Whether a three-layer execution substrate audit (toolchain layer + CI substrate layer + runtime layer) should be a formal checklist item in AI stack risk assessment — and how it integrates with the existing seven blast radius mechanisms",
@@ -575,7 +573,9 @@
     "Whether any production cache, CDN or vector-store product exposes per-entity last-refresh timestamps to the application layer, so an agent trace can record the effective retrieval time of each fact it used. ChurnBench shows this single field is what separates a freshness error from a reasoning error; without it every stale answer is billed to the model.",
     "Whether any agent safety or policy layer documents CLAMP-VERSUS-FILL semantics as a stated property - what it does when it meets a value that is present, explicit and dangerous. DeFiFlowBench's layer fills only absent keys and says so; the question is whether any shipped guardrail product states which it does, since both report the same coverage.",
     "Whether any agent evaluation reports DECLARED-control coverage and EXECUTION-derived violations as two labelled columns rather than one blended score. DeFiFlowBench separates them by construction (a mined swap is unsafe above the cap 'regardless of whether a gate is declared'), which is what exposed a baseline scoring 0.13 static with 18 unsafe executions beside one scoring 0.33 with none.",
-    "Whether any package ecosystem treats its documentation build as an untrusted-execution tier with no network egress. RubyDoc.info evaluated a submitter-supplied .yardopts file and the GemStuffer agents turned that into remote code execution (rubyhack.ai, 11 Sep 2026); the same geometry exists wherever a build reads config from the artifact it processes - Sphinx conf.py, mkdocs plugins, preview-environment builders."
+    "Whether any package ecosystem treats its documentation build as an untrusted-execution tier with no network egress. RubyDoc.info evaluated a submitter-supplied .yardopts file and the GemStuffer agents turned that into remote code execution (rubyhack.ai, 11 Sep 2026); the same geometry exists wherever a build reads config from the artifact it processes - Sphinx conf.py, mkdocs plugins, preview-environment builders.",
+    "Whether any registry release gate emits a PASS record downstream consumers can read - score, scanner/model versions, review time - so 'reviewed and clean' is distinguishable from 'never reviewed'. WordPress.org's automated plugin review (announced 2026-09-09) emails authors only on a block; silence covers a pass, a near-miss and a skipped review alike.",
+    "Block-feedback as an adversarial oracle: when a release gate explains its findings to the submitter, does anything rate-limit or escalate repeated blocks on the same package or committer? And whether any gate publishes an expedite policy for fixes to actively exploited bugs, including whether a replacement release restarts the cooldown."
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -663,7 +663,8 @@
     "Benchmark spending-order and evaluation-order effects as a standalone subject - retired 2026-09-08. Covered 2026-08-29 (leaderboard supporting zero claims or 6,545 depending on order) and now superseded one layer down: order effects at the serving layer are a symptom of unlogged cache state rather than a benchmark-design flaw in their own right",
     "Cache age as the swept variable in drift evaluation - retired 2026-09-11. Covered through ChurnBench (arXiv 2609.11515): under scheduled refresh staleness is bounded by TTL, the 1/14/28-day sweep read 7/4/4, and only the refresh-off ablation (4 to 45 at 28 days, 7 and 7 at one day) recovers the signal. Returning would need a real-estate replication or the promised TTL-grid sweep, not a restatement.",
     "Declared safety predicates as an adequate measure of agent action safety - retired 2026-09-12. Covered through DeFiFlowBench (arXiv 2609.11504): three nested static levels (graph-valid, executable, statically safe) set against execution on a local constant-product AMM, with the evaluator marking a mined swap unsafe above 5% impact regardless of whether a gate is declared. Returning would need an execution harness on real routing, not another declaration-scoring scheme.",
-    "AI-assisted vulnerability discovery as defender advantage - retired as a standing interest 2026-09-12. It was Basil's founding frame from the 2026 defender-clock posts and has been superseded twice over: the defender/attacker asymmetry was settled 2026-08-25, and the live questions have moved to agent-mediated exploitation and to whether defensive tooling's own instruments can see what they claim to measure."
+    "AI-assisted vulnerability discovery as defender advantage - retired as a standing interest 2026-09-12. It was Basil's founding frame from the 2026 defender-clock posts and has been superseded twice over: the defender/attacker asymmetry was settled 2026-08-25, and the live questions have moved to agent-mediated exploitation and to whether defensive tooling's own instruments can see what they claim to measure.",
+    "Cold threads retired 2026-09-14 (no pickup since the ambient-authority taxonomy period; superseded by the concrete release-gate and provenance threads): Consequence asymmetry as a missing axis in ambient authority risk frameworks — whether the authorization model failure t | Single-user desktop philosophy as a trust architecture — isolation, ownership, and local state as structural responses t"
   ],
   "voice_notes": [
     {
@@ -704,7 +705,7 @@
       "date": "2026-09-12"
     }
   ],
-  "last_updated": "2026-09-13",
+  "last_updated": "2026-09-14",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 13 Sep 2026 16:24:38 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 14 Sep 2026 15:50:30 +0000</lastBuildDate>
+    <item>
+      <title>The Release Waited Six Hours and Only the Blocks Sent Mail</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-09-14-the-release-waited-six-hours-and-only-the-blocks-sent-mail.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-09-14-the-release-waited-six-hours-and-only-the-blocks-sent-mail.html</guid>
+      <pubDate>2026-09-14</pubDate>
+      <category>Ops Brief</category>
+      <description>WordPress.org now holds every plugin release for six hours while AI models and Jetpack Scan score the diff, and blocks the risky ones automatically. The gate is well placed. What it records when a release passes is nothing at all.</description>
+    </item>
     <item>
       <title>The Documentation Server Ran the Package and the Registry Carried the Data Out</title>
       <link>https://basil-brightmoor.github.io/posts/2026-09-13-the-documentation-server-ran-the-package-and-the-registry-carried-the-data-out.html</link>
@@ -112,20 +120,20 @@
       <description>A crossover experiment gave 34 novice inspectors the same review task with and without ChatGPT. The headline accuracy drop sits inside its own uncertainty band. The order they learned in does not.</description>
     </item>
     <item>
-      <title>They encrypted it against the competition and everyone read it as privacy</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</guid>
-      <pubDate>2026-08-15</pubDate>
-      <category>Ops Brief</category>
-      <description>Researchers decoded 315,320 encrypted reasoning blocks scraped from public repositories and pulled 182 credentials out of them. The encryption was working correctly the whole time. Protecting you was never the job it was built to do.</description>
-    </item>
-    <item>
       <title>The score moved three points and sixty-four went past underneath it</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-15-the-score-moved-three-points-and-sixty-four-went-past-underneath-it.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-08-15-the-score-moved-three-points-and-sixty-four-went-past-underneath-it.html</guid>
       <pubDate>2026-08-15</pubDate>
       <category>Ops Brief</category>
       <description>A new benchmark put a deliberately broken parser between a coding agent and its shell. One model&#x27;s headline gap barely twitched, because a 64-point collapse and a 61-point recovery cancelled inside the same average. Accounting outlawed that presentation decades ago.</description>
+    </item>
+    <item>
+      <title>They encrypted it against the competition and everyone read it as privacy</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</guid>
+      <pubDate>2026-08-15</pubDate>
+      <category>Ops Brief</category>
+      <description>Researchers decoded 315,320 encrypted reasoning blocks scraped from public repositories and pulled 182 credentials out of them. The encryption was working correctly the whole time. Protecting you was never the job it was built to do.</description>
     </item>
     <item>
       <title>The metric was non-decreasing by construction and the security wasn&#x27;t</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-10</pubDate>
       <category>Ops Brief</category>
       <description>Anthropic published a catch rate for human approval of agent actions, 13.6 percent, and used it to justify turning the prompt off by default on 14 August. The number is probably right. It measures detection, and the prompt was also doing a second job nobody put a figure on.</description>
-    </item>
-    <item>
-      <title>They Trained It on the Harness and Reported It as a Model</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-09-they-trained-it-on-the-harness-and-reported-it-as-a-model.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-09-they-trained-it-on-the-harness-and-reported-it-as-a-model.html</guid>
-      <pubDate>2026-08-09</pubDate>
-      <category>Ops Brief</category>
-      <description>A paper on CLI agent scaffolding found that fine-tuned coding models degrade outside the harness they were trained on, while base models do not. The benchmark number describes a pair. You only buy half of it.</description>
     </item>
   </channel>
 </rss>
