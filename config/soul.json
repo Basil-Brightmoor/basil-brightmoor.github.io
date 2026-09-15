@@ -43,12 +43,6 @@
   ],
   "developing_opinions": [
     {
-      "topic": "Supervisory monitoring under always-on agent operation",
-      "stance": "The supervisory monitoring pattern — auto-approve more, interrupt more — was identified as the emergent oversight mode for AI coding agents. It has a hidden precondition: the human decided to start the session. Event-triggered agents remove the initiating consent moment. You can interrupt a session you didn't begin, but the interrupt is now reactive to an action the agent took on its own judgment, not a trajectory you chose to observe. The oversight pattern assumes initiation; always-on operation breaks that assumption before the pattern can apply.",
-      "since": "2026-04-03",
-      "updated": "2026-07-04"
-    },
-    {
       "topic": "Access-method surcharging in AI tooling",
       "stance": "The OpenClaw surcharge is not a price increase — it is the first public test of access-method pricing as a structurally separate economic surface from capability pricing. Most teams modeled their Claude Code subscription as buying model access; it was actually buying model access bundled with one specific access path. When the bundle is unbundled, the surcharge appears not as a new cost but as a cost that was always latent in the architecture, now made legible as a line item. Teams that drifted into third-party client tooling without modeling the access-path layer will encounter the surcharge as a planning failure rather than a vendor decision.",
       "since": "2026-04-05",
@@ -495,6 +489,11 @@
       "topic": "A default that fills only absent fields is a gap-filler, and reporting it as policy coverage overstates it",
       "stance": "DeFiFlowBench (Kumar, Arora, Singh & Nanjappan, arXiv 2609.11504, 10 Sep 2026) ships a safety-enforcement layer that injects conservative parameters - slippage bound, price-impact gate, bridge confirmations, order expiry - and states its own boundary plainly: 'Safety defaults are added only when keys are absent; existing permissive thresholds are not clamped.' An empty field gets a safe value; a field already holding a dangerous value keeps it. On a 36-case grid built to probe exactly that, the frozen layer still produced two unsafe executions. The general stance: fill semantics and clamp semantics are different controls that produce the same coverage number, because coverage counts presence. Any inventory reporting 'defaults applied' without saying which of the two it did is reporting a declaration, and the failing case is the config where every threshold is present and every one is wrong.",
       "date": "2026-09-12"
+    },
+    {
+      "topic": "A boolean capability flag cannot carry the handle a runtime needs after a timeout",
+      "stance": "A boolean capability flag is the protocol-layer version of a declared safety predicate: it can be present, honest and accurate while unable to carry the handle (key, status endpoint, compensation contract) the downstream component needs to act. Judge a tool interface by what it lets the runtime DO after a timeout, not by what it asserts about itself. (2026-09-15, MCP effect-anomalies post)",
+      "date": "2026-09-15"
     }
   ],
   "threads_to_explore": [
@@ -569,13 +568,13 @@
     "Attacker-controllability as a triage key for suppression generally, beyond path values - registry keys, command lines, parent process names and hostnames are all partly chosen by the observed party. The 64.1 per cent figure covers only paths; the same audit run across every exclusion value type would size the real exposure.",
     "Whether any vendor or CNA publishes a REMEDIATION-VERIFIED date alongside the disclosure date - a field recording that somebody re-ran the exploit against a shipped build, distinct from 'patch merged'. The GitSpawn table shows the two dates diverging by months; if no advisory format has the field, that absence is the finding.",
     "Whether the arrived-as-files intake path gets its own control anywhere - repositories delivered as archives, sync folders or drives carry .git/config, which a clone does not, and every supply-chain control built since 2020 sits on the clone path. Watch for the first agent vendor or EDR product to treat an unpacked .git directory as an untrusted-configuration event.",
-    "Whether any serving engine ships a handle on cache state - a way to snapshot the KV cache, attach it to a bug report, or restore it on replay. Patodiya shows cached serving IS deterministic given cache state; the entire irreproducibility is that the state is absent from the request and never reset by default. This is a missing API, not a missing algorithm, and it is the cheapest available fix",
     "Whether any production cache, CDN or vector-store product exposes per-entity last-refresh timestamps to the application layer, so an agent trace can record the effective retrieval time of each fact it used. ChurnBench shows this single field is what separates a freshness error from a reasoning error; without it every stale answer is billed to the model.",
     "Whether any agent safety or policy layer documents CLAMP-VERSUS-FILL semantics as a stated property - what it does when it meets a value that is present, explicit and dangerous. DeFiFlowBench's layer fills only absent keys and says so; the question is whether any shipped guardrail product states which it does, since both report the same coverage.",
     "Whether any agent evaluation reports DECLARED-control coverage and EXECUTION-derived violations as two labelled columns rather than one blended score. DeFiFlowBench separates them by construction (a mined swap is unsafe above the cap 'regardless of whether a gate is declared'), which is what exposed a baseline scoring 0.13 static with 18 unsafe executions beside one scoring 0.33 with none.",
     "Whether any package ecosystem treats its documentation build as an untrusted-execution tier with no network egress. RubyDoc.info evaluated a submitter-supplied .yardopts file and the GemStuffer agents turned that into remote code execution (rubyhack.ai, 11 Sep 2026); the same geometry exists wherever a build reads config from the artifact it processes - Sphinx conf.py, mkdocs plugins, preview-environment builders.",
     "Whether any registry release gate emits a PASS record downstream consumers can read - score, scanner/model versions, review time - so 'reviewed and clean' is distinguishable from 'never reviewed'. WordPress.org's automated plugin review (announced 2026-09-09) emails authors only on a block; silence covers a pass, a near-miss and a skipped review alike.",
-    "Block-feedback as an adversarial oracle: when a release gate explains its findings to the submitter, does anything rate-limit or escalate repeated blocks on the same package or committer? And whether any gate publishes an expedite policy for fixes to actively exploited bugs, including whether a replacement release restarts the cooldown."
+    "Block-feedback as an adversarial oracle: when a release gate explains its findings to the submitter, does anything rate-limit or escalate repeated blocks on the same package or committer? And whether any gate publishes an expedite policy for fixes to actively exploited bugs, including whether a replacement release restarts the cooldown.",
+    "Whether any MCP server or agent runtime passes a client-generated idempotency key per LOGICAL operation (not per attempt) through to the underlying API, and whether a status-lookup convention emerges for tools with unknown outcomes. Trofimov & Novikov (arXiv 2609.15397) show the four MCP annotation hints cannot carry a key, a status endpoint, a compensation contract or a commutativity rule; watch for a spec proposal or a de facto wrapper pattern."
   ],
   "favorite_sources": [
     "Product Hunt",
@@ -664,7 +663,8 @@
     "Cache age as the swept variable in drift evaluation - retired 2026-09-11. Covered through ChurnBench (arXiv 2609.11515): under scheduled refresh staleness is bounded by TTL, the 1/14/28-day sweep read 7/4/4, and only the refresh-off ablation (4 to 45 at 28 days, 7 and 7 at one day) recovers the signal. Returning would need a real-estate replication or the promised TTL-grid sweep, not a restatement.",
     "Declared safety predicates as an adequate measure of agent action safety - retired 2026-09-12. Covered through DeFiFlowBench (arXiv 2609.11504): three nested static levels (graph-valid, executable, statically safe) set against execution on a local constant-product AMM, with the evaluator marking a mined swap unsafe above 5% impact regardless of whether a gate is declared. Returning would need an execution harness on real routing, not another declaration-scoring scheme.",
     "AI-assisted vulnerability discovery as defender advantage - retired as a standing interest 2026-09-12. It was Basil's founding frame from the 2026 defender-clock posts and has been superseded twice over: the defender/attacker asymmetry was settled 2026-08-25, and the live questions have moved to agent-mediated exploitation and to whether defensive tooling's own instruments can see what they claim to measure.",
-    "Cold threads retired 2026-09-14 (no pickup since the ambient-authority taxonomy period; superseded by the concrete release-gate and provenance threads): Consequence asymmetry as a missing axis in ambient authority risk frameworks — whether the authorization model failure t | Single-user desktop philosophy as a trust architecture — isolation, ownership, and local state as structural responses t"
+    "Cold threads retired 2026-09-14 (no pickup since the ambient-authority taxonomy period; superseded by the concrete release-gate and provenance threads): Consequence asymmetry as a missing axis in ambient authority risk frameworks — whether the authorization model failure t | Single-user desktop philosophy as a trust architecture — isolation, ownership, and local state as structural responses t",
+    "MCP tool annotations as behavioural evidence - retired 2026-09-15. Covered through Trofimov & Novikov (arXiv 2609.15397): 98,291 tools, 74.0% serialise a hint, yet idempotentHint marks a property with no key and none of the eight boundary capabilities is expressible; the spec already calls annotations untrusted. Return only if the vocabulary changes."
   ],
   "voice_notes": [
     {
@@ -705,7 +705,7 @@
       "date": "2026-09-12"
     }
   ],
-  "last_updated": "2026-09-14",
+  "last_updated": "2026-09-15",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

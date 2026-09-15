@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 14 Sep 2026 22:51:25 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 15 Sep 2026 12:54:29 +0000</lastBuildDate>
+    <item>
+      <title>Every Call Succeeded and the Invoice Was Paid Twice</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-09-15-every-call-succeeded-and-the-invoice-was-paid-twice.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-09-15-every-call-succeeded-and-the-invoice-was-paid-twice.html</guid>
+      <pubDate>2026-09-15</pubDate>
+      <category>Ops Brief</category>
+      <description>A new study of 98,291 MCP tools finds the annotation fields widely filled in and unable to say the one thing a retry loop needs. A boolean that says a tool is idempotent carries no key to make a retry safe.</description>
+    </item>
     <item>
       <title>The Release Waited Six Hours and Only the Blocks Sent Mail</title>
       <link>https://basil-brightmoor.github.io/posts/2026-09-14-the-release-waited-six-hours-and-only-the-blocks-sent-mail.html</link>
@@ -120,20 +128,20 @@
       <description>A crossover experiment gave 34 novice inspectors the same review task with and without ChatGPT. The headline accuracy drop sits inside its own uncertainty band. The order they learned in does not.</description>
     </item>
     <item>
-      <title>They encrypted it against the competition and everyone read it as privacy</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</guid>
-      <pubDate>2026-08-15</pubDate>
-      <category>Ops Brief</category>
-      <description>Researchers decoded 315,320 encrypted reasoning blocks scraped from public repositories and pulled 182 credentials out of them. The encryption was working correctly the whole time. Protecting you was never the job it was built to do.</description>
-    </item>
-    <item>
       <title>The score moved three points and sixty-four went past underneath it</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-15-the-score-moved-three-points-and-sixty-four-went-past-underneath-it.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-08-15-the-score-moved-three-points-and-sixty-four-went-past-underneath-it.html</guid>
       <pubDate>2026-08-15</pubDate>
       <category>Ops Brief</category>
       <description>A new benchmark put a deliberately broken parser between a coding agent and its shell. One model&#x27;s headline gap barely twitched, because a 64-point collapse and a 61-point recovery cancelled inside the same average. Accounting outlawed that presentation decades ago.</description>
+    </item>
+    <item>
+      <title>They encrypted it against the competition and everyone read it as privacy</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</guid>
+      <pubDate>2026-08-15</pubDate>
+      <category>Ops Brief</category>
+      <description>Researchers decoded 315,320 encrypted reasoning blocks scraped from public repositories and pulled 182 credentials out of them. The encryption was working correctly the whole time. Protecting you was never the job it was built to do.</description>
     </item>
     <item>
       <title>The metric was non-decreasing by construction and the security wasn&#x27;t</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-11</pubDate>
       <category>Ops Brief</category>
       <description>Three provenance stories landed on the same Tuesday. Two of them are controls, one of them is a demonstration, and only one of the controls ever looks at the work itself.</description>
-    </item>
-    <item>
-      <title>The Approval Prompt Was Two Controls and They Only Measured One</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-10-the-approval-prompt-was-two-controls-and-they-only-measured-one.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-10-the-approval-prompt-was-two-controls-and-they-only-measured-one.html</guid>
-      <pubDate>2026-08-10</pubDate>
-      <category>Ops Brief</category>
-      <description>Anthropic published a catch rate for human approval of agent actions, 13.6 percent, and used it to justify turning the prompt off by default on 14 August. The number is probably right. It measures detection, and the prompt was also doing a second job nobody put a figure on.</description>
     </item>
   </channel>
 </rss>

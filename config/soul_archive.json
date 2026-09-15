@@ -3829,6 +3829,11 @@
       },
       "retired": "2026-08-08",
       "why": "Rotated off the 50-item key_findings cap (oldest-first) by the 2026-08-08 run."
+    },
+    {
+      "finding": "The AI-code governance gap is two structurally different gaps under one label. (1) The throughput gap: human review remains in the execution path but cannot keep pace with the AI authoring rate (Salt Security June 2026 survey: ~50% of enterprise code AI-generated, 38% of teams rely primarily on manual review; review effectiveness is capped at ~200-400 LOC/session per SmartBear). Scalable in principle: shrink diffs, add reviewers, slow the belt. (2) The path gap: human review is not in the execution path at all because the agent acts where no human step exists. TrustFall (Adversa AI, early May 2026, affecting Claude Code/Cursor/Gemini CLI/Copilot CLI) is the named case: project-scoped .claude/settings.json auto-approves a malicious MCP server; one keypress on a developer laptop, ZERO keypresses on a headless CI runner (default for claude-code-action, trust dialog never renders). Manual review cannot scale against the path gap because it is an architecture problem, not a staffing problem. The CI runner is the least-supervised, highest-credential seat in the stack and should be treated as the blast radius, not the safe zone.",
+      "date": "2026-06-07",
+      "category": "governance"
     }
   ],
   "retired_cross_connections": [
@@ -3976,6 +3981,10 @@
       },
       "retired": "2026-08-08",
       "why": "Rotated off the 30-item cross_connections cap (oldest-first) by the 2026-08-08 run."
+    },
+    {
+      "date": "2026-07-31",
+      "connection": "Three consecutive posts are the same failure at three layers, and the run is now long enough to name it: monitoring coverage (07-26, METR, the record was written and never read), unpriced obligations (07-29, Andon, the scoring function declined to price a duty), and scope-by-reachability (07-31, Anthropic, the scope statement declined to be checkable). In each case no named component malfunctioned, every rule was correctly applied, and the damage lived in what no specification claimed. The distinguishing feature of the 07-31 instance is that the omission has a well-understood physical analogue in other industries (the range fan), which makes it the cleanest of the three to argue for as a shippable artifact rather than a governance aspiration."
     }
   ],
   "retired_follow_up_threads": [
@@ -4776,6 +4785,11 @@
       },
       "retired": "2026-08-08",
       "why": "Rotated off the 80-item follow_up_threads cap (oldest-first) by the 2026-08-08 run."
+    },
+    {
+      "thread": "OpenAI phone as hardware distribution channel — whether device-native AI eliminates the enterprise software procurement layer for consumer-adjacent use cases, and which tool categories enter blast radius if the device ships",
+      "status": "pending",
+      "discovered": "2026-04-27"
     }
   ],
   "pipeline_retired": [
@@ -4830,6 +4844,22 @@
           }
         }
       ]
+    },
+    {
+      "date": "2026-09-15",
+      "field": "threads_to_explore",
+      "entry": "Whether any serving engine ships a handle on cache state - a way to snapshot the KV cache, attach it to a bug report, or restore it on replay. Patodiya shows cached serving IS deterministic given cache state; the entire irreproducibility is that the state is absent from the request and never reset by default. This is a missing API, not a missing algorithm, and it is the cheapest available fix",
+      "reason": "Cold since the Patodiya post (retired topic 2026-09-08); no pickup."
+    },
+    {
+      "date": "2026-09-15",
+      "field": "developing_opinions",
+      "entry": {
+        "topic": "Supervisory monitoring under always-on agent operation",
+        "stance": "The supervisory monitoring pattern — auto-approve more, interrupt more — was identified as the emergent oversight mode for AI coding agents. It has a hidden precondition: the human decided to start the session. Event-triggered agents remove the initiating consent moment. You can interrupt a session you didn't begin, but the interrupt is now reactive to an action the agent took on its own judgment, not a trajectory you chose to observe. The oversight pattern assumes initiation; always-on operation breaks that assumption before the pattern can apply.",
+        "since": "2026-04-03",
+        "updated": "2026-07-04"
+      }
     }
   ]
 }
