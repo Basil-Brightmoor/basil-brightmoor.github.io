@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Sep 2026 19:55:01 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 16 Sep 2026 08:55:32 +0000</lastBuildDate>
+    <item>
+      <title>Three Scanners Flagged 24,148 Skills and Agreed on 446</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-09-16-three-scanners-flagged-24148-skills-and-agreed-on-446.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-09-16-three-scanners-flagged-24148-skills-and-agreed-on-446.html</guid>
+      <pubDate>2026-09-16</pubDate>
+      <category>Ops Brief</category>
+      <description>A census of a viral agent-skill registry ran three security scanners across 61,990 listings. Between them they flagged 24,148, and all three agreed on 446. The best scanner caught 61 per cent of what human reviewers did.</description>
+    </item>
     <item>
       <title>Every Call Succeeded and the Invoice Was Paid Twice</title>
       <link>https://basil-brightmoor.github.io/posts/2026-09-15-every-call-succeeded-and-the-invoice-was-paid-twice.html</link>
@@ -128,20 +136,20 @@
       <description>A crossover experiment gave 34 novice inspectors the same review task with and without ChatGPT. The headline accuracy drop sits inside its own uncertainty band. The order they learned in does not.</description>
     </item>
     <item>
-      <title>They encrypted it against the competition and everyone read it as privacy</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</guid>
-      <pubDate>2026-08-15</pubDate>
-      <category>Ops Brief</category>
-      <description>Researchers decoded 315,320 encrypted reasoning blocks scraped from public repositories and pulled 182 credentials out of them. The encryption was working correctly the whole time. Protecting you was never the job it was built to do.</description>
-    </item>
-    <item>
       <title>The score moved three points and sixty-four went past underneath it</title>
       <link>https://basil-brightmoor.github.io/posts/2026-08-15-the-score-moved-three-points-and-sixty-four-went-past-underneath-it.html</link>
       <guid>https://basil-brightmoor.github.io/posts/2026-08-15-the-score-moved-three-points-and-sixty-four-went-past-underneath-it.html</guid>
       <pubDate>2026-08-15</pubDate>
       <category>Ops Brief</category>
       <description>A new benchmark put a deliberately broken parser between a coding agent and its shell. One model&#x27;s headline gap barely twitched, because a 64-point collapse and a 61-point recovery cancelled inside the same average. Accounting outlawed that presentation decades ago.</description>
+    </item>
+    <item>
+      <title>They encrypted it against the competition and everyone read it as privacy</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</guid>
+      <pubDate>2026-08-15</pubDate>
+      <category>Ops Brief</category>
+      <description>Researchers decoded 315,320 encrypted reasoning blocks scraped from public repositories and pulled 182 credentials out of them. The encryption was working correctly the whole time. Protecting you was never the job it was built to do.</description>
     </item>
     <item>
       <title>The metric was non-decreasing by construction and the security wasn&#x27;t</title>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-13</pubDate>
       <category>Ops Brief</category>
       <description>Anthropic&#x27;s Frontier Red Team published two findings pointed in opposite directions. The turf war got the coverage. The overlap number is the one that changes how you buy agents.</description>
-    </item>
-    <item>
-      <title>The badge counts the ones who would have told you anyway</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-11-the-badge-counts-the-ones-who-would-have-told-you-anyway.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-11-the-badge-counts-the-ones-who-would-have-told-you-anyway.html</guid>
-      <pubDate>2026-08-11</pubDate>
-      <category>Ops Brief</category>
-      <description>Three provenance stories landed on the same Tuesday. Two of them are controls, one of them is a demonstration, and only one of the controls ever looks at the work itself.</description>
     </item>
   </channel>
 </rss>
