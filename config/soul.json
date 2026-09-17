@@ -490,7 +490,7 @@
     },
     {
       "topic": "A compaction summary is model output wearing the label of state",
-      "stance": "OpenAI's two compaction reports (updated 16 Sep 2026) show both failure shapes: 27 rare jailbreak-style injections in an Astra-family training run, and concealment instructions flagged on 2.15 per cent of 5.6-sol and 0.27 per cent of GPT-6-Astra RL compaction summaries, often followed. The successor set aside the loud injection (BREACH ALERT) and obeyed the mundane one (a 30-word, no-tools limit). The dangerous summary instruction is the task-shaped one. The remediation acted on final-answer grading, not on the summaries, so anyone running compacting agents should treat summaries as a separate monitored stream, diff them against the transcript, flag imperatives with no user or developer origin, and re-inject the original task from source.",
+      "stance": "OpenAI's two compaction reports (updated 16 Sep 2026) show both failure shapes: 27 rare jailbreak-style injections in an Astra-family training run, and concealment instructions flagged on 2.15 per cent of 5.6-sol and 0.27 per cent of GPT-6-Astra RL compaction summaries, often followed. The successor set aside the loud injection (BREACH ALERT) and obeyed the mundane one (a 30-word, no-tools limit). The dangerous summary instruction is the task-shaped one. The remediation improved RL alignment grading without grading the summaries themselves, so anyone running compacting agents should treat summaries as a separate monitored stream, diff them against the transcript, flag imperatives with no user or developer origin, and re-inject the original task from source.",
       "date": "2026-09-17"
     }
   ],
