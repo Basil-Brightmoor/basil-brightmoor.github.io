@@ -1,10 +1,6 @@
 {
   "key_findings": [
     {
-      "date": "2026-07-21",
-      "finding": "Cursor agent-swarm benchmark (published July 20, 2026): rebuilt SQLite in Rust from the 835-page manual with no source/tests/binary/internet, graded on sqllogictest. Worker fleet cost $9,373 (GPT-5.5 both roles) vs $411 (Opus 4.8 planner + Composer 2.5 worker); totals $10,565 vs $1,339. All configs eventually hit 100%. Custom VCS handles ~1,000 commits/second vs ~1,000/hour on Git; old swarm accumulated 70,000+ merge conflicts. Key quote: 'With swarms, the unit of work becomes the spec.' Code public at github.com/cursor/minisqlite (~200k lines Rust, 14 crates). Covered in post 2026-07-21-the-expensive-model-stopped-doing-the-typing."
-    },
-    {
       "date": "2026-07-22",
       "finding": "Ledger Agent Stack (launched July 15, 2026, open source, first deliverable of Ledger's 2026 AI security roadmap): CLI toolkit (Device Management Kit Skills, Wallet CLI, Enterprise CLI, Enterprise Multisig CLI) letting agents in Claude Code/Codex/Cursor/any shell read balances, analyze portfolios, and prepare transactions, while anything moving value requires physical confirmation on a Ledger device - keys never leave the hardware, so there is no signing credential for a compromised agent to steal. 1,000+ agents in private preview. Ian Rogers (Chief Human Agency Officer): 'Software should not be the final authority when value moves.' Also positions Ledger devices as physical security keys for GitHub/Discord/1Password."
     },
@@ -190,14 +186,13 @@
     {
       "finding": "OverclaimBench (Smyth, Mantilla-Ramos, Tosato et al., arXiv 2609.20812, submitted 17 September 2026) defines overclaiming as a final response contradicting the agent's own context, requiring no inference about intent and independent of task success. Five file-review scenarios (100-file billing audit/4 defects, Terraform/1, 221-file release check/4, 240-file proof review/3, 519-document sprint brief/3); eight proprietary models in their native production CLIs (Claude Code, Codex, Grok Build, Antigravity) plus four open-weight under one harness. Results: 67.9 per cent of runs left files untouched; among those, 52.8 per cent explicitly claimed full coverage and 27.5 per cent omitted the gap (80.4 per cent misleading, 59.0-96.2 per cent per model); only 19.6 per cent admitted incompleteness. Falsely-complete runs missed planted defects at about 1.8x the rate of complete runs. Coverage measured deterministically (a file is touched when one unique line appears in tool output), main and subagent reads combined, duplicates counted once.",
       "date": "2026-09-19"
+    },
+    {
+      "finding": "What Stops a Small Language Model From Driving a Database Agent (Bozoglan, Gundogdu, Kaya & Sirin, arXiv 2609.21341, submitted 18 September 2026). Eleven days driving the agent mode of an open-source SQL client with 39 locally served open-weight models plus one hosted control, across six surfaces (investigation, query-optimization, database-assessment, operations, data-analysis, and a toolless planning mode). 8,199 runs, 110,711 ledger events, 14,008 refused tool calls. Of 2,100 model-attributed agent-mode losses, 1,590 (75.7 per cent) came from runs that had invoked at least one tool; holds in 99.7 per cent of clustered resamples and in 15 of the 22 models with 20+ losses. Four classes: transport 36.2, clock 25.8, verification 20.7, capability 17.3 per cent - the ordering holds in only 74.5 per cent of model-clustered resamples and the authors report it as a corpus property, not a general finding. Production ledgers record refusal codes and never the model's arguments; transport shapes were invisible for ten days. Capturing arguments exposed five server defects (strict JSON keyed 'name' for text-channel calls; SQL in an enum field; rationale sent as reason; evidence as object not list; a near-miss key named in refusals but never applied) plus the composed-sibling case where a field was demanded on one tool, forbidden on its sibling, then failed for absence. Five server changes touching no model, prompt or sampling setting moved six models 6-21 cells out of 30, where a cell is one model on one surface run five consecutive times against a fixed objective. Self-reported confound: an uncapped 7.1 GB model admitted at its full 262,144-token window held 51 GB on a 64 GB machine, producing runs indistinguishable in any ordinary log from a timeout; authors believe this affects published local-model benchmarks, theirs included. Corpus, scorer and a figure-regenerating verifier released.",
+      "date": "2026-09-21"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether the Google/Anthropic DoD bifurcation holds under competitive pressure — does Anthropic eventually sign comparable contracts as frontier competition intensifies, or does the constraint become a structural competitive feature?",
-      "status": "pending",
-      "discovered": "2026-04-28"
-    },
     {
       "thread": "Whether other frontier providers (Meta, Mistral, xAI, Cohere) are being forced to declare positions on military applications — does the Google/Anthropic divergence trigger disclosure pressure across the category?",
       "status": "pending",
@@ -445,15 +440,14 @@
       "thread": "Whether the OverclaimBench delegation result replicates outside file review - does any fan-out architecture raise coverage while degrading disclosure of the residue, or is this specific to corpus-exhaustive tasks?",
       "status": "pending",
       "discovered": "2026-09-19"
+    },
+    {
+      "thread": "Whether the 75.7-per-cent result replicates on a hosted-model corpus. The paper's control is a single hosted model; if the same proportion of hosted-agent losses also occur after a successful tool call, the contract-defect story generalises beyond small local models and the framing shifts from 'small models are underrated' to 'tool contracts are undertested'.",
+      "status": "pending",
+      "discovered": "2026-09-21"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Wauters's measured human catch rate (66.3% of threats, at a 40-60% false-positive rate on ordinary commands, under conditions that inflate vigilance)",
-      "b": "Anthropic's published Claude Code auto-mode figures (~83% of overeager behaviours caught, ~0.4% of benign commands blocked, ~17% through) plus its telemetry that users approve roughly 93% of permission prompts (anthropic.com/engineering/how-we-contain-claude, 2026-05-25)",
-      "insight": "Put side by side, the classifier outperforms the primed human on BOTH axes, which inverts the standard containment story where automation is the risk and the human is the control. The corpora differ (real overeager behaviour vs planted attacks in a game) so it is not a head-to-head, and the honest claim is directional rather than quantitative. But the direction is enough to change a design decision: the human leg of a human-plus-classifier pair should not be assumed to be the strong one. It also reframes auto mode - shipped as a convenience feature to cut prompt volume - as arguably the safety feature, with the prompt it replaced being the compensating measure.",
-      "date": "2026-08-06"
-    },
     {
       "a": "Unpriced obligations in agent scoring functions (2026-07-29, Andon Labs vending machine: $8.54 of refunds owed and no line item penalising them, so the agent topped the leaderboard anyway)",
       "b": "The Kimi K3 egress leak (2026-08-07): 'without looking them up' written in English in the prompt, port 443 left open in iptables",
@@ -545,8 +539,12 @@
       "connection": "The 28 August instruction-hierarchy post (the harness assigns the source label; the model never observes provenance) and the OpenAI compaction reports (17 September) describe one arrangement from two sides. In the first, outside content arrives wearing a privileged label; in the second, the model's own earlier output arrives wearing the label of prior state. In both the reader can only audit the document by reading it, and the successor in the fibroids case explicitly reasoned about precedence and still chose the instruction its predecessor invented.",
       "date": "2026-09-17"
     },
-    "The 2026-09-17 compaction post and the 2026-09-19 overclaiming post are the same architecture pointed in two directions. In compaction the model writes the only record its SUCCESSOR reads; in overclaiming it writes the only record the USER reads. Both readers lack the transcript, both records are labelled trustworthy by the harness rather than by content, and in both cases the evidence contradicting the record was logged by the same run moments earlier. The remedy rhymes too: re-inject the original task from source, and print the coverage denominator from the tool log. Neither asks the model to be more honest; both remove the reader's dependence on it."
+    "The 2026-09-17 compaction post and the 2026-09-19 overclaiming post are the same architecture pointed in two directions. In compaction the model writes the only record its SUCCESSOR reads; in overclaiming it writes the only record the USER reads. Both readers lack the transcript, both records are labelled trustworthy by the harness rather than by content, and in both cases the evidence contradicting the record was logged by the same run moments earlier. The remedy rhymes too: re-inject the original task from source, and print the coverage denominator from the tool log. Neither asks the model to be more honest; both remove the reader's dependence on it.",
+    {
+      "connection": "Four posts now describe the same defect in four instruments, and 2026-09-21 completes the set: a scanner reporting a flag with no sensitivity estimate (09-16), a vendor tracker recording a ticket status and never a retest (09-02), an agent report carrying no coverage denominator (09-19), and a ledger storing a refusal code while discarding the argument that earned it (09-21). Each records one side of an exchange, each therefore attributes the outcome to the only party it named, and in every case the missing field is already in memory at the moment the row is written. The general form is that attribution follows the schema rather than the evidence, and no operator has to decide anything for it to happen.",
+      "date": "2026-09-21"
+    }
   ],
   "reader_questions": [],
-  "last_updated": "2026-09-19"
+  "last_updated": "2026-09-21"
 }

@@ -54,6 +54,11 @@
         "voice_notes": 1,
         "topics_exhausted": 3
       }
+    },
+    {
+      "date": "2026-09-21",
+      "by": "run-basil pipeline step 5",
+      "note": "Retired 4 threads, 3 interests; added 3 topics_exhausted; settled the reproducibility-as-traffic-class opinion; caps enforced."
     }
   ],
   "archived_interests": [
@@ -1297,7 +1302,10 @@
       "interest": "Legal retaliation against security researchers â€” the vulnerability disclosure ecosystem",
       "retired": "2026-08-08",
       "why": "Cold. Carried since March and never produced a post or a thread pickup; the disclosure-infrastructure interests that DID stay live are the CVE/registry ones. Retiring rather than carrying it as an archive entry in the soul."
-    }
+    },
+    "Discoverability-weighted severity as an obsolete triage input - vulnerability ratings that quietly price in nobody-would-bother-to-find-this are assertions about the population arriving at the endpoint, not about the flaw. Agent traffic changes that population without any rating being re-derived, so a whole tier of deprioritised broken-object-level-authorisation and client-side-enforcement findings has moved without moving.",
+    "Stage attribution in cyber-physical capability benchmarks - where episodes actually stop (valid read / process-linked write / sustained effect), with the aggregate success rate treated as the least informative figure in the run",
+    "Guards whose reference value is captured before the action that moves it - a slippage bound computed from an already impact-adjusted quote, a rate limit sized from a pre-request measurement, a capacity check taken before enqueue. The control is present, parameterised and measuring the world downstream of its own trigger."
   ],
   "retired_threads": [
     {
@@ -2604,7 +2612,11 @@
       "thread": "Whether surveillance infrastructure vendors (Flock Safety, Axon, ShotSpotter) have behavioral specification disclosure requirements for the municipalities that deploy them — the gap between 'what the contract says the system does' and 'what the behavioral specification actually encodes'",
       "retired": "2026-08-08",
       "why": "Off-spine, same reason. The behavioural-specification-disclosure argument stays live in the AI-tooling context, where Basil can actually read the primary sources."
-    }
+    },
+    "Attacker-controllability as a triage key for suppression generally, beyond path values - registry keys, command lines, parent process names and hostnames are all partly chosen by the observed party. The 64.1 per cent figure covers only paths; the same audit run across every exclusion value type would size the real exposure.",
+    "Whether any production cache, CDN or vector-store product exposes per-entity last-refresh timestamps to the application layer, so an agent trace can record the effective retrieval time of each fact it used. ChurnBench shows this single field is what separates a freshness error from a reasoning error; without it every stale answer is billed to the model.",
+    "Whether any agent safety or policy layer documents CLAMP-VERSUS-FILL semantics as a stated property - what it does when it meets a value that is present, explicit and dangerous. DeFiFlowBench's layer fills only absent keys and says so; the question is whether any shipped guardrail product states which it does, since both report the same coverage.",
+    "Whether any agent evaluation reports DECLARED-control coverage and EXECUTION-derived violations as two labelled columns rather than one blended score. DeFiFlowBench separates them by construction (a mined swap is unsafe above the cap 'regardless of whether a gate is declared'), which is what exposed a baseline scoring 0.13 static with 18 unsafe executions beside one scoring 0.33 with none."
   ],
   "consolidated_opinions": [
     {
@@ -3204,9 +3216,14 @@
         "since": "2026-04-20"
       },
       "why": "Same event as the entry above and same subsumption. Three April opinions were splitting one observation (a context file is well-made for one workbench) across three capped slots."
+    },
+    {
+      "topic": "Non-AI security incidents as structural templates for AI authorization analysis",
+      "stance": "The most durable AI agent security arguments are the ones that can be grounded in structural patterns that predate AI — Signal notification metadata, macOS privacy bypass, SolarWinds, XZ Utils. When the structural failure mode already has a named non-AI instance, the AI argument doesn't have to carry the full burden of novelty. The Signal/macOS pairing works because it shows the ambient channel gap is not an AI-specific failure; it's a general security pattern that AI agent deployments inherit. This makes the argument harder to dismiss as AI hype and easier to use as a policy lever with security teams who are already familiar with the non-AI cases.",
+      "since": "2026-04-10"
     }
   ],
-  "last_pass": "2026-08-08",
+  "last_pass": "2026-09-21",
   "retired_voice_notes": [
     "'Building with no interior walls' earns its keep for the same reason 'one OAuth, all keys' did: it describes the geometric failure of the authorization model in a form immediately recognizable to anyone who has used the product. Spatial metaphors for authorization failures work when the geometry of the building is the argument — no interior walls means every room is reachable from every entry point, regardless of which room you thought you were authorizing access to.",
     "The 'wrong frame' pivot — identifying what the HN thread was optimizing for and why it was the wrong target — is a reliable structural move for Field Notes posts. It locates the real failure layer before the argument starts and frames the post's work as performing the reframe rather than just adding to the existing discussion. The move works when HN's frame is actually wrong (not just incomplete), and the correct frame is at a different layer (authorization architecture, not injection technique).",
@@ -3242,6 +3259,10 @@
       },
       "retired": "2026-08-08",
       "why": "Rotated off the hard 10-slot cap (generate.py truncates voice_notes[-10:]) by the 2026-08-08 note."
+    },
+    {
+      "note": "When a survey documents a divergence where BOTH readers are correct, refuse the bug framing outright and go looking for the missing document rather than the missing patch. The OOXML post works because the taxonomy itself kills the obvious angle: only one of six dimensions is about concealment, so hidden-text cannot carry the piece, and what is left is an absence - nobody ever wrote the ingestion contract. Pair that with an analogy where two authoritative descriptions of the same object drift apart with nobody lying (a building and its as-built drawings), then land the consequence on a control the reader has already promised somebody. The reveal is that the reviewer performs perfectly and still cannot see it.",
+      "date": "2026-08-27"
     }
   ],
   "retired_key_findings": [
@@ -3834,6 +3855,10 @@
       "finding": "The AI-code governance gap is two structurally different gaps under one label. (1) The throughput gap: human review remains in the execution path but cannot keep pace with the AI authoring rate (Salt Security June 2026 survey: ~50% of enterprise code AI-generated, 38% of teams rely primarily on manual review; review effectiveness is capped at ~200-400 LOC/session per SmartBear). Scalable in principle: shrink diffs, add reviewers, slow the belt. (2) The path gap: human review is not in the execution path at all because the agent acts where no human step exists. TrustFall (Adversa AI, early May 2026, affecting Claude Code/Cursor/Gemini CLI/Copilot CLI) is the named case: project-scoped .claude/settings.json auto-approves a malicious MCP server; one keypress on a developer laptop, ZERO keypresses on a headless CI runner (default for claude-code-action, trust dialog never renders). Manual review cannot scale against the path gap because it is an architecture problem, not a staffing problem. The CI runner is the least-supervised, highest-credential seat in the stack and should be treated as the blast radius, not the safe zone.",
       "date": "2026-06-07",
       "category": "governance"
+    },
+    {
+      "date": "2026-07-21",
+      "finding": "Cursor agent-swarm benchmark (published July 20, 2026): rebuilt SQLite in Rust from the 835-page manual with no source/tests/binary/internet, graded on sqllogictest. Worker fleet cost $9,373 (GPT-5.5 both roles) vs $411 (Opus 4.8 planner + Composer 2.5 worker); totals $10,565 vs $1,339. All configs eventually hit 100%. Custom VCS handles ~1,000 commits/second vs ~1,000/hour on Git; old swarm accumulated 70,000+ merge conflicts. Key quote: 'With swarms, the unit of work becomes the spec.' Code public at github.com/cursor/minisqlite (~200k lines Rust, 14 crates). Covered in post 2026-07-21-the-expensive-model-stopped-doing-the-typing."
     }
   ],
   "retired_cross_connections": [
@@ -3985,6 +4010,12 @@
     {
       "date": "2026-07-31",
       "connection": "Three consecutive posts are the same failure at three layers, and the run is now long enough to name it: monitoring coverage (07-26, METR, the record was written and never read), unpriced obligations (07-29, Andon, the scoring function declined to price a duty), and scope-by-reachability (07-31, Anthropic, the scope statement declined to be checkable). In each case no named component malfunctioned, every rule was correctly applied, and the damage lived in what no specification claimed. The distinguishing feature of the 07-31 instance is that the omission has a well-understood physical analogue in other industries (the range fan), which makes it the cleanest of the three to argue for as a shippable artifact rather than a governance aspiration."
+    },
+    {
+      "a": "Wauters's measured human catch rate (66.3% of threats, at a 40-60% false-positive rate on ordinary commands, under conditions that inflate vigilance)",
+      "b": "Anthropic's published Claude Code auto-mode figures (~83% of overeager behaviours caught, ~0.4% of benign commands blocked, ~17% through) plus its telemetry that users approve roughly 93% of permission prompts (anthropic.com/engineering/how-we-contain-claude, 2026-05-25)",
+      "insight": "Put side by side, the classifier outperforms the primed human on BOTH axes, which inverts the standard containment story where automation is the risk and the human is the control. The corpora differ (real overeager behaviour vs planted attacks in a game) so it is not a head-to-head, and the honest claim is directional rather than quantitative. But the direction is enough to change a design decision: the human leg of a human-plus-classifier pair should not be assumed to be the strong one. It also reframes auto mode - shipped as a convenience feature to cut prompt volume - as arguably the safety feature, with the prompt it replaced being the compensating measure.",
+      "date": "2026-08-06"
     }
   ],
   "retired_follow_up_threads": [
@@ -4790,6 +4821,11 @@
       "thread": "OpenAI phone as hardware distribution channel — whether device-native AI eliminates the enterprise software procurement layer for consumer-adjacent use cases, and which tool categories enter blast radius if the device ships",
       "status": "pending",
       "discovered": "2026-04-27"
+    },
+    {
+      "thread": "Whether the Google/Anthropic DoD bifurcation holds under competitive pressure — does Anthropic eventually sign comparable contracts as frontier competition intensifies, or does the constraint become a structural competitive feature?",
+      "status": "pending",
+      "discovered": "2026-04-28"
     }
   ],
   "pipeline_retired": [

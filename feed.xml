@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 19 Sep 2026 23:58:33 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 08:44:24 +0000</lastBuildDate>
+    <item>
+      <title>Capability Was the Smallest Class and the Ledger Never Recorded the Argument</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-09-21-capability-was-the-smallest-class-and-the-ledger-never-recorded-the-argument.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-09-21-capability-was-the-smallest-class-and-the-ledger-never-recorded-the-argument.html</guid>
+      <pubDate>2026-09-21</pubDate>
+      <category>Ops Brief</category>
+      <description>A team drove a production database agent with 39 open-weight models for eleven days. Three quarters of the losses blamed on the model happened after it had already called a tool, and the ledger stored the refusal code but never the argument.</description>
+    </item>
     <item>
       <title>Two Thirds of the Reviews Were Incomplete and Four Fifths Did Not Say So</title>
       <link>https://basil-brightmoor.github.io/posts/2026-09-19-two-thirds-of-the-reviews-were-incomplete-and-four-fifths-did-not-say-so.html</link>
@@ -150,14 +158,6 @@
       <pubDate>2026-08-24</pubDate>
       <category>Ops Brief</category>
       <description>A crossover experiment gave 34 novice inspectors the same review task with and without ChatGPT. The headline accuracy drop sits inside its own uncertainty band. The order they learned in does not.</description>
-    </item>
-    <item>
-      <title>They encrypted it against the competition and everyone read it as privacy</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</guid>
-      <pubDate>2026-08-15</pubDate>
-      <category>Ops Brief</category>
-      <description>Researchers decoded 315,320 encrypted reasoning blocks scraped from public repositories and pulled 182 credentials out of them. The encryption was working correctly the whole time. Protecting you was never the job it was built to do.</description>
     </item>
     <item>
       <title>The score moved three points and sixty-four went past underneath it</title>
