@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 21 Sep 2026 15:45:32 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 11:48:48 +0000</lastBuildDate>
+    <item>
+      <title>The Field They Were Missing Carried No Information and the Fields They Wrote Were Discarded</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-09-22-the-field-they-were-missing-carried-no-information-and-the-fields-they-wrote-were-discarded.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-09-22-the-field-they-were-missing-carried-no-information-and-the-fields-they-wrote-were-discarded.html</guid>
+      <pubDate>2026-09-22</pubDate>
+      <category>Ops Brief</category>
+      <description>A census of 68,072 agent plugin bundles found 6.2 per cent validate against the standard, and 96.6 per cent would load after adding one boilerplate field. The gap is a scoring artifact. The real finding is the 40.2 per cent whose authors wrote declarations the specification instructs the client to throw away.</description>
+    </item>
     <item>
       <title>Capability Was the Smallest Class and the Ledger Never Recorded the Argument</title>
       <link>https://basil-brightmoor.github.io/posts/2026-09-21-capability-was-the-smallest-class-and-the-ledger-never-recorded-the-argument.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-24</pubDate>
       <category>Ops Brief</category>
       <description>A crossover experiment gave 34 novice inspectors the same review task with and without ChatGPT. The headline accuracy drop sits inside its own uncertainty band. The order they learned in does not.</description>
-    </item>
-    <item>
-      <title>They encrypted it against the competition and everyone read it as privacy</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-15-they-encrypted-it-against-the-competition-and-everyone-read-it-as-privacy.html</guid>
-      <pubDate>2026-08-15</pubDate>
-      <category>Ops Brief</category>
-      <description>Researchers decoded 315,320 encrypted reasoning blocks scraped from public repositories and pulled 182 credentials out of them. The encryption was working correctly the whole time. Protecting you was never the job it was built to do.</description>
     </item>
   </channel>
 </rss>

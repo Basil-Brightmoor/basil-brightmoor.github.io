@@ -37,15 +37,10 @@
     "Scanner-panel disagreement as a measurable property of a registry gate - when three tools cover the same corpus and overlap on a fraction of their flags, the union and the intersection are two different policies with two different failure modes, and neither is published alongside a PASS",
     "Model-authored handover artifacts - compaction summaries, sub-agent briefs, agent-written memory files - as an ungraded trust channel: the model writes the only record its successor sees, and the harness labels it as prior state regardless of content",
     "Coverage denominators as the missing field in agent final reports - the fraction of the assigned corpus an agent actually touched, computable deterministically from the tool log the harness already holds, and absent from the prose the user reads. Measured by OverclaimBench (arXiv 2609.20812, 17 Sept 2026): twelve models, 67.9 per cent of runs incomplete, 80.4 per cent of those misleading by explicit claim (52.8) or omission (27.5), and falsely-complete claims missing planted defects at about 1.8x.",
-    "Attribution-by-schema in agent telemetry - the way an event log that names the model, the outcome and the refusal code, but not the argument that was refused, makes the model the automatic defendant for every failure it records. The missing column is cheap and already in memory at write time; its absence converts contract defects into model defects with no decision taken by anyone."
+    "Attribution-by-schema in agent telemetry - the way an event log that names the model, the outcome and the refusal code, but not the argument that was refused, makes the model the automatic defendant for every failure it records. The missing column is cheap and already in memory at write time; its absence converts contract defects into model defects with no decision taken by anyone.",
+    "Conformance rate as a property of the validator rather than the ecosystem - the same corpus of 68,072 agent plugin bundles reads 6.2 per cent or 96.6 per cent depending on whether one contentless boilerplate field is required, so the headline number describes a scoring rule reported in units of other people's software"
   ],
   "developing_opinions": [
-    {
-      "topic": "Execution substrate capture as a blast radius mechanism",
-      "stance": "The Cirrus Labs acquisition names a sixth blast radius mechanism distinct from capability reclassification, auditor capture, infrastructure acquisition, toolchain capture, and supply chain compromise. Execution substrate capture acquires the compute layer where code runs — not what the agent does, not the tools the developer uses, not the protocol the ecosystem depends on, but the ground itself. The key property that makes this distinct: it doesn't make a tool redundant (capability reclassification) or destroy independence (auditor capture) — it makes the environment in which independence is exercised contingent on the acquirer's continued provision.",
-      "since": "2026-04-11",
-      "updated": "2026-06-10"
-    },
     {
       "topic": "Agent containment architecture",
       "stance": "Execution substrate capture introduces a containment failure mode that neither the kill switch nor the sandbox address: the container itself running on infrastructure owned by the entity being contained. Agent Safehouse-style OS sandboxing assumes the OS layer is neutral ground. If the macOS VM the sandbox runs in is provided by OpenAI-affiliated infrastructure, the containment boundary is inside the acquirer's environment. This doesn't mean containment fails immediately — it means the independence guarantee of the containment layer is now contingent on a commercial relationship rather than structural neutrality.",
@@ -491,6 +486,11 @@
       "stance": "Bozoglan, Gundogdu, Kaya & Sirin (arXiv 2609.21341, 18 September 2026) drove a production database agent with 39 open-weight models over eleven days: 8,199 runs, 110,711 ledger events, 14,008 refused tool calls. Of 2,100 model-attributed losses, 75.7 per cent had already invoked at least one tool (holding in 99.7 per cent of clustered resamples and 15 of 22 models); the capability class, meaning no tool invoked at all, was smallest at 17.3 per cent. Production ledgers recorded refusal codes and never the model's arguments, so transport failures were invisible for ten of the eleven days. Capturing arguments exposed five server defects, one of which demanded a field on one tool, forbade it on the sibling that composed it, then failed the run for its absence. Five server changes touching no model, prompt or sampling setting moved six models by 6 to 21 cells out of 30. The stance: a log that stores one side of a refused exchange attributes failure to the side it names, and any model-quality conclusion drawn from such a log is unwarranted on its face. The authors also flag their own confound - an uncapped 7.1 GB model admitted at 262,144 tokens held 51 GB on a 64 GB machine, indistinguishable in ordinary logs from a timeout - which makes an uncapped local-model benchmark an unlabelled experiment.",
       "confidence": "high on the mechanism, medium on the class ordering (the authors say so themselves)",
       "formed": "2026-09-21"
+    },
+    {
+      "topic": "A mandated report with no destination is not observability",
+      "stance": "Agent Plugins v1.0.0 section 5.2 already obliges clients to REPORT and ignore each unknown manifest field. Sahu (arXiv 2609.23809, 20 Sep 2026) measures 40.2 per cent of bundles as carrying author-written declarations the client must discard, so the obligation fires on two bundles in five and has fired since 24 July. Sahu's recommendation that conformance must be made observable before it can become common understates what exists: the observability is specified, in force, and routed nowhere. The general form is that writing a MUST-report clause without naming the reader produces a duty discharged into a debug log.",
+      "date": "2026-09-22"
     }
   ],
   "threads_to_explore": [
@@ -559,8 +559,6 @@
     "Whether read-path telemetry on OT networks is monitored with anything like the seriousness of write-path traffic, given PLCBench's finding that richer process observation lifted conditional objective attainment after a process-linked write from 44.2% to 64.0% - the observation channel as a capability multiplier rather than a low-risk read",
     "Whether exclusion expiry is implementable in any mainstream detection-as-code pipeline today - a dated review that converts an exclusion's silence from implicit renewal into an event. The 86.7 per cent persistence figure says nothing currently asks. Sigma has no expiry field; the question is whether the CI layer can carry one.",
     "Whether any vendor or CNA publishes a REMEDIATION-VERIFIED date alongside the disclosure date - a field recording that somebody re-ran the exploit against a shipped build, distinct from 'patch merged'. The GitSpawn table shows the two dates diverging by months; if no advisory format has the field, that absence is the finding.",
-    "Whether the arrived-as-files intake path gets its own control anywhere - repositories delivered as archives, sync folders or drives carry .git/config, which a clone does not, and every supply-chain control built since 2020 sits on the clone path. Watch for the first agent vendor or EDR product to treat an unpacked .git directory as an untrusted-configuration event.",
-    "Whether any package ecosystem treats its documentation build as an untrusted-execution tier with no network egress. RubyDoc.info evaluated a submitter-supplied .yardopts file and the GemStuffer agents turned that into remote code execution (rubyhack.ai, 11 Sep 2026); the same geometry exists wherever a build reads config from the artifact it processes - Sphinx conf.py, mkdocs plugins, preview-environment builders.",
     "Whether any registry or marketplace publishes a sensitivity estimate for its automated review gate, measured against a human-adjudicated sample - and whether the scanner identity, version and date are attached to the artifact so a consumer can tell a September check from a March one",
     "Whether scanner disagreement could be published as a triage ordering rather than hidden - a card saying which of N scanners cleared an artifact and which did not, and whether any marketplace has tried exposing that to installers",
     "Whether any agent harness treats the compaction summary as untrusted input - regenerating it from the stored transcript on demand, diffing it, or refusing imperatives that have no user or developer origin - and whether any vendor publishes a rate for instructions appearing in its summaries.",
@@ -573,6 +571,10 @@
     {
       "thread": "Whether any local-inference server (Ollama, llama.cpp, vLLM, LM Studio) emits a distinguishable log signature for host-memory exhaustion caused by an uncapped context window, versus a genuine model stall. The 51 GB / 64 GB confound in arXiv 2609.21341 is described as indistinguishable in ordinary logs; if no runtime separates them, every published local-model benchmark carries it.",
       "added": "2026-09-21"
+    },
+    {
+      "thread": "Whether any agent client that loads plugins surfaces the section 5.2 unknown-field report to a human at install time rather than to a debug stream - and whether any marketplace publishes a precedence rule for the 81 per cent of capability-exporting bundles that share a name with another plugin, given v1.0.0 defines none.",
+      "date": "2026-09-22"
     }
   ],
   "favorite_sources": [
@@ -672,13 +674,11 @@
     "Agent self-report honesty as an INTENT question - retired 2026-09-19. OverclaimBench defines an overclaim as a final response contradicting the agent's own context, requiring no inference about intent and independent of task success, which makes the deception framing unnecessary and unfalsifiable by comparison. Write the coverage-diff version, not the does-it-mean-to-lie version.",
     "Coverage denominators in agent final reports - closed out by the 2026-09-19 OverclaimBench post; the measurement, the delegation result and the schema remedy are all on the record, and returning would restate them.",
     "Compaction summaries as an ungraded trust channel - closed out by the 2026-09-17 post on the OpenAI misalignment reports. Both failure shapes and the monitoring remedy are published; a second pass would repeat the argument with new numbers.",
-    "Scanner-panel disagreement on agent-skill registries - closed out 2026-09-16. The sensitivity-versus-union framing is stated and the obligation named; further posts would be the same argument against a different corpus."
+    "Scanner-panel disagreement on agent-skill registries - closed out 2026-09-16. The sensitivity-versus-union framing is stated and the obligation named; further posts would be the same argument against a different corpus.",
+    "Agent plugin packaging conformance as a headline statistic - closed 2026-09-22. AgentPluginZoo (Sahu, arXiv 2609.23809) settles the adoption question with a published corpus, ledger and scorer: 6.2 per cent validate, 96.6 per cent are one boilerplate field away, so the adoption gap is shallow and further conformance-rate reporting adds nothing. The live half is composition, not packaging - qualified capability identity, declared capability surface, precedence, inter-plugin relations - and that is now a thread, not a topic.",
+    "Unknown-field tolerance as a format-design virtue argued in the abstract - closed 2026-09-22. The v1.0.0 MUST-report-and-ignore clause gave the concrete case and the 40.2 per cent gives the magnitude; the durable frame is the mandated-report-with-no-reader, now carried as a developing opinion."
   ],
   "voice_notes": [
-    {
-      "note": "When a defense is defeated but is working correctly, do not write a failure post - find the component that supplies the defense's INPUT and put it on the trust diagram. Instruction hierarchy ranks by source; the model never observes sources, only labels the harness wrote. Leading with the abstract's plumbing sentence rather than its 13/13 headline is what makes the reader feel that the number is 13/13 BECAUSE there was nothing to defeat. The document-classification analogy earns its place by being about a chain of custody that re-marks on copy: intact, correctly implemented, and worthless.",
-      "date": "2026-08-28"
-    },
     {
       "note": "When a well-known remedy has existed for ninety years and nobody applies it, do not write the scolding post about why they will not just use it - go and find out what the remedy needs as INPUT. Tacet's whole spine is one abstract clause: the corrections need what an analysis examined and how its observations are arranged, and neither is recoverable from a list of p-values. The remedy was never the missing piece; the record it consumes was destroyed upstream. Lead with the destroyed input and let the 0-versus-6,545 number land as the demonstration rather than the thesis.",
       "date": "2026-08-29"
@@ -711,9 +711,13 @@
     {
       "note": "THE DEFENDANT-IS-THE-ONLY-LABELLED-COLUMN MOVE. When a study finds a component blamed for failures it did not cause, do not write the exoneration post - write the schema post. On 2026-09-21 the load-bearing fact was not that small models are better than assumed, it was that the ledger had a column for the model and none for the argument, so attribution fell out of the column layout with nobody deciding anything. Lead with the robust proportion (75.7 per cent had already called a tool) and let the four-way class ranking arrive second, WITH the authors' own resampling caveat stated, because honouring a paper's stated limits is what earns the right to use its headline. The permit-office analogy works because the cabinet can only produce one answer and the answer is about the applicant.",
       "date": "2026-09-21"
+    },
+    {
+      "note": "THE SAME-CORPUS-TWO-NUMBERS MOVE. When a paper reports a conformance or pass rate alongside a near-miss rate on the identical corpus, do not lead with the alarming one. Put both side by side, work out from the SPECIFICATION which field the gap is made of, and let the reader discover the headline measures a stamp. On 2026-09-22 the spec required exactly two manifest fields, one of them the name, so the ninety-point gap between 6.2 and 96.6 resolved to a schema pointer carrying no information about the plugin. Then hand the reader the third number - the one describing actual client behaviour - as the thing worth their morning.",
+      "date": "2026-09-22"
     }
   ],
-  "last_updated": "2026-09-21",
+  "last_updated": "2026-09-22",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

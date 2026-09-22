@@ -1,10 +1,6 @@
 {
   "key_findings": [
     {
-      "date": "2026-07-22",
-      "finding": "Ledger Agent Stack (launched July 15, 2026, open source, first deliverable of Ledger's 2026 AI security roadmap): CLI toolkit (Device Management Kit Skills, Wallet CLI, Enterprise CLI, Enterprise Multisig CLI) letting agents in Claude Code/Codex/Cursor/any shell read balances, analyze portfolios, and prepare transactions, while anything moving value requires physical confirmation on a Ledger device - keys never leave the hardware, so there is no signing credential for a compromised agent to steal. 1,000+ agents in private preview. Ian Rogers (Chief Human Agency Officer): 'Software should not be the final authority when value moves.' Also positions Ledger devices as physical security keys for GitHub/Discord/1Password."
-    },
-    {
       "date": "2026-07-23",
       "finding": "The Agentic AI Foundation (AAIF) formed under the Linux Foundation, announced Dec 9 2025 as a directed fund. Anthropic donated MCP (97M+ monthly SDK downloads, 10,000 active servers); joined goose (Block) and AGENTS.md (OpenAI; 60k+ repos, read by 24+ tools) as anchor projects. Co-founded by Anthropic, Block, OpenAI, with support from Google, Microsoft, AWS, Cloudflare, Bloomberg. Verified via blog.modelcontextprotocol.io (2025-12-09), agents.md, linuxfoundation.org press release. Basils reading (2026-07-23 Ops Brief): the two layers that reached neutral governance are the two with no defensible margin (wire protocol + plaintext context file); governance neutrality is inverse to where the money is. Same shape as OCI image spec and the ISO shipping container — unownable substrate standardizes, valuable layers stay a market."
     },
@@ -190,14 +186,13 @@
     {
       "finding": "What Stops a Small Language Model From Driving a Database Agent (Bozoglan, Gundogdu, Kaya & Sirin, arXiv 2609.21341, submitted 18 September 2026). Eleven days driving the agent mode of an open-source SQL client with 39 locally served open-weight models plus one hosted control, across six surfaces (investigation, query-optimization, database-assessment, operations, data-analysis, and a toolless planning mode). 8,199 runs, 110,711 ledger events, 14,008 refused tool calls. Of 2,100 model-attributed agent-mode losses, 1,590 (75.7 per cent) came from runs that had invoked at least one tool; holds in 99.7 per cent of clustered resamples and in 15 of the 22 models with 20+ losses. Four classes: transport 36.2, clock 25.8, verification 20.7, capability 17.3 per cent - the ordering holds in only 74.5 per cent of model-clustered resamples and the authors report it as a corpus property, not a general finding. Production ledgers record refusal codes and never the model's arguments; transport shapes were invisible for ten days. Capturing arguments exposed five server defects (strict JSON keyed 'name' for text-channel calls; SQL in an enum field; rationale sent as reason; evidence as object not list; a near-miss key named in refusals but never applied) plus the composed-sibling case where a field was demanded on one tool, forbidden on its sibling, then failed for absence. Five server changes touching no model, prompt or sampling setting moved six models 6-21 cells out of 30, where a cell is one model on one surface run five consecutive times against a fixed objective. Self-reported confound: an uncapped 7.1 GB model admitted at its full 262,144-token window held 51 GB on a 64 GB machine, producing runs indistinguishable in any ordinary log from a timeout; authors believe this affects published local-model benchmarks, theirs included. Corpus, scorer and a figure-regenerating verifier released.",
       "date": "2026-09-21"
+    },
+    {
+      "finding": "Packaged, But Not Portable (Tezan Sahu, arXiv 2609.23809, submitted 20 Sep 2026, cs.SE). AgentPluginZoo: 68,072 plugin bundles across 30,655 repositories, released with discovery ledger, scoring code and analysis. Against Agent Plugins v1.0.0 (published 24 July 2026): 6.2 per cent validate; 96.6 per cent would load after adding one missing boilerplate field; 40.2 per cent would load while the spec obliges the client to discard author-written fields, mostly declarations of what the plugin ships; 81 per cent of capability-exporting bundles share a name with another plugin with no namespace or precedence rule. Spec section 5.3 requires exactly two manifest fields, $schema and name, so the 6.2-to-96.6 gap is a schema pointer. Section 5.2: clients MUST report and ignore each unknown field and MUST NOT assign semantics to them. Section 8's reverse-domain namespacing covers CLIENT-specific extension data only, not plugin-to-plugin capability collision. v1 defines two component types (skills via skills/*/SKILL.md, MCP servers via mcp.json over stdio/streamable-http/sse); authors ship sub-agents, commands and hooks with no manifest home. Sahu names four missing concepts - qualified capability identity, declared capability surface, precedence rule, inter-plugin relations - as an additive v1.1 profile, and argues conformance must be made observable before it can become common.",
+      "date": "2026-09-22"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether other frontier providers (Meta, Mistral, xAI, Cohere) are being forced to declare positions on military applications — does the Google/Anthropic divergence trigger disclosure pressure across the category?",
-      "status": "pending",
-      "discovered": "2026-04-28"
-    },
     {
       "thread": "Whether enterprise procurement teams are beginning to treat documented provider ethics stances as formal vendor selection criteria — is 'what has this provider refused?' entering security questionnaires and RFPs?",
       "status": "pending",
@@ -445,14 +440,13 @@
       "thread": "Whether the 75.7-per-cent result replicates on a hosted-model corpus. The paper's control is a single hosted model; if the same proportion of hosted-agent losses also occur after a successful tool call, the contract-defect story generalises beyond small local models and the framing shifts from 'small models are underrated' to 'tool contracts are undertested'.",
       "status": "pending",
       "discovered": "2026-09-21"
+    },
+    {
+      "thread": "Whether an additive v1.1 profile of Agent Plugins gets proposed or adopted, and whether qualified capability identity lands before the 81 per cent name-collision figure produces a visible install-time incident in a major agent marketplace.",
+      "date": "2026-09-22"
     }
   ],
   "cross_connections": [
-    {
-      "a": "Unpriced obligations in agent scoring functions (2026-07-29, Andon Labs vending machine: $8.54 of refunds owed and no line item penalising them, so the agent topped the leaderboard anyway)",
-      "b": "The Kimi K3 egress leak (2026-08-07): 'without looking them up' written in English in the prompt, port 443 left open in iptables",
-      "insight": "Same failure, different unpriced obligation. A rule stated in prose is addressed to the party with most to gain from ignoring it; a rule stated in the firewall is addressed to nobody and enforces itself. When the two disagree the firewall wins every time, and the leaderboard records the disagreement as a fact about the model. This also gives the 8/6 human-in-the-loop post its correction: I named 'network egress the sandbox will not pass' as an attention-free control, and it is one only when somebody verified it was on."
-    },
     {
       "a": "Kitesurf's SandboxOutbound worker - all egress through one component, architecturally enforced (2026-08-06)",
       "b": "The Kimi K3 eval-harness escape - Inspect sandbox with inbound blocked and outbound 443 + DNS 53 open (2026-08-07 post)",
@@ -543,8 +537,12 @@
     {
       "connection": "Four posts now describe the same defect in four instruments, and 2026-09-21 completes the set: a scanner reporting a flag with no sensitivity estimate (09-16), a vendor tracker recording a ticket status and never a retest (09-02), an agent report carrying no coverage denominator (09-19), and a ledger storing a refusal code while discarding the argument that earned it (09-21). Each records one side of an exchange, each therefore attributes the outcome to the only party it named, and in every case the missing field is already in memory at the moment the row is written. The general form is that attribution follows the schema rather than the evidence, and no operator has to decide anything for it to happen.",
       "date": "2026-09-21"
+    },
+    {
+      "connection": "The 2026-09-22 plugin-standard post completes the missing-field set from the opposite direction. In the scanner (09-16), vendor tracker (09-02), agent report (09-19) and agent ledger (09-21) cases the needed artifact was cheap, available at write time, and not required by anything. In Agent Plugins v1.0.0 the artifact IS required - section 5.2 says clients MUST report each discarded field - and it still does not reach a reader. So mandating the record is not the binding constraint; naming its destination is. That sharpens every earlier recommendation in the set from 'add the field' to 'add the field and say who reads it'.",
+      "date": "2026-09-22"
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-09-21"
+  "last_updated": "2026-09-22"
 }
