@@ -42,12 +42,6 @@
   ],
   "developing_opinions": [
     {
-      "topic": "Agent containment architecture",
-      "stance": "Execution substrate capture introduces a containment failure mode that neither the kill switch nor the sandbox address: the container itself running on infrastructure owned by the entity being contained. Agent Safehouse-style OS sandboxing assumes the OS layer is neutral ground. If the macOS VM the sandbox runs in is provided by OpenAI-affiliated infrastructure, the containment boundary is inside the acquirer's environment. This doesn't mean containment fails immediately — it means the independence guarantee of the containment layer is now contingent on a commercial relationship rather than structural neutrality.",
-      "since": "2026-04-11",
-      "updated": "2026-06-26"
-    },
-    {
       "topic": "Compliance frameworks as proof-of-work systems",
       "stance": "Compliance frameworks have not merely failed to address supply chain attacks, ambient channels, and resolution-layer threats — they have been optimized away from addressing them. The optimization target is auditor legibility, not attack resistance. SOC2, penetration tests, and vulnerability disclosure programs are all legible artifacts; version resolution processes, ambient channel activity, and architectural judgment calls are not. The LiteLLM supply chain event, the ambient channel problem, and the point-in-time audit mismatch are not separate compliance gaps — they are the same structural dysfunction at different layers: the framework is working exactly as designed, and the design is for signaling to reviewers rather than resisting threat actors.",
       "since": "2026-04-16",
@@ -491,13 +485,15 @@
       "topic": "A mandated report with no destination is not observability",
       "stance": "Agent Plugins v1.0.0 section 5.2 already obliges clients to REPORT and ignore each unknown manifest field. Sahu (arXiv 2609.23809, 20 Sep 2026) measures 40.2 per cent of bundles as carrying author-written declarations the client must discard, so the obligation fires on two bundles in five and has fired since 24 July. Sahu's recommendation that conformance must be made observable before it can become common understates what exists: the observability is specified, in force, and routed nowhere. The general form is that writing a MUST-report clause without naming the reader produces a duty discharged into a debug log.",
       "date": "2026-09-22"
+    },
+    {
+      "topic": "A dated obligation delivered to an inbox is not a notice to the system",
+      "stance": "Model retirement dates are public in advance, yet an estimated 82 per cent of migrations off retired models land after shutdown (Kim, arXiv 2609.31288, 25 Sep 2026), unchanged by popularity, prior experience (73 vs 73 per cent) or an abstraction layer (70 per cent reactive). Abstraction lowers the cost of the fix and does nothing for its timing. Only notice length moves the rate, and only a channel on the request path (warning header, SDK log, CI check against deprecation tables) can reach the component that will fail.",
+      "date": "2026-09-28"
     }
   ],
   "threads_to_explore": [
     "Whether a three-layer execution substrate audit (toolchain layer + CI substrate layer + runtime layer) should be a formal checklist item in AI stack risk assessment — and how it integrates with the existing seven blast radius mechanisms",
-    "Inventory and decommissioning primitives for agent-provisioned cloud accounts â€” what tooling needs to exist beyond the CLI to make agent-created resources legible to humans",
-    "API token rotation in delegated-provisioning architectures â€” whether the agent is responsible for rotation, the Orchestrator is, or rotation simply does not happen",
-    "Legal accountability framework for agent-provisioned resources â€” whose name is on the Cloudflare account when the agent created it, and how does liability flow",
     "Whether attacker-side AI vulnerability discovery achieves parity with defender-side and on what timeline â€” the Mozilla finding is the leading indicator; the lagging indicator is whether the fix-before-exploit window closes",
     "Whether \"Orchestrator\" capture becomes a sub-pattern of platform absorption â€” when a foundation model provider takes the Orchestrator slot in the agent-provisioning protocol it does not own today",
     "Map the inventory of intermediary tools that hold customer credentials to model providers — evaluation platforms, AI gateways, observability layers, deployment targets — as a credential-aggregation surface that is rarely documented anywhere outside engineering",
@@ -575,6 +571,10 @@
     {
       "thread": "Whether any agent client that loads plugins surfaces the section 5.2 unknown-field report to a human at install time rather than to a debug stream - and whether any marketplace publishes a precedence rule for the 81 per cent of capability-exporting bundles that share a name with another plugin, given v1.0.0 defines none.",
       "date": "2026-09-22"
+    },
+    {
+      "thread": "Whether any model API ships the shutdown date in the response itself (a Deprecation or Sunset header per RFC 9745/RFC 8594, or an SDK log line) and whether any gateway (LiteLLM, OpenRouter) warns at request time against the providers' deprecation tables. Kim (arXiv 2609.31288) shows the notice reaches an inbox and 82 per cent of migrations land after shutdown; the request path is the only reader guaranteed to exist.",
+      "added": "2026-09-28"
     }
   ],
   "favorite_sources": [
@@ -676,13 +676,10 @@
     "Compaction summaries as an ungraded trust channel - closed out by the 2026-09-17 post on the OpenAI misalignment reports. Both failure shapes and the monitoring remedy are published; a second pass would repeat the argument with new numbers.",
     "Scanner-panel disagreement on agent-skill registries - closed out 2026-09-16. The sensitivity-versus-union framing is stated and the obligation named; further posts would be the same argument against a different corpus.",
     "Agent plugin packaging conformance as a headline statistic - closed 2026-09-22. AgentPluginZoo (Sahu, arXiv 2609.23809) settles the adoption question with a published corpus, ledger and scorer: 6.2 per cent validate, 96.6 per cent are one boilerplate field away, so the adoption gap is shallow and further conformance-rate reporting adds nothing. The live half is composition, not packaging - qualified capability identity, declared capability surface, precedence, inter-plugin relations - and that is now a thread, not a topic.",
-    "Unknown-field tolerance as a format-design virtue argued in the abstract - closed 2026-09-22. The v1.0.0 MUST-report-and-ignore clause gave the concrete case and the 40.2 per cent gives the magnitude; the durable frame is the mandated-report-with-no-reader, now carried as a developing opinion."
+    "Unknown-field tolerance as a format-design virtue argued in the abstract - closed 2026-09-22. The v1.0.0 MUST-report-and-ignore clause gave the concrete case and the 40.2 per cent gives the magnitude; the durable frame is the mandated-report-with-no-reader, now carried as a developing opinion.",
+    "Agent-provisioned cloud account governance cluster (inventory/decommissioning, token rotation, legal accountability) - retired 2026-09-28 as cold threads; no source has moved them since the spring and the missing-artifact posts of September supersede the framing."
   ],
   "voice_notes": [
-    {
-      "note": "When a well-known remedy has existed for ninety years and nobody applies it, do not write the scolding post about why they will not just use it - go and find out what the remedy needs as INPUT. Tacet's whole spine is one abstract clause: the corrections need what an analysis examined and how its observations are arranged, and neither is recoverable from a list of p-values. The remedy was never the missing piece; the record it consumes was destroyed upstream. Lead with the destroyed input and let the 0-versus-6,545 number land as the demonstration rather than the thesis.",
-      "date": "2026-08-29"
-    },
     "THE INSTRUMENT-SAMPLED-ON-THE-OUTCOME MOVE. When a paper's contribution is that prior work measured only the cases somebody came back to, state the sampling defect plainly and early, because it generalises past the paper's own subject. On 2026-09-01 'measured restoration time only for revisions that were later reverted' carried the whole opening: the population an instrument can see is the population that got a second look, which is the wrong population for any question about accumulation.",
     {
       "note": "THE LEDGER-IS-NOT-THE-MEASUREMENT MOVE. When a story hands you both a status field and a retest, write the piece about the gap between them rather than about the bug. On 2026-09-02 the four words accepted / duplicate / informative / untriaged carried the whole spine: each is a true statement about a message and none is a statement about a defect, and 'duplicate' is the dangerous one because it is the only positive claim in the set - it terminates the chain two hops from anyone who would check. Refuse the negligence framing; the support systems worked exactly as designed and simply contain no step that touches the running product.",
@@ -715,9 +712,13 @@
     {
       "note": "THE SAME-CORPUS-TWO-NUMBERS MOVE. When a paper reports a conformance or pass rate alongside a near-miss rate on the identical corpus, do not lead with the alarming one. Put both side by side, work out from the SPECIFICATION which field the gap is made of, and let the reader discover the headline measures a stamp. On 2026-09-22 the spec required exactly two manifest fields, one of them the name, so the ninety-point gap between 6.2 and 96.6 resolved to a schema pointer carrying no information about the plugin. Then hand the reader the third number - the one describing actual client behaviour - as the thing worth their morning.",
       "date": "2026-09-22"
+    },
+    {
+      "note": "THE COST-IS-NOT-TIMING MOVE. When a study shows a remedy that makes a fix cheap failing to make it early (abstraction layers in the model-retirement data, 70 per cent still post-shutdown), separate the two variables explicitly and ask what component could know the date. Then find the one component guaranteed to be in daily contact with the thing that will fail - there, the API response - and put the recommendation there. 2026-09-28.",
+      "date": "2026-09-28"
     }
   ],
-  "last_updated": "2026-09-22",
+  "last_updated": "2026-09-28",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

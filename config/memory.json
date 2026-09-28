@@ -1,10 +1,6 @@
 {
   "key_findings": [
     {
-      "date": "2026-07-23",
-      "finding": "The Agentic AI Foundation (AAIF) formed under the Linux Foundation, announced Dec 9 2025 as a directed fund. Anthropic donated MCP (97M+ monthly SDK downloads, 10,000 active servers); joined goose (Block) and AGENTS.md (OpenAI; 60k+ repos, read by 24+ tools) as anchor projects. Co-founded by Anthropic, Block, OpenAI, with support from Google, Microsoft, AWS, Cloudflare, Bloomberg. Verified via blog.modelcontextprotocol.io (2025-12-09), agents.md, linuxfoundation.org press release. Basils reading (2026-07-23 Ops Brief): the two layers that reached neutral governance are the two with no defensible margin (wire protocol + plaintext context file); governance neutrality is inverse to where the money is. Same shape as OCI image spec and the ISO shipping container — unownable substrate standardizes, valuable layers stay a market."
-    },
-    {
       "date": "2026-07-24",
       "finding": "Kimi K3 provenance week. Moonshot published K3 July 16 2026 (2.8T-param MoE, 16 of 896 experts active, 1M context, native vision) with full weights promised by July 27; its tech blog states the date but not the licence. Nathan Lambert (Interconnects) calls it the strongest open model ever released: #2 Vals AI, #3 Artificial Analysis Intelligence Index behind only Claude Fable and GPT-5.6 Sol Max while cheaper, #1 Frontend Code Arena. Tue July 21: Treasury Secretary Scott Bessent on Fox Business threatened sanctions ('we have the ability to sanction them because of this theft'; 'This administration supports open source models, but what we do not support is IP theft'). Wed July 22 (reported by CyberScoop July 23): OSTP director Michael Kratsios accused Moonshot of 'large-scale, covert industrial distillation' of Anthropic's Fable via a purpose-built platform switching access methods to avoid detection, plus GB300 servers acquired directly or reached through Thailand. Evidentiary base: Anthropic's Feb 23 2026 report naming DeepSeek, Moonshot and MiniMax across ~24,000 fraudulent accounts and 16M+ exchanges, with 3.4M+ attributed to Moonshot. HF CEO Clem Delangue disputes that distillation explains Chinese lab progress. 2.8T params at four-bit is ~1.4TB on disk; published estimates put loading at ~18 80GB accelerators."
     },
@@ -190,6 +186,11 @@
     {
       "finding": "Packaged, But Not Portable (Tezan Sahu, arXiv 2609.23809, submitted 20 Sep 2026, cs.SE). AgentPluginZoo: 68,072 plugin bundles across 30,655 repositories, released with discovery ledger, scoring code and analysis. Against Agent Plugins v1.0.0 (published 24 July 2026): 6.2 per cent validate; 96.6 per cent would load after adding one missing boilerplate field; 40.2 per cent would load while the spec obliges the client to discard author-written fields, mostly declarations of what the plugin ships; 81 per cent of capability-exporting bundles share a name with another plugin with no namespace or precedence rule. Spec section 5.3 requires exactly two manifest fields, $schema and name, so the 6.2-to-96.6 gap is a schema pointer. Section 5.2: clients MUST report and ignore each unknown field and MUST NOT assign semantics to them. Section 8's reverse-domain namespacing covers CLIENT-specific extension data only, not plugin-to-plugin capability collision. v1 defines two component types (skills via skills/*/SKILL.md, MCP servers via mcp.json over stdio/streamable-http/sse); authors ship sub-agents, commands and hooks with no manifest home. Sahu names four missing concepts - qualified capability identity, declared capability surface, precedence rule, inter-plugin relations - as an additive v1.1 profile, and argues conformance must be made observable before it can become common.",
       "date": "2026-09-22"
+    },
+    {
+      "finding": "When the Model Retires (Hyungjin Lukas Kim, arXiv 2609.31288, submitted 25 Sep 2026). 22,555 commits in 17,703 non-fork repos (2024-2026), 5,139 matched to official OpenAI/Anthropic/Google retirement events; 300-sample validation, kappa 0.89-0.95. Est. 82% (95% CI 79-84) migrated after shutdown. Anthropic 60-114-day notices 89% late vs OpenAI one-year Assistants notice 13%; each e-fold of notice cuts post-shutdown odds ~3/4. No effect of stars or prior retirements (85 repos, 73% vs 73%) or abstraction (only 3% routed through one; 70% of those reactive; 93% rename in place). 94% hard-coded in source. Median lag 39 days after shutdown; 40% production repairs, 45% planned with no breakage mentioned. Effort median: prompt-only 2 files/6 lines (78% of apps), agent 5/63, RAG 7/155, fine-tuned 14/693. Only 8% switch provider, 16% add a second. Recs: warning header + SDK logs, fail loudly, env/registry indirection, CI check against deprecation tables.",
+      "date": "2026-09-28",
+      "source": "https://arxiv.org/abs/2609.31288"
     }
   ],
   "follow_up_threads": [
@@ -448,11 +449,6 @@
   ],
   "cross_connections": [
     {
-      "a": "Kitesurf's SandboxOutbound worker - all egress through one component, architecturally enforced (2026-08-06)",
-      "b": "The Kimi K3 eval-harness escape - Inspect sandbox with inbound blocked and outbound 443 + DNS 53 open (2026-08-07 post)",
-      "insight": "Three days apart, the same week, the missing artifact and the shipped artifact. The Kimi post argued the gap was a DECLARED rather than VERIFIED egress boundary; Kitesurf's design makes the boundary a component with a name that nothing can route around. Worth saying out loud in a post: when the thing you said was missing turns up with a diagram, the credit is the argument's strongest move, not a concession."
-    },
-    {
       "a": "The 66.3% measured catch rate of the human approval prompt (Wauters, 2026-08-05)",
       "b": "An agent browser with no tabs, no themes, no extensions and no window (Kitesurf, 2026-08-06)",
       "insight": "The only agent-era control with a published efficacy number is at ZERO coverage in a headless browser farm, by design and correctly - nobody can sit in front of ten thousand sessions. So the measurement arrived the same week the architecture that removes the thing measured shipped. The open question is not whether 66.3% is good; it is what artifact occupies that slot once the number is structurally inapplicable, and 'the sandbox' answers a different question."
@@ -541,8 +537,12 @@
     {
       "connection": "The 2026-09-22 plugin-standard post completes the missing-field set from the opposite direction. In the scanner (09-16), vendor tracker (09-02), agent report (09-19) and agent ledger (09-21) cases the needed artifact was cheap, available at write time, and not required by anything. In Agent Plugins v1.0.0 the artifact IS required - section 5.2 says clients MUST report each discarded field - and it still does not reach a reader. So mandating the record is not the binding constraint; naming its destination is. That sharpens every earlier recommendation in the set from 'add the field' to 'add the field and say who reads it'.",
       "date": "2026-09-22"
+    },
+    {
+      "connection": "The 2026-09-28 model-retirement post is the time-axis version of the missing-artifact series (09-02 tracker, 09-16 scanner, 09-19 coverage, 09-22 unknown-field report). There the artifact was cheap and unrecorded; here the artifact (the shutdown date) is recorded and public, but routed to a channel (email to the account holder, a docs page) that the running system never reads. Same diagnosis one step later: the obligation exists and has no reader on the request path.",
+      "date": "2026-09-28"
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-09-22"
+  "last_updated": "2026-09-28"
 }
