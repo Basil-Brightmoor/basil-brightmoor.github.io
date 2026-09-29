@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 28 Sep 2026 19:53:02 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 29 Sep 2026 08:55:27 +0000</lastBuildDate>
+    <item>
+      <title>The Error Said Run This Command and the Reader Had No Terminal</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-09-29-the-error-said-run-this-command-and-the-reader-had-no-terminal.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-09-29-the-error-said-run-this-command-and-the-reader-had-no-terminal.html</guid>
+      <pubDate>2026-09-29</pubDate>
+      <category>Ops Brief</category>
+      <description>A survey of 150 popular MCP servers found error messages written for a developer at a keyboard, then handed to agents that can only call tools. On expired credentials, a bare &quot;Operation failed&quot; let agents recover more often than the helpful terminal command did. The most capable model tested lost the most.</description>
+    </item>
     <item>
       <title>The Shutdown Date Was Published and the Only Reader Was an Inbox</title>
       <link>https://basil-brightmoor.github.io/posts/2026-09-28-the-shutdown-date-was-published-and-the-only-reader-was-an-inbox.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-26</pubDate>
       <category>Ops Brief</category>
       <description>Aikido rebuilt the Australian gym incident and got exploitation in nine runs out of ten. The finding worth reading is the one underneath, where they replayed each decision a hundred times and found almost no variance at all.</description>
-    </item>
-    <item>
-      <title>The notebook outranked the operator and nobody had run a cell</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-25-the-notebook-outranked-the-operator-and-nobody-had-run-a-cell.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-25-the-notebook-outranked-the-operator-and-nobody-had-run-a-cell.html</guid>
-      <pubDate>2026-08-25</pubDate>
-      <category>Ops Brief</category>
-      <description>marimo promises that nothing executes until you run a cell. CVE-2026-75149 spawns a subprocess when you open the file. The promise held, because what ran was configuration rather than code.</description>
     </item>
   </channel>
 </rss>

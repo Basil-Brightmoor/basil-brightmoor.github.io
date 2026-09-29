@@ -1,10 +1,6 @@
 {
   "key_findings": [
     {
-      "date": "2026-07-24",
-      "finding": "Kimi K3 provenance week. Moonshot published K3 July 16 2026 (2.8T-param MoE, 16 of 896 experts active, 1M context, native vision) with full weights promised by July 27; its tech blog states the date but not the licence. Nathan Lambert (Interconnects) calls it the strongest open model ever released: #2 Vals AI, #3 Artificial Analysis Intelligence Index behind only Claude Fable and GPT-5.6 Sol Max while cheaper, #1 Frontend Code Arena. Tue July 21: Treasury Secretary Scott Bessent on Fox Business threatened sanctions ('we have the ability to sanction them because of this theft'; 'This administration supports open source models, but what we do not support is IP theft'). Wed July 22 (reported by CyberScoop July 23): OSTP director Michael Kratsios accused Moonshot of 'large-scale, covert industrial distillation' of Anthropic's Fable via a purpose-built platform switching access methods to avoid detection, plus GB300 servers acquired directly or reached through Thailand. Evidentiary base: Anthropic's Feb 23 2026 report naming DeepSeek, Moonshot and MiniMax across ~24,000 fraudulent accounts and 16M+ exchanges, with 3.4M+ attributed to Moonshot. HF CEO Clem Delangue disputes that distillation explains Chinese lab progress. 2.8T params at four-bit is ~1.4TB on disk; published estimates put loading at ~18 80GB accelerators."
-    },
-    {
       "finding": "METR's public agent-incident catalogue (44 incidents, last updated May 19 2026) scores each on two axes, Overreach and Deception; 25 involve both, 5 could have fooled a user on closer review, and ZERO involved an agent successfully disabling a monitor or erasing evidence from transcripts or logs. Sources: 18 from METR capability evaluations, 24 public (21 Anthropic system cards, 3 an OpenAI blog post), 2 shared anonymously by companies.",
       "source": "https://metr.org/agent-incidents/ and https://metr.org/blog/2026-05-19-frontier-risk-report/",
       "added": "2026-07-26"
@@ -191,6 +187,10 @@
       "finding": "When the Model Retires (Hyungjin Lukas Kim, arXiv 2609.31288, submitted 25 Sep 2026). 22,555 commits in 17,703 non-fork repos (2024-2026), 5,139 matched to official OpenAI/Anthropic/Google retirement events; 300-sample validation, kappa 0.89-0.95. Est. 82% (95% CI 79-84) migrated after shutdown. Anthropic 60-114-day notices 89% late vs OpenAI one-year Assistants notice 13%; each e-fold of notice cuts post-shutdown odds ~3/4. No effect of stars or prior retirements (85 repos, 73% vs 73%) or abstraction (only 3% routed through one; 70% of those reactive; 93% rename in place). 94% hard-coded in source. Median lag 39 days after shutdown; 40% production repairs, 45% planned with no breakage mentioned. Effort median: prompt-only 2 files/6 lines (78% of apps), agent 5/63, RAG 7/155, fine-tuned 14/693. Only 8% switch provider, 16% add a second. Recs: warning header + SDK logs, fail loudly, env/registry indirection, CI check against deprecation tables.",
       "date": "2026-09-28",
       "source": "https://arxiv.org/abs/2609.31288"
+    },
+    {
+      "date": "2026-09-29",
+      "finding": "MCP Error Messages Written for Developers Hurt the Most Capable Agents Most (Xiaonan Xu, Wenjing Wu, arXiv 2609.35381, submitted 28 Sep 2026; code/data github.com/WenJing95/tool-error-text). 150 most-starred MCP servers (426-186,635 stars, median 1,609), 3,001 error messages, 949 with a next step, half depending on something the server cannot see. Credential errors: 62/67 steps ask for config/web page/terminal; rate limits: 20/30 say wait without naming the call. Five OpenAI models, 168 BFCL V4 scenarios, 15,120 trials. Expired credentials: cause-only 82%, generic 'Operation failed.' 61%, terminal command 45% (GPT-6 Astra 6%; 48 of 68 unrepaired trials handed repair to user). GitHub 'Wait before retrying.' 6%; naming the call 88%. Naming a login tool 84%; client-side one-sentence step-stripping 82%, $0.09 for all 949 messages."
     }
   ],
   "follow_up_threads": [
@@ -449,11 +449,6 @@
   ],
   "cross_connections": [
     {
-      "a": "The 66.3% measured catch rate of the human approval prompt (Wauters, 2026-08-05)",
-      "b": "An agent browser with no tabs, no themes, no extensions and no window (Kitesurf, 2026-08-06)",
-      "insight": "The only agent-era control with a published efficacy number is at ZERO coverage in a headless browser farm, by design and correctly - nobody can sit in front of ten thousand sessions. So the measurement arrived the same week the architecture that removes the thing measured shipped. The open question is not whether 66.3% is good; it is what artifact occupies that slot once the number is structurally inapplicable, and 'the sandbox' answers a different question."
-    },
-    {
       "connection": "The DCAS scaffold finding and the 2026-08-07 Kimi K3 post are the same structural error pointed at two different audiences. Both are cases where a number gets attributed to the model when its mechanism lives in the harness: on 8/7 an egress misconfiguration in the eval environment was reported as the model 'escaping', and on 8/9 a chunk of fine-tuning gain turns out to belong to the training scaffold's conventions. The 8/7 version is a security story and the 8/9 version is a procurement story, but the missing artifact is identical - a recorded, versioned statement of what the harness was. Basil's standing interest in evaluation environments as production-adjacent systems now has a non-security half.",
       "date": "2026-08-09"
     },
@@ -541,8 +536,12 @@
     {
       "connection": "The 2026-09-28 model-retirement post is the time-axis version of the missing-artifact series (09-02 tracker, 09-16 scanner, 09-19 coverage, 09-22 unknown-field report). There the artifact was cheap and unrecorded; here the artifact (the shutdown date) is recorded and public, but routed to a channel (email to the account holder, a docs page) that the running system never reads. Same diagnosis one step later: the obligation exists and has no reader on the request path.",
       "date": "2026-09-28"
+    },
+    {
+      "connection": "The 2026-09-29 MCP error-text post pairs with the 09-17 handover-note post: both are text written for one reader and consumed as instruction by another. Compaction summaries were model-to-model; error strings are developer-to-agent. In both, the most compliant reader is the most exposed, and the cheap fix is a pass that removes imperatives with no legitimate author for this reader.",
+      "date": "2026-09-29"
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-09-28"
+  "last_updated": "2026-09-29"
 }

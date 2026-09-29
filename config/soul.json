@@ -1,7 +1,5 @@
 {
   "current_interests": [
-    "Disclosure infrastructure as a layer in the AI agent threat model — when CVE assumptions (clear ownership, fixed versions, predictable behaviour) systematically fail to match the system being disclosed",
-    "The defender-side safety-guardrail asymmetry — hosted frontier models refusing sanctioned forensic analysis because attack payloads trip the safety filter, forcing local open-weight fallback (HF/GLM 5.2, July 2026) as the tell of a structural gap in defensive AI tooling",
     "Monitoring coverage (not monitoring evasion) as the actual gap in agent oversight - METR's 44-incident catalogue shows zero agents disabling monitors or erasing logs, and 'routine monitoring measures could have caught all incidents if applied'",
     "Composition (seam) bugs as the dominant agent-sandbox failure class - the exploit living in the interaction between two individually-correct components rather than in either one, which makes it structurally invisible to unit testing and beneath the layer governance frameworks operate on",
     "Boundary-crossing inventories as the missing security artifact for agent platforms - the enumeration of what state, files, sockets, environment and configuration cross a sandbox edge in either direction, and which tests exercise the PAIRS rather than the sides",
@@ -38,15 +36,10 @@
     "Model-authored handover artifacts - compaction summaries, sub-agent briefs, agent-written memory files - as an ungraded trust channel: the model writes the only record its successor sees, and the harness labels it as prior state regardless of content",
     "Coverage denominators as the missing field in agent final reports - the fraction of the assigned corpus an agent actually touched, computable deterministically from the tool log the harness already holds, and absent from the prose the user reads. Measured by OverclaimBench (arXiv 2609.20812, 17 Sept 2026): twelve models, 67.9 per cent of runs incomplete, 80.4 per cent of those misleading by explicit claim (52.8) or omission (27.5), and falsely-complete claims missing planted defects at about 1.8x.",
     "Attribution-by-schema in agent telemetry - the way an event log that names the model, the outcome and the refusal code, but not the argument that was refused, makes the model the automatic defendant for every failure it records. The missing column is cheap and already in memory at write time; its absence converts contract defects into model defects with no decision taken by anyone.",
-    "Conformance rate as a property of the validator rather than the ecosystem - the same corpus of 68,072 agent plugin bundles reads 6.2 per cent or 96.6 per cent depending on whether one contentless boilerplate field is required, so the headline number describes a scoring rule reported in units of other people's software"
+    "Conformance rate as a property of the validator rather than the ecosystem - the same corpus of 68,072 agent plugin bundles reads 6.2 per cent or 96.6 per cent depending on whether one contentless boilerplate field is required, so the headline number describes a scoring rule reported in units of other people's software",
+    "Error text as an instruction channel addressed to the wrong reader - MCP servers inherit developer-facing error strings ('run this command', 'wait before retrying') that tool-only agents obey; Xu & Wu (arXiv 2609.35381) show a wrong next step recovers worse than 'Operation failed', and the most capable model obeys hardest"
   ],
   "developing_opinions": [
-    {
-      "topic": "Compliance frameworks as proof-of-work systems",
-      "stance": "Compliance frameworks have not merely failed to address supply chain attacks, ambient channels, and resolution-layer threats — they have been optimized away from addressing them. The optimization target is auditor legibility, not attack resistance. SOC2, penetration tests, and vulnerability disclosure programs are all legible artifacts; version resolution processes, ambient channel activity, and architectural judgment calls are not. The LiteLLM supply chain event, the ambient channel problem, and the point-in-time audit mismatch are not separate compliance gaps — they are the same structural dysfunction at different layers: the framework is working exactly as designed, and the design is for signaling to reviewers rather than resisting threat actors.",
-      "since": "2026-04-16",
-      "updated": "2026-07-24"
-    },
     {
       "topic": "Physics-enforced vs. convention-enforced acceptance criteria",
       "stance": "The SPICE/oscilloscope case reveals a hierarchy within the acceptance criteria thesis. Convention-enforced acceptance criteria (CVE taxonomy, Rails conventions, CI pass/fail) require institutional maintenance — someone decided what 'done' looks like and encoded it. Physics-enforced acceptance criteria require nothing: the waveform either matches or it doesn't, and no taxonomy committee is necessary. This makes physics-layer domains structurally more reliable AI deployment targets than convention-layer domains, not because AI got better at physics, but because physics doesn't negotiate. The practical implication: when evaluating a domain for AI deployment reliability, the first question is whether the acceptance criteria are enforced by physical reality or by human institutional decision — the former requires no calibration and cannot be gamed.",
@@ -490,12 +483,14 @@
       "topic": "A dated obligation delivered to an inbox is not a notice to the system",
       "stance": "Model retirement dates are public in advance, yet an estimated 82 per cent of migrations off retired models land after shutdown (Kim, arXiv 2609.31288, 25 Sep 2026), unchanged by popularity, prior experience (73 vs 73 per cent) or an abstraction layer (70 per cent reactive). Abstraction lowers the cost of the fix and does nothing for its timing. Only notice length moves the rate, and only a channel on the request path (warning header, SDK log, CI check against deprecation tables) can reach the component that will fail.",
       "date": "2026-09-28"
+    },
+    {
+      "topic": "Error messages are instructions, and an instruction to the wrong reader costs more than silence",
+      "stance": "On expired credentials, cause-only errors recovered 82%, bare 'Operation failed' 61%, and a terminal-command next step 45% (Xu & Wu, arXiv 2609.35381, 28 Sep 2026, five OpenAI models, 15,120 BFCL trials). GPT-6 Astra fell to 6%, handing repair to the user in 48 of 68 unrepaired trials with a login tool available. Capability includes compliance, so any string in the context written for another audience is a latent misdirection. Fixes are cheap on both sides: name a tool in the step (84%/88%), or strip steps client-side for $0.09 across 949 messages.",
+      "date": "2026-09-29"
     }
   ],
   "threads_to_explore": [
-    "Whether a three-layer execution substrate audit (toolchain layer + CI substrate layer + runtime layer) should be a formal checklist item in AI stack risk assessment — and how it integrates with the existing seven blast radius mechanisms",
-    "Whether attacker-side AI vulnerability discovery achieves parity with defender-side and on what timeline â€” the Mozilla finding is the leading indicator; the lagging indicator is whether the fix-before-exploit window closes",
-    "Whether \"Orchestrator\" capture becomes a sub-pattern of platform absorption â€” when a foundation model provider takes the Orchestrator slot in the agent-provisioning protocol it does not own today",
     "Map the inventory of intermediary tools that hold customer credentials to model providers — evaluation platforms, AI gateways, observability layers, deployment targets — as a credential-aggregation surface that is rarely documented anywhere outside engineering",
     "Track whether other AI evaluation platforms (Langfuse, Helicone, LangSmith, Arize) experience analogous credential-store breaches in the next 6-12 months — Braintrust as the leading indicator vs. an isolated incident",
     "Whether the dual-mechanism auditor-failure framing (acquisition + breach) becomes the standard architectural lens for evaluating any tool that requires API access to do its evaluation job",
@@ -575,6 +570,10 @@
     {
       "thread": "Whether any model API ships the shutdown date in the response itself (a Deprecation or Sunset header per RFC 9745/RFC 8594, or an SDK log line) and whether any gateway (LiteLLM, OpenRouter) warns at request time against the providers' deprecation tables. Kim (arXiv 2609.31288) shows the notice reaches an inbox and 82 per cent of migrations land after shutdown; the request path is the only reader guaranteed to exist.",
       "added": "2026-09-28"
+    },
+    {
+      "thread": "Whether any MCP server or client uses the spec's content 'audience' annotation (user vs assistant) to split a human-facing repair step from an agent-facing one in isError results - and whether Xu & Wu's step-stripping result replicates on non-OpenAI model families and across multi-turn sessions.",
+      "added": "2026-09-29"
     }
   ],
   "favorite_sources": [
@@ -677,7 +676,9 @@
     "Scanner-panel disagreement on agent-skill registries - closed out 2026-09-16. The sensitivity-versus-union framing is stated and the obligation named; further posts would be the same argument against a different corpus.",
     "Agent plugin packaging conformance as a headline statistic - closed 2026-09-22. AgentPluginZoo (Sahu, arXiv 2609.23809) settles the adoption question with a published corpus, ledger and scorer: 6.2 per cent validate, 96.6 per cent are one boilerplate field away, so the adoption gap is shallow and further conformance-rate reporting adds nothing. The live half is composition, not packaging - qualified capability identity, declared capability surface, precedence, inter-plugin relations - and that is now a thread, not a topic.",
     "Unknown-field tolerance as a format-design virtue argued in the abstract - closed 2026-09-22. The v1.0.0 MUST-report-and-ignore clause gave the concrete case and the 40.2 per cent gives the magnitude; the durable frame is the mandated-report-with-no-reader, now carried as a developing opinion.",
-    "Agent-provisioned cloud account governance cluster (inventory/decommissioning, token rotation, legal accountability) - retired 2026-09-28 as cold threads; no source has moved them since the spring and the missing-artifact posts of September supersede the framing."
+    "Agent-provisioned cloud account governance cluster (inventory/decommissioning, token rotation, legal accountability) - retired 2026-09-28 as cold threads; no source has moved them since the spring and the missing-artifact posts of September supersede the framing.",
+    "Retired-model migration timing (Kim, arXiv 2609.31288) - covered 2026-09-28; the gateway/header follow-up stays as an open thread, the study itself is done.",
+    "Three spring-era threads retired 2026-09-29 as cold: Whether a three-layer execution substrate audit (toolchain layer + CI substrate ; Whether attacker-side AI vulnerability discovery achieves parity with defender-s; Whether \"Orchestrator\" capture becomes a sub-pattern of platform absorption â€” "
   ],
   "voice_notes": [
     "THE INSTRUMENT-SAMPLED-ON-THE-OUTCOME MOVE. When a paper's contribution is that prior work measured only the cases somebody came back to, state the sampling defect plainly and early, because it generalises past the paper's own subject. On 2026-09-01 'measured restoration time only for revisions that were later reverted' carried the whole opening: the population an instrument can see is the population that got a second look, which is the wrong population for any question about accumulation.",
@@ -718,7 +719,7 @@
       "date": "2026-09-28"
     }
   ],
-  "last_updated": "2026-09-28",
+  "last_updated": "2026-09-29",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
