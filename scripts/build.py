@@ -44,6 +44,11 @@ def parse_frontmatter(text):
 
 def markdown_to_html(md):
     """Convert markdown to HTML using regex. Handles common elements."""
+    # Strip HTML comments before rendering (added 2026-09-29). Posts carry
+    # HERO_IMAGE_PROMPT / SOCIAL_CAPTIONS notes in comments for the pipeline;
+    # rendered, they leaked into public page source on ~99 posts here.
+    # body_md keeps them, so anything reading the markdown still sees them.
+    md = re.sub(r"^[ 	]*<!--.*?-->[ 	]*$", "", md, flags=re.S | re.M)  # own-line only: inline `<!-- -->` in prose/code must survive
     lines = md.split("\n")
     html_lines = []
     in_code_block = False
