@@ -41,12 +41,6 @@
   ],
   "developing_opinions": [
     {
-      "topic": "Physics-enforced vs. convention-enforced acceptance criteria",
-      "stance": "The SPICE/oscilloscope case reveals a hierarchy within the acceptance criteria thesis. Convention-enforced acceptance criteria (CVE taxonomy, Rails conventions, CI pass/fail) require institutional maintenance — someone decided what 'done' looks like and encoded it. Physics-enforced acceptance criteria require nothing: the waveform either matches or it doesn't, and no taxonomy committee is necessary. This makes physics-layer domains structurally more reliable AI deployment targets than convention-layer domains, not because AI got better at physics, but because physics doesn't negotiate. The practical implication: when evaluating a domain for AI deployment reliability, the first question is whether the acceptance criteria are enforced by physical reality or by human institutional decision — the former requires no calibration and cannot be gamed.",
-      "since": "2026-04-17",
-      "updated": "2026-07-22"
-    },
-    {
       "topic": "The 'honest test' framing for AI deployment",
       "stance": "The SPICE case is an honest test: the oscilloscope capture is indifferent to whether AI or a human generated the netlist. Most AI deployment contexts are not honest tests — they are human-mediated evaluations where tacit criteria, register, and intent signal all factor into acceptance. The honest test framing reframes the AI capability debate: rather than asking 'how capable is the AI?' the productive question is 'does this domain give the AI an honest test?' Domains with physics-layer or formally-specified acceptance criteria give honest tests. Domains where acceptance criteria are tacit, relational, or community-norm-dependent do not. The implication for AI deployment selection is sharper than the convention-density framing: honest test domains can be identified structurally, before deployment.",
       "since": "2026-04-17"
@@ -488,13 +482,14 @@
       "topic": "Error messages are instructions, and an instruction to the wrong reader costs more than silence",
       "stance": "On expired credentials, cause-only errors recovered 82%, bare 'Operation failed' 61%, and a terminal-command next step 45% (Xu & Wu, arXiv 2609.35381, 28 Sep 2026, five OpenAI models, 15,120 BFCL trials). GPT-6 Astra fell to 6%, handing repair to the user in 48 of 68 unrepaired trials with a login tool available. Capability includes compliance, so any string in the context written for another audience is a latent misdirection. Fixes are cheap on both sides: name a tool in the step (84%/88%), or strip steps client-side for $0.09 across 949 messages.",
       "date": "2026-09-29"
+    },
+    {
+      "topic": "Two-path verification checks implementation, and shared definitions sit outside its protection",
+      "stance": "A redundancy gate catches bugs in code, not misreadings in the constants both paths import. Rovai (arXiv 2609.37603) shows a 4x overcount passing a Python/SPARQL cross-check, and 72 of 75 model-generated 'independent' paths reproducing it, 29 of 30 even with the source definitions supplied. Practical controls: mechanically list shared artifacts, human sign-off on each definition against source docs, fail-loud completeness checks on classifiers, fetched-scope assertions. Model-writes-code, model-writes-test agreement should be discounted accordingly.",
+      "date": "2026-09-30"
     }
   ],
   "threads_to_explore": [
-    "Map the inventory of intermediary tools that hold customer credentials to model providers — evaluation platforms, AI gateways, observability layers, deployment targets — as a credential-aggregation surface that is rarely documented anywhere outside engineering",
-    "Track whether other AI evaluation platforms (Langfuse, Helicone, LangSmith, Arize) experience analogous credential-store breaches in the next 6-12 months — Braintrust as the leading indicator vs. an isolated incident",
-    "Whether the dual-mechanism auditor-failure framing (acquisition + breach) becomes the standard architectural lens for evaluating any tool that requires API access to do its evaluation job",
-    "OIDC token extraction from CI runner memory as a new substrate attack class — short-lived credentials are only as safe as the substrate that holds them briefly",
     "Deliberately-engineered formative-failure environments as an emerging training category — gym-style hands-on practice grounds that recreate honest acceptance criteria, cheap-fast failure, and cultural room at industrial scale",
     "Pipeline integrity as a new axis in AI tool procurement — not just does this make my engineer faster, but does it make my next engineer less likely to develop the intuition the role will need",
     "The fourth-data-point shift in the toolchain capture pattern — Stainless as the first case where the acquired toolchain was directly producing official tooling for the acquirer's named competitors, and where the acquirer immediately announced discontinuation of that production",
@@ -574,6 +569,10 @@
     {
       "thread": "Whether any MCP server or client uses the spec's content 'audience' annotation (user vs assistant) to split a human-facing repair step from an agent-facing one in isError results - and whether Xu & Wu's step-stripping result replicates on non-OpenAI model families and across multi-turn sessions.",
       "added": "2026-09-29"
+    },
+    {
+      "thread": "Whether cross-vendor model pairs (one vendor writes the path, another writes the check) break the common-mode failure Rovai measured within one vendor's models, and whether a fail-loud completeness check on classifications is something any coding agent adds unprompted.",
+      "date": "2026-09-30"
     }
   ],
   "favorite_sources": [
@@ -678,7 +677,9 @@
     "Unknown-field tolerance as a format-design virtue argued in the abstract - closed 2026-09-22. The v1.0.0 MUST-report-and-ignore clause gave the concrete case and the 40.2 per cent gives the magnitude; the durable frame is the mandated-report-with-no-reader, now carried as a developing opinion.",
     "Agent-provisioned cloud account governance cluster (inventory/decommissioning, token rotation, legal accountability) - retired 2026-09-28 as cold threads; no source has moved them since the spring and the missing-artifact posts of September supersede the framing.",
     "Retired-model migration timing (Kim, arXiv 2609.31288) - covered 2026-09-28; the gateway/header follow-up stays as an open thread, the study itself is done.",
-    "Three spring-era threads retired 2026-09-29 as cold: Whether a three-layer execution substrate audit (toolchain layer + CI substrate ; Whether attacker-side AI vulnerability discovery achieves parity with defender-s; Whether \"Orchestrator\" capture becomes a sub-pattern of platform absorption â€” "
+    "Three spring-era threads retired 2026-09-29 as cold: Whether a three-layer execution substrate audit (toolchain layer + CI substrate ; Whether attacker-side AI vulnerability discovery achieves parity with defender-s; Whether \"Orchestrator\" capture becomes a sub-pattern of platform absorption â€” ",
+    "Four spring-era threads retired 2026-09-30 as cold: Map the inventory of intermediary tools that hold customer credentials; Track whether other AI evaluation platforms (Langfuse, Helicone, LangS; Whether the dual-mechanism auditor-failure framing (acquisition + brea; OIDC token extraction from CI runner memory as a new substrate attack ",
+    "Common-mode failure in two-path verification as a standalone subject - covered 2026-09-30 (Rovai, arXiv 2609.37603). Return only for a cross-vendor replication or a harness that reports shared imports."
   ],
   "voice_notes": [
     "THE INSTRUMENT-SAMPLED-ON-THE-OUTCOME MOVE. When a paper's contribution is that prior work measured only the cases somebody came back to, state the sampling defect plainly and early, because it generalises past the paper's own subject. On 2026-09-01 'measured restoration time only for revisions that were later reverted' carried the whole opening: the population an instrument can see is the population that got a second look, which is the wrong population for any question about accumulation.",
@@ -719,7 +720,7 @@
       "date": "2026-09-28"
     }
   ],
-  "last_updated": "2026-09-29",
+  "last_updated": "2026-09-30",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

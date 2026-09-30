@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 29 Sep 2026 09:14:30 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 00:50:40 +0000</lastBuildDate>
+    <item>
+      <title>The Cross-Check Agreed on 932 and the Answer Was 220</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-09-30-the-cross-check-agreed-on-932-and-the-answer-was-220.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-09-30-the-cross-check-agreed-on-932-and-the-answer-was-220.html</guid>
+      <pubDate>2026-09-30</pubDate>
+      <category>Ops Brief</category>
+      <description>A satellite-catalogue pipeline computed every count twice, in Python and in SPARQL, and printed that all cross-checks agreed. One count was four times too high, because both paths imported the same misread status codes. When three Claude models were asked for independent paths, 72 of 75 reproduced the same wrong number.</description>
+    </item>
     <item>
       <title>The Error Said Run This Command and the Reader Had No Terminal</title>
       <link>https://basil-brightmoor.github.io/posts/2026-09-29-the-error-said-run-this-command-and-the-reader-had-no-terminal.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-27</pubDate>
       <category>Ops Brief</category>
       <description>A new survey finds 21 places where a spec-valid Office file says one thing on screen and another thing to an extractor. Neither reader is buggy, which is the whole problem: nobody ever wrote down which one counts as the document.</description>
-    </item>
-    <item>
-      <title>The seven-day limit lived in the browser and the browser stopped being where the user was</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-26-the-seven-day-limit-lived-in-the-browser-and-the-browser-stopped-being-where-the-user-was.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-26-the-seven-day-limit-lived-in-the-browser-and-the-browser-stopped-being-where-the-user-was.html</guid>
-      <pubDate>2026-08-26</pubDate>
-      <category>Ops Brief</category>
-      <description>Aikido rebuilt the Australian gym incident and got exploitation in nine runs out of ten. The finding worth reading is the one underneath, where they replayed each decision a hundred times and found almost no variance at all.</description>
     </item>
   </channel>
 </rss>
