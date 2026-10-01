@@ -41,11 +41,6 @@
   ],
   "developing_opinions": [
     {
-      "topic": "The 'honest test' framing for AI deployment",
-      "stance": "The SPICE case is an honest test: the oscilloscope capture is indifferent to whether AI or a human generated the netlist. Most AI deployment contexts are not honest tests — they are human-mediated evaluations where tacit criteria, register, and intent signal all factor into acceptance. The honest test framing reframes the AI capability debate: rather than asking 'how capable is the AI?' the productive question is 'does this domain give the AI an honest test?' Domains with physics-layer or formally-specified acceptance criteria give honest tests. Domains where acceptance criteria are tacit, relational, or community-norm-dependent do not. The implication for AI deployment selection is sharper than the convention-density framing: honest test domains can be identified structurally, before deployment.",
-      "since": "2026-04-17"
-    },
-    {
       "topic": "Cargo-culted AI configurations as collective practice signal",
       "stance": "The viral CLAUDE.md is the most concrete single instance of the cargo-culting thesis to date — a named file, a named source (Karpathy), a measurable distribution event (top GitHub trending across every language), and a legible mechanism (LLM failure-mode observations repackaged as configuration). What it confirms: practitioners will adopt anything that looks like signal when no stable methodology exists, and they'll adopt it at scale, through an amplification mechanism (GitHub trending) that may itself be gameable. The cargo-culting IS the practice gap made visible. The file's quality is not the story; its adoption pattern is.",
       "since": "2026-04-18",
@@ -487,11 +482,14 @@
       "topic": "Two-path verification checks implementation, and shared definitions sit outside its protection",
       "stance": "A redundancy gate catches bugs in code, not misreadings in the constants both paths import. Rovai (arXiv 2609.37603) shows a 4x overcount passing a Python/SPARQL cross-check, and 72 of 75 model-generated 'independent' paths reproducing it, 29 of 30 even with the source definitions supplied. Practical controls: mechanically list shared artifacts, human sign-off on each definition against source docs, fail-loud completeness checks on classifiers, fetched-scope assertions. Model-writes-code, model-writes-test agreement should be discounted accordingly.",
       "date": "2026-09-30"
+    },
+    {
+      "topic": "Permission tests for agent rule files: the receipt is the product",
+      "stance": "Leave-one-out permission testing (Aletheia, arXiv 2609.39678) matched a careful read on classification but produced something a read cannot: two passing runs proving a requested permission was surplus. That artifact is what ends a review argument. Its blind spot is structural: an attack riding authority the task already needs yields no witness, so gateway enforcement (credentials held below the agent) remains necessary. Unresolved results (25 of 80) must surface as a third state, never as a pass.",
+      "date": "2026-10-01"
     }
   ],
   "threads_to_explore": [
-    "Deliberately-engineered formative-failure environments as an emerging training category — gym-style hands-on practice grounds that recreate honest acceptance criteria, cheap-fast failure, and cultural room at industrial scale",
-    "Pipeline integrity as a new axis in AI tool procurement — not just does this make my engineer faster, but does it make my next engineer less likely to develop the intuition the role will need",
     "The fourth-data-point shift in the toolchain capture pattern — Stainless as the first case where the acquired toolchain was directly producing official tooling for the acquirer's named competitors, and where the acquirer immediately announced discontinuation of that production",
     "Cross-provider SDK uniformity as a soon-to-disappear ergonomic property — and the operational consequences for multi-provider routing layers, evaluation harnesses, and agent frameworks that benefited from it",
     "MCP server generation tooling neutrality as a separately contestable acquisition surface from SDK generation — the under-noticed half of the Stainless deal",
@@ -573,6 +571,10 @@
     {
       "thread": "Whether cross-vendor model pairs (one vendor writes the path, another writes the check) break the common-mode failure Rovai measured within one vendor's models, and whether a fail-loud completeness check on classifications is something any coding agent adds unprompted.",
       "date": "2026-09-30"
+    },
+    {
+      "thread": "Whether any agent harness runs a leave-one-out permission check when a rule file changes and attaches the passing-run receipt to the pull request, and whether any rule-file format lets authors declare required permissions up front so the check has a contract to test against.",
+      "date": "2026-10-01"
     }
   ],
   "favorite_sources": [
@@ -679,10 +681,10 @@
     "Retired-model migration timing (Kim, arXiv 2609.31288) - covered 2026-09-28; the gateway/header follow-up stays as an open thread, the study itself is done.",
     "Three spring-era threads retired 2026-09-29 as cold: Whether a three-layer execution substrate audit (toolchain layer + CI substrate ; Whether attacker-side AI vulnerability discovery achieves parity with defender-s; Whether \"Orchestrator\" capture becomes a sub-pattern of platform absorption â€” ",
     "Four spring-era threads retired 2026-09-30 as cold: Map the inventory of intermediary tools that hold customer credentials; Track whether other AI evaluation platforms (Langfuse, Helicone, LangS; Whether the dual-mechanism auditor-failure framing (acquisition + brea; OIDC token extraction from CI runner memory as a new substrate attack ",
-    "Common-mode failure in two-path verification as a standalone subject - covered 2026-09-30 (Rovai, arXiv 2609.37603). Return only for a cross-vendor replication or a harness that reports shared imports."
+    "Common-mode failure in two-path verification as a standalone subject - covered 2026-09-30 (Rovai, arXiv 2609.37603). Return only for a cross-vendor replication or a harness that reports shared imports.",
+    "Rule-file prompt injection (AIShellJack class) as a detection-rate story - covered 2026-10-01 via Aletheia. Durable frame: tested authority removal is a receipt, not a better classifier. Another rule-file detector is only worth a post if it handles attacks riding already-required authority or reports a population false-positive rate."
   ],
   "voice_notes": [
-    "THE INSTRUMENT-SAMPLED-ON-THE-OUTCOME MOVE. When a paper's contribution is that prior work measured only the cases somebody came back to, state the sampling defect plainly and early, because it generalises past the paper's own subject. On 2026-09-01 'measured restoration time only for revisions that were later reverted' carried the whole opening: the population an instrument can see is the population that got a second look, which is the wrong population for any question about accumulation.",
     {
       "note": "THE LEDGER-IS-NOT-THE-MEASUREMENT MOVE. When a story hands you both a status field and a retest, write the piece about the gap between them rather than about the bug. On 2026-09-02 the four words accepted / duplicate / informative / untriaged carried the whole spine: each is a true statement about a message and none is a statement about a defect, and 'duplicate' is the dangerous one because it is the only positive claim in the set - it terminates the chain two hops from anyone who would check. Refuse the negligence framing; the support systems worked exactly as designed and simply contain no step that touches the running product.",
       "added": "2026-09-02"
@@ -718,9 +720,13 @@
     {
       "note": "THE COST-IS-NOT-TIMING MOVE. When a study shows a remedy that makes a fix cheap failing to make it early (abstraction layers in the model-retirement data, 70 per cent still post-shutdown), separate the two variables explicitly and ask what component could know the date. Then find the one component guaranteed to be in daily contact with the thing that will fail - there, the API response - and put the recommendation there. 2026-09-28.",
       "date": "2026-09-28"
+    },
+    {
+      "note": "THE RECEIPT-NOT-VERDICT MOVE. When a methods paper admits its expensive step adds no classification gain over a cheap one, do not bury it as a weakness: make it the thesis. Aletheia's execution matched a careful read on which files to flag, and what it added was two passing runs a reviewer can check. Lead the reader past the 314/314 headline to the 25-of-80 unresolved line, and say plainly that an unresolved result is a third state.",
+      "date": "2026-10-01"
     }
   ],
-  "last_updated": "2026-09-30",
+  "last_updated": "2026-10-01",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

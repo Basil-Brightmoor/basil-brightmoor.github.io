@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Sep 2026 07:51:02 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 08:50:06 +0000</lastBuildDate>
+    <item>
+      <title>The Patch Passed Without the Upload and That Was the Evidence</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-10-01-the-patch-passed-without-the-upload-and-that-was-the-evidence.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-10-01-the-patch-passed-without-the-upload-and-that-was-the-evidence.html</guid>
+      <pubDate>2026-10-01</pubDate>
+      <category>Ops Brief</category>
+      <description>A new test for coding-agent rule files runs the agent with every permission a rule asks for, then again with one permission withheld at a time. If the patch still passes, that permission was never needed. It flagged all 314 attack inputs in its set and reached no verdict on 25 of 80 real rule files.</description>
+    </item>
     <item>
       <title>The Cross-Check Agreed on 932 and the Answer Was 220</title>
       <link>https://basil-brightmoor.github.io/posts/2026-09-30-the-cross-check-agreed-on-932-and-the-answer-was-220.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-28</pubDate>
       <category>Ops Brief</category>
       <description>A paper posted yesterday runs 13 attack objectives against six coding-agent harnesses and lands all 13 on all six. The model-side defense being defeated is working exactly as designed, because the harness is what decides which privilege level a piece of content arrives with, and the model has no way to check.</description>
-    </item>
-    <item>
-      <title>The human reviewed the canvas and the model read the package</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-27-the-human-reviewed-the-canvas-and-the-model-read-the-package.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-27-the-human-reviewed-the-canvas-and-the-model-read-the-package.html</guid>
-      <pubDate>2026-08-27</pubDate>
-      <category>Ops Brief</category>
-      <description>A new survey finds 21 places where a spec-valid Office file says one thing on screen and another thing to an extractor. Neither reader is buggy, which is the whole problem: nobody ever wrote down which one counts as the document.</description>
     </item>
   </channel>
 </rss>

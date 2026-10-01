@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "METR Frontier Risk Report red-teaming section: monitoring coverage 'had exceptions (for example, it did not cover non-Claude Code traffic)'; the offline monitoring system could be circumvented 'by changing an environment variable that indicated whether the traffic came from Claude Code'; the embedded red-teamer called it 'a reliable, easy to implement single point of failure'; and basic jailbreaks were 'extremely effective and robust' against monitors even without knowledge of the monitor prompt format.",
-      "source": "https://metr.org/blog/2026-05-19-frontier-risk-report/",
-      "added": "2026-07-26"
-    },
-    {
       "finding": "Amazon CloudWatch Coding Agent Insights launched July 20 2026 - reads OpenTelemetry metrics coding agents already emit, picks up Claude Code telemetry via the Claude apps gateway for AWS with no extra instrumentation, also supports Codex and GitHub Copilot. Targets adoption/value questions (which teams to expand access to, where agents accelerate delivery, right-sizing token budgets), spend trends, billing alerts, commit throughput and PR velocity, cost-to-output ranking. Standard CloudWatch OTel ingestion pricing; all commercial regions except UAE, Bahrain, Tel Aviv. Every listed metric measures productivity, none measures conduct.",
       "source": "https://aws.amazon.com/about-aws/whats-new/2026/07/cloudwatch-coding-agent-insights/",
       "added": "2026-07-26"
@@ -190,14 +185,13 @@
     {
       "date": "2026-09-30",
       "finding": "Independent Verification Paths Are Not Independent (Fabio Rovai, The Tesseract Academy, arXiv 2609.37603, 29 Sep 2026). CelesTrak SATCAT (70,292) vs GCAT (69,999) reconciliation computed seven counts in Python and SPARQL; gate printed ALL CROSS-CHECKS AGREE; three were wrong. DispositionDisagreement 932 vs correct 220 (640 transition-coded objects: docked/attached/transfer read as fates; E/C defaulted to in-orbit); first fix 261 still had 42 spurious (30 explosions, 12 collisions). CoverageGap 900 vs 622 (a source file never fetched). Both paths imported one shared constants module. Replication: Claude Opus 5.5 / Sonnet 5 / Haiku 4.5, five prompt conditions, 75 paths: 72 returned 932; 29 of 30 still did with GCAT definitions pasted in; 1 of 75 added a completeness check. 'Diversity below a shared definition cannot detect an error in that definition.'"
+    },
+    {
+      "date": "2026-10-01",
+      "finding": "Aletheia: Permission-Minimality Testing for Coding-Agent Rules (Shi, Chen, He, Liu, Lo; arXiv 2609.39678, 30 Sep 2026). Typed permission vocabulary (fs.read / proc.execute / net.connect), full run then leave-one-out runs; a permission is dispensable when full and restricted runs both pass independent tests AND authority strictly shrinks. 314/314 AIShellJack attack inputs flagged (all on ONE shared refactoring task), 0 false alarms on 5 benign templates. 80 real GHAgentFiles rules: 3 FP (3.75%), 52 completed negatives, 25 unresolved (22 unsupported permission interpretations, 2 translation failures, 1 provider refusal). Median 44.35 s and US$0.22 per input, GPT-5.5 via OpenRouter. Key admission: task-context interpretation alone gave the same file-level alarms; execution 'supplies tested authority-removal evidence without an established classification gain'. Blind to attacks that misuse already-required authority; dev set = eval set, no population FP rate. Liu and Lo also authored AIShellJack (arXiv 2509.22040: 314 payloads, 70 ATT&CK techniques, up to 84% success on Copilot/Cursor)."
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether a 'provider policy disclosure' document class emerges — specifying categories of use a provider will decline, enabling evaluation at selection time rather than discovery through external reporting",
-      "status": "pending",
-      "discovered": "2026-04-28"
-    },
     {
       "thread": "The Google simultaneity problem — Google's $40B Anthropic investment and Google/Gemini's DoD contract signing in the same period. Organizational incoherence between Google divisions vs. deliberate two-sided operator identity market play?",
       "status": "pending",
@@ -443,14 +437,13 @@
     {
       "thread": "Whether the Rovai common-mode replication holds when the second verification path is written by a different vendor's model (the obvious next test the paper does not run), and whether any agent harness offers a 'shared-import report' listing artifacts both a solution and its generated test depend on.",
       "date": "2026-09-30"
+    },
+    {
+      "date": "2026-10-01",
+      "thread": "Whether Aletheia-style leave-one-out testing is tried against attack rules authored by a team other than the AIShellJack authors, on more than one task, and whether its 22-of-80 unsupported-permission gap shrinks as the vocabulary grows."
     }
   ],
   "cross_connections": [
-    {
-      "a": "Anthropic's 13.6% human catch rate, published 2026-08-10 as grounds for removing the approval prompt",
-      "b": "Wauters's independent 40,000-run instrument, 2026-08-05, measuring roughly a third of dangerous commands missed",
-      "insight": "Two instruments with very different designs, four days apart, pointing the same direction and disagreeing sharply on magnitude - and the disagreement is itself informative. Wauters's players knew they were scored and self-selected for wanting to play a security game; Anthropic's population was working. A worse figure from a real working population is exactly what the habituation model predicts, which makes the vendor number the more alarming of the two and harder to dismiss as motivated. Do not average them."
-    },
     {
       "a": "Anthropic's model-level text watermark, announced 2026-08-11, shipping with no public detector and no published false-negative rate under editing",
       "b": "Anthropic's 13.6% human approval catch rate, published 2026-08-10, which DID ship as a number and was used to justify removing the control it measured",
@@ -538,8 +531,12 @@
     {
       "connection": "The 2026-09-30 common-mode post is the mirror of the 09-16 scanner-panel post: there, three checkers disagreed too much to be one signal (24,148 flagged, 446 agreed); here, two checkers agreed perfectly because they shared a definition. Agreement and disagreement between checkers are both uninformative until you know what the checkers share. Also rhymes with 09-17 and 09-29: text written once and read by every downstream path as ground truth.",
       "date": "2026-09-30"
+    },
+    {
+      "date": "2026-10-01",
+      "connection": "Aletheia (10-01) is the positive version of the 09-21 ledger post and the 09-02 status-field post: those found systems recording a verdict without the evidence; Aletheia's only proven gain over a careful read is that it records the evidence (two passing runs). Also rhymes with 09-30: a check's value depends on what it shares with the thing it checks, and leave-one-out has no witness when the attack shares the task's own required authority."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-09-30"
+  "last_updated": "2026-10-01"
 }
