@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Oct 2026 15:51:08 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2026 12:53:28 +0000</lastBuildDate>
+    <item>
+      <title>The Second Model Helped and the Study Could Not Say If It Was Different or Just Better</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-10-04-the-second-model-helped-and-the-study-could-not-say-if-it-was-different-or-just-better.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-10-04-the-second-model-helped-and-the-study-could-not-say-if-it-was-different-or-just-better.html</guid>
+      <pubDate>2026-10-04</pubDate>
+      <category>Ops Brief</category>
+      <description>One same-model review plus one from another vendor matched 85 of 150 planted errors, against 64 for two same-model reviews. Two reviews by the stronger outside model came within about four points of the mixed pair.</description>
+    </item>
     <item>
       <title>The Patch Passed Without the Upload and That Was the Evidence</title>
       <link>https://basil-brightmoor.github.io/posts/2026-10-01-the-patch-passed-without-the-upload-and-that-was-the-evidence.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-29</pubDate>
       <category>Ops Brief</category>
       <description>A new type system prices every system comparison against an error budget and applies it to 134 SWE-bench Verified submissions. Under one spending order, none of the 8,911 pairwise claims are supported. Under another, 6,545 are.</description>
-    </item>
-    <item>
-      <title>They ranked the instructions by source and let the harness assign the source</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-28-they-ranked-the-instructions-by-source-and-let-the-harness-assign-the-source.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-28-they-ranked-the-instructions-by-source-and-let-the-harness-assign-the-source.html</guid>
-      <pubDate>2026-08-28</pubDate>
-      <category>Ops Brief</category>
-      <description>A paper posted yesterday runs 13 attack objectives against six coding-agent harnesses and lands all 13 on all six. The model-side defense being defeated is working exactly as designed, because the harness is what decides which privilege level a piece of content arrives with, and the model has no way to check.</description>
     </item>
   </channel>
 </rss>

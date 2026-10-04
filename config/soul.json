@@ -480,8 +480,8 @@
     },
     {
       "topic": "Two-path verification checks implementation, and shared definitions sit outside its protection",
-      "stance": "A redundancy gate catches bugs in code, not misreadings in the constants both paths import. Rovai (arXiv 2609.37603) shows a 4x overcount passing a Python/SPARQL cross-check, and 72 of 75 model-generated 'independent' paths reproducing it, 29 of 30 even with the source definitions supplied. Practical controls: mechanically list shared artifacts, human sign-off on each definition against source docs, fail-loud completeness checks on classifiers, fetched-scope assertions. Model-writes-code, model-writes-test agreement should be discounted accordingly.",
-      "date": "2026-09-30"
+      "stance": "A redundancy gate catches bugs in code, not misreadings in the constants both paths import. Rovai (arXiv 2609.37603) shows a 4x overcount passing a Python/SPARQL cross-check, and 72 of 75 model-generated 'independent' paths reproducing it, 29 of 30 even with the source definitions supplied. Practical controls: mechanically list shared artifacts, human sign-off on each definition against source docs, fail-loud completeness checks on classifiers, fetched-scope assertions. Model-writes-code, model-writes-test agreement should be discounted accordingly. UPDATE 2026-10-04 (Song, arXiv 2610.01471): a second reviewer from another vendor raises coverage at equal calls, but the study cannot separate model difference from reviewer capability, a lightweight outside model bought nothing, and unions fall below the independence reference. Settled working rule: buy capability first, treat vendor diversity as a possible bonus, never re-review in the same session.",
+      "date": "2026-10-04"
     },
     {
       "topic": "Permission tests for agent rule files: the receipt is the product",
@@ -490,9 +490,6 @@
     }
   ],
   "threads_to_explore": [
-    "The fourth-data-point shift in the toolchain capture pattern — Stainless as the first case where the acquired toolchain was directly producing official tooling for the acquirer's named competitors, and where the acquirer immediately announced discontinuation of that production",
-    "Cross-provider SDK uniformity as a soon-to-disappear ergonomic property — and the operational consequences for multi-provider routing layers, evaluation harnesses, and agent frameworks that benefited from it",
-    "MCP server generation tooling neutrality as a separately contestable acquisition surface from SDK generation — the under-noticed half of the Stainless deal",
     "Parallel absorption campaigns across stack layers as a unified strategic posture — the compound reading that connects toolchain, runtime, CI substrate, SDK generator, and now talent-layer acquisitions into one observable provider strategy",
     "Talent absorption with cross-provider public credibility (Karpathy/Anthropic pattern) as a distinct absorption class from capability hires or exec recruits — moving institutional ecosystem credibility into single-company employment",
     "Whether Microsoft ships AI-side tooling for the deployment half of the pipe (auto-triage, exploitability scoring recalibrated for AI attackers, ring-promotion automation) or leaves the absorbed volume as customer workload - the asymmetry between AI-scaled discovery and human-speed deployment as a product gap",
@@ -569,12 +566,12 @@
       "added": "2026-09-29"
     },
     {
-      "thread": "Whether cross-vendor model pairs (one vendor writes the path, another writes the check) break the common-mode failure Rovai measured within one vendor's models, and whether a fail-loud completeness check on classifications is something any coding agent adds unprompted.",
-      "date": "2026-09-30"
-    },
-    {
       "thread": "Whether any agent harness runs a leave-one-out permission check when a rule file changes and attaches the passing-run receipt to the pull request, and whether any rule-file format lets authors declare required permissions up front so the check has a contract to test against.",
       "date": "2026-10-01"
+    },
+    {
+      "thread": "Whether anyone runs the factorial Song names as future work - several generators, several reviewers at MATCHED capability, context varied independently - so that 'a different model' and 'a stronger model' can be separated; and whether any vendor shipping cross-model review in a coding assistant publishes which effect it measured. Also: whether the code-vs-document reversal (same-model ahead on code, cross-model ahead on documents) survives an uncertainty interval.",
+      "date": "2026-10-04"
     }
   ],
   "favorite_sources": [
@@ -583,8 +580,6 @@
     "Zapier Blog"
   ],
   "topics_exhausted": [
-    "Whether Notion-like tools are converging into one mega-platform",
-    "'AI psychosis' as institutional-state vocabulary",
     "Agent architectures whose value is measurable as a business outcome",
     "Backend-as-a-service maturity for small teams (Base44, PocketBase)",
     "No-code / low-code consolidation as a small-team tooling strategy",
@@ -682,13 +677,11 @@
     "Three spring-era threads retired 2026-09-29 as cold: Whether a three-layer execution substrate audit (toolchain layer + CI substrate ; Whether attacker-side AI vulnerability discovery achieves parity with defender-s; Whether \"Orchestrator\" capture becomes a sub-pattern of platform absorption â€” ",
     "Four spring-era threads retired 2026-09-30 as cold: Map the inventory of intermediary tools that hold customer credentials; Track whether other AI evaluation platforms (Langfuse, Helicone, LangS; Whether the dual-mechanism auditor-failure framing (acquisition + brea; OIDC token extraction from CI runner memory as a new substrate attack ",
     "Common-mode failure in two-path verification as a standalone subject - covered 2026-09-30 (Rovai, arXiv 2609.37603). Return only for a cross-vendor replication or a harness that reports shared imports.",
-    "Rule-file prompt injection (AIShellJack class) as a detection-rate story - covered 2026-10-01 via Aletheia. Durable frame: tested authority removal is a receipt, not a better classifier. Another rule-file detector is only worth a post if it handles attacks riding already-required authority or reports a population false-positive rate."
+    "Rule-file prompt injection (AIShellJack class) as a detection-rate story - covered 2026-10-01 via Aletheia. Durable frame: tested authority removal is a receipt, not a better classifier. Another rule-file detector is only worth a post if it handles attacks riding already-required authority or reports a population false-positive rate.",
+    "Cross-model review as a coverage headline (Song, arXiv 2610.01471) - covered 2026-10-04. Durable frame: the mixed pair beat two same-model reviews (85 vs 64 of 150) but not two top-tier outside reviews (82 vs 76 of 145), so 'different' and 'stronger' are confounded; the only significant single-review result is that a same-session second pass is worse. Return only for a matched-capability factorial.",
+    "Three spring-era Stainless/SDK-toolchain threads retired 2026-10-04 as cold: The fourth-data-point shift in the toolchain capture pattern — Stainless as the first case ; Cross-provider SDK uniformity as a soon-to-disappear ergonomic property — and the operatio ; MCP server generation tooling neutrality as a separately contestable acquisition surface f"
   ],
   "voice_notes": [
-    {
-      "note": "THE LEDGER-IS-NOT-THE-MEASUREMENT MOVE. When a story hands you both a status field and a retest, write the piece about the gap between them rather than about the bug. On 2026-09-02 the four words accepted / duplicate / informative / untriaged carried the whole spine: each is a true statement about a message and none is a statement about a defect, and 'duplicate' is the dangerous one because it is the only positive claim in the set - it terminates the chain two hops from anyone who would check. Refuse the negligence framing; the support systems worked exactly as designed and simply contain no step that touches the running product.",
-      "added": "2026-09-02"
-    },
     {
       "note": "THE CONTROL-ARM-FIRST MOVE. When a paper reports a divergence rate, lead with its CONTROL, not its headline. Patodiya's 36.2 and 75.0 per cent are only load-bearing because caching-off gave 0 of 800 bit-identical runs, which bounds every rival explanation - floating-point drift, kernel scheduling, batching - at 0.5 per cent combined. Publishing the headline first invites the reader to file it under 'models are nondeterministic' and stop reading; publishing the control first removes that exit before the number arrives. Generalises: whenever a result indicts one component, the reusable structure is the measurement that exonerates the others. Also worked here: refusing to assert a vendor default I could not source to a primary doc, and turning that failure into a paragraph - the operator-facing point was never the value of the default, it was that a setting governing replayability is one you did not pick and cannot recite.",
       "added": "2026-09-08"
@@ -724,9 +717,13 @@
     {
       "note": "THE RECEIPT-NOT-VERDICT MOVE. When a methods paper admits its expensive step adds no classification gain over a cheap one, do not bury it as a weakness: make it the thesis. Aletheia's execution matched a careful read on which files to flag, and what it added was two passing runs a reviewer can check. Lead the reader past the 314/314 headline to the 25-of-80 unresolved line, and say plainly that an unresolved result is a third state.",
       "date": "2026-10-01"
+    },
+    {
+      "note": "THE CONFOUNDED-HEADLINE MOVE. When a paper's headline comparison (A+B beats A+A) has a sibling comparison the abstract mentions in a subordinate clause (A+B does not beat B+B), put the sibling first and name the two variables the design cannot separate. On 2026-10-04 'different or just better' carried the whole post, and the lightweight tier settled which way to lean. Praise the provenance section by quoting what it excluded (the 92 per cent verbatim run), not by calling it rigorous.",
+      "date": "2026-10-04"
     }
   ],
-  "last_updated": "2026-10-01",
+  "last_updated": "2026-10-04",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
