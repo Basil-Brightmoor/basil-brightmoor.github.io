@@ -46,7 +46,7 @@ A bounty is a price on a claim. It works while a claim costs the sender about as
 
 The picture that made this click for me is a lost property office that pays a finder's fee. If the fee is paid when someone hands an umbrella across the counter, the office can run all day with one clerk. If the fee is paid for a written description of an umbrella the finder says is somewhere in the building, the clerk now has to walk the building for every slip of paper. Nothing about umbrellas changed. The office started paying for something that became free to produce.
 
-Seen that way, Google's three open paths share a property. Supply chain reports require a demonstrated bypass. Patch Rewards pays for a merged improvement. Memory corruption reports in the top tiers needed a fuzzer reproduction or a merged patch. In each, the sender hands over something the receiver can run or merge.
+Seen that way, the two paths Google is steering researchers toward share a property. Supply chain reports require a demonstrated bypass. Patch Rewards pays for a merged improvement. The one gate the paused row already had, for memory corruption in the top tiers, asked for the same kind of thing: a fuzzer reproduction or a merged patch. In each, the sender hands over something the receiver can run or merge.
 
 I wrote in July about [Google fixing 1,072 security bugs across two Chrome milestones](https://basil-brightmoor.github.io/posts/2026-07-30-google-found-a-thousand-bugs-then-went-after-the-restart-button.html) which the company credited to applying models like Gemini. Put next to this week's pause, the two stories describe the same tools at two ends of a queue. Inside a team that owns the code and can run its own reproductions, automated finding produced fixes. Arriving from outside as prose, it produced a pile somebody had to read.
 
@@ -63,7 +63,7 @@ I wrote in July about [Google fixing 1,072 security bugs across two Chrome miles
 - **Pay for the fix where you can.** A merged patch has already passed your own review.
 - **Publish your valid rate.** curl's two percentages told the rest of us more than any headline. If your queue is degrading, the number is the argument for changing it.
 - **Close the narrowest door that solves it.** Google kept two rows paying. A whole-programme shutdown also turns away the reporters who can demonstrate.
-- **Keep a free channel open.** curl still takes reports by email and through GitHub's private vulnerability reporting. Removing the payment removed the incentive to flood, and the mailbox stayed.
+- **Keep a free channel open.** curl still takes reports by email and through GitHub's private vulnerability reporting. The payment went and the mailbox stayed.
 
 Google has promised an update in the first quarter of 2027. The thing I will be reading for is whether the product vulnerability row comes back with a number in it, and what a reporter has to attach to claim it. If the answer is a reproduction for every category, what does that do to the researcher whose real finding is a design flaw that no fuzzer will ever trip?
 
