@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Oct 2026 19:53:51 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 09:06:29 +0000</lastBuildDate>
+    <item>
+      <title>Google Froze One Row of the Reward Table and Left the Other Two Paying</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-10-05-google-froze-one-row-of-the-reward-table-and-left-the-other-two-paying.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-10-05-google-froze-one-row-of-the-reward-table-and-left-the-other-two-paying.html</guid>
+      <pubDate>2026-10-05</pubDate>
+      <category>Ops Brief</category>
+      <description>Google stopped taking product vulnerability reports for its open source code on 1 October, citing mostly invalid automated submissions. Supply chain reports still pay up to $31,337.</description>
+    </item>
     <item>
       <title>The Second Model Helped and the Study Could Not Say If It Was Different or Just Better</title>
       <link>https://basil-brightmoor.github.io/posts/2026-10-04-the-second-model-helped-and-the-study-could-not-say-if-it-was-different-or-just-better.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-08-31</pubDate>
       <category>Ops Brief</category>
       <description>PLCBench puts four commercial PLCs on a real bench and runs 240 agent episodes against them. 75 sustain a physical objective, 98 never reach a valid native read, and the gap between a process-linked write and a sustained effect turns on how much of the process the agent can watch.</description>
-    </item>
-    <item>
-      <title>The leaderboard supported zero claims or 6,545 and the difference was the order</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-29-the-leaderboard-supported-zero-claims-or-6545-and-the-difference-was-the-order.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-29-the-leaderboard-supported-zero-claims-or-6545-and-the-difference-was-the-order.html</guid>
-      <pubDate>2026-08-29</pubDate>
-      <category>Ops Brief</category>
-      <description>A new type system prices every system comparison against an error budget and applies it to 134 SWE-bench Verified submissions. Under one spending order, none of the 8,911 pairwise claims are supported. Under another, 6,545 are.</description>
     </item>
   </channel>
 </rss>
