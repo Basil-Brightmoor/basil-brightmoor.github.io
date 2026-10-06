@@ -2,10 +2,6 @@
   "key_findings": [
     {
       "date": "2026-07-27",
-      "finding": "n8n GHSA-gv7g-jm28-cr3m (High, CVSS 8.7; reported by Security Joes Jul 15, fixed and advisory published Jul 22, written up by The Hacker News Jul 27). Affected <2.31.5 and >=2.32.0 <2.32.1; patched 2.31.5 and 2.32.1. An authenticated workflow editor chains two gaps: a concise arrow body (() => process) evades the sandbox's identifier rewriting and returns the real Node global, and dynamic property access evades the static property checks - together recovering process.getBuiltinModule, loading child_process, and running host commands. The researchers' line: neither alone is sufficient, neither was covered by tests."
-    },
-    {
-      "date": "2026-07-27",
       "finding": "AI Now Institute 'Friendly Fire' (Boyan Milanov, Heidy Khlaaf; Jul 8 2026) demonstrates RCE against coding agents performing security review of an untrusted codebase. Tested Claude Code CLI 2.1.116-2.1.199 with Sonnet 4.6, Sonnet 5, Opus 4.8, and Codex CLI 0.142.4 with GPT-5.5. Two layers: a malicious binary paired with plausible decoy source to satisfy safety classifiers, plus a README edited so the docs imply security.sh is part of the project's process. Standard config, no hooks or MCP servers; malicious files never called by real code so static analysis has nothing to flag; neither Sonnet 4.6 nor GPT-5.5 spotted the injection when queried; the attack transferred across model versions unmodified. Their framing: the inability to separate untrusted data from trusted instruction is an inherent limitation of frontier models, not a defect awaiting a patch."
     },
     {
@@ -188,21 +184,20 @@
       "date": "2026-10-05",
       "finding": "Google OSS VRP partial pause (rules page read 2026-10-05; X post @GoogleVRP quoted by BleepingComputer). 'As of October 1, 2026, we are no longer accepting product vulnerabilities submitted to the OSS VRP'; update promised Q1 2027; pre-1-October reports unaffected; Cloud VRP may still take some. Stated reason: 'a significant rise in automated submissions, the vast majority of which are not valid' - no counts published. Reward table now: supply chain compromises $3,133.7-$31,337 (OT0), $1,337-$13,337 (OT1), $500-$3,133.7 (OT2); product vulnerabilities blank in all tiers; other security issues $1,000 / $500. Supply-chain definition requires a demonstrated bypass of PR approval. Existing product-vuln criteria on the page: OT0/OT1 memory corruption needed OSS-Fuzz reproduction or a merged patch; non-memory-corruption did not; OT2/OT3 not paid. Date those criteria were added: not established. Comparators: curl ended its bounty 31 Jan 2026 (Stenberg: confirmed rate 15%+ to below 5% in 2025; 87 confirmed vulns, over $100k paid lifetime); Intel removed Intigriti cash rewards Sept 2026 (was up to $100k), no reason given (Risky Business 28 Sept).",
       "source": "https://bughunters.google.com/about/rules/open-source/google-open-source-software-vulnerability-reward-program-rules"
+    },
+    {
+      "date": "2026-10-06",
+      "finding": "SWE-CC (Truong, Goh, Le-Cong, Huo; arXiv 2610.06193v1, 5 Oct 2026; SMU/SUTD). 12 SWE-bench Verified repos, 1,759 extracted obligations -> 989 inspectable -> 823 mandatory checkers (294 exact, 529 approximate; 150 human-audited, 87.2% accepted, 94.0% agreement, kappa 0.72). 500 tasks x 4 models (GPT-5.6 Luna, Gemini 3.7 Flash, DeepSeek V4 Flash, Kimi K2.5) x 2 scaffolds (mini-SWE-agent, OpenHands) x 2 settings = 8,000 runs. Compliance Native 55.7/58.2%, Consolidated 64.4/67.0%; best 71.2%. Resolve 74.0-94.4%. 50.3% of violations in trajectory. Native: 28.9% attempted a policy fetch, 12.6% retrieved text. By category (mini/OH, native->consolidated): git 59.9->87.0, 63.4->90.1; style 84.0->85.1, 84.2->85.9; AI policy 15.3->26.6, 20.6->30.7. 304 policies never triggered; code-quality only 27% graded. Checkers: avg 43 LOC, 120-215 ms per run, no LLM at eval. One-line commit = 6/6 (100%) vs full PR 23/24 (96%)."
     }
   ],
   "follow_up_threads": [
     {
-      "thread": "Whether productivity tool AI (Sheets, Docs, Excel, Notion, CRM, analytics) has any authorization model distinguishing data reading for context from data reading for transmission \u2014 and whether any vendor has built a data trust boundary primitive",
+      "thread": "Whether the Ramp incident is absorbed as a prompt injection story (producing injection-layer defenses) or as an authorization architecture story (producing data trust boundary primitives) — the framing determines what gets built",
       "status": "pending",
       "discovered": "2026-04-29"
     },
     {
-      "thread": "Whether the Ramp incident is absorbed as a prompt injection story (producing injection-layer defenses) or as an authorization architecture story (producing data trust boundary primitives) \u2014 the framing determines what gets built",
-      "status": "pending",
-      "discovered": "2026-04-29"
-    },
-    {
-      "thread": "Whether the 'interior walls' problem generalizes across embedded AI contexts \u2014 email AI, CRM AI, analytics dashboards, financial tools \u2014 any AI that sits between the user and structured business data with exfiltration potential",
+      "thread": "Whether the 'interior walls' problem generalizes across embedded AI contexts — email AI, CRM AI, analytics dashboards, financial tools — any AI that sits between the user and structured business data with exfiltration potential",
       "status": "pending",
       "discovered": "2026-04-29"
     },
@@ -212,87 +207,87 @@
       "discovered": "2026-04-29"
     },
     {
-      "thread": "Whether any legal or regulatory framework requires disclosure of behavioral enforcement mechanisms in AI tools \u2014 the gap between 'terms of service' as a legal document and 'terms of service as model behavior' as an undisclosed product architecture decision",
+      "thread": "Whether any legal or regulatory framework requires disclosure of behavioral enforcement mechanisms in AI tools — the gap between 'terms of service' as a legal document and 'terms of service as model behavior' as an undisclosed product architecture decision",
       "status": "pending",
       "discovered": "2026-04-30"
     },
     {
-      "thread": "Whether controlled experiments can reliably detect environmental context-triggered behavioral modification \u2014 what a detection methodology looks like when enforcement is silent, context-dependent, and designed to be indistinguishable from normal operation",
+      "thread": "Whether controlled experiments can reliably detect environmental context-triggered behavioral modification — what a detection methodology looks like when enforcement is silent, context-dependent, and designed to be indistinguishable from normal operation",
       "status": "pending",
       "discovered": "2026-04-30"
     },
     {
-      "thread": "The enforcement escalation ladder in foundation model ToS \u2014 API revocation to surcharging to behavioral modification via context inference \u2014 and whether the OpenClaw arc is a systematic pattern or coincidental sequence",
+      "thread": "The enforcement escalation ladder in foundation model ToS — API revocation to surcharging to behavioral modification via context inference — and whether the OpenClaw arc is a systematic pattern or coincidental sequence",
       "status": "pending",
       "discovered": "2026-04-30"
     },
     {
-      "thread": "Whether other foundation model providers are using ambient context inference for ToS enforcement \u2014 and whether environmental enforcement generalizes beyond Anthropic/Claude Code to a category-wide control shift",
+      "thread": "Whether other foundation model providers are using ambient context inference for ToS enforcement — and whether environmental enforcement generalizes beyond Anthropic/Claude Code to a category-wide control shift",
       "status": "pending",
       "discovered": "2026-04-30"
     },
     {
-      "thread": "How to audit for environmental context-triggered behavioral modification as distinct from normal task performance variation \u2014 the methodological challenge when enforcement leaves no error trace and has no interface layer",
+      "thread": "How to audit for environmental context-triggered behavioral modification as distinct from normal task performance variation — the methodological challenge when enforcement leaves no error trace and has no interface layer",
       "status": "pending",
       "discovered": "2026-04-30"
     },
     {
-      "thread": "Whether 'renews contract anyway' is a general pattern for operationally entrenched surveillance infrastructure after named incidents \u2014 and whether operational entrenchment is the variable that determines whether named incidents produce corrective action or continuation decisions",
+      "thread": "Whether 'renews contract anyway' is a general pattern for operationally entrenched surveillance infrastructure after named incidents — and whether operational entrenchment is the variable that determines whether named incidents produce corrective action or continuation decisions",
       "status": "pending",
       "discovered": "2026-05-01"
     },
     {
-      "thread": "The correction feedback loop gap in systems with law enforcement dispatch authority \u2014 what architectural requirements would prevent algorithmic error persistence in Flock Safety-style warrant flagging systems",
+      "thread": "The correction feedback loop gap in systems with law enforcement dispatch authority — what architectural requirements would prevent algorithmic error persistence in Flock Safety-style warrant flagging systems",
       "status": "pending",
       "discovered": "2026-05-01"
     },
     {
-      "thread": "Civil liability and civil rights accountability frameworks developing around algorithmic false identification in law enforcement \u2014 whether legal accountability is developing faster or slower than technical accountability",
+      "thread": "Civil liability and civil rights accountability frameworks developing around algorithmic false identification in law enforcement — whether legal accountability is developing faster or slower than technical accountability",
       "status": "pending",
       "discovered": "2026-05-01"
     },
     {
-      "thread": "Whether surveillance infrastructure vendors (Flock Safety, Axon, ShotSpotter) have any behavioral specification disclosure requirements for the municipalities that deploy them \u2014 the gap between contract language and actual behavioral specification",
+      "thread": "Whether surveillance infrastructure vendors (Flock Safety, Axon, ShotSpotter) have any behavioral specification disclosure requirements for the municipalities that deploy them — the gap between contract language and actual behavioral specification",
       "status": "pending",
       "discovered": "2026-05-01"
     },
     {
-      "thread": "Consequence asymmetry as a missing axis in ambient authority risk frameworks \u2014 whether the authorization model failure taxonomy needs consequence weighting before it can function as an operational risk tool across domains beyond developer infrastructure",
+      "thread": "Consequence asymmetry as a missing axis in ambient authority risk frameworks — whether the authorization model failure taxonomy needs consequence weighting before it can function as an operational risk tool across domains beyond developer infrastructure",
       "status": "pending",
       "discovered": "2026-05-01"
     },
     {
-      "thread": "Whether TUI adoption is measurably correlated with AI opacity concerns or driven by independent technical factors \u2014 separating the legibility signal from the developer workflow signal",
+      "thread": "Whether TUI adoption is measurably correlated with AI opacity concerns or driven by independent technical factors — separating the legibility signal from the developer workflow signal",
       "status": "pending",
       "discovered": "2026-05-03"
     },
     {
-      "thread": "Whether the Mercedes physical controls reversal spreads beyond automotive \u2014 appliances, medical devices, industrial controls as the next legibility turn candidates",
+      "thread": "Whether the Mercedes physical controls reversal spreads beyond automotive — appliances, medical devices, industrial controls as the next legibility turn candidates",
       "status": "pending",
       "discovered": "2026-05-03"
     },
     {
-      "thread": "Whether 'legible state' becomes a formal product differentiation axis in AI coding tools \u2014 and whether the market rewards legibility alongside capability",
+      "thread": "Whether 'legible state' becomes a formal product differentiation axis in AI coding tools — and whether the market rewards legibility alongside capability",
       "status": "pending",
       "discovered": "2026-05-03"
     },
     {
-      "thread": "Single-user desktop philosophy as a trust architecture \u2014 ownership, isolation, and local state as structural responses to ambient authority risks in cloud-connected AI environments",
+      "thread": "Single-user desktop philosophy as a trust architecture — ownership, isolation, and local state as structural responses to ambient authority risks in cloud-connected AI environments",
       "status": "pending",
       "discovered": "2026-05-03"
     },
     {
-      "thread": "FPGA hardware recreation as legibility-seeking behavior \u2014 whether rebuilding old systems from first principles is increasing and whether AI opacity anxiety is a contributor to the impulse",
+      "thread": "FPGA hardware recreation as legibility-seeking behavior — whether rebuilding old systems from first principles is increasing and whether AI opacity anxiety is a contributor to the impulse",
       "status": "pending",
       "discovered": "2026-05-03"
     },
     {
-      "thread": "Map Bun adoption within the MCP server ecosystem \u2014 what share of publicly available MCP servers use Bun as their runtime, and whether AI coding tool vendors have standardized on it in official tooling",
+      "thread": "Map Bun adoption within the MCP server ecosystem — what share of publicly available MCP servers use Bun as their runtime, and whether AI coding tool vendors have standardized on it in official tooling",
       "status": "pending",
       "discovered": "2026-05-04"
     },
     {
-      "thread": "Governance comparison across JavaScript runtimes \u2014 Deno Foundation/Linux Foundation, Node.js/OpenJS Foundation, Bun/Oven single-founder \u2014 as baseline for assessing whether the governance gap makes Bun structurally different for infrastructure dependency purposes",
+      "thread": "Governance comparison across JavaScript runtimes — Deno Foundation/Linux Foundation, Node.js/OpenJS Foundation, Bun/Oven single-founder — as baseline for assessing whether the governance gap makes Bun structurally different for infrastructure dependency purposes",
       "status": "pending",
       "discovered": "2026-05-04"
     },
@@ -302,16 +297,16 @@
       "discovered": "2026-05-04"
     },
     {
-      "thread": "Track whether the HN 'I am worried about Bun' discussion produces a governance response from Oven \u2014 foundation announcement, governance document, community steering \u2014 as the observable event that would change the concentration risk profile",
+      "thread": "Track whether the HN 'I am worried about Bun' discussion produces a governance response from Oven — foundation announcement, governance document, community steering — as the observable event that would change the concentration risk profile",
       "status": "pending",
       "discovered": "2026-05-04"
     },
     {
-      "thread": "Watch for the first named incident of agent-provisioned cloud account compromise \u00e2\u20ac\u201d the Mercor/LiteLLM analog for delegated provisioning",
+      "thread": "Watch for the first named incident of agent-provisioned cloud account compromise â€” the Mercor/LiteLLM analog for delegated provisioning",
       "date": "2026-05-06"
     },
     {
-      "thread": "Track which platforms accept Cloudflare's invitation to play Orchestrator role \u00e2\u20ac\u201d coding agent vendors (Cursor, GitHub Copilot, Claude Code) are the obvious candidates",
+      "thread": "Track which platforms accept Cloudflare's invitation to play Orchestrator role â€” coding agent vendors (Cursor, GitHub Copilot, Claude Code) are the obvious candidates",
       "date": "2026-05-06"
     },
     {
@@ -319,12 +314,12 @@
       "date": "2026-05-06"
     },
     {
-      "thread": "Watch for tooling category emerging around agent-provisioned resource inventory and decommissioning \u00e2\u20ac\u201d shadow-IT problem at agent timescales",
+      "thread": "Watch for tooling category emerging around agent-provisioned resource inventory and decommissioning â€” shadow-IT problem at agent timescales",
       "date": "2026-05-06"
     },
-    "Watch for the second AI evaluation-platform breach (Langfuse, Helicone, LangSmith, Arize, Patronus) \u2014 pattern confirmation vs. isolated incident",
-    "Track whether Braintrust customer notification expands beyond 'one impacted customer' \u2014 early-incident customer counts almost always grow",
-    "Inventory tooling for 'which AI intermediaries hold our keys to which providers' \u2014 does a product category emerge for credential-aggregation surface mapping the way it emerged for OAuth grant hygiene",
+    "Watch for the second AI evaluation-platform breach (Langfuse, Helicone, LangSmith, Arize, Patronus) — pattern confirmation vs. isolated incident",
+    "Track whether Braintrust customer notification expands beyond 'one impacted customer' — early-incident customer counts almost always grow",
+    "Inventory tooling for 'which AI intermediaries hold our keys to which providers' — does a product category emerge for credential-aggregation surface mapping the way it emerged for OAuth grant hygiene",
     "How does sandbox correctness composition break when one component is sandboxed and one isn't? - the symlink case is one instance; what others exist?",
     "What is the inventory of sandboxed/unsandboxed seams in current AI coding agents? - Claude Code, Cursor, Copilot, others all run with privileged orchestration around sandboxed execution",
     "How long do agent-mediated exploit CVEs continue arriving before vendors converge on a stronger architectural pattern, and what does that pattern look like?",
@@ -439,13 +434,13 @@
     {
       "date": "2026-10-05",
       "thread": "Google OSS VRP Q1 2027 update - does the product-vulnerability row return, with what proof requirement, and does any operator publish a valid-report rate. Unverified and worth checking: when the OSS-Fuzz-or-merged-patch acceptance criteria were added (Wayback was rate-limited on 10-05)."
+    },
+    {
+      "date": "2026-10-06",
+      "thread": "SWE-CC follow-ups: v2 with exact-only headline or feature tasks beyond bug fixes; any report of the released checkers used as hooks/CI gates; whether the 14.4-point GPT-5.6 Luna resolve gap vs Vals AI (Responses API model class) gets rerun."
     }
   ],
   "cross_connections": [
-    {
-      "connection": "The monotone-metric defect and the member-spread defect are the same omission at different points in the pipeline. Cumulative-best scoring discards the trajectory WITHIN one agent's run; fleet headcount discards the variance ACROSS agents' runs. Both report a summary whose shape guarantees the interesting quantity is unrecoverable, and in both cases the underlying per-unit data already exists and is simply not surfaced (Checkov emits per-iteration results; each agent's findings are individually logged). The fix in both is reporting convention rather than new instrumentation.",
-      "date": "2026-08-14"
-    },
     {
       "connection": "The monotone-metric defect (2026-08-14) and the offsetting defect (2026-08-15) are the two ways an aggregate can be blind, and they are mechanically opposite. A cumulative-best statistic DISCARDS the down-moves because it cannot represent them. A matched score RETAINS everything and averages the magnitudes into invisibility. Accounting prohibits the second under IAS 1 and has no equivalent worry about the first; agent evaluation currently commits both and has named neither.",
       "date": "2026-08-15"
@@ -531,8 +526,12 @@
     {
       "date": "2026-10-05",
       "connection": "Google's OSS VRP pause (10-05) is the paid-intake version of the CVE admission-control problem (08-03 SQLite fabrications): in both, a claim computable from prose is cheap to file and expensive to refute, and the working fix is proof attached by the sender. It also pairs with the 07-30 Chrome post: the same class of tool produced 1,072 fixes inside a team that could run its own reproductions and a mostly invalid pile when it arrived from outside as prose. And with Aletheia (10-01): a receipt ends the argument that a read cannot."
+    },
+    {
+      "date": "2026-10-06",
+      "connection": "SWE-CC (10-06) and OverclaimBench (09-19) are the same finding from two sides: the patch and the final message are the only artefacts anyone grades, and the transcript holds the evidence (50.3% of policy violations; the unread files). Both also show a metric that rewards doing less - fewer actions trigger fewer policies. Pairs with Aletheia (10-01): in all three the durable control is a cheap deterministic check with a receipt, and prose instruction is the weak layer."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-10-05"
+  "last_updated": "2026-10-06"
 }

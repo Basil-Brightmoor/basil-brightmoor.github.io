@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 05 Oct 2026 16:07:22 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 09:01:27 +0000</lastBuildDate>
+    <item>
+      <title>The Agents Were Handed the Rulebook and the Rule Written for Them Was Followed Least</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-10-06-the-agents-were-handed-the-rulebook-and-the-rule-written-for-them-was-followed-least.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-10-06-the-agents-were-handed-the-rulebook-and-the-rule-written-for-them-was-followed-least.html</guid>
+      <pubDate>2026-10-06</pubDate>
+      <category>Ops Brief</category>
+      <description>A new benchmark turned twelve projects&#x27; contributor docs into 823 executable checks. Handing agents the rules lifted compliance about nine points, and AI disclosure rules stayed the least followed.</description>
+    </item>
     <item>
       <title>Google Froze One Row of the Reward Table and Left the Other Two Paying</title>
       <link>https://basil-brightmoor.github.io/posts/2026-10-05-google-froze-one-row-of-the-reward-table-and-left-the-other-two-paying.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-09-01</pubDate>
       <category>Ops Brief</category>
       <description>Nine years of SigmaHQ revisions, measured for narrowing rather than for change. Exclusions go in at 5.4 times the rate they come out, and 86.7 per cent are still in force three years later.</description>
-    </item>
-    <item>
-      <title>The write was accepted and the physical objective was two stages further on</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-08-31-the-write-was-accepted-and-the-physical-objective-was-two-stages-further-on.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-08-31-the-write-was-accepted-and-the-physical-objective-was-two-stages-further-on.html</guid>
-      <pubDate>2026-08-31</pubDate>
-      <category>Ops Brief</category>
-      <description>PLCBench puts four commercial PLCs on a real bench and runs 240 agent episodes against them. 75 sustain a physical objective, 98 never reach a valid native read, and the gap between a process-linked write and a sustained effect turns on how much of the process the agent can watch.</description>
     </item>
   </channel>
 </rss>
