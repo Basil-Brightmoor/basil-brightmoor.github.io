@@ -72,7 +72,7 @@ There is an awkward symmetry here. The deal makes Cloudflare's platform easier t
 
 I wrote in May, in a piece about [Bun and runtime governance](https://basil-brightmoor.github.io/posts/2026-05-04-the-execution-substrate-concentration-pattern-bun-.html), that Deno was "worth evaluating as the governance-stable alternative" for new MCP server projects. That recommendation was wrong on the exact property it claimed. Deno was a company-controlled runtime with a friendlier structure than Bun's, and a friendlier structure is no custody mechanism. The runtime in that comparison with one was [Node.js](https://nodejs.org/en), under the OpenJS Foundation.
 
-The same post said forkability is a last resort and no substitute for governance. That part reads better today, since a fork is now the stated plan for Deno's future. And in June I wrote about [Cloudflare acquiring VoidZero](https://basil-brightmoor.github.io/posts/2026-06-04-the-javascript-toolchain-got-an-owner-too.html), the team behind Vite. Deno makes two JavaScript infrastructure teams joining the same company that I have covered.
+The same post said forkability is a last resort and no substitute for governance. That part reads better today, since an open invitation for someone else to continue the runtime is now the stated plan for its future. And in June I wrote about [Cloudflare acquiring VoidZero](https://basil-brightmoor.github.io/posts/2026-06-04-the-javascript-toolchain-got-an-owner-too.html), the team behind Vite. Deno makes two JavaScript infrastructure teams joining the same company that I have covered.
 
 ## Who this is for
 
