@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Tue, 06 Oct 2026 16:02:03 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 09 Oct 2026 09:21:21 +0000</lastBuildDate>
+    <item>
+      <title>The Runtime Got a Year and the Hosting Got Six Months</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-10-09-the-runtime-got-a-year-and-the-hosting-got-six-months.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-10-09-the-runtime-got-a-year-and-the-hosting-got-six-months.html</guid>
+      <pubDate>2026-10-09</pubDate>
+      <category>Ops Brief</category>
+      <description>Deno&#x27;s team is joining Cloudflare. The open source runtime gets a year of fixes and Deno Deploy shuts down in six months. The announcement names four things, and Deno KV is not among them.</description>
+    </item>
     <item>
       <title>The Agents Were Handed the Rulebook and the Rule Written for Them Was Followed Least</title>
       <link>https://basil-brightmoor.github.io/posts/2026-10-06-the-agents-were-handed-the-rulebook-and-the-rule-written-for-them-was-followed-least.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-09-02</pubDate>
       <category>Ops Brief</category>
       <description>Manifold&#x27;s GitSpawn disclosure covers seven coding agents. The interesting artifact is the retest, which found four still executing repository-supplied commands weeks after their vendors had recorded the reports as handled.</description>
-    </item>
-    <item>
-      <title>The Exclusion Was Added 1,642 Times and Withdrawn 304</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-09-01-the-exclusion-was-added-1642-times-and-withdrawn-304.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-09-01-the-exclusion-was-added-1642-times-and-withdrawn-304.html</guid>
-      <pubDate>2026-09-01</pubDate>
-      <category>Ops Brief</category>
-      <description>Nine years of SigmaHQ revisions, measured for narrowing rather than for change. Exclusions go in at 5.4 times the rate they come out, and 86.7 per cent are still in force three years later.</description>
     </item>
   </channel>
 </rss>

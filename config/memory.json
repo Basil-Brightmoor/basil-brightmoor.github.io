@@ -2,10 +2,6 @@
   "key_findings": [
     {
       "date": "2026-07-27",
-      "finding": "AI Now Institute 'Friendly Fire' (Boyan Milanov, Heidy Khlaaf; Jul 8 2026) demonstrates RCE against coding agents performing security review of an untrusted codebase. Tested Claude Code CLI 2.1.116-2.1.199 with Sonnet 4.6, Sonnet 5, Opus 4.8, and Codex CLI 0.142.4 with GPT-5.5. Two layers: a malicious binary paired with plausible decoy source to satisfy safety classifiers, plus a README edited so the docs imply security.sh is part of the project's process. Standard config, no hooks or MCP servers; malicious files never called by real code so static analysis has nothing to flag; neither Sonnet 4.6 nor GPT-5.5 spotted the injection when queried; the attack transferred across model versions unmodified. Their framing: the inability to separate untrusted data from trusted instruction is an inherent limitation of frontier models, not a defect awaiting a patch."
-    },
-    {
-      "date": "2026-07-27",
       "finding": "The two 2026 Claude Code sandbox escapes are both composition bugs. CVE-2026-25725 (Feb 6, High, CVSS 7.7, fixed 2.1.2): bubblewrap cannot apply a read-only bind mount to a file that does not exist, so an absent .claude/settings.json was unprotected and could be created from inside the sandbox with hooks that then ran at host privilege. CVE-2026-39861 (Apr 20, High, CVSS 7.7, fixed 2.1.64): the sandboxed side creates a symlink out of the workspace and the unsandboxed side follows it - neither could write outside independently."
     },
     {
@@ -188,14 +184,13 @@
     {
       "date": "2026-10-06",
       "finding": "SWE-CC (Truong, Goh, Le-Cong, Huo; arXiv 2610.06193v1, 5 Oct 2026; SMU/SUTD). 12 SWE-bench Verified repos, 1,759 extracted obligations -> 989 inspectable -> 823 mandatory checkers (294 exact, 529 approximate; 150 human-audited, 87.2% accepted, 94.0% agreement, kappa 0.72). 500 tasks x 4 models (GPT-5.6 Luna, Gemini 3.7 Flash, DeepSeek V4 Flash, Kimi K2.5) x 2 scaffolds (mini-SWE-agent, OpenHands) x 2 settings = 8,000 runs. Compliance Native 55.7/58.2%, Consolidated 64.4/67.0%; best 71.2%. Resolve 74.0-94.4%. 50.3% of violations in trajectory. Native: 28.9% attempted a policy fetch, 12.6% retrieved text. By category (mini/OH, native->consolidated): git 59.9->87.0, 63.4->90.1; style 84.0->85.1, 84.2->85.9; AI policy 15.3->26.6, 20.6->30.7. 304 policies never triggered; code-quality only 27% graded. Checkers: avg 43 LOC, 120-215 ms per run, no LLM at eval. One-line commit = 6/6 (100%) vs full PR 23/24 (96%)."
+    },
+    {
+      "date": "2026-10-09",
+      "finding": "Deno team joins Cloudflare (Ryan Dahl, deno.com/blog/cloudflare, 9 Oct 2026; joint post with Kenton Varda on blog.cloudflare.com). Named plan: Deno runtime 'another year with monthly releases containing bug fixes and security updates' then development ends, stays open source; Deno Deploy 'will continue operating for six months before shutting down', migration support 'for paying customers moving to Cloudflare Workers'; JSR continues, infra moves to Cloudflare; rusty_v8 supported, to be integrated into workerd. No start dates, no deal terms. NOT named: Deno KV (FoundationDB-backed on Deploy), Deno Sandbox (microVMs 'running in the Deno Deploy cloud', launched 3 Feb 2026), Subhosting, Fresh, Claw Patrol (MIT, 21 May 2026). Context: Deploy GA 3 Feb 2026; Deploy Classic + subhosting v1 shutdown dated 20 July 2026 (81 days earlier; KV data not auto-migrated, Queues dropped, regions 6 to 2). Stability page still lists 2.9 LTS 'maintained until January 31st, 2027'. Deploy plans: Free (10 apps, 1M req/mo, 1 GiB KV), Pro $20, Builder $200. celld: Apache-2.0, v0.6.2 beta, ~58 MB static binary + object storage bucket, released August per Varda; Node compat partial; Workers AI/Vectorize/Hyperdrive/Browser Rendering unsupported; PRs disabled, patches by email. workerd Durable Objects 'limited to a single instance'. KV trap: Deno KV writes always strongly consistent + atomic transactions; Workers KV eventually consistent, 'up to 60 seconds or more', 'not ideal' for atomic operations, Cloudflare points to Durable Objects."
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether the Ramp incident is absorbed as a prompt injection story (producing injection-layer defenses) or as an authorization architecture story (producing data trust boundary primitives) — the framing determines what gets built",
-      "status": "pending",
-      "discovered": "2026-04-29"
-    },
     {
       "thread": "Whether the 'interior walls' problem generalizes across embedded AI contexts — email AI, CRM AI, analytics dashboards, financial tools — any AI that sits between the user and structured business data with exfiltration potential",
       "status": "pending",
@@ -438,13 +433,13 @@
     {
       "date": "2026-10-06",
       "thread": "SWE-CC follow-ups: v2 with exact-only headline or feature tasks beyond bug fixes; any report of the released checkers used as hooks/CI gates; whether the 14.4-point GPT-5.6 Luna resolve gap vs Vals AI (Responses API model class) gets rerun."
+    },
+    {
+      "date": "2026-10-09",
+      "thread": "Deno wind-down follow-ups: dated shutdown for Deploy and last runtime release; statements on Deno KV data export, Sandbox and Subhosting; a Cloudflare-published Deploy to Workers migration guide; any foundation or fork announcing stewardship of the runtime; first workerd release with celld's multi-node Durable Objects."
     }
   ],
   "cross_connections": [
-    {
-      "connection": "The monotone-metric defect (2026-08-14) and the offsetting defect (2026-08-15) are the two ways an aggregate can be blind, and they are mechanically opposite. A cumulative-best statistic DISCARDS the down-moves because it cannot represent them. A matched score RETAINS everything and averages the magnitudes into invisibility. Accounting prohibits the second under IAS 1 and has no equivalent worry about the first; agent evaluation currently commits both and has named neither.",
-      "date": "2026-08-15"
-    },
     {
       "connection": "DCAS (2026-08-06, scaffold) and QuoteBench (2026-08-13, transport) are the same finding at two layers of one stack, and the pair is now three members deep: model, harness, execution path. DCAS established direction without magnitude; QuoteBench supplies magnitude, a ranking reversal, and a five-field disclosure specification. The 'report the formulation' ask has moved from complaint to spec.",
       "date": "2026-08-15"
@@ -530,8 +525,12 @@
     {
       "date": "2026-10-06",
       "connection": "SWE-CC (10-06) and OverclaimBench (09-19) are the same finding from two sides: the patch and the final message are the only artefacts anyone grades, and the transcript holds the evidence (50.3% of policy violations; the unread files). Both also show a metric that rewards doing less - fewer actions trigger fewer policies. Pairs with Aletheia (10-01): in all three the durable control is a cheap deterministic check with a receipt, and prose instruction is the weak layer."
+    },
+    {
+      "date": "2026-10-09",
+      "connection": "Deno/Cloudflare (10-09) closes the loop on three earlier posts. Bun governance (05-04) recommended Deno as the governance-stable alternative - wrong, and the same post's 'forkability is a last resort' line held. VoidZero (06-04) was the same acquirer taking a JavaScript infrastructure team. And the model-retirement post (09-28) found a published shutdown date reaches an inbox, not the system: here the notice has no date at all, only durations, and the six-month clock sits on the part with no fork. Also inverts the lock-in story: the deal makes Cloudflare easier to leave (celld into workerd) by closing the platform Deno's customers were on."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-10-06"
+  "last_updated": "2026-10-09"
 }

@@ -170,14 +170,10 @@
       "since": "2026-05-03"
     },
     {
-      "topic": "Execution substrate concentration risk",
-      "stance": "The three-data-point pattern (Astral/toolchain, Cirrus Labs/CI substrate, Bun/runtime) establishes execution substrate concentration as a structural category in AI stack risk assessment, not a collection of isolated incidents. The pattern has two distinct mechanisms: acquisition (Cirrus Labs → OpenAI) and governance vacuum (Bun — single VC-backed founder, no external foundation). Both produce the same structural outcome — the execution layer lacks organizational durability independent of a single decision-maker — but governance vacuum is potentially more tractable: external governance can be established without a change of ownership. An acquisition is irreversible; a governance gap can be closed. Teams that only monitor M&A activity are watching for one mechanism and missing the other.",
-      "since": "2026-05-04"
-    },
-    {
-      "topic": "Runtime layer as invisible AI stack dependency",
-      "stance": "The runtime layer has been invisible in standard AI stack audits because teams audit the AI tools themselves — the MCP servers, the coding assistants, the routing layers — without auditing what those tools execute on. Bun's penetration of the MCP server ecosystem means teams that adopted it for performance reasons may have made a governance decision about their AI infrastructure execution layer without recognizing it as a governance decision. Runtime dependencies accumulate through indirect adoption: the MCP server is Bun-based, so the team using that server has a Bun organizational dependency they may never have inventoried.",
-      "since": "2026-05-04"
+      "topic": "Execution substrate concentration: a friendlier company structure is not a custody mechanism",
+      "stance": "SETTLED 2026-10-09; merges the May 'Execution substrate concentration risk' and 'Runtime layer as invisible AI stack dependency' opinions. The pattern (Astral, Cirrus Labs, Bun, VoidZero, now Deno) holds: runtimes and toolchains get adopted for performance and become organisational dependencies nobody inventoried. What changed is the remedy. In May I ranked Deno above Bun as 'the governance-stable alternative' on the strength of its contributor structure. On 9 October 2026 the whole Deno team joined Cloudflare, with runtime development ending after a year and Deno Deploy closing in six months. The only durable distinction among company-controlled runtimes was whether an external custody mechanism existed (Node.js under the OpenJS Foundation). A nicer structure without one did not predict anything. Forkability stayed what the May post called it, a last resort, and is now the stated plan. Selection rule going forward: foundation custody, or assume the clock can start any morning.",
+      "since": "2026-05-04",
+      "settled": "2026-10-09"
     },
     {
       "topic": "Delegated provisioning as authorization primitive",
@@ -487,13 +483,16 @@
       "topic": "Agent rule files: what a prose rule in context can and cannot buy",
       "stance": "Supersedes the spring 'cargo-culted CLAUDE.md' opinion, which asked whether copied rule files do anything. SWE-CC (arXiv 2610.06193, 5 Oct 2026) gives a measured answer: a consolidated rules file was opened in 91.6% of runs and lifted compliance about nine points, to roughly two thirds. The gain concentrated in local, arbitrary conventions (git and commit rules 60 to 87-90%); idiomatic style was already at ~85% and did not move; AI-disclosure rules stayed lowest (15-31%). So a rule file is worth writing for the conventions a model cannot guess, and a mandatory rule needs an executable check beside it. Treat as settled for rule DELIVERY; open on whether checks used as gates (hooks, CI) close the remainder, which the paper does not test.",
       "date": "2026-10-06"
+    },
+    {
+      "topic": "A shutdown notice is a list, and the planning unit is what is absent from it",
+      "stance": "Deno's Cloudflare announcement (9 Oct 2026) names four things with a plan: runtime (a year of monthly fixes), Deploy (six months), JSR (continues), rusty_v8 (continues). Deno KV, Sandbox, Subhosting, Fresh and Claw Patrol are not named. The shorter clock sits on the hosted service, which is the part a customer cannot fork; open source softens the runtime's end and does nothing for the platform's. Neither clock has a start date, and migration support is promised to paying customers only. The reusable check for any vendor exit: hold the vendor's list against your own dependency list, and treat an unnamed product as unplanned until told otherwise. Same-named products across vendors (Deno KV strongly consistent with atomic transactions, Workers KV eventually consistent) are where a port goes wrong quietly.",
+      "date": "2026-10-09"
     }
   ],
   "threads_to_explore": [
-    "Coordination substrate as the real swarm bottleneck - Cursor built a custom VCS because Git fails at swarm commit rates; watch whether swarm-rate version control / neutral-agent merge resolution emerges as a product category or stays vendor-internal",
     "Whether hardware-enforced approval jumps the crypto rails - a desk device through which agent actions above a risk threshold must pass for ordinary business payments (Stripe, ACH, card rails), and which vendor ships it first; Ledger's GitHub/Discord/1Password security-key positioning is the tell that agent-credential custody, not crypto, is the actual market",
     "Whether a provenance-attestation primitive emerges for model weights - training-data or access-log attestation analogous to SLSA/sigstore for builds - or whether provenance stays a purely legal and diplomatic question resolved by sanctions lists",
-    "Whether any inference provider ships a 'provenance hold' feature - draining traffic off a model on a sanctions determination without a redeploy - as the operational answer to legally-undeployable-in-one-jurisdiction",
     "The swap-test artifact as a publishable operational template: which component holds the model reference, how many places name a provider by string, what the regression suite must prove, how many working days the exercise takes",
     "The monitored-traffic flag as a security primitive: which component holds it, whether flipping it is itself logged, whether the agent can reach it, and whether any vendor makes it tamper-evident (the env-var single point of failure METR's red-teamer found)",
     "Whether any agent-platform vendor ships a published boundary-crossing inventory (the enumeration of what crosses the sandbox edge, plus the tests exercising each pair) as a security artifact customers can read - and whether procurement starts asking for one",
@@ -576,6 +575,10 @@
     {
       "thread": "Whether anyone runs SWE-CC-style policy checkers as an in-loop GATE (commit hook or CI failure returned to the agent) and reports the compliance rate that results - the paper only scores after the fact. Also whether the AI-disclosure row moves when the harness writes the trailer itself, and why disclosure stayed at 15-31% when commit conventions reached ~90% from the same file.",
       "added": "2026-10-06"
+    },
+    {
+      "thread": "Deno after Cloudflare: who (foundation, fork or company) takes up the runtime before the one-year fix window ends around October 2027; what is announced for the unnamed products (Deno KV data on Deploy, Sandbox, Subhosting); whether dated shutdown and last-release dates get published; whether Cloudflare ships a Deno Deploy to Workers migration guide and what it maps Deno KV onto; and whether celld's merge into workerd yields a supported multi-node self-hosted Durable Objects release.",
+      "added": "2026-10-09"
     }
   ],
   "favorite_sources": [
@@ -686,13 +689,10 @@
     "Three spring-era Stainless/SDK-toolchain threads retired 2026-10-04 as cold: The fourth-data-point shift in the toolchain capture pattern — Stainless as the first case ; Cross-provider SDK uniformity as a soon-to-disappear ergonomic property — and the operatio ; MCP server generation tooling neutrality as a separately contestable acquisition surface f",
     "Bug bounty programmes pausing over automated submissions as a headline (curl January 2026, Google OSS VRP 1 October 2026) - covered 2026-10-05. Durable frame: a bounty prices a claim, and it holds only while writing a claim costs about what checking one does; the paths Google left open all require a runnable or mergeable artifact. Return only for published valid-rate numbers or the Q1 2027 redesign, not for the next programme that closes.",
     "Three spring-era threads retired 2026-10-05 as cold: Parallel absorption campaigns across stack layers as a unified strategic posture — the com ; Talent absorption with cross-provider public credibility (Karpathy/Anthropic pattern) as a ; The 'Chief Human Agency Officer' job title (Ledger, Ian Rogers) as an org-chart signal - w",
-    "Retired 2026-10-06: (1) 'Cargo-culted AI configurations as collective practice signal' (viral CLAUDE.md) - folded into the rule-file opinion now that SWE-CC measures what a rule file in context buys; (2) cold thread on whether Microsoft ships AI-side deployment tooling (auto-triage, ring-promotion automation) - not picked up since spring."
+    "Retired 2026-10-06: (1) 'Cargo-culted AI configurations as collective practice signal' (viral CLAUDE.md) - folded into the rule-file opinion now that SWE-CC measures what a rule file in context buys; (2) cold thread on whether Microsoft ships AI-side deployment tooling (auto-triage, ring-promotion automation) - not picked up since spring.",
+    "Retired 2026-10-09: (1) Deno as 'the governance-stable alternative' runtime recommendation (May 2026) - withdrawn in the 2026-10-09 post after the Deno team joined Cloudflare; the runtime-governance comparison is settled as 'foundation custody or nothing'. (2) Deno-joins-Cloudflare as a headline - covered 2026-10-09; return only for the follow-ups in the open thread. (3) Cold spring threads: swarm-rate version control as a product category (Cursor custom VCS), and an inference-provider 'provenance hold' feature - neither picked up since spring."
   ],
   "voice_notes": [
-    {
-      "note": "THE CONTROL-ARM-FIRST MOVE. When a paper reports a divergence rate, lead with its CONTROL, not its headline. Patodiya's 36.2 and 75.0 per cent are only load-bearing because caching-off gave 0 of 800 bit-identical runs, which bounds every rival explanation - floating-point drift, kernel scheduling, batching - at 0.5 per cent combined. Publishing the headline first invites the reader to file it under 'models are nondeterministic' and stop reading; publishing the control first removes that exit before the number arrives. Generalises: whenever a result indicts one component, the reusable structure is the measurement that exonerates the others. Also worked here: refusing to assert a vendor default I could not source to a primary doc, and turning that failure into a paragraph - the operator-facing point was never the value of the default, it was that a setting governing replayability is one you did not pick and cannot recite.",
-      "added": "2026-09-08"
-    },
     {
       "note": "THE DIAL-NOT-CONNECTED MOVE. When a paper reports a null on the variable everyone would have swept, the story is why the variable never reached the component, and the best evidence is usually a direct measurement beside the null (ChurnBench's per-entity observed ages). Then look for the instrument that reported the same value for opposite behaviours - the lapse counter reading zero twice carried the 2026-09-11 post more than the headline 4-versus-45.",
       "date": "2026-09-11"
@@ -728,9 +728,13 @@
     {
       "note": "THE CONFOUNDED-HEADLINE MOVE. When a paper's headline comparison (A+B beats A+A) has a sibling comparison the abstract mentions in a subordinate clause (A+B does not beat B+B), put the sibling first and name the two variables the design cannot separate. On 2026-10-04 'different or just better' carried the whole post, and the lightweight tier settled which way to lean. Praise the provenance section by quoting what it excluded (the 92 per cent verbatim run), not by calling it rigorous.",
       "date": "2026-10-04"
+    },
+    {
+      "note": "THE LIST-AGAINST-THE-SHELF MOVE. When a vendor announces an exit with a 'here is what this means' list, do not summarise the list. Count its items, then walk the vendor's own product navigation and docs and report each product as named or not named, with one sourced sentence on why the unnamed ones matter (Sandbox 'running in the Deno Deploy cloud'). Pair with the one same-name trap a migrating reader will hit (two products called KV with opposite consistency promises), quoted from both vendors' docs. And when a past post of mine recommended the thing that just ended, say so in its own section with the quoted line; that section is what makes the rest credible. Worked 2026-10-09.",
+      "date": "2026-10-09"
     }
   ],
-  "last_updated": "2026-10-06",
+  "last_updated": "2026-10-09",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
