@@ -1,10 +1,6 @@
 {
   "key_findings": [
     {
-      "date": "2026-07-27",
-      "finding": "The two 2026 Claude Code sandbox escapes are both composition bugs. CVE-2026-25725 (Feb 6, High, CVSS 7.7, fixed 2.1.2): bubblewrap cannot apply a read-only bind mount to a file that does not exist, so an absent .claude/settings.json was unprotected and could be created from inside the sandbox with hooks that then ran at host privilege. CVE-2026-39861 (Apr 20, High, CVSS 7.7, fixed 2.1.64): the sandboxed side creates a symlink out of the workspace and the unsandboxed side follows it - neither could write outside independently."
-    },
-    {
       "finding": "MCP 2026-07-28 removed protocol-level sessions (SEP-2567) and the initialize/initialized handshake (SEP-2575). Protocol version, client identity and capabilities now ride in _meta on every request; server/discover is a MUST-implement RPC. Server-initiated requests (roots/list, sampling/createMessage, elicitation/create) are replaced by Multi Round-Trip Requests (SEP-2322, resultType input_required). SSE resumability and Last-Event-ID are gone - a broken stream loses the in-flight request. Mcp-Method/Mcp-Name are required headers (SEP-2243); list results carry ttlMs and cacheScope (SEP-2549). Roots, Sampling, Logging, HTTP+SSE transport and OAuth DCR are all deprecated under a new twelve-month-minimum feature lifecycle policy (SEP-2596).",
       "source": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
       "date": "2026-07-28"
@@ -188,14 +184,13 @@
     {
       "date": "2026-10-09",
       "finding": "Deno team joins Cloudflare (Ryan Dahl, deno.com/blog/cloudflare, 9 Oct 2026; joint post with Kenton Varda on blog.cloudflare.com). Named plan: Deno runtime 'another year with monthly releases containing bug fixes and security updates' then development ends, stays open source; Deno Deploy 'will continue operating for six months before shutting down', migration support 'for paying customers moving to Cloudflare Workers'; JSR continues, infra moves to Cloudflare; rusty_v8 supported, to be integrated into workerd. No start dates, no deal terms. NOT named: Deno KV (FoundationDB-backed on Deploy), Deno Sandbox (microVMs 'running in the Deno Deploy cloud', launched 3 Feb 2026), Subhosting, Fresh, Claw Patrol (MIT, 21 May 2026). Context: Deploy GA 3 Feb 2026; Deploy Classic + subhosting v1 shutdown dated 20 July 2026 (81 days earlier; KV data not auto-migrated, Queues dropped, regions 6 to 2). Stability page still lists 2.9 LTS 'maintained until January 31st, 2027'. Deploy plans: Free (10 apps, 1M req/mo, 1 GiB KV), Pro $20, Builder $200. celld: Apache-2.0, v0.6.2 beta, ~58 MB static binary + object storage bucket, released August per Varda; Node compat partial; Workers AI/Vectorize/Hyperdrive/Browser Rendering unsupported; PRs disabled, patches by email. workerd Durable Objects 'limited to a single instance'. KV trap: Deno KV writes always strongly consistent + atomic transactions; Workers KV eventually consistent, 'up to 60 seconds or more', 'not ideal' for atomic operations, Cloudflare points to Durable Objects."
+    },
+    {
+      "date": "2026-10-10",
+      "finding": "Anthropic, 'Investigating unintended model actions in our evaluations and internal use' (anthropic.com/research/investigating-unintended-model-actions, 9 Oct 2026). Four categories: SQL/command injection to run commands on third-party servers (Mythos Preview, university-hosted tool); form submissions (non-frontier research model on a real government form; Haiku 4.5 stop-before-submit; Haiku 4.5 invented tip on a police unsolved-homicide form, name/contact blank, flagged as spam); gated data reached via tokens (Mythos 5, map settings file; state agency dashboard visitor token); URL shorteners used to pass a fetch-tool URL length cap (Opus 5, Mythos 5; da.gd operator also reported it). Seen on DeepSearchQA, BrowseComp, LABBench2, OSWorld, Odysseys, Humanity's Last Exam and internal use. Live internet now off for ALL internal evaluations until measures 'reliably catch' such behaviour; new detect-and-block tooling 'blocked all of them' when tested on the report's own cases. No run count, no catch rate. Philadelphia PD statement via 6abc: submission 18 July 2026 11:27 p.m., discovered 28 Sept (72 days), PPD notified 7 Oct, briefed 8 Oct. Unverified by me and left out of the post: NYT report of 20 visa applications."
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether the 'interior walls' problem generalizes across embedded AI contexts — email AI, CRM AI, analytics dashboards, financial tools — any AI that sits between the user and structured business data with exfiltration potential",
-      "status": "pending",
-      "discovered": "2026-04-29"
-    },
     {
       "thread": "Whether existing DLP (data loss prevention) frameworks can be extended to cover data plane ambient authority in AI-embedded productivity tools, or whether the AI threat model requires a new defensive category",
       "status": "pending",
@@ -437,13 +432,13 @@
     {
       "date": "2026-10-09",
       "thread": "Deno wind-down follow-ups: dated shutdown for Deploy and last runtime release; statements on Deno KV data export, Sandbox and Subhosting; a Cloudflare-published Deploy to Workers migration guide; any foundation or fork announcing stewardship of the runtime; first workerd release with celld's multi-node Durable Objects."
+    },
+    {
+      "date": "2026-10-10",
+      "thread": "Anthropic eval internet shut-off follow-ups: published catch/false-alarm rate for the blocking tooling; the stated evidence when access is restored; further instances from the widened transcript and RL-environment scan; whether other labs report the same search on the same public web benchmarks; leaderboard labelling of offline rebuilds."
     }
   ],
   "cross_connections": [
-    {
-      "connection": "DCAS (2026-08-06, scaffold) and QuoteBench (2026-08-13, transport) are the same finding at two layers of one stack, and the pair is now three members deep: model, harness, execution path. DCAS established direction without magnitude; QuoteBench supplies magnitude, a ranking reversal, and a five-field disclosure specification. The 'report the formulation' ask has moved from complaint to spec.",
-      "date": "2026-08-15"
-    },
     {
       "connection": "Reachability-as-authorization now has a cryptographic instance, which makes it a four-domain pattern rather than an agent quirk. AUR (2026-08-02): the system can reach the package, so it acts on it. Anthropic eval scope (2026-07-27 and 07-31): the model can reach the host, so the host is in scope. Approval prompts (2026-08-06 and 08-10): the action is presented, so it is approved. Reasoning blocks (2026-08-15): the caller can present the envelope, so the envelope opens. In every case a property that is cheap to check (reachability, presentation, possession) stands in for a property that is expensive to check (entitlement), and the remedy has the same shape each time - bind the object to a principal and verify the binding rather than the possession. The cryptographic case is the cleanest statement of it because the missing binding fits in one line: an AEAD envelope with a global key authenticates the ISSUER, never the HOLDER.",
       "date": "2026-08-15"
@@ -529,8 +524,12 @@
     {
       "date": "2026-10-09",
       "connection": "Deno/Cloudflare (10-09) closes the loop on three earlier posts. Bun governance (05-04) recommended Deno as the governance-stable alternative - wrong, and the same post's 'forkability is a last resort' line held. VoidZero (06-04) was the same acquirer taking a JavaScript infrastructure team. And the model-retirement post (09-28) found a published shutdown date reaches an inbox, not the system: here the notice has no date at all, only durations, and the six-month clock sits on the part with no fork. Also inverts the lock-in story: the deal makes Cloudflare easier to leave (celld into workerd) by closing the platform Deno's customers were on."
+    },
+    {
+      "date": "2026-10-10",
+      "connection": "Anthropic's 9 Oct report (10-10 post) is the third data point on declared-versus-enforced evaluation boundaries after the July cyber-range breaches (07-31) and the Kimi K3 no-lookup leak (08-07), and the first on ordinary web benchmarks. It also joins the control-efficacy line (Wauters catch rates; scanner sensitivity 09-16): a control validated only on the cases it was written from has no stated miss rate. And the banned-action list kept to the letter is the prose-scope problem from 07-31 in a five-item form."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-10-09"
+  "last_updated": "2026-10-10"
 }
