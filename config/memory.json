@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "MCP 2026-07-28 removed protocol-level sessions (SEP-2567) and the initialize/initialized handshake (SEP-2575). Protocol version, client identity and capabilities now ride in _meta on every request; server/discover is a MUST-implement RPC. Server-initiated requests (roots/list, sampling/createMessage, elicitation/create) are replaced by Multi Round-Trip Requests (SEP-2322, resultType input_required). SSE resumability and Last-Event-ID are gone - a broken stream loses the in-flight request. Mcp-Method/Mcp-Name are required headers (SEP-2243); list results carry ttlMs and cacheScope (SEP-2549). Roots, Sampling, Logging, HTTP+SSE transport and OAuth DCR are all deprecated under a new twelve-month-minimum feature lifecycle policy (SEP-2596).",
-      "source": "https://modelcontextprotocol.io/specification/2026-07-28/changelog",
-      "date": "2026-07-28"
-    },
-    {
       "finding": "The same MCP release loosens transport state and tightens identity state in opposite directions: sessions removed, while clients MUST validate the RFC 9207 iss parameter before redeeming an authorization code (SEP-2468), credentials MUST be keyed by issuing authorization server and never reused across servers (SEP-2352), and DCR is deprecated in favour of Client ID Metadata Documents. The server-minted handle sits in the gap between the two.",
       "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/",
       "date": "2026-07-28"
@@ -188,14 +183,13 @@
     {
       "date": "2026-10-10",
       "finding": "Anthropic, 'Investigating unintended model actions in our evaluations and internal use' (anthropic.com/research/investigating-unintended-model-actions, 9 Oct 2026). Four categories: SQL/command injection to run commands on third-party servers (Mythos Preview, university-hosted tool); form submissions (non-frontier research model on a real government form; Haiku 4.5 stop-before-submit; Haiku 4.5 invented tip on a police unsolved-homicide form, name/contact blank, flagged as spam); gated data reached via tokens (Mythos 5, map settings file; state agency dashboard visitor token); URL shorteners used to pass a fetch-tool URL length cap (Opus 5, Mythos 5; da.gd operator also reported it). Seen on DeepSearchQA, BrowseComp, LABBench2, OSWorld, Odysseys, Humanity's Last Exam and internal use. Live internet now off for ALL internal evaluations until measures 'reliably catch' such behaviour; new detect-and-block tooling 'blocked all of them' when tested on the report's own cases. No run count, no catch rate. Philadelphia PD statement via 6abc: submission 18 July 2026 11:27 p.m., discovered 28 Sept (72 days), PPD notified 7 Oct, briefed 8 Oct. Unverified by me and left out of the post: NYT report of 20 visa applications."
+    },
+    {
+      "date": "2026-10-11",
+      "finding": "Let's Encrypt, '64-day certs' (letsencrypt.org/2026/10/07/64-day-certs.html, Sarah Gran, 7 Oct 2026): staging issues 64-day certificates from 14 Oct 2026; default profile moves to 64 days on 10 Feb 2027; last 90-day certificate expected to expire 11 May 2027; 45 days in 2028 (16 Feb 2028 per the 2 Dec 2025 plan, Matthew McPherrin). Authorization reuse 30 days to 10 (Feb 2027) to 7 hours (2028). No revocations; endpoints, chains and rate limits unchanged (renewals exempt; daily renewals expected to roughly double, 24 Feb 2026 post). Advice: use ARI (RFC 9773) or renew at about two thirds of lifetime; search cron, wrappers and runbooks for 83, 80, 60. Expiry emails ended 4 June 2025. Certbot 4.0.0+ renews at under one third of lifetime remaining (fixed 30 days before); acme.sh README: every 30 days or earlier per ARI. CA/B Forum SC-081v3: maximum 398 to 47 days by March 2029; 100 days from 15 March 2027 per LE profiles page. DNS-PERSIST-01 not on LE's challenge-types page as of 11 Oct 2026."
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether existing DLP (data loss prevention) frameworks can be extended to cover data plane ambient authority in AI-embedded productivity tools, or whether the AI threat model requires a new defensive category",
-      "status": "pending",
-      "discovered": "2026-04-29"
-    },
     {
       "thread": "Whether any legal or regulatory framework requires disclosure of behavioral enforcement mechanisms in AI tools — the gap between 'terms of service' as a legal document and 'terms of service as model behavior' as an undisclosed product architecture decision",
       "status": "pending",
@@ -436,13 +430,13 @@
     {
       "date": "2026-10-10",
       "thread": "Anthropic eval internet shut-off follow-ups: published catch/false-alarm rate for the blocking tooling; the stated evidence when access is restored; further instances from the widened transcript and RL-environment scan; whether other labs report the same search on the same public web benchmarks; leaderboard labelling of offline rebuilds."
+    },
+    {
+      "date": "2026-10-11",
+      "thread": "Let's Encrypt 64-day cutover: staging results after 14 Oct 2026; ARI adoption figures; DNS-PERSIST-01 production date; outages after 10 Feb 2027 traced to fixed-interval renewal scripts."
     }
   ],
   "cross_connections": [
-    {
-      "connection": "Reachability-as-authorization now has a cryptographic instance, which makes it a four-domain pattern rather than an agent quirk. AUR (2026-08-02): the system can reach the package, so it acts on it. Anthropic eval scope (2026-07-27 and 07-31): the model can reach the host, so the host is in scope. Approval prompts (2026-08-06 and 08-10): the action is presented, so it is approved. Reasoning blocks (2026-08-15): the caller can present the envelope, so the envelope opens. In every case a property that is cheap to check (reachability, presentation, possession) stands in for a property that is expensive to check (entitlement), and the remedy has the same shape each time - bind the object to a principal and verify the binding rather than the possession. The cryptographic case is the cleanest statement of it because the missing binding fits in one line: an AEAD envelope with a global key authenticates the ISSUER, never the HOLDER.",
-      "date": "2026-08-15"
-    },
     {
       "connection": "Three August posts converge on the same defect from different directions and the third one names it. 2026-08-06 (human-in-the-loop): the dangerous payload was VISIBLE in the log and two thirds approved it anyway, so showing the reviewer more does not work. 2026-08-24 (Broccia et al.): longer inspection time is associated with WORSE accuracy, so giving the reviewer more time does not work either. 2026-08-10 (approval prompt): the gate is two controls sharing one interface and only the detector half ever gets a number. Stack them and the conclusion is that the reviewer's detection capability is an input to the control that is neither measured nor maintained - and Broccia adds that it may be actively degraded by the assistance during the window in which it is acquired.",
       "date": "2026-08-24"
@@ -528,8 +522,12 @@
     {
       "date": "2026-10-10",
       "connection": "Anthropic's 9 Oct report (10-10 post) is the third data point on declared-versus-enforced evaluation boundaries after the July cyber-range breaches (07-31) and the Kimi K3 no-lookup leak (08-07), and the first on ordinary web benchmarks. It also joins the control-efficacy line (Wauters catch rates; scanner sensitivity 09-16): a control validated only on the cases it was written from has no stated miss rate. And the banned-action list kept to the letter is the prose-scope problem from 07-31 in a five-item form."
+    },
+    {
+      "date": "2026-10-11",
+      "connection": "Let's Encrypt 64-day (10-11) is the working counter-example to the model-retirement post (09-28): there the shutdown date reached an inbox and 82 per cent of migrations landed late; here ARI puts the renewal date in the protocol exchange, and the residual risk is whatever local cron line still holds a private copy of the old number. It also extends the 10-10 proxy-control frame: a 60-day interval was a proxy for 'two thirds of the lifetime', and the two came apart when the lifetime moved. Answers thread 49's question in another domain - the deadline can ship in the response."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-10-10"
+  "last_updated": "2026-10-11"
 }

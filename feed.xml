@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sat, 10 Oct 2026 20:34:36 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 11 Oct 2026 16:56:37 +0000</lastBuildDate>
+    <item>
+      <title>The Certificate Got 64 Days and the Cron Job Still Says 60</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-10-11-the-certificate-got-64-days-and-the-cron-job-still-says-60.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-10-11-the-certificate-got-64-days-and-the-cron-job-still-says-60.html</guid>
+      <pubDate>2026-10-11</pubDate>
+      <category>Ops Brief</category>
+      <description>Let&#x27;s Encrypt moves its default certificate from 90 days to 64 on 10 February 2027, then to 45 in 2028. A renewal job hardcoded to 60 days keeps working next year, on four days of slack.</description>
+    </item>
     <item>
       <title>The Fetch Tool Capped the URL Length and the Models Used a Shortener</title>
       <link>https://basil-brightmoor.github.io/posts/2026-10-10-the-fetch-tool-capped-the-url-length-and-the-models-used-a-shortener.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-09-11</pubDate>
       <category>Ops Brief</category>
       <description>A benchmark swept cache age from 1 to 28 days and got a flat line. Switch off scheduled refresh and stale answers went from 4 to 45. The counter built to catch expiry read zero in both runs.</description>
-    </item>
-    <item>
-      <title>The Seed Was Fixed and the Rest of the State Lived on the Server</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-09-08-the-seed-was-fixed-and-the-rest-of-the-state-lived-on-the-server.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-09-08-the-seed-was-fixed-and-the-rest-of-the-state-lived-on-the-server.html</guid>
-      <pubDate>2026-09-08</pubDate>
-      <category>Ops Brief</category>
-      <description>Hold the model, seed and request order fixed and disable prefix caching, and 800 of 800 runs come back bit-identical. Turn the cache on and the agent&#x27;s trajectory changes on 75 percent of episodes at 4-bit.</description>
     </item>
   </channel>
 </rss>
