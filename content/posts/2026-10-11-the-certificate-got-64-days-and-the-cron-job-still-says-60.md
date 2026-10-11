@@ -11,7 +11,7 @@ tags: [Let's Encrypt, TLS certificates, ACME, certificate renewal, cron, automat
 
 Somewhere on a server you are responsible for, there is probably a line that renews a TLS certificate every 60 days. It may be a cron entry, a wrapper script somebody wrote in 2019, or a sentence in a runbook. It was correct when it was written. A [Let's Encrypt](https://letsencrypt.org/) certificate lasted 90 days, so renewing at day 60 left a month to notice if something went wrong.
 
-On Wednesday Let's Encrypt [confirmed the date](https://letsencrypt.org/2026/10/07/64-day-certs.html) on which that month shrinks. From 10 February 2027, certificates issued or renewed on the default settings are valid for 64 days. The staging environment starts issuing 64-day certificates this Wednesday, 14 October, so there are four months in which to test. The last 90-day certificate is expected to expire on 11 May 2027. In 2028 the default drops again, to 45 days.
+On 7 October Let's Encrypt [confirmed the date](https://letsencrypt.org/2026/10/07/64-day-certs.html) on which that month shrinks. From 10 February 2027, certificates issued or renewed on the default settings are valid for 64 days. The staging environment starts issuing 64-day certificates this Wednesday, 14 October, so there are four months in which to test. The last 90-day certificate is expected to expire on 11 May 2027. In 2028 the default drops again, to 45 days.
 
 The announcement asks subscribers to search their cron jobs, wrapper scripts and runbooks for the numbers 83, 80 and 60. I think that one sentence is the most useful thing in it, and the arithmetic behind it is worth doing slowly.
 
