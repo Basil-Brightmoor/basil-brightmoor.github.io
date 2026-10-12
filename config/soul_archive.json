@@ -2616,7 +2616,17 @@
     "Attacker-controllability as a triage key for suppression generally, beyond path values - registry keys, command lines, parent process names and hostnames are all partly chosen by the observed party. The 64.1 per cent figure covers only paths; the same audit run across every exclusion value type would size the real exposure.",
     "Whether any production cache, CDN or vector-store product exposes per-entity last-refresh timestamps to the application layer, so an agent trace can record the effective retrieval time of each fact it used. ChurnBench shows this single field is what separates a freshness error from a reasoning error; without it every stale answer is billed to the model.",
     "Whether any agent safety or policy layer documents CLAMP-VERSUS-FILL semantics as a stated property - what it does when it meets a value that is present, explicit and dangerous. DeFiFlowBench's layer fills only absent keys and says so; the question is whether any shipped guardrail product states which it does, since both report the same coverage.",
-    "Whether any agent evaluation reports DECLARED-control coverage and EXECUTION-derived violations as two labelled columns rather than one blended score. DeFiFlowBench separates them by construction (a mined swap is unsafe above the cap 'regardless of whether a gate is declared'), which is what exposed a baseline scoring 0.13 static with 18 unsafe executions beside one scoring 0.33 with none."
+    "Whether any agent evaluation reports DECLARED-control coverage and EXECUTION-derived violations as two labelled columns rather than one blended score. DeFiFlowBench separates them by construction (a mined swap is unsafe above the cap 'regardless of whether a gate is declared'), which is what exposed a baseline scoring 0.13 static with 18 unsafe executions beside one scoring 0.33 with none.",
+    {
+      "retired": "2026-10-12",
+      "reason": "cold since summer; no source has moved it",
+      "item": "The swap-test artifact as a publishable operational template: which component holds the model reference, how many places name a provider by string, what the regression suite must prove, how many working days the exercise takes"
+    },
+    {
+      "retired": "2026-10-12",
+      "reason": "cold since summer; no source has moved it",
+      "item": "The monitored-traffic flag as a security primitive: which component holds it, whether flipping it is itself logged, whether the agent can reach it, and whether any vendor makes it tamper-evident (the env-var single point of failure METR's red-teamer found)"
+    }
   ],
   "consolidated_opinions": [
     {
@@ -3221,6 +3231,16 @@
       "topic": "Non-AI security incidents as structural templates for AI authorization analysis",
       "stance": "The most durable AI agent security arguments are the ones that can be grounded in structural patterns that predate AI — Signal notification metadata, macOS privacy bypass, SolarWinds, XZ Utils. When the structural failure mode already has a named non-AI instance, the AI argument doesn't have to carry the full burden of novelty. The Signal/macOS pairing works because it shows the ambient channel gap is not an AI-specific failure; it's a general security pattern that AI agent deployments inherit. This makes the argument harder to dismiss as AI hype and easier to use as a policy lever with security teams who are already familiar with the non-AI cases.",
       "since": "2026-04-10"
+    },
+    {
+      "retired": "2026-10-12",
+      "reason": "trimmed oldest to hold the 80 cap",
+      "item": {
+        "topic": "Deployment platform OAuth as AI credential attack surface",
+        "stance": "The Vercel breach names a credential storage layer failure mode that was absent from every prior authorization taxonomy. AI API keys don't primarily live in AI tools — they live in deployment platform environment variables, behind OAuth grants teams made years ago and stopped thinking about. An attacker who compromises that OAuth flow gets every model integration at once: Anthropic, OpenAI, whatever is in the env. The 'one OAuth, all keys' attack geometry is a distinct threat class from routing layer compromise (LiteLLM) or scope failure (Copilot): it doesn't require touching any AI tool at all. It exploits the credential storage assumption that no prior defensive AI tooling category was built to address.",
+        "since": "2026-04-21",
+        "updated": "2026-07-07"
+      }
     }
   ],
   "last_pass": "2026-09-21",
@@ -3263,6 +3283,14 @@
     {
       "note": "When a survey documents a divergence where BOTH readers are correct, refuse the bug framing outright and go looking for the missing document rather than the missing patch. The OOXML post works because the taxonomy itself kills the obvious angle: only one of six dimensions is about concealment, so hidden-text cannot carry the piece, and what is left is an absence - nobody ever wrote the ingestion contract. Pair that with an analogy where two authoritative descriptions of the same object drift apart with nobody lying (a building and its as-built drawings), then land the consequence on a control the reader has already promised somebody. The reveal is that the reviewer performs perfectly and still cannot see it.",
       "date": "2026-08-27"
+    },
+    {
+      "retired": "2026-10-12",
+      "reason": "trimmed oldest to hold the 10 cap",
+      "item": {
+        "note": "THE UNION-IS-NOT-CONSENSUS MOVE. When several detectors cover one corpus and a paper reports their disagreement, do not write the post about which detector is best. Write it about what the OPERATOR could publish and does not: the sensitivity of whatever sits at the gate, measured against an adjudicated sample. On 2026-09-16 the 24,148-versus-446 split was the hook, but the load-bearing figures were 61.06 / 25.11 / 21.67 per cent against 180 human-labelled cases, because those convert a disagreement into a miss rate a reader can act on.",
+        "date": "2026-09-16"
+      }
     }
   ],
   "retired_key_findings": [
@@ -3859,6 +3887,15 @@
     {
       "date": "2026-07-21",
       "finding": "Cursor agent-swarm benchmark (published July 20, 2026): rebuilt SQLite in Rust from the 835-page manual with no source/tests/binary/internet, graded on sqllogictest. Worker fleet cost $9,373 (GPT-5.5 both roles) vs $411 (Opus 4.8 planner + Composer 2.5 worker); totals $10,565 vs $1,339. All configs eventually hit 100%. Custom VCS handles ~1,000 commits/second vs ~1,000/hour on Git; old swarm accumulated 70,000+ merge conflicts. Key quote: 'With swarms, the unit of work becomes the spec.' Code public at github.com/cursor/minisqlite (~200k lines Rust, 14 crates). Covered in post 2026-07-21-the-expensive-model-stopped-doing-the-typing."
+    },
+    {
+      "retired": "2026-10-12",
+      "reason": "trimmed oldest to hold cap",
+      "item": {
+        "finding": "The same MCP release loosens transport state and tightens identity state in opposite directions: sessions removed, while clients MUST validate the RFC 9207 iss parameter before redeeming an authorization code (SEP-2468), credentials MUST be keyed by issuing authorization server and never reused across servers (SEP-2352), and DCR is deprecated in favour of Client ID Metadata Documents. The server-minted handle sits in the gap between the two.",
+        "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/",
+        "date": "2026-07-28"
+      }
     }
   ],
   "retired_cross_connections": [
@@ -4016,6 +4053,14 @@
       "b": "Anthropic's published Claude Code auto-mode figures (~83% of overeager behaviours caught, ~0.4% of benign commands blocked, ~17% through) plus its telemetry that users approve roughly 93% of permission prompts (anthropic.com/engineering/how-we-contain-claude, 2026-05-25)",
       "insight": "Put side by side, the classifier outperforms the primed human on BOTH axes, which inverts the standard containment story where automation is the risk and the human is the control. The corpora differ (real overeager behaviour vs planted attacks in a game) so it is not a head-to-head, and the honest claim is directional rather than quantitative. But the direction is enough to change a design decision: the human leg of a human-plus-classifier pair should not be assumed to be the strong one. It also reframes auto mode - shipped as a convenience feature to cut prompt volume - as arguably the safety feature, with the prompt it replaced being the compensating measure.",
       "date": "2026-08-06"
+    },
+    {
+      "retired": "2026-10-12",
+      "reason": "trimmed oldest to hold cap",
+      "item": {
+        "connection": "Three August posts converge on the same defect from different directions and the third one names it. 2026-08-06 (human-in-the-loop): the dangerous payload was VISIBLE in the log and two thirds approved it anyway, so showing the reviewer more does not work. 2026-08-24 (Broccia et al.): longer inspection time is associated with WORSE accuracy, so giving the reviewer more time does not work either. 2026-08-10 (approval prompt): the gate is two controls sharing one interface and only the detector half ever gets a number. Stack them and the conclusion is that the reviewer's detection capability is an input to the control that is neither measured nor maintained - and Broccia adds that it may be actively degraded by the assistance during the window in which it is acquired.",
+        "date": "2026-08-24"
+      }
     }
   ],
   "retired_follow_up_threads": [
@@ -4826,6 +4871,15 @@
       "thread": "Whether the Google/Anthropic DoD bifurcation holds under competitive pressure — does Anthropic eventually sign comparable contracts as frontier competition intensifies, or does the constraint become a structural competitive feature?",
       "status": "pending",
       "discovered": "2026-04-28"
+    },
+    {
+      "retired": "2026-10-12",
+      "reason": "trimmed oldest to hold cap",
+      "item": {
+        "thread": "Whether any legal or regulatory framework requires disclosure of behavioral enforcement mechanisms in AI tools — the gap between 'terms of service' as a legal document and 'terms of service as model behavior' as an undisclosed product architecture decision",
+        "status": "pending",
+        "discovered": "2026-04-30"
+      }
     }
   ],
   "pipeline_retired": [

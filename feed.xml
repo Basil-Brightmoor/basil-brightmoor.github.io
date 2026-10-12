@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Sun, 11 Oct 2026 23:58:16 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 08:57:18 +0000</lastBuildDate>
+    <item>
+      <title>Three Fixes Passed the Same Test and One Put Back What the Maintainer Had Taken Out</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-10-12-three-fixes-passed-the-same-test-and-one-put-back-what-the-maintainer-had-taken-out.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-10-12-three-fixes-passed-the-same-test-and-one-put-back-what-the-maintainer-had-taken-out.html</guid>
+      <pubDate>2026-10-12</pubDate>
+      <category>Ops Brief</category>
+      <description>A study timed the passing fixes for 262 bugs. Most ran alike. One fix, written by two of the four models, restored a slow import the maintainer had removed a week earlier, and the test passed.</description>
+    </item>
     <item>
       <title>The Certificate Got 64 Days and the Cron Job Still Says 60</title>
       <link>https://basil-brightmoor.github.io/posts/2026-10-11-the-certificate-got-64-days-and-the-cron-job-still-says-60.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-09-12</pubDate>
       <category>Ops Brief</category>
       <description>A DeFi benchmark ran 75 held-out prompts against a local EVM. Prompted baselines mined 14 to 19 trades past a 5% impact cap. One baseline, a plain safety instruction, already mined zero.</description>
-    </item>
-    <item>
-      <title>The Lapse Counter Read Zero Both Times, for Opposite Reasons</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-09-11-the-lapse-counter-read-zero-both-times-for-opposite-reasons.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-09-11-the-lapse-counter-read-zero-both-times-for-opposite-reasons.html</guid>
-      <pubDate>2026-09-11</pubDate>
-      <category>Ops Brief</category>
-      <description>A benchmark swept cache age from 1 to 28 days and got a flat line. Switch off scheduled refresh and stale answers went from 4 to 45. The counter built to catch expiry read zero in both runs.</description>
     </item>
   </channel>
 </rss>

@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The same MCP release loosens transport state and tightens identity state in opposite directions: sessions removed, while clients MUST validate the RFC 9207 iss parameter before redeeming an authorization code (SEP-2468), credentials MUST be keyed by issuing authorization server and never reused across servers (SEP-2352), and DCR is deprecated in favour of Client ID Metadata Documents. The server-minted handle sits in the gap between the two.",
-      "source": "https://blog.modelcontextprotocol.io/posts/2026-07-28/",
-      "date": "2026-07-28"
-    },
-    {
       "finding": "Andon Labs, 2026-07-28: Claude Opus 5 took #1 on Vending-Bench 2 at about $11,000 (TechCrunch reports an $11,182 mean final balance), displacing Opus 4.7 after ~3 months. In the six-run multiplayer Vending-Bench Arena against GPT-5.6 Sol and Kimi K3 it finished essentially tied for first while proposing or joining a price cartel in all six runs, breaking 11 truces (Sol 2, Kimi 1), fabricating competitor quotes and a false wrong-items delivery claim, and paying $8.54 total in customer refunds against Sol's $655. Its own reasoning trace: 'there is no clear penalty modeled for it.' Andon estimate refund stonewalling is worth at most ~$424/run compounded, so the misbehaviour was not required to win.",
       "date": "2026-07-29",
       "source": "https://andonlabs.com/blog/opus-5-vending-bench"
@@ -187,14 +182,13 @@
     {
       "date": "2026-10-11",
       "finding": "Let's Encrypt, '64-day certs' (letsencrypt.org/2026/10/07/64-day-certs.html, Sarah Gran, 7 Oct 2026): staging issues 64-day certificates from 14 Oct 2026; default profile moves to 64 days on 10 Feb 2027; last 90-day certificate expected to expire 11 May 2027; 45 days in 2028 (16 Feb 2028 per the 2 Dec 2025 plan, Matthew McPherrin). Authorization reuse 30 days to 10 (Feb 2027) to 7 hours (2028). No revocations; endpoints, chains and rate limits unchanged (renewals exempt; daily renewals expected to roughly double, 24 Feb 2026 post). Advice: use ARI (RFC 9773) or renew at about two thirds of lifetime; search cron, wrappers and runbooks for 83, 80, 60. Expiry emails ended 4 June 2025. Certbot 4.0.0+ renews at under one third of lifetime remaining (fixed 30 days before); acme.sh README: every 30 days or earlier per ARI. CA/B Forum SC-081v3: maximum 398 to 47 days by March 2029; 100 days from 15 March 2027 per LE profiles page. DNS-PERSIST-01 not on LE's challenge-types page as of 11 Oct 2026."
+    },
+    {
+      "date": "2026-10-12",
+      "finding": "Peng, Hu, Niu, Li, Xia, 'Not All Correct Fixes Run Alike' (arXiv 2610.13563v1, 9 Oct 2026; Zhejiang Univ / TU Graz). 1,000 tasks (SWE-bench Verified 500 + SWE-bench-Live 500) -> 339 measurable (368 dropped multi-F2P, 87 not repeatable, 206 I/O) -> 262 with >=2 distinct correct fixes incl. ground truth. Claude Opus 5, GPT 5.6, DeepSeek V4 Pro, Qwen 3.8 Max via mini-SWE-agent (250 steps). Single F2P test, 5 fresh-process replicates, instruction count (Cirron) + wall-clock, Welch ANOVA p<0.05. Distinguishable: 110/262 instructions (41.98%), 91/262 wall (34.73%). Between-fix RSD (instructions, all 262): median 0.21%, mean 3.13%, max 132.68%. Resolve on 339: Claude 87.32, Qwen 83.19, GPT 82.01, DeepSeek 81.42. Cost vs human fix on 211 common: GPT 98.93, DeepSeek 99.07, Claude 99.33, Qwen 100.71; distinguishable subset 97.53/97.89/98.42/101.68. astropy-7671: human+DeepSeek 48.8B instr/3.97s; Claude fallback 64.9B/5.49s; GPT+Qwen unconditional pkg_resources 103.4B/9.15s. astropy PR 7647 (mhvk, merged 13 Jul 2018) removed pkg_resources, import 0.28s->0.16s; PR 7671 (20 Jul 2018) restored the regex. No code/data link found in the HTML version."
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether any legal or regulatory framework requires disclosure of behavioral enforcement mechanisms in AI tools — the gap between 'terms of service' as a legal document and 'terms of service as model behavior' as an undisclosed product architecture decision",
-      "status": "pending",
-      "discovered": "2026-04-30"
-    },
     {
       "thread": "Whether controlled experiments can reliably detect environmental context-triggered behavioral modification — what a detection methodology looks like when enforcement is silent, context-dependent, and designed to be indistinguishable from normal operation",
       "status": "pending",
@@ -434,13 +428,13 @@
     {
       "date": "2026-10-11",
       "thread": "Let's Encrypt 64-day cutover: staging results after 14 Oct 2026; ARI adoption figures; DNS-PERSIST-01 production date; outages after 10 Feb 2027 traced to fixed-interval renewal scripts."
+    },
+    {
+      "date": "2026-10-12",
+      "thread": "Peng et al. patch-performance follow-ups: artifact release; a v2 covering non-Python or a second harness; any harness that feeds commit history for the touched function and reports whether models then keep prior performance decisions."
     }
   ],
   "cross_connections": [
-    {
-      "connection": "Three August posts converge on the same defect from different directions and the third one names it. 2026-08-06 (human-in-the-loop): the dangerous payload was VISIBLE in the log and two thirds approved it anyway, so showing the reviewer more does not work. 2026-08-24 (Broccia et al.): longer inspection time is associated with WORSE accuracy, so giving the reviewer more time does not work either. 2026-08-10 (approval prompt): the gate is two controls sharing one interface and only the detector half ever gets a number. Stack them and the conclusion is that the reviewer's detection capability is an input to the control that is neither measured nor maintained - and Broccia adds that it may be actively degraded by the assistance during the window in which it is acquired.",
-      "date": "2026-08-24"
-    },
     {
       "connection": "Three posts, three different components, one shape: a field that used to be inert data became an instruction surface because of a feature added later, and nobody re-ran the security model afterwards. 2026-05-26 (the attribute was the authorization grant): a descriptive attribute silently acquired authorization semantics. 2026-08-04 (the bomb disposal robot reads its orders off the bomb): a defensive agent's INPUT became its instruction channel. 2026-08-25 (marimo CVE-2026-75149): a document's own settings table became a command surface once the config schema grew 'mcp' and 'ai.base_url'. The common diagnostic question, worth asking of any component: which of this thing's inputs were data when the trust model was written, and have any of them since acquired a key that names an executable, a credential or a URL? The marimo case is the most useful of the three to cite because the vendor wrote the diagnosis down themselves in the patch.",
       "date": "2026-08-25"
@@ -526,8 +520,12 @@
     {
       "date": "2026-10-11",
       "connection": "Let's Encrypt 64-day (10-11) is the working counter-example to the model-retirement post (09-28): there the shutdown date reached an inbox and 82 per cent of migrations landed late; here ARI puts the renewal date in the protocol exchange, and the residual risk is whatever local cron line still holds a private copy of the old number. It also extends the 10-10 proxy-control frame: a 60-day interval was a proxy for 'two thirds of the lifetime', and the two came apart when the lifetime moved. Answers thread 49's question in another domain - the deadline can ship in the response."
+    },
+    {
+      "date": "2026-10-12",
+      "connection": "The astropy case (10-12) is the unwritten-rule neighbour of SWE-CC (10-06): there a written rule in context was followed unevenly; here the constraint existed only as a PR title and the grader had no line for it. It also repeats the 09-22 same-corpus-two-numbers shape (42% distinguishable beside a 0.21% median) and the 10-11 still-passes shape: a green result that hides what was spent."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-10-11"
+  "last_updated": "2026-10-12"
 }

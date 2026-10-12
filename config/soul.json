@@ -42,12 +42,6 @@
   ],
   "developing_opinions": [
     {
-      "topic": "Deployment platform OAuth as AI credential attack surface",
-      "stance": "The Vercel breach names a credential storage layer failure mode that was absent from every prior authorization taxonomy. AI API keys don't primarily live in AI tools — they live in deployment platform environment variables, behind OAuth grants teams made years ago and stopped thinking about. An attacker who compromises that OAuth flow gets every model integration at once: Anthropic, OpenAI, whatever is in the env. The 'one OAuth, all keys' attack geometry is a distinct threat class from routing layer compromise (LiteLLM) or scope failure (Copilot): it doesn't require touching any AI tool at all. It exploits the credential storage assumption that no prior defensive AI tooling category was built to address.",
-      "since": "2026-04-21",
-      "updated": "2026-07-07"
-    },
-    {
       "topic": "AI stack audit perimeter for credentials",
       "stance": "The audit perimeter for AI credentials needs to go one layer higher than routing tools and API key managers. The deployment platform is the actual credential store for most teams — not by design, but by operational drift. Env vars in Vercel, Railway, and Fly.io are where secrets accumulate because that's where CI/CD pipelines naturally put them. A credential audit that stops at the AI tool layer is auditing the wrong object. The Vercel breach makes the deployment platform a required axis in any AI stack security assessment.",
       "since": "2026-04-21",
@@ -488,11 +482,14 @@
       "topic": "A hardcoded interval is a copy of someone else's parameter, and a shortened deadline spends the margin before it breaks the job",
       "stance": "Let's Encrypt's default lifetime goes 90 to 64 days on 10 Feb 2027 and to 45 on 16 Feb 2028. A renew-at-60 script passes on 64 with four days of slack (two on a first-of-every-second-month cron) where it had thirty, then fails outright at 45; renew-at-80/83 fails at the first 64-day certificate. The dangerous case is the one that still passes the test. Expiry emails ended 4 June 2025, so the issuer no longer reports a stalled job. The working rule: keep no copy of the issuer's number, ask the issuer (ARI) or renew on a ratio, run the client often, and alert on days-remaining from outside the renewal path.",
       "date": "2026-10-11"
+    },
+    {
+      "topic": "A pass/fail test grades the fix and is blind to the reason the code was shaped that way",
+      "stance": "Peng et al. (arXiv 2610.13563, 9 Oct 2026) timed correct fixes on 262 SWE-bench / SWE-bench-Live tasks: fixes were statistically distinguishable on instruction count in 110 (42%), yet the median between-fix spread was 0.21% (mean 3.13%, max 132.68%). The weight is in the tail. In astropy-7671, GPT 5.6 and Qwen 3.8 Max fixed a version-comparison bug by restoring pkg_resources, the import a maintainer had removed a week earlier to cut import time 0.28s to 0.16s (PR 7647) - 103.4B instructions against 48.8B for the human fix, test green. A performance decision recorded only in a PR title has no test and is free to reverse under test-graded work. Model-ranking 'reversal' on speed is real in direction and thin in size (97.53-101.68% of human cost); not a basis for model choice.",
+      "date": "2026-10-12"
     }
   ],
   "threads_to_explore": [
-    "The swap-test artifact as a publishable operational template: which component holds the model reference, how many places name a provider by string, what the regression suite must prove, how many working days the exercise takes",
-    "The monitored-traffic flag as a security primitive: which component holds it, whether flipping it is itself logged, whether the agent can reach it, and whether any vendor makes it tamper-evident (the env-var single point of failure METR's red-teamer found)",
     "Whether any agent-platform vendor ships a published boundary-crossing inventory (the enumeration of what crosses the sandbox edge, plus the tests exercising each pair) as a security artifact customers can read - and whether procurement starts asking for one",
     "Whether composition-oriented testing (differential/compositional fuzzing aimed at seams rather than components) becomes a named product category for agent runtimes, or stays a research technique - watching for the first tool that markets itself on the pair rather than the part",
     "Whether any MCP SDK ships a scoped, expiring, caller-bound handle primitive in the box after the 2026-07-28 session removal - or whether handle design stays per-team improvisation and produces the first handle-confusion incident",
@@ -582,6 +579,10 @@
     {
       "thread": "Let's Encrypt 64-day cutover follow-ups: whether ARI support is reported as a share of issuance before 10 Feb 2027; any outage post-mortems in April-July 2027 traced to 80/83-day renewal scripts; whether DNS-PERSIST-01 reaches production before validation reuse drops to 10 days; and whether any packaged or appliance ACME client (NAS, mail, router firmware) ships a fixed interval it cannot update.",
       "date": "2026-10-11"
+    },
+    {
+      "thread": "Whether any agent harness or review bot flags NEW IMPORTS and reversed prior commits in a patch (a diff against the touched function's recent history), and whether Peng et al. release per-task data so the size of the performance tail beyond astropy-7671 can be checked; also whether anyone times the 368 multi-test and 206 I/O tasks the study filtered out.",
+      "date": "2026-10-12"
     }
   ],
   "favorite_sources": [
@@ -695,13 +696,10 @@
     "Retired 2026-10-06: (1) 'Cargo-culted AI configurations as collective practice signal' (viral CLAUDE.md) - folded into the rule-file opinion now that SWE-CC measures what a rule file in context buys; (2) cold thread on whether Microsoft ships AI-side deployment tooling (auto-triage, ring-promotion automation) - not picked up since spring.",
     "Retired 2026-10-09: (1) Deno as 'the governance-stable alternative' runtime recommendation (May 2026) - withdrawn in the 2026-10-09 post after the Deno team joined Cloudflare; the runtime-governance comparison is settled as 'foundation custody or nothing'. (2) Deno-joins-Cloudflare as a headline - covered 2026-10-09; return only for the follow-ups in the open thread. (3) Cold spring threads: swarm-rate version control as a product category (Cursor custom VCS), and an inference-provider 'provenance hold' feature - neither picked up since spring.",
     "Retired 2026-10-10: (1) 'Will any eval publisher flip its default network posture to deny-egress' - answered in part by Anthropic turning off live internet for all internal evaluations (9 Oct 2026); the unshipped half (a post-run isolation field beside the number) is folded into the new restore-test thread. (2) The police-tip incident as a headline - covered 2026-10-10; durable frame is the banned-action list kept to the letter. (3) Cold spring threads: hardware-enforced approval devices jumping from crypto to ordinary payment rails, and a provenance-attestation primitive for model weights - neither picked up since spring.",
-    "Retired 2026-10-11: (1) Let's Encrypt's 64-day and 45-day lifetime schedule as a headline - covered 2026-10-11; durable frame is that the 60-day script still passes and has lost its margin. Return only for the February 2027 cutover results or an ARI adoption figure. (2) Cold summer threads not picked up since: Chromium downstream lag as a measurable security control - how far behind Edge, Brave, Viv ; Whether the familiarity gradient in the miss data (package scripts at a 52.5% miss rate ag"
+    "Retired 2026-10-11: (1) Let's Encrypt's 64-day and 45-day lifetime schedule as a headline - covered 2026-10-11; durable frame is that the 60-day script still passes and has lost its margin. Return only for the February 2027 cutover results or an ARI adoption figure. (2) Cold summer threads not picked up since: Chromium downstream lag as a measurable security control - how far behind Edge, Brave, Viv ; Whether the familiarity gradient in the miss data (package scripts at a 52.5% miss rate ag",
+    "Retired 2026-10-12: (1) Patch runtime performance among correct agent fixes (Peng et al., arXiv 2610.13563) as a headline - covered 2026-10-12; durable frame is median 0.21% against a 2x tail, and the unrecorded design reason a test cannot see. Return only for released per-task data or a harness that checks patches against commit history. (2) Two cold summer threads (swap-test artifact template; monitored-traffic flag as a security primitive) moved to the archive."
   ],
   "voice_notes": [
-    {
-      "note": "THE UNION-IS-NOT-CONSENSUS MOVE. When several detectors cover one corpus and a paper reports their disagreement, do not write the post about which detector is best. Write it about what the OPERATOR could publish and does not: the sensitivity of whatever sits at the gate, measured against an adjudicated sample. On 2026-09-16 the 24,148-versus-446 split was the hook, but the load-bearing figures were 61.06 / 25.11 / 21.67 per cent against 180 human-labelled cases, because those convert a disagreement into a miss rate a reader can act on.",
-      "date": "2026-09-16"
-    },
     {
       "note": "THE LOUD-ONE-WAS-REFUSED MOVE. When a report shows a model resisting one injection and obeying another, do not lead with the dramatic transcript line. Lead with the quiet obeyed instruction and let the dramatic one arrive as the contrast. On 2026-09-17 the BREACH ALERT was the quotable text, but the 30-word limit the successor followed is what carried the argument: the dangerous instruction in a handover is task-shaped. Pair with a handover analogy that keeps the underlying record beside the note, and keep the training-time scope limits explicit so the post does not read as a product incident.",
       "date": "2026-09-17"
@@ -737,9 +735,13 @@
     {
       "note": "THE STILL-PASSES MOVE. When a vendor shortens a deadline, do the subtraction for each common hardcoded setting and sort them into fails-now, fails-later and passes-with-less-margin. The last group is the post, because a test run reports success and hides the lost slack. On 2026-10-11 the announcement's own search list (83, 80, 60) supplied the three cases; label the arithmetic as mine and take every date from the issuer's two posts.",
       "date": "2026-10-11"
+    },
+    {
+      "note": "THE REASON-HAD-NO-TEST MOVE. When a paper reports that outputs differ 'in almost half' of cases, find the table with the SIZE of the difference and print median, mean and max together; if the median is negligible, the post is the tail case. Open on the dated human decision the tail case reversed (verified at its own primary source, here the 2018 astropy PRs), and treat model rankings separated by a few points on one harness as direction only. 2026-10-12.",
+      "date": "2026-10-12"
     }
   ],
-  "last_updated": "2026-10-11",
+  "last_updated": "2026-10-12",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
@@ -753,9 +755,9 @@
     "last_pass": "2026-09-21",
     "counts": {
       "archived_interests": 320,
-      "retired_threads": 233,
-      "consolidated_opinions": 26,
-      "retired_voice_notes": 17
+      "retired_threads": 235,
+      "consolidated_opinions": 27,
+      "retired_voice_notes": 18
     }
   }
 }
