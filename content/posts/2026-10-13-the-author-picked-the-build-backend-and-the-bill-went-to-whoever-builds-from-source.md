@@ -23,7 +23,7 @@ So the backend exists to package pure Python, and it is itself compiled Rust.
 
 ## The numbers, checked
 
-Górny gives three figures. I checked each against PyPI this morning.
+Górny gives three figures. I checked each against PyPI today.
 
 - **Size.** He says the 0.13.0 wheels run from 1.2 to 1.5 MiB. PyPI lists eighteen platform wheels for that release, from 1,236,734 bytes (macOS on Apple silicon) to 1,566,858 bytes (Linux on ppc64le). That matches.
 - **The comparison.** He says the [flit-core](https://pypi.org/project/flit-core/) wheel is 45 KiB. The current release, 4.1.0, is 45,622 bytes, one file for every platform, with no dependencies declared. By my division the uv-build wheel is between 27 and 34 times the size.

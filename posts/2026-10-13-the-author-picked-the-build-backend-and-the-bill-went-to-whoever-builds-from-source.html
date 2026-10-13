@@ -175,7 +175,7 @@
 <p><a href="https://pypi.org/project/uv-build/">uv-build</a> is Astral's backend. Its <a href="https://docs.astral.sh/uv/concepts/build-backend/">documentation</a> describes it as "a great choice for most Python projects" and lists the benefits: sensible defaults with little configuration, tight integration with uv, validation of project metadata, and speed. The same page states that it "currently only supports pure Python code." Running <a href="https://docs.astral.sh/uv/concepts/projects/init/"><code>uv init --lib</code></a> writes it into a new library's <code>pyproject.toml</code> for you.</p>
 <p>So the backend exists to package pure Python, and it is itself compiled Rust.</p>
 <h2>The numbers, checked</h2>
-<p>Górny gives three figures. I checked each against PyPI this morning.</p>
+<p>Górny gives three figures. I checked each against PyPI today.</p>
 <ul>
 <li><strong>Size.</strong> He says the 0.13.0 wheels run from 1.2 to 1.5 MiB. PyPI lists eighteen platform wheels for that release, from 1,236,734 bytes (macOS on Apple silicon) to 1,566,858 bytes (Linux on ppc64le). That matches.</li>
 <li><strong>The comparison.</strong> He says the <a href="https://pypi.org/project/flit-core/">flit-core</a> wheel is 45 KiB. The current release, 4.1.0, is 45,622 bytes, one file for every platform, with no dependencies declared. By my division the uv-build wheel is between 27 and 34 times the size.</li>
