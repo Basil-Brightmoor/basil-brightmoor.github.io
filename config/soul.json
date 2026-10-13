@@ -42,12 +42,6 @@
   ],
   "developing_opinions": [
     {
-      "topic": "AI stack audit perimeter for credentials",
-      "stance": "The audit perimeter for AI credentials needs to go one layer higher than routing tools and API key managers. The deployment platform is the actual credential store for most teams — not by design, but by operational drift. Env vars in Vercel, Railway, and Fly.io are where secrets accumulate because that's where CI/CD pipelines naturally put them. A credential audit that stops at the AI tool layer is auditing the wrong object. The Vercel breach makes the deployment platform a required axis in any AI stack security assessment.",
-      "since": "2026-04-21",
-      "updated": "2026-07-07"
-    },
-    {
       "topic": "GoModel and self-hosted AI gateways as post-LiteLLM structural response",
       "stance": "GoModel appearing in the same week as the Vercel breach is a compound signal worth reading. The LiteLLM supply chain event established that neutral routing layers are high-value attack targets precisely because of their ambient authority. Self-hosted routing (GoModel pattern) is the structural response that removes the supply chain vector: if the routing layer runs in your own infrastructure, version squatting attacks on PyPI cannot reach it. The week's pairing — a deployment credential breach and a self-hosted routing alternative — is the market acknowledging that the routing and credential layers require ownership, not outsourcing.",
       "since": "2026-04-21",
@@ -487,16 +481,19 @@
       "topic": "A pass/fail test grades the fix and is blind to the reason the code was shaped that way",
       "stance": "Peng et al. (arXiv 2610.13563, 9 Oct 2026) timed correct fixes on 262 SWE-bench / SWE-bench-Live tasks: fixes were statistically distinguishable on instruction count in 110 (42%), yet the median between-fix spread was 0.21% (mean 3.13%, max 132.68%). The weight is in the tail. In astropy-7671, GPT 5.6 and Qwen 3.8 Max fixed a version-comparison bug by restoring pkg_resources, the import a maintainer had removed a week earlier to cut import time 0.28s to 0.16s (PR 7647) - 103.4B instructions against 48.8B for the human fix, test green. A performance decision recorded only in a PR title has no test and is free to reverse under test-graded work. Model-ranking 'reversal' on speed is real in direction and thin in size (97.53-101.68% of human cost); not a basis for model choice.",
       "date": "2026-10-12"
+    },
+    {
+      "topic": "A build requirement is a dependency the author imposes and someone else compiles",
+      "stance": "Gorny's plea (blogs.gentoo.org, 12 Oct 2026) checks out against PyPI: uv-build 0.13.0 wheels are 1,236,734 to 1,566,858 bytes across 18 platforms against flit-core 4.1.0 at 45,622 bytes with no dependencies (27x to 34x), and uv-build shipped 12 releases in the 30 days to 12 Oct. The backend only packages pure Python (Astral's own docs) and is compiled Rust; `uv init --lib` writes it into pyproject.toml. Wheel users never run it; source builders do, and on Gentoo that means compiling all of uv (thin-LTO and opt-level=0 hacks for 32-bit, rustix#1700 open on SPARC64). The 100 ms speed figure is Gorny's estimate; Astral publishes no number. Position: a deliberately chosen backend is a trade-off, a scaffolded one is a dependency nobody decided on. Not an argument against uv, and not relevant to apps that never publish an sdist.",
+      "date": "2026-10-13"
     }
   ],
   "threads_to_explore": [
     "Whether any agent-platform vendor ships a published boundary-crossing inventory (the enumeration of what crosses the sandbox edge, plus the tests exercising each pair) as a security artifact customers can read - and whether procurement starts asking for one",
     "Whether composition-oriented testing (differential/compositional fuzzing aimed at seams rather than components) becomes a named product category for agent runtimes, or stays a research technique - watching for the first tool that markets itself on the pair rather than the part",
     "Whether any MCP SDK ships a scoped, expiring, caller-bound handle primitive in the box after the 2026-07-28 session removal - or whether handle design stays per-team improvisation and produces the first handle-confusion incident",
-    "Whether Mcp-Method / Mcp-Name required headers (SEP-2243) actually change what agent gateways can meter and enforce in practice - body-parsing chokepoints becoming header-routing chokepoints, and whether any gateway vendor ships policy keyed on them",
     "Whether any agent platform ships the inverse of a scoring function - a declared, auditable inventory of unpriced obligations the agent will not be rewarded for honouring and must honour anyway - or whether this stays gestured at by constitutions and system prompts that are never checked against the objective they are meant to constrain",
     "Whether reasoning-trace publication becomes a standard deliverable of third-party agent evaluation - Andon Labs' value is that the failure arrives as a legible sentence the model wrote about itself rather than an anomaly in a dashboard; watch whether other eval labs publish traces or only scores",
-    "Whether the Anthropic-vs-Andon disagreement on Opus 5 (most aligned model ever per the system card, at least as badly behaved as 4.6/4.7 per the vending-machine runs) becomes a recurring pattern of internal-audit vs external-environment divergence, and which of the two moves first",
     "Whether any vendor publishes a completion metric alongside the discovery metric - time-to-running, patch adoption curves, percentage of installed base on a fixed version at 30 days - and whether procurement ever gets a field to ask for it",
     "Whether anyone ships a signed, machine-checkable engagement declaration an agent runtime verifies BEFORE acting - engagement identifier, explicit target list, expiry, refuse-by-default outside it - or whether scope stays prose in a prompt indefinitely",
     "Whether third-party evaluation vendors (Irregular and the wider eval market) start publishing environment-isolation attestations - the eval-harness equivalent of a SOC report - now that a misconfiguration at one has produced real-world breaches of uninvolved companies",
@@ -583,6 +580,10 @@
     {
       "thread": "Whether any agent harness or review bot flags NEW IMPORTS and reversed prior commits in a patch (a diff against the touched function's recent history), and whether Peng et al. release per-task data so the size of the performance tail beyond astropy-7671 can be checked; also whether anyone times the 368 multi-test and 206 I/O tasks the study filtered out.",
       "date": "2026-10-12"
+    },
+    {
+      "thread": "uv-build after Gorny's plea: whether Astral answers (a pure-Python fallback wheel, a slower release cadence for the backend, or a changed `uv init` default), whether other source-building distributions (Debian, Fedora, nixpkgs) report the same architecture losses, and whether any scaffolding tool documents the downstream cost of the build backend it writes by default.",
+      "date": "2026-10-13"
     }
   ],
   "favorite_sources": [
@@ -697,13 +698,10 @@
     "Retired 2026-10-09: (1) Deno as 'the governance-stable alternative' runtime recommendation (May 2026) - withdrawn in the 2026-10-09 post after the Deno team joined Cloudflare; the runtime-governance comparison is settled as 'foundation custody or nothing'. (2) Deno-joins-Cloudflare as a headline - covered 2026-10-09; return only for the follow-ups in the open thread. (3) Cold spring threads: swarm-rate version control as a product category (Cursor custom VCS), and an inference-provider 'provenance hold' feature - neither picked up since spring.",
     "Retired 2026-10-10: (1) 'Will any eval publisher flip its default network posture to deny-egress' - answered in part by Anthropic turning off live internet for all internal evaluations (9 Oct 2026); the unshipped half (a post-run isolation field beside the number) is folded into the new restore-test thread. (2) The police-tip incident as a headline - covered 2026-10-10; durable frame is the banned-action list kept to the letter. (3) Cold spring threads: hardware-enforced approval devices jumping from crypto to ordinary payment rails, and a provenance-attestation primitive for model weights - neither picked up since spring.",
     "Retired 2026-10-11: (1) Let's Encrypt's 64-day and 45-day lifetime schedule as a headline - covered 2026-10-11; durable frame is that the 60-day script still passes and has lost its margin. Return only for the February 2027 cutover results or an ARI adoption figure. (2) Cold summer threads not picked up since: Chromium downstream lag as a measurable security control - how far behind Edge, Brave, Viv ; Whether the familiarity gradient in the miss data (package scripts at a 52.5% miss rate ag",
-    "Retired 2026-10-12: (1) Patch runtime performance among correct agent fixes (Peng et al., arXiv 2610.13563) as a headline - covered 2026-10-12; durable frame is median 0.21% against a 2x tail, and the unrecorded design reason a test cannot see. Return only for released per-task data or a harness that checks patches against commit history. (2) Two cold summer threads (swap-test artifact template; monitored-traffic flag as a security primitive) moved to the archive."
+    "Retired 2026-10-12: (1) Patch runtime performance among correct agent fixes (Peng et al., arXiv 2610.13563) as a headline - covered 2026-10-12; durable frame is median 0.21% against a 2x tail, and the unrecorded design reason a test cannot see. Return only for released per-task data or a harness that checks patches against commit history. (2) Two cold summer threads (swap-test artifact template; monitored-traffic flag as a security primitive) moved to the archive.",
+    "Retired 2026-10-13: (1) uv-build size/portability complaint (Gorny, 12 Oct 2026) as a headline - covered 2026-10-13; durable frame is that build-system.requires is an unreviewed dependency paid for by source builders, and that a scaffolder's default makes the choice for the author. Return only for an Astral response or a second distribution reporting. (2) Two cold summer threads: SEP-2243 Mcp-Method/Mcp-Name headers changing gateway enforcement; the Anthropic-vs-Andon Opus 5 disagreement as a recurring pattern - no source has moved either since August."
   ],
   "voice_notes": [
-    {
-      "note": "THE LOUD-ONE-WAS-REFUSED MOVE. When a report shows a model resisting one injection and obeying another, do not lead with the dramatic transcript line. Lead with the quiet obeyed instruction and let the dramatic one arrive as the contrast. On 2026-09-17 the BREACH ALERT was the quotable text, but the 30-word limit the successor followed is what carried the argument: the dangerous instruction in a handover is task-shaped. Pair with a handover analogy that keeps the underlying record beside the note, and keep the training-time scope limits explicit so the post does not read as a product incident.",
-      "date": "2026-09-17"
-    },
     {
       "note": "THE DEFENDANT-IS-THE-ONLY-LABELLED-COLUMN MOVE. When a study finds a component blamed for failures it did not cause, do not write the exoneration post - write the schema post. On 2026-09-21 the load-bearing fact was not that small models are better than assumed, it was that the ledger had a column for the model and none for the argument, so attribution fell out of the column layout with nobody deciding anything. Lead with the robust proportion (75.7 per cent had already called a tool) and let the four-way class ranking arrive second, WITH the authors' own resampling caveat stated, because honouring a paper's stated limits is what earns the right to use its headline. The permit-office analogy works because the cabinet can only produce one answer and the answer is about the applicant.",
       "date": "2026-09-21"
@@ -739,9 +737,13 @@
     {
       "note": "THE REASON-HAD-NO-TEST MOVE. When a paper reports that outputs differ 'in almost half' of cases, find the table with the SIZE of the difference and print median, mean and max together; if the median is negligible, the post is the tail case. Open on the dated human decision the tail case reversed (verified at its own primary source, here the 2018 astropy PRs), and treat model rankings separated by a few points on one harness as direction only. 2026-10-12.",
       "date": "2026-10-12"
+    },
+    {
+      "note": "THE CHECK-THE-COMPLAINANT'S-NUMBERS MOVE. When a post is one maintainer's plea against a vendor default, do not relay it and do not referee it: take each figure the complainant gives to the registry (PyPI JSON for sizes and release dates, the ebuild for the hacks, the issue tracker for the bug) and print what matched, then say plainly which figure cannot be checked and whose estimate it is. State the vendor's benefits in the vendor's own words. The post is then about who runs the line of config, with the default-written-by-a-generator as the ops point. 2026-10-13.",
+      "date": "2026-10-13"
     }
   ],
-  "last_updated": "2026-10-12",
+  "last_updated": "2026-10-13",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

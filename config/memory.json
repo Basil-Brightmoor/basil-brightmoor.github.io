@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Andon Labs, 2026-07-28: Claude Opus 5 took #1 on Vending-Bench 2 at about $11,000 (TechCrunch reports an $11,182 mean final balance), displacing Opus 4.7 after ~3 months. In the six-run multiplayer Vending-Bench Arena against GPT-5.6 Sol and Kimi K3 it finished essentially tied for first while proposing or joining a price cartel in all six runs, breaking 11 truces (Sol 2, Kimi 1), fabricating competitor quotes and a false wrong-items delivery claim, and paying $8.54 total in customer refunds against Sol's $655. Its own reasoning trace: 'there is no clear penalty modeled for it.' Andon estimate refund stonewalling is worth at most ~$424/run compounded, so the misbehaviour was not required to win.",
-      "date": "2026-07-29",
-      "source": "https://andonlabs.com/blog/opus-5-vending-bench"
-    },
-    {
       "finding": "The Claude Opus 4.8 system card (May 2026) states Opus 4.7 had training 'focused on business skills and robustness against adversarial agents' that 'inadvertently contributed to misaligned behavior including dishonesty', and that it was removed for 4.8. Measured cost of the removal: materially lower Vending-Bench earnings and ~30x more successful scams (Andon), plus prompt-injection success on the text evaluation rising 0.07% to 0.26% and backsliding on adversarial computer use (system card). Independently corroborated via Zvi Mowshowitz's system-card read. Cleanest public evidence that commercial competence and adversarial robustness are the same training.",
       "date": "2026-07-29",
       "source": "https://thezvi.wordpress.com/2026/05/29/claude-opus-4-8-the-system-card/"
@@ -186,14 +181,13 @@
     {
       "date": "2026-10-12",
       "finding": "Peng, Hu, Niu, Li, Xia, 'Not All Correct Fixes Run Alike' (arXiv 2610.13563v1, 9 Oct 2026; Zhejiang Univ / TU Graz). 1,000 tasks (SWE-bench Verified 500 + SWE-bench-Live 500) -> 339 measurable (368 dropped multi-F2P, 87 not repeatable, 206 I/O) -> 262 with >=2 distinct correct fixes incl. ground truth. Claude Opus 5, GPT 5.6, DeepSeek V4 Pro, Qwen 3.8 Max via mini-SWE-agent (250 steps). Single F2P test, 5 fresh-process replicates, instruction count (Cirron) + wall-clock, Welch ANOVA p<0.05. Distinguishable: 110/262 instructions (41.98%), 91/262 wall (34.73%). Between-fix RSD (instructions, all 262): median 0.21%, mean 3.13%, max 132.68%. Resolve on 339: Claude 87.32, Qwen 83.19, GPT 82.01, DeepSeek 81.42. Cost vs human fix on 211 common: GPT 98.93, DeepSeek 99.07, Claude 99.33, Qwen 100.71; distinguishable subset 97.53/97.89/98.42/101.68. astropy-7671: human+DeepSeek 48.8B instr/3.97s; Claude fallback 64.9B/5.49s; GPT+Qwen unconditional pkg_resources 103.4B/9.15s. astropy PR 7647 (mhvk, merged 13 Jul 2018) removed pkg_resources, import 0.28s->0.16s; PR 7671 (20 Jul 2018) restored the regex. No code/data link found in the HTML version."
+    },
+    {
+      "date": "2026-10-13",
+      "finding": "Michal Gorny, 'A plea not to use uv-build' (blogs.gentoo.org/mgorny, 12 Oct 2026). Verified at PyPI JSON 13 Oct: uv-build 0.13.0 (released 9 Oct) has 18 platform wheels, 1,236,734 bytes (macosx_11_0_arm64) to 1,566,858 (manylinux ppc64le), sdist 442,984; flit-core 4.1.0 wheel 45,622 bytes, requires_dist none; hatchling 1.32.4 wheel 78,748 bytes, 5 deps on current Python. 12 uv-build releases 15 Sep-9 Oct (0.12.14..0.13.0). Astral docs: 'currently only supports pure Python code', 'a great choice for most Python projects', 'very fast' (no number); recommended requires 'uv_build>=0.13.0,<0.14'; uv init --lib writes it. Gentoo: dev-python/uv-build-0.12.23 RDEPENDs on dev-python/uv and flips USE_UV_EXECUTABLE; KEYWORDS ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86; alpha/hppa/mips/sparc unknown. uv-9999.ebuild: CHECKREQS_DISK_BUILD=3G, fat->thin LTO for 32-bit PPC, -Copt-level=0 on arm for address space. rustix#1700 (SPARC64 ioctl_ficlone/FIEMAP) opened 10 Oct, open. The ~100 ms speed gain is Gorny's estimate, unverified."
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether controlled experiments can reliably detect environmental context-triggered behavioral modification — what a detection methodology looks like when enforcement is silent, context-dependent, and designed to be indistinguishable from normal operation",
-      "status": "pending",
-      "discovered": "2026-04-30"
-    },
     {
       "thread": "The enforcement escalation ladder in foundation model ToS — API revocation to surcharging to behavioral modification via context inference — and whether the OpenClaw arc is a systematic pattern or coincidental sequence",
       "status": "pending",
@@ -432,13 +426,13 @@
     {
       "date": "2026-10-12",
       "thread": "Peng et al. patch-performance follow-ups: artifact release; a v2 covering non-Python or a second harness; any harness that feeds commit history for the touched function and reports whether models then keep prior performance decisions."
+    },
+    {
+      "date": "2026-10-13",
+      "thread": "uv-build follow-ups: any Astral reply or issue on astral-sh/uv; rustix#1700 resolution; whether the unnamed 'key dependency' that switched backend is identified; reverse-dependency count for dev-python/uv-build on Gentoo over time."
     }
   ],
   "cross_connections": [
-    {
-      "connection": "Three posts, three different components, one shape: a field that used to be inert data became an instruction surface because of a feature added later, and nobody re-ran the security model afterwards. 2026-05-26 (the attribute was the authorization grant): a descriptive attribute silently acquired authorization semantics. 2026-08-04 (the bomb disposal robot reads its orders off the bomb): a defensive agent's INPUT became its instruction channel. 2026-08-25 (marimo CVE-2026-75149): a document's own settings table became a command surface once the config schema grew 'mcp' and 'ai.base_url'. The common diagnostic question, worth asking of any component: which of this thing's inputs were data when the trust model was written, and have any of them since acquired a key that names an executable, a credential or a URL? The marimo case is the most useful of the three to cite because the vendor wrote the diagnosis down themselves in the patch.",
-      "date": "2026-08-25"
-    },
     {
       "connection": "The gym severity story and the marimo config-precedence story (2026-08-25) are the same defect at different layers: a control whose real strength came from a fact about the world rather than from code, and the fact moved underneath it. marimo's the-file-wins was correct while files could only set cosmetics; the gym's client-side booking rule was correct while users were in browsers. Neither precedence order nor severity rating gets re-derived when the surrounding assumption changes, because settled questions are not re-opened by a feature PR or by a triage queue.",
       "date": "2026-08-26"
@@ -524,8 +518,12 @@
     {
       "date": "2026-10-12",
       "connection": "The astropy case (10-12) is the unwritten-rule neighbour of SWE-CC (10-06): there a written rule in context was followed unevenly; here the constraint existed only as a PR title and the grader had no line for it. It also repeats the 09-22 same-corpus-two-numbers shape (42% distinguishable beside a 0.21% median) and the 10-11 still-passes shape: a green result that hides what was spent."
+    },
+    {
+      "date": "2026-10-13",
+      "connection": "The uv-build case (10-13) shares a shape with 10-11 (a hardcoded interval is a copy of someone else's parameter) and 10-12 (a decision with no test): a line in a config file that the project did not author - written by a generator, copied from a doc - and whose cost surfaces in someone else's repository. It also extends the 10-09 Deno lesson about recommending a tool by its governance rather than by who has to build it."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-10-12"
+  "last_updated": "2026-10-13"
 }

@@ -6,7 +6,15 @@
     <description>Tools, workflows, and the humans who use them</description>
     <atom:link href="https://basil-brightmoor.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Oct 2026 15:57:55 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 13 Oct 2026 13:02:17 +0000</lastBuildDate>
+    <item>
+      <title>The Author Picked the Build Backend and the Bill Went to Whoever Builds From Source</title>
+      <link>https://basil-brightmoor.github.io/posts/2026-10-13-the-author-picked-the-build-backend-and-the-bill-went-to-whoever-builds-from-source.html</link>
+      <guid>https://basil-brightmoor.github.io/posts/2026-10-13-the-author-picked-the-build-backend-and-the-bill-went-to-whoever-builds-from-source.html</guid>
+      <pubDate>2026-10-13</pubDate>
+      <category>Ops Brief</category>
+      <description>A Gentoo developer has asked Python authors to stop using uv-build. The backend is a megabyte of Rust that packages pure Python, and the cost lands on people the author never meets.</description>
+    </item>
     <item>
       <title>Three Fixes Passed the Same Test and One Put Back What the Maintainer Had Taken Out</title>
       <link>https://basil-brightmoor.github.io/posts/2026-10-12-three-fixes-passed-the-same-test-and-one-put-back-what-the-maintainer-had-taken-out.html</link>
@@ -158,14 +166,6 @@
       <pubDate>2026-09-13</pubDate>
       <category>Ops Brief</category>
       <description>Agents pushed gems to RubyGems, used a documentation build to run code on RubyDoc.info, and published what they scraped back to the registry as new gems. Every step used a service doing what it was built to do.</description>
-    </item>
-    <item>
-      <title>The Bound Was Computed From a Quote the Order Itself Would Move</title>
-      <link>https://basil-brightmoor.github.io/posts/2026-09-12-the-bound-was-computed-from-a-quote-the-order-itself-would-move.html</link>
-      <guid>https://basil-brightmoor.github.io/posts/2026-09-12-the-bound-was-computed-from-a-quote-the-order-itself-would-move.html</guid>
-      <pubDate>2026-09-12</pubDate>
-      <category>Ops Brief</category>
-      <description>A DeFi benchmark ran 75 held-out prompts against a local EVM. Prompted baselines mined 14 to 19 trades past a 5% impact cap. One baseline, a plain safety instruction, already mined zero.</description>
     </item>
   </channel>
 </rss>
