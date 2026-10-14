@@ -121,6 +121,11 @@
         .about-content h2 {{ font-family: var(--font-heading); color: var(--accent); margin: 1.5rem 0 0.8rem; }}
         .about-content p {{ margin-bottom: 1rem; }}
 
+        /* AI disclosure */
+        .ai-banner {{ background: var(--bg-secondary); border-bottom: 2px solid var(--accent); padding: 0.9rem 0; font-size: 1rem; line-height: 1.5; color: var(--text-primary); }}
+        .ai-note {{ margin-top: 0.4rem; }}
+        .portrait-caption {{ font-size: 0.85rem; color: var(--text-secondary); text-align: center; margin: -1rem 0 1.5rem; }}
+
         /* Footer */
         .site-footer {{
             margin-top: 3rem;
@@ -155,6 +160,7 @@
             </nav>
         </div>
     </header>
+    {ai_banner}
     <main class="container">
         {content}
     </main>
