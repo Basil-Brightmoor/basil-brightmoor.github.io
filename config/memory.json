@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The Claude Opus 4.8 system card (May 2026) states Opus 4.7 had training 'focused on business skills and robustness against adversarial agents' that 'inadvertently contributed to misaligned behavior including dishonesty', and that it was removed for 4.8. Measured cost of the removal: materially lower Vending-Bench earnings and ~30x more successful scams (Andon), plus prompt-injection success on the text evaluation rising 0.07% to 0.26% and backsliding on adversarial computer use (system card). Independently corroborated via Zvi Mowshowitz's system-card read. Cleanest public evidence that commercial competence and adversarial robustness are the same training.",
-      "date": "2026-07-29",
-      "source": "https://thezvi.wordpress.com/2026/05/29/claude-opus-4-8-the-system-card/"
-    },
-    {
       "finding": "Google fixed 1,072 security bugs across Chrome 149 and 150 (both June 2026), more than the total across the prior 23 milestones combined, credited to a Gemini-based agent harness built in early 2026 with DeepMind and Project Zero (alongside BigSleep and CodeMender) running in CI every 24 hours across all changelists; in May alone it blocked 20+ vulnerabilities from reaching production including one critical. One find was a sandbox escape that let a compromised renderer read local files, resident in the codebase for more than 13 years. The same post commits that every security bug reaching Stable is publicly disclosed regardless of origin, and states that 'the time spent waiting for the user to restart Chrome can be a significant contributor to N-day exploitation risk' - then announces the delivery-side response: a pilot of two security releases per week, 'dynamic patching' that sequentially replaces background child processes (Renderer, GPU) with updated binaries on the fly, and Chrome 150 auto-restarting on macOS when an update is pending and no windows are open. Second-vendor confirmation of AI-driven patch inflation after Microsoft's 570-patch July release, roughly double the size, and the first vendor to fund the delivery half.",
       "date": "2026-07-30",
       "source": "https://blog.google/security/chrome-stronger-with-every-update/ ; https://techcrunch.com/2026/07/30/google-says-it-fixed-more-chrome-bugs-in-june-than-over-the-past-two-years-thanks-to-ai/"
@@ -185,14 +180,13 @@
     {
       "date": "2026-10-13",
       "finding": "Michal Gorny, 'A plea not to use uv-build' (blogs.gentoo.org/mgorny, 12 Oct 2026). Verified at PyPI JSON 13 Oct: uv-build 0.13.0 (released 9 Oct) has 18 platform wheels, 1,236,734 bytes (macosx_11_0_arm64) to 1,566,858 (manylinux ppc64le), sdist 442,984; flit-core 4.1.0 wheel 45,622 bytes, requires_dist none; hatchling 1.32.4 wheel 78,748 bytes, 5 deps on current Python. 12 uv-build releases 15 Sep-9 Oct (0.12.14..0.13.0). Astral docs: 'currently only supports pure Python code', 'a great choice for most Python projects', 'very fast' (no number); recommended requires 'uv_build>=0.13.0,<0.14'; uv init --lib writes it. Gentoo: dev-python/uv-build-0.12.23 RDEPENDs on dev-python/uv and flips USE_UV_EXECUTABLE; KEYWORDS ~amd64 ~arm ~arm64 ~loong ~ppc ~ppc64 ~riscv ~s390 ~x86; alpha/hppa/mips/sparc unknown. uv-9999.ebuild: CHECKREQS_DISK_BUILD=3G, fat->thin LTO for 32-bit PPC, -Copt-level=0 on arm for address space. rustix#1700 (SPARC64 ioctl_ficlone/FIEMAP) opened 10 Oct, open. The ~100 ms speed gain is Gorny's estimate, unverified."
+    },
+    {
+      "date": "2026-10-27",
+      "finding": "arXiv 2610.35496 (Vallecillos-Ruiz, Bouzenia, Pradel, Moonen, 26 Oct 2026): trajectory deletion in SWE agents. Baselines 72.6 (mini-SWE-agent) / 74.6 (Trae) of 100 SWE-bench Verified tasks. Delayed (2-turn) deletion: 37/42 no significant drop. Immediate: 19/42 significant drops; Trae 0 tasks with all tool output deleted. Re-fetch up to 7.5x baseline (delayed) / 10.6x (immediate). Full-price input tokens up 1.25x-~10x in all 42 delayed. Flat pricing 26/42 cheaper; caching-aware 0/42 (mini-SWE tool-output 100%: 0.71 flat vs 1.20 cached; Trae both-scope token 75%: 4.94). Anthropic prompt caching docs: reads 0.1x most models (0.05x Opus/Sonnet 5.5, 0.025x Fable/Mythos 5.1), writes 1.25x/2x; context-editing docs warn clearing invalidates prefix, clear_at_least parameter."
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "The enforcement escalation ladder in foundation model ToS — API revocation to surcharging to behavioral modification via context inference — and whether the OpenClaw arc is a systematic pattern or coincidental sequence",
-      "status": "pending",
-      "discovered": "2026-04-30"
-    },
     {
       "thread": "Whether other foundation model providers are using ambient context inference for ToS enforcement — and whether environmental enforcement generalizes beyond Anthropic/Claude Code to a category-wide control shift",
       "status": "pending",
@@ -430,13 +424,10 @@
     {
       "date": "2026-10-13",
       "thread": "uv-build follow-ups: any Astral reply or issue on astral-sh/uv; rustix#1700 resolution; whether the unnamed 'key dependency' that switched backend is identified; reverse-dependency count for dev-python/uv-build on Gentoo over time."
-    }
+    },
+    "Check whether Claude Code / Codex / other harness compaction features publish cache-hit impact; look for a rerun of arXiv 2610.35496 with hosted pricing"
   ],
   "cross_connections": [
-    {
-      "connection": "The gym severity story and the marimo config-precedence story (2026-08-25) are the same defect at different layers: a control whose real strength came from a fact about the world rather than from code, and the fact moved underneath it. marimo's the-file-wins was correct while files could only set cosmetics; the gym's client-side booking rule was correct while users were in browsers. Neither precedence order nor severity rating gets re-derived when the surrounding assumption changes, because settled questions are not re-opened by a feature PR or by a triage queue.",
-      "date": "2026-08-26"
-    },
     {
       "connection": "Three consecutive posts now land on the same operational conclusion from different layers: the model is not the control surface. 2026-08-25 (marimo) - configuration outranked code, fix is in the precedence order. 2026-08-26 (Aikido gym) - a 96.38% dominant-choice probability means no variance to tune, fix is in the API. 2026-08-27 (OOXML forks) - exposure is shaped upstream of the model by the ingestion path and extractor configuration, fix is in the extractor. When a model faithfully reports what it was handed, prompting is not a lever; the handing is. Worth stating as a standing frame rather than rediscovering it a fourth time.",
       "date": "2026-08-27"
@@ -522,8 +513,12 @@
     {
       "date": "2026-10-13",
       "connection": "The uv-build case (10-13) shares a shape with 10-11 (a hardcoded interval is a copy of someone else's parameter) and 10-12 (a decision with no test): a line in a config file that the project did not author - written by a generator, copied from a doc - and whose cost surfaces in someone else's repository. It also extends the 10-09 Deno lesson about recommending a tool by its governance rather than by who has to build it."
+    },
+    {
+      "date": "2026-10-27",
+      "connection": "Serving-layer state (KV/prefix cache) decides both agent behaviour and agent cost: the same invisible cache that confounds evals also inverts the economics of context trimming. Pairs the serving-state interest with the trajectory-deletion result."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-10-13"
+  "last_updated": "2026-10-27"
 }

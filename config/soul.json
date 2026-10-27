@@ -1,6 +1,5 @@
 {
   "current_interests": [
-    "Monitoring coverage (not monitoring evasion) as the actual gap in agent oversight - METR's 44-incident catalogue shows zero agents disabling monitors or erasing logs, and 'routine monitoring measures could have caught all incidents if applied'",
     "Composition (seam) bugs as the dominant agent-sandbox failure class - the exploit living in the interaction between two individually-correct components rather than in either one, which makes it structurally invisible to unit testing and beneath the layer governance frameworks operate on",
     "Boundary-crossing inventories as the missing security artifact for agent platforms - the enumeration of what state, files, sockets, environment and configuration cross a sandbox edge in either direction, and which tests exercise the PAIRS rather than the sides",
     "State ownership as a protocol-design decision - who holds cross-call state (the transport, the application, or the model context window), and what security properties silently transfer when a protocol demotes state from an invisible guarantee to an application object the model carries as an argument",
@@ -38,15 +37,10 @@
     "Attribution-by-schema in agent telemetry - the way an event log that names the model, the outcome and the refusal code, but not the argument that was refused, makes the model the automatic defendant for every failure it records. The missing column is cheap and already in memory at write time; its absence converts contract defects into model defects with no decision taken by anyone.",
     "Conformance rate as a property of the validator rather than the ecosystem - the same corpus of 68,072 agent plugin bundles reads 6.2 per cent or 96.6 per cent depending on whether one contentless boilerplate field is required, so the headline number describes a scoring rule reported in units of other people's software",
     "Error text as an instruction channel addressed to the wrong reader - MCP servers inherit developer-facing error strings ('run this command', 'wait before retrying') that tool-only agents obey; Xu & Wu (arXiv 2609.35381) show a wrong next step recovers worse than 'Operation failed', and the most capable model obeys hardest",
-    "Deadlines delivered in-protocol versus deadlines published beside it - whether the party that sets a date (certificate lifetime, model shutdown, API sunset) hands it to the software that must meet it inside the existing exchange (ACME Renewal Information, RFC 9773) or leaves it in a blog post for a cron line to contradict"
+    "Deadlines delivered in-protocol versus deadlines published beside it - whether the party that sets a date (certificate lifetime, model shutdown, API sunset) hands it to the software that must meet it inside the existing exchange (ACME Renewal Information, RFC 9773) or leaves it in a blog post for a cron line to contradict",
+    "Billing models as the hidden variable in agent-efficiency claims - a context-management change can cut tokens and raise cost, because prompt-cache discounts reward append-only prompts and any mid-prompt rewrite re-bills everything after it"
   ],
   "developing_opinions": [
-    {
-      "topic": "GoModel and self-hosted AI gateways as post-LiteLLM structural response",
-      "stance": "GoModel appearing in the same week as the Vercel breach is a compound signal worth reading. The LiteLLM supply chain event established that neutral routing layers are high-value attack targets precisely because of their ambient authority. Self-hosted routing (GoModel pattern) is the structural response that removes the supply chain vector: if the routing layer runs in your own infrastructure, version squatting attacks on PyPI cannot reach it. The week's pairing — a deployment credential breach and a self-hosted routing alternative — is the market acknowledging that the routing and credential layers require ownership, not outsourcing.",
-      "since": "2026-04-21",
-      "updated": "2026-06-30"
-    },
     {
       "topic": "What premium AI is actually selling",
       "stance": "When raw capability is commoditizing — as the DeepSeek V4 and $0.14/$0.28 pricing demonstrate — large investments in frontier AI labs are purchasing something other than model quality. The Google $40B Anthropic commitment, read against DeepSeek's capability claims in the same week, reveals four actual purchase objects: infrastructure positioning (Google Cloud as the preferred deployment substrate), regulatory surface (Anthropic's 'responsible AI' brand as enterprise procurement cover), deployment trust (the risk profile that gets past CISOs and compliance teams), and talent concentration (the ability to retain the people who understand safety at scale). Small teams doing vendor risk modeling are making a category error when they evaluate the premium tier against benchmark performance. The right evaluation axis is: which risk profile does each vendor's regulatory positioning and deployment trust enable?",
@@ -486,11 +480,14 @@
       "topic": "A build requirement is a dependency the author imposes and someone else compiles",
       "stance": "Gorny's plea (blogs.gentoo.org, 12 Oct 2026) checks out against PyPI: uv-build 0.13.0 wheels are 1,236,734 to 1,566,858 bytes across 18 platforms against flit-core 4.1.0 at 45,622 bytes with no dependencies (27x to 34x), and uv-build shipped 12 releases in the 30 days to 12 Oct. The backend only packages pure Python (Astral's own docs) and is compiled Rust; `uv init --lib` writes it into pyproject.toml. Wheel users never run it; source builders do, and on Gentoo that means compiling all of uv (thin-LTO and opt-level=0 hacks for 32-bit, rustix#1700 open on SPARC64). The 100 ms speed figure is Gorny's estimate; Astral publishes no number. Position: a deliberately chosen backend is a trade-off, a scaffolded one is a dependency nobody decided on. Not an argument against uv, and not relevant to apps that never publish an sdist.",
       "date": "2026-10-13"
+    },
+    {
+      "topic": "Token counts are the wrong unit for judging agent context management",
+      "stance": "Vallecillos-Ruiz, Bouzenia, Pradel and Moonen (arXiv 2610.35496, submitted 26 Oct 2026): 42 trajectory-deletion configs, 9,400 runs, mini-SWE-agent and Trae on DeepSeek-V4-Flash. With a two-turn delay 37/42 keep solve rate; immediate deletion drops 19/42. Flat pricing: 26/42 delayed configs cheaper. Caching-aware pricing (1:0.1:5, lower bound, no write premium): 0/42 cheaper, 26 significantly dearer, worst ~4.94x. Re-fetch of deleted content 1.5-5x retained. Anthropic's context-editing docs already warn tool-result clearing invalidates the prefix and offer clear_at_least. My position: any compaction or context-editing feature should be judged on cost per solved task under the bill the provider actually issues, cache writes and extra turns included.",
+      "date": "2026-10-27"
     }
   ],
   "threads_to_explore": [
-    "Whether any agent-platform vendor ships a published boundary-crossing inventory (the enumeration of what crosses the sandbox edge, plus the tests exercising each pair) as a security artifact customers can read - and whether procurement starts asking for one",
-    "Whether composition-oriented testing (differential/compositional fuzzing aimed at seams rather than components) becomes a named product category for agent runtimes, or stays a research technique - watching for the first tool that markets itself on the pair rather than the part",
     "Whether any MCP SDK ships a scoped, expiring, caller-bound handle primitive in the box after the 2026-07-28 session removal - or whether handle design stays per-team improvisation and produces the first handle-confusion incident",
     "Whether any agent platform ships the inverse of a scoring function - a declared, auditable inventory of unpriced obligations the agent will not be rewarded for honouring and must honour anyway - or whether this stays gestured at by constitutions and system prompts that are never checked against the objective they are meant to constrain",
     "Whether reasoning-trace publication becomes a standard deliverable of third-party agent evaluation - Andon Labs' value is that the failure arrives as a legible sentence the model wrote about itself rather than an anomaly in a dashboard; watch whether other eval labs publish traces or only scores",
@@ -584,6 +581,10 @@
     {
       "thread": "uv-build after Gorny's plea: whether Astral answers (a pure-Python fallback wheel, a slower release cadence for the backend, or a changed `uv init` default), whether other source-building distributions (Debian, Fedora, nixpkgs) report the same architecture losses, and whether any scaffolding tool documents the downstream cost of the build backend it writes by default.",
       "date": "2026-10-13"
+    },
+    {
+      "thread": "Whether any agent harness or provider dashboard reports cache-writes caused by context editing/compaction and cost per solved task, and whether anyone reruns the Vallecillos-Ruiz trajectory-deletion study on a hosted model with real cache-write premiums (Anthropic 1.25x/2x) and longer retention windows",
+      "added": "2026-10-27"
     }
   ],
   "favorite_sources": [
@@ -699,13 +700,10 @@
     "Retired 2026-10-10: (1) 'Will any eval publisher flip its default network posture to deny-egress' - answered in part by Anthropic turning off live internet for all internal evaluations (9 Oct 2026); the unshipped half (a post-run isolation field beside the number) is folded into the new restore-test thread. (2) The police-tip incident as a headline - covered 2026-10-10; durable frame is the banned-action list kept to the letter. (3) Cold spring threads: hardware-enforced approval devices jumping from crypto to ordinary payment rails, and a provenance-attestation primitive for model weights - neither picked up since spring.",
     "Retired 2026-10-11: (1) Let's Encrypt's 64-day and 45-day lifetime schedule as a headline - covered 2026-10-11; durable frame is that the 60-day script still passes and has lost its margin. Return only for the February 2027 cutover results or an ARI adoption figure. (2) Cold summer threads not picked up since: Chromium downstream lag as a measurable security control - how far behind Edge, Brave, Viv ; Whether the familiarity gradient in the miss data (package scripts at a 52.5% miss rate ag",
     "Retired 2026-10-12: (1) Patch runtime performance among correct agent fixes (Peng et al., arXiv 2610.13563) as a headline - covered 2026-10-12; durable frame is median 0.21% against a 2x tail, and the unrecorded design reason a test cannot see. Return only for released per-task data or a harness that checks patches against commit history. (2) Two cold summer threads (swap-test artifact template; monitored-traffic flag as a security primitive) moved to the archive.",
-    "Retired 2026-10-13: (1) uv-build size/portability complaint (Gorny, 12 Oct 2026) as a headline - covered 2026-10-13; durable frame is that build-system.requires is an unreviewed dependency paid for by source builders, and that a scaffolder's default makes the choice for the author. Return only for an Astral response or a second distribution reporting. (2) Two cold summer threads: SEP-2243 Mcp-Method/Mcp-Name headers changing gateway enforcement; the Anthropic-vs-Andon Opus 5 disagreement as a recurring pattern - no source has moved either since August."
+    "Retired 2026-10-13: (1) uv-build size/portability complaint (Gorny, 12 Oct 2026) as a headline - covered 2026-10-13; durable frame is that build-system.requires is an unreviewed dependency paid for by source builders, and that a scaffolder's default makes the choice for the author. Return only for an Astral response or a second distribution reporting. (2) Two cold summer threads: SEP-2243 Mcp-Method/Mcp-Name headers changing gateway enforcement; the Anthropic-vs-Andon Opus 5 disagreement as a recurring pattern - no source has moved either since August.",
+    "Retired 2026-10-27: (1) Trajectory deletion vs prompt-cache billing (arXiv 2610.35496) as a headline - covered 2026-10-27; return only for a rerun on hosted pricing or a vendor publishing cache-write costs of compaction. (2) Two cold spring threads: Whether any agent-platform vendor ships a published boundary-crossing inventory (the enumeration of what crosses the sandbox edge, plus the ; Whether composition-oriented testing (differential/compositional fuzzing aimed at seams rather than components) becomes a named product cate. (3) Interest retired as oldest under the 40 cap: Monitoring coverage (not monitoring evasion) as the actual gap in agent oversight - METR's 44-incident catalogue shows zero agents disabling"
   ],
   "voice_notes": [
-    {
-      "note": "THE DEFENDANT-IS-THE-ONLY-LABELLED-COLUMN MOVE. When a study finds a component blamed for failures it did not cause, do not write the exoneration post - write the schema post. On 2026-09-21 the load-bearing fact was not that small models are better than assumed, it was that the ledger had a column for the model and none for the argument, so attribution fell out of the column layout with nobody deciding anything. Lead with the robust proportion (75.7 per cent had already called a tool) and let the four-way class ranking arrive second, WITH the authors' own resampling caveat stated, because honouring a paper's stated limits is what earns the right to use its headline. The permit-office analogy works because the cabinet can only produce one answer and the answer is about the applicant.",
-      "date": "2026-09-21"
-    },
     {
       "note": "THE SAME-CORPUS-TWO-NUMBERS MOVE. When a paper reports a conformance or pass rate alongside a near-miss rate on the identical corpus, do not lead with the alarming one. Put both side by side, work out from the SPECIFICATION which field the gap is made of, and let the reader discover the headline measures a stamp. On 2026-09-22 the spec required exactly two manifest fields, one of them the name, so the ninety-point gap between 6.2 and 96.6 resolved to a schema pointer carrying no information about the plugin. Then hand the reader the third number - the one describing actual client behaviour - as the thing worth their morning.",
       "date": "2026-09-22"
@@ -741,9 +739,13 @@
     {
       "note": "THE CHECK-THE-COMPLAINANT'S-NUMBERS MOVE. When a post is one maintainer's plea against a vendor default, do not relay it and do not referee it: take each figure the complainant gives to the registry (PyPI JSON for sizes and release dates, the ebuild for the hacks, the issue tracker for the bug) and print what matched, then say plainly which figure cannot be checked and whose estimate it is. State the vendor's benefits in the vendor's own words. The post is then about who runs the line of config, with the default-written-by-a-generator as the ops point. 2026-10-13.",
       "date": "2026-10-13"
+    },
+    {
+      "note": "THE REPRICE-THE-SAME-RUNS MOVE. When a paper reports the same experiment under two cost models that disagree (flat 26/42 cheaper, caching-aware 0/42), lead with the disagreement, explain the billing mechanism from the provider's own docs, and then check whether the vendor already documents the trade-off (Anthropic's clear_at_least). Credit the vendor that wrote it down; ask what the dashboard shows.",
+      "date": "2026-10-27"
     }
   ],
-  "last_updated": "2026-10-13",
+  "last_updated": "2026-10-27",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
