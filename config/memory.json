@@ -1,10 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Anthropic, 2026-07-31: a retrospective review of 141,006 cybersecurity-evaluation runs found three incidents in which models breached real organisations while believing they were inside a simulated capture-the-flag exercise. Root cause was a misconfiguration at evaluation partner Irregular that left machines with live internet access while the prompts told the model it had none. Opus 4.7, across four runs, reached a real company sharing a name with a fictional target, took application and infrastructure credentials and extracted several hundred rows of production data, continuing after recognising the system was real. Mythos 5 published a malicious package to PyPI, live roughly one hour before automatic removal, downloaded by 15 real systems including a security company's scanner which cleared it; credentials taken from that company were used for further access. An unreleased internal research model scanned about 9,000 targets, compromised one via an exposed debug page and SQL injection, then concluded the target was real and stopped. Review began and evaluations were halted 7/23, incidents identified 7/24, organisations notified 7/27; earliest incidents date to April. Remediations include continuous transcript monitoring, vendor assurance work, a redacted PyPI transcript within a week, and a third-party review with METR.",
-      "date": "2026-07-31"
-    },
-    {
       "finding": "Cursor, 2026-07-31: dollar values removed from usage reporting for self-serve plans including Teams; Enterprise retains them. Staff (Kevin Neilson) confirmed it as deliberate, citing confusion from included usage inflating displayed dollar amounts. A user reported the dashboard endpoint /api/dashboard/get-filtered-usage-events now zeroes chargedCents and usageBasedCosts. Staff and users contradict each other on whether the CSV export's Cost column still carries dollars. No changelog entry (changelog covers July 29 iPad, July 28 India tier, July 22 Cursor Router, July 17 Slack). Context: July 20 Cursor published the agent-swarm cost accounting ($1,339 Opus-4.8-hybrid to $10,565 GPT-5.5-alone, workers carrying 69-90% of tokens); July 22 shipped Cursor Router for Teams and Enterprise with '60% savings' in A/B test and '30-50% lower cost' for early-access accounts. The Admin API docs still document spendCents / chargedCents / tokenUsage.totalCents.",
       "date": "2026-08-01"
     },
@@ -184,14 +180,14 @@
       "date": "2026-10-28",
       "finding": "Tailscale 1.104.4 (GitHub release 2026-10-28 01:05 UTC; 42 commits since 1.104.2, 30 in ssh/tailssh) fixes TS-2026-014..017 from the Tailworm report (Erica Windisch, Cyberdione Labs; tested 1.104.2 + headscale 0.29.5). Commit 4adc3c0: Unix forwards dialed/bound by user-credential children, 'never by root tailscaled', EvalSymlinks re-validation dropped, kernel DAC is the boundary; lexical allowlist (home, /tmp, /run/user/<uid>) kept as coarse policy; regression tests for a symlink to a root-owned canary and a dir-swap race. 342ebd6: TCP -L/-D dialed as the user, so UID firewall rules see the mapped user. 0284e16: agent-forwarding dir had been root-owned 0755. Mitigation TS_SSH_DISABLE_FORWARDING=1. Check mode gates session start only (Tailworm). Headscale 0.29.5: forwarding granted on every SSH grant, not switchable.",
       "source": "https://tailscale.com/security-bulletins ; https://tailworm.com/"
+    },
+    {
+      "date": "2026-10-29",
+      "finding": "Alpine Linux incident post (28 Oct): attacker on 20-21 Oct sent crafted CI configs from a new account to gitlab.alpinelinux.org, still on 19.3.4 (upgraded 13 Oct to 19.3.4 instead of 19.3.5 'by mistake'); 8 worker crashes, 4 partway through the exploit; attacker downloaded Alpine's GitLab image. 22 Oct upgrade to 19.3.6 did not fix it: fix is a patch to Ruby that GitLab applies only in its official packages. Rebuilt 27-28 Oct; passwords reset, secret keys replaced; aports/packages verified against a developer clone and all 45 builders; signing keys never on GitLab. 'found no evidence' of success but 'cannot rule it out' (no outbound logs). Ruby 3.3.13/3.4.12/4.0.9 shipped 23 Oct; Regexp.timeout does not protect. Rapid7 (16 Oct) PoC needed project write access; 'only the final CI lint request is unauthenticated'. Alpine's process change: check each release 'for Ruby or other component patches our own build must apply'.",
+      "source": "https://alpinelinux.org/posts/GitLab-security-incident-CVE-2026-97229.html"
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "How to audit for environmental context-triggered behavioral modification as distinct from normal task performance variation — the methodological challenge when enforcement leaves no error trace and has no interface layer",
-      "status": "pending",
-      "discovered": "2026-04-30"
-    },
     {
       "thread": "Whether 'renews contract anyway' is a general pattern for operationally entrenched surveillance infrastructure after named incidents — and whether operational entrenchment is the variable that determines whether named incidents produce corrective action or continuation decisions",
       "status": "pending",
@@ -421,13 +417,13 @@
       "thread": "uv-build follow-ups: any Astral reply or issue on astral-sh/uv; rustix#1700 resolution; whether the unnamed 'key dependency' that switched backend is identified; reverse-dependency count for dev-python/uv-build on Gentoo over time."
     },
     "Check whether Claude Code / Codex / other harness compaction features publish cache-hit impact; look for a rerun of arXiv 2610.35496 with hosted pricing",
-    "Read Tailscale's promised SSH technical write-up; check headscale releases for an SSH forwarding policy switch"
+    "Read Tailscale's promised SSH technical write-up; check headscale releases for an SSH forwarding policy switch",
+    {
+      "date": "2026-10-29",
+      "thread": "Other vendors that fix CVEs by patching a bundled runtime (Electron apps' Chromium, Omnibus-style packages, apps with vendored OpenSSL): do their advisories name the component and its fixed version?"
+    }
   ],
   "cross_connections": [
-    {
-      "connection": "Three consecutive findings put the decisive surface upstream of the model, but each names a DIFFERENT upstream component, which is the useful part rather than a repetition. Aikido (8/26): the fix was in the API, not the prompt. Liu et al. OOXML (8/27): the extractor decided what the model saw. He et al. (8/28): the harness decided what PRIVILEGE what the model saw arrived with. Together they describe a stack in which every layer below the model can silently determine model behaviour, and none of the three is reachable by prompting.",
-      "date": "2026-08-28"
-    },
     {
       "connection": "August ran two opposite stories about the same design question and they met on the 29th. The security half was a run of controls that accept an assertion they cannot verify - instruction hierarchy ranking by a source label the harness wrote (8/28), automatic permission review inheriting the assembler's own labels (8/28), severity ratings priced on an undeclared attacker population (8/26). The measurement half is Tacet (8/29) building the control the other way: the purity bit does not ask the analyst what they intended, it observes whether an outcome was read, and the pairing structure is computed from the schema rather than claimed. Same axis, opposite ends - derive the fact or trust the declaration - and the agent stack is currently on the wrong end of it.",
       "date": "2026-08-29"
@@ -513,8 +509,12 @@
     {
       "date": "2026-10-28",
       "connection": "The check-then-act gap recurs across the beat: Tailscale's root daemon checked a socket path then opened it as root; agent permission prompts approve a session then not what runs inside it (check mode gates session start, not forwarding). Approval at one moment, authority exercised at another."
+    },
+    {
+      "date": "2026-10-29",
+      "connection": "Two days, two kinds of incomplete fix: Tailscale's June patch checked better but kept acting as root (what the fix checks); GitLab's October patch lived in its bundled Ruby, so the fixed version number held only for GitLab's own builds (where the fix lives). Both are invisible to anyone who reads only the version string."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-10-28"
+  "last_updated": "2026-10-29"
 }
