@@ -1,10 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Cursor, 2026-07-31: dollar values removed from usage reporting for self-serve plans including Teams; Enterprise retains them. Staff (Kevin Neilson) confirmed it as deliberate, citing confusion from included usage inflating displayed dollar amounts. A user reported the dashboard endpoint /api/dashboard/get-filtered-usage-events now zeroes chargedCents and usageBasedCosts. Staff and users contradict each other on whether the CSV export's Cost column still carries dollars. No changelog entry (changelog covers July 29 iPad, July 28 India tier, July 22 Cursor Router, July 17 Slack). Context: July 20 Cursor published the agent-swarm cost accounting ($1,339 Opus-4.8-hybrid to $10,565 GPT-5.5-alone, workers carrying 69-90% of tokens); July 22 shipped Cursor Router for Teams and Enterprise with '60% savings' in A/B test and '30-50% lower cost' for early-access accounts. The Admin API docs still document spendCents / chargedCents / tokenUsage.totalCents.",
-      "date": "2026-08-01"
-    },
-    {
       "finding": "Arch Linux disabled AUR package adoption on 2026-07-30 at 16:22 (Robin Candau, aur-general, subject 'AUR packages adoption disabled'): 'Due to the current influx of malicious package adoptions and follow-up commits made via the AUR, package adoption is currently disabled while we are handling the situation.' The escalation ladder is the finding, not the wave: LWN reported the June 19 campaign at 'more than 1,500 packages', roughly 20 newly created and the rest adopted orphans; registration was suspended; Leonidas Spyropoulos reopened it July 13 with three identity controls (disposable addresses rejected, mandatory email verification via a 24h token, email changes locked during cooldown); the campaign restarted July 29 with openconnect-sso (Michael Taggart / IFIN analysis). July totals are unsettled - BleepingComputer says roughly 200 packages, Taggart declines to give one while commits were still being found. The stage-two payload (ysf's analysis) is a stripped 3.6MB Rust infostealer, RAT and SSH worm that enumerates OpenAI and Anthropic API keys alongside .aws, .kube and GitHub/GitLab tokens. Both hardening rounds addressed identity; neither addressed ownership transfer.",
       "date": "2026-08-02"
     },
@@ -185,6 +181,10 @@
       "date": "2026-10-29",
       "finding": "Alpine Linux incident post (28 Oct): attacker on 20-21 Oct sent crafted CI configs from a new account to gitlab.alpinelinux.org, still on 19.3.4 (upgraded 13 Oct to 19.3.4 instead of 19.3.5 'by mistake'); 8 worker crashes, 4 partway through the exploit; attacker downloaded Alpine's GitLab image. 22 Oct upgrade to 19.3.6 did not fix it: fix is a patch to Ruby that GitLab applies only in its official packages. Rebuilt 27-28 Oct; passwords reset, secret keys replaced; aports/packages verified against a developer clone and all 45 builders; signing keys never on GitLab. 'found no evidence' of success but 'cannot rule it out' (no outbound logs). Ruby 3.3.13/3.4.12/4.0.9 shipped 23 Oct; Regexp.timeout does not protect. Rapid7 (16 Oct) PoC needed project write access; 'only the final CI lint request is unauthenticated'. Alpine's process change: check each release 'for Ruby or other component patches our own build must apply'.",
       "source": "https://alpinelinux.org/posts/GitLab-security-incident-CVE-2026-97229.html"
+    },
+    {
+      "date": "2026-10-30",
+      "finding": "Mahmud, Khondaker, Ahmed, Rahman, Shahriyar, 'When Modernization Breaks Working Code' (arXiv 2610.40269, 29 Oct 2026): 5 LLMs (Claude Sonnet 4, Gemini 2.5 Flash/Pro, GPT-5 Codex, Llama 3.3 70B) modernise 100 WordPress 4.0 files to PHP 8.3, one file, no context or execution. 630 hidden PHPUnit checks, 511 Rector findings (37 required, 85 deprecated, 389 optional). Compatible files: originals 83, Rector 82, Claude 59, GPT-5 Codex 58, Gemini Pro 55, Flash 50, Llama 33. On 73 already-compatible files with no required change, LLMs broke 26-44 (36-60%), Rector 6. Largest failure class: load-time rejection (e.g. mixed return on __set(), which PHP requires to be void). Lint fallback recovered 8-15 files per model; gap 14-38 remained. Replication: zenodo.org/records/20274676."
     }
   ],
   "follow_up_threads": [
@@ -424,10 +424,6 @@
     }
   ],
   "cross_connections": [
-    {
-      "connection": "August ran two opposite stories about the same design question and they met on the 29th. The security half was a run of controls that accept an assertion they cannot verify - instruction hierarchy ranking by a source label the harness wrote (8/28), automatic permission review inheriting the assembler's own labels (8/28), severity ratings priced on an undeclared attacker population (8/26). The measurement half is Tacet (8/29) building the control the other way: the purity bit does not ask the analyst what they intended, it observes whether an outcome was read, and the pairing structure is computed from the schema rather than claimed. Same axis, opposite ends - derive the fact or trust the declaration - and the agent stack is currently on the wrong end of it.",
-      "date": "2026-08-29"
-    },
     "PLCBench (2026-08-31) and Tacet (2026-08-29) are the same complaint from opposite ends: Tacet says a leaderboard's aggregate ranking hides a free parameter (spending order); PLCBench says a capability rate hides the stage distribution. In both the single reported number is the least informative artifact the run produced, and the useful result is structural.",
     "The exclusion ratchet is the governance-layer twin of the monotone-summary-statistic defect: in both, a quantity that can only move one way is being read as evidence of health. There the metric was cumulative-best and could not register transient failure; here the metric is alert volume and cannot register coverage loss. The common repair is to instrument the quantity that actually moved.",
     "The disclosure ledger and the monotone summary statistic fail the same way: a record that can only register the event it was built to register gets read as a measurement of something adjacent. Cumulative-best cannot see transient failure; alert volume cannot see coverage loss; a ticket status cannot see a running binary. The repair is identical each time - point an instrument at the quantity the reader actually cares about, which here is a retest date.",
@@ -513,8 +509,12 @@
     {
       "date": "2026-10-29",
       "connection": "Two days, two kinds of incomplete fix: Tailscale's June patch checked better but kept acting as root (what the fix checks); GitLab's October patch lived in its bundled Ruby, so the fixed version number held only for GitLab's own builds (where the fix lives). Both are invisible to anyone who reads only the version string."
+    },
+    {
+      "date": "2026-10-30",
+      "connection": "12 Oct (three SWE-bench fixes, one reverting a maintainer change) and 30 Oct (legacy-PHP migration): the measure most people report counts whether the requested change happened and is blind to what else changed. In both, the missing column is behaviour that worked before - and in the PHP study the 'patterns resolved' score ranked models differently from 'files still working'."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-10-29"
+  "last_updated": "2026-10-30"
 }

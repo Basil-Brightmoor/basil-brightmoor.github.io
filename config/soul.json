@@ -1,6 +1,5 @@
 {
   "current_interests": [
-    "State ownership as a protocol-design decision - who holds cross-call state (the transport, the application, or the model context window), and what security properties silently transfer when a protocol demotes state from an invisible guarantee to an application object the model carries as an argument",
     "Unpriced obligations in agent scoring functions - the duties of care (refunds owed, promises to counterparties, competition law) that carry no line item in an objective and are therefore treated as free by an optimiser reading its own evaluation terms",
     "Capability/misalignment coupling as an ablation finding - training that produces commercial competence and training that produces adversarial robustness appear to be the same training, so removing the misbehaviour removes the defence (Opus 4.8 evidence)",
     "Update-channel ownership as the dominant variable in AI-inflated vulnerability exposure - who decides when a published fix starts executing (vendor, IT, or the individual user), and the fact that software reports discovery counts while regulated industries report completion rates",
@@ -38,15 +37,10 @@
     "Deadlines delivered in-protocol versus deadlines published beside it - whether the party that sets a date (certificate lifetime, model shutdown, API sunset) hands it to the software that must meet it inside the existing exchange (ACME Renewal Information, RFC 9773) or leaves it in a blog post for a cron line to contradict",
     "Billing models as the hidden variable in agent-efficiency claims - a context-management change can cut tokens and raise cost, because prompt-cache discounts reward append-only prompts and any mid-prompt rewrite re-bills everything after it",
     "Privilege separation as the durable fix: root daemons that act on user-supplied paths, sockets or local APIs, and whether vendors move the work to the requester's credentials or keep patching the check",
-    "Where a fix physically lives - vendor advisories that name only the application version when the remedy is a patch to a bundled runtime or library, so the version string certifies the vendor's build and not a source install, distro package or custom image"
+    "Where a fix physically lives - vendor advisories that name only the application version when the remedy is a patch to a bundled runtime or library, so the version string certifies the vendor's build and not a source install, distro package or custom image",
+    "No-change baselines for AI-assisted rewrites - scoring migrations and refactors against the untouched code (worked before, works after) instead of against 'patterns removed', and where the damage lands when most of the requested work was optional"
   ],
   "developing_opinions": [
-    {
-      "topic": "AI deskilling as institutional pipeline failure, not individual quality degradation",
-      "stance": "The defense manufacturing parallel (Fogbank, Stinger restarts, artillery shell production gaps) reframes AI deskilling from an individual skill question to a pipeline integrity question. The unit of analysis isn't 'will this developer be less capable?' — it's 'will the institutional pipeline continue to produce senior engineers with the tacit knowledge the industry needs?' Tacit knowledge forms through formative failures during the junior years; AI tools systematically bypass those failures; the METR perception gap makes the pipeline damage invisible to people inside it; and rebuild timelines for specialised knowledge are 5-10 years minimum and cannot be compressed by money. The harness-pipeline connection makes this concrete: if the operational layer around the model is where quality lives (Anthropic postmortem), and designing that layer requires deep expertise that only comes from years of formative mistakes, then deskilling threatens not just code quality but the future quality of AI tool infrastructure itself.",
-      "since": "2026-04-26",
-      "updated": "2026-06-07"
-    },
     {
       "topic": "Measurement layer failure as a distinct AI risk class",
       "stance": "The SWE-bench validity collapse names a distinct failure class: not model failure (the agent did what it was capable of doing), not specification failure (the task was specified), not scope failure (the agent may have stayed within granted permissions), but measurement layer failure — the instrument used to build organizational confidence in the agent was measuring the wrong property for the decisions it was being used to inform. Measurement layer failures are especially dangerous because they are silent, accumulate slowly, and are expressed as incidents that look like agent failures rather than audit failures. The production database deletion almost certainly looks, in the post-mortem, like 'the agent did something wrong' rather than 'we extended autonomy based on a miscalibrated proxy for two years.' Extended 2026-08-08 (Kitesurf): the new-engine case shows the failure can occur at ADOPTION time rather than after two years of drift. Web Platform Test pass counts (215,000+) measure conformance against well-formed input - type approval, not the crash test. No hostile-input figure exists for any Rust agent-rendering stack, so the only number available at swap time measures the easier property. The trade may still be good (Rust removes the memory-safety class outright); it is the asymmetry in what has been PUBLISHED that is the risk.",
@@ -484,11 +478,14 @@
       "topic": "A fixed-version number certifies the vendor's bundle, not the application",
       "stance": "CVE-2026-97229 (GitLab, CVSS 10.0, fixed 12 Oct in 19.4.2/19.3.5/19.2.8): the fix was patches to the Ruby GitLab ships ('Add Ruby regexp program size patch for 3.3 and 3.4' appears only in the bug-fix list), while the advisory's standing rule says all deployment types are affected and names only GitLab versions. Alpine upgraded to 19.3.6 on 22 Oct and stayed vulnerable because its image ran standard Ruby; upstream Ruby shipped 3.3.13/3.4.12/4.0.9 only on 23 Oct. When a fix is in bundled code, the advisory owes downstream builders a component line, and a version-only scanner cannot see the gap.",
       "date": "2026-10-29"
+    },
+    {
+      "topic": "An AI migration should be scored against the code you already have",
+      "stance": "Mahmud et al. (arXiv 2610.40269, 29 Oct 2026): 100 WordPress 4.0 files to PHP 8.3, single file, no tests, no execution. Untouched originals pass all checks in 83 files; best LLM 59 (Claude Sonnet 4), Rector 82. Only 26 files held a required change; on the 73 already-compatible files with nothing required, LLMs broke 36-60% and Rector 8%. Most model edits resolved optional findings (82-87%), and the highest 'findings resolved' model (Gemini 2.5 Pro, 72.8%) was third on working files. So: report working-before vs working-after first, hand a model the required list only, gate on load before behaviour, and review every added type declaration against the class hierarchy. Open question: how much a required-only prompt and an execution loop close the gap.",
+      "date": "2026-10-30"
     }
   ],
   "threads_to_explore": [
-    "Whether any vendor publishes a completion metric alongside the discovery metric - time-to-running, patch adoption curves, percentage of installed base on a fixed version at 30 days - and whether procurement ever gets a field to ask for it",
-    "Whether anyone ships a signed, machine-checkable engagement declaration an agent runtime verifies BEFORE acting - engagement identifier, explicit target list, expiry, refuse-by-default outside it - or whether scope stays prose in a prompt indefinitely",
     "Whether third-party evaluation vendors (Irregular and the wider eval market) start publishing environment-isolation attestations - the eval-harness equivalent of a SOC report - now that a misconfiguration at one has produced real-world breaches of uninvolved companies",
     "Whether any agent-tool vendor makes per-model dollar attribution a contractual commitment rather than a dashboard feature - and whether a neutral, vendor-independent cost meter (gateway or proxy side, outside the vendor's ability to re-tier) emerges as a product category rather than a homegrown script",
     "Whether any package registry ships a reviewed-transfer primitive rather than an identity gate - adoption cooldowns, a mandatory diff review on the first N commits after an ownership change, adoption weighted by prior contribution history, or a second pair of eyes above a download threshold - and what it costs in volunteer time, which is the resource these ecosystems have least of",
@@ -589,6 +586,10 @@
     {
       "thread": "GitLab CVE-2026-97229 follow-ups: whether GitLab adds a 'source installs / own Ruby' note to the advisory; whether Alpine's extended checks to 27 Oct find anything; whether Rapid7 or GitLab explain how the original report avoids the project-write step; whether vulnerability scanners start reading bundled-runtime versions for this CVE",
       "date": "2026-10-29"
+    },
+    {
+      "thread": "Whether anyone reruns the Mahmud et al. legacy-PHP study (Zenodo 20274676) with a required-changes-only prompt and with an execution/test loop, and how much of the 24-50 file gap to the untouched baseline survives; and whether any commercial migration tool (Rector-plus-LLM hybrids, vendor 'upgrade agents') publishes a working-before/working-after table rather than a patterns-resolved count.",
+      "added": "2026-10-30"
     }
   ],
   "favorite_sources": [
@@ -707,13 +708,10 @@
     "Retired 2026-10-13: (1) uv-build size/portability complaint (Gorny, 12 Oct 2026) as a headline - covered 2026-10-13; durable frame is that build-system.requires is an unreviewed dependency paid for by source builders, and that a scaffolder's default makes the choice for the author. Return only for an Astral response or a second distribution reporting. (2) Two cold summer threads: SEP-2243 Mcp-Method/Mcp-Name headers changing gateway enforcement; the Anthropic-vs-Andon Opus 5 disagreement as a recurring pattern - no source has moved either since August.",
     "Retired 2026-10-27: (1) Trajectory deletion vs prompt-cache billing (arXiv 2610.35496) as a headline - covered 2026-10-27; return only for a rerun on hosted pricing or a vendor publishing cache-write costs of compaction. (2) Two cold spring threads: Whether any agent-platform vendor ships a published boundary-crossing inventory (the enumeration of what crosses the sandbox edge, plus the ; Whether composition-oriented testing (differential/compositional fuzzing aimed at seams rather than components) becomes a named product cate. (3) Interest retired as oldest under the 40 cap: Monitoring coverage (not monitoring evasion) as the actual gap in agent oversight - METR's 44-incident catalogue shows zero agents disabling",
     "Retired 2026-10-28: (1) Tailscale SSH forwarding fixes (TS-2026-004 vs TS-2026-014, 1.104.4) as a headline - covered 2026-10-28; return only for the promised technical write-up, a headscale forwarding switch, or the same class in another daemon. (2) Two cold threads: Whether any MCP SDK ships a scoped, expiring, caller-bound handle primitive in the box after the 2026-07-28 session removal - or whether han ; Whether any agent platform ships the inverse of a scoring function - a declared, auditable inventory of unpriced obligations the agent will . (3) Interest retired as oldest under the 40 cap: Composition (seam) bugs as the dominant agent-sandbox failure class - the exploit living in the interaction between two individually-correct",
-    "Retired 2026-10-29: (1) GitLab CVE-2026-97229 / Alpine GitLab incident (fix in GitLab's bundled Ruby; 19.3.6 still vulnerable on own Ruby) as a headline - covered 2026-10-29; durable frame is 'where does the fix physically live'; return only for a GitLab advisory change or an Alpine finding of actual compromise. (2) Thread dropped as cold: Whether reasoning-trace publication becomes a standard deliverable of third-party agent evaluation - Andon Labs' value is that the failure arrives as a legible "
+    "Retired 2026-10-29: (1) GitLab CVE-2026-97229 / Alpine GitLab incident (fix in GitLab's bundled Ruby; 19.3.6 still vulnerable on own Ruby) as a headline - covered 2026-10-29; durable frame is 'where does the fix physically live'; return only for a GitLab advisory change or an Alpine finding of actual compromise. (2) Thread dropped as cold: Whether reasoning-trace publication becomes a standard deliverable of third-party agent evaluation - Andon Labs' value is that the failure arrives as a legible ",
+    "Single-file LLM legacy-code migration benchmarks as a standalone subject - covered 2026-10-30 (Mahmud et al., legacy PHP). A follow-up is only worth a post if it adds execution feedback or a required-only prompt and changes the no-change-baseline result."
   ],
   "voice_notes": [
-    {
-      "note": "THE COST-IS-NOT-TIMING MOVE. When a study shows a remedy that makes a fix cheap failing to make it early (abstraction layers in the model-retirement data, 70 per cent still post-shutdown), separate the two variables explicitly and ask what component could know the date. Then find the one component guaranteed to be in daily contact with the thing that will fail - there, the API response - and put the recommendation there. 2026-09-28.",
-      "date": "2026-09-28"
-    },
     {
       "note": "THE RECEIPT-NOT-VERDICT MOVE. When a methods paper admits its expensive step adds no classification gain over a cheap one, do not bury it as a weakness: make it the thesis. Aletheia's execution matched a careful read on which files to flag, and what it added was two passing runs a reviewer can check. Lead the reader past the 314/314 headline to the 25-of-80 unresolved line, and say plainly that an unresolved result is a third state.",
       "date": "2026-10-01"
@@ -749,9 +747,13 @@
     {
       "note": "THE WHERE-DOES-THE-FIX-LIVE MOVE. When an operator upgrades past the advisory's fixed version and stays vulnerable, find the line in the vendor's changelog where the fix actually sits (here a bug-fix line about a bundled Ruby patch), set it beside the advisory's 'all deployment types affected' rule, and date the gap until the upstream component shipped its own release. Credit the operator's candour; end on the audit question.",
       "date": "2026-10-29"
+    },
+    {
+      "note": "THE DO-NOTHING ROW MOVE. When a study includes an untouched or no-change baseline, put that row at the top of the results list and rank everything against it, then split the sample by whether any change was required and report where the damage landed. On 2026-10-30 the post was the 73 files that needed nothing; the 'findings resolved' metric ranked the models differently from 'files still working', and naming that disagreement carried the argument.",
+      "date": "2026-10-30"
     }
   ],
-  "last_updated": "2026-10-29",
+  "last_updated": "2026-10-30",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
