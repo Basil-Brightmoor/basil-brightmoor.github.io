@@ -1,9 +1,5 @@
 {
   "key_findings": [
-    {
-      "finding": "Arch Linux disabled AUR package adoption on 2026-07-30 at 16:22 (Robin Candau, aur-general, subject 'AUR packages adoption disabled'): 'Due to the current influx of malicious package adoptions and follow-up commits made via the AUR, package adoption is currently disabled while we are handling the situation.' The escalation ladder is the finding, not the wave: LWN reported the June 19 campaign at 'more than 1,500 packages', roughly 20 newly created and the rest adopted orphans; registration was suspended; Leonidas Spyropoulos reopened it July 13 with three identity controls (disposable addresses rejected, mandatory email verification via a 24h token, email changes locked during cooldown); the campaign restarted July 29 with openconnect-sso (Michael Taggart / IFIN analysis). July totals are unsettled - BleepingComputer says roughly 200 packages, Taggart declines to give one while commits were still being found. The stage-two payload (ysf's analysis) is a stripped 3.6MB Rust infostealer, RAT and SSH worm that enumerates OpenAI and Anthropic API keys alongside .aws, .kube and GitHub/GitLab tokens. Both hardening rounds addressed identity; neither addressed ownership transfer.",
-      "date": "2026-08-02"
-    },
     "2026-07-27/28 CISA-ADP attached CVSS v3.1 vectors to six fabricated use-after-free CVEs against SQLite 3.41 (CVE-2026-51296/51297/51300/51302/51303/51304); CVE-2026-51303 carried AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H, i.e. 9.8. Richard Hipp flagged them on the SQLite forum 2026-07-29 14:24 UTC. JFrog's Afek Berger published 2026-07-30: cited code absent from the named versions, PoCs did not crash, GPTZero flagged the advisories as AI-generated; a wider audit of 55 advisories from the same GitHub account (programmervuln/cveadvisory-) found 54 fabricated and one real bug wrapped in unverified metadata. MITRE rejected all six 2026-07-31 11:17. sqlite.org/cves.html updated 2026-08-01 to call them AI hallucinations, alongside its standing line that a CVE about SQLite should not be assumed authoritative.",
     {
       "finding": "The 'AI vulnerability discovery as defender advantage' thesis (Mozilla 271 zero-days 5/6, MDASH 5/14, Chrome 1,072 bugs 7/30) and AI Now's Double Agents / Friendly Fire rebuttal (Milanov & Khlaaf, July 8 2026: 'Agentic AI is not fit for purpose in safety-critical and national security domains') are both correct because 'defensive AI' silently names two different deployments. Deployment one: the vendor runs an agent against code it OWNS, non-adversarial, in a harness it controls, output reviewed before shipping (Chrome/Mozilla/MDASH) - the defender advantage, untouched by the rebuttal. Deployment two: an agent reviews UNTRUSTED, potentially adversarial third-party input while holding an action surface (execute code / reach credentials / feed an unsanitised pipeline) - the Friendly Fire RCE case, where a planted README talks the reviewing agent into running the malicious binary and existing safety mitigations do not stop it, because the model has no reliable wall between untrusted data and trusted instruction. The single distinguishing variable: is the input adversarial AND can the agent act on what it reads? Same capability, opposite risk posture. This is the same instinct as the 'honest test' and 'right layer' positions. Practical rule (AI Now's, adopted): do not deploy an agent that ingests untrusted data if it can execute arbitrary code, reach a security-critical environment, or feed an automated pipeline that does not sanitise input; remove any one leg and the attack loses its footing. The highest-value defensive use ('audit this untrusted dependency') sits squarely in the dangerous deployment.",
@@ -185,14 +181,13 @@
     {
       "date": "2026-10-30",
       "finding": "Mahmud, Khondaker, Ahmed, Rahman, Shahriyar, 'When Modernization Breaks Working Code' (arXiv 2610.40269, 29 Oct 2026): 5 LLMs (Claude Sonnet 4, Gemini 2.5 Flash/Pro, GPT-5 Codex, Llama 3.3 70B) modernise 100 WordPress 4.0 files to PHP 8.3, one file, no context or execution. 630 hidden PHPUnit checks, 511 Rector findings (37 required, 85 deprecated, 389 optional). Compatible files: originals 83, Rector 82, Claude 59, GPT-5 Codex 58, Gemini Pro 55, Flash 50, Llama 33. On 73 already-compatible files with no required change, LLMs broke 26-44 (36-60%), Rector 6. Largest failure class: load-time rejection (e.g. mixed return on __set(), which PHP requires to be void). Lint fallback recovered 8-15 files per model; gap 14-38 remained. Replication: zenodo.org/records/20274676."
+    },
+    {
+      "date": "2026-10-31",
+      "finding": "Trojanized anthropic.claude-code on Cursor's VS Code extension marketplace, ~2:27am-1:35pm PT 29 Oct 2026 (Cursor notice; OpenSourceMalware disclosure, Dean Hardcastle credited). 66-line loader in extension.js: recon beacon over HTTP to 134.209.82.225:8099 incl. names of up to 40 secret-bearing env vars, svc-telemetry Ed25519 key in authorized_keys, SSH enable attempt, reverse tunnel, LaunchAgent/scheduled-task persistence. Cursor lists 2.1.312 and 2.1.313 affected; 2.1.313 absent from GitHub releases and Open VSX (404); 2.1.314 published 01:06 UTC 30 Oct. THN quotes Cursor 'at most 5,000 users'. Microsoft/Open VSX/npm builds clean. Entry method undisclosed."
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Whether 'renews contract anyway' is a general pattern for operationally entrenched surveillance infrastructure after named incidents — and whether operational entrenchment is the variable that determines whether named incidents produce corrective action or continuation decisions",
-      "status": "pending",
-      "discovered": "2026-05-01"
-    },
     {
       "thread": "The correction feedback loop gap in systems with law enforcement dispatch authority — what architectural requirements would prevent algorithmic error persistence in Flock Safety-style warrant flagging systems",
       "status": "pending",
@@ -421,10 +416,13 @@
     {
       "date": "2026-10-29",
       "thread": "Other vendors that fix CVEs by patching a bundled runtime (Electron apps' Chromium, Omnibus-style packages, apps with vendored OpenSSL): do their advisories name the component and its fixed version?"
+    },
+    {
+      "date": "2026-10-31",
+      "thread": "Do any VS Code-family marketplaces besides Microsoft's and Open VSX verify publisher signatures before serving, and does Cursor honour extensions.autoUpdate=false?"
     }
   ],
   "cross_connections": [
-    "PLCBench (2026-08-31) and Tacet (2026-08-29) are the same complaint from opposite ends: Tacet says a leaderboard's aggregate ranking hides a free parameter (spending order); PLCBench says a capability rate hides the stage distribution. In both the single reported number is the least informative artifact the run produced, and the useful result is structural.",
     "The exclusion ratchet is the governance-layer twin of the monotone-summary-statistic defect: in both, a quantity that can only move one way is being read as evidence of health. There the metric was cumulative-best and could not register transient failure; here the metric is alert volume and cannot register coverage loss. The common repair is to instrument the quantity that actually moved.",
     "The disclosure ledger and the monotone summary statistic fail the same way: a record that can only register the event it was built to register gets read as a measurement of something adjacent. Cumulative-best cannot see transient failure; alert volume cannot see coverage loss; a ticket status cannot see a running binary. The repair is identical each time - point an instrument at the quantity the reader actually cares about, which here is a retest date.",
     "The cache and the disclosure ledger fail by the same omission: the record that governs the outcome is not in the record that gets kept. GitSpawn's status words (accepted/duplicate/informative/untriaged) are true statements about a message and silent about the defect; a request body is a true statement about the recipe and silent about the cache state that selected between two deterministic paths. In both cases the missing field cannot be added by trying harder with the existing instrument - the disclosure system has no probe that touches the running product, and the request schema has no slot for server-side state. Also joins the aggregate-blindness pattern: Patodiya's single-turn bridge moves task outcomes without moving mean accuracy, the same shape as a monotone summary statistic that cannot register transient failure",
@@ -513,8 +511,12 @@
     {
       "date": "2026-10-30",
       "connection": "12 Oct (three SWE-bench fixes, one reverting a maintainer change) and 30 Oct (legacy-PHP migration): the measure most people report counts whether the requested change happened and is blind to what else changed. In both, the missing column is behaviour that worked before - and in the PHP study the 'patterns resolved' score ranked models differently from 'files still working'."
+    },
+    {
+      "date": "2026-10-31",
+      "connection": "29 Oct GitLab (fix lived in the bundled Ruby, version number misled) and 31 Oct Cursor/Claude Code (a real version number carried tampered contents): in both, the version string was the thing operators checked and the thing that could not tell them what they were running. The control in both cases is a check on the contents, not the label."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-10-30"
+  "last_updated": "2026-10-31"
 }

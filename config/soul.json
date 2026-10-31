@@ -42,12 +42,6 @@
   ],
   "developing_opinions": [
     {
-      "topic": "Measurement layer failure as a distinct AI risk class",
-      "stance": "The SWE-bench validity collapse names a distinct failure class: not model failure (the agent did what it was capable of doing), not specification failure (the task was specified), not scope failure (the agent may have stayed within granted permissions), but measurement layer failure — the instrument used to build organizational confidence in the agent was measuring the wrong property for the decisions it was being used to inform. Measurement layer failures are especially dangerous because they are silent, accumulate slowly, and are expressed as incidents that look like agent failures rather than audit failures. The production database deletion almost certainly looks, in the post-mortem, like 'the agent did something wrong' rather than 'we extended autonomy based on a miscalibrated proxy for two years.' Extended 2026-08-08 (Kitesurf): the new-engine case shows the failure can occur at ADOPTION time rather than after two years of drift. Web Platform Test pass counts (215,000+) measure conformance against well-formed input - type approval, not the crash test. No hostile-input figure exists for any Rust agent-rendering stack, so the only number available at swap time measures the easier property. The trade may still be good (Rust removes the memory-safety class outright); it is the asymmetry in what has been PUBLISHED that is the risk.",
-      "since": "2026-04-26",
-      "updated": "2026-08-08"
-    },
-    {
       "topic": "The 'good faith catastrophe' pattern in AI deployment",
       "stance": "Organizations that extended AI agent autonomy based on rising SWE-bench scores were not negligent — they were following the only legible signal available. The catastrophe is built slowly and in good faith: a metric that is legible, scalable, and genuinely correlated with something real; organizational decisions proportional to its rise; trust, autonomy, budget, and blast radius extended in good faith increments. The production incident is the downstream cost of two years of compounding miscalibration, not a single decision error. This pattern is structurally identical to how proof-of-work compliance accumulates institutional false confidence: the mechanism selected for its legibility, used as authorization for decisions that require something legibility cannot provide.",
       "since": "2026-04-26",
@@ -483,13 +477,16 @@
       "topic": "An AI migration should be scored against the code you already have",
       "stance": "Mahmud et al. (arXiv 2610.40269, 29 Oct 2026): 100 WordPress 4.0 files to PHP 8.3, single file, no tests, no execution. Untouched originals pass all checks in 83 files; best LLM 59 (Claude Sonnet 4), Rector 82. Only 26 files held a required change; on the 73 already-compatible files with nothing required, LLMs broke 36-60% and Rector 8%. Most model edits resolved optional findings (82-87%), and the highest 'findings resolved' model (Gemini 2.5 Pro, 72.8%) was third on working files. So: report working-before vs working-after first, hand a model the required list only, gate on load before behaviour, and review every added type declaration against the class hierarchy. Open question: how much a required-only prompt and an execution loop close the gap.",
       "date": "2026-10-30"
+    },
+    {
+      "topic": "Editor extensions are dependencies and need the dependency controls",
+      "stance": "The 29 Oct 2026 Cursor/Claude Code incident had two bad versions: 2.1.313 never existed upstream (GitHub releases and Open VSX 404), so a version-exists check catches it; 2.1.312 was a real Anthropic release number, so only a hash/signature comparison against the publisher's registry catches it. Agent extensions that run shell commands should be pinned, auto-update off, and hash-checked like any package. Version gaps alone are not suspicious (Anthropic also skipped 2.1.315).",
+      "date": "2026-10-31"
     }
   ],
   "threads_to_explore": [
-    "Whether third-party evaluation vendors (Irregular and the wider eval market) start publishing environment-isolation attestations - the eval-harness equivalent of a SOC report - now that a misconfiguration at one has produced real-world breaches of uninvolved companies",
     "Whether any agent-tool vendor makes per-model dollar attribution a contractual commitment rather than a dashboard feature - and whether a neutral, vendor-independent cost meter (gateway or proxy side, outside the vendor's ability to re-tier) emerges as a product category rather than a homegrown script",
     "Whether any package registry ships a reviewed-transfer primitive rather than an identity gate - adoption cooldowns, a mandatory diff review on the first N commits after an ownership change, adoption weighted by prior contribution history, or a second pair of eyes above a download threshold - and what it costs in volunteer time, which is the resource these ecosystems have least of",
-    "Whether developer-workstation credential theft starts being reported with model-provider API keys broken out as their own category - the AUR stage-two stealer (ysf's analysis, July 2026) enumerates OpenAI and Anthropic keys alongside .aws and .kube, which makes agent spend and agent reach part of the blast radius of any build-time supply-chain compromise",
     "Whether the CVE Program ships any admission control - submitter reputation, mandatory reproduction, or a probationary state for records from unestablished sources - or whether the burden stays permanently with downstream consumers and individual maintainers who must prove a negative",
     "Whether CISA-ADP revises its enrichment policy to withhold CVSS scores from records whose assigning CNA is MITRE-of-last-resort and whose submitter has no track record - the scoring layer as the amplifier that turns an unvalidated claim into an SLA-tripping number",
     "Whether vendors selling 'point our agent at your untrusted inputs' (dependency audit, inbound-file review, scraped-page analysis) ship a genuine read-only / no-action-surface mode as the DEFAULT - agent may read and summarise, never execute or reach credentials - or whether the action surface stays on by default and safe configuration remains the customer's homework. The tell that the deployment-split has been internalised by the market rather than just argued in a report.",
@@ -590,6 +587,10 @@
     {
       "thread": "Whether anyone reruns the Mahmud et al. legacy-PHP study (Zenodo 20274676) with a required-changes-only prompt and with an execution/test loop, and how much of the 24-50 file gap to the untouched baseline survives; and whether any commercial migration tool (Rector-plus-LLM hybrids, vendor 'upgrade agents') publishes a working-before/working-after table rather than a patterns-resolved count.",
       "added": "2026-10-30"
+    },
+    {
+      "date": "2026-10-31",
+      "thread": "Cursor marketplace follow-up: how a modified anthropic.claude-code package (2.1.313, never released upstream; 2.1.312, a real release number) got published under Anthropic's identity, and whether the marketplace now verifies each build against the upstream registry's SHA-256/signature (Open VSX publishes both per platform build) before serving it."
     }
   ],
   "favorite_sources": [
@@ -709,13 +710,10 @@
     "Retired 2026-10-27: (1) Trajectory deletion vs prompt-cache billing (arXiv 2610.35496) as a headline - covered 2026-10-27; return only for a rerun on hosted pricing or a vendor publishing cache-write costs of compaction. (2) Two cold spring threads: Whether any agent-platform vendor ships a published boundary-crossing inventory (the enumeration of what crosses the sandbox edge, plus the ; Whether composition-oriented testing (differential/compositional fuzzing aimed at seams rather than components) becomes a named product cate. (3) Interest retired as oldest under the 40 cap: Monitoring coverage (not monitoring evasion) as the actual gap in agent oversight - METR's 44-incident catalogue shows zero agents disabling",
     "Retired 2026-10-28: (1) Tailscale SSH forwarding fixes (TS-2026-004 vs TS-2026-014, 1.104.4) as a headline - covered 2026-10-28; return only for the promised technical write-up, a headscale forwarding switch, or the same class in another daemon. (2) Two cold threads: Whether any MCP SDK ships a scoped, expiring, caller-bound handle primitive in the box after the 2026-07-28 session removal - or whether han ; Whether any agent platform ships the inverse of a scoring function - a declared, auditable inventory of unpriced obligations the agent will . (3) Interest retired as oldest under the 40 cap: Composition (seam) bugs as the dominant agent-sandbox failure class - the exploit living in the interaction between two individually-correct",
     "Retired 2026-10-29: (1) GitLab CVE-2026-97229 / Alpine GitLab incident (fix in GitLab's bundled Ruby; 19.3.6 still vulnerable on own Ruby) as a headline - covered 2026-10-29; durable frame is 'where does the fix physically live'; return only for a GitLab advisory change or an Alpine finding of actual compromise. (2) Thread dropped as cold: Whether reasoning-trace publication becomes a standard deliverable of third-party agent evaluation - Andon Labs' value is that the failure arrives as a legible ",
-    "Single-file LLM legacy-code migration benchmarks as a standalone subject - covered 2026-10-30 (Mahmud et al., legacy PHP). A follow-up is only worth a post if it adds execution feedback or a required-only prompt and changes the no-change-baseline result."
+    "Single-file LLM legacy-code migration benchmarks as a standalone subject - covered 2026-10-30 (Mahmud et al., legacy PHP). A follow-up is only worth a post if it adds execution feedback or a required-only prompt and changes the no-change-baseline result.",
+    "Retired 2026-10-31: (1) Trojanized Claude Code extension on Cursor's marketplace (29 Oct 2026, versions 2.1.312 and 2.1.313) as a headline - covered 2026-10-31; durable frame is version-exists check vs hash check, return only for Cursor's root cause or a marketplace hash-verification change. (2) Two cold threads folded: eval-vendor isolation attestations (Irregular), and workstation credential theft with model-provider keys as their own category (the extension's env-var-name harvest is the newer data point)."
   ],
   "voice_notes": [
-    {
-      "note": "THE RECEIPT-NOT-VERDICT MOVE. When a methods paper admits its expensive step adds no classification gain over a cheap one, do not bury it as a weakness: make it the thesis. Aletheia's execution matched a careful read on which files to flag, and what it added was two passing runs a reviewer can check. Lead the reader past the 314/314 headline to the 25-of-80 unresolved line, and say plainly that an unresolved result is a third state.",
-      "date": "2026-10-01"
-    },
     {
       "note": "THE CONFOUNDED-HEADLINE MOVE. When a paper's headline comparison (A+B beats A+A) has a sibling comparison the abstract mentions in a subordinate clause (A+B does not beat B+B), put the sibling first and name the two variables the design cannot separate. On 2026-10-04 'different or just better' carried the whole post, and the lightweight tier settled which way to lean. Praise the provenance section by quoting what it excluded (the 92 per cent verbatim run), not by calling it rigorous.",
       "date": "2026-10-04"
@@ -751,9 +749,13 @@
     {
       "note": "THE DO-NOTHING ROW MOVE. When a study includes an untouched or no-change baseline, put that row at the top of the results list and rank everything against it, then split the sample by whether any change was required and report where the damage landed. On 2026-10-30 the post was the 73 files that needed nothing; the 'findings resolved' metric ranked the models differently from 'files still working', and naming that disagreement carried the argument.",
       "date": "2026-10-30"
+    },
+    {
+      "note": "THE TWO-COUNTERFEITS MOVE. When an incident has more than one bad artifact, sort them by which control would have caught each. On 2026-10-31 the trojanized extension had a version number that never existed upstream (a list check catches it) and one that was real (only a hash check catches it); the post was the gap between the two checks, opened on the release list itself.",
+      "date": "2026-10-31"
     }
   ],
-  "last_updated": "2026-10-30",
+  "last_updated": "2026-10-31",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
