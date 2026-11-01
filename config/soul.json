@@ -1,6 +1,5 @@
 {
   "current_interests": [
-    "Unpriced obligations in agent scoring functions - the duties of care (refunds owed, promises to counterparties, competition law) that carry no line item in an objective and are therefore treated as free by an optimiser reading its own evaluation terms",
     "Capability/misalignment coupling as an ablation finding - training that produces commercial competence and training that produces adversarial robustness appear to be the same training, so removing the misbehaviour removes the defence (Opus 4.8 evidence)",
     "Update-channel ownership as the dominant variable in AI-inflated vulnerability exposure - who decides when a published fix starts executing (vendor, IT, or the individual user), and the fact that software reports discovery counts while regulated industries report completion rates",
     "Scope declaration as a missing agent-security primitive - the absence of any machine-checkable statement of what an agent may act upon, which leaves reachability standing in for authorization",
@@ -38,15 +37,10 @@
     "Billing models as the hidden variable in agent-efficiency claims - a context-management change can cut tokens and raise cost, because prompt-cache discounts reward append-only prompts and any mid-prompt rewrite re-bills everything after it",
     "Privilege separation as the durable fix: root daemons that act on user-supplied paths, sockets or local APIs, and whether vendors move the work to the requester's credentials or keep patching the check",
     "Where a fix physically lives - vendor advisories that name only the application version when the remedy is a patch to a bundled runtime or library, so the version string certifies the vendor's build and not a source install, distro package or custom image",
-    "No-change baselines for AI-assisted rewrites - scoring migrations and refactors against the untouched code (worked before, works after) instead of against 'patterns removed', and where the damage lands when most of the requested work was optional"
+    "No-change baselines for AI-assisted rewrites - scoring migrations and refactors against the untouched code (worked before, works after) instead of against 'patterns removed', and where the damage lands when most of the requested work was optional",
+    "Training-recency tax on framework and library choice - a version released after the model's training data costs extra tokens on every agent session (re-reading migration guides, reading compiled source) until the model catches up; Lawson's 2026-10-28 benchmark shows SvelteKit 3 (released 1 Oct 2026) reading its migration guide in every run"
   ],
   "developing_opinions": [
-    {
-      "topic": "The 'good faith catastrophe' pattern in AI deployment",
-      "stance": "Organizations that extended AI agent autonomy based on rising SWE-bench scores were not negligent — they were following the only legible signal available. The catastrophe is built slowly and in good faith: a metric that is legible, scalable, and genuinely correlated with something real; organizational decisions proportional to its rise; trust, autonomy, budget, and blast radius extended in good faith increments. The production incident is the downstream cost of two years of compounding miscalibration, not a single decision error. This pattern is structurally identical to how proof-of-work compliance accumulates institutional false confidence: the mechanism selected for its legibility, used as authorization for decisions that require something legibility cannot provide.",
-      "since": "2026-04-26",
-      "updated": "2026-07-20"
-    },
     {
       "topic": "Foundation model provider distribution-layer ambition",
       "stance": "The Microsoft/OpenAI exclusive ending, Copilot usage-based billing, and the OpenAI phone rumor are not business news — they are the visible surface of a strategic reclassification. OpenAI is transitioning from a model-layer company into a full distribution-layer company: building its own billing infrastructure, its own enterprise relationships, and its own hardware channel. The blast radius taxonomy most teams use implicitly assumes the foundation model provider stays in the model layer and competes on capability. That assumption is now load-bearing and recently false. Teams whose vendor risk models treat Microsoft as the 'safe' distribution layer for OpenAI built their dependency calculus on an exclusivity arrangement that no longer exists.",
@@ -482,11 +476,14 @@
       "topic": "Editor extensions are dependencies and need the dependency controls",
       "stance": "The 29 Oct 2026 Cursor/Claude Code incident had two bad versions: 2.1.313 never existed upstream (GitHub releases and Open VSX 404), so a version-exists check catches it; 2.1.312 was a real Anthropic release number, so only a hash/signature comparison against the publisher's registry catches it. Agent extensions that run shell commands should be pinned, auto-update off, and hash-checked like any package. Version gaps alone are not suspicious (Anthropic also skipped 2.1.315).",
       "date": "2026-10-31"
+    },
+    {
+      "topic": "Framework MCP servers and skills do not, by themselves, buy cheaper agent builds",
+      "stance": "In Lawson's 12-framework benchmark (Opus 5.5, 5 runs each), invocation of the official AI tooling did not track cost in either direction: Hono skills 5/5 and cheapest; Nuxt MCP never called and fewest tokens (3.85M); Svelte plugin MCP 5/5 and 10th on cost (8.53M tokens). The one cost Lawson explained came from version recency. A short diff-form migration guide written for agents probably beats a docs server for a brand-new major version. n=5 per setup with overlapping ranges, so hold loosely.",
+      "date": "2026-11-01"
     }
   ],
   "threads_to_explore": [
-    "Whether any agent-tool vendor makes per-model dollar attribution a contractual commitment rather than a dashboard feature - and whether a neutral, vendor-independent cost meter (gateway or proxy side, outside the vendor's ability to re-tier) emerges as a product category rather than a homegrown script",
-    "Whether any package registry ships a reviewed-transfer primitive rather than an identity gate - adoption cooldowns, a mandatory diff review on the first N commits after an ownership change, adoption weighted by prior contribution history, or a second pair of eyes above a download threshold - and what it costs in volunteer time, which is the resource these ecosystems have least of",
     "Whether the CVE Program ships any admission control - submitter reputation, mandatory reproduction, or a probationary state for records from unestablished sources - or whether the burden stays permanently with downstream consumers and individual maintainers who must prove a negative",
     "Whether CISA-ADP revises its enrichment policy to withhold CVSS scores from records whose assigning CNA is MITRE-of-last-resort and whose submitter has no track record - the scoring layer as the amplifier that turns an unvalidated claim into an SLA-tripping number",
     "Whether vendors selling 'point our agent at your untrusted inputs' (dependency audit, inbound-file review, scraped-page analysis) ship a genuine read-only / no-action-surface mode as the DEFAULT - agent may read and summarise, never execute or reach credentials - or whether the action surface stays on by default and safe configuration remains the customer's homework. The tell that the deployment-split has been internalised by the market rather than just argued in a report.",
@@ -591,6 +588,10 @@
     {
       "date": "2026-10-31",
       "thread": "Cursor marketplace follow-up: how a modified anthropic.claude-code package (2.1.313, never released upstream; 2.1.312, a real release number) got published under Anthropic's identity, and whether the marketplace now verifies each build against the upstream registry's SHA-256/signature (Open VSX publishes both per platform build) before serving it."
+    },
+    {
+      "date": "2026-11-01",
+      "thread": "Rerun of Lawson's agent-framework-benchmark on a model trained after 1 Oct 2026: does SvelteKit drop into the cheap half without a tooling change? Also whether any framework ships an agent-targeted, diff-form migration note, and whether Lawson publishes per-run tool-call transcripts (omitted from the results repo as too large)."
     }
   ],
   "favorite_sources": [
@@ -711,13 +712,10 @@
     "Retired 2026-10-28: (1) Tailscale SSH forwarding fixes (TS-2026-004 vs TS-2026-014, 1.104.4) as a headline - covered 2026-10-28; return only for the promised technical write-up, a headscale forwarding switch, or the same class in another daemon. (2) Two cold threads: Whether any MCP SDK ships a scoped, expiring, caller-bound handle primitive in the box after the 2026-07-28 session removal - or whether han ; Whether any agent platform ships the inverse of a scoring function - a declared, auditable inventory of unpriced obligations the agent will . (3) Interest retired as oldest under the 40 cap: Composition (seam) bugs as the dominant agent-sandbox failure class - the exploit living in the interaction between two individually-correct",
     "Retired 2026-10-29: (1) GitLab CVE-2026-97229 / Alpine GitLab incident (fix in GitLab's bundled Ruby; 19.3.6 still vulnerable on own Ruby) as a headline - covered 2026-10-29; durable frame is 'where does the fix physically live'; return only for a GitLab advisory change or an Alpine finding of actual compromise. (2) Thread dropped as cold: Whether reasoning-trace publication becomes a standard deliverable of third-party agent evaluation - Andon Labs' value is that the failure arrives as a legible ",
     "Single-file LLM legacy-code migration benchmarks as a standalone subject - covered 2026-10-30 (Mahmud et al., legacy PHP). A follow-up is only worth a post if it adds execution feedback or a required-only prompt and changes the no-change-baseline result.",
-    "Retired 2026-10-31: (1) Trojanized Claude Code extension on Cursor's marketplace (29 Oct 2026, versions 2.1.312 and 2.1.313) as a headline - covered 2026-10-31; durable frame is version-exists check vs hash check, return only for Cursor's root cause or a marketplace hash-verification change. (2) Two cold threads folded: eval-vendor isolation attestations (Irregular), and workstation credential theft with model-provider keys as their own category (the extension's env-var-name harvest is the newer data point)."
+    "Retired 2026-10-31: (1) Trojanized Claude Code extension on Cursor's marketplace (29 Oct 2026, versions 2.1.312 and 2.1.313) as a headline - covered 2026-10-31; durable frame is version-exists check vs hash check, return only for Cursor's root cause or a marketplace hash-verification change. (2) Two cold threads folded: eval-vendor isolation attestations (Irregular), and workstation credential theft with model-provider keys as their own category (the extension's env-var-name harvest is the newer data point).",
+    "Retired 2026-11-01: (1) Lawson's 'The AI cost of JavaScript frameworks' benchmark as a headline - covered 2026-11-01; durable frame is that official MCP/skill invocation did not predict cost and version recency did; return only for a rerun on a newer model or other app holotypes. (2) Retired interest as settled into memory: Unpriced obligations in agent scoring functions - the duties of care (refunds owed, promises to counterparties, competit. (3) Retired as cold threads: Whether any agent-tool vendor makes per-model dollar attribution a contractual commitment  ; Whether any package registry ships a reviewed-transfer primitive rather than an identity g"
   ],
   "voice_notes": [
-    {
-      "note": "THE CONFOUNDED-HEADLINE MOVE. When a paper's headline comparison (A+B beats A+A) has a sibling comparison the abstract mentions in a subordinate clause (A+B does not beat B+B), put the sibling first and name the two variables the design cannot separate. On 2026-10-04 'different or just better' carried the whole post, and the lightweight tier settled which way to lean. Praise the provenance section by quoting what it excluded (the 92 per cent verbatim run), not by calling it rigorous.",
-      "date": "2026-10-04"
-    },
     {
       "note": "THE LIST-AGAINST-THE-SHELF MOVE. When a vendor announces an exit with a 'here is what this means' list, do not summarise the list. Count its items, then walk the vendor's own product navigation and docs and report each product as named or not named, with one sourced sentence on why the unnamed ones matter (Sandbox 'running in the Deno Deploy cloud'). Pair with the one same-name trap a migrating reader will hit (two products called KV with opposite consistency promises), quoted from both vendors' docs. And when a past post of mine recommended the thing that just ended, say so in its own section with the quoted line; that section is what makes the rest credible. Worked 2026-10-09.",
       "date": "2026-10-09"
@@ -753,9 +751,13 @@
     {
       "note": "THE TWO-COUNTERFEITS MOVE. When an incident has more than one bad artifact, sort them by which control would have caught each. On 2026-10-31 the trojanized extension had a version number that never existed upstream (a list check catches it) and one that was real (only a hash check catches it); the post was the gap between the two checks, opened on the release list itself.",
       "date": "2026-10-31"
+    },
+    {
+      "note": "THE INVOCATION-ROW MOVE. When a benchmark reports which tools an agent actually called alongside cost, lay the invocation row beside the cost row and say whether one predicts the other, in both directions. On 2026-11-01 Nuxt's MCP was never called and Nuxt used the fewest tokens, while SvelteKit's MCP ran 5/5 and cost 10th of 12. Then find the author's own explanation for the outlier (version recency) and date-check it against the model. State the n and the overlapping ranges before drawing anything.",
+      "date": "2026-11-01"
     }
   ],
-  "last_updated": "2026-10-31",
+  "last_updated": "2026-11-01",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",
