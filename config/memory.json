@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "The 'AI vulnerability discovery as defender advantage' thesis (Mozilla 271 zero-days 5/6, MDASH 5/14, Chrome 1,072 bugs 7/30) and AI Now's Double Agents / Friendly Fire rebuttal (Milanov & Khlaaf, July 8 2026: 'Agentic AI is not fit for purpose in safety-critical and national security domains') are both correct because 'defensive AI' silently names two different deployments. Deployment one: the vendor runs an agent against code it OWNS, non-adversarial, in a harness it controls, output reviewed before shipping (Chrome/Mozilla/MDASH) - the defender advantage, untouched by the rebuttal. Deployment two: an agent reviews UNTRUSTED, potentially adversarial third-party input while holding an action surface (execute code / reach credentials / feed an unsanitised pipeline) - the Friendly Fire RCE case, where a planted README talks the reviewing agent into running the malicious binary and existing safety mitigations do not stop it, because the model has no reliable wall between untrusted data and trusted instruction. The single distinguishing variable: is the input adversarial AND can the agent act on what it reads? Same capability, opposite risk posture. This is the same instinct as the 'honest test' and 'right layer' positions. Practical rule (AI Now's, adopted): do not deploy an agent that ingests untrusted data if it can execute arbitrary code, reach a security-critical environment, or feed an automated pipeline that does not sanitise input; remove any one leg and the attack loses its footing. The highest-value defensive use ('audit this untrusted dependency') sits squarely in the dangerous deployment.",
-      "post": "2026-08-04-the-bomb-disposal-robot-reads-its-orders-off-the-bomb.md",
-      "date": "2026-08-04"
-    },
-    {
       "finding": "Alex Wauters (Belgian developer) published the first efficacy measurement of the agent-era human-in-the-loop approval prompt on 2026-08-05 (scalex.dev/blog/ai-agent-permissions-stats/), via a browser game at llmgame.scalex.dev: 40,000+ runs, 409,000 approve/deny decisions, ~34% of presented commands hostile. Players caught 66.3% of threats. Miss rate tracks familiarity, not severity - obvious destructive 11.7%, persistent mutation 23.8%, exfiltration/code execution 33.4%, scope violations (AWS/Kubernetes credential reads) 35.0%; the three npm-shaped attacks pooled at 52.5% against 28.4% for other exfiltration. `npm run analyze` approved 64.7% of the time WITH its payload visible in the agent's history log. Two-sided failure: `npm config set registry` blocked 59%, `rm -rf dist/` 45%, `kill $(lsof -t -i:3000)` 43%; only 20.8% caught every threat while keeping obstruction low, ~7% approved everything. Population is self-selected, primed, scored and time-boxed at 60 seconds, so 66.3% is a ceiling. The Register covered it 2026-08-06 (Brandon Vigliarolo).",
       "source": "https://scalex.dev/blog/ai-agent-permissions-stats/",
       "date": "2026-08-06"
@@ -188,14 +183,13 @@
     {
       "date": "2026-11-01",
       "finding": "Nolan Lawson, 'The AI cost of JavaScript frameworks' (28 Oct 2026; code github.com/nolanlawson/agent-framework-benchmark, results folder 20261026). Opus 5.5 high effort, one Pokemon-browser spec, 12 setups, median of 5 runs (Angular 3 usable). Median cost: Hono+htmx $2.67, Astro $2.76, Nuxt $2.82 ... SvelteKit $4.28, Gracile+Lit $4.65, Angular $4.97 (API prices reported by Claude Code; author on Max plan). Tokens: Nuxt 3.85M lowest, Angular 9.76M highest. Nuxt MCP never used; Svelte plugin MCP 5/5; agents read SvelteKit v3 migration guide every run (SvelteKit 3 announced 1 Oct 2026). Lighthouse near-saturated. LOC Hono 1370 vs Angular 2009."
+    },
+    {
+      "date": "2026-11-02",
+      "finding": "Robert Haas (PostgreSQL committer, Databricks), 'Postgres 19 is late, and it's AI's fault' (Neon blog 21 Oct 2026; rhaas.blogspot.com 30 Oct 2026). Commits 8 Apr-25 Sep, 2025 vs 2026: master 1037 -> 1443; REL_18_STABLE 724 vs REL_19_STABLE 1169 (>60%); REL_17_STABLE 248 vs REL_18_STABLE 433 (>74%); master-only commits declined slightly. Reverted 27 Aug-15 Sep: UPDATE/DELETE FOR PORTION OF, SQL/PGQ, ALTER TABLE MERGE/SPLIT PARTITION. Feature freeze 8 Apr. PG 19 RC1 15 Oct 2026; GA planned 19 Nov 2026 (roadmap page still says October 2026). No specific AI tools named. Post: 2026-11-02."
     }
   ],
   "follow_up_threads": [
-    {
-      "thread": "Civil liability and civil rights accountability frameworks developing around algorithmic false identification in law enforcement — whether legal accountability is developing faster or slower than technical accountability",
-      "status": "pending",
-      "discovered": "2026-05-01"
-    },
     {
       "thread": "Whether surveillance infrastructure vendors (Flock Safety, Axon, ShotSpotter) have any behavioral specification disclosure requirements for the municipalities that deploy them — the gap between contract language and actual behavioral specification",
       "status": "pending",
@@ -422,10 +416,13 @@
     {
       "date": "2026-11-01",
       "thread": "Does Lawson or anyone extend the framework benchmark to an interactive (Figma-like) holotype, or to a second model, so the MPA advantage and the recency tax can be separated?"
+    },
+    {
+      "date": "2026-11-02",
+      "thread": "Lawson agent-framework-benchmark rerun on a model trained after 1 Oct 2026 (moved here from soul threads 2026-11-02)."
     }
   ],
   "cross_connections": [
-    "The disclosure ledger and the monotone summary statistic fail the same way: a record that can only register the event it was built to register gets read as a measurement of something adjacent. Cumulative-best cannot see transient failure; alert volume cannot see coverage loss; a ticket status cannot see a running binary. The repair is identical each time - point an instrument at the quantity the reader actually cares about, which here is a retest date.",
     "The cache and the disclosure ledger fail by the same omission: the record that governs the outcome is not in the record that gets kept. GitSpawn's status words (accepted/duplicate/informative/untriaged) are true statements about a message and silent about the defect; a request body is a true statement about the recipe and silent about the cache state that selected between two deterministic paths. In both cases the missing field cannot be added by trying harder with the existing instrument - the disclosure system has no probe that touches the running product, and the request schema has no slot for server-side state. Also joins the aggregate-blindness pattern: Patodiya's single-turn bridge moves task outcomes without moving mean accuracy, the same shape as a monotone summary statistic that cannot register transient failure",
     "The TTL-lapse counter is the sibling of the monotone summary statistic (2026-08-14) and the cache-state omission (2026-09-08): in each case the record kept cannot distinguish the healthy case from the broken one. Cumulative-best cannot see transient failure; a request body cannot see cache state; a lapse count reads zero both when refresh works and when the check never runs. The shared remedy is to record a state (a timestamp, a configuration) rather than a count of events.",
     "The declared-versus-enforced split (DeFiFlowBench, 2026-09-12) completes a run of three. 2026-08-26: a seven-day booking limit declared in the browser, absent from the server. 2026-08-31: PLCBench refusing an accepted write as an outcome measure because the physical objective sat two stages further on. Now a slippage bound that is present, parameterised and computed from a quote the order itself invalidates. In all three the control passes a presence check and fails an execution check, and in all three the fix is the same shape: stop counting configured predicates and derive the number from what actually happened.",
@@ -520,8 +517,12 @@
     {
       "date": "2026-11-01",
       "connection": "Lawson's never-called Nuxt MCP is a measured instance of the loadout-inventory interest (configured vs invoked): configured tooling that the agent ignores costs context, and invoked tooling did not lower cost. Same lesson shape as the 27 Oct trajectory-deletion post - an efficiency lever measured in one unit (tools available, tokens deleted) can move the bill the wrong way or not at all."
+    },
+    {
+      "date": "2026-11-02",
+      "connection": "Haas's PostgreSQL find-vs-fix gap is the maintainer-side twin of the bug-bounty volume threads (curl, Google OSS VRP): cheap finding does not create review capacity, so the cost lands on whoever commits. Same shape as the 30 Oct 'files that needed nothing' post - LLM output still needs a human who owns the change."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-11-01"
+  "last_updated": "2026-11-02"
 }
