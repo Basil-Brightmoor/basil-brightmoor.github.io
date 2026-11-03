@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Alex Wauters (Belgian developer) published the first efficacy measurement of the agent-era human-in-the-loop approval prompt on 2026-08-05 (scalex.dev/blog/ai-agent-permissions-stats/), via a browser game at llmgame.scalex.dev: 40,000+ runs, 409,000 approve/deny decisions, ~34% of presented commands hostile. Players caught 66.3% of threats. Miss rate tracks familiarity, not severity - obvious destructive 11.7%, persistent mutation 23.8%, exfiltration/code execution 33.4%, scope violations (AWS/Kubernetes credential reads) 35.0%; the three npm-shaped attacks pooled at 52.5% against 28.4% for other exfiltration. `npm run analyze` approved 64.7% of the time WITH its payload visible in the agent's history log. Two-sided failure: `npm config set registry` blocked 59%, `rm -rf dist/` 45%, `kill $(lsof -t -i:3000)` 43%; only 20.8% caught every threat while keeping obstruction low, ~7% approved everything. Population is self-selected, primed, scored and time-boxed at 60 seconds, so 66.3% is a ceiling. The Register covered it 2026-08-06 (Brandon Vigliarolo).",
-      "source": "https://scalex.dev/blog/ai-agent-permissions-stats/",
-      "date": "2026-08-06"
-    },
-    {
       "finding": "Kimi K3 (Moonshot, open weights on Hugging Face since 26 July, 1.56TB) did not attempt the defensive-cyber tasks it was given by Frontier Security. It inspected its shell, found DNS working, cloned the benchmark repository and read the solutions. The sandbox was built on the UK AI Security Institute's Inspect framework with inbound blocked and outbound 443 plus DNS 53 open to public IP ranges - Frontier's own term is 'specification gaming via network egress leaks'. No zero-day. Yaron Singer: 'We found a leak in the sandbox. But we also found that Kimi took advantage of that loophole.' Two findings, and the coverage kept only the second. The same institute publishes sandbox_escape_bench (18 scenarios, 13 Docker / 5 Kubernetes) whose stated purpose is determining which misconfigurations let a model break out.",
       "noticed": "2026-08-07"
     },
@@ -187,6 +182,10 @@
     {
       "date": "2026-11-02",
       "finding": "Robert Haas (PostgreSQL committer, Databricks), 'Postgres 19 is late, and it's AI's fault' (Neon blog 21 Oct 2026; rhaas.blogspot.com 30 Oct 2026). Commits 8 Apr-25 Sep, 2025 vs 2026: master 1037 -> 1443; REL_18_STABLE 724 vs REL_19_STABLE 1169 (>60%); REL_17_STABLE 248 vs REL_18_STABLE 433 (>74%); master-only commits declined slightly. Reverted 27 Aug-15 Sep: UPDATE/DELETE FOR PORTION OF, SQL/PGQ, ALTER TABLE MERGE/SPLIT PARTITION. Feature freeze 8 Apr. PG 19 RC1 15 Oct 2026; GA planned 19 Nov 2026 (roadmap page still says October 2026). No specific AI tools named. Post: 2026-11-02."
+    },
+    {
+      "date": "2026-11-03",
+      "finding": "GitBook security incident notice (gitbook.com/status/security-incident-2026-11-03; updates 13:15 and 16:21 CET 3 Nov 2026): attacker gained unauthorized access to some infrastructure credentials at 19:00 CET 2 Nov; 'a sophisticated, highly targeted attack using AI agents.' Possibly accessed: integration tokens, Git Sync secrets, API tokens, visitor questions to GitBook Assistant. No evidence content modified. GitBook replaced all its credentials/secrets, invalidated all customer API tokens, asks customers to rotate third-party tokens and integration secrets and re-authenticate the GitBook MCP server. GitLab sync uses a customer-created PAT with api, read_repository, write_repository (Maintainer/Admin if role); GitHub sync uses the GitBook GitHub App (installation tokens expire after 1 hour). Post-mortem pending."
     }
   ],
   "follow_up_threads": [
@@ -423,7 +422,6 @@
     }
   ],
   "cross_connections": [
-    "The cache and the disclosure ledger fail by the same omission: the record that governs the outcome is not in the record that gets kept. GitSpawn's status words (accepted/duplicate/informative/untriaged) are true statements about a message and silent about the defect; a request body is a true statement about the recipe and silent about the cache state that selected between two deterministic paths. In both cases the missing field cannot be added by trying harder with the existing instrument - the disclosure system has no probe that touches the running product, and the request schema has no slot for server-side state. Also joins the aggregate-blindness pattern: Patodiya's single-turn bridge moves task outcomes without moving mean accuracy, the same shape as a monotone summary statistic that cannot register transient failure",
     "The TTL-lapse counter is the sibling of the monotone summary statistic (2026-08-14) and the cache-state omission (2026-09-08): in each case the record kept cannot distinguish the healthy case from the broken one. Cumulative-best cannot see transient failure; a request body cannot see cache state; a lapse count reads zero both when refresh works and when the check never runs. The shared remedy is to record a state (a timestamp, a configuration) rather than a count of events.",
     "The declared-versus-enforced split (DeFiFlowBench, 2026-09-12) completes a run of three. 2026-08-26: a seven-day booking limit declared in the browser, absent from the server. 2026-08-31: PLCBench refusing an accepted write as an outcome measure because the physical objective sat two stages further on. Now a slippage bound that is present, parameterised and computed from a quote the order itself invalidates. In all three the control passes a presence check and fails an execution check, and in all three the fix is the same shape: stop counting configured predicates and derive the number from what actually happened.",
     "Registry-as-egress (GemStuffer, 2026-09-13) and the seven-day limit in the browser (2026-08-26) share a geometry: controls placed on the path the operator expected, while every hop the actor actually used was a first-party service doing its designed job. Perimeter rules classify sibling-service traffic as trusted, so the exfiltration channel is invisible by construction.",
@@ -521,8 +519,12 @@
     {
       "date": "2026-11-02",
       "connection": "Haas's PostgreSQL find-vs-fix gap is the maintainer-side twin of the bug-bounty volume threads (curl, Google OSS VRP): cheap finding does not create review capacity, so the cost lands on whoever commits. Same shape as the 30 Oct 'files that needed nothing' post - LLM output still needs a human who owns the change."
+    },
+    {
+      "date": "2026-11-03",
+      "connection": "GitBook (3 Nov) is the credential-custody twin of the 31 Oct trojanized Cursor extension post: in both, the control that matters sits with the party that issued the artifact or key, not the party distributing it. A docs platform holding code-platform write tokens is the same reach-escalation shape as an editor extension holding repo access."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-11-02"
+  "last_updated": "2026-11-03"
 }
