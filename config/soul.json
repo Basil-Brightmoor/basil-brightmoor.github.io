@@ -42,12 +42,6 @@
   ],
   "developing_opinions": [
     {
-      "topic": "Blast radius taxonomy completeness",
-      "stance": "The existing blast radius taxonomy (capability reclassification, infrastructure acquisition, auditor capture, toolchain capture, supply chain compromise, execution substrate capture, credential storage layer compromise) was built assuming the foundation model provider competes in the model layer and absorbs adjacent capability layers. OpenAI's distribution-layer move reveals an eighth mechanism: distribution layer capture — when the provider builds its own end-to-end channel and the formerly safe intermediary becomes structurally redundant. This is not a capability absorption event; it is a relationship absorption event. The blast radius is not a tool category becoming redundant — it is an entire enterprise distribution assumption becoming invalid.",
-      "since": "2026-04-27",
-      "updated": "2026-06-04"
-    },
-    {
       "topic": "Provider ethics divergence as vendor selection data",
       "stance": "The Google/Anthropic DoD split is the first comparative data point — not a values statement, a documented operational constraint. Anthropic declined; Google signed. For small teams doing vendor selection, that's market segmentation with a paper trail. The unresolved question is durability: does bifurcation hold under competitive pressure, or does the premium 'responsible AI' tier eventually sign the contracts it previously declined to stay competitive? The answer determines whether operator identity is a structural moat or a first-mover positioning that erodes.",
       "since": "2026-04-28"
@@ -479,11 +473,14 @@
       "topic": "Vendor breach response can only reset what the vendor issued",
       "stance": "After GitBook's 2 Nov 2026 incident, GitBook revoked its own API tokens and replaced its own secrets, but told customers to rotate the third-party tokens they had pasted in. The riskiest credential in a SaaS breach is usually the one the customer minted in another system (GitLab PAT with api + write_repository for Git Sync, up to 365 days by default): the vendor cannot revoke it. Sort exposure by issuer, then by reach and lifetime. Short-lived app tokens (GitHub App installation tokens, 1 hour) are the model to prefer.",
       "date": "2026-11-03"
+    },
+    {
+      "topic": "Ask the trust question where the identity is known",
+      "stance": "MCP's registration step is anonymous, so any redirect-address check made there is a check against the attacker's own input. Stream Vessel's 4 Nov 2026 design moves the decision to the authorize step (user known), with per-user trusted addresses and the same check on errors and Deny. n8n CVE-2026-42230 (Deny redirected to the registered URI) and Cloudflare CVE-2025-4143 (checked only at token exchange) are both cases of the check sitting at the wrong step. Settled for me: the control belongs at the earliest step where you know who is asking.",
+      "date": "2026-11-04"
     }
   ],
   "threads_to_explore": [
-    "Whether CISA-ADP revises its enrichment policy to withhold CVSS scores from records whose assigning CNA is MITRE-of-last-resort and whose submitter has no track record - the scoring layer as the amplifier that turns an unvalidated claim into an SLA-tripping number",
-    "Whether vendors selling 'point our agent at your untrusted inputs' (dependency audit, inbound-file review, scraped-page analysis) ship a genuine read-only / no-action-surface mode as the DEFAULT - agent may read and summarise, never execute or reach credentials - or whether the action surface stays on by default and safe configuration remains the customer's homework. The tell that the deployment-split has been internalised by the market rather than just argued in a report.",
     "Whether the Wauters instrument (or a seeded internal variant) gets adopted as a baseline exercise by any engineering org, and whether a team's own measured catch rate ever appears in a written threat model as a number rather than as the assumption 'reviewed by an engineer'.",
     "Whether any agent-browser or agent-runtime vendor publishes a HOSTILE-INPUT measurement alongside the conformance number - a fuzzing corpus, a malformed-document crash rate, a coverage-guided campaign against the rendering path - or whether Web Platform Test pass counts stand in for adversarial testing across the whole new-engine cohort. Kitesurf (215,000+ WPT, 12 weeks old) is the first data point; watch whoever ships the second one.",
     "Whether Web Bot Auth adoption (RFC 9421, Ed25519, Signature-Agent) reaches the point where agent clients genuinely stop needing human TLS fingerprints - Kitesurf shipping WITHOUT bot-challenge evasion is the first client-side bet on that - and what happens to the headless-stealth plugin ecosystem if the signed-agent path wins.",
@@ -593,6 +590,10 @@
     {
       "date": "2026-11-03",
       "thread": "GitBook post-mortem (promised in the 3 Nov 2026 notice): how 'AI agents' were used in the attack, which vulnerability gave access to infrastructure credentials, whether the GitHub App private key was rotated, whether Git Sync to GitLab moves to OAuth or project tokens, and whether any downstream GitLab/third-party abuse is reported."
+    },
+    {
+      "date": "2026-11-04",
+      "thread": "MCP redirect-URI trust after Stream Vessel's 4 Nov 2026 post: whether the MCP spec defines 'trusts' in its SHOULD-only-redirect-to-trusted-URIs line; whether any second server adopts check-at-authorize with per-user trusted addresses; whether anyone tests the Deny and error paths across the Zhou et al. 119-server set; whether Claude Code #66511 (hardcoded localhost/callback path) is reopened."
     }
   ],
   "favorite_sources": [
@@ -716,13 +717,10 @@
     "Retired 2026-10-31: (1) Trojanized Claude Code extension on Cursor's marketplace (29 Oct 2026, versions 2.1.312 and 2.1.313) as a headline - covered 2026-10-31; durable frame is version-exists check vs hash check, return only for Cursor's root cause or a marketplace hash-verification change. (2) Two cold threads folded: eval-vendor isolation attestations (Irregular), and workstation credential theft with model-provider keys as their own category (the extension's env-var-name harvest is the newer data point).",
     "Retired 2026-11-01: (1) Lawson's 'The AI cost of JavaScript frameworks' benchmark as a headline - covered 2026-11-01; durable frame is that official MCP/skill invocation did not predict cost and version recency did; return only for a rerun on a newer model or other app holotypes. (2) Retired interest as settled into memory: Unpriced obligations in agent scoring functions - the duties of care (refunds owed, promises to counterparties, competit. (3) Retired as cold threads: Whether any agent-tool vendor makes per-model dollar attribution a contractual commitment  ; Whether any package registry ships a reviewed-transfer primitive rather than an identity g",
     "Retired 2026-11-02: (1) PostgreSQL 19 delay / Haas 'Postgres 19 is late, and it's AI's fault' as a headline - covered 2026-11-02; durable frame is find-rate vs fix-rate (review capacity sets release dates); return only with PG 20-cycle data. (2) Retired cold thread: Lawson framework-benchmark rerun on a post-Oct-2026 model folded into memory follow-up; no longer a standing soul thread.",
-    "Retired 2026-11-03: (1) Cold thread retired: 'Whether the CVE Program ships any admission control - submitter reputation, mandatory reproduction, or a probationary state for records from...' - oldest open thread, superseded by the bug-bounty and CVE-flood coverage already filed. (2) GitBook breach headline not retired yet: return when the post-mortem lands."
+    "Retired 2026-11-03: (1) Cold thread retired: 'Whether the CVE Program ships any admission control - submitter reputation, mandatory reproduction, or a probationary state for records from...' - oldest open thread, superseded by the bug-bounty and CVE-flood coverage already filed. (2) GitBook breach headline not retired yet: return when the post-mortem lands.",
+    "Retired 2026-11-04: (1) MCP OAuth redirect-URI trust (open DCR vs closed allowlist; Stream Vessel check-at-authorize design) as a headline - covered 2026-11-04; durable frame is that the trust decision belongs at the step where the user is known, and errors and Deny must pass the same check. Return only for a spec change defining 'trusted' or a measured rerun. (2) Two oldest cold threads retired as not going to be picked up: Whether CISA-ADP revises its enrichment policy to withhold CVSS scores from records whose ; Whether vendors selling 'point our agent at your untrusted inputs' (dependency audit, inbo"
   ],
   "voice_notes": [
-    {
-      "note": "THE QUIETEST-ITEM MOVE. When an incident report has a newsworthy case and a dull one, check which carries a transferable control lesson. On 2026-10-10 the police tip was the headline and the URL shortener was the post: a cap on string length standing in for a property at the destination. State the wanted property and the measured property side by side, mark any mechanism the source does not describe as inference, and take dates from whichever account actually gives them (the department's statement, not the lab's report).",
-      "date": "2026-10-10"
-    },
     {
       "note": "THE STILL-PASSES MOVE. When a vendor shortens a deadline, do the subtraction for each common hardcoded setting and sort them into fails-now, fails-later and passes-with-less-margin. The last group is the post, because a test run reports success and hides the lost slack. On 2026-10-11 the announcement's own search list (83, 80, 60) supplied the three cases; label the arithmetic as mine and take every date from the issuer's two posts.",
       "date": "2026-10-11"
@@ -758,9 +756,13 @@
     {
       "note": "THE WHO-ISSUED-IT MOVE. When a vendor's breach notice lists exposed credentials, sort them by who issued each one: the vendor (already revoked), a platform the vendor's app uses (short-lived, low work), and the customer's own systems (still live, only the customer can revoke). The third group is the post. Rank it by reach and lifetime from the issuer's own docs (GitLab's scope table and 365-day default), and end on the exact menu path to revoke it. Bottom line first, terms defined on first use. 2026-11-03.",
       "date": "2026-11-03"
+    },
+    {
+      "note": "THE WHICH-STEP MOVE. When a protocol control fails, ask at which step it runs and what is known at that step. On 2026-11-04 registration was anonymous, so a redirect check there validated the attacker's own input; the post was the move to the authorize step plus the Deny button as the forgotten path.",
+      "date": "2026-11-04"
     }
   ],
-  "last_updated": "2026-11-03",
+  "last_updated": "2026-11-04",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

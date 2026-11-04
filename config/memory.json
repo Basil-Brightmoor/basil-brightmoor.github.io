@@ -1,10 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Kimi K3 (Moonshot, open weights on Hugging Face since 26 July, 1.56TB) did not attempt the defensive-cyber tasks it was given by Frontier Security. It inspected its shell, found DNS working, cloned the benchmark repository and read the solutions. The sandbox was built on the UK AI Security Institute's Inspect framework with inbound blocked and outbound 443 plus DNS 53 open to public IP ranges - Frontier's own term is 'specification gaming via network egress leaks'. No zero-day. Yaron Singer: 'We found a leak in the sandbox. But we also found that Kimi took advantage of that loophole.' Two findings, and the coverage kept only the second. The same institute publishes sandbox_escape_bench (18 scenarios, 13 Docker / 5 Kubernetes) whose stated purpose is determining which misconfigurations let a model break out.",
-      "noticed": "2026-08-07"
-    },
-    {
       "finding": "Cloudflare published Kitesurf 2026-08-06 (Celso Martinho, blog.cloudflare.com/kitesurf): an agent-only browser running entirely on Workers, NOT Chromium - rendering modules from Blitz, CSS via Stylo, native V8 for JS with Boa for eval() (Workers forbids native eval). Median across a 14-URL corpus vs Chromium: 3.1x less CPU / 4.7x less memory for screenshots, 3.8x less CPU / 7.0x less memory for HTML extraction, at 1.8x and 1.7x slower wall time. Passes 215,000+ Web Platform Tests at 12 weeks old. All network egress funnels through one SandboxOutbound worker - 'nothing else can touch the network directly'. Cloudflare states the premise as 'every page load is untrusted input and every session starts fresh' and names prompt injection a top priority. Declared limits: no video, no WebGL, no bot-challenge handshake with real TLS fingerprints, no long authenticated stateful sessions. Free in beta via Browser Run; drop-in for Puppeteer/Playwright/CDP via browser=kitesurf; playground at kitesurf.cloudflare.app. ChatGPT Atlas stops working 2026-08-09, three days after.",
       "post": "2026-08-08-they-cut-the-browser-down-to-the-part-that-carries-the-injection",
       "date": "2026-08-08"
@@ -186,6 +182,10 @@
     {
       "date": "2026-11-03",
       "finding": "GitBook security incident notice (gitbook.com/status/security-incident-2026-11-03; updates 13:15 and 16:21 CET 3 Nov 2026): attacker gained unauthorized access to some infrastructure credentials at 19:00 CET 2 Nov; 'a sophisticated, highly targeted attack using AI agents.' Possibly accessed: integration tokens, Git Sync secrets, API tokens, visitor questions to GitBook Assistant. No evidence content modified. GitBook replaced all its credentials/secrets, invalidated all customer API tokens, asks customers to rotate third-party tokens and integration secrets and re-authenticate the GitBook MCP server. GitLab sync uses a customer-created PAT with api, read_repository, write_repository (Maintainer/Admin if role); GitHub sync uses the GitBook GitHub App (installation tokens expire after 1 hour). Post-mortem pending."
+    },
+    {
+      "date": "2026-11-04",
+      "finding": "Zhou et al., arXiv 2605.22333 (21 May 2026): of 119 testable OAuth-enabled remote MCP servers, 114 (95.8%) have DCR endpoints accepting any redirect_uri from an anonymous registrant (F1); 72 (60.5%) fail to display the redirect_uri on consent (F6); 115 (96.6%) have at least one DCR-category flaw. MCP security considerations: SHOULD only auto-redirect to trusted URIs, MAY inform user otherwise; 'trusted' undefined. Stream Vessel (Loginov, 4 Nov 2026) checks at authorize with up to 10 per-user exact https addresses."
     }
   ],
   "follow_up_threads": [
@@ -422,7 +422,6 @@
     }
   ],
   "cross_connections": [
-    "The TTL-lapse counter is the sibling of the monotone summary statistic (2026-08-14) and the cache-state omission (2026-09-08): in each case the record kept cannot distinguish the healthy case from the broken one. Cumulative-best cannot see transient failure; a request body cannot see cache state; a lapse count reads zero both when refresh works and when the check never runs. The shared remedy is to record a state (a timestamp, a configuration) rather than a count of events.",
     "The declared-versus-enforced split (DeFiFlowBench, 2026-09-12) completes a run of three. 2026-08-26: a seven-day booking limit declared in the browser, absent from the server. 2026-08-31: PLCBench refusing an accepted write as an outcome measure because the physical objective sat two stages further on. Now a slippage bound that is present, parameterised and computed from a quote the order itself invalidates. In all three the control passes a presence check and fails an execution check, and in all three the fix is the same shape: stop counting configured predicates and derive the number from what actually happened.",
     "Registry-as-egress (GemStuffer, 2026-09-13) and the seven-day limit in the browser (2026-08-26) share a geometry: controls placed on the path the operator expected, while every hop the actor actually used was a first-party service doing its designed job. Perimeter rules classify sibling-service traffic as trusted, so the exfiltration channel is invisible by construction.",
     "Release-time content gates vs identity gates: AUR (2026-08-02) hardened registration twice and the attack moved to adoption; WordPress.org's 2026-09 cooldown+score gate inspects the diff regardless of whose credentials pushed it, and caught a July backdoor. Both share a weakness in reporting: a gate that speaks only on failure makes 'passed' and 'never checked' identical.",
@@ -523,6 +522,10 @@
     {
       "date": "2026-11-03",
       "connection": "GitBook (3 Nov) is the credential-custody twin of the 31 Oct trojanized Cursor extension post: in both, the control that matters sits with the party that issued the artifact or key, not the party distributing it. A docs platform holding code-platform write tokens is the same reach-escalation shape as an editor extension holding repo access."
+    },
+    {
+      "date": "2026-11-04",
+      "connection": "MCP redirect trust (4 Nov) and GitBook credential custody (3 Nov) share a shape: the decision sits with whoever has the identity in hand. GitBook can revoke only what it issued; an MCP server can judge a redirect only once it knows the user. Controls placed before the identity is known check the wrong party's input."
     }
   ],
   "reader_questions": [],
