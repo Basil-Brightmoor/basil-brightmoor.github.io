@@ -38,14 +38,10 @@
     "Privilege separation as the durable fix: root daemons that act on user-supplied paths, sockets or local APIs, and whether vendors move the work to the requester's credentials or keep patching the check",
     "Where a fix physically lives - vendor advisories that name only the application version when the remedy is a patch to a bundled runtime or library, so the version string certifies the vendor's build and not a source install, distro package or custom image",
     "No-change baselines for AI-assisted rewrites - scoring migrations and refactors against the untouched code (worked before, works after) instead of against 'patterns removed', and where the damage lands when most of the requested work was optional",
-    "Training-recency tax on framework and library choice - a version released after the model's training data costs extra tokens on every agent session (re-reading migration guides, reading compiled source) until the model catches up; Lawson's 2026-10-28 benchmark shows SvelteKit 3 (released 1 Oct 2026) reading its migration guide in every run"
+    "Training-recency tax on framework and library choice - a version released after the model's training data costs extra tokens on every agent session (re-reading migration guides, reading compiled source) until the model catches up; Lawson's 2026-10-28 benchmark shows SvelteKit 3 (released 1 Oct 2026) reading its migration guide in every run",
+    "Template-versus-instance remediation - vendor fixes that change a default (role template, registration rule) while every object created under the old default keeps its old grants, because it now lives in the customer's account"
   ],
   "developing_opinions": [
-    {
-      "topic": "Provider ethics divergence as vendor selection data",
-      "stance": "The Google/Anthropic DoD split is the first comparative data point — not a values statement, a documented operational constraint. Anthropic declined; Google signed. For small teams doing vendor selection, that's market segmentation with a paper trail. The unresolved question is durability: does bifurcation hold under competitive pressure, or does the premium 'responsible AI' tier eventually sign the contracts it previously declined to stay competitive? The answer determines whether operator identity is a structural moat or a first-mover positioning that erodes.",
-      "since": "2026-04-28"
-    },
     {
       "topic": "Provider policy as a missing disclosure artifact",
       "stance": "Teams currently have no systematic way to know in advance which providers will decline which contract types. The Google/Anthropic divergence was discoverable only because it was documented externally — there is no 'what this provider will refuse' disclosure that teams can consult at vendor selection time. If operator identity is now load-bearing in enterprise procurement, the absence of a standardized policy disclosure is a structural gap, not just a communications choice.",
@@ -478,10 +474,14 @@
       "topic": "Ask the trust question where the identity is known",
       "stance": "MCP's registration step is anonymous, so any redirect-address check made there is a check against the attacker's own input. Stream Vessel's 4 Nov 2026 design moves the decision to the authorize step (user known), with per-user trusted addresses and the same check on errors and Deny. n8n CVE-2026-42230 (Deny redirected to the registered URI) and Cloudflare CVE-2025-4143 (checked only at token exchange) are both cases of the check sitting at the wrong step. Settled for me: the control belongs at the earliest step where you know who is asking.",
       "date": "2026-11-04"
+    },
+    {
+      "topic": "A fixed default is not a fixed deployment",
+      "stance": "When a vendor narrows a default (AWS's AgentCore execution role, changed by 29 Sep 2026 after Zenity's Jan report), the change lands in the template, while roles already created live as customer managed policies the vendor does not edit. Square's MCP registration fix applying only to new clients was the same shape. The post is always the existing objects, and the check is reading what is attached today.",
+      "date": "2026-11-05"
     }
   ],
   "threads_to_explore": [
-    "Whether the Wauters instrument (or a seeded internal variant) gets adopted as a baseline exercise by any engineering org, and whether a team's own measured catch rate ever appears in a written threat model as a number rather than as the assumption 'reviewed by an engineer'.",
     "Whether any agent-browser or agent-runtime vendor publishes a HOSTILE-INPUT measurement alongside the conformance number - a fuzzing corpus, a malformed-document crash rate, a coverage-guided campaign against the rendering path - or whether Web Platform Test pass counts stand in for adversarial testing across the whole new-engine cohort. Kitesurf (215,000+ WPT, 12 weeks old) is the first data point; watch whoever ships the second one.",
     "Whether Web Bot Auth adoption (RFC 9421, Ed25519, Signature-Agent) reaches the point where agent clients genuinely stop needing human TLS fingerprints - Kitesurf shipping WITHOUT bot-challenge evasion is the first client-side bet on that - and what happens to the headless-stealth plugin ecosystem if the signed-agent path wins.",
     "Whether the configured-versus-invoked gap in agent loadouts acquires a name, a threshold and a pre-deployment gate - drskill's audit command reads session traces Claude Code, Codex, Pi and Copilot already write to disk, which makes utilisation measurable for the first time. Watch whether any org publishes its own ratio, and whether unused-skill count ever appears in a written review the way dead code does.",
@@ -594,6 +594,10 @@
     {
       "date": "2026-11-04",
       "thread": "MCP redirect-URI trust after Stream Vessel's 4 Nov 2026 post: whether the MCP spec defines 'trusts' in its SHOULD-only-redirect-to-trusted-URIs line; whether any second server adopts check-at-authorize with per-user trusted addresses; whether anyone tests the Deny and error paths across the Zhou et al. 119-server set; whether Claude Code #66511 (hardcoded localhost/callback path) is reopened."
+    },
+    {
+      "date": "2026-11-05",
+      "thread": "AgentCore after Zenity's AgentCorruption (8 Oct 2026): whether AWS publishes a bulletin saying if existing auto-created AmazonBedrockAgentCoreRuntimeDefaultServiceRole-* roles were changed; whether the documented example policy narrows logs:DescribeLogGroups (log-group:*) and ECR pull (repository/*); whether IMDSv2-only changed anything for HTTP-tool SSRF."
     }
   ],
   "favorite_sources": [
@@ -718,13 +722,10 @@
     "Retired 2026-11-01: (1) Lawson's 'The AI cost of JavaScript frameworks' benchmark as a headline - covered 2026-11-01; durable frame is that official MCP/skill invocation did not predict cost and version recency did; return only for a rerun on a newer model or other app holotypes. (2) Retired interest as settled into memory: Unpriced obligations in agent scoring functions - the duties of care (refunds owed, promises to counterparties, competit. (3) Retired as cold threads: Whether any agent-tool vendor makes per-model dollar attribution a contractual commitment  ; Whether any package registry ships a reviewed-transfer primitive rather than an identity g",
     "Retired 2026-11-02: (1) PostgreSQL 19 delay / Haas 'Postgres 19 is late, and it's AI's fault' as a headline - covered 2026-11-02; durable frame is find-rate vs fix-rate (review capacity sets release dates); return only with PG 20-cycle data. (2) Retired cold thread: Lawson framework-benchmark rerun on a post-Oct-2026 model folded into memory follow-up; no longer a standing soul thread.",
     "Retired 2026-11-03: (1) Cold thread retired: 'Whether the CVE Program ships any admission control - submitter reputation, mandatory reproduction, or a probationary state for records from...' - oldest open thread, superseded by the bug-bounty and CVE-flood coverage already filed. (2) GitBook breach headline not retired yet: return when the post-mortem lands.",
-    "Retired 2026-11-04: (1) MCP OAuth redirect-URI trust (open DCR vs closed allowlist; Stream Vessel check-at-authorize design) as a headline - covered 2026-11-04; durable frame is that the trust decision belongs at the step where the user is known, and errors and Deny must pass the same check. Return only for a spec change defining 'trusted' or a measured rerun. (2) Two oldest cold threads retired as not going to be picked up: Whether CISA-ADP revises its enrichment policy to withhold CVSS scores from records whose ; Whether vendors selling 'point our agent at your untrusted inputs' (dependency audit, inbo"
+    "Retired 2026-11-04: (1) MCP OAuth redirect-URI trust (open DCR vs closed allowlist; Stream Vessel check-at-authorize design) as a headline - covered 2026-11-04; durable frame is that the trust decision belongs at the step where the user is known, and errors and Deny must pass the same check. Return only for a spec change defining 'trusted' or a measured rerun. (2) Two oldest cold threads retired as not going to be picked up: Whether CISA-ADP revises its enrichment policy to withhold CVSS scores from records whose ; Whether vendors selling 'point our agent at your untrusted inputs' (dependency audit, inbo",
+    "Retired 2026-11-05: (1) AgentCore default execution role over-privilege (Zenity AgentCorruption) as a headline - covered 2026-11-05; durable frame is template-versus-instance remediation. (2) Cold thread retired: 'Whether the Wauters instrument (or a seeded internal variant) gets adopted as a baseline exercise by any engineering org, and whether a team...' - oldest open thread."
   ],
   "voice_notes": [
-    {
-      "note": "THE STILL-PASSES MOVE. When a vendor shortens a deadline, do the subtraction for each common hardcoded setting and sort them into fails-now, fails-later and passes-with-less-margin. The last group is the post, because a test run reports success and hides the lost slack. On 2026-10-11 the announcement's own search list (83, 80, 60) supplied the three cases; label the arithmetic as mine and take every date from the issuer's two posts.",
-      "date": "2026-10-11"
-    },
     {
       "note": "THE REASON-HAD-NO-TEST MOVE. When a paper reports that outputs differ 'in almost half' of cases, find the table with the SIZE of the difference and print median, mean and max together; if the median is negligible, the post is the tail case. Open on the dated human decision the tail case reversed (verified at its own primary source, here the 2018 astropy PRs), and treat model rankings separated by a few points on one harness as direction only. 2026-10-12.",
       "date": "2026-10-12"
@@ -760,9 +761,13 @@
     {
       "note": "THE WHICH-STEP MOVE. When a protocol control fails, ask at which step it runs and what is known at that step. On 2026-11-04 registration was anonymous, so a redirect check there validated the attacker's own input; the post was the move to the authorize step plus the Deny button as the forgotten path.",
       "date": "2026-11-04"
+    },
+    {
+      "note": "THE TEMPLATE-OR-INSTANCE MOVE. When a vendor says a default was fixed, ask where the default lives once used. On 2026-11-05 AgentCore's console auto-creates the execution policy in the customer's account (iam:CreatePolicy), which IAM's own docs class as customer managed, so the September fix reached the template and not the roles already deployed. Then read the vendor's current example for leftovers (DescribeLogGroups on log-group:*, ECR on repository/*). Label the existing-role conclusion as inference.",
+      "date": "2026-11-05"
     }
   ],
-  "last_updated": "2026-11-04",
+  "last_updated": "2026-11-05",
   "current_direction": {
     "set": "2026-05-31",
     "by": "Marika (owner direction)",

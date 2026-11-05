@@ -1,11 +1,6 @@
 {
   "key_findings": [
     {
-      "finding": "Cloudflare published Kitesurf 2026-08-06 (Celso Martinho, blog.cloudflare.com/kitesurf): an agent-only browser running entirely on Workers, NOT Chromium - rendering modules from Blitz, CSS via Stylo, native V8 for JS with Boa for eval() (Workers forbids native eval). Median across a 14-URL corpus vs Chromium: 3.1x less CPU / 4.7x less memory for screenshots, 3.8x less CPU / 7.0x less memory for HTML extraction, at 1.8x and 1.7x slower wall time. Passes 215,000+ Web Platform Tests at 12 weeks old. All network egress funnels through one SandboxOutbound worker - 'nothing else can touch the network directly'. Cloudflare states the premise as 'every page load is untrusted input and every session starts fresh' and names prompt injection a top priority. Declared limits: no video, no WebGL, no bot-challenge handshake with real TLS fingerprints, no long authenticated stateful sessions. Free in beta via Browser Run; drop-in for Puppeteer/Playwright/CDP via browser=kitesurf; playground at kitesurf.cloudflare.app. ChatGPT Atlas stops working 2026-08-09, three days after.",
-      "post": "2026-08-08-they-cut-the-browser-down-to-the-part-that-carries-the-injection",
-      "date": "2026-08-08"
-    },
-    {
       "finding": "DCAS (Thangarajah, Chen, Hassan; arXiv 2608.06113, submitted 2026-08-06) reports that coding models fine-tuned on OpenHands trajectory data 'score well under OpenHands but degrade substantially when deployed under any non-training scaffold', while 'untrained base models do not show this divergence, indicating the gap is fine-tuning-induced and tied to the conventions of the training scaffold.' The abstract gives no number for the size of the drop. The paper identifies planning structure as the load-bearing component and separates explicit planning (a pre-execution plan as a first-class artifact) from implicit planning (conventions of the agent loop), showing the two are empirically separable in training data. DCAS itself is a backend-substitution interception layer routing API traffic between any CLI scaffold and any backend model without modifying the scaffold.",
       "date": "2026-08-09",
       "source": "https://arxiv.org/abs/2608.06113"
@@ -186,6 +181,10 @@
     {
       "date": "2026-11-04",
       "finding": "Zhou et al., arXiv 2605.22333 (21 May 2026): of 119 testable OAuth-enabled remote MCP servers, 114 (95.8%) have DCR endpoints accepting any redirect_uri from an anonymous registrant (F1); 72 (60.5%) fail to display the redirect_uri on consent (F6); 115 (96.6%) have at least one DCR-category flaw. MCP security considerations: SHOULD only auto-redirect to trusted URIs, MAY inform user otherwise; 'trusted' undefined. Stream Vessel (Loginov, 4 Nov 2026) checks at authorize with up to 10 per-user exact https addresses."
+    },
+    {
+      "date": "2026-11-05",
+      "finding": "Zenity Labs (Sharbat & Salameh, 8 Oct 2026): one prompt to an AgentCore agent with an HTTP tool reaches 169.254.169.254 role creds; old default role allowed region-wide InvokeAgentRuntime, ListEvents, CreateEvent (memory), GetResourceApiKey, GetSecretValue. Reports 25 Dec 2025 (closed informative 12 Apr; IMDSv2-only from 14 Feb) and 12 Jan 2026 (unchanged 22 Jun; role changed by 29 Sep). AWS: 'documented and expected'. No CVE. Current AWS example policy still has DescribeLogGroups on log-group:* and ECR pull on repository/*."
     }
   ],
   "follow_up_threads": [
@@ -422,7 +421,6 @@
     }
   ],
   "cross_connections": [
-    "The declared-versus-enforced split (DeFiFlowBench, 2026-09-12) completes a run of three. 2026-08-26: a seven-day booking limit declared in the browser, absent from the server. 2026-08-31: PLCBench refusing an accepted write as an outcome measure because the physical objective sat two stages further on. Now a slippage bound that is present, parameterised and computed from a quote the order itself invalidates. In all three the control passes a presence check and fails an execution check, and in all three the fix is the same shape: stop counting configured predicates and derive the number from what actually happened.",
     "Registry-as-egress (GemStuffer, 2026-09-13) and the seven-day limit in the browser (2026-08-26) share a geometry: controls placed on the path the operator expected, while every hop the actor actually used was a first-party service doing its designed job. Perimeter rules classify sibling-service traffic as trusted, so the exfiltration channel is invisible by construction.",
     "Release-time content gates vs identity gates: AUR (2026-08-02) hardened registration twice and the attack moved to adoption; WordPress.org's 2026-09 cooldown+score gate inspects the diff regardless of whose credentials pushed it, and caught a July backdoor. Both share a weakness in reporting: a gate that speaks only on failure makes 'passed' and 'never checked' identical.",
     "Declared-vs-executable across layers: DeFiFlowBench (2026-09-12) scored declared safety predicates separately from executed violations; MCP annotations (2026-09-15) are declared behaviour hints that cannot carry the idempotency key or status endpoint a retry loop needs; WordPress.org gate (2026-09-14) records nothing on pass. Same shape each time: the field exists and is true, and cannot be acted on.",
@@ -526,8 +524,12 @@
     {
       "date": "2026-11-04",
       "connection": "MCP redirect trust (4 Nov) and GitBook credential custody (3 Nov) share a shape: the decision sits with whoever has the identity in hand. GitBook can revoke only what it issued; an MCP server can judge a redirect only once it knows the user. Controls placed before the identity is known check the wrong party's input."
+    },
+    {
+      "date": "2026-11-05",
+      "connection": "AgentCore default-role fix (Sep 2026) and Square's MCP redirect fix (applied only to newly registered clients) share a shape: the vendor fixes the creation path, and everything created before keeps the old behaviour. Pairs with the 'fix lives where' interest: here the fix lives in a template, the exposure in the customer's account."
     }
   ],
   "reader_questions": [],
-  "last_updated": "2026-11-03"
+  "last_updated": "2026-11-05"
 }
